@@ -146,41 +146,41 @@
         <!-- CLIENTES (Prueba Social - Carrusel Infinito con Logos) -->
     <section class="py-16 bg-bgMain relative z-10 border-b border-white/5 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 mb-10 reveal-up">
-            <p class="text-center text-xs font-bold tracking-[0.2em] text-textSecondary uppercase">Ya confían en Proemote</p>
+            <p class="text-center text-xs font-bold tracking-[0.2em] text-textSecondary uppercase">Algunos de los clientes que ya han confiado en proemote</p>
         </div>
         
         <!-- Contenedor Carrusel (Mask image para difuminar los bordes laterales) -->
-        <div class="relative w-full flex items-center overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+        <div id="logos-container" class="relative w-full flex items-center overflow-x-auto hide-scrollbar cursor-grab [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
             <!-- Track animado. El hover pausa la animación. Doblamos el contenido para el loop perfecto. -->
-            <div class="flex w-max animate-scroll items-center gap-16 md:gap-24 px-8">
+            <div id="logos-track" class="flex w-max items-center gap-16 md:gap-24 px-8 py-4">
                 <!-- Bloque 1 -->
                 <div class="flex items-center gap-16 md:gap-24">
-                    <img src="logos/logo-loquierolimpio.png" alt="Lo Quiero Limpio" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
+                    <img src="logos/logo-loquierolimpio.png" alt="Lo Quiero Limpio" class="h-16 md:h-28 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
                     <img src="logos/logo-baobab.png" alt="Baobab Nature" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
                     <img src="logos/logo-jamonexclusive.png" alt="Jamon Exclusive" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
-                    <img src="logos/logo-xtrm.png" alt="XTRM Hard" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
-                    <img src="logos/logo-jovenext.png" alt="Jovenext" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
-                    <img src="logos/logo-meridia.png" alt="Asociación Meridia" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
+                    <img src="logos/logo-xtrm.png" alt="XTRM Hard" class="h-16 md:h-28 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
+                    <img src="logos/logo-jovenext.png" alt="Jovenext" class="h-16 md:h-28 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
+                    <img src="logos/logo-meridia.png" alt="Asociación Meridia" class="h-16 md:h-28 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
                     <img src="logos/logo-juany.png" alt="Juany Centro Estética" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
-                    <img src="logos/logo-gabrielromero.png" alt="Gabriel Romero Formación" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
-                    <img src="logos/logo-lusitania.png" alt="Limpiezas Lusitania" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
-                    <img src="logos/logo-anagoros.jpg" alt="Ana Goros" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
-                    <img src="logos/logo-opn.png" alt="OPN" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
+                    <img src="logos/logo-gabrielromero.png" alt="Gabriel Romero Formación" class="h-16 md:h-28 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
+                    <img src="logos/logo-lusitania.png" alt="Limpiezas Lusitania" class="h-16 md:h-28 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
+                    <img src="logos/logo-anagoros.png" alt="Ana Goros" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
+                    <img src="logos/logo-opn.png" alt="OPN" class="h-16 md:h-28 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
                     <img src="logos/logo-tierrasconalma.png" alt="Tierras con Alma" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
                 </div>
                 <!-- Bloque 2 (Clon exacto para el loop) -->
                 <div class="flex items-center gap-16 md:gap-24">
-                    <img src="logos/logo-loquierolimpio.png" alt="Lo Quiero Limpio" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
+                    <img src="logos/logo-loquierolimpio.png" alt="Lo Quiero Limpio" class="h-16 md:h-28 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
                     <img src="logos/logo-baobab.png" alt="Baobab Nature" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
                     <img src="logos/logo-jamonexclusive.png" alt="Jamon Exclusive" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
-                    <img src="logos/logo-xtrm.png" alt="XTRM Hard" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
-                    <img src="logos/logo-jovenext.png" alt="Jovenext" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
-                    <img src="logos/logo-meridia.png" alt="Asociación Meridia" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
+                    <img src="logos/logo-xtrm.png" alt="XTRM Hard" class="h-16 md:h-28 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
+                    <img src="logos/logo-jovenext.png" alt="Jovenext" class="h-16 md:h-28 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
+                    <img src="logos/logo-meridia.png" alt="Asociación Meridia" class="h-16 md:h-28 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
                     <img src="logos/logo-juany.png" alt="Juany Centro Estética" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
-                    <img src="logos/logo-gabrielromero.png" alt="Gabriel Romero Formación" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
-                    <img src="logos/logo-lusitania.png" alt="Limpiezas Lusitania" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
-                    <img src="logos/logo-anagoros.jpg" alt="Ana Goros" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
-                    <img src="logos/logo-opn.png" alt="OPN" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
+                    <img src="logos/logo-gabrielromero.png" alt="Gabriel Romero Formación" class="h-16 md:h-28 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
+                    <img src="logos/logo-lusitania.png" alt="Limpiezas Lusitania" class="h-16 md:h-28 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
+                    <img src="logos/logo-anagoros.png" alt="Ana Goros" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
+                    <img src="logos/logo-opn.png" alt="OPN" class="h-16 md:h-28 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
                     <img src="logos/logo-tierrasconalma.png" alt="Tierras con Alma" class="h-12 md:h-20 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0">
                 </div>
             </div>
@@ -596,7 +596,58 @@
                 });
             });
 
-            // 4. Formulario API Soberana (Google Sheets)
+            
+        // 5. Carrusel de logos arrastrable y con auto-scroll
+        const logosContainer = document.getElementById('logos-container');
+        if (logosContainer) {
+            let isDown = false;
+            let startX;
+            let scrollLeftPos;
+            let isHovered = false;
+
+            logosContainer.addEventListener('mousedown', (e) => {
+                isDown = true;
+                logosContainer.classList.add('cursor-grabbing');
+                logosContainer.classList.remove('cursor-grab');
+                startX = e.pageX - logosContainer.offsetLeft;
+                scrollLeftPos = logosContainer.scrollLeft;
+            });
+            logosContainer.addEventListener('mouseleave', () => {
+                isDown = false;
+                isHovered = false;
+                logosContainer.classList.remove('cursor-grabbing');
+                logosContainer.classList.add('cursor-grab');
+            });
+            logosContainer.addEventListener('mouseup', () => {
+                isDown = false;
+                logosContainer.classList.remove('cursor-grabbing');
+                logosContainer.classList.add('cursor-grab');
+            });
+            logosContainer.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - logosContainer.offsetLeft;
+                const walk = (x - startX) * 2;
+                logosContainer.scrollLeft = scrollLeftPos - walk;
+            });
+            logosContainer.addEventListener('mouseenter', () => {
+                isHovered = true;
+            });
+
+            function autoScrollLogos() {
+                if (!isHovered && !isDown) {
+                    logosContainer.scrollLeft += 1.5;
+                    // Reset when half of the scrollable width is reached (since content is duplicated)
+                    if (logosContainer.scrollLeft >= (logosContainer.scrollWidth - logosContainer.clientWidth) / 2) {
+                        logosContainer.scrollLeft = 0;
+                    }
+                }
+                requestAnimationFrame(autoScrollLogos);
+            }
+            autoScrollLogos();
+        }
+
+        // 4. Formulario API Soberana (Google Sheets)
             const form = document.getElementById('proemote-form');
             const btn = document.getElementById('btn-submit');
             const msg = document.getElementById('form-msg');
