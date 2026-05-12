@@ -8,7 +8,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -60,6 +60,22 @@
         /* Typography Gradients */
         .text-gradient-primary { background: linear-gradient(135deg, #9F7AEA 0%, #7B61FF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
+        /* Utilidad para scroll horizontal invisible */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Animación Carrusel Infinito */
+        @keyframes scroll-infinite {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+            animation: scroll-infinite 45s linear infinite;
+        }
+        .animate-scroll:hover {
+            animation-play-state: paused;
+        }
+
         /* Intersection Observer Animations */
         .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal-up.active { opacity: 1; transform: translateY(0); }
@@ -75,8 +91,8 @@
     <!-- Navbar -->
     <nav class="fixed w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="font-heading font-bold text-2xl tracking-wide flex items-center gap-2 relative z-10">
-                <i class="ph-fill ph-hexagon text-primary"></i> Proemote<span class="text-primary">.</span>
+            <a href="#" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
+                <img src="https://i.imgur.com/jwddFTY.png" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain">
             </a>
             <div class="hidden md:flex gap-8 text-sm font-medium text-textSecondary relative z-10">
                 <a href="#enfoque" class="hover:text-textMain transition-colors">Sistema</a>
@@ -107,6 +123,60 @@
                 <a href="#contacto" class="w-full sm:w-auto px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] flex items-center justify-center gap-2">
                     👉 Quiero mejorar mi presencia
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FRANJA DE AUTORIDAD (Reconocimiento Institucional) -->
+    <div class="w-full border-t border-white/5 bg-white/[0.02] py-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center text-center reveal-up">
+            <p class="text-sm md:text-base text-textSecondary font-medium mb-4">
+                🏆 Premio Impulso — Emprende y Despega Extremadura 2025 · Con el reconocimiento de la Diputación de Badajoz.
+            </p>
+            <a href="https://www.dip-badajoz.es/agenda/index.php?agenda=23441&id=3" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/10 text-xs font-medium text-white hover:bg-white/5 hover:border-white/30 transition-all duration-300">
+                Ver noticia oficial <i class="ph ph-arrow-up-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- CLIENTES (Prueba Social - Carrusel Infinito) -->
+    <section class="py-16 bg-bgMain relative z-10 border-b border-white/5 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 mb-10 reveal-up">
+            <p class="text-center text-xs font-bold tracking-[0.2em] text-textSecondary uppercase">Ya confían en Proemote</p>
+        </div>
+        
+        <!-- Contenedor Carrusel (Mask image para difuminar los bordes laterales) -->
+        <div class="relative w-full flex items-center overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+            <!-- Track animado. El hover pausa la animación. Doblamos el contenido para el loop perfecto. -->
+            <div class="flex w-max animate-scroll items-center gap-16 md:gap-24 px-8" style="font-family: 'Playfair Display', serif;">
+                <!-- Bloque 1 -->
+                <div class="flex items-center gap-16 md:gap-24">
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap cursor-default">Lo Quiero Limpio</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap cursor-default">Baobab Nature</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap cursor-default">Jamon Exclusive</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap font-sans uppercase tracking-[0.1em] font-semibold cursor-default">XTRM Hard</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap cursor-default">Jovenext</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap cursor-default">Asociación Meridia</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap cursor-default">Juany Centro Estética</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap cursor-default">Gabriel Romero Formación</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap cursor-default">Limpiezas Lusitania</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap cursor-default">Ana Goros</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap font-sans uppercase tracking-[0.2em] font-bold cursor-default">OPN</div>
+                </div>
+                <!-- Bloque 2 (Clon exacto para el loop) -->
+                <div class="flex items-center gap-16 md:gap-24">
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap cursor-default">Lo Quiero Limpio</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap cursor-default">Baobab Nature</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap cursor-default">Jamon Exclusive</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap font-sans uppercase tracking-[0.1em] font-semibold cursor-default">XTRM Hard</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap cursor-default">Jovenext</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap cursor-default">Asociación Meridia</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap cursor-default">Juany Centro Estética</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap cursor-default">Gabriel Romero Formación</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap cursor-default">Limpiezas Lusitania</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap cursor-default">Ana Goros</div>
+                    <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity text-xl md:text-2xl text-white whitespace-nowrap font-sans uppercase tracking-[0.2em] font-bold cursor-default">OPN</div>
+                </div>
             </div>
         </div>
     </section>
@@ -153,7 +223,7 @@
 
             <!-- 3. METODOLOGÍA FOCO (Timeline) -->
             <div id="foco" class="text-center mb-24 reveal-up">
-                <h2 class="font-heading text-4xl md:text-6xl font-medium mb-6 text-white">FOCO System<span class="text-primary">.</span></h2>
+                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white">Nuestra metodología de trabajo: <br><span class="text-gradient-primary">FOCO System.</span></h2>
                 <p class="text-textSecondary text-xl max-w-2xl mx-auto leading-relaxed">Un sistema paso a paso para convertir la atención de tu audiencia en clientes reales, sin depender de la improvisación.</p>
             </div>
 
@@ -169,7 +239,7 @@
                         <div class="flex flex-col md:flex-row gap-8 items-start">
                             <div class="text-primary font-heading text-7xl md:text-8xl font-bold opacity-80">F</div>
                             <div>
-                                <h3 class="text-3xl font-heading font-medium text-white mb-2">Fundamentos</h3>
+                                <h3 class="text-3xl font-heading font-medium text-white mb-2">Fundamentos 🧠</h3>
                                 <p class="text-textSecondary text-lg mb-8 leading-relaxed">Estudiamos tu negocio a fondo para definir qué te hace único frente a tu competencia y quién es exactamente tu cliente ideal.</p>
                                 <div class="bg-primary/10 border-l-2 border-primary p-4 rounded-r-xl">
                                     <p class="text-white font-medium">👉 "Sentamos unas bases sólidas para que sepas qué decir y a quién decírselo."</p>
@@ -186,7 +256,7 @@
                         <div class="flex flex-col md:flex-row gap-8 items-start">
                             <div class="text-primary font-heading text-7xl md:text-8xl font-bold opacity-80">O</div>
                             <div>
-                                <h3 class="text-3xl font-heading font-medium text-white mb-2">Oportunidad</h3>
+                                <h3 class="text-3xl font-heading font-medium text-white mb-2">Oportunidad 🎯</h3>
                                 <p class="text-textSecondary text-lg mb-8 leading-relaxed">Investigamos qué busca tu cliente y qué problemas necesita resolver de urgencia para crear mensajes que realmente le importen.</p>
                                 <div class="bg-primary/10 border-l-2 border-primary p-4 rounded-r-xl">
                                     <p class="text-white font-medium">👉 "Posicionamos tu marca como la mejor solución a los problemas reales de tu audiencia."</p>
@@ -203,7 +273,7 @@
                         <div class="flex flex-col md:flex-row gap-8 items-start">
                             <div class="text-primary font-heading text-7xl md:text-8xl font-bold opacity-80">C</div>
                             <div>
-                                <h3 class="text-3xl font-heading font-medium text-white mb-2">Conversión</h3>
+                                <h3 class="text-3xl font-heading font-medium text-white mb-2">Conversión 🧲</h3>
                                 <p class="text-textSecondary text-lg mb-8 leading-relaxed">Diseñamos un recorrido claro, predecible y automatizado para que las personas que te descubren se conviertan en clientes que te compran.</p>
                                 <div class="bg-primary/10 border-l-2 border-primary p-4 rounded-r-xl">
                                     <p class="text-white font-medium">👉 "Creamos sistemas que transforman la simple atención en ventas reales."</p>
@@ -220,12 +290,132 @@
                         <div class="flex flex-col md:flex-row gap-8 items-start">
                             <div class="text-primary font-heading text-7xl md:text-8xl font-bold opacity-80">O</div>
                             <div>
-                                <h3 class="text-3xl font-heading font-medium text-white mb-2">Optimización</h3>
+                                <h3 class="text-3xl font-heading font-medium text-white mb-2">Optimización 📈</h3>
                                 <p class="text-textSecondary text-lg mb-8 leading-relaxed">Medimos qué partes de la estrategia funcionan mejor y cuáles no, ajustando el rumbo para que tu marca crezca de forma constante y segura.</p>
                                 <div class="bg-primary/10 border-l-2 border-primary p-4 rounded-r-xl">
                                     <p class="text-white font-medium">👉 "Mejoramos tu negocio mes a mes basándonos en datos reales, no en suposiciones."</p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA POST-FOCO -->
+            <div class="mt-16 text-center reveal-up">
+                <a href="#contacto" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] group">
+                    Aplicar este sistema en mi marca <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <p class="text-sm text-textSecondary mt-4 font-medium italic">Empieza con un diagnóstico inicial 100% gratuito.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASO DE ÉXITO (Evidencia Empírica) -->
+    <section class="py-24 relative bg-bgMain border-t border-white/5">
+        <div class="max-w-5xl mx-auto px-6 reveal-up">
+            <div class="glass-card rounded-[2.5rem] p-8 md:p-14 border-primary/20 relative overflow-hidden shadow-2xl">
+                <!-- Resplandor sutil de fondo -->
+                <div class="absolute top-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center relative z-10">
+                    <!-- Métrica (Izquierda) -->
+                    <div class="md:col-span-5 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10 pb-8 md:pb-0 md:pr-8">
+                        <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4">Caso de éxito</span>
+                        <h3 class="font-heading text-4xl md:text-5xl font-medium text-white leading-tight">
+                            Vídeo viral orgánico.<br>
+                            <span class="text-primary font-semibold">0€ en publicidad.</span>
+                        </h3>
+                    </div>
+                    
+                    <!-- Contexto (Derecha) -->
+                    <div class="md:col-span-7">
+                        <div class="mb-4">
+                            <h4 class="text-xl font-medium text-white font-heading">Lo Quiero Limpio</h4>
+                            <p class="text-sm text-textSecondary">Empresa de limpieza, Extremadura</p>
+                        </div>
+                        <p class="text-textSecondary text-lg mb-8 leading-relaxed">
+                            Diseñamos la estrategia de contenido que llevó sus vídeos a miles de visualizaciones sin invertir un solo euro en paid media.
+                        </p>
+                        <a href="https://proemote.es/lo-quiero-limpio-caso-de-exito" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-primary transition-colors underline decoration-white/20 hover:decoration-primary/50 underline-offset-4">
+                            Ver caso completo <i class="ph ph-arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ (Resolución de objeciones) -->
+    <section class="py-24 relative bg-bgMain border-t border-white/5">
+        <div class="max-w-3xl mx-auto px-6 reveal-up">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-5xl font-medium text-white mb-4">Preguntas Frecuentes</h2>
+                <p class="text-textSecondary text-lg">Resolvemos las dudas más comunes antes de empezar.</p>
+            </div>
+
+            <div class="space-y-2">
+                <!-- Pregunta 1 -->
+                <div class="border-b border-white/10 faq-item">
+                    <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
+                        <span class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8">¿Trabajáis con cualquier tipo de negocio?</span>
+                        <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                    </button>
+                    <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
+                        <div class="overflow-hidden">
+                            <p class="text-textSecondary pb-6 leading-relaxed">Trabajamos con PYMES, emprendedores y marcas personales que quieren construir presencia digital con cabeza. No hacemos proyectos express ni trabajamos sin estrategia previa.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 2 -->
+                <div class="border-b border-white/10 faq-item">
+                    <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
+                        <span class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8">¿Cuánto cuesta trabajar con Proemote?</span>
+                        <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                    </button>
+                    <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
+                        <div class="overflow-hidden">
+                            <p class="text-textSecondary pb-6 leading-relaxed">Depende del alcance del proyecto. Lo que sí podemos decirte es que no tenemos paquetes cerrados: cada propuesta se construye según tus objetivos reales. El primer análisis es gratuito y sin compromiso.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 3 -->
+                <div class="border-b border-white/10 faq-item">
+                    <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
+                        <span class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8">¿Cuánto tiempo tarda en verse resultados?</span>
+                        <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                    </button>
+                    <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
+                        <div class="overflow-hidden">
+                            <p class="text-textSecondary pb-6 leading-relaxed">Depende del punto de partida y el servicio. Un ecosistema web bien construido genera resultados desde el primer mes. Una estrategia de contenido necesita entre 60 y 90 días para mostrar tracción orgánica real.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 4 -->
+                <div class="border-b border-white/10 faq-item">
+                    <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
+                        <span class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8">¿Qué pasa después de enviar el formulario?</span>
+                        <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                    </button>
+                    <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
+                        <div class="overflow-hidden">
+                            <p class="text-textSecondary pb-6 leading-relaxed">Te respondemos en menos de 24h con una propuesta de reunión. En esa primera llamada analizamos tu situación y te decimos con honestidad si podemos ayudarte y cómo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 5 -->
+                <div class="border-b border-white/10 faq-item">
+                    <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
+                        <span class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8">¿Trabajáis solo en Extremadura?</span>
+                        <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                    </button>
+                    <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
+                        <div class="overflow-hidden">
+                            <p class="text-textSecondary pb-6 leading-relaxed">Tenemos base en Mérida pero trabajamos con clientes de toda España. La mayoría de proyectos se gestionan 100% en remoto.</p>
                         </div>
                     </div>
                 </div>
@@ -239,8 +429,8 @@
             <div class="glass-card rounded-[3rem] p-8 md:p-16 border-primary/20 overflow-hidden relative">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
                     <div>
-                        <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white leading-tight">Profesionalicemos <br><span class="text-gradient-primary">tu ecosistema.</span></h2>
-                        <p class="text-textSecondary text-lg mb-10 leading-relaxed">No hacemos webs, construimos activos de negocio. Cuéntanos qué quieres escalar y diseñaremos la estructura para lograrlo.</p>
+                        <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white leading-tight">Analizamos tu marca, <br><span class="text-gradient-primary">gratis.</span></h2>
+                        <p class="text-textSecondary text-lg mb-10 leading-relaxed">Cuéntanos en qué punto estás y qué quieres conseguir. Te respondemos en menos de 24h con un diagnóstico inicial sin compromiso.</p>
                         <div class="flex items-center gap-4 text-white/80">
                             <div class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center"><i class="ph ph-envelope-simple text-xl text-primary"></i></div>
                             <span>hola@proemote.es</span>
@@ -250,14 +440,15 @@
                         <form id="proemote-form" class="bg-bgMain p-8 rounded-[2rem] border border-white/5 space-y-5 shadow-xl">
                             <input type="text" name="Nombre" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="Tu nombre">
                             <input type="email" name="Email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="Email profesional">
-                            <textarea name="Mensaje" required rows="3" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all resize-none" placeholder="¿Qué necesitas estructurar?"></textarea>
+                            <textarea name="Mensaje" required rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all resize-none" placeholder="Cuéntanos brevemente sobre tu proyecto y en qué te gustaría que te ayudáramos..."></textarea>
                             <div class="flex items-start gap-3 px-2">
                                 <input type="checkbox" id="check-priv" name="Privacidad" value="Aceptada" required class="mt-1 w-4 h-4 accent-primary cursor-pointer">
                                 <label for="check-priv" class="text-sm text-textSecondary leading-tight cursor-pointer italic">He leído y acepto la <a href="https://proemote.es/privacidad" target="_blank" class="text-primary hover:text-accent underline decoration-primary/30">política de privacidad</a>.</label>
                             </div>
                             <button type="submit" id="btn-submit" class="w-full py-4 bg-white text-bgMain font-bold rounded-xl hover:bg-gray-200 transition-all flex items-center justify-center gap-2 group">
-                                Analizar mi proyecto <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                                Solicitar análisis gratuito <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                             </button>
+                            <p class="text-center text-sm text-textSecondary mt-3 font-medium">Sin permanencias. Sin presupuestos genéricos. Solo estrategia real.</p>
                             <div id="form-msg" class="hidden text-center p-4 rounded-xl mt-4 font-medium transition-all"></div>
                         </form>
                     </div>
@@ -269,8 +460,8 @@
     <!-- 5. FOOTER -->
     <footer class="bg-bgMain border-t border-white/5 py-12 relative z-10">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="font-heading font-bold text-xl flex items-center gap-2 text-white">
-                <i class="ph-fill ph-hexagon text-primary"></i> Proemote<span class="text-primary">.</span>
+            <div class="flex items-center">
+                <img src="https://i.imgur.com/2mXnkGe.png" alt="Proemote Logo Footer" class="h-16 md:h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity">
             </div>
             <div class="flex flex-col md:flex-row items-center gap-6 text-sm text-textSecondary text-center md:text-left">
                 <p>© 2026 Proemote Studio. Arquitectura estratégica.</p>
@@ -363,7 +554,40 @@
             });
             handleTimeline();
 
-            // 3. Formulario API Soberana (Google Sheets)
+            // 3. Lógica FAQ (Acordeón)
+            const faqToggles = document.querySelectorAll('.faq-toggle');
+            faqToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const content = toggle.nextElementSibling;
+                    const icon = toggle.querySelector('.faq-icon');
+                    
+                    // Comportamiento "acordeón": cierra los demás paneles
+                    document.querySelectorAll('.faq-content').forEach(c => {
+                        if (c !== content) {
+                            c.classList.remove('grid-rows-[1fr]');
+                            c.classList.add('grid-rows-[0fr]');
+                        }
+                    });
+                    document.querySelectorAll('.faq-icon').forEach(i => {
+                        if (i !== icon) {
+                            i.classList.remove('rotate-180');
+                        }
+                    });
+
+                    // Abre o cierra el actual
+                    if (content.classList.contains('grid-rows-[0fr]')) {
+                        content.classList.remove('grid-rows-[0fr]');
+                        content.classList.add('grid-rows-[1fr]');
+                        icon.classList.add('rotate-180');
+                    } else {
+                        content.classList.remove('grid-rows-[1fr]');
+                        content.classList.add('grid-rows-[0fr]');
+                        icon.classList.remove('rotate-180');
+                    }
+                });
+            });
+
+            // 4. Formulario API Soberana (Google Sheets)
             const form = document.getElementById('proemote-form');
             const btn = document.getElementById('btn-submit');
             const msg = document.getElementById('form-msg');
@@ -379,14 +603,14 @@
                         msg.className = 'block p-4 rounded-xl bg-green-500/10 text-green-400 mt-4 border border-green-500/20';
                         msg.innerText = 'Estructura recibida. Te contactamos en menos de 24h.';
                         form.reset();
-                        btn.innerHTML = 'Analizar mi proyecto <i class="ph ph-arrow-right"></i>';
+                        btn.innerHTML = 'Solicitar análisis gratuito <i class="ph ph-arrow-right"></i>';
                         btn.disabled = false;
                     })
                     .catch(() => {
                         msg.className = 'block p-4 rounded-xl bg-red-500/10 text-red-400 mt-4 border border-red-500/20';
                         msg.innerText = 'Error de red. Intenta de nuevo o vía WhatsApp.';
                         btn.disabled = false;
-                        btn.innerHTML = 'Analizar mi proyecto <i class="ph ph-arrow-right"></i>';
+                        btn.innerHTML = 'Solicitar análisis gratuito <i class="ph ph-arrow-right"></i>';
                     });
             });
         });
