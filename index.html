@@ -80,6 +80,10 @@
         .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal-up.active { opacity: 1; transform: translateY(0); }
         
+        /* FOCO Slide Up (Only triggered by scroll timeline) */
+        .foco-slide-up { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .foco-slide-up.active { opacity: 1; transform: translateY(0); }
+        
         /* Timeline specific nodes */
         .foco-node { transition: background 0.3s, border-color 0.3s, box-shadow 0.3s; }
     </style>
@@ -110,7 +114,7 @@
     <section class="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden bg-grid-pattern">
         <div class="max-w-5xl mx-auto px-6 text-center relative z-10 reveal-up active">
             <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-accent text-xs font-semibold tracking-widest uppercase mb-8">
-                <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span> Arquitectura Estratégica de Marca
+                <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span> Agencia de Marketing en Extremadura
             </div>
             <h1 class="font-heading text-5xl md:text-7xl lg:text-8xl font-medium leading-[1.1] tracking-tight mb-8">
                 Tu marca no necesita más contenido. <br class="hidden lg:block">
@@ -194,9 +198,12 @@
                     <p class="text-lg text-textSecondary mb-8">
                         En Proemote diseñamos sistemas completos de marca. Integramos identidad visual, ecosistemas web y captación estratégica bajo una misma dirección.
                     </p>
-                    <div class="bg-primary/10 border-l-4 border-primary p-6 rounded-r-2xl">
+                    <div class="bg-primary/10 border-l-4 border-primary p-6 rounded-r-2xl mb-6">
                         <p class="font-heading text-xl text-white font-medium">"Tu marca no es Instagram. Es todo lo que la gente percibe de ti online."</p>
                     </div>
+                    <button data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view"}' class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary hover:bg-accent text-white font-medium transition-all duration-300 shadow-[0_0_15px_rgba(123,97,255,0.4)] reveal-up">
+                        <i class="ph-fill ph-calendar-plus text-xl"></i> Consultar disponibilidad
+                    </button>
                 </div>
 
                 <!-- Imagen Core (Click para abrir Cal.com) -->
@@ -235,7 +242,7 @@
                 <div id="foco-progress" class="absolute left-6 md:left-[50px] top-0 w-[2px] bg-gradient-to-b from-primary to-accent rounded-full h-0 shadow-[0_0_10px_#7B61FF] transition-[height] duration-75 ease-out"></div>
 
                 <!-- Paso 1: F -->
-                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-20 reveal-up">
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-20 foco-slide-up">
                     <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-12 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-8 items-start">
@@ -252,7 +259,7 @@
                 </div>
 
                 <!-- Paso 2: O -->
-                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-20 reveal-up">
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-20 foco-slide-up">
                     <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-12 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-8 items-start">
@@ -269,7 +276,7 @@
                 </div>
 
                 <!-- Paso 3: C -->
-                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-20 reveal-up">
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-20 foco-slide-up">
                     <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-12 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-8 items-start">
@@ -286,7 +293,7 @@
                 </div>
 
                 <!-- Paso 4: O -->
-                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-10 reveal-up">
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-10 foco-slide-up">
                     <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-12 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-8 items-start">
