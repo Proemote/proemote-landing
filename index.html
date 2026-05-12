@@ -80,9 +80,9 @@
         .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal-up.active { opacity: 1; transform: translateY(0); }
         
-        /* FOCO Slide Up (Only triggered by scroll timeline) */
-        .foco-slide-up { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        .foco-slide-up.active { opacity: 1; transform: translateY(0); }
+        /* FOCO Cards Slide Up (triggered by scroll timeline) */
+        .foco-item .glass-card { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .foco-item.active .glass-card { opacity: 1; transform: translateY(0); }
         
         /* Timeline specific nodes */
         .foco-node { transition: background 0.3s, border-color 0.3s, box-shadow 0.3s; }
@@ -242,7 +242,7 @@
                 <div id="foco-progress" class="absolute left-6 md:left-[50px] top-0 w-[2px] bg-gradient-to-b from-primary to-accent rounded-full h-0 shadow-[0_0_10px_#7B61FF] transition-[height] duration-75 ease-out"></div>
 
                 <!-- Paso 1: F -->
-                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-20 foco-slide-up">
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-20">
                     <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-12 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-8 items-start">
@@ -259,7 +259,7 @@
                 </div>
 
                 <!-- Paso 2: O -->
-                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-20 foco-slide-up">
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-20">
                     <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-12 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-8 items-start">
@@ -276,7 +276,7 @@
                 </div>
 
                 <!-- Paso 3: C -->
-                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-20 foco-slide-up">
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-20">
                     <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-12 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-8 items-start">
@@ -293,7 +293,7 @@
                 </div>
 
                 <!-- Paso 4: O -->
-                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-10 foco-slide-up">
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-10">
                     <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-12 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-8 items-start">
