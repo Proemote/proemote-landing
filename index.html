@@ -469,10 +469,20 @@
     <!-- 5. FOOTER -->
     <footer class="bg-bgMain border-t border-white/5 py-12 relative z-10">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-            <!-- Izquierda: Logo y Copyright -->
-            <div class="flex flex-col md:flex-row items-center md:justify-start gap-4 md:gap-6 text-center md:text-left">
-                <img src="https://i.imgur.com/2mXnkGe.png" alt="Proemote Logo Footer" class="h-12 md:h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity">
-                <p class="text-sm text-textSecondary">© 2026 Proemote Studio. <br class="hidden md:block"><em class="italic text-white/70">Shaping what matters.</em></p>
+            <!-- Izquierda: Logo, Copyright y Redes -->
+            <div class="flex flex-col items-center md:items-start gap-4">
+                <div class="flex flex-col md:flex-row items-center md:justify-start gap-4 md:gap-6 text-center md:text-left">
+                    <img src="https://i.imgur.com/2mXnkGe.png" alt="Proemote Logo Footer" class="h-12 md:h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity">
+                    <p class="text-sm text-textSecondary">© 2026 Proemote Studio. <br class="hidden md:block"><em class="italic text-white/70">Shaping what matters.</em></p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-10 h-10 bg-bgSurface rounded-full border border-white/10 flex items-center justify-center text-textSecondary hover:bg-primary hover:text-white transition-all shadow-lg hover:-translate-y-1">
+                        <i class="ph-fill ph-linkedin-logo text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/proemote.es/" target="_blank" class="w-10 h-10 bg-bgSurface rounded-full border border-white/10 flex items-center justify-center text-textSecondary hover:bg-primary hover:text-white transition-all shadow-lg hover:-translate-y-1">
+                        <i class="ph-fill ph-instagram-logo text-xl"></i>
+                    </a>
+                </div>
             </div>
             
             <!-- Centro: Enlaces Legales -->
@@ -493,15 +503,7 @@
             Hablar por WhatsApp
         </span>
         
-        <!-- Botones de Redes Sociales ocultos -->
-        <div class="absolute bottom-full right-0 mb-4 flex flex-col gap-3 items-end opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto">
-            <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-10 h-10 bg-bgSurface rounded-full border border-white/10 flex items-center justify-center text-textSecondary hover:bg-white/5 hover:text-white transition-colors shadow-lg">
-                <i class="ph-fill ph-linkedin-logo text-xl"></i>
-            </a>
-            <a href="https://www.instagram.com/proemote.es/" target="_blank" class="w-10 h-10 bg-bgSurface rounded-full border border-white/10 flex items-center justify-center text-textSecondary hover:bg-white/5 hover:text-white transition-colors shadow-lg">
-                <i class="ph-fill ph-instagram-logo text-xl"></i>
-            </a>
-        </div>
+
         
         <!-- Botón de WhatsApp (Fijo) -->
         <a href="https://wa.me/34641576286" target="_blank" rel="noopener noreferrer" class="relative w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300">
