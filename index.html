@@ -65,7 +65,7 @@
         .reveal-up.active { opacity: 1; transform: translateY(0); }
         
         /* Timeline specific nodes */
-        .foco-node { transition: background 0.5s, border-color 0.5s, box-shadow 0.5s; }
+        .foco-node { transition: background 0.3s, border-color 0.3s, box-shadow 0.3s; }
     </style>
 </head>
 <body class="antialiased selection:bg-primary selection:text-white relative">
@@ -128,17 +128,24 @@
                 </div>
 
                 <!-- Imagen Core (Click para abrir Cal.com) -->
-                <div class="reveal-up delay-100 relative group cursor-pointer"
-                     data-cal-link="proemote/auditoria-gratuita"
-                     data-cal-namespace="auditoria-gratuita"
-                     data-cal-config='{"layout":"month_view"}'>
-                    <div class="absolute -inset-4 bg-primary/20 blur-3xl rounded-full z-0 opacity-50 group-hover:bg-primary/40 transition-colors duration-500"></div>
-                    <div class="glass-card p-2 rounded-3xl relative z-10 border-white/10 overflow-hidden shadow-2xl transform group-hover:-translate-y-2 transition-all duration-500">
-                        <img src="https://i.imgur.com/VlPhIR5.png" alt="Proemote System" class="w-full h-auto rounded-2xl opacity-90 object-cover mix-blend-lighten" style="filter: contrast(1.1) brightness(0.9);">
-                        <div class="absolute inset-0 bg-bgMain/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl backdrop-blur-[2px] m-2">
-                            <span class="px-6 py-3 bg-primary text-white font-medium rounded-full shadow-lg scale-95 group-hover:scale-100 transition-transform duration-300">
-                                <i class="ph-fill ph-calendar-plus"></i> Agendar auditoría
-                            </span>
+                <div>
+                    <!-- Instrucción clara para el usuario -->
+                    <div class="mb-4 inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-xl text-sm font-medium text-accent reveal-up delay-100">
+                        <i class="ph-fill ph-info"></i> Haz clic en la imagen para agendar una auditoría gratuita.
+                    </div>
+                    
+                    <div class="reveal-up delay-100 relative group cursor-pointer"
+                         data-cal-link="proemote/auditoria-gratuita"
+                         data-cal-namespace="auditoria-gratuita"
+                         data-cal-config='{"layout":"month_view"}'>
+                        <div class="absolute -inset-4 bg-primary/20 blur-3xl rounded-full z-0 opacity-50 group-hover:bg-primary/40 transition-colors duration-500"></div>
+                        <div class="glass-card p-2 rounded-3xl relative z-10 border-white/10 overflow-hidden shadow-2xl transform group-hover:-translate-y-2 transition-all duration-500">
+                            <img src="https://i.imgur.com/VlPhIR5.png" alt="Proemote System" class="w-full h-auto rounded-2xl opacity-90 object-cover mix-blend-lighten" style="filter: contrast(1.1) brightness(0.9);">
+                            <div class="absolute inset-0 bg-bgMain/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl backdrop-blur-[2px] m-2">
+                                <span class="px-6 py-3 bg-primary text-white font-medium rounded-full shadow-lg scale-95 group-hover:scale-100 transition-transform duration-300 flex items-center gap-2">
+                                    <i class="ph-fill ph-calendar-plus text-xl"></i> Consultar disponibilidad
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -146,14 +153,14 @@
 
             <!-- 3. METODOLOGÍA FOCO (Timeline) -->
             <div id="foco" class="text-center mb-24 reveal-up">
-                <h2 class="font-heading text-4xl md:text-6xl font-medium mb-6 text-white">FOCO System<span class="text-primary">.</span> 🚀</h2>
-                <p class="text-textSecondary text-xl max-w-2xl mx-auto leading-relaxed">Un framework parametrizado para convertir atención en clientes sin improvisación.</p>
+                <h2 class="font-heading text-4xl md:text-6xl font-medium mb-6 text-white">FOCO System<span class="text-primary">.</span></h2>
+                <p class="text-textSecondary text-xl max-w-2xl mx-auto leading-relaxed">Un sistema paso a paso para convertir la atención de tu audiencia en clientes reales, sin depender de la improvisación.</p>
             </div>
 
             <div class="relative max-w-5xl mx-auto px-4 md:px-0">
-                <!-- Línea de progreso -->
+                <!-- Línea de progreso (Reducida la transición para que sea súper fluida) -->
                 <div class="absolute left-6 md:left-[50px] top-0 bottom-0 w-[2px] bg-white/5 rounded-full"></div>
-                <div id="foco-progress" class="absolute left-6 md:left-[50px] top-0 w-[2px] bg-gradient-to-b from-primary to-accent rounded-full h-0 shadow-[0_0_10px_#7B61FF] transition-all duration-300"></div>
+                <div id="foco-progress" class="absolute left-6 md:left-[50px] top-0 w-[2px] bg-gradient-to-b from-primary to-accent rounded-full h-0 shadow-[0_0_10px_#7B61FF] transition-[height] duration-75 ease-out"></div>
 
                 <!-- Paso 1: F -->
                 <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-20 reveal-up">
@@ -163,9 +170,9 @@
                             <div class="text-primary font-heading text-7xl md:text-8xl font-bold opacity-80">F</div>
                             <div>
                                 <h3 class="text-3xl font-heading font-medium text-white mb-2">Fundamentos</h3>
-                                <p class="text-textSecondary text-lg mb-8 leading-relaxed">Auditoría profunda de tu modelo de negocio, Propuesta de Valor Única y perfilado psicológico de tu Buyer Persona.</p>
+                                <p class="text-textSecondary text-lg mb-8 leading-relaxed">Estudiamos tu negocio a fondo para definir qué te hace único frente a tu competencia y quién es exactamente tu cliente ideal.</p>
                                 <div class="bg-primary/10 border-l-2 border-primary p-4 rounded-r-xl">
-                                    <p class="text-white font-medium">👉 "Estructuramos la marca antes de encender el micrófono."</p>
+                                    <p class="text-white font-medium">👉 "Sentamos unas bases sólidas para que sepas qué decir y a quién decírselo."</p>
                                 </div>
                             </div>
                         </div>
@@ -180,9 +187,9 @@
                             <div class="text-primary font-heading text-7xl md:text-8xl font-bold opacity-80">O</div>
                             <div>
                                 <h3 class="text-3xl font-heading font-medium text-white mb-2">Oportunidad</h3>
-                                <p class="text-textSecondary text-lg mb-8 leading-relaxed">Mapeo de dolores de mercado, intención de búsqueda real y desarrollo de narrativas de autoridad.</p>
+                                <p class="text-textSecondary text-lg mb-8 leading-relaxed">Investigamos qué busca tu cliente y qué problemas necesita resolver de urgencia para crear mensajes que realmente le importen.</p>
                                 <div class="bg-primary/10 border-l-2 border-primary p-4 rounded-r-xl">
-                                    <p class="text-white font-medium">👉 "Identificamos el espacio donde eres la única respuesta lógica."</p>
+                                    <p class="text-white font-medium">👉 "Posicionamos tu marca como la mejor solución a los problemas reales de tu audiencia."</p>
                                 </div>
                             </div>
                         </div>
@@ -197,9 +204,9 @@
                             <div class="text-primary font-heading text-7xl md:text-8xl font-bold opacity-80">C</div>
                             <div>
                                 <h3 class="text-3xl font-heading font-medium text-white mb-2">Conversión</h3>
-                                <p class="text-textSecondary text-lg mb-8 leading-relaxed">Arquitectura persuasiva de fricción cero, embudos de retención y automatización de captación de leads.</p>
+                                <p class="text-textSecondary text-lg mb-8 leading-relaxed">Diseñamos un recorrido claro, predecible y automatizado para que las personas que te descubren se conviertan en clientes que te compran.</p>
                                 <div class="bg-primary/10 border-l-2 border-primary p-4 rounded-r-xl">
-                                    <p class="text-white font-medium">👉 "Transformamos impacto visual en predictibilidad de negocio."</p>
+                                    <p class="text-white font-medium">👉 "Creamos sistemas que transforman la simple atención en ventas reales."</p>
                                 </div>
                             </div>
                         </div>
@@ -214,9 +221,9 @@
                             <div class="text-primary font-heading text-7xl md:text-8xl font-bold opacity-80">O</div>
                             <div>
                                 <h3 class="text-3xl font-heading font-medium text-white mb-2">Optimización</h3>
-                                <p class="text-textSecondary text-lg mb-8 leading-relaxed">Métricas de comportamiento real, iteración de contenidos y escalabilidad basada en datos empíricos.</p>
+                                <p class="text-textSecondary text-lg mb-8 leading-relaxed">Medimos qué partes de la estrategia funcionan mejor y cuáles no, ajustando el rumbo para que tu marca crezca de forma constante y segura.</p>
                                 <div class="bg-primary/10 border-l-2 border-primary p-4 rounded-r-xl">
-                                    <p class="text-white font-medium">👉 "Sistematizamos el crecimiento con datos, no con intuiciones."</p>
+                                    <p class="text-white font-medium">👉 "Mejoramos tu negocio mes a mes basándonos en datos reales, no en suposiciones."</p>
                                 </div>
                             </div>
                         </div>
@@ -236,7 +243,7 @@
                         <p class="text-textSecondary text-lg mb-10 leading-relaxed">No hacemos webs, construimos activos de negocio. Cuéntanos qué quieres escalar y diseñaremos la estructura para lograrlo.</p>
                         <div class="flex items-center gap-4 text-white/80">
                             <div class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center"><i class="ph ph-envelope-simple text-xl text-primary"></i></div>
-                            <span>info@proemote.es</span>
+                            <span>hola@proemote.es</span>
                         </div>
                     </div>
                     <div>
@@ -261,18 +268,17 @@
 
     <!-- 5. FOOTER -->
     <footer class="bg-bgMain border-t border-white/5 py-12 relative z-10">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-            <div class="flex flex-col items-center md:items-start gap-2">
-                <div class="font-heading font-bold text-xl flex items-center gap-2 text-white">
-                    <i class="ph-fill ph-hexagon text-primary"></i> Proemote<span class="text-primary">.</span>
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="font-heading font-bold text-xl flex items-center gap-2 text-white">
+                <i class="ph-fill ph-hexagon text-primary"></i> Proemote<span class="text-primary">.</span>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-6 text-sm text-textSecondary text-center md:text-left">
+                <p>© 2026 Proemote Studio. Arquitectura estratégica.</p>
+                <div class="flex gap-4">
+                    <a href="https://proemote.es/aviso-legal" target="_blank" class="hover:text-primary transition-colors">Aviso Legal</a>
+                    <a href="https://proemote.es/privacidad" target="_blank" class="hover:text-primary transition-colors">Política de Privacidad</a>
                 </div>
-                <p class="text-sm text-textSecondary text-center md:text-left">© 2026 Proemote Studio. <i>Shaping what matters</i></p>
             </div>
-            <div class="flex justify-center gap-4 text-sm text-textSecondary">
-                <a href="https://proemote.es/aviso-legal" target="_blank" class="hover:text-primary transition-colors">Aviso Legal</a>
-                <a href="https://proemote.es/privacidad" target="_blank" class="hover:text-primary transition-colors">Política de Privacidad</a>
-            </div>
-            <div class="hidden md:block"></div>
         </div>
     </footer>
 
@@ -288,7 +294,7 @@
             <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-10 h-10 bg-bgSurface rounded-full border border-white/10 flex items-center justify-center text-textSecondary hover:bg-white/5 hover:text-white transition-colors shadow-lg">
                 <i class="ph-fill ph-linkedin-logo text-xl"></i>
             </a>
-            <a href="https://www.instagram.com/proemote/" target="_blank" class="w-10 h-10 bg-bgSurface rounded-full border border-white/10 flex items-center justify-center text-textSecondary hover:bg-white/5 hover:text-white transition-colors shadow-lg">
+            <a href="https://www.instagram.com/proemote.es/" target="_blank" class="w-10 h-10 bg-bgSurface rounded-full border border-white/10 flex items-center justify-center text-textSecondary hover:bg-white/5 hover:text-white transition-colors shadow-lg">
                 <i class="ph-fill ph-instagram-logo text-xl"></i>
             </a>
         </div>
@@ -324,18 +330,19 @@
             const progress = document.getElementById('foco-progress');
             const items = document.querySelectorAll('.foco-item');
             
+            // Usamos requestAnimationFrame para que la línea de progreso no de tirones
+            let isTicking = false;
+            
             const handleTimeline = () => {
                 if(!progress) return;
                 const container = progress.parentElement;
                 const rect = container.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
                 
-                // Calcula el % de scroll en el contenedor del timeline
                 let p = (windowHeight * 0.5 - rect.top) / (rect.height * 0.85);
                 p = Math.max(0, Math.min(1, p));
                 progress.style.height = `${p * 100}%`;
 
-                // Ilumina nodos individuales
                 items.forEach(item => {
                     const node = item.querySelector('.foco-node');
                     if (item.getBoundingClientRect().top < windowHeight * 0.75) {
@@ -344,7 +351,17 @@
                     }
                 });
             };
-            window.addEventListener('scroll', handleTimeline); handleTimeline();
+
+            window.addEventListener('scroll', () => {
+                if (!isTicking) {
+                    window.requestAnimationFrame(() => {
+                        handleTimeline();
+                        isTicking = false;
+                    });
+                    isTicking = true;
+                }
+            });
+            handleTimeline();
 
             // 3. Formulario API Soberana (Google Sheets)
             const form = document.getElementById('proemote-form');
