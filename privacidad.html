@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad y Cookies | Proemote</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgMain: '#0A0A0F',
+                        bgSurface: '#14141F',
+                        primary: '#7B61FF',
+                        accent: '#9F7AEA',
+                        textMain: '#F5F7FA',
+                        textSecondary: '#A1A1B5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\\'40\\' height=\\'40\\' viewBox=\\'0 0 40 40\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h40v40H0V0zm1 1h38v38H1V1z\\' fill=\\'%23ffffff\\' fill-opacity=\\'0.02\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base & Scrollbar */
+        body { background-color: #0A0A0F; color: #F5F7FA; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A0A0F; }
+        ::-webkit-scrollbar-thumb { background: #14141F; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
+        ::-webkit-scrollbar-thumb:hover { background: #7B61FF; }
+
+        /* UI Components */
+        .glass-nav { background: rgba(10, 10, 15, 0.7); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass-card { background: linear-gradient(180deg, rgba(20, 20, 31, 0.9) 0%, rgba(20, 20, 31, 0.5) 100%); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+
+        /* Mouse Tracking Glow */
+        #mouse-glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(123,97,255,0.08) 0%, rgba(10,10,15,0) 60%); border-radius: 50%; pointer-events: none; z-index: 1; transform: translate(-50%, -50%); transition: opacity 0.5s ease; mix-blend-mode: screen; }
+
+        /* Typography Gradients */
+        .text-gradient-primary { background: linear-gradient(135deg, #9F7AEA 0%, #7B61FF 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Legal Content Styling */
+        .legal-content h2 { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 500; color: #fff; margin-top: 2rem; margin-bottom: 1rem; }
+        .legal-content h3 { font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 500; color: #fff; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .legal-content p { color: #A1A1B5; margin-bottom: 1rem; line-height: 1.7; }
+        .legal-content ul { color: #A1A1B5; margin-bottom: 1rem; list-style-type: disc; padding-left: 1.5rem; }
+        .legal-content li { margin-bottom: 0.5rem; }
+        .legal-content a { color: #7B61FF; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(123,97,255,0.3); transition: all 0.3s; }
+        .legal-content a:hover { color: #9F7AEA; text-decoration-color: #9F7AEA; }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white relative">
+
+    <div id="mouse-glow"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
+                <img src="https://i.imgur.com/jwddFTY.png" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain">
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-textSecondary relative z-10">
+                <a href="index.html#enfoque" class="hover:text-textMain transition-colors">Sistema</a>
+                <a href="index.html#foco" class="hover:text-textMain transition-colors">Método</a>
+                <a href="index.html#contacto" class="hover:text-textMain transition-colors">Contacto</a>
+            </div>
+            <!-- Botón morado destacado -->
+            <a href="index.html#contacto" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-primary rounded-full hover:bg-accent shadow-[0_0_15px_rgba(123,97,255,0.4)] transition-all duration-300 relative z-10">
+                ¿Hablamos?
+            </a>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO LEGAL -->
+    <section class="relative min-h-screen pt-32 pb-24 overflow-hidden bg-grid-pattern">
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <div class="glass-card rounded-[2rem] p-8 md:p-14 border border-white/5 relative overflow-hidden shadow-2xl">
+                <!-- Resplandor sutil de fondo -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+
+                <div class="mb-10 pb-8 border-b border-white/10">
+                    <h1 class="font-heading text-4xl md:text-5xl font-medium mb-4 text-white">
+                        Política de <span class="text-gradient-primary">Privacidad y Cookies</span>
+                    </h1>
+                    <p class="text-textSecondary">Última actualización: Mayo de 2026</p>
+                </div>
+                
+                <div class="legal-content" id="legal-text-container">
+                    <h2>1. Responsable del Tratamiento de Datos.</h2>
+                    <p>En Proemote, valoramos firmemente la privacidad de los/as usuarios/as en la red. Por ello, nos comprometemos a proteger tu privacidad y garantizar el cumplimiento de la normativa aplicable, en particular el Reglamento General de Protección de Datos (RGPD) y la Ley Orgánica de Protección de Datos y Garantía de los Derechos Digitales (LOPDGDD).</p>
+                    <p>Proemote (en adelante, «nosotros») es una marca registrada en la OEPM y gestionada por Carlos Molina Márquez, quien actúa como responsable del tratamiento de los datos personales recogidos a través de la página web <a href="https://www.proemote.es" target="_blank">www.proemote.es</a>.</p>
+                    <p>Todos los contenidos, incluyendo textos, imágenes, diseño, logotipos, y demás elementos gráficos o funcionales, son propiedad exclusiva de Proemote o de sus respectivos autores, con licencia de uso concedida para Proemote. Queda prohibida cualquier forma de copia, plagio, reproducción, distribución, comunicación pública, transformación o cualquier otra actividad similar sin el consentimiento previo y por escrito de Proemote.</p>
+                    <p>Cualquier uso no autorizado o copia, total o parcial, serán perseguidos conforme a lo dispuesto en la legislación vigente en materia de propiedad intelectual e industrial.</p>
+
+                    <h2>2. Información personal que recopilamos.</h2>
+                    <p>Cuando visitas la web de Proemote, recopilamos automáticamente cierta información sobre tu dispositivo, como el tipo de navegador, dirección IP, zona horaria y las cookies instaladas en tu dispositivo. Además, mientras navegas por el sitio, recopilamos datos sobre las páginas individuales o productos que consultas, los términos de búsqueda que te llevaron al sitio y cómo interactúas con él. A esta información la denominamos "Información del Dispositivo".</p>
+                    <p>Los datos personales que nos proporciones se utilizarán con las siguientes finalidades:</p>
+                    <ul>
+                        <li>Gestionar los servicios contratados.</li>
+                        <li>Atender tus consultas o solicitudes.</li>
+                        <li>Enviarte comunicaciones comerciales y promocionales, si has prestado tu consentimiento expreso.</li>
+                        <li>Garantizar la seguridad técnica del sitio web y mejorar la experiencia del usuario mediante cookies y herramientas analíticas.</li>
+                    </ul>
+
+                    <h2>3. Base legal para el tratamiento de tus datos</h2>
+                    <p>Nuestra máxima prioridad es la seguridad de los datos de nuestros clientes. Por ello, procesamos únicamente los datos estrictamente necesarios para mantener el sitio web operativo.</p>
+                    <p>La información recopilada automáticamente se utiliza únicamente para identificar posibles casos de abuso y para generar estadísticas sobre el uso del sitio web. Estas estadísticas no se combinan de manera que permitan identificar a usuarios específicos.</p>
+                    <p>Puedes visitar nuestra página sin revelar quién eres o sin proporcionar información que permita identificarte como individuo. Sin embargo, si deseas utilizar ciertas funciones de la web, recibir nuestro boletín informativo o enviarnos información a través de formularios, es posible que necesitemos datos como tu correo electrónico, nombre, apellidos, ciudad de residencia, organización y número de teléfono.</p>
+                    <p>Si decides no proporcionarnos estos datos, es posible que no puedas disfrutar de ciertas funcionalidades, como suscribirte a nuestro boletín o contactarnos directamente desde la web. Si tienes dudas sobre qué información es obligatoria, puedes escribirnos a <a href="mailto:info@proemote.es">info@proemote.es</a>.</p>
+
+                    <h2>4. Plazo de conservación de los datos</h2>
+                    <p>Tus datos se conservarán:</p>
+                    <ul>
+                        <li>Posteriormente, durante los plazos exigidos por la normativa fiscal, mercantil o de protección de datos.</li>
+                        <li>Mientras dure la relación contractual o se mantenga tu consentimiento.</li>
+                    </ul>
+
+                    <h2>5. Destinatarios de los datos</h2>
+                    <p>Tus datos podrán ser comunicados a proveedores que prestan servicios a Proemote, como:</p>
+                    <ul>
+                        <li>Servicios de alojamiento web.</li>
+                        <li>Plataformas de email marketing.</li>
+                        <li>Herramientas de analítica web.</li>
+                    </ul>
+                    <p>Estos proveedores actuarán como encargados del tratamiento y se comprometen a cumplir con el RGPD mediante contratos firmados.</p>
+
+                    <h2>6. Transferencias internacionales</h2>
+                    <p>Algunos de nuestros proveedores pueden estar ubicados fuera del Espacio Económico Europeo. En ese caso, garantizamos que se cumplen las garantías adecuadas mediante cláusulas contractuales tipo o adhesión al marco de privacidad vigente (como el Data Privacy Framework).</p>
+
+                    <h2>7. Tus derechos</h2>
+                    <p>Si resides en Europa, tienes los siguientes derechos respecto a tus datos personales:</p>
+                    <ul>
+                        <li>A ser informado sobre el uso de tus datos.</li>
+                        <li>Derecho de acceso a los datos que poseemos sobre ti.</li>
+                        <li>Derecho de rectificación para corregir información inexacta.</li>
+                        <li>Derecho al borrado (derecho al olvido).</li>
+                        <li>Derecho a restringir el procesamiento de tus datos.</li>
+                        <li>Derecho a la portabilidad de datos, para transferirlos a otra entidad.</li>
+                        <li>Derecho de oposición al uso de tus datos en ciertos casos.</li>
+                        <li>Derechos relacionados con la toma de decisiones automatizadas y la creación de perfiles.</li>
+                    </ul>
+                    <p>Puedes ejercerlos escribiendo a <a href="mailto:info@proemote.es">info@proemote.es</a>, indicando claramente tu solicitud y adjuntando una copia de tu documento de identidad para verificar tu identidad.</p>
+                    <p>Tienes derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es" target="_blank">www.aepd.es</a>) si consideras que tus derechos no han sido respetados.</p>
+                    <p>Además, procesamos tu información para cumplir con contratos que podamos haber establecido contigo (por ejemplo, si realizas un pedido a través de nuestro sitio) o para perseguir intereses comerciales legítimos, como se detalla anteriormente. Ten en cuenta que tus datos pueden ser transferidos fuera de Europa, incluidos países como Canadá o Estados Unidos.</p>
+
+                    <h2>8. Uso de Cookies</h2>
+                    <p>Nuestro sitio web utiliza cookies para mejorar tu experiencia de navegación. Utilizamos cookies propias y de terceros para mejorar el funcionamiento general del sitio web y ofrecerte una mejor experiencia.</p>
+                    <p>Las cookies son pequeños archivos de texto que los sitios web envían y almacenan en tu navegador cuando los visitas. Su función principal es recordar información sobre tu visita, como tus preferencias, los productos que añadiste al carrito o tu configuración de idioma, para ofrecerte una experiencia más personalizada y eficiente en futuras visitas.</p>
+                    <p>Las cookies se dividen en las siguientes categorías:</p>
+                    <ul>
+                        <li>Cookies técnicas: Necesarias para el funcionamiento del sitio.</li>
+                        <li>Cookies analíticas: Nos permiten analizar cómo los usuarios interactúan con el sitio.</li>
+                        <li>Cookies de publicidad: Utilizadas para mostrar anuncios personalizados.</li>
+                    </ul>
+                    <p>Puedes configurar el uso de cookies o deshabilitarlas a través de las opciones de tu navegador.</p>
+                    
+                    <h3>Cómo Gestionar las Cookies</h3>
+                    <p>Si deseas deshabilitar o eliminar las cookies de este sitio, puedes hacerlo configurando las opciones de tu navegador:</p>
+                    <ul>
+                        <li>Google Chrome: <a href="https://support.google.com/chrome/answer/95647?hl=es" target="_blank">Instrucciones</a></li>
+                        <li>Mozilla Firefox: <a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank">Instrucciones</a></li>
+                        <li>Microsoft Edge: <a href="https://support.microsoft.com/es-es/windows/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank">Instrucciones</a></li>
+                    </ul>
+
+                    <h2>9. Enlaces a otros sitios web</h2>
+                    <p>Nuestra web puede contener enlaces a otras páginas que no son propiedad ni están bajo nuestro control. No somos responsables de las prácticas de privacidad de esos sitios ni de sus terceros. Te recomendamos que leas las políticas de privacidad de cada página que visite y recopile información personal.</p>
+
+                    <h2>10. Seguridad de la información</h2>
+                    <p>Almacenamos los datos que nos proporcionas en servidores seguros, protegidos contra accesos no autorizados, usos indebidos o divulgaciones. Contamos con medidas administrativas, técnicas y físicas razonables para proteger tus datos. Sin embargo, ningún sistema de transmisión de datos a través de Internet o redes inalámbricas es completamente seguro.</p>
+
+                    <h2>11. Divulgación legal</h2>
+                    <p>Proemote puede divulgar los datos recopilados si la ley lo requiere o si creemos de buena fe que es necesario para proteger nuestros derechos, tu seguridad o la de otros, investigar fraudes o responder a solicitudes gubernamentales.</p>
+
+                    <h2>12. Cambios en la política de privacidad</h2>
+                    <p>Proemote se reserva el derecho de actualizar esta política en cualquier momento para adaptarla a cambios legislativos o a la operativa del sitio web. Te recomendamos revisarla periódicamente.</p>
+
+                    <h2>13. Información de contacto</h2>
+                    <p>Si deseas más información sobre esta Política de Privacidad y Cookies o necesitas contactarnos para asuntos relacionados con tus derechos y datos personales, escríbenos a <a href="mailto:info@proemote.es">info@proemote.es</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-bgMain border-t border-white/5 py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            <!-- Izquierda: Logo, Copyright y Redes -->
+            <div class="flex flex-col items-center md:items-start gap-4">
+                <div class="flex flex-col md:flex-row items-center md:justify-start gap-4 md:gap-6 text-center md:text-left">
+                    <img src="https://i.imgur.com/2mXnkGe.png" alt="Proemote Logo Footer" class="h-12 md:h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity">
+                    <p class="text-sm text-textSecondary">© 2026 Proemote Studio. <br class="hidden md:block"><em class="italic text-white/70">Shaping what matters.</em></p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-10 h-10 bg-bgSurface rounded-full border border-white/10 flex items-center justify-center text-textSecondary hover:bg-primary hover:text-white transition-all shadow-lg hover:-translate-y-1">
+                        <i class="ph-fill ph-linkedin-logo text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/proemote.es/" target="_blank" class="w-10 h-10 bg-bgSurface rounded-full border border-white/10 flex items-center justify-center text-textSecondary hover:bg-primary hover:text-white transition-all shadow-lg hover:-translate-y-1">
+                        <i class="ph-fill ph-instagram-logo text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Centro: Enlaces Legales -->
+            <div class="flex items-center justify-center gap-6 text-sm text-textSecondary">
+                <a href="https://proemote.es/aviso-legal" target="_blank" class="hover:text-primary transition-colors">Aviso Legal</a>
+                <a href="privacidad.html" class="text-primary transition-colors">Política de Privacidad</a>
+            </div>
+
+            <!-- Derecha: Espacio vacío para equilibrar el grid -->
+            <div class="hidden md:block"></div>
+        </div>
+    </footer>
+
+    <!-- WIDGET DE WHATSAPP -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3 group">
+        <span class="hidden md:block px-4 py-2 bg-bgSurface border border-white/10 rounded-xl text-sm font-medium text-white shadow-lg opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
+            Hablar por WhatsApp
+        </span>
+        <a href="https://wa.me/34641576286" target="_blank" rel="noopener noreferrer" class="relative w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300">
+            <div class="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:bg-[#25D366]/30 transition-colors"></div>
+            <i class="ph-fill ph-whatsapp-logo text-3xl text-white"></i>
+        </a>
+    </div>
+
+    <!-- Scripts de Control -->
+    <script>
+        // Mouse Glow
+        const glow = document.getElementById('mouse-glow');
+        let mouseX = window.innerWidth/2, mouseY = window.innerHeight/2, glowX = mouseX, glowY = mouseY;
+        document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; glow.style.opacity = '1'; });
+        document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+        function animateGlow() {
+            glowX += (mouseX - glowX)*0.1; glowY += (mouseY - glowY)*0.1;
+            glow.style.left = `${glowX}px`; glow.style.top = `${glowY}px`;
+            requestAnimationFrame(animateGlow);
+        }
+        animateGlow();
+    </script>
+</body>
+</html>
