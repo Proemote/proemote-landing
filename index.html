@@ -131,7 +131,14 @@
     </nav>
 
     <!-- 1. HERO -->
-    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden bg-grid-pattern">
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden bg-grid-pattern bg-bgMain">
+        <!-- Video Background -->
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-[0.15] pointer-events-none z-[0] mix-blend-lighten">
+            <source src="proemote-rocket-hero.mp4" type="video/mp4">
+        </video>
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-bgMain via-bgMain/50 to-transparent z-[0] pointer-events-none"></div>
+        
         <div class="max-w-5xl mx-auto px-6 text-center relative z-10 reveal-up active">
             <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-accent text-xs font-semibold tracking-widest uppercase mb-8">
                 <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span> Agencia de Marketing en Extremadura
