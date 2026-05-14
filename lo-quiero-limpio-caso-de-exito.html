@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso de Éxito: Lo Quiero Limpio | Proemote</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgMain: '#0A0A0F',
+                        bgSurface: '#14141F',
+                        primary: '#7B61FF',
+                        accent: '#9F7AEA',
+                        textMain: '#F5F7FA',
+                        textSecondary: '#A1A1B5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\\'40\\' height=\\'40\\' viewBox=\\'0 0 40 40\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h40v40H0V0zm1 1h38v38H1V1z\\' fill=\\'%23ffffff\\' fill-opacity=\\'0.02\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base & Scrollbar */
+        body { background-color: #0A0A0F; color: #F5F7FA; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A0A0F; }
+        ::-webkit-scrollbar-thumb { background: #14141F; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
+        ::-webkit-scrollbar-thumb:hover { background: #7B61FF; }
+
+        /* UI Components */
+        .glass-nav { background: rgba(10, 10, 15, 0.7); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass-card { background: linear-gradient(180deg, rgba(20, 20, 31, 0.9) 0%, rgba(20, 20, 31, 0.5) 100%); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+
+        /* Mouse Tracking Glow */
+        #mouse-glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(123,97,255,0.08) 0%, rgba(10,10,15,0) 60%); border-radius: 50%; pointer-events: none; z-index: 1; transform: translate(-50%, -50%); transition: opacity 0.5s ease; mix-blend-mode: screen; }
+
+        /* Typography Gradients */
+        .text-gradient-primary { background: linear-gradient(135deg, #9F7AEA 0%, #7B61FF 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Observer Animations */
+        .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-up.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white relative">
+
+    <div id="mouse-glow"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
+                <img src="https://i.imgur.com/jwddFTY.png" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain">
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-textSecondary relative z-10">
+                <a href="index.html#enfoque" class="hover:text-textMain transition-colors">Sistema</a>
+                <a href="index.html#foco" class="hover:text-textMain transition-colors">Método</a>
+                <a href="index.html#contacto" class="hover:text-textMain transition-colors">Contacto</a>
+            </div>
+            <a href="index.html#contacto" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-primary rounded-full hover:bg-accent shadow-[0_0_15px_rgba(123,97,255,0.4)] transition-all duration-300 relative z-10">
+                ¿Hablamos?
+            </a>
+        </div>
+    </nav>
+
+    <!-- 1. CABECERA DEL CASO -->
+    <section class="relative pt-36 pb-20 overflow-hidden bg-grid-pattern">
+        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center reveal-up">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-accent text-xs font-semibold tracking-widest uppercase mb-8">
+                <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span> CASO DE ÉXITO · EMPRESA DE LIMPIEZA
+            </div>
+            
+            <h1 class="font-heading text-4xl md:text-6xl font-medium leading-[1.2] tracking-tight mb-14 max-w-4xl mx-auto">
+                De publicar por publicar a liderar búsquedas en Google y acumular <span class="text-gradient-primary">73.000 visualizaciones.</span><br>
+                <span class="text-textSecondary text-3xl md:text-4xl">Sin pagar un euro en publicidad.</span>
+            </h1>
+
+            <div class="flex flex-col md:flex-row justify-center items-stretch gap-6">
+                <div class="glass-card flex-1 p-6 rounded-2xl flex flex-col items-center text-center justify-center">
+                    <span class="text-3xl mb-2">🏆</span>
+                    <p class="font-medium text-white">#1 en Google</p>
+                    <p class="text-sm text-textSecondary">"empresa de limpieza Mérida"</p>
+                </div>
+                <div class="glass-card flex-1 p-6 rounded-2xl flex flex-col items-center text-center justify-center">
+                    <span class="text-3xl mb-2">📈</span>
+                    <p class="font-medium text-white">73.300 visitas</p>
+                    <p class="text-sm text-textSecondary">en un vídeo orgánico</p>
+                </div>
+                <div class="glass-card flex-1 p-6 rounded-2xl flex flex-col items-center text-center justify-center">
+                    <span class="text-3xl mb-2">💎</span>
+                    <p class="font-medium text-white">Marca personal</p>
+                    <p class="text-sm text-textSecondary">de la fundadora desarrollada</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. EL PUNTO DE PARTIDA -->
+    <section class="py-20 relative z-10 border-t border-white/5 bg-bgMain">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">El punto de partida</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white leading-tight">Dónde estaban cuando llegaron a Proemote</h2>
+                <p class="text-lg text-textSecondary mb-6 leading-relaxed">
+                    Lo Quiero Limpio es una empresa de limpieza avanzada ubicada en Mérida con un servicio real y diferencial. El problema no era el servicio — era que nadie lo veía.
+                </p>
+                <p class="text-lg text-textSecondary leading-relaxed">
+                    Publicaban vídeos de limpieza con música de fondo y transiciones. Sin estrategia, sin identidad, sin dirección. El resultado: muy pocas visualizaciones, ningún impacto en negocio y un perfil que no reflejaba lo que la empresa realmente era.
+                </p>
+            </div>
+            <div class="reveal-up relative">
+                <div class="absolute -inset-4 bg-primary/10 blur-2xl rounded-full z-0 opacity-50"></div>
+                <div class="glass-card p-4 rounded-[2rem] relative z-10">
+                    <img src="Caso exito LQL/feed feo pocas visitas.png" alt="Feed antiguo de Lo Quiero Limpio" class="w-full h-auto rounded-xl shadow-lg" onerror="this.src='https://via.placeholder.com/600x400?text=Feed+Antiguo';">
+                    <p class="text-center text-sm text-textSecondary mt-4 font-medium italic">Feed sin identidad, sin colores corporativos, sin narrativa de marca.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. EL DIAGNÓSTICO -->
+    <section class="py-20 relative z-10 border-t border-white/5 bg-bgSurface">
+        <div class="max-w-4xl mx-auto px-6 reveal-up">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Análisis Inicial</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white leading-tight">Lo que detectamos</h2>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="glass-card p-8 rounded-2xl flex gap-6 items-start">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center flex-shrink-0 mt-1">
+                        <i class="ph-fill ph-video-camera-slash text-2xl text-primary"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg text-white leading-relaxed">El contenido no tenía propósito narrativo. Grababan para publicar, no para comunicar.</p>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-2xl flex gap-6 items-start">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center flex-shrink-0 mt-1">
+                        <i class="ph-fill ph-user-circle-minus text-2xl text-primary"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg text-white leading-relaxed">La dueña era el mayor activo de la marca y no aparecía. Una empresa de limpieza con cara y voz genera mucha más confianza que una cuenta de vídeos impersonales.</p>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-2xl flex gap-6 items-start">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center flex-shrink-0 mt-1">
+                        <i class="ph-fill ph-palette text-2xl text-primary"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg text-white leading-relaxed">El perfil no transmitía profesionalidad. Sin identidad visual, cualquier competidor parecía más serio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. LO QUE CONSTRUIMOS -->
+    <section class="py-20 relative z-10 border-t border-white/5 bg-bgMain">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="order-2 lg:order-1 reveal-up relative">
+                <div class="absolute -inset-4 bg-primary/10 blur-2xl rounded-full z-0 opacity-50"></div>
+                <div class="glass-card p-4 rounded-[2rem] relative z-10">
+                    <img src="Caso exito LQL/instagram lql.png" alt="Feed nuevo de Lo Quiero Limpio" class="w-full h-auto rounded-xl shadow-lg" onerror="this.src='https://via.placeholder.com/600x400?text=Feed+Nuevo';">
+                    <p class="text-center text-sm text-textSecondary mt-4 font-medium italic">Feed con identidad de marca, colores corporativos y narrativa visual consistente.</p>
+                </div>
+            </div>
+            <div class="order-1 lg:order-2 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">La Estrategia</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white leading-tight">Lo que construimos</h2>
+                <p class="text-lg text-textSecondary mb-6 leading-relaxed">
+                    No empezamos grabando. Empezamos definiendo qué quería transmitir la marca, quién era su cliente ideal y qué tipo de contenido podía generar confianza y captar atención de forma simultánea.
+                </p>
+                <div class="bg-primary/10 border-l-4 border-primary p-6 rounded-r-2xl mb-6">
+                    <p class="text-lg text-white leading-relaxed">
+                        Desarrollamos la marca personal de su fundadora dentro de la marca — poniendo cara, voz y criterio profesional a la empresa. Diseñamos una identidad visual coherente y construimos un sistema de contenido pensado para retener, no solo para entretener.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. LOS RESULTADOS -->
+    <section class="py-24 relative z-10 border-t border-white/5 bg-bgSurface">
+        <div class="max-w-6xl mx-auto px-6 reveal-up">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">El impacto</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white leading-tight mb-4">Qué conseguimos</h2>
+                <p class="text-sm text-textSecondary max-w-2xl mx-auto italic">
+                    Nota: el objetivo nunca fue acumular seguidores. Para una empresa de limpieza local, el objetivo es que te encuentren cuando te buscan y que confíen en lo que ven.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="glass-card p-8 rounded-[2rem] border border-primary/20 text-center shadow-[0_0_30px_rgba(123,97,255,0.1)]">
+                    <div class="text-5xl md:text-7xl font-bold font-heading text-gradient-primary mb-4">#1</div>
+                    <p class="text-textSecondary leading-relaxed">Posición en Google para 'empresa de limpieza Mérida' — visibilidad orgánica continua que genera contactos reales.</p>
+                </div>
+                <div class="glass-card p-8 rounded-[2rem] border border-primary/20 text-center shadow-[0_0_30px_rgba(123,97,255,0.1)]">
+                    <div class="text-5xl md:text-6xl font-bold font-heading text-gradient-primary mb-4">73.300</div>
+                    <p class="text-textSecondary leading-relaxed">Visualizaciones en un único vídeo orgánico. Sin publicidad, sin inversión en paid media.</p>
+                </div>
+                <div class="glass-card p-8 rounded-[2rem] border border-primary/20 text-center shadow-[0_0_30px_rgba(123,97,255,0.1)]">
+                    <div class="text-5xl md:text-7xl font-bold font-heading text-gradient-primary mb-4">0€</div>
+                    <p class="text-textSecondary leading-relaxed">Invertidos en publicidad para conseguir todos estos resultados. Solo estrategia y ejecución.</p>
+                </div>
+            </div>
+
+            <div class="glass-card p-4 md:p-8 rounded-[2rem] mb-16 text-center max-w-4xl mx-auto">
+                <img src="Caso exito LQL/virales lql.png" alt="Videos virales de Lo Quiero Limpio" class="w-full h-auto rounded-xl shadow-lg mb-6" onerror="this.src='https://via.placeholder.com/800x400?text=Capturas+Videos+Virales';">
+                
+                <h3 class="font-heading text-2xl font-medium text-white mb-4">El contenido es el vehículo, no el destino</h3>
+                <p class="text-lg text-textSecondary leading-relaxed max-w-2xl mx-auto">
+                    Pero los vídeos virales no son el final de la historia. Son la consecuencia de tener una estrategia. Lo importante es lo que generan: <span class="text-white font-medium">más llamadas, más solicitudes de presupuesto y más clientes.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. CTA FINAL -->
+    <section class="py-24 relative bg-primary/5 border-t border-white/5 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center reveal-up">
+            <h2 class="font-heading text-4xl md:text-5xl font-medium text-white mb-6 leading-tight">
+                ¿Tu negocio merece esta visibilidad?
+            </h2>
+            <p class="text-xl text-textSecondary mb-10 max-w-2xl mx-auto leading-relaxed">
+                Analizamos tu proyecto sin compromiso. Si hay potencial, te contamos cómo trabajaríamos juntos para conseguir resultados como estos.
+            </p>
+            
+            <a href="#" data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view"}' class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium text-lg transition-all duration-300 shadow-[0_0_30px_rgba(123,97,255,0.4)] group">
+                Reservar auditoría gratuita <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-bgMain border-t border-white/5 py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            <!-- Izquierda: Logo, Copyright y Redes -->
+            <div class="flex flex-col items-center md:items-start gap-4">
+                <div class="flex flex-col md:flex-row items-center md:justify-start gap-4 md:gap-6 text-center md:text-left">
+                    <img src="https://i.imgur.com/2mXnkGe.png" alt="Proemote Logo Footer" class="h-12 md:h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity">
+                    <p class="text-sm text-textSecondary">© 2026 Proemote Studio. <br class="hidden md:block"><em class="italic text-white/70">Shaping what matters.</em></p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-10 h-10 bg-bgSurface rounded-full border border-white/10 flex items-center justify-center text-textSecondary hover:bg-primary hover:text-white transition-all shadow-lg hover:-translate-y-1">
+                        <i class="ph-fill ph-linkedin-logo text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/proemote.es/" target="_blank" class="w-10 h-10 bg-bgSurface rounded-full border border-white/10 flex items-center justify-center text-textSecondary hover:bg-primary hover:text-white transition-all shadow-lg hover:-translate-y-1">
+                        <i class="ph-fill ph-instagram-logo text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Centro: Enlaces Legales -->
+            <div class="flex items-center justify-center gap-6 text-sm text-textSecondary">
+                <a href="https://web.proemote.es/aviso-legal.html" class="hover:text-primary transition-colors">Aviso Legal</a>
+                <a href="https://web.proemote.es/privacidad.html" target="_blank" class="hover:text-primary transition-colors">Política de Privacidad</a>
+            </div>
+
+            <!-- Derecha: Espacio vacío para equilibrar el grid -->
+            <div class="hidden md:block"></div>
+        </div>
+    </footer>
+
+    <!-- WIDGET DE WHATSAPP -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3 group">
+        <span class="hidden md:block px-4 py-2 bg-bgSurface border border-white/10 rounded-xl text-sm font-medium text-white shadow-lg opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
+            Hablar por WhatsApp
+        </span>
+        <a href="https://wa.me/34641576286" target="_blank" rel="noopener noreferrer" class="relative w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300">
+            <div class="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:bg-[#25D366]/30 transition-colors"></div>
+            <i class="ph-fill ph-whatsapp-logo text-3xl text-white"></i>
+        </a>
+    </div>
+
+    <!-- Scripts de Control -->
+    <script>
+        // Mouse Glow
+        const glow = document.getElementById('mouse-glow');
+        let mouseX = window.innerWidth/2, mouseY = window.innerHeight/2, glowX = mouseX, glowY = mouseY;
+        document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; glow.style.opacity = '1'; });
+        document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+        function animateGlow() {
+            glowX += (mouseX - glowX)*0.1; glowY += (mouseY - glowY)*0.1;
+            glow.style.left = `${glowX}px`; glow.style.top = `${glowY}px`;
+            requestAnimationFrame(animateGlow);
+        }
+        animateGlow();
+
+        // Observer para animaciones
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+        });
+    </script>
+    
+    <!-- Cal.com Embed -->
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "auditoria-gratuita", {origin:"https://app.cal.com"});
+      Cal.ns["auditoria-gratuita"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#7B61FF"},"dark":{"cal-brand":"#7B61FF"}},"layout":"month_view"});
+    </script>
+</body>
+</html>
