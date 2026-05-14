@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema FOCO | Proemote</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgMain: '#0A0A0F',
+                        bgSurface: '#14141F',
+                        primary: '#7B61FF',
+                        accent: '#9F7AEA',
+                        textMain: '#F5F7FA',
+                        textSecondary: '#A1A1B5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\\'40\\' height=\\'40\\' viewBox=\\'0 0 40 40\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h40v40H0V0zm1 1h38v38H1V1z\\' fill=\\'%23ffffff\\' fill-opacity=\\'0.02\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base & Scrollbar */
+        body { background-color: #0A0A0F; color: #F5F7FA; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A0A0F; }
+        ::-webkit-scrollbar-thumb { background: #14141F; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
+        ::-webkit-scrollbar-thumb:hover { background: #7B61FF; }
+
+        /* Mouse Tracking Glow */
+        #mouse-glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(123,97,255,0.08) 0%, rgba(10,10,15,0) 60%); border-radius: 50%; pointer-events: none; z-index: 1; transform: translate(-50%, -50%); transition: opacity 0.5s ease; mix-blend-mode: screen; }
+
+        /* Typography Gradients */
+        .text-gradient-primary { background: linear-gradient(135deg, #7B61FF 0%, #9F7AEA 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* VSL Specific Styles */
+        .glass-card {
+            background: rgba(20, 20, 31, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .glass-card-foco {
+            background: rgba(42, 17, 76, 0.55);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(159, 122, 234, 0.2);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            border-radius: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card-foco::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(
+                400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                rgba(159, 122, 234, 0.20),
+                transparent 40%
+            );
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glass-card-foco:hover::before {
+            opacity: 1;
+        }
+
+        .glass-card-foco > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .vsl-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .vsl-container iframe, .vsl-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: #7B61FF;
+            box-shadow: 0 0 20px rgba(123, 97, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #9F7AEA;
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(159, 122, 234, 0.5);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white relative flex flex-col min-h-screen">
+
+    <div id="mouse-glow"></div>
+
+    <!-- Nebulosas Ambientales (Fondo con volumen) -->
+    <div class="fixed top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-[#7B61FF]/10 blur-[120px] pointer-events-none z-[0]"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-[#9F7AEA]/10 blur-[150px] pointer-events-none z-[0]"></div>
+    <div class="fixed top-[40%] left-[50%] w-[40vw] h-[40vw] rounded-full bg-[#7B61FF]/5 blur-[120px] pointer-events-none z-[0]"></div>
+    
+    <main class="flex-grow flex flex-col items-center px-4 sm:px-6 w-full z-10">
+        
+        <!-- Top Padding for Hero -->
+        <div class="pt-16 md:pt-24 pb-12 max-w-5xl mx-auto w-full flex flex-col items-center">
+            
+            <header class="text-center mb-10 w-full animate-fade-in-up">
+                <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-extrabold leading-[1.1] mb-6 tracking-tight">
+                    Tu negocio no necesita más publicaciones.<br class="hidden lg:block" />
+                    <span class="text-gradient-primary">Necesita una estructura que lo haga crecer.</span>
+                </h1>
+                <p class="text-base sm:text-lg md:text-xl text-[#A1A1B5] max-w-3xl mx-auto font-light leading-relaxed">
+                    Asumimos el 100% de la estrategia, guionización, grabación y edición. Delegas el caos, recuperas tu tiempo y escalas con contenido que genera autoridad real.
+                </p>
+            </header>
+
+            <!-- Checkmarks list -->
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 mb-12 max-w-4xl mx-auto text-sm sm:text-base font-medium text-[#F5F7FA]">
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-[#7B61FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                    <span>Estrategia clara</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-[#7B61FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                    <span>Imagen profesional</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-[#7B61FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                    <span>Marketing con dirección</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-[#7B61FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                    <span>Sistemas escalables</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-[#7B61FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                    <span>Sin complicaciones</span>
+                </div>
+            </div>
+
+            <section class="w-full mb-16 px-2 sm:px-0">
+                <div class="glass-card p-2 sm:p-3 rounded-2xl overflow-hidden ring-1 ring-white/10 transition-transform duration-500 hover:scale-[1.01]">
+                    <div class="vsl-container bg-[#0A0A0F] rounded-xl border border-white/5">
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&rel=0&modestbranding=1" 
+                            title="VSL Proemote" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+
+            <section class="w-full max-w-5xl mx-auto mb-16 px-4 sm:px-6">
+                <div class="text-center mb-10">
+                    <h2 class="font-heading text-2xl md:text-4xl font-bold mb-4">Esto es para ti si...</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="glass-card p-6 rounded-2xl border border-white/5 relative overflow-hidden group transition-all duration-300 ease-out hover:-translate-y-2 hover:bg-white/[0.08] hover:border-[#7B61FF]/40 hover:shadow-[0_15px_40px_rgba(123,97,255,0.2)]">
+                        <div class="w-10 h-10 bg-[#7B61FF]/10 rounded-lg flex items-center justify-center mb-4 border border-[#7B61FF]/20 transition-colors duration-300 group-hover:bg-[#7B61FF]/20 group-hover:border-[#7B61FF]/40">
+                            <svg class="w-5 h-5 text-[#7B61FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <p class="text-[#A1A1B5] text-sm leading-relaxed transition-colors duration-300 group-hover:text-white">Tienes un negocio o marca personal con potencial real pero tu contenido no lo refleja. Grabas sin dirección, publicas sin estrategia y los resultados no llegan.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border border-white/5 relative overflow-hidden group transition-all duration-300 ease-out hover:-translate-y-2 hover:bg-white/[0.08] hover:border-[#7B61FF]/40 hover:shadow-[0_15px_40px_rgba(123,97,255,0.2)]">
+                        <div class="w-10 h-10 bg-[#7B61FF]/10 rounded-lg flex items-center justify-center mb-4 border border-[#7B61FF]/20 transition-colors duration-300 group-hover:bg-[#7B61FF]/20 group-hover:border-[#7B61FF]/40">
+                            <svg class="w-5 h-5 text-[#7B61FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <p class="text-[#A1A1B5] text-sm leading-relaxed transition-colors duration-300 group-hover:text-white">No tienes tiempo para gestionar el contenido tú solo. Sabes que necesitas presencia digital pero el día a día no te deja enfocarte en eso.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border border-white/5 relative overflow-hidden group transition-all duration-300 ease-out hover:-translate-y-2 hover:bg-white/[0.08] hover:border-[#7B61FF]/40 hover:shadow-[0_15px_40px_rgba(123,97,255,0.2)]">
+                        <div class="w-10 h-10 bg-[#7B61FF]/10 rounded-lg flex items-center justify-center mb-4 border border-[#7B61FF]/20 transition-colors duration-300 group-hover:bg-[#7B61FF]/20 group-hover:border-[#7B61FF]/40">
+                            <svg class="w-5 h-5 text-[#7B61FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <p class="text-[#A1A1B5] text-sm leading-relaxed transition-colors duration-300 group-hover:text-white">Quieres escalar tu autoridad online sin depender de la improvisación. Necesitas un sistema, no publicaciones sueltas.</p>
+                    </div>
+                </div>
+                <p class="text-center text-sm md:text-base text-[#F5F7FA] font-medium opacity-90 mt-4">Si te identificas con alguno de estos puntos, el <span class="text-[#7B61FF] font-semibold">Sistema FOCO</span> está diseñado para ti.</p>
+            </section>
+
+            <section class="text-center w-full flex flex-col items-center mb-24">
+                <button data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="btn-primary inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 rounded-full text-white font-bold text-lg md:text-xl w-full sm:w-auto mb-4 tracking-wide">
+                    RESERVAR AUDITORÍA ESTRATÉGICA
+                </button>
+                <p class="text-sm md:text-base text-[#A1A1B5] font-light mb-2">
+                    Solo trabajamos con proyectos con potencial real de crecimiento.
+                </p>
+                <div class="flex items-center justify-center gap-2 text-xs text-[#A1A1B5] opacity-80">
+                    <span>Auditoría gratuita</span>
+                    <span>·</span>
+                    <span>Llamada de 30 min</span>
+                    <span>·</span>
+                    <span>Respuesta en menos de 24h</span>
+                </div>
+            </section>
+
+        </div>
+
+        <div class="w-full max-w-5xl mx-auto border-t border-white/10 pt-20 pb-20 px-4 sm:px-6">
+            <div class="text-center mb-20">
+                <span class="text-[#7B61FF] font-semibold tracking-widest uppercase text-sm mb-3 block">Flujo de Trabajo</span>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold mb-6">El <span class="text-gradient-primary">Sistema FOCO</span></h2>
+                <p class="text-[#A1A1B5] max-w-2xl mx-auto text-lg">Un sistema diseñado para delegar la creación de contenido estratégico, profesional y sostenible. Sin improvisación, sin caos y recuperando tu tiempo.</p>
+            </div>
+
+            <!-- Timeline Container -->
+            <div id="timeline-container" class="relative max-w-4xl mx-auto">
+                <!-- Línea central (Desktop) / Izquierda (Mobile) -->
+                <div class="absolute left-[15px] md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-px bg-white/10">
+                    <div id="timeline-progress" class="absolute top-0 left-0 w-full bg-gradient-to-b from-[#7B61FF] to-[#9F7AEA] shadow-[0_0_15px_rgba(123,97,255,0.8)] rounded-full transition-all duration-75 ease-out" style="height: 0%;"></div>
+                </div>
+
+                <!-- Fase 01 -->
+                <div class="relative flex flex-col md:flex-row justify-between items-center w-full mb-16 md:mb-24 group">
+                    <div class="hidden md:block w-5/12"></div>
+                    <div class="timeline-dot absolute left-[7px] md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-[#0A0A0F] border-2 border-[#7B61FF] rounded-full z-10 transition-all duration-300"></div>
+                    <div class="w-full pl-12 md:pl-0 md:w-5/12">
+                        <div class="glass-card-foco p-8 relative overflow-hidden transition-all duration-500 hover:-translate-y-2">
+                            <span class="font-heading absolute -bottom-6 -right-2 text-[8rem] font-black text-white/[0.02] select-none leading-none">01</span>
+                            <div class="text-[#9F7AEA] text-xs font-bold tracking-widest uppercase mb-3">Fase 01</div>
+                            <h3 class="font-heading text-2xl font-bold mb-3 text-white">Fundamentos</h3>
+                            <p class="text-[#A1A1B5] text-sm leading-relaxed mb-5">Antes de crear contenido, construimos claridad. Definimos qué quieres transmitir, cómo quieres posicionarte y qué tipo de contenido realmente puede ayudarte a crecer. Porque grabar sin dirección solo genera ruido.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-[#14141F]/80 border border-white/5 px-3 py-1.5 rounded-md text-[#A1A1B5]">Posicionamiento</span>
+                                <span class="text-xs bg-[#14141F]/80 border border-white/5 px-3 py-1.5 rounded-md text-[#A1A1B5]">Arquitectura</span>
+                                <span class="text-xs bg-[#14141F]/80 border border-white/5 px-3 py-1.5 rounded-md text-[#A1A1B5]">Narrativa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fase 02 -->
+                <div class="relative flex flex-col md:flex-row-reverse justify-between items-center w-full mb-16 md:mb-24 group">
+                    <div class="hidden md:block w-5/12"></div>
+                    <div class="timeline-dot absolute left-[7px] md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-[#0A0A0F] border-2 border-[#7B61FF] rounded-full z-10 transition-all duration-300"></div>
+                    <div class="w-full pl-12 md:pl-0 md:w-5/12 text-left md:text-right">
+                        <div class="glass-card-foco p-8 relative overflow-hidden transition-all duration-500 hover:-translate-y-2">
+                            <span class="font-heading absolute -bottom-6 md:-left-2 md:right-auto -right-2 text-[8rem] font-black text-white/[0.02] select-none leading-none">02</span>
+                            <div class="text-[#9F7AEA] text-xs font-bold tracking-widest uppercase mb-3">Fase 02</div>
+                            <h3 class="font-heading text-2xl font-bold mb-3 text-white">Preproducción</h3>
+                            <p class="text-[#A1A1B5] text-sm leading-relaxed mb-5">Aquí convertimos estrategia en ejecución. Investigamos tendencias, diseñamos conceptos, redactamos guiones y organizamos todo el sistema de contenido para maximizar claridad, retención e impacto. Cada pieza tiene una intención.</p>
+                            <div class="flex flex-wrap gap-2 md:justify-end">
+                                <span class="text-xs bg-[#14141F]/80 border border-white/5 px-3 py-1.5 rounded-md text-[#A1A1B5]">Guiones & Hooks</span>
+                                <span class="text-xs bg-[#14141F]/80 border border-white/5 px-3 py-1.5 rounded-md text-[#A1A1B5]">Calendario</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fase 03 -->
+                <div class="relative flex flex-col md:flex-row justify-between items-center w-full mb-16 md:mb-24 group">
+                    <div class="hidden md:block w-5/12"></div>
+                    <div class="timeline-dot absolute left-[7px] md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-[#0A0A0F] border-2 border-[#7B61FF] rounded-full z-10 transition-all duration-300"></div>
+                    <div class="w-full pl-12 md:pl-0 md:w-5/12">
+                        <div class="glass-card-foco p-8 relative overflow-hidden transition-all duration-500 hover:-translate-y-2">
+                            <span class="font-heading absolute -bottom-6 -right-2 text-[8rem] font-black text-white/[0.02] select-none leading-none">03</span>
+                            <div class="text-[#9F7AEA] text-xs font-bold tracking-widest uppercase mb-3">Fase 03</div>
+                            <h3 class="font-heading text-2xl font-bold mb-3 text-white">Producción</h3>
+                            <p class="text-[#A1A1B5] text-sm leading-relaxed mb-5">Grabamos contenido pensado para comunicar profesionalidad, generar confianza y captar atención desde los primeros segundos. Sin postureo. Sin vídeos vacíos. Solo contenido alineado con tu marca y tus objetivos.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-[#14141F]/80 border border-white/5 px-3 py-1.5 rounded-md text-[#A1A1B5]">Dirección Creativa</span>
+                                <span class="text-xs bg-[#14141F]/80 border border-white/5 px-3 py-1.5 rounded-md text-[#A1A1B5]">Grabación por lotes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fase 04 -->
+                <div class="relative flex flex-col md:flex-row-reverse justify-between items-center w-full mb-16 md:mb-24 group">
+                    <div class="hidden md:block w-5/12"></div>
+                    <div class="timeline-dot absolute left-[7px] md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-[#0A0A0F] border-2 border-[#7B61FF] rounded-full z-10 transition-all duration-300"></div>
+                    <div class="w-full pl-12 md:pl-0 md:w-5/12 text-left md:text-right">
+                        <div class="glass-card-foco p-8 relative overflow-hidden transition-all duration-500 hover:-translate-y-2">
+                            <span class="font-heading absolute -bottom-6 md:-left-2 md:right-auto -right-2 text-[8rem] font-black text-white/[0.02] select-none leading-none">04</span>
+                            <div class="text-[#9F7AEA] text-xs font-bold tracking-widest uppercase mb-3">Fase 04</div>
+                            <h3 class="font-heading text-2xl font-bold mb-3 text-white">Postproducción y Entrega</h3>
+                            <p class="text-[#A1A1B5] text-sm leading-relaxed mb-5">Transformamos el material bruto en piezas listas para publicar. Optimizamos cada vídeo para aumentar retención, claridad y percepción de valor en redes sociales. Todo organizado y preparado para escalar.</p>
+                            <div class="flex flex-wrap gap-2 md:justify-end">
+                                <span class="text-xs bg-[#14141F]/80 border border-white/5 px-3 py-1.5 rounded-md text-[#A1A1B5]">Edición Dinámica</span>
+                                <span class="text-xs bg-[#14141F]/80 border border-white/5 px-3 py-1.5 rounded-md text-[#A1A1B5]">Motion Graphics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fase 05 -->
+                <div class="relative flex flex-col md:flex-row justify-between items-center w-full group">
+                    <div class="hidden md:block w-5/12"></div>
+                    <div class="timeline-dot absolute left-[7px] md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-[#0A0A0F] border-2 border-[#7B61FF] rounded-full z-10 transition-all duration-300"></div>
+                    <div class="w-full pl-12 md:pl-0 md:w-5/12">
+                        <div class="glass-card-foco p-8 relative overflow-hidden transition-all duration-500 hover:-translate-y-2 border-[#7B61FF]/30 shadow-[0_10px_40px_rgba(123,97,255,0.15)]">
+                            <span class="font-heading absolute -bottom-6 -right-2 text-[8rem] font-black text-white/[0.02] select-none leading-none">05</span>
+                            <div class="text-gradient-primary text-xs font-bold tracking-widest uppercase mb-3">Fase 05 (Bonus)</div>
+                            <h3 class="font-heading text-2xl font-bold mb-3 text-white">Optimización</h3>
+                            <p class="text-[#A1A1B5] text-sm leading-relaxed mb-5">El contenido no termina cuando se publica. Analizamos qué funciona, qué genera atención y qué convierte mejor para iterar continuamente el sistema y potenciar los formatos ganadores.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-[#7B61FF]/20 text-white border border-[#7B61FF]/30 px-3 py-1.5 rounded-md font-medium">Data Analytics</span>
+                                <span class="text-xs bg-[#7B61FF]/20 text-white border border-[#7B61FF]/30 px-3 py-1.5 rounded-md font-medium">Refinamiento</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="w-full max-w-6xl mx-auto border-t border-white/10 pt-20 pb-24">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-5xl font-bold mb-6">Marcas que ya tienen <span class="text-gradient-primary">Estructura</span></h2>
+                <p class="text-[#A1A1B5] max-w-2xl mx-auto text-lg">Resultados reales. Sin fórmulas mágicas. Solo sistema, dirección y ejecución constante.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 px-4 sm:px-6">
+                
+                <!-- CASO 1: Lo Quiero Limpio -->
+                <div class="glass-card p-6 md:p-8 rounded-2xl flex flex-col border border-[#7B61FF]/10 transition-transform hover:-translate-y-1 duration-300">
+                    <div class="mb-6">
+                        <span class="inline-block text-[10px] font-bold tracking-widest text-[#7B61FF] bg-[#7B61FF]/10 border border-[#7B61FF]/20 px-3 py-1 rounded-full uppercase mb-4">EMPRESA DE LIMPIEZA · MÉRIDA</span>
+                        <div class="font-heading text-4xl font-extrabold text-white mb-2 leading-none">73.300 <span class="text-xl text-[#A1A1B5] font-medium">views</span></div>
+                        <p class="text-xs text-[#A1A1B5]">en un único vídeo orgánico. Sin publicidad. Sin inversión en paid media.</p>
+                    </div>
+                    <div class="flex flex-col gap-4 mt-auto">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#7B61FF] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <p class="text-sm text-[#F5F7FA] font-light leading-relaxed"><span class="font-medium text-white">Vídeo orgánico a 73K reproducciones</span> — contenido pensado para captar atención desde el primer segundo.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#7B61FF] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <p class="text-sm text-[#F5F7FA] font-light leading-relaxed"><span class="font-medium text-white">Posición #1 en Google</span> para 'empresa de limpieza Mérida' — visibilidad orgánica que genera contactos reales de forma continua.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#7B61FF] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <p class="text-sm text-[#F5F7FA] font-light leading-relaxed"><span class="font-medium text-white">Tres vídeos anclados</span> en el perfil con 27K, 73K y 32K visualizaciones — autoridad de marca construida desde el contenido.</p>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-[#A1A1B5] italic mt-6 pt-4 border-t border-white/5">Contenido creado íntegramente con dirección estratégica de Proemote. 0€ invertidos en publicidad.</p>
+                </div>
+
+                <!-- CASO 2: Centro de Belleza Juany -->
+                <div class="glass-card p-6 md:p-8 rounded-2xl flex flex-col border border-[#7B61FF]/30 shadow-[0_0_30px_rgba(123,97,255,0.1)] relative transition-transform hover:-translate-y-1 duration-300 md:-translate-y-4">
+                    <div class="mb-6">
+                        <span class="inline-block text-[10px] font-bold tracking-widest text-[#7B61FF] bg-[#7B61FF]/10 border border-[#7B61FF]/20 px-3 py-1 rounded-full uppercase mb-4">CENTRO DE ESTÉTICA · BADAJOZ</span>
+                        <div class="font-heading text-4xl font-extrabold text-white mb-2 leading-none">+300% <span class="text-xl text-[#A1A1B5] font-medium">alcance</span></div>
+                        <p class="text-xs text-[#A1A1B5]">de 200-300 visitas de media a más de 1.000 por publicación.</p>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#7B61FF] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <p class="text-sm text-[#F5F7FA] font-light leading-relaxed"><span class="font-medium text-white">Triplicamos el alcance orgánico</span> en menos de 3 meses — más visibilidad, más descubrimientos, más nuevas clientas.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#7B61FF] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <p class="text-sm text-[#F5F7FA] font-light leading-relaxed"><span class="font-medium text-white">Agenda completa.</span> La clienta nos avisó directamente: 'Publica que estoy llena de citas, no doy abasto' — el tipo de problema que queremos generarte.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#7B61FF] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <p class="text-sm text-[#F5F7FA] font-light leading-relaxed"><span class="font-medium text-white">Mayor interacción y comunidad activa</span> — el perfil pasó de publicar sin respuesta a generar conversación real con su audiencia.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 rounded-xl bg-[#0A0A0F]/50 border-l-2 border-[#7B61FF]">
+                        <p class="text-sm text-white font-medium italic">"Publica que estoy llena de citas, no doy abasto."</p>
+                        <p class="text-xs text-[#A1A1B5] mt-2">— Clienta, Centro de Belleza Juany</p>
+                    </div>
+                </div>
+
+                <!-- CASO 3: XTRM Hard -->
+                <div class="glass-card p-6 md:p-8 rounded-2xl flex flex-col border border-[#7B61FF]/10 transition-transform hover:-translate-y-1 duration-300">
+                    <div class="mb-6">
+                        <span class="inline-block text-[10px] font-bold tracking-widest text-[#7B61FF] bg-[#7B61FF]/10 border border-[#7B61FF]/20 px-3 py-1 rounded-full uppercase mb-4">MARCA DEPORTIVA</span>
+                        <div class="font-heading text-4xl font-extrabold text-white mb-2 leading-none">+100.000 <span class="text-xl text-[#A1A1B5] font-medium">personas</span></div>
+                        <p class="text-xs text-[#A1A1B5]">alcanzadas con menos de 1.000 seguidores en el perfil.</p>
+                    </div>
+                    <div class="flex flex-col gap-4 mt-auto">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#7B61FF] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <p class="text-sm text-[#F5F7FA] font-light leading-relaxed"><span class="font-medium text-white">Alcance 100x superior</span> al tamaño de la comunidad — contenido distribuido más allá de los seguidores existentes.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#7B61FF] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <p class="text-sm text-[#F5F7FA] font-light leading-relaxed"><span class="font-medium text-white">Vídeos entre 10.000 y 20.000 reproducciones</span> — visibilidad real para una marca en etapa de construcción.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#7B61FF] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <p class="text-sm text-[#F5F7FA] font-light leading-relaxed"><span class="font-medium text-white">Presencia digital profesionalizada</span> desde el inicio — imagen de marca alineada con el posicionamiento del sector.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Preguntas Frecuentes -->
+            <div class="w-full max-w-3xl mx-auto pt-24 pb-16 px-4 sm:px-6">
+                <div class="text-center mb-12">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Preguntas frecuentes</h2>
+                </div>
+                
+                <div class="space-y-4 text-left">
+                    <!-- FAQ 1 -->
+                    <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+                        <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleFaq(this)">
+                            <span class="font-semibold text-white pr-4">¿Tengo que grabar yo o lo hacéis vosotros?</span>
+                            <svg class="w-5 h-5 text-[#7B61FF] transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                            <p class="text-[#A1A1B5] text-sm pb-5 leading-relaxed">Depende del formato y del proyecto. En la mayoría de casos realizamos la grabación nosotros con dirección creativa incluida. Si el proyecto lo requiere, también organizamos sesiones de grabación por lotes para maximizar tu tiempo: grabas una vez y tienes contenido para semanas.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ 2 -->
+                    <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+                        <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleFaq(this)">
+                            <span class="font-semibold text-white pr-4">¿Cuánto tiempo tarda en arrancar el sistema?</span>
+                            <svg class="w-5 h-5 text-[#7B61FF] transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                            <p class="text-[#A1A1B5] text-sm pb-5 leading-relaxed">La fase de Fundamentos suele durar entre 1 y 2 semanas. A partir de ahí el sistema entra en producción. Los primeros resultados de alcance se ven generalmente entre la semana 3 y la semana 6, dependiendo del punto de partida de la marca.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ 3 -->
+                    <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+                        <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleFaq(this)">
+                            <span class="font-semibold text-white pr-4">¿Funciona para cualquier tipo de negocio?</span>
+                            <svg class="w-5 h-5 text-[#7B61FF] transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                            <p class="text-[#A1A1B5] text-sm pb-5 leading-relaxed">No trabajamos con cualquier proyecto. El Sistema FOCO está diseñado para negocios y marcas con un servicio o producto real, una propuesta de valor clara y disposición para construir autoridad a medio plazo. Si encajamos, te lo decimos en la primera llamada. Si no, también.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ 4 -->
+                    <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+                        <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleFaq(this)">
+                            <span class="font-semibold text-white pr-4">¿Qué pasa si ya tengo redes sociales activas?</span>
+                            <svg class="w-5 h-5 text-[#7B61FF] transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                            <p class="text-[#A1A1B5] text-sm pb-5 leading-relaxed">Mejor. Partimos del análisis de lo que ya tienes — qué funciona, qué no y por qué — para construir la estrategia desde datos reales, no desde cero.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ 5 -->
+                    <div class="glass-card rounded-2xl border border-white/5 overflow-hidden">
+                        <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none" onclick="toggleFaq(this)">
+                            <span class="font-semibold text-white pr-4">¿Cuánto cuesta?</span>
+                            <svg class="w-5 h-5 text-[#7B61FF] transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                            <p class="text-[#A1A1B5] text-sm pb-5 leading-relaxed">Cada proyecto se presupuesta de forma personalizada según el alcance, los formatos y los objetivos. La auditoría inicial es gratuita y sin compromiso. En esa primera llamada valoramos si hay encaje y te presentamos una propuesta concreta.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón CTA repetido abajo modificado -->
+            <div class="mt-16 text-center flex flex-col items-center px-4 sm:px-6">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">¿Tu marca merece este sistema?</h2>
+                <p class="text-[#A1A1B5] text-lg max-w-2xl mx-auto mb-8">Analizamos tu proyecto sin compromiso. Si hay potencial real de crecimiento, te presentamos cómo trabajaríamos juntos.</p>
+                <button data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="btn-primary inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 rounded-full text-white font-bold text-lg w-full sm:w-auto mb-4 tracking-wide">
+                    QUIERO ESTOS RESULTADOS. RESERVAR AUDITORÍA.
+                </button>
+                <div class="flex items-center justify-center gap-2 text-xs text-[#A1A1B5] opacity-80">
+                    <span>Auditoría gratuita</span>
+                    <span>·</span>
+                    <span>Llamada de 30 min</span>
+                    <span>·</span>
+                    <span>Respuesta en menos de 24h</span>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER GENERAL DE PROEMOTE -->
+    <footer class="bg-bgMain border-t border-white/5 py-12 relative z-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            <!-- Izquierda: Logo, Copyright y Redes -->
+            <div class="flex flex-col items-center md:items-start gap-4">
+                <div class="flex flex-col md:flex-row items-center md:justify-start gap-4 md:gap-6 text-center md:text-left">
+                    <img src="https://i.imgur.com/2mXnkGe.png" alt="Proemote Logo Footer" class="h-12 md:h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity">
+                    <p class="text-sm text-textSecondary">© 2026 Proemote Studio. <br class="hidden md:block"><em class="italic text-white/70">Shaping what matters.</em></p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-10 h-10 bg-bgSurface rounded-full border border-white/10 flex items-center justify-center text-textSecondary hover:bg-primary hover:text-white transition-all shadow-lg hover:-translate-y-1">
+                        <i class="ph-fill ph-linkedin-logo text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/proemote.es/" target="_blank" class="w-10 h-10 bg-bgSurface rounded-full border border-white/10 flex items-center justify-center text-textSecondary hover:bg-primary hover:text-white transition-all shadow-lg hover:-translate-y-1">
+                        <i class="ph-fill ph-instagram-logo text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Centro: Enlaces Legales -->
+            <div class="flex items-center justify-center gap-6 text-sm text-textSecondary">
+                <a href="https://web.proemote.es/aviso-legal.html" class="hover:text-primary transition-colors">Aviso Legal</a>
+                <a href="https://web.proemote.es/privacidad.html" target="_blank" class="hover:text-primary transition-colors">Política de Privacidad</a>
+            </div>
+
+            <!-- Derecha: Espacio vacío para equilibrar el grid -->
+            <div class="hidden md:block"></div>
+        </div>
+    </footer>
+
+    <!-- Cal element-click embed code begins -->
+    <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", "auditoria-gratuita", {origin:"https://app.cal.com"});
+
+        Cal.ns["auditoria-gratuita"]("ui", {
+            "cssVarsPerTheme":{
+                "light":{"cal-brand":"#7B61FF"},
+                "dark":{"cal-brand":"#7B61FF"}
+            },
+            "hideEventTypeDetails":false,
+            "layout":"month_view"
+        });
+    </script>
+    <!-- Cal element-click embed code ends -->
+
+    <script>
+        function toggleFaq(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('svg');
+            
+            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                content.style.maxHeight = '0px';
+                content.style.opacity = '0';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.style.opacity = '1';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const timelineContainer = document.getElementById('timeline-container');
+            if (!timelineContainer) return;
+
+            const timelineProgress = document.getElementById('timeline-progress');
+            const phases = timelineContainer.querySelectorAll('.group');
+
+            // Configurar estado inicial: Ocultar tarjetas, asegurar que los puntos están huecos
+            phases.forEach(phase => {
+                const card = phase.querySelector('.glass-card-foco');
+                if(card) {
+                    card.classList.add('opacity-0', 'translate-y-12', 'transition-all', 'duration-[600ms]', 'ease-out');
+                }
+            });
+
+            const handleScroll = () => {
+                const rect = timelineContainer.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // La "punta del láser" está al 65% de la altura de la pantalla
+                const triggerPoint = windowHeight * 0.65; 
+                
+                // Calcular la altura exacta de la línea de progreso en píxeles
+                let lineHeight = triggerPoint - rect.top;
+                
+                // Limitar la altura de la línea a los bordes del contenedor
+                if (lineHeight < 0) lineHeight = 0;
+                if (lineHeight > rect.height) lineHeight = rect.height;
+                
+                // Aplicar la altura a la línea
+                timelineProgress.style.height = `${lineHeight}px`;
+
+                // Evaluar colisiones milimétricas
+                phases.forEach(phase => {
+                    const card = phase.querySelector('.glass-card-foco');
+                    const dot = phase.querySelector('.timeline-dot');
+                    
+                    if (!card || !dot) return;
+
+                    // Posición Y del centro del nodo, relativa al contenedor
+                    const dotRect = dot.getBoundingClientRect();
+                    const dotCenterY = (dotRect.top - rect.top) + (dotRect.height / 2);
+
+                    // Si la línea toca o sobrepasa el centro del nodo
+                    if (lineHeight >= dotCenterY) {
+                        // 1. RELLENAR NODO
+                        dot.classList.remove('bg-[#0A0A0F]');
+                        dot.classList.add('bg-[#7B61FF]', 'scale-150', 'shadow-[0_0_20px_rgba(123,97,255,0.8)]');
+                        
+                        // 2. APARECER TARJETA
+                        card.classList.remove('opacity-0', 'translate-y-12');
+                        card.classList.add('opacity-100');
+                    } else {
+                        // 1. VACIAR NODO (Hueco)
+                        dot.classList.add('bg-[#0A0A0F]');
+                        dot.classList.remove('bg-[#7B61FF]', 'scale-150', 'shadow-[0_0_20px_rgba(123,97,255,0.8)]');
+                        
+                        // 2. OCULTAR TARJETA
+                        card.classList.add('opacity-0', 'translate-y-12');
+                        card.classList.remove('opacity-100');
+                    }
+                });
+            };
+
+            // Ejecutar en scroll
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            
+            // Ejecutar una vez al cargar por si el usuario actualiza a mitad de página
+            handleScroll();
+
+            // Efecto Spotlight dinámico en las tarjetas de FOCO
+            const focoCards = document.querySelectorAll('.glass-card-foco');
+            focoCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+
+            // Mouse Tracking Glow Global
+            const mouseGlow = document.getElementById('mouse-glow');
+            if (mouseGlow) {
+                document.addEventListener('mousemove', (e) => {
+                    mouseGlow.style.left = e.clientX + 'px';
+                    mouseGlow.style.top = e.clientY + 'px';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
