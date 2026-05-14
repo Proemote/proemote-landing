@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso Legal | Proemote</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgMain: '#0A0A0F',
+                        bgSurface: '#14141F',
+                        primary: '#7B61FF',
+                        accent: '#9F7AEA',
+                        textMain: '#F5F7FA',
+                        textSecondary: '#A1A1B5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\\'40\\' height=\\'40\\' viewBox=\\'0 0 40 40\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h40v40H0V0zm1 1h38v38H1V1z\\' fill=\\'%23ffffff\\' fill-opacity=\\'0.02\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base & Scrollbar */
+        body { background-color: #0A0A0F; color: #F5F7FA; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A0A0F; }
+        ::-webkit-scrollbar-thumb { background: #14141F; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
+        ::-webkit-scrollbar-thumb:hover { background: #7B61FF; }
+
+        /* UI Components */
+        .glass-nav { background: rgba(10, 10, 15, 0.7); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass-card { background: linear-gradient(180deg, rgba(20, 20, 31, 0.9) 0%, rgba(20, 20, 31, 0.5) 100%); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+
+        /* Mouse Tracking Glow */
+        #mouse-glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(123,97,255,0.08) 0%, rgba(10,10,15,0) 60%); border-radius: 50%; pointer-events: none; z-index: 1; transform: translate(-50%, -50%); transition: opacity 0.5s ease; mix-blend-mode: screen; }
+
+        /* Typography Gradients */
+        .text-gradient-primary { background: linear-gradient(135deg, #9F7AEA 0%, #7B61FF 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Legal Content Styling */
+        .legal-content h2 { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 500; color: #fff; margin-top: 2rem; margin-bottom: 1rem; }
+        .legal-content h3 { font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 500; color: #fff; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .legal-content p { color: #A1A1B5; margin-bottom: 1rem; line-height: 1.7; }
+        .legal-content ul { color: #A1A1B5; margin-bottom: 1rem; list-style-type: disc; padding-left: 1.5rem; }
+        .legal-content li { margin-bottom: 0.5rem; }
+        .legal-content a { color: #7B61FF; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(123,97,255,0.3); transition: all 0.3s; }
+        .legal-content a:hover { color: #9F7AEA; text-decoration-color: #9F7AEA; }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white relative">
+
+    <div id="mouse-glow"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
+                <img src="https://i.imgur.com/jwddFTY.png" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain">
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-textSecondary relative z-10">
+                <a href="index.html#enfoque" class="hover:text-textMain transition-colors">Sistema</a>
+                <a href="index.html#foco" class="hover:text-textMain transition-colors">Método</a>
+                <a href="index.html#contacto" class="hover:text-textMain transition-colors">Contacto</a>
+            </div>
+            <!-- Botón morado destacado -->
+            <a href="index.html#contacto" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-primary rounded-full hover:bg-accent shadow-[0_0_15px_rgba(123,97,255,0.4)] transition-all duration-300 relative z-10">
+                ¿Hablamos?
+            </a>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO LEGAL -->
+    <section class="relative min-h-screen pt-32 pb-24 overflow-hidden bg-grid-pattern">
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <div class="glass-card rounded-[2rem] p-8 md:p-14 border border-white/5 relative overflow-hidden shadow-2xl">
+                <!-- Resplandor sutil de fondo -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+
+                <div class="mb-10 pb-8 border-b border-white/10">
+                    <h1 class="font-heading text-4xl md:text-5xl font-medium mb-4 text-white">
+                        <span class="text-gradient-primary">Aviso Legal</span>
+                    </h1>
+                    <p class="text-textSecondary">Última actualización: Mayo de 2026</p>
+                </div>
+                
+                <div class="legal-content" id="legal-text-container">
+                    <p>Hemos redactado este Aviso Legal para establecer las condiciones que regulan el acceso, navegación y uso de la página web de Proemote, así como para garantizar la transparencia sobre la titularidad del sitio y el marco normativo que lo rige. Es importante que leas atentamente este Aviso Legal antes de utilizar nuestra web, ya que su uso implica la aceptación plena de los términos aquí establecidos.</p>
+
+                    <h2>1. Información general</h2>
+                    <p>En cumplimiento con lo dispuesto en la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa que el presente sitio web, <a href="https://web.proemote.es" target="_blank">web.proemote.es</a>, es titularidad de Carlos Molina Márquez, actuando comercialmente bajo la marca Proemote.</p>
+                    <p>Para cualquier consulta relacionada con el sitio web o los servicios ofrecidos, puede contactarse a través del correo electrónico <a href="mailto:info@proemote.es">info@proemote.es</a>.</p>
+                    <p>Proemote desarrolla servicios relacionados con marketing digital, branding, diseño web, automatización, formación, consultoría estratégica y organización de eventos.</p>
+
+                    <h2>2. Objeto del sitio web</h2>
+                    <p>El presente sitio web tiene como finalidad ofrecer información sobre los servicios, soluciones y proyectos desarrollados por Proemote, así como facilitar el contacto con clientes, colaboradores y usuarios interesados en sus servicios profesionales.</p>
+                    <p>Asimismo, el sitio podrá incluir formularios de contacto, contenidos informativos, recursos descargables, artículos, portfolios y otros elementos relacionados con la actividad profesional de la marca.</p>
+
+                    <h2>3. Condiciones de uso</h2>
+                    <p>El acceso, navegación y utilización del presente sitio web atribuye la condición de usuario e implica la aceptación plena y sin reservas de todas las disposiciones incluidas en este Aviso Legal.</p>
+                    <p>El usuario se compromete a hacer un uso adecuado del sitio web y de sus contenidos, conforme a la legislación vigente, la buena fe, el orden público y las presentes condiciones.</p>
+                    <p>Queda expresamente prohibido:</p>
+                    <ul>
+                        <li>Utilizar el sitio web con fines ilícitos o fraudulentos.</li>
+                        <li>Introducir virus, malware o cualquier elemento susceptible de causar daños.</li>
+                        <li>Intentar acceder a áreas restringidas del sistema o vulnerar medidas de seguridad.</li>
+                        <li>Realizar acciones que puedan deteriorar, inutilizar o sobrecargar el funcionamiento del sitio web.</li>
+                        <li>Utilizar los contenidos del sitio con fines comerciales sin autorización expresa.</li>
+                    </ul>
+                    <p>Proemote se reserva el derecho a denegar o retirar el acceso al sitio web a aquellos usuarios que incumplan las presentes condiciones.</p>
+
+                    <h2>4. Propiedad intelectual e industrial</h2>
+                    <p>Todos los contenidos del sitio web, incluyendo de forma enunciativa pero no limitativa textos, imágenes, vídeos, diseños, logotipos, identidad visual, código fuente, gráficos, iconos, documentos y demás elementos, son titularidad de Proemote o se dispone de las licencias o autorizaciones necesarias para su uso.</p>
+                    <p>Todos los contenidos están protegidos por la normativa vigente en materia de propiedad intelectual e industrial.</p>
+                    <p>Queda prohibida la reproducción, distribución, transformación, comunicación pública o cualquier otra forma de explotación, total o parcial, sin autorización previa, expresa y por escrito del titular.</p>
+                    <p>El acceso al sitio web no implica en ningún caso cesión, renuncia o transmisión de derechos de propiedad intelectual o industrial.</p>
+
+                    <h2>5. Responsabilidad</h2>
+                    <p>Proemote no garantiza la disponibilidad permanente del sitio web ni la inexistencia de errores técnicos, interrupciones del servicio o fallos derivados de causas ajenas a su control.</p>
+                    <p>Asimismo, no se responsabiliza de:</p>
+                    <ul>
+                        <li>Los daños o perjuicios derivados del uso del sitio web.</li>
+                        <li>La presencia de virus u otros elementos maliciosos introducidos por terceros.</li>
+                        <li>La incorrecta utilización de los contenidos por parte de los usuarios.</li>
+                        <li>Los contenidos o políticas de privacidad de sitios web externos enlazados desde esta página.</li>
+                    </ul>
+                    <p>El usuario utiliza el sitio web bajo su propia responsabilidad.</p>
+
+                    <h2>6. Enlaces externos</h2>
+                    <p>El presente sitio web puede incluir enlaces a páginas web de terceros con la finalidad de facilitar información complementaria al usuario.</p>
+                    <p>Proemote no controla ni asume responsabilidad alguna sobre dichos sitios externos, sus contenidos, servicios o políticas de privacidad.</p>
+
+                    <h2>7. Protección de datos personales</h2>
+                    <p>Proemote cumple con la normativa vigente en materia de protección de datos personales, especialmente el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD).</p>
+                    <p>Los datos personales facilitados a través de formularios, correos electrónicos o cualquier otro medio de contacto serán tratados con la finalidad de:</p>
+                    <ul>
+                        <li>Gestionar consultas y solicitudes.</li>
+                        <li>Prestar servicios profesionales.</li>
+                        <li>Mantener comunicaciones comerciales cuando exista consentimiento previo.</li>
+                        <li>Cumplir obligaciones legales aplicables.</li>
+                    </ul>
+                    <p>El usuario podrá ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad enviando una solicitud a <a href="mailto:info@proemote.es">info@proemote.es</a>, indicando claramente su petición y adjuntando documento acreditativo de identidad.</p>
+                    <p>Para más información, el usuario puede consultar la <a href="https://web.proemote.es/privacidad.html">Política de Privacidad y Cookies</a>.</p>
+
+                    <h2>8. Uso de cookies</h2>
+                    <p>Este sitio web puede utilizar cookies propias y de terceros para mejorar la experiencia de navegación, analizar el tráfico y ofrecer contenidos personalizados.</p>
+                    <p>El usuario puede obtener más información sobre el uso de cookies en la correspondiente <a href="https://web.proemote.es/privacidad.html">Política de Privacidad y Cookies</a>.</p>
+
+                    <h2>9. Modificaciones</h2>
+                    <p>Proemote se reserva el derecho a modificar en cualquier momento y sin previo aviso los contenidos del sitio web, así como el presente Aviso Legal, para adaptarlos a novedades legislativas, técnicas o de funcionamiento.</p>
+
+                    <h2>10. Legislación aplicable y jurisdicción</h2>
+                    <p>Las presentes condiciones se rigen por la legislación española.</p>
+                    <p>En caso de conflicto o controversia relacionada con el acceso o uso del sitio web, las partes se someterán a los Juzgados y Tribunales que correspondan conforme a la normativa aplicable en materia de consumidores y usuarios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-bgMain border-t border-white/5 py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            <!-- Izquierda: Logo, Copyright y Redes -->
+            <div class="flex flex-col items-center md:items-start gap-4">
+                <div class="flex flex-col md:flex-row items-center md:justify-start gap-4 md:gap-6 text-center md:text-left">
+                    <img src="https://i.imgur.com/2mXnkGe.png" alt="Proemote Logo Footer" class="h-12 md:h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity">
+                    <p class="text-sm text-textSecondary">© 2026 Proemote Studio. <br class="hidden md:block"><em class="italic text-white/70">Shaping what matters.</em></p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-10 h-10 bg-bgSurface rounded-full border border-white/10 flex items-center justify-center text-textSecondary hover:bg-primary hover:text-white transition-all shadow-lg hover:-translate-y-1">
+                        <i class="ph-fill ph-linkedin-logo text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/proemote.es/" target="_blank" class="w-10 h-10 bg-bgSurface rounded-full border border-white/10 flex items-center justify-center text-textSecondary hover:bg-primary hover:text-white transition-all shadow-lg hover:-translate-y-1">
+                        <i class="ph-fill ph-instagram-logo text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Centro: Enlaces Legales -->
+            <div class="flex items-center justify-center gap-6 text-sm text-textSecondary">
+                <a href="https://web.proemote.es/aviso-legal.html" class="text-primary transition-colors">Aviso Legal</a>
+                <a href="https://web.proemote.es/privacidad.html" target="_blank" class="hover:text-primary transition-colors">Política de Privacidad</a>
+            </div>
+
+            <!-- Derecha: Espacio vacío para equilibrar el grid -->
+            <div class="hidden md:block"></div>
+        </div>
+    </footer>
+
+    <!-- WIDGET DE WHATSAPP -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3 group">
+        <span class="hidden md:block px-4 py-2 bg-bgSurface border border-white/10 rounded-xl text-sm font-medium text-white shadow-lg opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
+            Hablar por WhatsApp
+        </span>
+        <a href="https://wa.me/34641576286" target="_blank" rel="noopener noreferrer" class="relative w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300">
+            <div class="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:bg-[#25D366]/30 transition-colors"></div>
+            <i class="ph-fill ph-whatsapp-logo text-3xl text-white"></i>
+        </a>
+    </div>
+
+    <!-- Scripts de Control -->
+    <script>
+        // Mouse Glow
+        const glow = document.getElementById('mouse-glow');
+        let mouseX = window.innerWidth/2, mouseY = window.innerHeight/2, glowX = mouseX, glowY = mouseY;
+        document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; glow.style.opacity = '1'; });
+        document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+        function animateGlow() {
+            glowX += (mouseX - glowX)*0.1; glowY += (mouseY - glowY)*0.1;
+            glow.style.left = `${glowX}px`; glow.style.top = `${glowY}px`;
+            requestAnimationFrame(animateGlow);
+        }
+        animateGlow();
+    </script>
+</body>
+</html>
