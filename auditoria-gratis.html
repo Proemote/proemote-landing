@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auditoría Estratégica | Proemote</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        bgMain: '#0A0A0F',
+                        bgSurface: '#14141F',
+                        primary: '#7B61FF',
+                        accent: '#9F7AEA',
+                        textMain: '#F5F7FA',
+                        textSecondary: '#A1A1B5',
+                        danger: '#FF6B6B'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bgMain: #0A0A0F;
+            --bgSurface: #14141F;
+            --primary: #7B61FF;
+            --accent: #9F7AEA;
+            --textMain: #F5F7FA;
+            --textSecondary: #A1A1B5;
+            --danger: #FF6B6B;
+        }
+
+        body {
+            background-color: var(--bgMain);
+            color: var(--textMain);
+            overflow-x: hidden;
+        }
+
+        /* Tipografía dinámica */
+        h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
+        
+        /* Utilidades de Diseño Premium */
+        .text-gradient {
+            background: linear-gradient(135deg, #F5F7FA 0%, #A1A1B5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .text-gradient-primary {
+            background: linear-gradient(135deg, #7B61FF 0%, #9F7AEA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-panel {
+            background: rgba(20, 20, 31, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .glass-card-hover {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card-hover:hover {
+            background: rgba(123, 97, 255, 0.05);
+            border-color: rgba(123, 97, 255, 0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -10px rgba(123, 97, 255, 0.2);
+        }
+
+        /* Botón Principal */
+        .btn-glow {
+            background: var(--primary, #7B61FF);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: inherit;
+            background: linear-gradient(135deg, #7B61FF, #9F7AEA);
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        .btn-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(123, 97, 255, 0.5);
+        }
+        .btn-glow:hover::before { opacity: 1; }
+
+        /* Efecto de entrada suave (AOS) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Efectos de fondo eliminados para mantener un negro puro y limpio */
+    </style>
+</head>
+<body class="antialiased bg-[#0A0A0F] text-[#F5F7FA] selection:bg-primary/30 selection:text-white">
+
+    <div class="fixed bottom-0 left-0 w-full p-4 bg-[#0A0A0F]/80 backdrop-blur-xl border-t border-white/10 z-50 md:hidden flex justify-center pb-8 animate-[slideUp_0.5s_ease-out]">
+        <button data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="btn-glow w-full py-4 rounded-full text-white font-bold text-base flex items-center justify-center gap-2">
+            Reservar Auditoría Gratis <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+    </div>
+
+    <main class="w-full">
+        <section class="min-h-[90vh] flex flex-col justify-center items-center px-4 pt-16 md:pt-24 pb-16 md:pb-24 max-w-5xl mx-auto text-center relative reveal">
+            
+            <!-- Eyebrow -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-8">
+                <div class="w-2 h-2 rounded-full bg-danger animate-pulse"></div>
+                <span class="text-xs md:text-sm font-medium text-textSecondary uppercase tracking-wider">La mayoría publica "por estar". Eso no genera clientes.</span>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-6 tracking-tight">
+                Tu negocio puede ser muy bueno… pero si tu presencia online <span class="text-gradient-primary">no transmite confianza,</span> estás perdiendo clientes.
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="text-lg md:text-xl text-textSecondary max-w-3xl mx-auto mb-10 font-light leading-relaxed">
+                En esta auditoría gratuita analizamos tus redes sociales, contenido y presencia digital para mostrarte exactamente qué está frenando tu crecimiento y cómo empezar a solucionarlo.
+            </p>
+
+            <!-- Hero CTA -->
+            <div class="flex flex-col items-center w-full max-w-md mx-auto">
+                <button data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="btn-glow w-full md:w-auto px-8 md:px-12 py-5 rounded-full text-white font-bold text-lg hidden md:inline-flex items-center justify-center gap-2 mb-4">
+                    Reservar auditoría gratuita
+                </button>
+                <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs md:text-sm text-textSecondary opacity-80">
+                    <span class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-primary"></i> Sin compromiso</span>
+                    <span class="hidden md:block">·</span>
+                    <span class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-primary"></i> Diagnóstico personalizado</span>
+                    <span class="hidden md:block">·</span>
+                    <span class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-primary"></i> Plan de acción real</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Barra de Credibilidad -->
+        <div class="w-full border-y border-white/5 bg-[#14141F]/60 py-6 relative z-20 reveal">
+            <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 text-sm text-textSecondary font-medium">
+                <span class="flex items-center gap-2">🏆 Premio Impulso 2025 · Diputación de Badajoz</span>
+                <span class="flex items-center gap-2">⭐⭐⭐⭐⭐ 4,9/5 en Google</span>
+            </div>
+        </div>
+
+        <section class="py-20 md:py-32 px-4 border-t border-white/5 bg-[#14141F]/30 relative">
+            <div class="max-w-5xl mx-auto reveal">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">No necesitas publicar más.<br> <span class="text-textSecondary">Necesitas dejar de publicar sin estrategia.</span></h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Pain Card 1 -->
+                    <div class="glass-panel p-8 rounded-2xl glass-card-hover group reveal" style="transition-delay: 100ms;">
+                        <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-500">
+                            <i data-lucide="eye-off" class="text-textSecondary group-hover:text-primary transition-colors duration-500"></i>
+                        </div>
+                        <p class="text-lg font-medium leading-snug">"Mi negocio no transmite la calidad real de mi servicio."</p>
+                    </div>
+                    <!-- Pain Card 2 -->
+                    <div class="glass-panel p-8 rounded-2xl glass-card-hover group reveal" style="transition-delay: 200ms;">
+                        <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-500">
+                            <i data-lucide="message-square-dashed" class="text-textSecondary group-hover:text-primary transition-colors duration-500"></i>
+                        </div>
+                        <p class="text-lg font-medium leading-snug">"Sigo subiendo contenido, invierto tiempo, pero nadie me contacta."</p>
+                    </div>
+                    <!-- Pain Card 3 -->
+                    <div class="glass-panel p-8 rounded-2xl glass-card-hover group reveal" style="transition-delay: 300ms;">
+                        <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-500">
+                            <i data-lucide="trending-down" class="text-textSecondary group-hover:text-primary transition-colors duration-500"></i>
+                        </div>
+                        <p class="text-lg font-medium leading-snug">"Veo a mi competencia, que ofrece un servicio peor, llevándose a los clientes."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-4 bg-[#14141F] text-white text-center relative overflow-hidden border-y border-white/5">
+            <!-- Decorative texture -->
+            <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--primary),_transparent_70%)] mix-blend-screen -translate-y-1/2"></div>
+            
+            <div class="max-w-4xl mx-auto relative z-10 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight">La mayoría de negocios no pierden clientes por ser malos.</h2>
+                <h3 class="text-4xl md:text-6xl font-extrabold text-white mb-8 tracking-tighter">Los pierden porque online parecen <span class="text-gradient-primary">improvisados.</span></h3>
+                <p class="text-lg md:text-xl font-medium opacity-90 max-w-2xl mx-auto text-[#A1A1B5]">
+                    Cuando un potencial cliente te busca en Instagram o visita tu web, toma una decisión en 3 segundos. Si tu imagen es amateur, se va con la competencia. Aunque seas mejor.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-20 md:py-32 px-4 max-w-5xl mx-auto reveal">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                
+                <!-- Info Column -->
+                <div class="w-full md:w-1/2">
+                    <div class="inline-block px-3 py-1 bg-primary/20 text-primary rounded-full text-xs font-bold uppercase tracking-widest mb-6">Sesión Estratégica 1-a-1</div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Qué analizaremos en tu Auditoría de 30 minutos?</h2>
+                    <p class="text-textSecondary mb-8 text-lg">Un diagnóstico profesional de tu ecosistema digital. Diseccionamos lo que falla y te damos la hoja de ruta para arreglarlo.</p>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex gap-4 items-start">
+                            <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10 text-primary"><i data-lucide="sparkles" class="w-4 h-4"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">Análisis de Perfil y Branding</h4>
+                                <p class="text-sm text-textSecondary">Evaluamos tu biografía, primera impresión y la coherencia visual de tu marca.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4 items-start">
+                            <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10 text-primary"><i data-lucide="layout-grid" class="w-4 h-4"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">Auditoría de Contenido</h4>
+                                <p class="text-sm text-textSecondary">Analizamos qué estás publicando, por qué no genera tracción y qué formatos te faltan.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4 items-start">
+                            <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10 text-primary"><i data-lucide="search" class="w-4 h-4"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">Detección de "Fugas"</h4>
+                                <p class="text-sm text-textSecondary">Identificamos los puntos ciegos por donde se escapan las visitas antes de contactarte.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Value Card Column -->
+                <div class="w-full md:w-1/2">
+                    <div class="glass-panel p-8 md:p-10 rounded-3xl border border-primary/40 relative overflow-hidden text-center animate-float hover:border-primary/70 transition-colors duration-500 hover:shadow-[0_20px_50px_-10px_rgba(123,97,255,0.2)]">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[80px] -mr-20 -mt-20"></div>
+                        
+                        <h3 class="text-2xl font-bold mb-2 relative z-10">Auditoría Estratégica</h3>
+                        <p class="text-textSecondary text-sm mb-8 relative z-10">Videollamada privada con Carlos Molina, Fundador de Proemote.</p>
+                        
+                        <div class="flex justify-center items-end gap-4 mb-8 relative z-10">
+                            <span class="text-xl text-textSecondary line-through decoration-danger decoration-2 opacity-60">Valor: 100€</span>
+                            <span class="text-5xl font-extrabold text-white">0€</span>
+                        </div>
+                        
+                        <button data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="btn-glow w-full py-4 rounded-xl text-white font-bold text-lg relative z-10">
+                            Asegurar mi plaza
+                        </button>
+                        <p class="mt-4 text-xs text-textSecondary relative z-10">Solo disponible para negocios reales con potencial de crecimiento.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="py-20 bg-[#0F0F16] border-y border-white/5">
+            <div class="max-w-5xl mx-auto px-4 reveal">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Lo que consigues cuando dejas de improvisar</h2>
+                    <p class="text-textSecondary">No vendemos "llevar redes". Construimos sistemas que generan confianza.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Ben 1 -->
+                    <div class="text-center">
+                        <div class="w-14 h-14 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary">
+                            <i data-lucide="diamond"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Imagen de Alto Nivel</h4>
+                        <p class="text-sm text-textSecondary">Tu marca online finalmente reflejará la calidad real de tu servicio físico.</p>
+                    </div>
+                    <!-- Ben 2 -->
+                    <div class="text-center">
+                        <div class="w-14 h-14 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary">
+                            <i data-lucide="target"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Claridad Absoluta</h4>
+                        <p class="text-sm text-textSecondary">Sabrás exactamente qué publicar, a quién le hablas y por qué lo haces.</p>
+                    </div>
+                    <!-- Ben 3 -->
+                    <div class="text-center">
+                        <div class="w-14 h-14 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary">
+                            <i data-lucide="shield-check"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Autoridad Instantánea</h4>
+                        <p class="text-sm text-textSecondary">Al eliminar el aspecto amateur, generas confianza antes de la primera reunión.</p>
+                    </div>
+                    <!-- Ben 4 -->
+                    <div class="text-center">
+                        <div class="w-14 h-14 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary">
+                            <i data-lucide="clock"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Tranquilidad Mental</h4>
+                        <p class="text-sm text-textSecondary">Se acabó la ansiedad de no saber qué subir hoy a Instagram.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-4 max-w-5xl mx-auto reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Resultados reales. Sin humo.</h2>
+                <p class="text-lg text-textSecondary">Esto es lo que pasa cuando combinas un buen negocio con estrategia digital.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
+                
+                <!-- Proof 1: Viral -->
+                <div class="glass-panel p-2 rounded-2xl overflow-hidden relative group reveal max-w-[300px] mx-auto w-full md:-translate-y-10" style="transition-delay: 100ms;">
+                    <div class="absolute inset-0 bg-gradient-to-t from-bgMain via-bgMain/40 to-transparent z-10 pointer-events-none"></div>
+                    <div class="bg-black/40 aspect-[9/16] w-full rounded-xl flex flex-col items-center justify-center text-textSecondary relative overflow-hidden">
+                        <img src="https://i.imgur.com/JFeqa6f.jpg" alt="Video Viral 73k reproducciones" class="w-full h-full object-contain p-3 scale-95 -translate-y-12 opacity-100 transition-transform duration-500 group-hover:scale-100">
+                        <div class="absolute bottom-6 left-6 right-6 z-20 flex flex-col justify-end h-[110px]">
+                            <div class="mb-auto">
+                                <span class="bg-primary text-white text-xs font-bold px-3 py-1 rounded-md inline-block shadow-[0_0_10px_rgba(123,97,255,0.4)]">Empresa de Limpieza</span>
+                            </div>
+                            <p class="text-white font-bold text-xl leading-tight drop-shadow-md">73.000 reproducciones<br>orgánicas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proof 2: WhatsApp / Agenda -->
+                <div class="glass-panel p-2 rounded-2xl overflow-hidden relative group reveal max-w-[300px] mx-auto w-full md:-translate-y-10" style="transition-delay: 200ms;">
+                    <div class="absolute inset-0 bg-gradient-to-t from-bgMain via-bgMain/40 to-transparent z-10 pointer-events-none"></div>
+                    <div class="bg-black/40 aspect-[9/16] w-full rounded-xl flex flex-col items-center justify-center text-textSecondary relative overflow-hidden">
+                        <img src="https://i.imgur.com/WHv3nvC.jpg" alt="Reseña WhatsApp Cliente" class="w-full h-full object-contain p-3 scale-95 -translate-y-12 opacity-100 transition-transform duration-500 group-hover:scale-100">
+                        <div class="absolute bottom-6 left-6 right-6 z-20 flex flex-col justify-end h-[110px]">
+                            <div class="mb-auto">
+                                <span class="bg-primary text-white text-xs font-bold px-3 py-1 rounded-md inline-block shadow-[0_0_10px_rgba(123,97,255,0.4)]">Centro de Estética</span>
+                            </div>
+                            <p class="text-white font-bold text-lg leading-tight drop-shadow-md">Agenda de clientes<br>completa varias semanas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proof 3: Crecimiento -->
+                <div class="glass-panel p-2 rounded-2xl overflow-hidden relative group reveal max-w-[300px] mx-auto w-full md:scale-110 md:-translate-y-4" style="transition-delay: 300ms;">
+                    <div class="absolute inset-0 bg-gradient-to-t from-bgMain via-bgMain/40 to-transparent z-10 pointer-events-none"></div>
+                    <div class="bg-black/40 aspect-[9/16] w-full rounded-xl flex flex-col items-center justify-center text-textSecondary relative overflow-hidden">
+                        <img src="https://i.imgur.com/wRWI7YJ.jpg" alt="Analytics 150k visualizaciones" class="w-full h-full object-contain p-1 scale-[1.15] opacity-100 transition-transform duration-500 group-hover:scale-[1.25]">
+                        <div class="absolute bottom-6 left-6 right-6 z-20 flex flex-col justify-end h-[110px]">
+                            <div class="mb-auto">
+                                <span class="bg-primary text-white text-xs font-bold px-3 py-1 rounded-md inline-block shadow-[0_0_10px_rgba(123,97,255,0.4)]">Sello de eventos</span>
+                            </div>
+                            <p class="text-white font-bold text-xl leading-tight drop-shadow-md">+150.000 visualizaciones<br>del perfil.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sección de Testimonios Reales -->
+        <section class="py-24 px-4 border-t border-white/5 bg-[#0A0A0F] reveal">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Lo que dicen quienes ya trabajan con nosotros</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Testimonio 1 -->
+                    <div class="glass-panel p-8 rounded-2xl flex flex-col h-full reveal" style="transition-delay: 100ms;">
+                        <div class="text-xl mb-4 tracking-widest text-[#FFB800]">⭐⭐⭐⭐⭐</div>
+                        <p class="text-textSecondary leading-relaxed mb-8 flex-grow italic">"Muy satisfecha con su trabajo, me diseñaron la web y gestiona las redes sociales. En todo momento la atención es muy profesional. Totalmente recomendable."</p>
+                        <div>
+                            <p class="font-bold text-white text-lg">Juana María Ramos</p>
+                            <p class="text-sm text-primary">Centro de Belleza</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonio 2 -->
+                    <div class="glass-panel p-8 rounded-2xl flex flex-col h-full reveal" style="transition-delay: 200ms;">
+                        <div class="text-xl mb-4 tracking-widest text-[#FFB800]">⭐⭐⭐⭐⭐</div>
+                        <p class="text-textSecondary leading-relaxed mb-8 flex-grow italic">"Excelente trabajo. Sus diseños web son modernos y muy cuidados, y el servicio de gestión de redes sociales es profesional y eficaz. Un equipo creativo y comprometido que realmente aporta valor."</p>
+                        <div>
+                            <p class="font-bold text-white text-lg">Sandra Cerrada</p>
+                            <p class="text-sm text-primary">Cliente Proemote</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonio 3 -->
+                    <div class="glass-panel p-8 rounded-2xl flex flex-col h-full reveal" style="transition-delay: 300ms;">
+                        <div class="text-xl mb-4 tracking-widest text-[#FFB800]">⭐⭐⭐⭐⭐</div>
+                        <p class="text-textSecondary leading-relaxed mb-8 flex-grow italic">"Trabajar con Proemote ha sido todo un acierto. Son un equipo atento, creativo y profesional. Lo recomiendo a todo tipo de negocios que buscan dar un salto de calidad en su imagen profesional."</p>
+                        <div>
+                            <p class="font-bold text-white text-lg">Alexandro Navarro</p>
+                            <p class="text-sm text-primary">Cliente Proemote</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 px-4">
+            <div class="max-w-4xl mx-auto glass-panel p-8 md:p-16 rounded-[2.5rem] border border-white/10 text-center reveal">
+                <!-- Foto de Carlos -->
+                <img src="https://i.imgur.com/ReXeSfL.jpg" alt="Carlos Molina, Fundador de Proemote" class="w-28 h-28 md:w-32 md:h-32 rounded-full mx-auto mb-6 object-cover ring-2 ring-offset-4 ring-offset-[#14141F] ring-primary/30 shadow-[0_0_30px_rgba(123,97,255,0.3)]">
+                
+                <span class="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">Sobre Proemote</span>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">No creemos en <span class="text-gradient-primary">publicar por publicar.</span></h2>
+                <p class="text-lg md:text-xl text-textSecondary leading-relaxed mb-8">
+                    La mayoría de agencias te venden "3 posts a la semana". Eso es una pérdida de dinero. En Proemote unimos <strong class="text-white">estrategia, contenido, diseño y ejecución</strong> para crear ecosistemas que posicionan tu marca y atraen clientes reales.
+                </p>
+                <div class="flex justify-center items-center gap-2 text-white/50 text-sm">
+                    <i data-lucide="x" class="w-4 h-4"></i> Sin plantillas <span class="mx-2">|</span> 
+                    <i data-lucide="x" class="w-4 h-4"></i> Sin bots <span class="mx-2">|</span> 
+                    <i data-lucide="x" class="w-4 h-4"></i> Sin humo
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 px-4 max-w-3xl mx-auto reveal">
+            <h2 class="text-3xl font-bold mb-10 text-center">Dudas frecuentes</h2>
+            
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="glass-panel rounded-2xl overflow-hidden faq-item">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center font-bold text-lg focus:outline-none">
+                        ¿Y si apenas tengo redes sociales?
+                        <i data-lucide="chevron-down" class="transition-transform duration-300 w-5 h-5 text-textSecondary faq-icon"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6">
+                        <p class="pb-6 text-textSecondary">Ideal. Significa que podemos construir una estrategia sólida desde cero sin tener que limpiar errores del pasado. Analizaremos tu modelo de negocio para definir por qué canal debes empezar.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="glass-panel rounded-2xl overflow-hidden faq-item">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center font-bold text-lg focus:outline-none">
+                        ¿Es realmente gratis la auditoría?
+                        <i data-lucide="chevron-down" class="transition-transform duration-300 w-5 h-5 text-textSecondary faq-icon"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6">
+                        <p class="pb-6 text-textSecondary">Sí, 100% gratuita. Lo hacemos porque es la mejor forma de demostrar el valor de nuestro sistema. Si aplicas lo que te decimos y te funciona, es posible que en el futuro quieras delegarlo en nosotros. Si no, te llevas el plan de acción sin coste.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="glass-panel rounded-2xl overflow-hidden faq-item">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center font-bold text-lg focus:outline-none">
+                        ¿Tengo que contrataros después?
+                        <i data-lucide="chevron-down" class="transition-transform duration-300 w-5 h-5 text-textSecondary faq-icon"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6">
+                        <p class="pb-6 text-textSecondary">En absoluto. Al final de la llamada te entregamos el diagnóstico. Si vemos que encajamos y quieres que lo implementemos nosotros, te presentaremos una propuesta. Si prefieres hacerlo tú mismo, nos daremos la mano como profesionales.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="glass-panel rounded-2xl overflow-hidden faq-item">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center font-bold text-lg focus:outline-none">
+                        No tengo tiempo para crear contenido, ¿me sirve?
+                        <i data-lucide="chevron-down" class="transition-transform duration-300 w-5 h-5 text-textSecondary faq-icon"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6">
+                        <p class="pb-6 text-textSecondary">Precisamente. Nuestro sistema está diseñado para que nosotros hagamos la estrategia, guiones, edición y planificación. Tú solo pones tu cara y experiencia profesional unas horas al mes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-4 text-center pb-40 md:pb-32 reveal">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 max-w-3xl mx-auto">Tu negocio ya tiene potencial. <br> <span class="text-gradient-primary">Ahora necesita una presencia online a la altura.</span></h2>
+            <p class="text-textSecondary mb-10 text-lg">Reserva tu espacio en el calendario. Solo habilitamos 5 auditorías semanales.</p>
+            
+            <div class="max-w-md mx-auto w-full">
+                <button data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="btn-glow w-full py-5 rounded-full text-white font-bold text-xl">
+                    Agendar Auditoría Gratis
+                </button>
+                <div class="flex items-center justify-center gap-2 text-xs text-textSecondary mt-4">
+                    <i data-lucide="lock" class="w-3 h-3"></i> Tus datos son confidenciales y están seguros.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Actualizado -->
+    <footer class="py-12 text-center border-t border-white/5 bg-[#0A0A0F] text-textSecondary opacity-90">
+        <div class="max-w-3xl mx-auto px-4 flex flex-col items-center gap-6">
+            <p class="font-bold text-white text-lg">Proemote · Agencia de Marketing en Extremadura</p>
+            
+            <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full text-sm">
+                🏆 Premio Impulso 2025 · Diputación de Badajoz
+            </div>
+            
+            <div class="flex gap-4 mt-2 text-sm">
+                <a href="#" class="hover:text-primary transition-colors">[Política de privacidad]</a>
+                <span>·</span>
+                <a href="#" class="hover:text-primary transition-colors">[Aviso legal]</a>
+            </div>
+            
+            <p class="mt-6 text-xs opacity-50">© 2026 Proemote. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Reveal Animations on Scroll (Intersection Observer)
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optional: stop observing once revealed
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15, // Activar cuando el 15% del elemento es visible
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+            
+            // Trigger immediately for elements already in viewport on load
+            setTimeout(() => {
+                reveals.forEach(reveal => {
+                    const rect = reveal.getBoundingClientRect();
+                    if(rect.top < window.innerHeight) {
+                        reveal.classList.add('active');
+                    }
+                });
+            }, 100);
+        });
+
+        // FAQ Accordion Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const btn = item.querySelector('.faq-btn');
+            const content = item.querySelector('.faq-content');
+            const icon = item.querySelector('.faq-icon');
+
+            btn.addEventListener('click', () => {
+                const isOpen = content.style.maxHeight;
+
+                // Close all others
+                faqItems.forEach(otherItem => {
+                    otherItem.querySelector('.faq-content').style.maxHeight = null;
+                    otherItem.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+                });
+
+                if (!isOpen) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", "auditoria-gratuita", {origin:"https://app.cal.com"});
+
+        Cal.ns["auditoria-gratuita"]("ui", {
+            "cssVarsPerTheme":{
+                "light":{"cal-brand":"#7B61FF"},
+                "dark":{"cal-brand":"#7B61FF"}
+            },
+            "hideEventTypeDetails":false,
+            "layout":"month_view"
+        });
+    </script>
+</body>
+</html>
