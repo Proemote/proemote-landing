@@ -101,7 +101,7 @@
             </a>
             <div class="hidden md:flex gap-8 text-sm font-medium text-textSecondary relative z-10 items-center">
                 <a href="https://web.proemote.es/index.html" class="hover:text-textMain transition-colors">Inicio</a>
-                <a href="https://web.proemote.es/servicios.html" class="hover:text-textMain transition-colors">Servicios</a>
+                <button id="services-menu-btn" class="hover:text-textMain transition-colors focus:outline-none">Servicios</button>
                 <a href="https://web.proemote.es/portfolio.html" class="hover:text-textMain transition-colors">Portfolio</a>
                 <a href="https://web.proemote.es/index.html#contacto" class="hover:text-textMain transition-colors">Contacto</a>
             </div>
@@ -120,7 +120,7 @@
         <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-bgSurface/95 backdrop-blur-xl border-b border-white/10 shadow-2xl overflow-hidden transition-all duration-300">
             <div class="flex flex-col py-6 px-6 gap-6">
                 <a href="https://web.proemote.es/index.html" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="https://web.proemote.es/servicios.html" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Servicios</a>
+                <button id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</button>
                 <a href="https://web.proemote.es/portfolio.html" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
                 <a href="https://web.proemote.es/index.html#contacto" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
                 <a href="https://web.proemote.es/index.html#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-primary rounded-full shadow-[0_0_15px_rgba(123,97,255,0.4)]">
@@ -776,6 +776,119 @@
                     }
                 });
             }
+        });
+    </script>
+    <!-- Mega Menu Modal -->
+    <div id="mega-menu" class="fixed inset-0 z-[100] hidden">
+        <!-- Backdrop -->
+        <div id="mega-menu-backdrop" class="absolute inset-0 bg-bgMain/90 backdrop-blur-2xl"></div>
+        
+        <!-- Content Container -->
+        <div class="absolute inset-0 overflow-y-auto hide-scrollbar">
+            <div class="max-w-7xl mx-auto px-6 py-12 md:py-24 min-h-full flex flex-col">
+                <!-- Header -->
+                <div class="flex justify-between items-center mb-16">
+                    <img src="https://i.imgur.com/jwddFTY.png" alt="Proemote Logo" class="h-8 md:h-10 w-auto">
+                    <button id="close-mega-menu" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/5 transition-all focus:outline-none">
+                        <i class="ph ph-x text-2xl"></i>
+                    </button>
+                </div>
+
+                <!-- Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 flex-grow">
+                    <!-- Category 1 -->
+                    <div class="glass-card p-8 rounded-3xl group hover:border-primary/50 transition-all duration-500">
+                        <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                            <i class="ph ph-paint-brush-broad text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-medium text-white mb-4">Branding & Estrategia</h3>
+                        <ul class="space-y-4 text-textSecondary">
+                            <li><a href="https://web.proemote.es/servicios.html#branding" class="hover:text-primary transition-colors flex items-center gap-2">Identidad Visual <i class="ph ph-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i></a></li>
+                            <li><a href="https://web.proemote.es/servicios.html#branding" class="hover:text-primary transition-colors flex items-center gap-2">Estrategia de Marca <i class="ph ph-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i></a></li>
+                            <li><a href="https://web.proemote.es/servicios.html#branding" class="hover:text-primary transition-colors flex items-center gap-2">Posicionamiento <i class="ph ph-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- Category 2 -->
+                    <div class="glass-card p-8 rounded-3xl group hover:border-primary/50 transition-all duration-500">
+                        <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                            <i class="ph ph-browser text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-medium text-white mb-4">Web & Ecosistemas</h3>
+                        <ul class="space-y-4 text-textSecondary">
+                            <li><a href="https://web.proemote.es/servicios.html#web" class="hover:text-primary transition-colors flex items-center gap-2">Diseño Web UX/UI <i class="ph ph-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i></a></li>
+                            <li><a href="https://web.proemote.es/servicios.html#web" class="hover:text-primary transition-colors flex items-center gap-2">Landing Pages <i class="ph ph-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i></a></li>
+                            <li><a href="https://web.proemote.es/servicios.html#web" class="hover:text-primary transition-colors flex items-center gap-2">E-commerce <i class="ph ph-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- Category 3 -->
+                    <div class="glass-card p-8 rounded-3xl group hover:border-primary/50 transition-all duration-500">
+                        <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                            <i class="ph ph-video-camera text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-medium text-white mb-4">Contenido & Redes</h3>
+                        <ul class="space-y-4 text-textSecondary">
+                            <li><a href="https://web.proemote.es/servicios.html#contenido" class="hover:text-primary transition-colors flex items-center gap-2">Content Strategy <i class="ph ph-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i></a></li>
+                            <li><a href="https://web.proemote.es/servicios.html#contenido" class="hover:text-primary transition-colors flex items-center gap-2">Social Media <i class="ph ph-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i></a></li>
+                            <li><a href="https://web.proemote.es/servicios.html#contenido" class="hover:text-primary transition-colors flex items-center gap-2">Producción Video <i class="ph ph-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- Category 4 -->
+                    <div class="glass-card p-8 rounded-3xl group hover:border-primary/50 transition-all duration-500">
+                        <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                            <i class="ph ph-rocket-launch text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-heading font-medium text-white mb-4">Paid Media & Ads</h3>
+                        <ul class="space-y-4 text-textSecondary">
+                            <li><a href="https://web.proemote.es/servicios.html#ads" class="hover:text-primary transition-colors flex items-center gap-2">Meta & Google Ads <i class="ph ph-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i></a></li>
+                            <li><a href="https://web.proemote.es/servicios.html#ads" class="hover:text-primary transition-colors flex items-center gap-2">Growth Marketing <i class="ph ph-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i></a></li>
+                            <li><a href="https://web.proemote.es/servicios.html#ads" class="hover:text-primary transition-colors flex items-center gap-2">Funnel Strategy <i class="ph ph-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Footer CTA -->
+                <div class="mt-24 pb-12 text-center">
+                    <p class="text-textSecondary mb-6 font-medium italic">"Creamos ecosistemas digitales, no piezas aisladas."</p>
+                    <button data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view"}' class="px-10 py-5 rounded-full bg-primary text-white font-bold hover:bg-accent transition-all shadow-[0_0_30px_rgba(123,97,255,0.4)] transform hover:scale-105">
+                        Agendar Auditoría Gratis
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mega Menu Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const servicesBtn = document.getElementById('services-menu-btn');
+            const servicesBtnMobile = document.getElementById('services-menu-btn-mobile');
+            const megaMenu = document.getElementById('mega-menu');
+            const closeBtn = document.getElementById('close-mega-menu');
+            const backdrop = document.getElementById('mega-menu-backdrop');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            const openMegaMenu = () => {
+                megaMenu.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                if (mobileMenu) mobileMenu.classList.add('hidden'); // Close mobile menu if open
+            };
+
+            const closeMegaMenu = () => {
+                megaMenu.classList.add('hidden');
+                document.body.style.overflow = '';
+            };
+
+            if (servicesBtn) servicesBtn.addEventListener('click', openMegaMenu);
+            if (servicesBtnMobile) servicesBtnMobile.addEventListener('click', openMegaMenu);
+            if (closeBtn) closeBtn.addEventListener('click', closeMegaMenu);
+            if (backdrop) backdrop.addEventListener('click', closeMegaMenu);
+
+            // Escape key to close
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !megaMenu.classList.contains('hidden')) {
+                    closeMegaMenu();
+                }
+            });
         });
     </script>
 </body>
