@@ -703,52 +703,6 @@
 
     <script>
         
-            // Función genérica para arrastre y momentum (Motor físico)
-            function enableDragScroll(containerId, autoScrollEnabled = true) {
-                const container = document.getElementById(containerId);
-                if(!container) return;
-                
-                let isDown = false, startX, scrollLeft, velocity = 0, isHovering = false;
-                
-                container.addEventListener('mouseenter', () => isHovering = true);
-                container.addEventListener('mouseleave', () => { isDown = false; isHovering = false; });
-                container.addEventListener('mousedown', (e) => { isDown = true; startX = e.pageX - container.offsetLeft; scrollLeft = container.scrollLeft; velocity = 0; });
-                container.addEventListener('mouseup', () => isDown = false);
-                container.addEventListener('mousemove', (e) => {
-                    if(!isDown) return;
-                    e.preventDefault();
-                    const x = e.pageX - container.offsetLeft;
-                    const walk = (x - startX) * 2; 
-                    velocity = walk - (container.scrollLeft - scrollLeft);
-                    container.scrollLeft = scrollLeft - walk;
-                });
-                
-                let lastTime = 0;
-                function autoScroll(time) {
-                    if (time - lastTime > 16) {
-                        lastTime = time;
-                        if (!isDown && Math.abs(velocity) > 0.1) {
-                            container.scrollLeft -= velocity;
-                            velocity *= 0.95; 
-                        } else if(autoScrollEnabled && !isHovering && Math.abs(velocity) < 0.1) {
-                            container.scrollLeft += (containerId === 'logos-container' ? 1.5 : 0.4);
-                        }
-                        
-                        if(containerId === 'logos-container') {
-                            const halfWidth = (container.scrollWidth) / 2;
-                            if (container.scrollLeft >= halfWidth) {
-                                container.scrollLeft -= halfWidth;
-                            } else if (container.scrollLeft <= 0 && velocity > 0) {
-                                container.scrollLeft += halfWidth;
-                            }
-                        }
-                        requestAnimationFrame(autoScroll);
-                    }
-                    autoScroll();
-                }
-                autoScroll(0);
-            }
-
             // Aplicamos motor físico al slider de logos
             enableDragScroll('logos-container', true);
 
