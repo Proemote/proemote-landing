@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paid Media y Ads | Proemote Studio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgMain: '#0A0A0F',
+                        bgSurface: '#14141F',
+                        primary: '#7B61FF',
+                        accent: '#9F7AEA',
+                        textMain: '#F5F7FA',
+                        textSecondary: '#A1A1B5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\\'40\\' height=\\'40\\' viewBox=\\'0 0 40 40\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h40v40H0V0zm1 1h38v38H1V1z\\' fill=\\'%23ffffff\\' fill-opacity=\\'0.02\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                        'grid-pattern-primary': "url('data:image/svg+xml,%3Csvg width=\\'50\\' height=\\'50\\' viewBox=\\'0 0 50 50\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h50v50H0V0zm1 1h48v48H1V1z\\' fill=\\'%237B61FF\\' fill-opacity=\\'0.08\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #0A0A0F; color: #F5F7FA; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A0A0F; }
+        ::-webkit-scrollbar-thumb { background: #14141F; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
+        ::-webkit-scrollbar-thumb:hover { background: #7B61FF; }
+
+        .glass-nav { background: rgba(10, 10, 15, 0.7); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass-card { background: linear-gradient(180deg, rgba(20, 20, 31, 0.9) 0%, rgba(20, 20, 31, 0.5) 100%); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .glass-card:hover { border-color: rgba(123, 97, 255, 0.3); box-shadow: 0 10px 40px rgba(123, 97, 255, 0.1); transform: translateY(-4px); }
+
+        #mouse-glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(123,97,255,0.08) 0%, rgba(10,10,15,0) 60%); border-radius: 50%; pointer-events: none; z-index: 35; transform: translate(-50%, -50%); transition: opacity 0.4s ease; mix-blend-mode: screen; opacity: 0; }
+
+        .text-gradient-primary { background: linear-gradient(135deg, #9F7AEA 0%, #7B61FF 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-up.active { opacity: 1; transform: translateY(0); }
+        
+        .foco-item .glass-card { opacity: 0; transform: translateY(40px) scale(0.97); transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none; }
+        .foco-item.active .glass-card { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+        .foco-node { transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white relative bg-grid-pattern bg-fixed">
+
+    <div id="mouse-glow"></div>
+
+    <!-- 1. HEADER FIJO -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
+                <img src="https://i.imgur.com/jwddFTY.png" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'150\\' height=\\'40\\'%3E%3Crect width=\\'150\\' height=\\'40\\' fill=\\'none\\'/%3E%3Ctext x=\\'10\\' y=\\'25\\' fill=\\'%23fff\\' font-family=\\'Arial\\' font-weight=\\'bold\\' font-size=\\'20\\'%3EPROEMOTE%3C/text%3E%3C/svg%3E'" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain">
+            </a>
+            
+            <div class="hidden lg:flex gap-8 text-sm font-medium text-textSecondary relative z-10 items-center">
+                <a href="#como-funciona" class="hover:text-white transition-colors">Cómo funciona</a>
+                <a href="#planes" class="hover:text-white transition-colors">Planes</a>
+                <a href="#casos" class="hover:text-white transition-colors">Casos reales</a>
+                <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+            </div>
+            
+            <div class="flex items-center gap-4 relative z-10">
+                <a href="https://wa.me/34641576286?text=Buenas!%20Estaba%20visitando%20vuestra%20web%20y%20quer%C3%ADa%20solicitar%20m%C3%A1s%20informaci%C3%B3n%20sin%20compromiso" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center justify-center gap-2 px-6 py-2.5 text-sm font-medium text-white bg-primary rounded-full hover:bg-accent shadow-[0_0_15px_rgba(123,97,255,0.4)] transition-all duration-300 focus:outline-none">
+                    <i class="ph-fill ph-whatsapp-logo text-[#25D366]"></i> Info sin compromiso
+                </a>
+                <button id="mobile-menu-btn" class="lg:hidden text-textSecondary hover:text-white transition-colors focus:outline-none p-2">
+                    <i class="ph ph-list text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-bgSurface/95 backdrop-blur-xl border-b border-white/10 shadow-2xl overflow-hidden transition-all duration-300">
+            <div class="flex flex-col py-6 px-6 gap-6">
+                <a href="#como-funciona" class="text-base font-medium text-textSecondary hover:text-white transition-colors mobile-link">Cómo funciona</a>
+                <a href="#planes" class="text-base font-medium text-textSecondary hover:text-white transition-colors mobile-link">Planes</a>
+                <a href="#casos" class="text-base font-medium text-textSecondary hover:text-white transition-colors mobile-link">Casos reales</a>
+                <a href="#faq" class="text-base font-medium text-textSecondary hover:text-white transition-colors mobile-link">FAQ</a>
+                <a href="https://wa.me/34641576286?text=Buenas!%20Estaba%20visitando%20vuestra%20web%20y%20quer%C3%ADa%20solicitar%20m%C3%A1s%20informaci%C3%B3n%20sin%20compromiso" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center gap-2 px-6 py-3 mt-2 text-sm font-bold text-white bg-primary rounded-full shadow-[0_0_15px_rgba(123,97,255,0.4)]">
+                    <i class="ph-fill ph-whatsapp-logo text-[#25D366]"></i> Info sin compromiso
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO -->
+    <section class="pt-48 pb-20 relative z-10 overflow-hidden border-b border-white/5 bg-bgMain bg-grid-pattern-primary with-glow">
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-bgMain z-[-1] pointer-events-none"></div>
+        <div class="absolute top-[10%] left-[10%] w-[30vw] h-[30vw] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-[0]"></div>
+        <div class="absolute bottom-[10%] right-[10%] w-[40vw] h-[40vw] rounded-full bg-accent/10 blur-[150px] pointer-events-none z-[0]"></div>
+
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10 reveal-up active">
+            
+            <div class="inline-flex items-center justify-center px-5 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-bold tracking-[0.2em] uppercase mb-8 shadow-[0_0_15px_rgba(123,97,255,0.05)]">
+                Paid Media & Ads
+            </div>
+
+            <h1 class="font-heading text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight mb-6 text-white">
+                Publicidad que genera retorno,<br class="hidden md:block">
+                <span class="text-primary font-bold">no solo impresiones.</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-textSecondary leading-relaxed max-w-2xl mx-auto mb-10">
+                Gestionamos tus campañas en Meta, Google, TikTok y LinkedIn con un único objetivo: que cada euro invertido trabaje para tu negocio.
+            </p>
+            
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+                <a href="#planes" class="w-full sm:w-auto px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] flex items-center justify-center gap-2">
+                    Quiero empezar
+                </a>
+                <a href="#como-funciona" class="w-full sm:w-auto px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white font-medium transition-all duration-300 flex items-center justify-center gap-2">
+                    Ver cómo trabajamos
+                </a>
+            </div>
+
+            <!-- Trust Bar Visual (Diferente a la de Web) -->
+            <div class="inline-flex flex-wrap items-center justify-center gap-4 md:gap-8 px-6 py-4 bg-white/5 border border-white/10 rounded-2xl opacity-80 backdrop-blur-sm">
+                <span class="text-[#F59E0B] text-base tracking-widest leading-none">★★★★★</span>
+                <span class="text-sm font-medium text-white">Valoración 4,9 en Google</span>
+                <span class="hidden md:block text-white/20">|</span>
+                <span class="text-sm font-medium text-white">Más de 20 marcas gestionadas</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PROBLEMA (2x2 Grid) -->
+    <section class="py-24 relative z-10 bg-bgSurface/30 border-t border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">El Problema</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Por qué la mayoría pierde dinero en publicidad.</h2>
+                <p class="text-lg text-textSecondary max-w-2xl mx-auto">No es el presupuesto. Es la estrategia, la segmentación y la optimización continua.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-up delay-100 max-w-5xl mx-auto">
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex items-start gap-6">
+                    <div class="w-14 h-14 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500">
+                        <i class="ph-fill ph-fire text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-heading text-white font-medium mb-2">Presupuesto quemado sin datos</h3>
+                        <p class="text-sm text-textSecondary leading-relaxed">Campañas activas sin saber qué funciona ni por qué. El dinero sale, los resultados no llegan.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex items-start gap-6">
+                    <div class="w-14 h-14 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500">
+                        <i class="ph-fill ph-users-three text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-heading text-white font-medium mb-2">Segmentación mal configurada</h3>
+                        <p class="text-sm text-textSecondary leading-relaxed">Impactar a personas que nunca van a comprarte es el error más caro y más común en ads.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex items-start gap-6">
+                    <div class="w-14 h-14 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500">
+                        <i class="ph-fill ph-image-broken text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-heading text-white font-medium mb-2">Creatividades que no convierten</h3>
+                        <p class="text-sm text-textSecondary leading-relaxed">El anuncio se ve pero no se clica. Sin un copy y un diseño visual pensados para convertir, el CTR se hunde.</p>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex items-start gap-6">
+                    <div class="w-14 h-14 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500">
+                        <i class="ph-fill ph-trend-down text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-heading text-white font-medium mb-2">Sin optimización continua</h3>
+                        <p class="text-sm text-textSecondary leading-relaxed">Lanzar y olvidar es tirar dinero. Las campañas que funcionan se monitorean y ajustan cada semana.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CANALES (NUEVA SECCIÓN) -->
+    <section class="py-24 relative z-10 bg-bgMain border-t border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 reveal-up">
+                <div class="max-w-2xl">
+                    <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Canales</span>
+                    <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Dónde activamos tu publicidad.</h2>
+                    <p class="text-lg text-textSecondary">Seleccionamos el canal según tu cliente, tu objetivo y tu presupuesto. No todos los canales son para todos los negocios.</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-up delay-100">
+                <div class="p-8 rounded-3xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/40 transition-all group tilt-effect flex flex-col items-start">
+                    <i class="ph-fill ph-meta-logo text-5xl text-[#0668E1] mb-6 drop-shadow-[0_0_15px_rgba(6,104,225,0.4)] group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-white mb-3">Meta Ads</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Instagram y Facebook. Captación, remarketing y conversión para negocios B2C y locales.</p>
+                </div>
+
+                <div class="p-8 rounded-3xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/40 transition-all group tilt-effect flex flex-col items-start">
+                    <i class="ph-fill ph-google-logo text-5xl text-[#EA4335] mb-6 drop-shadow-[0_0_15px_rgba(234,67,53,0.4)] group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-white mb-3">Google Ads</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Search, Display y Performance Max. Para captar demanda activa con alta intención de compra.</p>
+                </div>
+
+                <div class="p-8 rounded-3xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/40 transition-all group tilt-effect flex flex-col items-start">
+                    <i class="ph-fill ph-tiktok-logo text-5xl text-white mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-white mb-3">TikTok Ads</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Alcance masivo y coste bajo. Ideal para marcas con contenido en video orgánico y audiencias jóvenes.</p>
+                </div>
+                
+                <div class="p-8 rounded-3xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/40 transition-all group tilt-effect flex flex-col items-start">
+                    <i class="ph-fill ph-linkedin-logo text-5xl text-[#0A66C2] mb-6 drop-shadow-[0_0_15px_rgba(10,102,194,0.4)] group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-white mb-3">LinkedIn Ads</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Captación B2B de alta precisión. Segmentación específica por cargo, sector y tamaño de empresa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTADOS / PRUEBA SOCIAL -->
+    <section class="py-24 relative z-10 bg-bgSurface/30 border-t border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Resultados</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white">Lo que ya hemos conseguido para otros.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-up delay-100">
+                
+                <div class="glass-card p-8 md:p-10 rounded-[2rem] border-white/5 flex flex-col text-center tilt-effect">
+                    <span class="font-heading text-5xl md:text-6xl font-bold text-gradient-primary mb-2">3,8x</span>
+                    <h4 class="text-white font-medium text-lg mb-4">ROAS medio</h4>
+                    <p class="text-sm text-textSecondary mb-8 flex-grow">en campañas de Meta activas y optimizadas para conversión.</p>
+                    <div class="pt-6 border-t border-white/10 text-xs text-textSecondary uppercase tracking-widest font-bold">
+                        E-commerce deportivo
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 md:p-10 rounded-[2rem] border-white/5 flex flex-col text-center tilt-effect">
+                    <span class="font-heading text-5xl md:text-6xl font-bold text-gradient-primary mb-2">-42%</span>
+                    <h4 class="text-white font-medium text-lg mb-4">Coste por lead (CPL)</h4>
+                    <p class="text-sm text-textSecondary mb-8 flex-grow">tras la optimización y reestructuración en el primer mes.</p>
+                    <div class="pt-6 border-t border-white/10 text-xs text-textSecondary uppercase tracking-widest font-bold">
+                        Servicios locales, Mérida
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 md:p-10 rounded-[2rem] border-white/5 flex flex-col text-center tilt-effect">
+                    <span class="font-heading text-5xl md:text-6xl font-bold text-gradient-primary mb-2">+120%</span>
+                    <h4 class="text-white font-medium text-lg mb-4">Incremento de leads</h4>
+                    <p class="text-sm text-textSecondary mb-8 flex-grow">de alta calidad y listos para comprar en solo 90 días.</p>
+                    <div class="pt-6 border-t border-white/10 text-xs text-textSecondary uppercase tracking-widest font-bold">
+                        Empresa de limpieza
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- EL PROCESO -->
+    <section id="como-funciona" class="py-32 relative bg-bgMain border-t border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-24 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">El Proceso</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white">Cómo gestionamos tus campañas.</h2>
+                <p class="text-textSecondary text-xl max-w-2xl mx-auto leading-relaxed">Sin tecnicismos innecesarios. Tú nos das el contexto, nosotros construimos el sistema.</p>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto px-4 md:px-0">
+                <div class="absolute left-6 md:left-[50px] top-0 bottom-0 w-[2px] bg-white/5 rounded-full"></div>
+                <div id="foco-progress" class="absolute left-6 md:left-[50px] top-0 w-[2px] bg-gradient-to-b from-primary to-accent rounded-full h-0 shadow-[0_0_10px_#7B61FF] transition-[height] duration-75 ease-out"></div>
+
+                <!-- Paso 1 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">1</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Auditoría y diagnóstico</h3>
+                                <p class="text-textSecondary leading-relaxed mb-4">Analizamos tu situación actual: cuentas activas, historial de campañas, píxeles y seguimiento de conversiones. Identificamos qué falla y qué tiene potencial.</p>
+                                <span class="inline-block px-3 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-bold rounded-full border border-emerald-500/20">Gratuito y sin compromiso</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">2</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Estrategia de canales y presupuesto</h3>
+                                <p class="text-textSecondary leading-relaxed">Definimos en qué plataformas activar, con qué presupuesto y con qué objetivos medibles. Nada genérico — todo alineado a tu negocio.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">3</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Creación de creatividades y copys</h3>
+                                <p class="text-textSecondary leading-relaxed">Diseñamos los anuncios: textos enfocados a conversión, creatividades adaptadas al canal y formatos optimizados para cada objetivo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">4</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Lanzamiento y configuración</h3>
+                                <p class="text-textSecondary leading-relaxed">Configuramos las campañas, los públicos, los píxeles de seguimiento y los eventos de conversión. Sin agujeros en el tracking.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Paso 5 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">5</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Optimización semanal</h3>
+                                <p class="text-textSecondary leading-relaxed">Revisamos rendimiento cada semana: ajustamos pujas, pausamos lo que no convierte y escalamos lo que funciona.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Paso 6 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">6</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Informe mensual de resultados</h3>
+                                <p class="text-textSecondary leading-relaxed">Recibes un informe claro con métricas reales: inversión, resultados, coste por lead o venta y próximos pasos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PLANES -->
+    <section id="planes" class="py-32 relative z-10 bg-bgSurface/30 border-t border-white/5 with-glow">
+        <div class="max-w-[1200px] mx-auto px-6">
+            
+            <div class="text-center mb-20 reveal-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white mb-6">Elige cómo quieres trabajar.</h2>
+                <p class="text-textSecondary text-lg max-w-2xl mx-auto leading-relaxed">Planes fijos para negocios que quieren delegar, o presupuesto personalizado para proyectos con necesidades específicas.</p>
+            </div>
+
+            <!-- Grid de 3 planes base -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch reveal-up delay-100">
+                
+                <!-- Plan 1: Arranque -->
+                <div class="relative p-8 rounded-[2.5rem] border border-primary/20 bg-primary/5 backdrop-blur-xl shadow-[0_0_30px_rgba(123,97,255,0.05)] hover:shadow-[0_0_50px_rgba(123,97,255,0.15)] hover:border-primary/40 transition-all duration-500 flex flex-col h-full overflow-hidden group tilt-effect">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-b from-primary/10 to-transparent blur-[40px] pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="text-2xl lg:text-3xl font-bold font-heading text-primary mb-2 relative z-10 flex items-center gap-2"><i class="ph-fill ph-play-circle"></i> Arranque</div>
+                    <p class="text-sm text-textSecondary mb-8 min-h-[60px] relative z-10">Para negocios que quieren activar su primer canal de pago con control y sin riesgo.</p>
+                    
+                    <ul class="space-y-4 mb-8 flex-grow relative z-10">
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span><strong>1 canal</strong> (Meta o Google)</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Configuración inicial completa</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Hasta 2 conjuntos de anuncios</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Creatividades básicas incluidas</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Optimización quincenal</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Informe mensual</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Soporte por WhatsApp</span></li>
+                    </ul>
+                    
+                    <a href="https://wa.me/34641576286?text=Buenas!%20Estaba%20visitando%20vuestra%20web%20y%20quer%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20plan%20de%20Paid%20Media%20Arranque" target="_blank" rel="noopener noreferrer" class="relative z-10 w-full py-4 rounded-full border border-primary/30 text-center font-bold text-white hover:bg-primary transition-all block mt-auto focus:outline-none">Quiero empezar</a>
+                </div>
+
+                <!-- Plan 2: Crecimiento -->
+                <div class="relative p-8 rounded-[2.5rem] border-2 border-primary/50 bg-primary/10 backdrop-blur-2xl shadow-[0_0_50px_rgba(123,97,255,0.15)] hover:shadow-[0_0_70px_rgba(123,97,255,0.25)] hover:border-primary transition-all duration-500 flex flex-col h-full overflow-hidden group transform lg:-translate-y-4 tilt-effect z-20">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-b from-primary/30 to-transparent blur-[50px] pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute -top-px left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-accent text-white text-[10px] sm:text-xs font-bold px-6 py-2 rounded-b-xl uppercase tracking-widest shadow-[0_0_20px_rgba(123,97,255,0.4)] z-20 border-x border-b border-primary/30 whitespace-nowrap">
+                        Más recomendado
+                    </div>
+                    
+                    <div class="text-2xl lg:text-3xl font-bold font-heading text-primary mb-2 mt-6 relative z-10 flex items-center gap-2"><i class="ph-fill ph-trend-up"></i> Crecimiento</div>
+                    <p class="text-sm text-white/80 mb-8 min-h-[60px] relative z-10">Para negocios que quieren escalar su captación con una gestión activa y orientada a resultados.</p>
+                    
+                    <ul class="space-y-4 mb-8 flex-grow relative z-10">
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span><strong>Hasta 2 canales</strong></span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Estrategia multicanal</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Hasta 5 conjuntos de anuncios</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Creatividades optimizadas</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Optimización semanal</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Remarketing activado</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Informe mensual detallado</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>1 reunión al mes</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Soporte prioritario</span></li>
+                    </ul>
+                    
+                    <a href="https://wa.me/34641576286?text=Buenas!%20Estaba%20visitando%20vuestra%20web%20y%20quer%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20plan%20de%20Paid%20Media%20Crecimiento" target="_blank" rel="noopener noreferrer" class="relative z-10 w-full py-4 rounded-full bg-primary text-center font-bold text-white hover:bg-accent transition-all block mt-auto shadow-[0_0_20px_rgba(123,97,255,0.4)] focus:outline-none">Quiero crecer</a>
+                </div>
+
+                <!-- Plan 3: Escala -->
+                <div class="relative p-8 rounded-[2.5rem] border border-primary/20 bg-primary/5 backdrop-blur-xl shadow-[0_0_30px_rgba(123,97,255,0.05)] hover:shadow-[0_0_50px_rgba(123,97,255,0.15)] hover:border-primary/40 transition-all duration-500 flex flex-col h-full overflow-hidden group tilt-effect">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-b from-primary/10 to-transparent blur-[40px] pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="text-2xl lg:text-3xl font-bold font-heading text-primary mb-2 relative z-10 flex items-center gap-2"><i class="ph-fill ph-rocket-launch"></i> Escala</div>
+                    <p class="text-sm text-textSecondary mb-8 min-h-[60px] relative z-10">Para empresas que quieren dominar sus canales de pago y delegar la gestión al completo.</p>
+                    
+                    <ul class="space-y-4 mb-8 flex-grow relative z-10">
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span><strong>Hasta 4 canales</strong></span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Estrategia integral de paid</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Campañas ilimitadas</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Creatividades premium + test A/B</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Optimización diaria</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Remarketing avanzado</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Analítica avanzada de conversión</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>2 reuniones al mes</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Soporte máximo</span></li>
+                    </ul>
+                    
+                    <a href="https://wa.me/34641576286?text=Buenas!%20Estaba%20visitando%20vuestra%20web%20y%20quer%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20plan%20de%20Paid%20Media%20Escala" target="_blank" rel="noopener noreferrer" class="relative z-10 w-full py-4 rounded-full border border-primary/30 text-center font-bold text-white hover:bg-primary transition-all block mt-auto focus:outline-none">Quiero escalar</a>
+                </div>
+
+            </div>
+
+            <!-- Plan 4: Presupuesto Personalizado -->
+            <div class="mt-8 relative p-8 md:p-12 rounded-[2.5rem] border border-white/10 bg-bgMain shadow-lg hover:border-primary/30 transition-all duration-300 flex flex-col md:flex-row items-center justify-between gap-8 group tilt-effect reveal-up delay-200">
+                <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-accent rounded-l-[2.5rem]"></div>
+                <div class="flex-grow text-left">
+                    <div class="inline-flex items-center gap-2 text-white font-bold text-sm tracking-wider uppercase mb-4">
+                        <i class="ph-fill ph-sliders text-xl text-primary"></i> A MEDIDA
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-white mb-3">Presupuesto personalizado</h3>
+                    <p class="text-sm text-textSecondary max-w-3xl leading-relaxed">Para proyectos con necesidades específicas: grandes lanzamientos, campañas estacionales de alto impacto, e-commerce con catálogo amplio o estrategias multicanal complejas.</p>
+                </div>
+                <div class="w-full md:w-auto shrink-0">
+                    <a href="https://wa.me/34641576286?text=Buenas!%20Estaba%20visitando%20vuestra%20web%20y%20quer%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20un%20proyecto%20de%20Paid%20Media%20a%20medida" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto px-10 py-4 rounded-full border border-primary/30 text-center font-bold text-white hover:bg-primary transition-all block focus:outline-none whitespace-nowrap shadow-[0_0_15px_rgba(123,97,255,0.05)]">
+                        Pedir presupuesto
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 10. FAQ -->
+    <section id="faq" class="py-32 relative bg-bgSurface/30 border-t border-white/5 with-glow">
+        <div class="max-w-3xl mx-auto px-6 reveal-up">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-5xl font-medium text-white mb-4">Preguntas frecuentes</h2>
+                <p class="text-textSecondary text-lg">Resolvemos las dudas antes de empezar.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-white pr-4 text-lg">¿El presupuesto de inversión en ads está incluido en el plan?</span>
+                        <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">No. Nuestro plan cubre la configuración, el diseño, la gestión y la optimización continua (nuestros honorarios). El presupuesto que destines a los anuncios se paga directamente a las plataformas (Meta, Google, etc.) desde tu propia cuenta.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-white pr-4 text-lg">¿Cuánto presupuesto mínimo recomendáis invertir en ads?</span>
+                        <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Depende de tu sector, la competencia y el canal. Sin embargo, para que el algoritmo pueda aprender y darnos datos válidos para optimizar, solemos recomendar una inversión publicitaria mínima de 10-15€ diarios (unos 300-450€ al mes).</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-white pr-4 text-lg">¿Cuánto tiempo tarda en verse resultados?</span>
+                        <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Las plataformas necesitan una fase de aprendizaje. Generalmente, los primeros resultados tangibles (leads, clics de calidad) empiezan a llegar a las 2-3 semanas, y el verdadero retorno de inversión optimizado (ROAS) se consolida a partir del segundo o tercer mes.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-white pr-4 text-lg">¿Creáis vosotros los anuncios o necesito darte material?</span>
+                        <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Nosotros redactamos todo el texto persuasivo (copy) y diseñamos las piezas gráficas a partir de las imágenes o recursos que tú nos facilites de tu producto/servicio. Si necesitas grabación de vídeo específico, lo podemos coordinar o presupuestar aparte.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-white pr-4 text-lg">¿Puedo contratar solo este servicio o necesito el sistema completo?</span>
+                        <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Puedes contratar la gestión de publicidad de forma totalmente independiente. Si al auditar tu caso vemos que tu página web actual no está preparada para convertir ese tráfico en ventas, te lo diremos con honestidad antes de gastar tu dinero en anuncios.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. CIERRE EMOCIONAL -->
+    <section class="py-32 relative z-10 bg-primary/10 border-y border-primary/20 with-glow overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-full bg-primary/20 blur-[100px] z-[-1]"></div>
+        
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 reveal-up">
+            <h2 class="font-heading text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">Es el momento de que tu publicidad <span class="text-gradient-primary">trabaje de verdad.</span></h2>
+            <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">Dejarás de quemar presupuesto sin saber por qué. Cuéntanos tu proyecto y construimos juntos la estrategia.</p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#planes" class="w-full sm:w-auto px-10 py-5 rounded-full bg-primary hover:bg-accent text-white font-bold transition-all duration-300 shadow-[0_0_30px_rgba(123,97,255,0.4)]">
+                    Quiero empezar
+                </a>
+                <a href="https://wa.me/34641576286?text=Buenas!%20Estaba%20visitando%20vuestra%20web%20y%20quer%C3%ADa%20solicitar%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Paid%20Media" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-10 py-5 rounded-full border border-white/20 bg-bgMain hover:bg-white/10 text-white font-bold transition-all duration-300 flex items-center justify-center gap-2">
+                    <i class="ph-fill ph-whatsapp-logo text-xl text-[#25D366]"></i> Más info sin compromiso
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. FOOTER -->
+    <footer class="bg-bgMain pt-20 pb-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+            
+            <!-- Info principal -->
+            <div class="md:col-span-12 lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
+                <div class="mb-8">
+                    <img src="https://i.imgur.com/2mXnkGe.png" alt="Proemote Logo" class="h-20 md:h-24 mb-3 opacity-90 mx-auto md:mx-0">
+                    <p class="text-white italic text-sm mb-1">Shaping what matters</p>
+                    <p class="text-textSecondary text-sm font-medium">Think first.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <p class="text-white font-medium text-sm mb-2"><i class="ph-fill ph-map-pin text-primary"></i> Vicente Barrantes, 7. 06800 Mérida (Badajoz)</p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-start gap-3 mb-8 w-full">
+                    <a href="mailto:info@proemote.es" class="text-white font-medium hover:text-primary transition-colors flex items-center gap-3 text-sm">
+                        <i class="ph ph-envelope-simple text-xl"></i> info@proemote.es
+                    </a>
+                    <a href="https://wa.me/34641576286" target="_blank" class="text-white font-medium hover:text-primary transition-colors flex items-center gap-3 text-sm">
+                        <i class="ph ph-whatsapp-logo text-xl"></i> +34 641 57 62 86
+                    </a>
+                </div>
+            </div>
+
+            <div class="md:col-span-4 lg:col-span-2 lg:col-start-7 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Navegación</h4>
+                <ul class="space-y-4 text-sm text-textSecondary text-center md:text-left">
+                    <li><a href="#como-funciona" class="hover:text-white transition-colors">Cómo funciona</a></li>
+                    <li><a href="#planes" class="hover:text-white transition-colors">Planes y Precios</a></li>
+                    <li><a href="#casos" class="hover:text-white transition-colors">Casos Reales</a></li>
+                    <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Legal</h4>
+                <ul class="space-y-4 text-sm text-textSecondary text-center md:text-left">
+                    <li><a href="/aviso-legal" target="_blank" class="hover:text-white transition-colors">Aviso Legal</a></li>
+                    <li><a href="/privacidad" target="_blank" class="hover:text-white transition-colors">Política de Privacidad</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Horario</h4>
+                <ul class="space-y-2 text-sm text-textSecondary text-center md:text-left">
+                    <li class="flex flex-col md:inline-block"><span class="font-medium text-white/80">L-V:</span> <span class="text-white">9H–14H, 16H–20H</span></li>
+                    <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-white/80">Sáb:</span> <span class="text-white">10H–13:30H</span></li>
+                    <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-white/80">Dom:</span> <span class="text-white/50">Cerrado</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 text-center md:text-left">
+            <p class="text-xs text-textSecondary">© 2026 Proemote Studio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts (Glow, Reveal, Menu, FAQ) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Observer Reveal Up
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+            // FAQ Accordion logic
+            document.querySelectorAll('.faq-toggle').forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const content = toggle.nextElementSibling;
+                    const icon = toggle.querySelector('.faq-icon');
+                    
+                    // Cerrar todos los demás
+                    document.querySelectorAll('.faq-content').forEach(c => {
+                        if(c !== content) {
+                            c.style.maxHeight = '0px';
+                            c.style.opacity = '0';
+                        }
+                    });
+                    document.querySelectorAll('.faq-icon').forEach(i => {
+                        if(i !== icon) i.style.transform = 'rotate(0deg)';
+                    });
+
+                    // Abrir/Cerrar actual
+                    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                        content.style.maxHeight = '0px';
+                        content.style.opacity = '0';
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        content.style.opacity = '1';
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.toggle('ph-list'); icon.classList.toggle('ph-x');
+                });
+            }
+            
+            // Cerrar menú móvil al hacer click en enlace
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.add('ph-list'); icon.classList.remove('ph-x');
+                });
+            });
+
+            // Mouse Glow General
+            const glow = document.getElementById('mouse-glow');
+            document.addEventListener('mousemove', (e) => { 
+                glow.style.left = `${e.clientX}px`; 
+                glow.style.top = `${e.clientY}px`; 
+                
+                if (e.target.closest('.with-glow')) {
+                    glow.style.opacity = '1';
+                } else {
+                    glow.style.opacity = '0';
+                }
+            });
+            document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+
+            // Tilt Effect 3D
+            document.querySelectorAll('.tilt-effect').forEach(el => {
+                el.addEventListener('mouseenter', () => el.style.transition = 'transform 0.1s ease-out, box-shadow 0.3s ease');
+                el.addEventListener('mousemove', (e) => {
+                    const rect = el.getBoundingClientRect();
+                    const rotateX = (((e.clientY - rect.top) - (rect.height / 2)) / (rect.height / 2)) * 1.5; 
+                    const rotateY = (((e.clientX - rect.left) - (rect.width / 2)) / (rect.width / 2)) * -1.5;
+                    el.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`); el.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+                    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(0.99, 0.99, 0.99)`;
+                });
+                el.addEventListener('mouseleave', () => {
+                    el.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease';
+                    el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                    el.style.setProperty('--mouse-x', `50%`); el.style.setProperty('--mouse-y', `50%`);
+                });
+            });
+
+            // Motor Físico Timeline (Proceso 6 pasos)
+            const progress = document.getElementById('foco-progress');
+            const items = document.querySelectorAll('.foco-item');
+            let isTicking = false;
+            
+            const handleTimeline = () => {
+                if(!progress) return;
+                const container = progress.parentElement;
+                const rect = container.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                let p = (windowHeight * 0.6 - rect.top) / rect.height;
+                p = Math.max(0, Math.min(1, p));
+                progress.style.height = `${p * 100}%`;
+
+                const lineBottom = progress.getBoundingClientRect().bottom;
+
+                items.forEach(item => {
+                    const node = item.querySelector('.foco-node');
+                    const nodeRect = node.getBoundingClientRect();
+                    const nodeCenter = nodeRect.top + (nodeRect.height / 2);
+
+                    if (lineBottom >= nodeCenter) {
+                        node.classList.remove('bg-bgMain');
+                        node.classList.add('bg-primary', 'border-primary', 'shadow-[0_0_15px_#7B61FF]');
+                        item.classList.add('active');
+                    } else {
+                        node.classList.add('bg-bgMain');
+                        node.classList.remove('bg-primary', 'border-primary', 'shadow-[0_0_15px_#7B61FF]');
+                        item.classList.remove('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', () => {
+                if (!isTicking) {
+                    window.requestAnimationFrame(() => {
+                        handleTimeline();
+                        isTicking = false;
+                    });
+                    isTicking = true;
+                }
+            });
+            handleTimeline();
+        });
+    </script>
+</body>
+</html>
