@@ -1021,7 +1021,7 @@
             </div>
 
             <!-- Columna 2: Servicios -->
-            <div class="md:col-span-4 lg:col-span-2 lg:col-start-7 mt-8 lg:mt-0">
+            <div class="md:col-span-4 lg:col-span-2 lg:col-start-5 mt-8 lg:mt-0">
                 <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Servicios</h4>
                 <ul class="space-y-4 text-sm text-textSecondary text-center md:text-left">
                     <li><a href="/servicios" class="hover:text-white transition-colors">Diseño Web</a></li>
@@ -1296,27 +1296,69 @@
                 }
             }
 
-            // Aplicamos motor físico a los sliders
+            // Aplicamos motor físico al slider de logos
             enableDragScroll('logos-container', true);
-            enableDragScroll('reviews-carousel', true);
 
-            // Funcionalidad manual inyectada a las flechas (Botones directos)
+            // Carousel de Reseñas 1 a 1 con autoplay y pause on hover
             const reviewsContainer = document.getElementById('reviews-carousel');
             if(reviewsContainer) {
+                // Permitimos el arrastre manual pero sin el autoscroll continuo
+                enableDragScroll('reviews-carousel', false);
+
                 const prevBtn = document.getElementById('prev-review');
                 const nextBtn = document.getElementById('next-review');
                 
+                // Calculamos el tamaño de la tarjeta + gap dinámicamente
+                let scrollAmount = 424; 
+                if(reviewsContainer.children.length > 0) {
+                    const cardWidth = reviewsContainer.children[0].offsetWidth;
+                    // gap-6 en Tailwind es 1.5rem = 24px
+                    scrollAmount = cardWidth + 24; 
+                }
+                
+                let autoPlayInterval;
+
+                const startAutoPlay = () => {
+                    autoPlayInterval = setInterval(() => {
+                        // Si está al final, vuelve al principio
+                        if(reviewsContainer.scrollLeft >= (reviewsContainer.scrollWidth - reviewsContainer.clientWidth - 10)) {
+                            reviewsContainer.scrollTo({ left: 0, behavior: 'smooth' });
+                        } else {
+                            reviewsContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                        }
+                    }, 4000); // 4 segundos por reseña
+                };
+
+                const stopAutoPlay = () => {
+                    clearInterval(autoPlayInterval);
+                };
+
+                // Iniciar autoplay
+                startAutoPlay();
+
+                // Pausar en hover (sobre todo el contenedor incluyendo flechas)
+                const carouselWrapper = reviewsContainer.parentElement;
+                if(carouselWrapper) {
+                    carouselWrapper.addEventListener('mouseenter', stopAutoPlay);
+                    carouselWrapper.addEventListener('mouseleave', startAutoPlay);
+                }
+                
+                // Funcionalidad de flechas
                 if(prevBtn) {
                     prevBtn.addEventListener('click', (e) => {
                         e.preventDefault();
-                        reviewsContainer.scrollBy({ left: -420, behavior: 'smooth' });
+                        reviewsContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
                     });
                 }
                 
                 if(nextBtn) {
                     nextBtn.addEventListener('click', (e) => {
                         e.preventDefault();
-                        reviewsContainer.scrollBy({ left: 420, behavior: 'smooth' });
+                        if(reviewsContainer.scrollLeft >= (reviewsContainer.scrollWidth - reviewsContainer.clientWidth - 10)) {
+                            reviewsContainer.scrollTo({ left: 0, behavior: 'smooth' });
+                        } else {
+                            reviewsContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                        }
                     });
                 }
             }
