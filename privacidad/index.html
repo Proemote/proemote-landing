@@ -492,9 +492,11 @@
             const megaMenuPanel = document.getElementById('mega-menu-panel');
             const megaMenuBackdrop = document.getElementById('mega-menu-backdrop');
             let hideTimeout;
+            let displayTimeout;
 
             const showMenu = () => {
                 clearTimeout(hideTimeout);
+                clearTimeout(displayTimeout);
                 if(megaMenu) {
                     megaMenu.classList.remove('hidden');
                     setTimeout(() => {
@@ -508,7 +510,9 @@
                 hideTimeout = setTimeout(() => {
                     if(megaMenuPanel) megaMenuPanel.classList.add('-translate-y-4', 'opacity-0');
                     if(megaMenuBackdrop) megaMenuBackdrop.classList.add('opacity-0');
-                    if(megaMenu) setTimeout(() => megaMenu.classList.add('hidden'), 300);
+                    displayTimeout = setTimeout(() => {
+                        if(megaMenu) megaMenu.classList.add('hidden');
+                    }, 300);
                 }, 150);
             };
 

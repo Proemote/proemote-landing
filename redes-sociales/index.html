@@ -856,9 +856,11 @@
             const megaMenuPanel = document.getElementById('mega-menu-panel');
             const megaMenuBackdrop = document.getElementById('mega-menu-backdrop');
             let hideTimeout;
+            let displayTimeout;
 
             const showMenu = () => {
                 clearTimeout(hideTimeout);
+                clearTimeout(displayTimeout);
                 megaMenu.classList.remove('hidden');
                 setTimeout(() => {
                     megaMenuPanel.classList.remove('-translate-y-4', 'opacity-0');
