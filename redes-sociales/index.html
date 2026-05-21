@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Redes Sociales | Proemote Studio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgMain: '#0A0A0F',
+                        bgSurface: '#14141F',
+                        primary: '#7B61FF',
+                        accent: '#9F7AEA',
+                        textMain: '#F5F7FA',
+                        textSecondary: '#A1A1B5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\\'40\\' height=\\'40\\' viewBox=\\'0 0 40 40\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h40v40H0V0zm1 1h38v38H1V1z\\' fill=\\'%23ffffff\\' fill-opacity=\\'0.02\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #0A0A0F; color: #F5F7FA; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A0A0F; }
+        ::-webkit-scrollbar-thumb { background: #14141F; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
+        ::-webkit-scrollbar-thumb:hover { background: #7B61FF; }
+
+        .glass-nav { background: rgba(10, 10, 15, 0.7); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass-card { background: linear-gradient(180deg, rgba(20, 20, 31, 0.9) 0%, rgba(20, 20, 31, 0.5) 100%); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .glass-card:hover { border-color: rgba(123, 97, 255, 0.3); box-shadow: 0 10px 40px rgba(123, 97, 255, 0.1); transform: translateY(-4px); }
+
+        #mouse-glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(123,97,255,0.08) 0%, rgba(10,10,15,0) 60%); border-radius: 50%; pointer-events: none; z-index: 1; transform: translate(-50%, -50%); transition: opacity 0.5s ease; mix-blend-mode: screen; }
+
+        .text-gradient-primary { background: linear-gradient(135deg, #9F7AEA 0%, #7B61FF 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-up.active { opacity: 1; transform: translateY(0); }
+        
+        /* FOCO Physical Engine Animations */
+        .foco-item .glass-card { opacity: 0; transform: translateY(40px) scale(0.97); transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none; }
+        .foco-item.active .glass-card { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+        .foco-node { transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
+
+        select option { background-color: #14141F; color: #F5F7FA; }
+
+        /* Premium Form Soft Glass 3D */
+        .glass-form {
+            background: 
+                radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.04), transparent 40%),
+                linear-gradient(135deg, rgba(20, 20, 31, 0.7) 0%, rgba(123, 97, 255, 0.06) 100%);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(123, 97, 255, 0.20);
+            box-shadow: 0 10px 40px -10px rgba(123, 97, 255, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+            transform-style: preserve-3d;
+            transition: box-shadow 0.3s ease;
+            position: relative;
+        }
+        .glass-form:hover { box-shadow: 0 20px 50px -15px rgba(123, 97, 255, 0.25), inset 0 1px 0 0 rgba(255, 255, 255, 0.1); }
+        .glass-form > * { transform: translateZ(20px); position: relative; z-index: 2; }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white relative bg-grid-pattern bg-fixed">
+
+    <div id="mouse-glow"></div>
+
+    <!-- MODAL DE CONTACTO -->
+    <div id="contact-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-bgMain/80 backdrop-blur-md opacity-0 transition-opacity duration-300">
+        <div class="glass-form tilt-effect w-full max-w-lg p-8 md:p-10 rounded-[2rem] relative shadow-2xl max-h-[95vh] overflow-y-auto transform scale-95 transition-transform duration-300" style="will-change: transform;">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-textSecondary hover:text-white transition-colors focus:outline-none z-10"><i class="ph ph-x text-2xl"></i></button>
+            <h2 class="text-2xl font-heading font-medium text-white mb-2">Cuéntanos sobre tu proyecto</h2>
+            <p class="text-textSecondary mb-6 text-sm">Te respondemos en menos de 24h con un diagnóstico inicial sin compromiso.</p>
+            
+            <form id="modal-form" class="proemote-form space-y-4">
+                <input type="text" name="Nombre" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="Tu nombre completo">
+                <input type="email" name="Email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="hola@tuempresa.com">
+                <input type="tel" name="Telefono" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="+34 600 000 000 (Opcional)">
+                
+                <select name="Fase" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer">
+                    <option value="" disabled selected>¿En qué fase está tu negocio?</option>
+                    <option value="Empiezo desde cero">Empiezo desde cero — necesito identidad y presencia web</option>
+                    <option value="Ya tengo presencia">Ya tengo presencia pero no convierte</option>
+                    <option value="Quiero escalar">Quiero escalar lo que ya funciona con paid media</option>
+                    <option value="Servicio especifico">Solo necesito un servicio específico</option>
+                </select>
+
+                <select name="Servicio" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer">
+                    <option value="" disabled>¿Qué servicio te interesa?</option>
+                    <option value="Estrategia y Marca">Estrategia de marca e identidad visual</option>
+                    <option value="Diseño Web">Diseño web y ecosistema digital</option>
+                    <option value="Gestión de redes sociales" selected>Gestión de redes sociales</option>
+                    <option value="Paid Media">Captación y Paid Media (Meta Ads / Google Ads)</option>
+                    <option value="Sistema completo">Sistema completo (varios servicios)</option>
+                    <option value="Orientacion">No sé aún, necesito orientación</option>
+                </select>
+
+                <textarea name="Mensaje" rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all resize-none" placeholder="¿Qué quieres conseguir? ¿Cuál es tu mayor problema ahora mismo? (Opcional)"></textarea>
+                
+                <div class="flex items-start gap-3 px-2">
+                    <input type="checkbox" id="check-priv-modal" name="Privacidad" value="Aceptada" required class="mt-1 w-4 h-4 accent-primary cursor-pointer">
+                    <label for="check-priv-modal" class="text-sm text-textSecondary leading-tight cursor-pointer italic">He leído y acepto la <a href="/privacidad" target="_blank" class="text-primary hover:text-accent underline decoration-primary/30">política de privacidad</a>.</label>
+                </div>
+                
+                <button type="submit" class="w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-accent transition-all flex items-center justify-center gap-2 group btn-submit">
+                    Solicitar diagnóstico gratuito <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </button>
+                <p class="text-center text-xs text-textSecondary font-medium mt-3">Sin permanencias · Sin presupuestos genéricos · Respuesta en menos de 24h</p>
+                <div class="form-msg hidden text-center p-4 rounded-xl mt-4 font-medium transition-all text-sm"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
+                <img src="https://i.imgur.com/jwddFTY.png" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain">
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-textSecondary relative z-10 items-center">
+                <a href="/" class="hover:text-textMain transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn" class="hover:text-textMain transition-colors focus:outline-none">Servicios</a>
+                <a href="/portfolio" class="hover:text-textMain transition-colors">Portfolio</a>
+                <a href="/contacto" class="hover:text-textMain transition-colors">Contacto</a>
+            </div>
+            <div class="flex items-center gap-4 relative z-10">
+                <button onclick="openModal()" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-primary rounded-full hover:bg-accent shadow-[0_0_15px_rgba(123,97,255,0.4)] transition-all duration-300 focus:outline-none">
+                    ¿Hablamos?
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden text-textSecondary hover:text-white transition-colors focus:outline-none p-2">
+                    <i class="ph ph-dots-three-vertical text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-bgSurface/95 backdrop-blur-xl border-b border-white/10 shadow-2xl overflow-hidden transition-all duration-300">
+            <div class="flex flex-col py-6 px-6 gap-6">
+                <a href="/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
+                <a href="/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
+                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
+                <button onclick="openModal()" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-primary rounded-full shadow-[0_0_15px_rgba(123,97,255,0.4)] focus:outline-none">
+                    ¿Hablamos?
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SERVICIO -->
+    <section class="pt-48 pb-24 relative z-10 overflow-hidden border-b border-white/5 bg-bgMain">
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-bgMain z-[-1] pointer-events-none"></div>
+        <div class="max-w-5xl mx-auto px-6 text-center reveal-up active">
+            <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-6 block">Gestión de Redes Sociales</span>
+            <h1 class="font-heading text-5xl md:text-7xl lg:text-8xl font-medium leading-[1.1] tracking-tight mb-8 text-white">
+                Tus redes sociales,<br class="hidden md:block">
+                <span class="text-gradient-primary font-semibold">gestionadas con estrategia real.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-textSecondary leading-relaxed max-w-3xl mx-auto mb-12">
+                No publicamos por publicar. Cada pieza de contenido tiene un objetivo, una audiencia y un lugar dentro de tu sistema de marca.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+                <button onclick="openModal()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] flex items-center justify-center gap-2 focus:outline-none">
+                    Quiero empezar <i class="ph ph-arrow-right"></i>
+                </button>
+                <a href="#proceso" class="w-full sm:w-auto px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white font-medium transition-all duration-300 flex items-center justify-center gap-2">
+                    Ver cómo trabajamos
+                </a>
+            </div>
+            <div class="text-[13px] md:text-[14px] text-textSecondary font-medium flex items-center justify-center gap-2 flex-wrap">
+                <span class="text-[#F59E0B] text-base tracking-widest leading-none mt-[-2px]">★★★★★</span>
+                <span><strong class="text-white">Valoración 4,9 en Google</strong> · Más de 20 marcas gestionadas</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN NOS ENCARGAMOS DE TODO -->
+    <section class="py-32 relative z-10 bg-bgSurface/30 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white">Nos encargamos <span class="text-gradient-primary">de todo.</span></h2>
+                <p class="text-textSecondary text-lg mt-4 max-w-2xl mx-auto">Desde la estrategia hasta la publicación. Tú céntrate en tu negocio.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-up delay-100">
+                
+                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/30 transition-all group tilt-effect flex flex-col items-start text-left" style="will-change: transform;">
+                    <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-compass text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Estrategia de contenido</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Definimos qué publicar, cuándo y para quién. Cada mes con un calendario editorial alineado a tus objetivos de negocio.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/30 transition-all group tilt-effect flex flex-col items-start text-left" style="will-change: transform;">
+                    <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-sparkle text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Creación y producción</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Redacción, diseño de piezas gráficas y guiones para vídeo. Contenido pensado para generar atención desde el primer segundo.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/30 transition-all group tilt-effect flex flex-col items-start text-left" style="will-change: transform;">
+                    <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-broadcast text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Publicación y gestión</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Programamos, publicamos y gestionamos la comunidad. Tu perfil activo sin que tengas que estar pendiente.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/30 transition-all group tilt-effect flex flex-col items-start text-left" style="will-change: transform;">
+                    <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-trend-up text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Análisis y optimización</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Revisamos métricas reales cada mes y ajustamos la estrategia. Sin suposiciones — solo datos y decisiones.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTADOS / PRUEBA SOCIAL -->
+    <section class="py-24 relative z-10 bg-bgMain border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Prueba Social</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white">Resultados que ya hemos conseguido para otros.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-up delay-100">
+                
+                <div class="glass-card p-8 md:p-10 rounded-[2rem] border-white/5 flex flex-col text-center tilt-effect" style="will-change: transform;">
+                    <span class="font-heading text-5xl md:text-6xl font-bold text-gradient-primary mb-2">73.300</span>
+                    <h4 class="text-white font-medium text-lg mb-4">visualizaciones</h4>
+                    <p class="text-sm text-textSecondary mb-8 flex-grow">en un único vídeo orgánico. 0€ en publicidad.</p>
+                    <div class="pt-6 border-t border-white/10 text-xs text-textSecondary uppercase tracking-widest font-bold">
+                        Lo Quiero Limpio · Empresa de limpieza, Mérida
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 md:p-10 rounded-[2rem] border-white/5 flex flex-col text-center tilt-effect" style="will-change: transform;">
+                    <span class="font-heading text-5xl md:text-6xl font-bold text-gradient-primary mb-2">+300%</span>
+                    <h4 class="text-white font-medium text-lg mb-4">de alcance orgánico</h4>
+                    <p class="text-sm text-textSecondary mb-8 flex-grow">de 200–300 visitas por publicación a más de 1.000.</p>
+                    <div class="pt-6 border-t border-white/10 text-xs text-textSecondary uppercase tracking-widest font-bold">
+                        Juany Centro Estética · Badajoz
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 md:p-10 rounded-[2rem] border-white/5 flex flex-col text-center tilt-effect" style="will-change: transform;">
+                    <span class="font-heading text-5xl md:text-6xl font-bold text-gradient-primary mb-2">+100.000</span>
+                    <h4 class="text-white font-medium text-lg mb-4">personas alcanzadas</h4>
+                    <p class="text-sm text-textSecondary mb-8 flex-grow">con menos de 1.000 seguidores en el perfil.</p>
+                    <div class="pt-6 border-t border-white/10 text-xs text-textSecondary uppercase tracking-widest font-bold">
+                        XTRM Hard · Eventos, Extremadura
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESO (CÓMO TRABAJAMOS) -->
+    <section id="proceso" class="py-32 relative bg-bgSurface/50 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-24 reveal-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white">Cómo funciona trabajar con nosotros.</h2>
+                <p class="text-textSecondary text-xl max-w-2xl mx-auto leading-relaxed">Un sistema paso a paso para profesionalizar tus redes sin fricción.</p>
+            </div>
+
+            <div class="relative max-w-5xl mx-auto px-4 md:px-0">
+                <div class="absolute left-6 md:left-[50px] top-0 bottom-0 w-[2px] bg-white/5 rounded-full"></div>
+                <div id="foco-progress" class="absolute left-6 md:left-[50px] top-0 w-[2px] bg-gradient-to-b from-primary to-accent rounded-full h-0 shadow-[0_0_10px_#7B61FF] transition-[height] duration-75 ease-out"></div>
+
+                <!-- Paso 1 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
+                            <div class="text-primary font-heading text-6xl md:text-7xl font-bold opacity-80 leading-none">1</div>
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-heading font-medium text-white mb-3">Diagnóstico inicial</h3>
+                                <p class="text-textSecondary text-lg leading-relaxed">Analizamos tu situación actual: qué tienes, qué falta y qué está frenando tu crecimiento en redes. Gratuito y sin compromiso.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
+                            <div class="text-primary font-heading text-6xl md:text-7xl font-bold opacity-80 leading-none">2</div>
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-heading font-medium text-white mb-3">Estrategia personalizada</h3>
+                                <p class="text-textSecondary text-lg leading-relaxed">Diseñamos un plan de contenido adaptado a tu negocio, tu audiencia y tus objetivos. Nada genérico.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
+                            <div class="text-primary font-heading text-6xl md:text-7xl font-bold opacity-80 leading-none">3</div>
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-heading font-medium text-white mb-3">Producción mensual</h3>
+                                <p class="text-textSecondary text-lg leading-relaxed">Creamos todo el contenido del mes: textos, diseños y formatos de vídeo según el plan acordado.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
+                            <div class="text-primary font-heading text-6xl md:text-7xl font-bold opacity-80 leading-none">4</div>
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-heading font-medium text-white mb-3">Publicación y seguimiento</h3>
+                                <p class="text-textSecondary text-lg leading-relaxed">Publicamos en los canales definidos, gestionamos comentarios y mensajes directos relevantes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 5 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-10">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
+                            <div class="text-primary font-heading text-6xl md:text-7xl font-bold opacity-80 leading-none">5</div>
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-heading font-medium text-white mb-3">Informe mensual</h3>
+                                <p class="text-textSecondary text-lg leading-relaxed">Cada mes recibes un informe claro con lo que ha funcionado, lo que ajustamos y cuál es el siguiente paso.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20 text-center reveal-up">
+                <button onclick="openModal()" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] group focus:outline-none">
+                    Hablar sobre mi proyecto <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="py-32 relative bg-bgMain border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6 reveal-up">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-5xl font-medium text-white mb-4">Preguntas Frecuentes</h2>
+                <p class="text-textSecondary text-lg">Resolvemos las dudas antes de empezar.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 items-start">
+                
+                <div class="space-y-2 faq-column">
+                    <div class="border-b border-white/10 faq-item">
+                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
+                            <span class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8">¿En qué redes sociales trabajáis?</span>
+                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
+                            <div class="overflow-hidden">
+                                <p class="text-textSecondary pb-6 leading-relaxed">Trabajamos principalmente con Instagram y TikTok, que son donde la mayoría de negocios locales tienen más oportunidad de crecimiento orgánico. También gestionamos LinkedIn y Facebook según el perfil del cliente.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-white/10 faq-item">
+                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
+                            <span class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8">¿Tengo que darme de alta en nuevas plataformas?</span>
+                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
+                            <div class="overflow-hidden">
+                                <p class="text-textSecondary pb-6 leading-relaxed">No necesariamente. Trabajamos con lo que ya tienes y te recomendamos qué tiene sentido abrir o cerrar según tu negocio.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-white/10 faq-item">
+                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
+                            <span class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8">¿Vosotros grabáis o solo gestionáis?</span>
+                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
+                            <div class="overflow-hidden">
+                                <p class="text-textSecondary pb-6 leading-relaxed">Dependiendo del plan, podemos encargarnos de la dirección creativa, los guiones y la edición. La grabación la coordinamos contigo o con un equipo de producción si el proyecto lo requiere.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-2 faq-column">
+                    <div class="border-b border-white/10 faq-item">
+                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
+                            <span class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8">¿Cuánto tiempo tarda en verse resultados?</span>
+                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
+                            <div class="overflow-hidden">
+                                <p class="text-textSecondary pb-6 leading-relaxed">Los primeros indicadores (alcance, interacción, seguidores nuevos) suelen verse en el primer mes. Los resultados en captación de clientes aparecen habitualmente a partir del mes 2–3.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-white/10 faq-item">
+                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
+                            <span class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8">¿Tengo que aprobar el contenido antes de publicar?</span>
+                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
+                            <div class="overflow-hidden">
+                                <p class="text-textSecondary pb-6 leading-relaxed">Sí. Cada mes te enviamos el calendario editorial para que lo revises y apruebes antes de lanzar nada.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-white/10 faq-item">
+                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
+                            <span class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8">¿Puedo contratar solo este servicio o necesito el sistema completo?</span>
+                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
+                            <div class="overflow-hidden">
+                                <p class="text-textSecondary pb-6 leading-relaxed">Puedes contratar la gestión de redes de forma independiente. Si en algún momento necesitas más (web, paid media, identidad), lo integramos sin problema.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section id="contacto" class="py-32 relative bg-bgSurface border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 reveal-up">
+            <div class="glass-card rounded-[3rem] p-8 md:p-16 border-primary/20 overflow-hidden relative shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+                    <div>
+                        <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white leading-tight">Analizamos tu marca, <br><span class="text-gradient-primary">sin coste.</span></h2>
+                        <p class="text-textSecondary text-lg mb-8 leading-relaxed">Cuéntanos en qué punto está tu negocio y qué quieres conseguir. Te enviamos un diagnóstico inicial con las áreas de mejora más importantes — sin compromiso y en menos de 24 horas.</p>
+                        
+                        <div class="space-y-4 mb-10">
+                            <div class="flex items-center gap-3 text-white/90">
+                                <i class="ph-fill ph-check-circle text-primary text-xl"></i>
+                                <span class="font-medium text-sm md:text-base">Más de 20 marcas trabajadas en Extremadura y España</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-white/90">
+                                <i class="ph-fill ph-check-circle text-primary text-xl"></i>
+                                <span class="font-medium text-sm md:text-base">Diagnóstico personalizado, no un template genérico</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-white/90">
+                                <i class="ph-fill ph-check-circle text-primary text-xl"></i>
+                                <span class="font-medium text-sm md:text-base">Respuesta garantizada en menos de 24h</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-3 pt-6 border-t border-white/10">
+                            <div class="flex items-center gap-4 text-white/80 hover:text-white transition-colors w-fit">
+                                <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center"><i class="ph ph-envelope-simple text-lg text-primary"></i></div>
+                                <span class="font-medium">info@proemote.es</span>
+                            </div>
+                            <div class="flex items-center gap-4 text-white/80 hover:text-white transition-colors w-fit">
+                                <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center"><i class="ph ph-phone text-lg text-primary"></i></div>
+                                <span class="font-medium">+34 641 57 62 86</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <form id="proemote-form-cta" class="proemote-form glass-form tilt-effect p-8 rounded-[2rem] space-y-4 shadow-xl" style="will-change: transform;">
+                            <div class="flex flex-col md:flex-row gap-4">
+                                <input type="text" name="Nombre" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="Tu nombre completo">
+                                <input type="email" name="Email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="hola@tuempresa.com">
+                            </div>
+                            
+                            <input type="tel" name="Telefono" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="+34 600 000 000 (Opcional)">
+                            
+                            <select name="Fase" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer shadow-inner">
+                                <option value="" disabled selected>¿En qué fase está tu negocio?</option>
+                                <option value="Empiezo desde cero">Empiezo desde cero — necesito identidad y presencia web</option>
+                                <option value="Ya tengo presencia">Ya tengo presencia pero no convierte</option>
+                                <option value="Quiero escalar">Quiero escalar lo que ya funciona con paid media</option>
+                                <option value="Servicio especifico">Solo necesito un servicio específico</option>
+                            </select>
+
+                            <select name="Servicio" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer shadow-inner">
+                                <option value="" disabled>¿Qué servicio te interesa?</option>
+                                <option value="Estrategia y Marca">Estrategia de marca e identidad visual</option>
+                                <option value="Diseño Web">Diseño web y diseño digital</option>
+                                <option value="Gestión de redes sociales" selected>Gestión de redes sociales</option>
+                                <option value="Paid Media">Captación y Paid Media (Meta Ads / Google Ads)</option>
+                                <option value="Sistema completo">Sistema completo (varios servicios)</option>
+                                <option value="Orientacion">No sé aún, necesito orientación</option>
+                            </select>
+
+                            <textarea name="Mensaje" rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all resize-none" placeholder="¿Qué quieres conseguir? ¿Cuál es tu mayor problema ahora mismo? (Opcional)"></textarea>
+                            
+                            <div class="flex items-start gap-3 px-2">
+                                <input type="checkbox" id="check-priv-cta" name="Privacidad" value="Aceptada" required class="mt-1 w-4 h-4 accent-primary cursor-pointer">
+                                <label for="check-priv-cta" class="text-sm text-textSecondary leading-tight cursor-pointer italic">He leído y acepto la <a href="/privacidad" target="_blank" class="text-primary hover:text-accent underline decoration-primary/30">política de privacidad</a>.</label>
+                            </div>
+                            
+                            <button type="submit" class="w-full py-4 bg-white text-bgMain font-bold rounded-xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2 group btn-submit">
+                                Solicitar análisis gratuito <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                            
+                            <p class="text-center text-sm text-textSecondary mt-3 font-medium">Sin permanencias · Sin contratos de larga duración · Solo trabajo con resultados</p>
+                            <div class="form-msg hidden text-center p-4 rounded-xl mt-4 font-medium transition-all text-sm"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-bgMain border-t border-white/5 pt-20 pb-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+            
+            <div class="md:col-span-12 lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
+                <div class="mb-8">
+                    <img src="https://i.imgur.com/2mXnkGe.png" alt="Proemote Logo" class="h-20 md:h-24 mb-3 opacity-90 mx-auto md:mx-0">
+                    <p class="text-white italic text-sm mb-1">Shaping what matters</p>
+                    <p class="text-textSecondary text-sm font-medium">Think first.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <p class="text-xs text-primary font-bold tracking-widest uppercase mb-1">Estudio creativo y estratégico.</p>
+                    <p class="text-xs text-textSecondary font-bold tracking-widest uppercase">Mérida, Extremadura.</p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-start gap-3 mb-8 w-full">
+                    <a href="mailto:info@proemote.es" class="text-white font-medium hover:text-primary transition-colors flex items-center gap-3 text-sm">
+                        <i class="ph ph-envelope-simple text-xl"></i> info@proemote.es
+                    </a>
+                    <a href="tel:+34641576286" class="text-white font-medium hover:text-primary transition-colors flex items-center gap-3 text-sm">
+                        <i class="ph ph-phone text-xl"></i> +34 641 57 62 86
+                    </a>
+                </div>
+
+                <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-8">
+                    <a href="/" class="px-5 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-primary/20 text-white text-xs transition-all">Inicio</a>
+                    <a href="/#enfoque" class="px-5 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-primary/20 text-white text-xs transition-all">Sistema</a>
+                    <a href="/contacto" class="px-5 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-primary/20 text-white text-xs transition-all">Contacto</a>
+                </div>
+                
+                <div class="flex justify-center md:justify-start gap-3 w-full">
+                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
+                        <i class="ph-fill ph-linkedin-logo"></i>
+                    </a>
+                    <a href="https://www.instagram.com/proemote.es/" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
+                        <i class="ph-fill ph-instagram-logo"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="md:col-span-4 lg:col-span-2 lg:col-start-7 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Servicios</h4>
+                <ul class="space-y-4 text-sm text-textSecondary text-center md:text-left">
+                    <li><a href="/servicios" class="hover:text-white transition-colors">Diseño Web</a></li>
+                    <li><a href="/servicios" class="hover:text-white transition-colors">Eventos 360º</a></li>
+                    <li><a href="/servicios" class="hover:text-white transition-colors">Marketing Digital</a></li>
+                    <li><a href="/redes-sociales" class="text-white transition-colors">Redes Sociales</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Empresa & Legal</h4>
+                <ul class="space-y-4 text-sm text-textSecondary text-center md:text-left">
+                    <li><a href="/aviso-legal" target="_blank" class="hover:text-white transition-colors">Aviso Legal</a></li>
+                    <li><a href="/privacidad" target="_blank" class="hover:text-white transition-colors">Política de Privacidad</a></li>
+                    <li><a href="/contacto" class="hover:text-white transition-colors">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Horario</h4>
+                <ul class="space-y-2 text-sm text-textSecondary text-center md:text-left">
+                    <li class="flex flex-col md:inline-block"><span class="font-medium text-white/80">L-V:</span> <span class="text-white">9H–14H, 16H–20H</span></li>
+                    <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-white/80">Sáb:</span> <span class="text-white">10H–13:30H</span></li>
+                    <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-white/80">Dom:</span> <span class="text-white/50">Cerrado</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 text-center md:text-left">
+            <p class="text-xs text-textSecondary w-full">© 2026 Proemote Studio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3 group reveal-up active">
+        <span class="hidden md:block px-4 py-2 bg-bgSurface border border-white/10 rounded-xl text-sm font-medium text-white shadow-lg opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
+            Hablar por WhatsApp
+        </span>
+        <a href="https://wa.me/34641576286" target="_blank" rel="noopener noreferrer" class="relative w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300">
+            <div class="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:bg-[#25D366]/30 transition-colors"></div>
+            <i class="ph-fill ph-whatsapp-logo text-3xl text-white"></i>
+        </a>
+    </div>
+
+    <!-- Scripts de Interacción, Formularios y Nav -->
+    <script>
+        function openModal() {
+            const modal = document.getElementById('contact-modal');
+            const inner = modal.querySelector('div');
+            modal.classList.remove('hidden');
+            setTimeout(() => { modal.classList.remove('opacity-0'); inner.classList.remove('scale-95'); }, 10);
+            document.body.style.overflow = 'hidden'; 
+        }
+        function closeModal() {
+            const modal = document.getElementById('contact-modal');
+            const inner = modal.querySelector('div');
+            modal.classList.add('opacity-0'); inner.classList.add('scale-95');
+            setTimeout(() => { modal.classList.add('hidden'); document.body.style.overflow = ''; }, 300); 
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Observer general
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+            // FAQ Accordion
+            document.querySelectorAll('.faq-toggle').forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const content = toggle.nextElementSibling;
+                    const icon = toggle.querySelector('.faq-icon');
+                    const currentColumn = toggle.closest('.faq-column');
+                    
+                    currentColumn.querySelectorAll('.faq-content').forEach(c => {
+                        if (c !== content) { c.classList.remove('grid-rows-[1fr]'); c.classList.add('grid-rows-[0fr]'); }
+                    });
+                    currentColumn.querySelectorAll('.faq-icon').forEach(i => {
+                        if (i !== icon) i.classList.remove('rotate-180');
+                    });
+
+                    if (content.classList.contains('grid-rows-[0fr]')) {
+                        content.classList.remove('grid-rows-[0fr]'); content.classList.add('grid-rows-[1fr]'); icon.classList.add('rotate-180');
+                    } else {
+                        content.classList.remove('grid-rows-[1fr]'); content.classList.add('grid-rows-[0fr]'); icon.classList.remove('rotate-180');
+                    }
+                });
+            });
+
+            // Motor Físico Timeline (Proceso 5 Pasos)
+            const progress = document.getElementById('foco-progress');
+            const items = document.querySelectorAll('.foco-item');
+            let isTicking = false;
+            
+            const handleTimeline = () => {
+                if(!progress) return;
+                const container = progress.parentElement;
+                const rect = container.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                let p = (windowHeight * 0.6 - rect.top) / rect.height;
+                p = Math.max(0, Math.min(1, p));
+                progress.style.height = `${p * 100}%`;
+
+                const lineBottom = progress.getBoundingClientRect().bottom;
+
+                items.forEach(item => {
+                    const node = item.querySelector('.foco-node');
+                    const nodeRect = node.getBoundingClientRect();
+                    const nodeCenter = nodeRect.top + (nodeRect.height / 2);
+
+                    if (lineBottom >= nodeCenter) {
+                        node.classList.remove('bg-bgMain');
+                        node.classList.add('bg-primary', 'border-primary', 'shadow-[0_0_15px_#7B61FF]');
+                        item.classList.add('active');
+                    } else {
+                        node.classList.add('bg-bgMain');
+                        node.classList.remove('bg-primary', 'border-primary', 'shadow-[0_0_15px_#7B61FF]');
+                        item.classList.remove('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', () => {
+                if (!isTicking) {
+                    window.requestAnimationFrame(() => {
+                        handleTimeline();
+                        isTicking = false;
+                    });
+                    isTicking = true;
+                }
+            });
+            handleTimeline();
+
+            // Form Submit (API Soberana)
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwbftkCLe-AkkeHxOyQ7esOzdjkMF-xXOvtc6Xg7GgtN6jKBUYPAJKGQo2hhOmcKJuJSg/exec';
+            document.querySelectorAll('.proemote-form').forEach(form => {
+                form.addEventListener('submit', e => {
+                    e.preventDefault();
+                    const btn = form.querySelector('.btn-submit');
+                    const msg = form.querySelector('.form-msg');
+                    const originalBtnContent = btn.innerHTML;
+                    btn.innerHTML = '<span class="animate-pulse italic">Sistematizando...</span>';
+                    btn.disabled = true;
+                    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                        .then(res => {
+                            msg.classList.remove('hidden'); msg.className = 'form-msg block p-4 rounded-xl bg-green-500/10 text-green-400 mt-4 border border-green-500/20 text-sm';
+                            msg.innerText = 'Estructura recibida. Te contactamos en menos de 24h.';
+                            form.reset(); btn.innerHTML = originalBtnContent; btn.disabled = false;
+                            if(form.id === 'modal-form') setTimeout(closeModal, 3000);
+                        }).catch(() => {
+                            msg.classList.remove('hidden'); msg.className = 'form-msg block p-4 rounded-xl bg-red-500/10 text-red-400 mt-4 border border-red-500/20 text-sm';
+                            msg.innerText = 'Error de red. Intenta de nuevo o vía WhatsApp.';
+                            btn.disabled = false; btn.innerHTML = originalBtnContent;
+                        });
+                });
+            });
+
+            // Tilt Effect 3D
+            document.querySelectorAll('.tilt-effect').forEach(el => {
+                el.addEventListener('mouseenter', () => el.style.transition = 'transform 0.1s ease-out, box-shadow 0.3s ease');
+                el.addEventListener('mousemove', (e) => {
+                    const rect = el.getBoundingClientRect();
+                    const rotateX = (((e.clientY - rect.top) - (rect.height / 2)) / (rect.height / 2)) * 1.5; 
+                    const rotateY = (((e.clientX - rect.left) - (rect.width / 2)) / (rect.width / 2)) * -1.5;
+                    el.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`); el.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+                    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(0.99, 0.99, 0.99)`;
+                });
+                el.addEventListener('mouseleave', () => {
+                    el.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease';
+                    el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                    el.style.setProperty('--mouse-x', `50%`); el.style.setProperty('--mouse-y', `50%`);
+                });
+            });
+
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.toggle('ph-dots-three-vertical'); icon.classList.toggle('ph-x');
+                });
+            }
+            
+            // Mouse Glow General
+            const glow = document.getElementById('mouse-glow');
+            let mouseX = window.innerWidth/2, mouseY = window.innerHeight/2, glowX = mouseX, glowY = mouseY;
+            document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; glow.style.opacity = '1'; });
+            document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+            function animateGlow() {
+                glowX += (mouseX - glowX)*0.1; glowY += (mouseY - glowY)*0.1;
+                glow.style.left = `${glowX}px`; glow.style.top = `${glowY}px`; requestAnimationFrame(animateGlow);
+            }
+            animateGlow();
+        });
+    </script>
+
+    <!-- Lógica de Mega Menú Hover (Configurado para Desktop) -->
+    <div id="mega-menu" class="fixed inset-0 z-[40] hidden pointer-events-none">
+        <div id="mega-menu-backdrop" class="absolute inset-0 bg-bgMain/40 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+        
+        <div id="mega-menu-panel" class="absolute top-[72px] md:top-[88px] left-1/2 -translate-x-1/2 w-full max-w-5xl px-6 transform -translate-y-4 opacity-0 transition-all duration-300 pointer-events-auto">
+            <div class="glass-card rounded-[2rem] p-8 border-white/10 shadow-2xl flex flex-col md:flex-row gap-10">
+                
+                <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <a href="/servicios#branding" class="group flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                                <i class="ph-fill ph-paint-brush-broad text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Branding & Estrategia</h4>
+                                <p class="text-xs text-textSecondary">Identidad visual y posicionamiento.</p>
+                            </div>
+                        </a>
+                        <a href="/redes-sociales" class="group flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                                <i class="ph-fill ph-video-camera text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Contenido & Redes</h4>
+                                <p class="text-xs text-textSecondary">Social Media y estrategia de video.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="space-y-6">
+                        <a href="/servicios#web" class="group flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                                <i class="ph-fill ph-browser text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Web & Ecosistemas</h4>
+                                <p class="text-xs text-textSecondary">Diseño UX/UI y embudos de conversión.</p>
+                            </div>
+                        </a>
+                        <a href="/servicios#ads" class="group flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                                <i class="ph-fill ph-rocket-launch text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Paid Media & Ads</h4>
+                                <p class="text-xs text-textSecondary">Campañas Meta y Google escalables.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-[320px] rounded-2xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 p-6 flex flex-col justify-between flex-shrink-0">
+                    <div>
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary mb-4">
+                            <i class="ph-fill ph-circles-three-plus text-xl"></i>
+                        </div>
+                        <h4 class="text-white font-heading font-medium text-lg mb-2">Diseñamos sistemas completos, no piezas aisladas.</h4>
+                    </div>
+                    <a href="/servicios" class="inline-flex items-center gap-2 text-primary font-medium text-sm hover:text-white transition-colors mt-6 group">
+                        Ver todos los servicios <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Lógica Hover Mega Menú (Solo Desktop)
+        document.addEventListener('DOMContentLoaded', () => {
+            const servicesBtn = document.getElementById('services-menu-btn');
+            const megaMenu = document.getElementById('mega-menu');
+            const megaMenuPanel = document.getElementById('mega-menu-panel');
+            const megaMenuBackdrop = document.getElementById('mega-menu-backdrop');
+            let hideTimeout;
+
+            const showMenu = () => {
+                clearTimeout(hideTimeout);
+                megaMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    megaMenuPanel.classList.remove('-translate-y-4', 'opacity-0');
+                    megaMenuBackdrop.classList.remove('opacity-0');
+                }, 10);
+            };
+
+            const hideMenu = () => {
+                hideTimeout = setTimeout(() => {
+                    megaMenuPanel.classList.add('-translate-y-4', 'opacity-0');
+                    megaMenuBackdrop.classList.add('opacity-0');
+                    setTimeout(() => megaMenu.classList.add('hidden'), 300); 
+                }, 150); 
+            };
+
+            if(window.innerWidth > 768 && servicesBtn && megaMenu) {
+                servicesBtn.addEventListener('mouseenter', showMenu);
+                servicesBtn.addEventListener('mouseleave', hideMenu);
+                megaMenuPanel.addEventListener('mouseenter', showMenu);
+                megaMenuPanel.addEventListener('mouseleave', hideMenu);
+            }
+        });
+    </script>
+</body>
+</html>
