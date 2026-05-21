@@ -106,6 +106,8 @@
             <p class="text-textSecondary mb-6 text-sm">Te respondemos en menos de 24h con un diagnóstico inicial sin compromiso.</p>
             
             <form id="modal-form" class="proemote-form space-y-4">
+                <!-- Honeypot Anti-Spam Field -->
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                 <input type="text" name="Nombre" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="Tu nombre completo">
                 <input type="email" name="Email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="hola@tuempresa.com">
                 <input type="tel" name="Telefono" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="+34 600 000 000 (Opcional)">
@@ -933,6 +935,8 @@
                     <!-- Formulario con Tilt Glass Effect -->
                     <div>
                         <form id="proemote-form-cta" class="proemote-form glass-form tilt-effect p-8 rounded-[2rem] space-y-4 shadow-xl" style="will-change: transform;">
+                            <!-- Honeypot Anti-Spam Field -->
+                            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                             <div class="flex flex-col md:flex-row gap-4">
                                 <input type="text" name="Nombre" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="Tu nombre completo">
                                 <input type="email" name="Email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="hola@tuempresa.com">
@@ -1373,6 +1377,30 @@
                     const btn = form.querySelector('.btn-submit');
                     const msg = form.querySelector('.form-msg');
                     const originalBtnContent = btn.innerHTML;
+                    
+                    // Capa de Seguridad 1: Honeypot Check
+                    const honeypot = form.querySelector('input[name="_honey"]');
+                    if (honeypot && honeypot.value !== "") {
+                        console.warn("Spam detected via Honeypot.");
+                        msg.classList.remove('hidden');
+                        msg.className = 'form-msg block p-4 rounded-xl bg-green-500/10 text-green-400 mt-4 border border-green-500/20 text-sm';
+                        msg.innerText = 'Estructura recibida. Te contactamos en menos de 24h.';
+                        form.reset();
+                        if(form.id === 'modal-form') setTimeout(closeModal, 3000);
+                        return;
+                    }
+
+                    // Capa de Seguridad 2: Cooldown de Envío por LocalStorage (30s)
+                    const LAST_SUBMIT_KEY = 'proemote_last_submit_home';
+                    const now = Date.now();
+                    const lastSubmit = localStorage.getItem(LAST_SUBMIT_KEY);
+                    if (lastSubmit && (now - lastSubmit < 30000)) {
+                        msg.classList.remove('hidden');
+                        msg.className = 'form-msg block p-4 rounded-xl bg-red-500/10 text-red-400 mt-4 border border-red-500/20 text-sm';
+                        msg.innerText = 'Has realizado un envío recientemente. Por favor, espera unos segundos antes de intentar de nuevo.';
+                        return;
+                    }
+                    localStorage.setItem(LAST_SUBMIT_KEY, now);
                     
                     btn.innerHTML = '<span class="animate-pulse italic">Sistematizando...</span>';
                     btn.disabled = true;
