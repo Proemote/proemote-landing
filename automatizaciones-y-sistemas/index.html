@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campañas Ads para Eventos | Proemote Studio</title>
+    <title>Automatización & Sistemas | Proemote Studio</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,6 +48,21 @@
         .glass-card { background: linear-gradient(180deg, rgba(20, 20, 31, 0.9) 0%, rgba(20, 20, 31, 0.5) 100%); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         .glass-card:hover { border-color: rgba(123, 97, 255, 0.3); box-shadow: 0 10px 40px rgba(123, 97, 255, 0.1); transform: translateY(-4px); }
 
+        /* Estilo Luxury Glass específico para las tarjetas de servicios */
+        .luxury-glass-card { 
+            background: rgba(255, 255, 255, 0.04); 
+            backdrop-filter: blur(16px); 
+            border: 1px solid rgba(255, 255, 255, 0.10); 
+            border-radius: 20px; 
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .luxury-glass-card:hover {
+            border-color: rgba(159, 122, 234, 0.4);
+            box-shadow: 0 12px 40px rgba(159, 122, 234, 0.15);
+            transform: translateY(-5px);
+        }
+
         #mouse-glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(123,97,255,0.08) 0%, rgba(10,10,15,0) 60%); border-radius: 50%; pointer-events: none; z-index: 35; transform: translate(-50%, -50%); transition: opacity 0.4s ease; mix-blend-mode: screen; opacity: 0; }
 
         .text-gradient-primary { background: linear-gradient(135deg, #9F7AEA 0%, #7B61FF 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
@@ -68,8 +83,8 @@
     <div id="contact-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-bgMain/80 backdrop-blur-md opacity-0 transition-opacity duration-300">
         <div class="glass-form tilt-effect w-full max-w-lg p-8 md:p-10 rounded-[2rem] relative shadow-2xl max-h-[95vh] overflow-y-auto transform scale-95 transition-transform duration-300" style="will-change: transform;">
             <button onclick="closeModal()" class="absolute top-6 right-6 text-textSecondary hover:text-white transition-colors focus:outline-none z-10"><i class="ph ph-x text-2xl"></i></button>
-            <h2 class="text-2xl font-heading font-medium text-white mb-2">Cuéntanos sobre tu evento</h2>
-            <p class="text-textSecondary mb-6 text-sm">Te respondemos en menos de 24h con una valoración sin compromiso.</p>
+            <h2 class="text-2xl font-heading font-medium text-white mb-2">Cuéntanos sobre tu negocio</h2>
+            <p class="text-textSecondary mb-6 text-sm">Te respondemos en menos de 24h con una propuesta de automatización.</p>
             
             <form id="modal-form" class="proemote-form space-y-4">
                 <input type="text" name="Nombre" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="Tu nombre o empresa">
@@ -78,12 +93,12 @@
                 
                 <select name="Servicio" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer">
                     <option value="" disabled>¿Qué servicio te interesa?</option>
-                    <option value="Campañas Ads Eventos" selected>Campañas Ads para Eventos</option>
-                    <option value="Promoción Digital de Eventos">Promoción Digital (Orgánico + Ads)</option>
-                    <option value="Branding Visual">Branding Visual del Evento</option>
+                    <option value="Automatizacion y Sistemas" selected>Automatización & Sistemas</option>
+                    <option value="Marketing Digital">Marketing Digital</option>
+                    <option value="Diseño Web SEO">Diseño Web & SEO</option>
                 </select>
 
-                <textarea name="Mensaje" rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all resize-none" placeholder="Cuéntanos fecha del evento, aforo objetivo y canales que te interesan..."></textarea>
+                <textarea name="Mensaje" rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all resize-none" placeholder="Cuéntanos qué tareas repetitivas consumen más tiempo en tu negocio o qué te gustaría automatizar..."></textarea>
                 
                 <div class="flex items-start gap-3 px-2">
                     <input type="checkbox" id="check-priv-modal" name="Privacidad" value="Aceptada" required class="mt-1 w-4 h-4 accent-primary cursor-pointer">
@@ -131,361 +146,415 @@
 
         <div class="max-w-5xl mx-auto px-6 text-center relative z-10 reveal-up active">
             <div class="inline-flex items-center justify-center px-5 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-bold tracking-[0.2em] uppercase mb-8 shadow-[0_0_15px_rgba(123,97,255,0.05)]">
-                Campañas Ads para Eventos
+                Automatización & Sistemas
             </div>
 
             <h1 class="font-heading text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight mb-6 text-white">
-                Tu evento tiene fecha.<br class="hidden md:block">
-                <span class="text-primary font-bold">Llenarlo no puede esperar.</span>
+                Atiende a más clientes<br class="hidden md:block">
+                <span class="text-primary font-bold">sin contratar a nadie más.</span>
             </h1>
             
             <p class="text-lg md:text-xl text-textSecondary leading-relaxed max-w-3xl mx-auto mb-10">
-                Campañas segmentadas en Meta, Google y LinkedIn diseñadas específicamente para eventos. Estructuramos tu presupuesto en fases de captación, activación y cierre para asegurar el aforo con el público correcto.
+                Automatizamos las tareas repetitivas que consumen el tiempo de tu equipo — reservas, respuestas, recordatorios, seguimientos — para que tú y tu negocio podáis dedicaros a lo que realmente genera dinero.
             </p>
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
                 <button onclick="openModal()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] flex items-center justify-center gap-2 focus:outline-none">
-                    Quiero llenar mi evento
+                    Quiero automatizar mi negocio
                 </button>
-                <a href="#como-estructuramos" class="w-full sm:w-auto px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white font-medium transition-all duration-300 flex items-center justify-center gap-2">
+                <a href="#como-lo-implementamos" class="w-full sm:w-auto px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white font-medium transition-all duration-300 flex items-center justify-center gap-2">
                     Ver cómo funciona
                 </a>
             </div>
+
+            <div class="flex items-center justify-center gap-2 text-sm text-textSecondary mt-8 italic">
+                <span class="text-amber-400">★★★★★</span>
+                <span>Valoración 4,9 en Google | Más de 20 negocios automatizados</span>
+            </div>
         </div>
     </section>
 
-    <!-- 2. POR QUÉ LOS ADS PARA EVENTOS SON DISTINTOS -->
+    <!-- 2. EL PROBLEMA -->
     <section class="py-24 relative z-10 bg-bgSurface/30 border-b border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal-up">
-                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">El Enfoque</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Los Ads para eventos no son como los Ads normales.</h2>
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">El Problema</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">El tiempo que pierdes atendiendo podría estar generando dinero.</h2>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-up delay-100 max-w-6xl mx-auto">
-                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex flex-col h-full">
-                    <div class="w-12 h-12 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500 mb-6">
-                        <i class="ph-fill ph-hourglass-high text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-heading text-white font-medium mb-3">Tienes una fecha límite</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">En un e-commerce puedes dejar que el algoritmo aprenda durante dos meses. En un evento, el margen de error es cero. Cada semana que pasas sin conversiones, es aforo perdido para siempre.</p>
-                </div>
-
-                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex flex-col h-full">
-                    <div class="w-12 h-12 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500 mb-6">
-                        <i class="ph-fill ph-target text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-heading text-white font-medium mb-3">No vale cualquier registro</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">No quieres curiosos, quieres al asistente B2B que va a comprar, decidir o prescribir en tu sector. La segmentación aquí es quirúrgica, no masiva.</p>
-                </div>
-
-                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex flex-col h-full">
-                    <div class="w-12 h-12 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500 mb-6">
-                        <i class="ph-fill ph-stack text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-heading text-white font-medium mb-3">Obliga a trabajar en fases</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">No es encender un anuncio y esperar. Es construir expectación anticipada, activar urgencia y cerrar con presión. Sin esta estructura, el coste por registro se dispara en la recta final.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. CÓMO ESTRUCTURAMOS LA CAMPAÑA -->
-    <section id="como-estructuramos" class="py-32 relative bg-bgMain border-b border-white/5 with-glow">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-24 reveal-up">
-                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Estructura</span>
-                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white">El plan de vuelo hacia el aforo completo.</h2>
-                <p class="text-textSecondary">Así dividimos tu presupuesto desde el día 1 hasta el evento.</p>
-            </div>
-
-            <div class="relative max-w-4xl mx-auto px-4 md:px-0">
-                <div class="absolute left-6 md:left-[50px] top-0 bottom-0 w-[2px] bg-white/5 rounded-full"></div>
-                <div class="foco-progress absolute left-6 md:left-[50px] top-0 w-[2px] bg-gradient-to-b from-primary to-accent rounded-full h-0 shadow-[0_0_10px_#7B61FF] transition-[height] duration-75 ease-out"></div>
-
-                <!-- Fase 1 -->
-                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
-                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
-                    <div class="glass-card p-8 md:p-10 rounded-[2rem] border-white/5 border-l-4 border-l-primary/50">
-                        <div class="flex items-center gap-3 text-primary font-bold text-xs tracking-widest uppercase mb-4">
-                            <i class="ph-fill ph-binoculars text-lg"></i> Semanas 8 a 5 antes del evento
-                        </div>
-                        <h3 class="text-2xl font-heading font-medium text-white mb-4">Fase 1: Captación Temprana</h3>
-                        <p class="text-sm text-white/80 font-medium mb-2 border-b border-white/10 pb-2">Objetivo: Llenar el pipeline de interesados.</p>
-                        <p class="text-textSecondary text-sm leading-relaxed mb-4">Activamos campañas dirigidas a audiencias frías segmentadas por sector y cargo. Es el momento de presentar el evento y aprovechar ofertas "Early Bird" o de acceso anticipado si aplican para garantizar los primeros registros a un coste muy bajo.</p>
-                    </div>
-                </div>
-
-                <!-- Fase 2 -->
-                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
-                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
-                    <div class="glass-card p-8 md:p-10 rounded-[2rem] border-white/5 border-l-4 border-l-primary/50">
-                        <div class="flex items-center gap-3 text-primary font-bold text-xs tracking-widest uppercase mb-4">
-                            <i class="ph-fill ph-fire text-lg"></i> Semanas 4 a 2 antes del evento
-                        </div>
-                        <h3 class="text-2xl font-heading font-medium text-white mb-4">Fase 2: Activación y Prueba Social</h3>
-                        <p class="text-sm text-white/80 font-medium mb-2 border-b border-white/10 pb-2">Objetivo: Convertir interesados en registrados.</p>
-                        <p class="text-textSecondary text-sm leading-relaxed mb-4">Desplegamos campañas de retargeting para impactar a quienes visitaron la web pero no completaron la compra. Usamos anuncios con los ponentes confirmados, revelamos la agenda y utilizamos testimonios de ediciones anteriores para dar peso y credibilidad.</p>
-                    </div>
-                </div>
-
-                <!-- Fase 3 -->
-                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-10">
-                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
-                    <div class="glass-card p-8 md:p-10 rounded-[2rem] border-white/5 border-l-4 border-l-accent/50">
-                        <div class="flex items-center gap-3 text-accent font-bold text-xs tracking-widest uppercase mb-4">
-                            <i class="ph-fill ph-alarm text-lg"></i> Última semana y 48h finales
-                        </div>
-                        <h3 class="text-2xl font-heading font-medium text-white mb-4">Fase 3: Urgencia y Cierre</h3>
-                        <p class="text-sm text-white/80 font-medium mb-2 border-b border-white/10 pb-2">Objetivo: Agotar el aforo definitivo.</p>
-                        <p class="text-textSecondary text-sm leading-relaxed">Concentramos el presupuesto en retargeting agresivo hacia la base de interesados. Anuncios de "Últimas plazas", contadores de tiempo (countdown) y cierres de venta directos. En esta fase, la urgencia es el principal motor de conversión.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. CANALES QUE ACTIVAMOS -->
-    <section class="py-24 relative z-10 bg-bgSurface/30 border-b border-white/5 with-glow">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 reveal-up">
-                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Los canales que garantizan el aforo.</h2>
-                <p class="text-textSecondary">Seleccionamos las plataformas según el tipo de asistente que buscas.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-up delay-100 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal-up delay-100 max-w-7xl mx-auto">
                 
-                <div class="glass-card p-8 rounded-[2rem] border-white/10 tilt-effect flex flex-col h-full hover:border-primary/30 transition-colors">
-                    <div class="flex items-center gap-4 mb-4">
-                        <i class="ph-fill ph-linkedin-logo text-4xl text-[#0A66C2]"></i>
-                        <h3 class="text-xl font-heading font-medium text-white">LinkedIn Ads</h3>
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex flex-col h-full">
+                    <div class="w-12 h-12 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500 mb-6">
+                        <i class="ph-fill ph-chat-centered-text text-xl"></i>
                     </div>
-                    <p class="text-sm text-white/80 font-medium mb-2">Ideal para: Congresos, jornadas y eventos B2B.</p>
-                    <p class="text-sm text-textSecondary">El canal definitivo para segmentar por cargo, sector o tamaño de empresa. Es la vía más precisa y directa para llegar a quien toma las decisiones de asistencia o patrocinio en otras compañías.</p>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Respondiendo lo mismo</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Horarios, precios, disponibilidad, confirmaciones... Las mismas preguntas, una y otra vez, ocupando tiempo que debería ir a otra parte.</p>
                 </div>
 
-                <div class="glass-card p-8 rounded-[2rem] border-white/10 tilt-effect flex flex-col h-full hover:border-primary/30 transition-colors">
-                    <div class="flex items-center gap-4 mb-4">
-                        <i class="ph-fill ph-meta-logo text-4xl text-[#0668E1]"></i>
-                        <h3 class="text-xl font-heading font-medium text-white">Meta Ads (Instagram & Facebook)</h3>
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex flex-col h-full">
+                    <div class="w-12 h-12 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500 mb-6">
+                        <i class="ph-fill ph-user-minus text-xl"></i>
                     </div>
-                    <p class="text-sm text-white/80 font-medium mb-2">Ideal para: Eventos corporativos masivos o formativos.</p>
-                    <p class="text-sm text-textSecondary">Alcance amplio a un coste controlado. Perfecto para eventos con un fuerte componente visual o para impactar a audiencias profesionales de un sector amplio donde el volumen de registros es clave.</p>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Clientes que se pierden</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Si no contestas al momento, el cliente llama al siguiente. Un negocio que solo atiende de 9 a 18 pierde oportunidades cada noche y cada fin de semana.</p>
                 </div>
 
-                <div class="glass-card p-8 rounded-[2rem] border-white/10 tilt-effect flex flex-col h-full hover:border-primary/30 transition-colors">
-                    <div class="flex items-center gap-4 mb-4">
-                        <i class="ph-fill ph-google-logo text-4xl text-[#EA4335]"></i>
-                        <h3 class="text-xl font-heading font-medium text-white">Google Ads</h3>
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex flex-col h-full">
+                    <div class="w-12 h-12 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500 mb-6">
+                        <i class="ph-fill ph-hand-tap text-xl"></i>
                     </div>
-                    <p class="text-sm text-white/80 font-medium mb-2">Ideal para: Captar demanda activa y búsquedas intencionadas.</p>
-                    <p class="text-sm text-textSecondary">Impactamos a personas que ya están buscando en Google eventos, congresos o formaciones específicas de tu sector. Es tráfico con una altísima intención de compra o registro inmediato.</p>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Tareas manuales sin valor</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Recordatorios de cita, seguimientos post-servicio, gestión de reservas... todo esto se puede hacer solo. Tú no tendrías que tocarlo.</p>
                 </div>
 
-                <div class="glass-card p-8 rounded-[2rem] border-primary/30 bg-primary/5 tilt-effect flex flex-col h-full relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[40px] rounded-full"></div>
-                    <div class="flex items-center gap-4 mb-4 relative z-10">
-                        <i class="ph-fill ph-arrows-merge text-4xl text-primary"></i>
-                        <h3 class="text-xl font-heading font-medium text-white">Retargeting Multicanal</h3>
+                <div class="glass-card p-8 rounded-3xl border-primary/20 bg-primary/5 tilt-effect flex flex-col h-full relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-primary/10 blur-[30px] rounded-full"></div>
+                    <div class="w-12 h-12 shrink-0 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 relative z-10">
+                        <i class="ph-fill ph-trend-down text-xl"></i>
                     </div>
-                    <p class="text-sm text-white/80 font-medium mb-2 relative z-10">Ideal para: La fase final de cierre de cualquier evento.</p>
-                    <p class="text-sm text-textSecondary relative z-10">Recuperamos a los usuarios que mostraron interés inicial en la web del evento pero no completaron el registro. Es la estrategia obligatoria para obtener el mejor coste por conversión en las semanas previas.</p>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3 relative z-10">Contratar no es la solución</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed relative z-10">Un empleado cuesta entre 1.500€ y 2.500€ al mes. Una automatización bien implementada hace el mismo trabajo por una fracción del precio y sin bajas ni errores.</p>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- 5. QUÉ INCLUYE EL SERVICIO -->
+    <!-- 3. PARA QUIÉN ES -->
+    <section class="py-24 relative z-10 bg-bgMain border-b border-white/5 with-glow">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Aplicabilidad</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">¿Tu negocio recibe clientes?</h2>
+                <p class="text-textSecondary text-lg max-w-2xl mx-auto">Entonces tienes tareas que se pueden automatizar.</p>
+            </div>
+
+            <div class="glass-card p-8 md:p-12 rounded-[2.5rem] border-white/5 mb-8 reveal-up">
+                <p class="text-center text-textSecondary mb-8 max-w-3xl mx-auto">
+                    No importa el sector. Si tienes atención al cliente, reservas, citas o seguimientos, hay partes de tu operación que pueden funcionar solas de forma impecable.
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+                    <div class="px-5 py-3 rounded-full border border-white/10 bg-white/5 text-sm text-white font-medium hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 flex items-center gap-2">
+                        🏨 Hostales y apartamentos turísticos
+                    </div>
+                    <div class="px-5 py-3 rounded-full border border-white/10 bg-white/5 text-sm text-white font-medium hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 flex items-center gap-2">
+                        💆 Centros de estética y belleza
+                    </div>
+                    <div class="px-5 py-3 rounded-full border border-white/10 bg-white/5 text-sm text-white font-medium hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 flex items-center gap-2">
+                        🦷 Clínicas y consultas
+                    </div>
+                    <div class="px-5 py-3 rounded-full border border-white/10 bg-white/5 text-sm text-white font-medium hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 flex items-center gap-2">
+                        🏋️ Gimnasios y centros deportivos
+                    </div>
+                    <div class="px-5 py-3 rounded-full border border-white/10 bg-white/5 text-sm text-white font-medium hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 flex items-center gap-2">
+                        ⚖️ Despachos profesionales
+                    </div>
+                    <div class="px-5 py-3 rounded-full border border-white/10 bg-white/5 text-sm text-white font-medium hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 flex items-center gap-2">
+                        🍽️ Restaurantes y catering
+                    </div>
+                    <div class="px-5 py-3 rounded-full border border-white/10 bg-white/5 text-sm text-white font-medium hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 flex items-center gap-2">
+                        🏪 Comercios con atención personalizada
+                    </div>
+                    <div class="px-5 py-3 rounded-full border border-white/10 bg-white/5 text-sm text-white font-medium hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 flex items-center gap-2">
+                        🎓 Academias y centros de formación
+                    </div>
+                </div>
+
+                <p class="text-center text-primary text-sm font-semibold tracking-wider uppercase mt-8">
+                    Si atiendes clientes, esto es para ti.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SERVICIOS (Luxury Glass cards exception style) -->
+    <section class="py-24 relative z-10 bg-bgSurface/30 border-b border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Nuestros Sistemas</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Lo que podemos automatizar en tu negocio.</h2>
+                <p class="text-textSecondary">Cada sistema se configura según cómo funciona tu negocio — sin plantillas genéricas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto reveal-up delay-100">
+                
+                <!-- Tarjeta 1 -->
+                <div class="luxury-glass-card p-8 flex flex-col h-full group">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+                        <i class="ph-fill ph-chat-circle text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-semibold mb-2">Respuesta automática 24/7</h3>
+                    <p class="text-sm text-textSecondary mb-6">Tu negocio responde al instante, aunque sean las 3 de la mañana.</p>
+                    <ul class="space-y-2 mt-auto border-t border-white/5 pt-4 text-xs text-textSecondary">
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Respuestas automáticas por WhatsApp</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Gestión de preguntas frecuentes</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Derivación a humano cuando es necesario</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Configuración personalizada</li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="luxury-glass-card p-8 flex flex-col h-full group">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+                        <i class="ph-fill ph-calendar-blank text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-semibold mb-2">Reservas y citas automáticas</h3>
+                    <p class="text-sm text-textSecondary mb-6">El cliente reserva, confirma y recibe recordatorios sin que nadie intervenga.</p>
+                    <ul class="space-y-2 mt-auto border-t border-white/5 pt-4 text-xs text-textSecondary">
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Sistema de reservas online</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Confirmaciones por WhatsApp o email</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Recordatorios automáticos 24h antes</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Gestión de cancelaciones y cambios</li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="luxury-glass-card p-8 flex flex-col h-full group">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+                        <i class="ph-fill ph-arrows-split text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-semibold mb-2">Seguimiento post-servicio</h3>
+                    <p class="text-sm text-textSecondary mb-6">El cliente se va y el sistema sigue trabajando para fidelizarlo.</p>
+                    <ul class="space-y-2 mt-auto border-t border-white/5 pt-4 text-xs text-textSecondary">
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Mensajes de seguimiento automáticos</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Solicitud de reseña en Google</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Ofertas de fidelización programadas</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Reactivación de clientes inactivos</li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta 4 -->
+                <div class="luxury-glass-card p-8 flex flex-col h-full group">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+                        <i class="ph-fill ph-envelope-open text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-semibold mb-2">Email marketing automatizado</h3>
+                    <p class="text-sm text-textSecondary mb-6">Secuencias que venden tus servicios mientras tú haces otra cosa.</p>
+                    <ul class="space-y-2 mt-auto border-t border-white/5 pt-4 text-xs text-textSecondary">
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Bienvenida automática a clientes nuevos</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Secuencias de nurturing (cultivo de leads)</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Campañas estacionales programadas</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Segmentación avanzada por tipo de cliente</li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta 5 -->
+                <div class="luxury-glass-card p-8 flex flex-col h-full group">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+                        <i class="ph-fill ph-funnel text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-semibold mb-2">Funnels de captación</h3>
+                    <p class="text-sm text-textSecondary mb-6">Atrae prospectos, cualifícalos y conviértelos sin intervención manual.</p>
+                    <ul class="space-y-2 mt-auto border-t border-white/5 pt-4 text-xs text-textSecondary">
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Landing page de conversión rápida</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Formulario de cualificación automática</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Secuencias de bienvenida integradas</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Notificación al equipo de ventas</li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta 6 -->
+                <div class="luxury-glass-card p-8 flex flex-col h-full group">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+                        <i class="ph-fill ph-database text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-semibold mb-2">CRM y gestión de clientes</h3>
+                    <p class="text-sm text-textSecondary mb-6">Toda la información de tus clientes organizada y actualizada sola.</p>
+                    <ul class="space-y-2 mt-auto border-t border-white/5 pt-4 text-xs text-textSecondary">
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Configuración e integración del CRM</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Automatización de etiquetas y estados</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Historial de interacciones unificado</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">▪</span> Reportes automáticos mensuales</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. EL RETORNO -->
     <section class="py-24 relative z-10 bg-bgMain border-b border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal-up">
-                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Alcance</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Lo que hacemos. Y lo que no.</h2>
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Rentabilidad</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Cuánto cuesta no automatizar.</h2>
+                <p class="text-textSecondary">El tiempo de tu equipo tiene un precio. Ponlo en perspectiva.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-up delay-100 max-w-5xl mx-auto">
-                <!-- Lo que SÍ incluye -->
-                <div class="p-8 md:p-10 rounded-[2rem] border border-primary/20 bg-primary/5 tilt-effect flex flex-col h-full">
-                    <div class="inline-flex items-center gap-2 text-white font-bold text-sm tracking-wider uppercase mb-6">
-                        <i class="ph-fill ph-check-circle text-xl text-primary"></i> ESTE SERVICIO INCLUYE
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-5xl mx-auto reveal-up delay-100 items-stretch">
+                <!-- Bloque 1 -->
+                <div class="glass-card p-8 rounded-3xl border-white/5 flex flex-col justify-between text-center md:text-left">
+                    <div>
+                        <span class="text-xs font-bold tracking-wider text-textSecondary uppercase block mb-2">Empleado de atención</span>
+                        <div class="text-4xl font-heading font-bold text-white mb-4">1.500–2.000€<span class="text-sm text-textSecondary">/mes</span></div>
+                        <p class="text-sm text-textSecondary leading-relaxed">Costo recurrente que incluye salario, seguridad social, formación, vacaciones y bajas solo para tareas repetitivas de atención.</p>
                     </div>
-                    <ul class="space-y-5">
-                        <li class="flex items-start gap-3">
-                            <span class="text-primary mt-1">■</span>
-                            <div>
-                                <p class="text-white font-medium text-sm">Briefing y estrategia B2B</p>
-                                <p class="text-textSecondary text-sm mt-1">Definición exacta del asistente objetivo y calendario de campaña.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-primary mt-1">■</span>
-                            <div>
-                                <p class="text-white font-medium text-sm">Configuración técnica (Setup)</p>
-                                <p class="text-textSecondary text-sm mt-1">Instalación de píxeles, medición de registros y creación de audiencias frías y de retargeting.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-primary mt-1">■</span>
-                            <div>
-                                <p class="text-white font-medium text-sm">Creación técnica de anuncios</p>
-                                <p class="text-textSecondary text-sm mt-1">Redacción de textos persuasivos (copywriting) adaptados a cada fase y montaje en plataformas.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-primary mt-1">■</span>
-                            <div>
-                                <p class="text-white font-medium text-sm">Optimización continua</p>
-                                <p class="text-textSecondary text-sm mt-1">Revisión periódica. Pausamos lo que no trae registros y escalamos los anuncios rentables.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-primary mt-1">■</span>
-                            <div>
-                                <p class="text-white font-medium text-sm">Informe Post-Evento</p>
-                                <p class="text-textSecondary text-sm mt-1">Reporte claro: coste real por asistente y rendimiento por cada canal utilizado.</p>
-                            </div>
-                        </li>
-                    </ul>
                 </div>
 
-                <!-- Lo que NO incluye -->
-                <div class="p-8 md:p-10 rounded-[2rem] border border-white/10 bg-white/5 tilt-effect flex flex-col h-full">
-                    <div class="inline-flex items-center gap-2 text-white/50 font-bold text-sm tracking-wider uppercase mb-6">
-                        <i class="ph-fill ph-x-circle text-xl"></i> NO ESTÁ INCLUIDO AQUÍ
+                <!-- Bloque 2 (Destacado) -->
+                <div class="p-8 rounded-3xl border-2 border-primary/40 bg-primary/10 shadow-[0_0_40px_rgba(123,97,255,0.15)] flex flex-col justify-between text-center md:text-left relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-primary text-white text-[10px] font-bold px-4 py-1.5 rounded-bl-xl uppercase tracking-wider">Tu mejor decisión</div>
+                    <div>
+                        <span class="text-xs font-bold tracking-wider text-primary uppercase block mb-2 mt-2">Sistema automatizado Proemote</span>
+                        <div class="text-4xl font-heading font-bold text-white mb-4">Desde 300€<span class="text-sm text-textSecondary">/implementación</span></div>
+                        <p class="text-sm text-textMain/80 leading-relaxed mb-6">Una única inversión inicial. El sistema trabaja 24/7 de forma infatigable, no comete errores, no coge vacaciones y escala con tu volumen de negocio.</p>
                     </div>
-                    <p class="text-sm text-textSecondary mb-6">Este es un servicio técnico y estratégico de Paid Media puro. Si necesitas lo siguiente, deberás contratar nuestros servicios de Diseño o Promoción Orgánica:</p>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3 opacity-60">
-                            <i class="ph ph-minus text-white/50 mt-0.5"></i>
-                            <p class="text-white text-sm">Diseño gráfico premium de cartelería y banners base (el cliente nos aporta los recursos visuales o contrata branding).</p>
-                        </li>
-                        <li class="flex items-start gap-3 opacity-60">
-                            <i class="ph ph-minus text-white/50 mt-0.5"></i>
-                            <p class="text-white text-sm">Gestión de redes sociales orgánicas (publicar en el muro o Community Management).</p>
-                        </li>
-                        <li class="flex items-start gap-3 opacity-60">
-                            <i class="ph ph-minus text-white/50 mt-0.5"></i>
-                            <p class="text-white text-sm">Cobertura audiovisual, fotografía o grabación de vídeo el día del evento.</p>
-                        </li>
-                    </ul>
                 </div>
+
+                <!-- Bloque 3 -->
+                <div class="glass-card p-8 rounded-3xl border-white/5 flex flex-col justify-between text-center md:text-left">
+                    <div>
+                        <span class="text-xs font-bold tracking-wider text-textSecondary uppercase block mb-2">Lo que recuperas</span>
+                        <div class="text-4xl font-heading font-bold text-primary mb-4">+15h<span class="text-sm text-textSecondary">/semana</span></div>
+                        <p class="text-sm text-textSecondary leading-relaxed">Tiempo real de tu equipo devuelto para que podáis enfocaros en tareas estratégicas que generan más valor y aumentan la facturación.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 reveal-up delay-200">
+                <p class="text-lg font-medium text-white italic">"No es un gasto. Es la contratación más rentable que puedes hacer."</p>
             </div>
         </div>
     </section>
 
-    <!-- 6. DOS FORMAS DE TRABAJAR -->
-    <section class="py-24 relative z-10 bg-bgSurface/30 border-b border-white/5 with-glow">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 reveal-up">
-                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Opciones de colaboración.</h2>
-                <p class="text-textSecondary">Nos acoplamos a tu estructura interna.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-up delay-100 max-w-5xl mx-auto">
-                <!-- Gestión Completa -->
-                <div class="relative p-8 md:p-10 rounded-[2rem] border-2 border-primary/40 bg-primary/10 shadow-[0_0_40px_rgba(123,97,255,0.1)] group tilt-effect flex flex-col h-full">
-                    <div class="absolute -top-px left-8 bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-b-lg uppercase tracking-widest shadow-lg">Llave en mano</div>
-                    
-                    <h3 class="text-2xl font-heading font-bold text-white mt-4 mb-2">Gestión Completa</h3>
-                    <p class="text-sm text-textSecondary mb-6">Para organizadores y empresas que no tienen tiempo ni equipo técnico interno especializado en Paid Media.</p>
-                    
-                    <div class="bg-black/20 rounded-xl p-5 mb-4 border border-white/5">
-                        <p class="text-sm text-white mb-2 font-medium">Cómo funciona:</p>
-                        <p class="text-sm text-textSecondary">Nuestra agencia ejecuta y supervisa todo de principio a fin. Desde el setup técnico de los píxeles, pasando por la creación de los anuncios, hasta la optimización semanal de los costes para maximizar el aforo.</p>
-                    </div>
-
-                    <a href="https://wa.me/34641576286?text=Buenas!%20Me%20interesa%20la%20GESTI%C3%93N%20COMPLETA%20de%20campa%C3%B1as%20para%20mi%20evento." target="_blank" rel="noopener noreferrer" class="mt-auto w-full py-4 rounded-xl border border-primary/30 bg-primary/20 hover:bg-primary text-white font-bold transition-all flex items-center justify-center gap-2 focus:outline-none">
-                        <i class="ph ph-whatsapp-logo text-xl"></i> Solicitar Gestión Completa
-                    </a>
-                </div>
-
-                <!-- Consultoría y Setup -->
-                <div class="relative p-8 md:p-10 rounded-[2rem] border border-white/10 bg-white/5 group tilt-effect flex flex-col h-full">
-                    <div class="absolute -top-px left-8 border-x border-b border-white/20 bg-white/10 text-white text-xs font-bold px-4 py-1.5 rounded-b-lg uppercase tracking-widest">Soporte Técnico</div>
-                    
-                    <h3 class="text-2xl font-heading font-bold text-white mt-4 mb-2">Consultoría y Setup</h3>
-                    <p class="text-sm text-textSecondary mb-6">Para equipos de marketing internos que tienen capacidad operativa pero necesitan una estrategia y base técnica profesional para el evento.</p>
-                    
-                    <div class="bg-black/20 rounded-xl p-5 mb-4 border border-white/5">
-                        <p class="text-sm text-white mb-2 font-medium">Cómo funciona:</p>
-                        <p class="text-sm text-textSecondary">Diseñamos la estrategia de fases, instalamos las etiquetas de medición correctas y montamos la estructura de campañas en las plataformas, dejándolas listas para que tu equipo pulse "publicar" y gestione el día a día.</p>
-                    </div>
-
-                    <a href="https://wa.me/34641576286?text=Buenas!%20Me%20interesa%20la%20opci%C3%B3n%20de%20CONSULTOR%C3%8DA%20Y%20SETUP%20de%20campa%C3%B1as%20para%20eventos." target="_blank" rel="noopener noreferrer" class="mt-auto w-full py-4 rounded-xl border border-white/20 bg-white/5 hover:bg-white/10 text-white font-bold transition-all flex items-center justify-center gap-2 focus:outline-none">
-                        <i class="ph ph-whatsapp-logo text-xl"></i> Solicitar Consultoría
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. EL PROCESO -->
-    <section class="py-32 relative bg-bgMain border-b border-white/5 with-glow">
+    <!-- 6. EL PROCESO -->
+    <section id="como-lo-implementamos" class="py-32 relative bg-bgSurface/30 border-b border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-24 reveal-up">
                 <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Metodología</span>
-                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white">4 pasos rápidos y ejecutables.</h2>
-                <p class="text-textSecondary">Tú pones el evento, nosotros llevamos el tráfico.</p>
+                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white">Cómo lo implementamos.</h2>
+                <p class="text-textSecondary">Sin tecnicismos. Tú nos cuentas cómo funciona tu negocio y nosotros lo construimos.</p>
             </div>
 
             <div class="relative max-w-4xl mx-auto px-4 md:px-0">
                 <div class="absolute left-6 md:left-[50px] top-0 bottom-0 w-[2px] bg-white/5 rounded-full"></div>
                 <div class="foco-progress absolute left-6 md:left-[50px] top-0 w-[2px] bg-gradient-to-b from-primary to-accent rounded-full h-0 shadow-[0_0_10px_#7B61FF] transition-[height] duration-75 ease-out"></div>
 
+                <!-- Paso 1 -->
                 <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
                     <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-10 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
                             <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">1</div>
-                            <div>
-                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Briefing del evento</h3>
-                                <p class="text-textSecondary leading-relaxed">Analizamos la fecha inamovible, tu aforo objetivo, el perfil exacto del asistente (buyer persona) y definimos el presupuesto total de inversión en plataformas publicitarias.</p>
+                            <div class="flex-grow">
+                                <div class="flex items-center gap-3 mb-2 flex-wrap">
+                                    <h3 class="text-2xl font-heading font-medium text-white">Diagnóstico gratuito</h3>
+                                    <span class="text-[10px] font-bold bg-primary/10 text-primary border border-primary/20 px-3 py-1 rounded-full uppercase tracking-wider">Sin compromiso</span>
+                                </div>
+                                <p class="text-textSecondary leading-relaxed">Analizamos qué tareas consumen más tiempo en tu negocio y qué se puede automatizar de forma inmediata para aliviar la carga de tu equipo.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Paso 2 -->
                 <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
                     <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-10 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
                             <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">2</div>
                             <div>
-                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Estrategia y Setup</h3>
-                                <p class="text-textSecondary leading-relaxed">Diseñamos el mapa de fases. Configuramos las plataformas de pago, instalamos los píxeles en tu web para medir registros reales y dejamos la estructura técnica lista.</p>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Propuesta personalizada</h3>
+                                <p class="text-textSecondary leading-relaxed">Te presentamos un plan con los sistemas a activar, en qué orden de prioridad y la cotización correspondiente. Sin paquetes genéricos ni costes ocultos.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Paso 3 -->
                 <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
                     <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-10 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
                             <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">3</div>
                             <div>
-                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Lanzamiento y Optimización</h3>
-                                <p class="text-textSecondary leading-relaxed">Activamos campañas secuencialmente (captación, activación, urgencia). Semanalmente ajustamos pujas, frenamos creatividades que no funcionan y forzamos el coste a la baja.</p>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Configuración e integración</h3>
+                                <p class="text-textSecondary leading-relaxed">Construimos los sistemas a medida, los conectamos de forma transparente con las herramientas que ya utilizas en tu día a día y los ajustamos a tu flujo real.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-10">
+                <!-- Paso 4 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
                     <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-10 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
                             <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">4</div>
                             <div>
-                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Informe Post-Evento</h3>
-                                <p class="text-textSecondary leading-relaxed">Se cierran puertas y hacemos balance. Entregamos un reporte exacto de inversión: a cuánto salió cada asistente y qué lecciones nos deja el mercado para la próxima edición.</p>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Pruebas y ajuste</h3>
+                                <p class="text-textSecondary leading-relaxed">Antes de activar nada en producción, probamos exhaustivamente cada integración. Validamos juntos que todo funcione exactamente como necesitas.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Paso 5 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">5</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Activación y formación</h3>
+                                <p class="text-textSecondary leading-relaxed">Lanzamos los flujos de automatización. Te explicamos de forma rápida cómo supervisar el sistema y en qué casos puntuales debes intervenir. El sistema trabaja, tú controlas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 6 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-10">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">6</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Soporte y optimización</h3>
+                                <p class="text-textSecondary leading-relaxed">Seguimos contigo tras el lanzamiento. Ajustamos procesos, mejoramos las respuestas y añadimos automatizaciones según crece y evoluciona tu negocio.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. RESULTADOS -->
+    <section class="py-24 relative z-10 bg-bgMain border-b border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Métricas Reales</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Lo que consiguen los negocios que automatizan.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto reveal-up delay-100">
+                <!-- Métrica 1 -->
+                <div class="glass-card p-8 rounded-3xl border-white/5 flex flex-col justify-between text-center relative overflow-hidden">
+                    <div class="absolute -right-8 -top-8 w-24 h-24 bg-primary/5 rounded-full blur-xl"></div>
+                    <div class="text-6xl font-heading font-bold text-primary mb-4">+15h</div>
+                    <h4 class="text-white font-medium text-lg mb-2">recuperadas por semana</h4>
+                    <p class="text-xs text-textSecondary leading-relaxed">De media entre los negocios que implementan un sistema completo de respuesta y reservas automatizadas.</p>
+                </div>
+
+                <!-- Métrica 2 -->
+                <div class="glass-card p-8 rounded-3xl border-white/5 flex flex-col justify-between text-center relative overflow-hidden">
+                    <div class="absolute -right-8 -top-8 w-24 h-24 bg-primary/5 rounded-full blur-xl"></div>
+                    <div class="text-6xl font-heading font-bold text-white mb-4">0€</div>
+                    <h4 class="text-white font-medium text-lg mb-2">en personal de atención extra</h4>
+                    <p class="text-xs text-textSecondary leading-relaxed">Negocios que han escalado significativamente su capacidad de atención sin necesidad de aumentar su plantilla.</p>
+                </div>
+
+                <!-- Métrica 3 -->
+                <div class="glass-card p-8 rounded-3xl border-white/5 flex flex-col justify-between text-center relative overflow-hidden">
+                    <div class="absolute -right-8 -top-8 w-24 h-24 bg-primary/5 rounded-full blur-xl"></div>
+                    <div class="text-6xl font-heading font-bold text-primary mb-4">24/7</div>
+                    <h4 class="text-white font-medium text-lg mb-2">disponibilidad real</h4>
+                    <p class="text-xs text-textSecondary leading-relaxed">El sistema responde, reserva y confirma a cualquier hora del día o de la noche, sin requerir intervención humana.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -495,67 +564,68 @@
         <div class="max-w-3xl mx-auto px-6 reveal-up">
             <div class="text-center mb-16">
                 <h2 class="font-heading text-3xl md:text-5xl font-medium text-white mb-4">Preguntas Frecuentes</h2>
-                <p class="text-textSecondary text-lg">Resolvemos dudas comunes sobre campañas paid media para eventos.</p>
+                <p class="text-textSecondary text-lg">Resolvemos tus dudas sobre cómo automatizar la operación.</p>
             </div>
+            
             <div class="space-y-4">
                 
                 <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
                     <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
-                        <span class="font-semibold text-white pr-4 text-lg">¿Con cuánta antelación hay que empezar las campañas?</span>
+                        <span class="font-semibold text-white pr-4 text-lg">¿Necesito tener conocimientos técnicos para usar los sistemas?</span>
                         <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
                     </button>
                     <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
-                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Para campañas de publicidad directa, recomendamos un mínimo de 6 a 8 semanas. Menos de un mes obliga a hacer campañas de "solo urgencia", lo que encarece muchísimo el coste por registro. Más de 3 meses para eventos medianos suele quemar a la audiencia. Dos meses es el punto óptimo de tensión.</p>
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">No. Nosotros nos encargamos de configurar, integrar y dejar listo todo el ecosistema. Una vez que está activo, el sistema funciona de forma totalmente autónoma. Solo necesitas saber supervisarlo, y te enseñamos a hacerlo en menos de una hora.</p>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
                     <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
-                        <span class="font-semibold text-white pr-4 text-lg">¿El presupuesto de inversión en plataformas está incluido?</span>
+                        <span class="font-semibold text-white pr-4 text-lg">¿Se integra con las herramientas que ya uso?</span>
                         <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
                     </button>
                     <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
-                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">No. Nuestro presupuesto cubre la gestión estratégica y técnica de la agencia (Setup, montajes, optimización). El gasto de publicidad lo abonas tú directamente a Meta, LinkedIn o Google a través de tu propia cuenta publicitaria para garantizar 100% de transparencia.</p>
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Sí. Trabajamos con WhatsApp Business, Google Calendar, Calendly, los CRMs más habituales y la gran mayoría de plataformas de reservas del mercado. Si utilizas una herramienta muy específica, la valoramos técnicamente antes de presupuestar para garantizar la viabilidad.</p>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
                     <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
-                        <span class="font-semibold text-white pr-4 text-lg">¿Hacéis vosotros los diseños de los anuncios?</span>
+                        <span class="font-semibold text-white pr-4 text-lg">¿Cuánto tarda en estar funcionando?</span>
                         <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
                     </button>
                     <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
-                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">En el servicio de Ads puro nosotros redactamos los textos (copys), pero el material visual (fotos, vídeos o diseños del cartel) nos lo proporcionáis vosotros. Si también necesitáis que creemos esa línea gráfica, podéis contratar nuestro servicio de "Branding Visual".</p>
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Depende de la complejidad. Una automatización básica de respuestas o reservas puede estar lista y activa en 48 a 72 horas. Para un sistema completo e integrado con CRM y funnels, solemos requerir de 1 a 3 semanas de trabajo y pruebas.</p>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
                     <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
-                        <span class="font-semibold text-white pr-4 text-lg">¿Funciona para eventos pequeños o solo para grandes congresos?</span>
+                        <span class="font-semibold text-white pr-4 text-lg">¿Qué pasa si necesito cambiar algo después de implementarlo?</span>
                         <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
                     </button>
                     <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
-                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Funciona para aforos de 50 personas hasta 5.000. Lo que varía es la hiper-segmentación. Si tu evento es un desayuno VIP para 30 directores financieros, usaremos LinkedIn Ads de forma quirúrgica. Si es una convención de 2.000 personas, diversificaremos con Meta Ads para ganar volumen rápido.</p>
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Los primeros 30 días posteriores al lanzamiento de los sistemas incluyen todos los ajustes y calibraciones de flujos de forma totalmente gratuita. Después de ese período, ofrecemos soporte mensual recurrente o intervenciones puntuales según prefieras.</p>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
                     <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
-                        <span class="font-semibold text-white pr-4 text-lg">¿Qué pasa si el evento se cancela o cambia de fecha?</span>
+                        <span class="font-semibold text-white pr-4 text-lg">¿Es más barato que contratar a alguien?</span>
                         <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
                     </button>
                     <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
-                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Al tener vosotros el control de la facturación en la plataforma, las campañas se pueden pausar en menos de 5 minutos, congelando el gasto inmediatamente. Adaptaremos los textos y retomaremos el plan cuando se anuncie la nueva fecha.</p>
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">En la inmensa mayoría de los casos, sí. Un sistema de automatización de operaciones cuesta una pequeña fracción de un salario mínimo mensual y realiza el trabajo las 24 horas del día, los 365 días del año, sin interrupciones por bajas o vacaciones.</p>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
                     <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
-                        <span class="font-semibold text-white pr-4 text-lg">¿Puedo contratar esto si ya tengo a alguien llevando mis redes sociales?</span>
+                        <span class="font-semibold text-white pr-4 text-lg">¿Puedo contratar solo una automatización o necesito el paquete completo?</span>
                         <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
                     </button>
                     <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
-                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Absolutamente. Este servicio es estrictamente técnico (Paid Media). Hacemos un tándem perfecto con el equipo que gestiona tu cuenta orgánica, nosotros empujamos tráfico de pago y ellos mantienen activa la comunidad.</p>
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Puedes empezar contratando una sola automatización sencilla —aquella que resuelva la tarea que más tiempo te quita actualmente— y progresivamente ir ampliando a sistemas más avanzados cuando veas el retorno directo.</p>
                     </div>
                 </div>
 
@@ -563,7 +633,7 @@
         </div>
     </section>
 
-    <!-- 9. CTA FINAL (Luxury Glass) -->
+    <!-- 9. CTA FINAL (Luxury Glass Container with Round Soft Corners) -->
     <section class="py-32 relative z-10 bg-bgMain with-glow overflow-hidden">
         <div class="max-w-5xl mx-auto px-6 relative z-10 reveal-up">
             
@@ -576,14 +646,14 @@
                 <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent/20 blur-[100px] rounded-full z-[-1] pointer-events-none"></div>
                 
                 <div class="text-center relative z-10">
-                    <h2 class="font-heading text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">Cada semana sin campaña <span class="text-gradient-primary">es aforo perdido.</span></h2>
-                    <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">No hay segunda oportunidad para la fecha de tu evento. Cuéntanos qué preparas y en 48 horas tienes una propuesta de campaña sobre la mesa.</p>
+                    <h2 class="font-heading text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">Tu negocio puede trabajar <span class="text-gradient-primary">aunque tú no estés.</span></h2>
+                    <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">Cuéntanos qué tarea te quita más tiempo y empezamos por ahí. Sin compromiso.</p>
                     
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <button onclick="openModal()" class="w-full sm:w-auto px-10 py-5 rounded-full bg-primary hover:bg-accent text-white font-bold transition-all duration-300 shadow-[0_0_30px_rgba(123,97,255,0.4)] focus:outline-none">
-                            Quiero llenar mi evento
+                            Quiero automatizar mi negocio
                         </button>
-                        <a href="https://wa.me/34641576286?text=Buenas!%20He%20visto%20el%20servicio%20de%20Campa%C3%B1as%20Ads%20para%20eventos%20y%20quiero%20m%C3%A1s%20info" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-10 py-5 rounded-full border border-white/20 bg-black/20 hover:bg-white/10 text-white font-bold transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-md">
+                        <a href="https://wa.me/34641576286?text=Buenas!%20He%20visto%20el%20servicio%20de%20Automatizaci%C3%B3n%20y%20Sistemas%20de%20Proemote%20y%20quiero%20m%C3%A1s%20info" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-10 py-5 rounded-full border border-white/20 bg-black/20 hover:bg-white/10 text-white font-bold transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-md">
                             Más info sin compromiso
                         </a>
                     </div>
@@ -593,7 +663,7 @@
         </div>
     </section>
 
-            
+    
     <!-- FOOTER -->
     <footer class="bg-bgMain border-t border-white/5 pt-20 pb-8 relative z-10">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
@@ -683,23 +753,6 @@
             modal.classList.add('opacity-0'); inner.classList.add('scale-95');
             setTimeout(() => { modal.classList.add('hidden'); document.body.style.overflow = ''; }, 300); 
         }
-
-        // Animación línea conectora Fases (Desktop)
-        document.addEventListener("DOMContentLoaded", () => {
-            setTimeout(() => {
-                const line = document.getElementById('phase-line');
-                if (line) {
-                    const observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                line.style.width = '80%';
-                            }
-                        });
-                    }, { threshold: 0.5 });
-                    observer.observe(line.parentElement);
-                }
-            }, 100);
-        });
 
         // Timeline Scroll Event para "Proceso"
         let isTicking = false;
