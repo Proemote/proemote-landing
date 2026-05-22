@@ -56,6 +56,7 @@ standard_footer = """
                     <li><a href="/privacidad" target="_blank" class="hover:text-white transition-colors">Política de Privacidad</a></li>
                     <li><a href="/sobre-nosotros" class="hover:text-white transition-colors">Sobre nosotros</a></li>
                     <li><a href="/contacto" class="hover:text-white transition-colors">Contacto</a></li>
+                    <li><a href="/trabaja-con-nosotros" class="hover:text-white transition-colors">Trabaja con nosotros</a></li>
                 </ul>
             </div>
 
