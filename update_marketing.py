@@ -1,4 +1,15 @@
-<!DOCTYPE html>
+import re
+
+with open('index.html', 'r', encoding='utf-8') as f:
+    index_content = f.read()
+
+header_match = re.search(r'(<nav class="fixed.*?</nav>)', index_content, re.DOTALL)
+standard_header = header_match.group(1)
+
+footer_match = re.search(r'(<footer class="bg-bgMain.*?</footer>)', index_content, re.DOTALL)
+standard_footer = footer_match.group(1)
+
+provided_html = """<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -29,8 +40,8 @@
                         heading: ['Outfit', 'sans-serif'],
                     },
                     backgroundImage: {
-                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M0 0h40v40H0V0zm1 1h38v38H1V1z\' fill=\'%23ffffff\' fill-opacity=\'0.02\' fill-rule=\'evenodd\'/%3E%3C/svg%3E')",
-                        'grid-pattern-primary': "url('data:image/svg+xml,%3Csvg width=\'50\' height=\'50\' viewBox=\'0 0 50 50\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M0 0h50v50H0V0zm1 1h48v48H1V1z\' fill=\'%237B61FF\' fill-opacity=\'0.08\' fill-rule=\'evenodd\'/%3E%3C/svg%3E')",
+                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\\'40\\' height=\\'40\\' viewBox=\\'0 0 40 40\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h40v40H0V0zm1 1h38v38H1V1z\\' fill=\\'%23ffffff\\' fill-opacity=\\'0.02\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                        'grid-pattern-primary': "url('data:image/svg+xml,%3Csvg width=\\'50\\' height=\\'50\\' viewBox=\\'0 0 50 50\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h50v50H0V0zm1 1h48v48H1V1z\\' fill=\\'%237B61FF\\' fill-opacity=\\'0.08\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
                     }
                 }
             }
@@ -65,41 +76,7 @@
     <div id="mouse-glow"></div>
 
     <!-- 1. HEADER FIJO -->
-    <nav class="fixed w-full z-50 glass-nav">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="https://proemote.es/" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
-                <img src="https://i.imgur.com/jwddFTY.png" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain">
-            </a>
-            <div class="hidden md:flex gap-8 text-sm font-medium text-textSecondary relative z-10 items-center">
-                <a href="https://proemote.es/" class="hover:text-textMain transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn" class="hover:text-textMain transition-colors focus:outline-none">Servicios</a>
-                <a href="/sobre-nosotros" class="hover:text-textMain transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="hover:text-textMain transition-colors">Portfolio</a>
-                <a href="/contacto" class="hover:text-textMain transition-colors">Contacto</a>
-            </div>
-            <div class="flex items-center gap-4 relative z-10">
-                <button onclick="openModal()" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-primary rounded-full hover:bg-accent shadow-[0_0_15px_rgba(123,97,255,0.4)] transition-all duration-300 focus:outline-none">
-                    ¿Hablamos?
-                </button>
-                <button id="mobile-menu-btn" class="md:hidden text-textSecondary hover:text-white transition-colors focus:outline-none p-2">
-                    <i class="ph ph-dots-three-vertical text-2xl"></i>
-                </button>
-            </div>
-        </div>
-
-        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-bgSurface/95 backdrop-blur-xl border-b border-white/10 shadow-2xl overflow-hidden transition-all duration-300">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <button onclick="openModal()" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-primary rounded-full shadow-[0_0_15px_rgba(123,97,255,0.4)] focus:outline-none">
-                    ¿Hablamos?
-                </button>
-            </div>
-        </div>
-    </nav>
+    <nav>TMP_HEADER</nav>
 
     <!-- 2. HERO -->
     <section class="pt-48 pb-20 relative z-10 overflow-hidden border-b border-white/5 bg-bgMain bg-grid-pattern-primary with-glow">
@@ -728,85 +705,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-bgMain border-t border-white/5 pt-20 pb-8 relative z-10">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
-            
-            <!-- Columna 1: Branding Estratégico -->
-            <div class="md:col-span-12 lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
-                <div class="mb-8">
-                    <img src="https://i.imgur.com/2mXnkGe.png" alt="Proemote Logo" class="h-20 md:h-24 mb-3 opacity-90 mx-auto md:mx-0">
-                    <p class="text-white italic text-sm mb-1">Shaping what matters</p>
-                    <p class="text-textSecondary text-sm font-medium">Think first.</p>
-                </div>
-                
-                <div class="mb-6">
-                    <p class="text-xs text-primary font-bold tracking-widest uppercase mb-1">Estudio creativo y estratégico.</p>
-                    <p class="text-xs text-textSecondary font-bold tracking-widest uppercase">Mérida, Extremadura.</p>
-                </div>
-                
-                <div class="flex flex-col items-center md:items-start gap-3 mb-8 w-full">
-                    <a href="mailto:info@proemote.es" class="text-white font-medium hover:text-primary transition-colors flex items-center gap-3 text-sm">
-                        <i class="ph ph-envelope-simple text-xl"></i> info@proemote.es
-                    </a>
-                    <a href="tel:+34641576286" class="text-white font-medium hover:text-primary transition-colors flex items-center gap-3 text-sm">
-                        <i class="ph ph-phone text-xl"></i> +34 641 57 62 86
-                    </a>
-                </div>
-
-                <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-8">
-                    <a href="/" class="px-5 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-primary/20 text-white text-xs transition-all">Inicio</a>
-                    <a href="/#foco" class="px-5 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-primary/20 text-white text-xs transition-all">Sistema</a>
-                    <a href="/sobre-nosotros" class="px-5 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-primary/20 text-white text-xs transition-all">Sobre nosotros</a>
-                    <a href="/contacto" class="px-5 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-primary/20 text-white text-xs transition-all">Contacto</a>
-                </div>
-                
-                <div class="flex justify-center md:justify-start gap-3 w-full">
-                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
-                        <i class="ph-fill ph-linkedin-logo"></i>
-                    </a>
-                    <a href="https://www.instagram.com/proemote.es/" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
-                        <i class="ph-fill ph-instagram-logo"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Columna 2: Servicios -->
-            <div class="md:col-span-4 lg:col-span-2 lg:col-start-5 mt-8 lg:mt-0">
-                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Servicios</h4>
-                <ul class="space-y-4 text-sm text-textSecondary text-center md:text-left">
-                    <li><a href="/diseno-web-SEO" class="hover:text-white transition-colors">Diseño Web</a></li>
-                    <li><a href="/servicios" class="hover:text-white transition-colors">Eventos 360º</a></li>
-                    <li><a href="/servicios" class="hover:text-white transition-colors">Marketing Digital</a></li>
-                    <li><a href="/servicios" class="hover:text-white transition-colors">Redes Sociales</a></li>
-                </ul>
-            </div>
-
-            <!-- Columna 3: Empresa -->
-            <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
-                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Empresa & Legal</h4>
-                <ul class="space-y-4 text-sm text-textSecondary text-center md:text-left">
-                    <li><a href="/aviso-legal" target="_blank" class="hover:text-white transition-colors">Aviso Legal</a></li>
-                    <li><a href="/privacidad" target="_blank" class="hover:text-white transition-colors">Política de Privacidad</a></li>
-                    <li><a href="/sobre-nosotros" class="hover:text-white transition-colors">Sobre nosotros</a></li>
-                    <li><a href="/contacto" class="hover:text-white transition-colors">Contacto</a></li>
-                </ul>
-            </div>
-
-            <!-- Columna 4: Horarios -->
-            <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
-                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Horario</h4>
-                <ul class="space-y-2 text-sm text-textSecondary text-center md:text-left">
-                    <li class="flex flex-col md:inline-block"><span class="font-medium text-white/80">L-V:</span> <span class="text-white">9H–14H, 16H–20H</span></li>
-                    <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-white/80">Sáb:</span> <span class="text-white">10H–13:30H</span></li>
-                    <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-white/80">Dom:</span> <span class="text-white/50">Cerrado</span></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 text-center md:text-left">
-            <p class="text-xs text-textSecondary w-full">© 2026 Proemote Studio. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    """ + standard_footer + """
 
     <!-- Scripts (Glow, Reveal, Menu, FAQ, Timeline) -->
     <script>
@@ -989,128 +888,14 @@
             }
         });
     </script>
-<div id="mega-menu" class="fixed inset-0 z-[40] hidden pointer-events-none">
-        <div id="mega-menu-backdrop" class="absolute inset-0 bg-bgMain/40 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
-        
-        <div id="mega-menu-panel" class="absolute top-[72px] md:top-[88px] left-1/2 -translate-x-1/2 w-full max-w-5xl px-6 transform -translate-y-4 opacity-0 transition-all duration-300 pointer-events-auto">
-            <div class="glass-card rounded-[2rem] p-8 border-white/10 shadow-2xl flex flex-col gap-10">
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                    <a href="/branding-y-estrategia" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
-                            <i class="ph-fill ph-paint-brush-broad text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Branding & Estrategia</h4>
-                            <p class="text-xs text-textSecondary">Identidad visual y posicionamiento.</p>
-                        </div>
-                    </a>
-                    <a href="/diseno-web-SEO" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
-                            <i class="ph-fill ph-browser text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Diseño web y Posicionamiento SEO</h4>
-                            <p class="text-xs text-textSecondary">Webs de alto rendimiento y SEO.</p>
-                        </div>
-                    </a>
-                    <a href="/redes-sociales" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
-                            <i class="ph-fill ph-share-network text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Contenido & Redes</h4>
-                            <p class="text-xs text-textSecondary">Social Media y estrategia de video.</p>
-                        </div>
-                    </a>
-                    <a href="/marketing-digital" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
-                            <i class="ph-fill ph-rocket-launch text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Marketing Digital</h4>
-                            <p class="text-xs text-textSecondary">Campañas de publicidad digital para escalar tu negocio.</p>
-                        </div>
-                    </a>
-                    <a href="/eventos" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
-                            <i class="ph-fill ph-ticket text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Eventos & Experiencias</h4>
-                            <p class="text-xs text-textSecondary">Producción, branding y promoción digital de eventos.</p>
-                        </div>
-                    </a>
-                    <a href="/servicios#automatizacion" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
-                            <i class="ph-fill ph-tree-structure text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Automatización & Sistemas</h4>
-                            <p class="text-xs text-textSecondary">Funnels, CRM y flujos que trabajan sin ti.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="w-full rounded-2xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 p-6 flex flex-col md:flex-row items-center justify-between text-center md:text-left">
-                    <div class="flex flex-col md:flex-row items-center gap-4">
-                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary flex-shrink-0">
-                            <i class="ph-fill ph-circles-three-plus text-xl"></i>
-                        </div>
-                        <h4 class="text-white font-heading font-medium text-lg">Diseñamos sistemas completos, no piezas aisladas.</h4>
-                    </div>
-                    <a href="/servicios" class="inline-flex items-center gap-2 text-primary font-medium text-sm hover:text-white transition-colors mt-4 md:mt-0 group flex-shrink-0">
-                        Ver todos los servicios <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-<script>
-        // Lógica Hover Mega Menú (Solo Desktop)
-        document.addEventListener('DOMContentLoaded', () => {
-            const servicesBtn = document.getElementById('services-menu-btn');
-            const megaMenu = document.getElementById('mega-menu');
-            const megaMenuPanel = document.getElementById('mega-menu-panel');
-            const megaMenuBackdrop = document.getElementById('mega-menu-backdrop');
-            let hideTimeout;
-            let displayTimeout;
-
-            const showMenu = () => {
-                clearTimeout(hideTimeout);
-                clearTimeout(displayTimeout);
-                if(megaMenu) {
-                    megaMenu.classList.remove('hidden');
-                    setTimeout(() => {
-                        if(megaMenuPanel) megaMenuPanel.classList.remove('-translate-y-4', 'opacity-0');
-                        if(megaMenuBackdrop) megaMenuBackdrop.classList.remove('opacity-0');
-                    }, 10);
-                }
-            };
-
-            const hideMenu = () => {
-                hideTimeout = setTimeout(() => {
-                    if(megaMenuPanel) megaMenuPanel.classList.add('-translate-y-4', 'opacity-0');
-                    if(megaMenuBackdrop) megaMenuBackdrop.classList.add('opacity-0');
-                    displayTimeout = setTimeout(() => {
-                        if(megaMenu) megaMenu.classList.add('hidden');
-                    }, 300);
-                }, 150);
-            };
-
-            if(window.innerWidth > 768 && servicesBtn && megaMenu) {
-                servicesBtn.addEventListener('mouseenter', showMenu);
-                servicesBtn.addEventListener('mouseleave', hideMenu);
-                if(megaMenuPanel) {
-                    megaMenuPanel.addEventListener('mouseenter', showMenu);
-                    megaMenuPanel.addEventListener('mouseleave', hideMenu);
-                }
-            }
-        });
-    </script>
-
-
 </body>
 </html>
+"""
+
+# Replace tags
+provided_html = provided_html.replace('<nav>TMP_HEADER</nav>', standard_header)
+
+with open('marketing-digital/index.html', 'w', encoding='utf-8') as f:
+    f.write(provided_html)
+
+print("Marketing page updated successfully.")

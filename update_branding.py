@@ -1,0 +1,683 @@
+import re
+import os
+import glob
+
+# 1. Get standard header and footer from index.html
+with open('index.html', 'r', encoding='utf-8') as f:
+    index_content = f.read()
+
+header_match = re.search(r'(<nav class="fixed.*?</nav>)', index_content, re.DOTALL)
+standard_header = header_match.group(1)
+
+footer_match = re.search(r'(<footer class="bg-bgMain.*?</footer>)', index_content, re.DOTALL)
+standard_footer = footer_match.group(1)
+
+# 2. Create the branding-y-estrategia directory and file
+provided_html = """<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branding y Estrategia de Marca | Proemote Studio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgMain: '#0A0A0F',
+                        bgSurface: '#14141F',
+                        primary: '#7B61FF',
+                        accent: '#9F7AEA',
+                        textMain: '#F5F7FA',
+                        textSecondary: '#A1A1B5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\\'40\\' height=\\'40\\' viewBox=\\'0 0 40 40\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h40v40H0V0zm1 1h38v38H1V1z\\' fill=\\'%23ffffff\\' fill-opacity=\\'0.02\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                        'grid-pattern-primary': "url('data:image/svg+xml,%3Csvg width=\\'50\\' height=\\'50\\' viewBox=\\'0 0 50 50\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h50v50H0V0zm1 1h48v48H1V1z\\' fill=\\'%237B61FF\\' fill-opacity=\\'0.08\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #0A0A0F; color: #F5F7FA; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A0A0F; }
+        ::-webkit-scrollbar-thumb { background: #14141F; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
+        ::-webkit-scrollbar-thumb:hover { background: #7B61FF; }
+
+        .glass-nav { background: rgba(10, 10, 15, 0.7); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass-card { background: linear-gradient(180deg, rgba(20, 20, 31, 0.9) 0%, rgba(20, 20, 31, 0.5) 100%); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .glass-card:hover { border-color: rgba(123, 97, 255, 0.3); box-shadow: 0 10px 40px rgba(123, 97, 255, 0.1); transform: translateY(-4px); }
+
+        #mouse-glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(123,97,255,0.08) 0%, rgba(10,10,15,0) 60%); border-radius: 50%; pointer-events: none; z-index: 35; transform: translate(-50%, -50%); transition: opacity 0.4s ease; mix-blend-mode: screen; opacity: 0; }
+
+        .text-gradient-primary { background: linear-gradient(135deg, #9F7AEA 0%, #7B61FF 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-up.active { opacity: 1; transform: translateY(0); }
+        
+        .foco-item .glass-card { opacity: 0; transform: translateY(40px) scale(0.97); transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none; }
+        .foco-item.active .glass-card { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+        .foco-node { transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white relative bg-grid-pattern bg-fixed">
+
+    <div id="mouse-glow"></div>
+
+    <!-- 1. HEADER FIJO -->
+    <nav>TMP_HEADER</nav>
+
+    <!-- 1. HERO -->
+    <section class="pt-48 pb-20 relative z-10 overflow-hidden border-b border-white/5 bg-bgMain bg-grid-pattern-primary with-glow">
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-bgMain z-[-1] pointer-events-none"></div>
+        <div class="absolute top-[10%] left-[10%] w-[30vw] h-[30vw] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-[0]"></div>
+        <div class="absolute bottom-[10%] right-[10%] w-[40vw] h-[40vw] rounded-full bg-accent/10 blur-[150px] pointer-events-none z-[0]"></div>
+
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10 reveal-up active">
+            
+            <div class="inline-flex items-center justify-center px-5 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-bold tracking-[0.2em] uppercase mb-8 shadow-[0_0_15px_rgba(123,97,255,0.05)]">
+                Branding & Estrategia
+            </div>
+
+            <h1 class="font-heading text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight mb-6 text-white">
+                Tu marca no es tu logo.<br class="hidden md:block">
+                <span class="text-primary font-bold">Es lo que la gente piensa de ti cuando no estás.</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-textSecondary leading-relaxed max-w-2xl mx-auto mb-10">
+                Diseñamos la identidad visual y el posicionamiento estratégico de tu negocio para que comuniques bien desde el primer impacto —y dejes de parecerte a todos los demás.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                <a href="#planes" class="w-full sm:w-auto px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] flex items-center justify-center gap-2">
+                    Quiero empezar
+                </a>
+                <a href="#proceso" class="w-full sm:w-auto px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white font-medium transition-all duration-300 flex items-center justify-center gap-2">
+                    Ver cómo trabajamos
+                </a>
+            </div>
+
+            <!-- SOCIAL PROOF -->
+            <div class="inline-flex items-center justify-center gap-2 text-sm text-textSecondary font-medium mt-4">
+                <div class="flex text-[#F59E0B] text-lg leading-none">
+                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                </div>
+                <span class="text-white">Valoración 4,9 en Google</span>
+                <span class="hidden md:inline text-white/20 px-2">|</span>
+                <span class="hidden md:inline text-white">Más de 20 marcas diseñadas</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. EL PROBLEMA -->
+    <section class="py-24 relative z-10 bg-bgSurface/30 border-t border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">El Problema</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Por qué muchos negocios no transmiten lo que valen.</h2>
+                <p class="text-lg text-textSecondary max-w-2xl mx-auto">No es que el producto sea malo. Es que la imagen no está a la altura.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-up delay-100 max-w-5xl mx-auto">
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex items-start gap-6">
+                    <div class="w-14 h-14 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500">
+                        <i class="ph-fill ph-image-broken text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-heading text-white font-medium mb-2">Imagen genérica</h3>
+                        <p class="text-sm text-textSecondary leading-relaxed">Un logo hecho rápido, colores sin criterio y una estética que no distingue tu negocio de ningún otro. Si no hay identidad, no hay memoria.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex items-start gap-6">
+                    <div class="w-14 h-14 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500">
+                        <i class="ph-fill ph-chat-circle-slash text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-heading text-white font-medium mb-2">Mensaje poco claro</h3>
+                        <p class="text-sm text-textSecondary leading-relaxed">No saber explicar qué haces, para quién lo haces y por qué eres la mejor opción. Si el cliente no lo entiende al instante, se va.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex items-start gap-6">
+                    <div class="w-14 h-14 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500">
+                        <i class="ph-fill ph-puzzle-piece text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-heading text-white font-medium mb-2">Sin coherencia visual</h3>
+                        <p class="text-sm text-textSecondary leading-relaxed">Web, redes, tarjetas y propuestas que no se parecen entre sí. Una marca que no es consistente genera desconfianza sin que nadie lo diga en voz alta.</p>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex items-start gap-6">
+                    <div class="w-14 h-14 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500">
+                        <i class="ph-fill ph-tag text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-heading text-white font-medium mb-2">Posicionamiento por precio</h3>
+                        <p class="text-sm text-textSecondary leading-relaxed">Cuando la marca no comunica valor, el único argumento que queda es el precio. Y ahí siempre habrá alguien más barato.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. QUÉ OFRECEMOS -->
+    <section id="servicios" class="py-24 relative z-10 bg-bgMain border-t border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 reveal-up">
+                <div class="max-w-3xl">
+                    <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Lo que construimos</span>
+                    <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Cada pieza tiene un porqué estratégico detrás.</h2>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-up delay-100">
+                <div class="p-8 rounded-3xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/40 transition-all group tilt-effect flex flex-col items-start h-full">
+                    <i class="ph-fill ph-swatches text-5xl text-primary mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-white mb-3">Identidad visual completa</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Logo, paleta de color, tipografías, iconografía y sistema de aplicación. Todo lo que necesitas para ser reconocible y coherente.</p>
+                </div>
+
+                <div class="p-8 rounded-3xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/40 transition-all group tilt-effect flex flex-col items-start h-full">
+                    <i class="ph-fill ph-compass text-5xl text-primary mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-white mb-3">Arquitectura de marca</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Definimos tu propuesta de valor, tu tono de comunicación, tu mensaje clave y cómo posicionarte frente a la competencia.</p>
+                </div>
+
+                <div class="p-8 rounded-3xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/40 transition-all group tilt-effect flex flex-col items-start h-full">
+                    <i class="ph-fill ph-book-open-text text-5xl text-primary mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-white mb-3">Manual de marca</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Un documento de referencia para que tú, tu equipo y cualquier proveedor externo apliquen la marca siempre bien.</p>
+                </div>
+                
+                <div class="p-8 rounded-3xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary/40 transition-all group tilt-effect flex flex-col items-start h-full">
+                    <i class="ph-fill ph-folder-open text-5xl text-primary mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold text-white mb-3">Materiales de aplicación</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Dossiers, presentaciones, tarjetas, plantillas de redes y cualquier material que necesite llevar tu nueva identidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. EL PROCESO -->
+    <section id="proceso" class="py-32 relative bg-bgSurface/30 border-t border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-24 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">El Proceso</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white">Cómo construimos tu marca desde cero.</h2>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto px-4 md:px-0">
+                <div class="absolute left-6 md:left-[50px] top-0 bottom-0 w-[2px] bg-white/5 rounded-full"></div>
+                <div id="foco-progress" class="absolute left-6 md:left-[50px] top-0 w-[2px] bg-gradient-to-b from-primary to-accent rounded-full h-0 shadow-[0_0_10px_#7B61FF] transition-[height] duration-75 ease-out"></div>
+
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">1</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Diagnóstico de marca</h3>
+                                <p class="text-textSecondary leading-relaxed mb-4">Analizamos tu situación actual: qué comunicas ahora, cómo te percibe tu cliente, quién es tu competencia y qué espacio tienes para diferenciarte.</p>
+                                <span class="inline-block px-3 py-1 bg-white/10 text-white text-xs font-bold rounded-full border border-white/20">Gratuito y sin compromiso</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">2</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Investigación y estrategia</h3>
+                                <p class="text-textSecondary leading-relaxed">Definimos tu propuesta de valor, tu cliente ideal, tu tono de voz y el posicionamiento que va a guiar todas las decisiones de marca a partir de ahora.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">3</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Diseño de identidad visual</h3>
+                                <p class="text-textSecondary leading-relaxed">Desarrollamos el sistema visual completo: logo, colores, tipografías y todos los elementos que hacen tu marca reconocible y coherente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">4</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Revisión y ajuste</h3>
+                                <p class="text-textSecondary leading-relaxed">Presentamos las propuestas, recogemos tu feedback y refinamos hasta que la identidad representa exactamente lo que tu negocio necesita transmitir.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-10">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">5</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Entrega y manual de marca</h3>
+                                <p class="text-textSecondary leading-relaxed">Te entregamos todos los archivos en los formatos necesarios y el manual de marca para que puedas aplicarlo correctamente en cualquier contexto.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PLANES -->
+    <section id="planes" class="py-32 relative z-10 bg-bgMain border-t border-white/5 with-glow">
+        <div class="max-w-[1200px] mx-auto px-6">
+            
+            <div class="text-center mb-20 reveal-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white mb-6">Elige cómo quieres trabajar.</h2>
+                <p class="text-textSecondary text-lg max-w-2xl mx-auto leading-relaxed">Proyectos cerrados con alcance definido, o propuesta a medida para necesidades específicas.</p>
+            </div>
+
+            <!-- Grid de 3 planes -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch reveal-up delay-100">
+                
+                <!-- Plan 1: Identidad -->
+                <div class="relative p-8 rounded-[2.5rem] border border-primary/20 bg-primary/5 backdrop-blur-xl shadow-[0_0_30px_rgba(123,97,255,0.05)] hover:shadow-[0_0_50px_rgba(123,97,255,0.15)] hover:border-primary/40 transition-all duration-500 flex flex-col h-full overflow-hidden group tilt-effect">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-b from-primary/10 to-transparent blur-[40px] pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="text-2xl lg:text-3xl font-bold font-heading text-primary mb-2 relative z-10 flex items-center gap-2"><i class="ph-fill ph-palette"></i> Identidad</div>
+                    <p class="text-sm text-textSecondary mb-8 min-h-[60px] relative z-10">Para negocios que necesitan una base visual profesional desde la que construir.</p>
+                    
+                    <ul class="space-y-4 mb-8 flex-grow relative z-10">
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Logo profesional (3 propuestas)</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Paleta de color corporativa</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Tipografías principales</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Aplicaciones básicas (tarjeta, firma email, cabecera RRSS)</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Archivos en todos los formatos</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Guía de uso rápida</span></li>
+                    </ul>
+                    
+                    <a href="https://wa.me/34641576286?text=Buenas!%20Estoy%20interesado/a%20en%20el%20plan%20Identidad%20para%20mi%20marca" target="_blank" rel="noopener noreferrer" class="relative z-10 w-full py-4 rounded-full border border-primary/30 text-center font-bold text-white hover:bg-primary transition-all block mt-auto focus:outline-none">Quiero empezar</a>
+                </div>
+
+                <!-- Plan 2: Sistema de Marca -->
+                <div class="relative p-8 rounded-[2.5rem] border-2 border-primary/50 bg-primary/10 backdrop-blur-2xl shadow-[0_0_50px_rgba(123,97,255,0.15)] hover:shadow-[0_0_70px_rgba(123,97,255,0.25)] hover:border-primary transition-all duration-500 flex flex-col h-full overflow-hidden group transform lg:-translate-y-4 tilt-effect z-20">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-b from-primary/30 to-transparent blur-[50px] pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute -top-px left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-accent text-white text-[10px] sm:text-xs font-bold px-6 py-2 rounded-b-xl uppercase tracking-widest shadow-[0_0_20px_rgba(123,97,255,0.4)] z-20 border-x border-b border-primary/30 whitespace-nowrap">
+                        Más recomendado
+                    </div>
+                    
+                    <div class="text-2xl lg:text-3xl font-bold font-heading text-primary mb-2 mt-6 relative z-10 flex items-center gap-2"><i class="ph-fill ph-intersect"></i> Sistema de Marca</div>
+                    <p class="text-sm text-white/80 mb-8 min-h-[60px] relative z-10">Para marcas que necesitan una identidad completa y una estrategia de comunicación detrás.</p>
+                    
+                    <ul class="space-y-4 mb-8 flex-grow relative z-10">
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span><strong>Todo lo incluido en Identidad</strong></span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Estrategia de posicionamiento</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Arquitectura de mensaje y tono de voz</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Manual de marca completo</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Plantillas de redes sociales (6 formatos)</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Dossier o presentación corporativa</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>1 ronda de revisión extra</span></li>
+                    </ul>
+                    
+                    <a href="https://wa.me/34641576286?text=Buenas!%20Estoy%20interesado/a%20en%20el%20plan%20Sistema%20de%20Marca" target="_blank" rel="noopener noreferrer" class="relative z-10 w-full py-4 rounded-full bg-primary text-center font-bold text-white hover:bg-accent transition-all block mt-auto shadow-[0_0_20px_rgba(123,97,255,0.4)] focus:outline-none">Quiero mi sistema de marca</a>
+                </div>
+
+                <!-- Plan 3: Marca Completa -->
+                <div class="relative p-8 rounded-[2.5rem] border border-primary/20 bg-primary/5 backdrop-blur-xl shadow-[0_0_30px_rgba(123,97,255,0.05)] hover:shadow-[0_0_50px_rgba(123,97,255,0.15)] hover:border-primary/40 transition-all duration-500 flex flex-col h-full overflow-hidden group tilt-effect">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-b from-primary/10 to-transparent blur-[40px] pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="text-2xl lg:text-3xl font-bold font-heading text-primary mb-2 relative z-10 flex items-center gap-2"><i class="ph-fill ph-diamonds-four"></i> Marca Completa</div>
+                    <p class="text-sm text-textSecondary mb-8 min-h-[60px] relative z-10">Para empresas que quieren construir una marca sólida, coherente y lista para escalar.</p>
+                    
+                    <ul class="space-y-4 mb-8 flex-grow relative z-10">
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span><strong>Todo lo incluido en Sistema de Marca</strong></span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Rediseño o evolución de marca existente</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Materiales de aplicación ampliados</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Sesión estratégica de lanzamiento</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Soporte post-entrega (30 días)</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Condiciones preferentes en web y contenido</span></li>
+                    </ul>
+                    
+                    <a href="https://wa.me/34641576286?text=Buenas!%20Estoy%20interesado/a%20en%20el%20plan%20Marca%20Completa" target="_blank" rel="noopener noreferrer" class="relative z-10 w-full py-4 rounded-full border border-primary/30 text-center font-bold text-white hover:bg-primary transition-all block mt-auto focus:outline-none">Quiero la marca completa</a>
+                </div>
+
+            </div>
+
+            <!-- Plan 4: A Medida -->
+            <div class="mt-8 relative p-8 md:p-12 rounded-[2.5rem] border border-white/10 bg-bgMain shadow-lg hover:border-primary/30 transition-all duration-300 flex flex-col md:flex-row items-center justify-between gap-8 group tilt-effect reveal-up delay-200">
+                <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-accent rounded-l-[2.5rem]"></div>
+                <div class="flex-grow text-left">
+                    <div class="inline-flex items-center gap-2 text-white font-bold text-sm tracking-wider uppercase mb-4">
+                        <i class="ph-fill ph-sliders text-xl text-primary"></i> A MEDIDA
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-white mb-3">Proyectos Específicos</h3>
+                    <p class="text-sm text-textSecondary max-w-3xl leading-relaxed">Para proyectos de rebranding complejo, marcas con múltiples líneas de producto, franquicias o necesidades específicas de comunicación corporativa.</p>
+                </div>
+                <div class="w-full md:w-auto shrink-0">
+                    <a href="https://wa.me/34641576286?text=Buenas!%20Quer%C3%ADa%20pedir%20presupuesto%20para%20un%20proyecto%20de%20branding%20A%20Medida" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto px-10 py-4 rounded-full border border-primary/30 text-center font-bold text-white hover:bg-primary transition-all block focus:outline-none whitespace-nowrap shadow-[0_0_15px_rgba(123,97,255,0.05)]">
+                        Pedir presupuesto
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. FAQ -->
+    <section id="faq" class="py-32 relative bg-bgSurface/30 border-t border-white/5 with-glow">
+        <div class="max-w-3xl mx-auto px-6 reveal-up">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-5xl font-medium text-white mb-4">Preguntas frecuentes</h2>
+                <p class="text-textSecondary text-lg">Resolvemos las dudas de nuestro enfoque de branding.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-white pr-4 text-lg">¿Cuánto tiempo tarda un proyecto de branding?</span>
+                        <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Una identidad básica puede estar lista en 2–3 semanas. Un sistema de marca completo lleva entre 3 y 5 semanas, dependiendo del alcance y los tiempos de feedback en cada fase del proceso.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-white pr-4 text-lg">¿Qué necesito tener antes de empezar?</span>
+                        <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Solo necesitas tener claro a qué te dedicas y a quién te diriges. Del resto nos encargamos nosotros en la fase de diagnóstico y estrategia para darle forma visual a tu propuesta.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-white pr-4 text-lg">¿Puedo rediseñar una marca que ya tengo?</span>
+                        <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Sí. Trabajamos tanto con marcas nuevas como con negocios que necesitan evolucionar o refrescar su identidad actual porque ya no resuena con su nivel o el tipo de cliente que buscan atraer.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-white pr-4 text-lg">¿Los archivos son míos una vez entregados?</span>
+                        <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Sí. Todos los archivos fuente (AI, PDF, PNG, SVG) te los entregamos al cierre del proyecto. La marca es 100% tuya y podrás utilizarla y enviarla a cualquier proveedor libremente.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-white pr-4 text-lg">¿Puedo contratar solo el branding sin web ni redes?</span>
+                        <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Sí. Puedes contratar el branding de forma independiente. Nos enfocamos primero en sentar las bases visuales, y si después necesitas la web o contenido en redes, lo integramos sin problema.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CTA FINAL -->
+    <section class="py-32 relative z-10 bg-primary/10 border-y border-primary/20 with-glow overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-full bg-primary/20 blur-[100px] z-[-1]"></div>
+        
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 reveal-up">
+            <h2 class="font-heading text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">Tu marca tiene que comunicar <span class="text-gradient-primary">lo que realmente vales.</span></h2>
+            <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">Cuéntanos dónde estás y construimos la identidad que tu negocio merece para destacar.</p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#planes" class="w-full sm:w-auto px-10 py-5 rounded-full bg-primary hover:bg-accent text-white font-bold transition-all duration-300 shadow-[0_0_30px_rgba(123,97,255,0.4)]">
+                    Quiero empezar
+                </a>
+                <a href="https://wa.me/34641576286?text=Buenas!%20Estaba%20visitando%20vuestra%20web%20y%20quer%C3%ADa%20solicitar%20m%C3%A1s%20informaci%C3%B3n%20sin%20compromiso" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-10 py-5 rounded-full border border-white/20 bg-bgMain hover:bg-white/10 text-white font-bold transition-all duration-300 flex items-center justify-center gap-2">
+                    Más info sin compromiso
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    TMP_FOOTER
+
+    <!-- Scripts (Glow, Reveal, Menu, FAQ, Timeline) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Observer Reveal Up
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+            // FAQ Accordion logic
+            document.querySelectorAll('.faq-toggle').forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const content = toggle.nextElementSibling;
+                    const icon = toggle.querySelector('.faq-icon');
+                    
+                    document.querySelectorAll('.faq-content').forEach(c => {
+                        if(c !== content) {
+                            c.style.maxHeight = '0px';
+                            c.style.opacity = '0';
+                        }
+                    });
+                    document.querySelectorAll('.faq-icon').forEach(i => {
+                        if(i !== icon) i.style.transform = 'rotate(0deg)';
+                    });
+
+                    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                        content.style.maxHeight = '0px';
+                        content.style.opacity = '0';
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        content.style.opacity = '1';
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.toggle('ph-list'); icon.classList.toggle('ph-x');
+                });
+            }
+            
+            // Cerrar menú móvil al hacer click en enlace
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.add('ph-list'); icon.classList.remove('ph-x');
+                });
+            });
+
+            // Mouse Glow General
+            const glow = document.getElementById('mouse-glow');
+            document.addEventListener('mousemove', (e) => { 
+                glow.style.left = `${e.clientX}px`; 
+                glow.style.top = `${e.clientY}px`; 
+                
+                if (e.target.closest('.with-glow')) {
+                    glow.style.opacity = '1';
+                } else {
+                    glow.style.opacity = '0';
+                }
+            });
+            document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+
+            // Tilt Effect 3D
+            document.querySelectorAll('.tilt-effect').forEach(el => {
+                el.addEventListener('mouseenter', () => el.style.transition = 'transform 0.1s ease-out, box-shadow 0.3s ease');
+                el.addEventListener('mousemove', (e) => {
+                    const rect = el.getBoundingClientRect();
+                    const rotateX = (((e.clientY - rect.top) - (rect.height / 2)) / (rect.height / 2)) * 1.5; 
+                    const rotateY = (((e.clientX - rect.left) - (rect.width / 2)) / (rect.width / 2)) * -1.5;
+                    el.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`); el.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+                    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(0.99, 0.99, 0.99)`;
+                });
+                el.addEventListener('mouseleave', () => {
+                    el.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease';
+                    el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                    el.style.setProperty('--mouse-x', `50%`); el.style.setProperty('--mouse-y', `50%`);
+                });
+            });
+
+            // Motor Físico Timeline (Proceso 5 pasos)
+            const progress = document.getElementById('foco-progress');
+            const items = document.querySelectorAll('.foco-item');
+            let isTicking = false;
+            
+            const handleTimeline = () => {
+                if(!progress) return;
+                const container = progress.parentElement;
+                const rect = container.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                let p = (windowHeight * 0.6 - rect.top) / rect.height;
+                p = Math.max(0, Math.min(1, p));
+                progress.style.height = `${p * 100}%`;
+
+                const lineBottom = progress.getBoundingClientRect().bottom;
+
+                items.forEach(item => {
+                    const node = item.querySelector('.foco-node');
+                    const nodeRect = node.getBoundingClientRect();
+                    const nodeCenter = nodeRect.top + (nodeRect.height / 2);
+
+                    if (lineBottom >= nodeCenter) {
+                        node.classList.remove('bg-bgMain');
+                        node.classList.add('bg-primary', 'border-primary', 'shadow-[0_0_15px_#7B61FF]');
+                        item.classList.add('active');
+                    } else {
+                        node.classList.add('bg-bgMain');
+                        node.classList.remove('bg-primary', 'border-primary', 'shadow-[0_0_15px_#7B61FF]');
+                        item.classList.remove('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', () => {
+                if (!isTicking) {
+                    window.requestAnimationFrame(() => {
+                        handleTimeline();
+                        isTicking = false;
+                    });
+                    isTicking = true;
+                }
+            });
+            handleTimeline();
+            
+            // Re-bind hover mega-menu if they are available in the new standard header
+            const servicesBtnDesktop = document.getElementById('services-menu-btn');
+            const megaMenuDesktop = document.getElementById('mega-menu');
+            if (servicesBtnDesktop && megaMenuDesktop) {
+                let timeoutId;
+                
+                const showMenu = () => {
+                    clearTimeout(timeoutId);
+                    megaMenuDesktop.classList.remove('hidden');
+                    // force reflow
+                    void megaMenuDesktop.offsetWidth;
+                    megaMenuDesktop.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+                    megaMenuDesktop.classList.add('opacity-100', 'translate-y-0');
+                    servicesBtnDesktop.classList.add('text-white');
+                };
+
+                const hideMenu = () => {
+                    timeoutId = setTimeout(() => {
+                        megaMenuDesktop.classList.remove('opacity-100', 'translate-y-0');
+                        megaMenuDesktop.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+                        servicesBtnDesktop.classList.remove('text-white');
+                        setTimeout(() => {
+                            if (megaMenuDesktop.classList.contains('opacity-0')) {
+                                megaMenuDesktop.classList.add('hidden');
+                            }
+                        }, 300); // Wait for transition to finish
+                    }, 100); // Pequeño delay para no cerrarlo de golpe
+                };
+
+                servicesBtnDesktop.addEventListener('mouseenter', showMenu);
+                megaMenuDesktop.addEventListener('mouseenter', showMenu);
+                
+                servicesBtnDesktop.addEventListener('mouseleave', hideMenu);
+                megaMenuDesktop.addEventListener('mouseleave', hideMenu);
+                
+                // Keyboard accessibility
+                servicesBtnDesktop.addEventListener('focus', showMenu);
+                megaMenuDesktop.addEventListener('focusin', showMenu);
+                
+                servicesBtnDesktop.addEventListener('blur', hideMenu);
+                megaMenuDesktop.addEventListener('focusout', (e) => {
+                    if (!megaMenuDesktop.contains(e.relatedTarget)) {
+                        hideMenu();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+"""
+
+provided_html = provided_html.replace('<nav>TMP_HEADER</nav>', standard_header)
+provided_html = provided_html.replace('TMP_FOOTER', standard_footer)
+
+os.makedirs('branding-y-estrategia', exist_ok=True)
+with open('branding-y-estrategia/index.html', 'w', encoding='utf-8') as f:
+    f.write(provided_html)
+
+# 3. Update all html files: replace "/servicios#branding" with "/branding-y-estrategia"
+for root, dirs, files in os.walk('.'):
+    for file in files:
+        if file.endswith('.html'):
+            filepath = os.path.join(root, file)
+            with open(filepath, 'r', encoding='utf-8') as f:
+                content = f.read()
+            if '/servicios#branding' in content:
+                new_content = content.replace('/servicios#branding', '/branding-y-estrategia')
+                with open(filepath, 'w', encoding='utf-8') as f:
+                    f.write(new_content)
+                print(f"Updated {filepath}")
+
