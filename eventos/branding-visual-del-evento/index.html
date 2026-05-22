@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branding Visual del Evento | Proemote Studio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgMain: '#0A0A0F',
+                        bgSurface: '#14141F',
+                        primary: '#7B61FF',
+                        accent: '#9F7AEA',
+                        textMain: '#F5F7FA',
+                        textSecondary: '#A1A1B5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\\'40\\' height=\\'40\\' viewBox=\\'0 0 40 40\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h40v40H0V0zm1 1h38v38H1V1z\\' fill=\\'%23ffffff\\' fill-opacity=\\'0.02\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                        'grid-pattern-primary': "url('data:image/svg+xml,%3Csvg width=\\'50\\' height=\\'50\\' viewBox=\\'0 0 50 50\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h50v50H0V0zm1 1h48v48H1V1z\\' fill=\\'%237B61FF\\' fill-opacity=\\'0.08\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #0A0A0F; color: #F5F7FA; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A0A0F; }
+        ::-webkit-scrollbar-thumb { background: #14141F; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
+        ::-webkit-scrollbar-thumb:hover { background: #7B61FF; }
+
+        .glass-nav { background: rgba(10, 10, 15, 0.7); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass-card { background: linear-gradient(180deg, rgba(20, 20, 31, 0.9) 0%, rgba(20, 20, 31, 0.5) 100%); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .glass-card:hover { border-color: rgba(123, 97, 255, 0.3); box-shadow: 0 10px 40px rgba(123, 97, 255, 0.1); transform: translateY(-4px); }
+
+        #mouse-glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(123,97,255,0.08) 0%, rgba(10,10,15,0) 60%); border-radius: 50%; pointer-events: none; z-index: 35; transform: translate(-50%, -50%); transition: opacity 0.4s ease; mix-blend-mode: screen; opacity: 0; }
+
+        .text-gradient-primary { background: linear-gradient(135deg, #9F7AEA 0%, #7B61FF 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-up.active { opacity: 1; transform: translateY(0); }
+        
+        .foco-item .glass-card { opacity: 0; transform: translateY(40px) scale(0.97); transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none; }
+        .foco-item.active .glass-card { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+        .foco-node { transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
+
+        .tab-content-evento { transition: opacity 0.2s ease-in-out; }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white relative bg-grid-pattern bg-fixed">
+
+    <div id="mouse-glow"></div>
+
+    <!-- MODAL DE CONTACTO -->
+    <div id="contact-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-bgMain/80 backdrop-blur-md opacity-0 transition-opacity duration-300">
+        <div class="glass-form tilt-effect w-full max-w-lg p-8 md:p-10 rounded-[2rem] relative shadow-2xl max-h-[95vh] overflow-y-auto transform scale-95 transition-transform duration-300" style="will-change: transform;">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-textSecondary hover:text-white transition-colors focus:outline-none z-10"><i class="ph ph-x text-2xl"></i></button>
+            <h2 class="text-2xl font-heading font-medium text-white mb-2">Cuéntanos sobre tu evento</h2>
+            <p class="text-textSecondary mb-6 text-sm">Te respondemos en menos de 24h con una valoración sin compromiso.</p>
+            
+            <form id="modal-form" class="proemote-form space-y-4">
+                <input type="text" name="Nombre" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="Tu nombre o empresa">
+                <input type="email" name="Email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="hola@tuempresa.com">
+                <input type="tel" name="Telefono" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="+34 600 000 000 (Opcional)">
+                
+                <select name="Servicio" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer">
+                    <option value="" disabled>¿Qué servicio te interesa?</option>
+                    <option value="Branding Visual del Evento" selected>Branding Visual del Evento</option>
+                    <option value="Eventos & Experiencias (Completo)">Organización de Evento Completa</option>
+                    <option value="Estrategia y Marca">Estrategia de marca corporativa</option>
+                </select>
+
+                <textarea name="Mensaje" rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all resize-none" placeholder="Cuéntanos brevemente sobre el evento, el formato o lo que necesitas..."></textarea>
+                
+                <div class="flex items-start gap-3 px-2">
+                    <input type="checkbox" id="check-priv-modal" name="Privacidad" value="Aceptada" required class="mt-1 w-4 h-4 accent-primary cursor-pointer">
+                    <label for="check-priv-modal" class="text-sm text-textSecondary leading-tight cursor-pointer italic">He leído y acepto la <a href="/privacidad" target="_blank" class="text-primary hover:text-accent underline decoration-primary/30">política de privacidad</a>.</label>
+                </div>
+                
+                <button type="submit" class="w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-accent transition-all flex items-center justify-center gap-2 group btn-submit">
+                    Solicitar información <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </button>
+                <div class="form-msg hidden text-center p-4 rounded-xl mt-4 font-medium transition-all text-sm"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- HEADER FIJO -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="https://proemote.es/" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
+                <img src="https://i.imgur.com/jwddFTY.png" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain">
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-textSecondary relative z-10 items-center">
+                <a href="https://proemote.es/" class="hover:text-textMain transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn" class="hover:text-textMain transition-colors focus:outline-none">Servicios</a>
+                <a href="/sobre-nosotros" class="hover:text-textMain transition-colors">Sobre nosotros</a>
+                <a href="https://proemote.es/portfolio" class="hover:text-textMain transition-colors">Portfolio</a>
+                <a href="/contacto" class="hover:text-textMain transition-colors">Contacto</a>
+            </div>
+            <div class="flex items-center gap-4 relative z-10">
+                <button onclick="openModal()" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-primary rounded-full hover:bg-accent shadow-[0_0_15px_rgba(123,97,255,0.4)] transition-all duration-300 focus:outline-none">
+                    ¿Hablamos?
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden text-textSecondary hover:text-white transition-colors focus:outline-none p-2">
+                    <i class="ph ph-dots-three-vertical text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO -->
+    <section class="pt-48 pb-16 relative z-10 overflow-hidden bg-bgMain bg-grid-pattern-primary with-glow">
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-bgMain z-[-1] pointer-events-none"></div>
+        <div class="absolute top-[10%] left-[10%] w-[30vw] h-[30vw] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-[0]"></div>
+        <div class="absolute bottom-[10%] right-[10%] w-[40vw] h-[40vw] rounded-full bg-accent/10 blur-[150px] pointer-events-none z-[0]"></div>
+
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10 reveal-up active">
+            <div class="inline-flex items-center justify-center px-5 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-bold tracking-[0.2em] uppercase mb-8 shadow-[0_0_15px_rgba(123,97,255,0.05)]">
+                Branding Visual del Evento
+            </div>
+
+            <h1 class="font-heading text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight mb-6 text-white">
+                La imagen de tu evento comunica<br class="hidden md:block">
+                <span class="text-primary font-bold">antes de que nadie hable.</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-textSecondary leading-relaxed max-w-3xl mx-auto mb-10">
+                Desde el naming y el concepto creativo hasta el diseño gráfico de los materiales. Creamos la identidad visual completa para que tu evento corporativo mantenga la coherencia y el nivel de principio a fin.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                <button onclick="openModal()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] flex items-center justify-center gap-2 focus:outline-none">
+                    Quiero empezar
+                </button>
+                <a href="#planes-branding" class="w-full sm:w-auto px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white font-medium transition-all duration-300 flex items-center justify-center gap-2">
+                    Ver opciones de trabajo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. EL PROBLEMA -->
+    <section class="py-24 relative z-10 bg-bgSurface/30 border-b border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">El Problema</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Por qué un mal branding arruina un buen evento.</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-up delay-100 max-w-6xl mx-auto">
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex flex-col h-full">
+                    <div class="w-12 h-12 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500 mb-6">
+                        <i class="ph-fill ph-tag text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Se ve genérico</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Un logo pegado en una esquina de la pantalla no es identidad. Si la imagen del evento no refleja los valores de tu marca, la inversión pierde impacto comercial y corporativo.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex flex-col h-full">
+                    <div class="w-12 h-12 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500 mb-6">
+                        <i class="ph-fill ph-puzzle-piece text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Materiales sin conexión</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Una invitación de un estilo, un roll-up de otro y un dossier distinto. Esta falta de coherencia transmite desorganización a tus invitados antes de que pisen el recinto.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex flex-col h-full">
+                    <div class="w-12 h-12 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500 mb-6">
+                        <i class="ph-fill ph-clock-countdown text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Improvisación final</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Poner a tu equipo interno a diseñar carteles y acreditaciones la semana antes genera estrés, quita tiempo a su trabajo real y el resultado rara vez está a la altura.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. FILTRO POR TIPO DE EVENTO -->
+    <section class="py-24 relative z-10 bg-bgMain border-b border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Adaptación</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Lo que necesita cada tipo de evento.</h2>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-8 reveal-up delay-100 max-w-6xl mx-auto">
+                <!-- Selectors -->
+                <div class="flex flex-col gap-2 lg:w-1/3 shrink-0">
+                    <button onclick="switchTiposTab('lanzamiento')" id="tab-btn-lanzamiento" class="w-full text-left px-6 py-4 rounded-xl font-medium transition-all duration-300 focus:outline-none bg-primary/10 text-white border border-primary/30 flex items-center gap-3">
+                        <i class="ph-fill ph-rocket-launch text-primary text-xl"></i> Lanzamiento de producto
+                    </button>
+                    <button onclick="switchTiposTab('congreso')" id="tab-btn-congreso" class="w-full text-left px-6 py-4 rounded-xl font-medium transition-all duration-300 focus:outline-none bg-transparent text-textSecondary hover:bg-white/5 hover:text-white border border-transparent flex items-center gap-3">
+                        <i class="ph-fill ph-microphone-stage text-primary text-xl"></i> Congreso o jornada
+                    </button>
+                    <button onclick="switchTiposTab('interno')" id="tab-btn-interno" class="w-full text-left px-6 py-4 rounded-xl font-medium transition-all duration-300 focus:outline-none bg-transparent text-textSecondary hover:bg-white/5 hover:text-white border border-transparent flex items-center gap-3">
+                        <i class="ph-fill ph-users-three text-primary text-xl"></i> Evento corporativo interno
+                    </button>
+                    <button onclick="switchTiposTab('feria')" id="tab-btn-feria" class="w-full text-left px-6 py-4 rounded-xl font-medium transition-all duration-300 focus:outline-none bg-transparent text-textSecondary hover:bg-white/5 hover:text-white border border-transparent flex items-center gap-3">
+                        <i class="ph-fill ph-storefront text-primary text-xl"></i> Feria o stand
+                    </button>
+                    <button onclick="switchTiposTab('prensa')" id="tab-btn-prensa" class="w-full text-left px-6 py-4 rounded-xl font-medium transition-all duration-300 focus:outline-none bg-transparent text-textSecondary hover:bg-white/5 hover:text-white border border-transparent flex items-center gap-3">
+                        <i class="ph-fill ph-camera text-primary text-xl"></i> Rueda de prensa
+                    </button>
+                </div>
+
+                <!-- Content -->
+                <div class="lg:w-2/3">
+                    <div class="glass-card p-10 rounded-3xl border-white/10 h-full flex flex-col justify-center">
+                        
+                        <!-- Contenido Lanzamiento -->
+                        <div id="tab-content-lanzamiento" class="tab-content-evento block opacity-100">
+                            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/20 text-primary mb-6">
+                                <i class="ph-fill ph-rocket-launch text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-heading text-white font-medium mb-4">Lanzamiento de producto o marca</h3>
+                            <p class="text-textSecondary leading-relaxed">Definimos una identidad propia que destaque el nuevo producto o mensaje, manteniendo la jerarquía visual para no eclipsar a la marca madre.</p>
+                        </div>
+
+                        <!-- Contenido Congreso -->
+                        <div id="tab-content-congreso" class="tab-content-evento hidden opacity-0">
+                            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/20 text-primary mb-6">
+                                <i class="ph-fill ph-microphone-stage text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-heading text-white font-medium mb-4">Congreso o jornada profesional</h3>
+                            <p class="text-textSecondary leading-relaxed">Aportamos claridad visual para guiar al asistente por el recinto, jerarquizar los horarios y dar peso a los ponentes en las pantallas principales.</p>
+                        </div>
+
+                        <!-- Contenido Interno -->
+                        <div id="tab-content-interno" class="tab-content-evento hidden opacity-0">
+                            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/20 text-primary mb-6">
+                                <i class="ph-fill ph-users-three text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-heading text-white font-medium mb-4">Evento corporativo interno</h3>
+                            <p class="text-textSecondary leading-relaxed">Creamos un branding que genere orgullo de pertenencia y motive al equipo. Alineado con los valores de la empresa, pero con un tono especial para la ocasión.</p>
+                        </div>
+
+                        <!-- Contenido Feria -->
+                        <div id="tab-content-feria" class="tab-content-evento hidden opacity-0">
+                            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/20 text-primary mb-6">
+                                <i class="ph-fill ph-storefront text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-heading text-white font-medium mb-4">Feria o stand</h3>
+                            <p class="text-textSecondary leading-relaxed">Diseñamos un reclamo visual rápido y potente para captar atención en pocos segundos dentro de un pabellón saturado de competidores.</p>
+                        </div>
+
+                        <!-- Contenido Prensa -->
+                        <div id="tab-content-prensa" class="tab-content-evento hidden opacity-0">
+                            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/20 text-primary mb-6">
+                                <i class="ph-fill ph-camera text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-heading text-white font-medium mb-4">Rueda de prensa o medios</h3>
+                            <p class="text-textSecondary leading-relaxed">Aseguramos fondos limpios, logos bien posicionados y materiales precisos para que la prensa capte el mensaje (y la fotografía) sin distracciones.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. QUÉ INCLUYE -->
+    <section class="py-24 relative z-10 bg-bgSurface/30 border-b border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Alcance del servicio</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Qué diseñamos exactamente.</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-up delay-100 max-w-6xl mx-auto">
+                <!-- Columna 1 -->
+                <div class="p-8 md:p-10 rounded-[2rem] border border-white/10 bg-bgMain hover:border-primary/30 transition-all tilt-effect h-full">
+                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 text-primary mb-8">
+                        <i class="ph-fill ph-lightbulb text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-heading font-medium text-white mb-6">Naming y Concepto Creativo</h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <i class="ph-fill ph-check-circle text-primary mt-1 text-xl"></i>
+                            <div>
+                                <h4 class="text-white font-medium">Nombre del evento</h4>
+                                <p class="text-sm text-textSecondary mt-1">Si aún no lo tiene, creamos un nombre comercial con sentido.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="ph-fill ph-check-circle text-primary mt-1 text-xl"></i>
+                            <div>
+                                <h4 class="text-white font-medium">Concepto creativo y claim</h4>
+                                <p class="text-sm text-textSecondary mt-1">La frase y la idea principal que guiará todas las comunicaciones.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="ph-fill ph-check-circle text-primary mt-1 text-xl"></i>
+                            <div>
+                                <h4 class="text-white font-medium">Paleta de color y tipografía</h4>
+                                <p class="text-sm text-textSecondary mt-1">Elección del estilo visual adaptado a tu empresa pero único para el evento.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="ph-fill ph-check-circle text-primary mt-1 text-xl"></i>
+                            <div>
+                                <h4 class="text-white font-medium">Manual de identidad básico</h4>
+                                <p class="text-sm text-textSecondary mt-1">Reglas claras para que cualquier proveedor sepa cómo aplicar los logos.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 2 -->
+                <div class="p-8 md:p-10 rounded-[2rem] border border-white/10 bg-bgMain hover:border-primary/30 transition-all tilt-effect h-full">
+                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 text-primary mb-8">
+                        <i class="ph-fill ph-pen-nib text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-heading font-medium text-white mb-6">Diseño y Producción de Materiales</h3>
+                    
+                    <h4 class="text-xs font-bold text-primary uppercase tracking-wider mb-4">Entorno Digital</h4>
+                    <ul class="space-y-4 mb-6">
+                        <li class="flex items-start gap-3">
+                            <span class="text-white/30 text-sm mt-0.5">■</span>
+                            <p class="text-sm text-white"><strong>Invitaciones y email headers:</strong> Para enviar convocatorias profesionales.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-white/30 text-sm mt-0.5">■</span>
+                            <p class="text-sm text-white"><strong>Fondos de pantalla:</strong> Plantillas base para las presentaciones de los ponentes.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-white/30 text-sm mt-0.5">■</span>
+                            <p class="text-sm text-white"><strong>Piezas para redes sociales:</strong> Post para anunciar fechas, agenda y registro.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-white/30 text-sm mt-0.5">■</span>
+                            <p class="text-sm text-white"><strong>Señalética digital:</strong> Diseño para pantallas LED o monitores en el evento.</p>
+                        </li>
+                    </ul>
+
+                    <h4 class="text-xs font-bold text-primary uppercase tracking-wider mb-4">Entorno Físico</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="text-white/30 text-sm mt-0.5">■</span>
+                            <p class="text-sm text-white"><strong>Cartelería y roll-ups:</strong> Impacto visual impreso a gran escala.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-white/30 text-sm mt-0.5">■</span>
+                            <p class="text-sm text-white"><strong>Credenciales y lanyards:</strong> Acreditaciones diseñadas para ser legibles.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-white/30 text-sm mt-0.5">■</span>
+                            <p class="text-sm text-white"><strong>Dossiers y programas:</strong> Documentación física entregada a los asistentes.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-white/30 text-sm mt-0.5">■</span>
+                            <p class="text-sm text-white"><strong>Merchandising:</strong> Aplicación de la marca en obsequios o bolsas.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. DOS FORMAS DE TRABAJAR -->
+    <section class="py-24 relative z-10 bg-bgMain border-b border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Dos formas de trabajar.</h2>
+                <p class="text-textSecondary">Nos adaptamos a los recursos de tu empresa.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-up delay-100 max-w-5xl mx-auto">
+                <!-- Ejecución -->
+                <div class="relative p-8 md:p-10 rounded-[2rem] border-2 border-primary/40 bg-primary/10 shadow-[0_0_40px_rgba(123,97,255,0.1)] group tilt-effect flex flex-col h-full">
+                    <div class="absolute -top-px left-8 bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-b-lg uppercase tracking-widest shadow-lg">Opción Ejecución</div>
+                    
+                    <h3 class="text-2xl font-heading font-bold text-white mt-4 mb-2">Lo hacemos nosotros de principio a fin.</h3>
+                    <p class="text-sm text-textSecondary mb-6">Para empresas que quieren delegar todo el proceso gráfico y tener la seguridad de que el resultado final está perfecto.</p>
+                    
+                    <div class="bg-black/20 rounded-xl p-5 mb-4 border border-white/5">
+                        <p class="text-sm text-white mb-2 font-medium">Qué incluye:</p>
+                        <p class="text-sm text-textSecondary">Concepto visual, diseño de todas las piezas, rondas de ajustes y entrega final de archivos listos para imprimir o publicar directamente.</p>
+                    </div>
+                    
+                    <div class="bg-black/20 rounded-xl p-5 border border-white/5 mb-6">
+                        <p class="text-sm text-white mb-2 font-medium">Para quién es:</p>
+                        <p class="text-sm text-textSecondary">Equipos de marketing o RRHH que no tienen tiempo o recursos de diseño interno para asumir el volumen de piezas de un evento.</p>
+                    </div>
+
+                    <a href="https://wa.me/34641576286?text=Buenas!%20Me%20interesa%20la%20opci%C3%B3n%20de%20EJECUCI%C3%93N%20COMPLETA%20para%20el%20branding%20de%20mi%20evento." target="_blank" rel="noopener noreferrer" class="mt-auto w-full py-4 rounded-xl border border-primary/30 bg-primary/20 hover:bg-primary text-white font-bold transition-all flex items-center justify-center gap-2 focus:outline-none">
+                        <i class="ph ph-whatsapp-logo text-xl"></i> Consultar Ejecución
+                    </a>
+                </div>
+
+                <!-- Consultoría -->
+                <div class="relative p-8 md:p-10 rounded-[2rem] border border-white/10 bg-white/5 group tilt-effect flex flex-col h-full">
+                    <div class="absolute -top-px left-8 border-x border-b border-white/20 bg-white/10 text-white text-xs font-bold px-4 py-1.5 rounded-b-lg uppercase tracking-widest">Opción Consultoría</div>
+                    
+                    <h3 class="text-2xl font-heading font-bold text-white mt-4 mb-2">Definimos el concepto, tú lo ejecutas.</h3>
+                    <p class="text-sm text-textSecondary mb-6">Para empresas que tienen equipo de diseño interno o agencia habitual, pero necesitan la estrategia e idea visual inicial.</p>
+                    
+                    <div class="bg-black/20 rounded-xl p-5 mb-4 border border-white/5">
+                        <p class="text-sm text-white mb-2 font-medium">Qué incluye:</p>
+                        <p class="text-sm text-textSecondary">Naming, concepto creativo general y un documento de dirección de arte con las reglas para que tu equipo produzca el resto de piezas sin error.</p>
+                    </div>
+                    
+                    <div class="bg-black/20 rounded-xl p-5 border border-white/5 mb-6">
+                        <p class="text-sm text-white mb-2 font-medium">Qué NO incluye:</p>
+                        <p class="text-sm text-textSecondary">No diseñamos los materiales uno a uno. Entregamos la guía para que vosotros los desarrolléis.</p>
+                    </div>
+
+                    <a href="https://wa.me/34641576286?text=Buenas!%20Me%20interesa%20la%20opci%C3%B3n%20de%20CONSULTOR%C3%8DA%20para%20el%20branding%20de%20mi%20evento." target="_blank" rel="noopener noreferrer" class="mt-auto w-full py-4 rounded-xl border border-white/20 bg-white/5 hover:bg-white/10 text-white font-bold transition-all flex items-center justify-center gap-2 focus:outline-none">
+                        <i class="ph ph-whatsapp-logo text-xl"></i> Consultar Consultoría
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. EL PROCESO -->
+    <section class="py-32 relative bg-bgSurface/30 border-b border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-24 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Metodología</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white">Cuatro pasos para tenerlo listo.</h2>
+                <p class="text-textSecondary">No necesitas saber de diseño para trabajar con nosotros.</p>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto px-4 md:px-0">
+                <div class="absolute left-6 md:left-[50px] top-0 bottom-0 w-[2px] bg-white/5 rounded-full"></div>
+                <div class="foco-progress absolute left-6 md:left-[50px] top-0 w-[2px] bg-gradient-to-b from-primary to-accent rounded-full h-0 shadow-[0_0_10px_#7B61FF] transition-[height] duration-75 ease-out"></div>
+
+                <!-- Paso 1 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">1</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Briefing</h3>
+                                <p class="text-textSecondary leading-relaxed">Nos cuentas de qué va el evento, a quién invitas, qué hace tu empresa y qué imagen quieres transmitir.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">2</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Concepto inicial</h3>
+                                <p class="text-textSecondary leading-relaxed">Presentamos opciones de naming (si aplica), el concepto de la edición y la propuesta visual principal para confirmar que vamos en la dirección correcta.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">3</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Diseño y ajustes</h3>
+                                <p class="text-textSecondary leading-relaxed">Con la base aprobada, desarrollamos todos los materiales acordados. Realizamos las rondas de revisión necesarias para pulir detalles.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-10">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">4</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Entrega de archivos</h3>
+                                <p class="text-textSecondary leading-relaxed">Te pasamos los documentos listos. Archivos PDF en alta calidad para enviar a imprenta y formatos digitales optimizados para publicar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. PLANES -->
+    <section id="planes-branding" class="py-32 relative z-10 bg-bgMain border-b border-white/5 with-glow">
+        <div class="max-w-[1200px] mx-auto px-6">
+            
+            <div class="text-center mb-20 reveal-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white mb-6">Planes de Diseño y Ejecución.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch reveal-up delay-100">
+                
+                <!-- Plan Básica -->
+                <div class="relative p-8 rounded-[2.5rem] border border-primary/20 bg-primary/5 backdrop-blur-xl hover:border-primary/40 transition-all flex flex-col h-full overflow-hidden group tilt-effect">
+                    <div class="text-2xl lg:text-3xl font-bold font-heading text-primary mb-2 relative z-10">Identidad Básica</div>
+                    <p class="text-sm text-textSecondary mb-8 min-h-[60px] relative z-10">Para empresas que necesitan una imagen coherente sin requerir una gran producción física.</p>
+                    
+                    <ul class="space-y-4 mb-8 flex-grow relative z-10">
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Concepto creativo principal</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Paleta de color y tipografías</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Hasta 5 piezas digitales</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Archivos editables finales</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white/40"><i class="ph ph-x-circle text-white/40 mt-0.5 text-lg"></i> <span>Sin materiales físicos</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white/40"><i class="ph ph-x-circle text-white/40 mt-0.5 text-lg"></i> <span>Sin naming inicial</span></li>
+                    </ul>
+                    
+                    <button onclick="openModal()" class="relative z-10 w-full py-4 rounded-full border border-primary/30 text-center font-bold text-white hover:bg-primary transition-all block mt-auto focus:outline-none">Elegir Básica</button>
+                </div>
+
+                <!-- Plan Completa -->
+                <div class="relative p-8 rounded-[2.5rem] border-2 border-primary/50 bg-primary/10 backdrop-blur-2xl shadow-[0_0_50px_rgba(123,97,255,0.15)] transition-all flex flex-col h-full overflow-hidden group transform lg:-translate-y-4 tilt-effect z-20">
+                    <div class="absolute -top-px left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-accent text-white text-[10px] sm:text-xs font-bold px-6 py-2 rounded-b-xl uppercase tracking-widest shadow-lg z-20 whitespace-nowrap">
+                        Más habitual
+                    </div>
+                    
+                    <div class="text-2xl lg:text-3xl font-bold font-heading text-primary mb-2 mt-6 relative z-10">Identidad Completa</div>
+                    <p class="text-sm text-white/80 mb-8 min-h-[60px] relative z-10">Para eventos que necesitan una imagen profesional en todos los puntos de contacto.</p>
+                    
+                    <ul class="space-y-4 mb-8 flex-grow relative z-10">
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Naming del evento (si aplica)</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Concepto creativo completo</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Materiales digitales ilimitados</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Hasta 5 piezas físicas listas para imprimir</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Archivos en alta calidad</span></li>
+                    </ul>
+                    
+                    <button onclick="openModal()" class="relative z-10 w-full py-4 rounded-full bg-primary text-center font-bold text-white hover:bg-accent transition-all block mt-auto shadow-[0_0_20px_rgba(123,97,255,0.4)] focus:outline-none">Elegir Completa</button>
+                </div>
+
+                <!-- Plan Producción Total -->
+                <div class="relative p-8 rounded-[2.5rem] border border-primary/20 bg-primary/5 backdrop-blur-xl hover:border-primary/40 transition-all flex flex-col h-full overflow-hidden group tilt-effect">
+                    <div class="text-2xl lg:text-3xl font-bold font-heading text-primary mb-2 relative z-10">Producción Total</div>
+                    <p class="text-sm text-textSecondary mb-8 min-h-[60px] relative z-10">Para eventos de gran formato que necesitan delegar absolutamente toda la imagen y cartelería.</p>
+                    
+                    <ul class="space-y-4 mb-8 flex-grow relative z-10">
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span><strong>Todo lo incluido en Identidad Completa</strong></span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Materiales físicos ilimitados</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Supervisión y pruebas de impresión</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Coordinación con proveedores externos</span></li>
+                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Entrega física (si aplica)</span></li>
+                    </ul>
+                    
+                    <button onclick="openModal()" class="relative z-10 w-full py-4 rounded-full border border-primary/30 text-center font-bold text-white hover:bg-primary transition-all block mt-auto focus:outline-none">Elegir Total</button>
+                </div>
+
+            </div>
+
+            <!-- Opción Consultoría -->
+            <div class="mt-8 relative p-8 md:p-12 rounded-[2.5rem] border border-white/10 bg-bgMain shadow-lg hover:border-primary/30 transition-all duration-300 flex flex-col md:flex-row items-center justify-between gap-8 group tilt-effect reveal-up delay-200">
+                <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-accent rounded-l-[2.5rem]"></div>
+                <div class="flex-grow text-left">
+                    <div class="inline-flex items-center gap-2 text-white font-bold text-sm tracking-wider uppercase mb-4">
+                        <i class="ph-fill ph-strategy text-xl text-primary"></i> SOLO CONSULTORÍA
+                    </div>
+                    <h4 class="text-xl font-heading text-white mb-2">Concepto y dirección de arte</h4>
+                    <p class="text-sm text-textSecondary max-w-3xl leading-relaxed">Diseñamos la idea, la línea gráfica y creamos las guías visuales. Tu equipo interno o tu proveedor habitual se encarga de ejecutar todas las piezas siguiendo nuestras normas.</p>
+                </div>
+                <div class="w-full md:w-auto shrink-0">
+                    <button onclick="openModal()" class="w-full md:w-auto px-10 py-4 rounded-full border border-primary/30 text-center font-bold text-white hover:bg-primary transition-all block focus:outline-none whitespace-nowrap">
+                        Pedir propuesta
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 8. FAQ -->
+    <section class="py-32 relative bg-bgSurface/30 border-b border-white/5 with-glow">
+        <div class="max-w-3xl mx-auto px-6 reveal-up">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-5xl font-medium text-white mb-4">Preguntas Frecuentes</h2>
+                <p class="text-textSecondary text-lg">Resolvemos las dudas sobre el branding de eventos.</p>
+            </div>
+            <div class="space-y-4">
+                <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-white pr-4 text-lg">¿Necesito tener claro el nombre del evento antes de empezar?</span>
+                        <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">No es obligatorio. En los planes Completo y Total incluimos el proceso de naming. Si ya lo tienes, trabajamos la identidad directamente sobre él.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-white pr-4 text-lg">¿Con cuánta antelación hay que encargar el branding?</span>
+                        <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Lo ideal es comenzar entre 6 y 8 semanas antes del evento. Esto nos da margen para crear el concepto y dejar listos todos los materiales para enviar a imprenta a tiempo.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-white pr-4 text-lg">¿Podemos usar nuestra identidad corporativa como base?</span>
+                        <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Por supuesto. La mayoría de eventos corporativos parten de los logos y colores de la marca principal. Les damos un giro específico para que el evento destaque manteniendo la línea de empresa.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-white pr-4 text-lg">¿Entregáis los archivos para que los imprimamos nosotros?</span>
+                        <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Sí, siempre entregamos los archivos finales con sangre y cruces de corte listos para que los mandes a tu imprenta habitual sin ningún problema técnico.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-white pr-4 text-lg">¿Hacéis solo el diseño o también gestionáis la impresión?</span>
+                        <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Podemos hacer ambas. Con el plan "Producción Total", nos encargamos del diseño y también gestionamos a los proveedores de impresión y la coordinación para que las piezas lleguen al recinto final.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. CTA FINAL -->
+    <section class="py-32 relative z-10 bg-bgMain with-glow overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6 relative z-10 reveal-up">
+            
+            <!-- Luxury Glass Card -->
+            <div class="relative p-10 md:p-20 rounded-[3rem] overflow-hidden border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] backdrop-blur-3xl shadow-[0_30px_60px_rgba(0,0,0,0.4),0_0_40px_rgba(123,97,255,0.15)] tilt-effect">
+                
+                <!-- Inner Glows and Textures -->
+                <div class="absolute inset-0 bg-grid-pattern opacity-20 mix-blend-overlay"></div>
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-full bg-primary/20 blur-[100px] z-[-1] pointer-events-none"></div>
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent/20 blur-[100px] rounded-full z-[-1] pointer-events-none"></div>
+                
+                <div class="text-center relative z-10">
+                    <h2 class="font-heading text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">La imagen de tu evento habla <span class="text-gradient-primary">por tu empresa.</span></h2>
+                    <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">Cuéntanos qué estáis preparando y os ayudamos a que todo se vea a la altura.</p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <button onclick="openModal()" class="w-full sm:w-auto px-10 py-5 rounded-full bg-primary hover:bg-accent text-white font-bold transition-all duration-300 shadow-[0_0_30px_rgba(123,97,255,0.4)] focus:outline-none">
+                            Quiero empezar
+                        </button>
+                        <a href="https://wa.me/34641576286?text=Buenas!%20He%20visto%20el%20servicio%20de%20branding%20visual%20para%20eventos%20y%20quiero%20m%C3%A1s%20info" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-10 py-5 rounded-full border border-white/20 bg-black/20 hover:bg-white/10 text-white font-bold transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-md">
+                            Más info sin compromiso
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-bgMain border-t border-white/5 pt-20 pb-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+            
+            <div class="md:col-span-12 lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
+                <div class="mb-8">
+                    <img src="https://i.imgur.com/2mXnkGe.png" alt="Proemote Logo" class="h-20 md:h-24 mb-3 opacity-90 mx-auto md:mx-0">
+                    <p class="text-white italic text-sm mb-1">Shaping what matters</p>
+                    <p class="text-textSecondary text-sm font-medium">Think first.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <p class="text-xs text-primary font-bold tracking-widest uppercase mb-1">Estudio creativo y estratégico.</p>
+                    <p class="text-xs text-textSecondary font-bold tracking-widest uppercase">Mérida, Extremadura.</p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-start gap-3 mb-8 w-full">
+                    <a href="mailto:info@proemote.es" class="text-white font-medium hover:text-primary transition-colors flex items-center gap-3 text-sm">
+                        <i class="ph ph-envelope-simple text-xl"></i> info@proemote.es
+                    </a>
+                    <a href="tel:+34641576286" class="text-white font-medium hover:text-primary transition-colors flex items-center gap-3 text-sm">
+                        <i class="ph ph-phone text-xl"></i> +34 641 57 62 86
+                    </a>
+                </div>
+
+                <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-8">
+                    <a href="/" class="px-5 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-primary/20 text-white text-xs transition-all">Inicio</a>
+                    <a href="/#foco" class="px-5 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-primary/20 text-white text-xs transition-all">Sistema</a>
+                    <a href="/sobre-nosotros" class="px-5 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-primary/20 text-white text-xs transition-all">Sobre nosotros</a>
+                    <a href="/contacto" class="px-5 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-primary/20 text-white text-xs transition-all">Contacto</a>
+                </div>
+                
+                <div class="flex justify-center md:justify-start gap-3 w-full">
+                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
+                        <i class="ph-fill ph-linkedin-logo"></i>
+                    </a>
+                    <a href="https://www.instagram.com/proemote.es/" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
+                        <i class="ph-fill ph-instagram-logo"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="md:col-span-4 lg:col-span-2 lg:col-start-5 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Servicios</h4>
+                <ul class="space-y-4 text-sm text-textSecondary text-center md:text-left">
+                    <li><a href="/diseno-web-SEO" class="hover:text-white transition-colors">Diseño Web</a></li>
+                    <li><a href="/servicios" class="hover:text-white transition-colors">Eventos 360º</a></li>
+                    <li><a href="/servicios" class="hover:text-white transition-colors">Marketing Digital</a></li>
+                    <li><a href="/servicios" class="hover:text-white transition-colors">Redes Sociales</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Empresa & Legal</h4>
+                <ul class="space-y-4 text-sm text-textSecondary text-center md:text-left">
+                    <li><a href="/aviso-legal" target="_blank" class="hover:text-white transition-colors">Aviso Legal</a></li>
+                    <li><a href="/privacidad" target="_blank" class="hover:text-white transition-colors">Política de Privacidad</a></li>
+                    <li><a href="/sobre-nosotros" class="hover:text-white transition-colors">Sobre nosotros</a></li>
+                    <li><a href="/contacto" class="hover:text-white transition-colors">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Horario</h4>
+                <ul class="space-y-2 text-sm text-textSecondary text-center md:text-left">
+                    <li class="flex flex-col md:inline-block"><span class="font-medium text-white/80">L-V:</span> <span class="text-white">9H–14H, 16H–20H</span></li>
+                    <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-white/80">Sáb:</span> <span class="text-white">10H–13:30H</span></li>
+                    <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-white/80">Dom:</span> <span class="text-white/50">Cerrado</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 text-center md:text-left">
+            <p class="text-xs text-textSecondary w-full">© 2026 Proemote Studio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS CORE -->
+    <script>
+        // Modal functionality
+        function openModal() {
+            const modal = document.getElementById('contact-modal');
+            const inner = modal.querySelector('div');
+            modal.classList.remove('hidden');
+            setTimeout(() => { modal.classList.remove('opacity-0'); inner.classList.remove('scale-95'); }, 10);
+            document.body.style.overflow = 'hidden'; 
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('contact-modal');
+            const inner = modal.querySelector('div');
+            modal.classList.add('opacity-0'); inner.classList.add('scale-95');
+            setTimeout(() => { modal.classList.add('hidden'); document.body.style.overflow = ''; }, 300); 
+        }
+
+        // Lógica para Tabs de Tipos de Eventos
+        function switchTiposTab(tabId) {
+            const tabs = ['lanzamiento', 'congreso', 'interno', 'feria', 'prensa'];
+            
+            tabs.forEach(t => {
+                const content = document.getElementById(`tab-content-${t}`);
+                const btn = document.getElementById(`tab-btn-${t}`);
+                
+                if (t === tabId) {
+                    content.classList.remove('hidden');
+                    btn.classList.add('bg-primary/10', 'text-white', 'border-primary/30');
+                    btn.classList.remove('bg-transparent', 'text-textSecondary', 'border-transparent');
+                    requestAnimationFrame(() => content.style.opacity = '1');
+                } else {
+                    content.style.opacity = '0';
+                    content.classList.add('hidden');
+                    btn.classList.remove('bg-primary/10', 'text-white', 'border-primary/30');
+                    btn.classList.add('bg-transparent', 'text-textSecondary', 'border-transparent');
+                }
+            });
+        }
+
+        // Timeline Scroll Event para "Proceso"
+        let isTicking = false;
+        const handleTimeline = () => {
+            const progresses = document.querySelectorAll('.foco-progress');
+            progresses.forEach(progress => {
+                const container = progress.parentElement;
+                const rect = container.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                let p = (windowHeight * 0.6 - rect.top) / rect.height;
+                p = Math.max(0, Math.min(1, p));
+                progress.style.height = `${p * 100}%`;
+
+                const lineBottom = progress.getBoundingClientRect().bottom;
+                const items = container.querySelectorAll('.foco-item');
+
+                items.forEach(item => {
+                    const node = item.querySelector('.foco-node');
+                    const nodeRect = node.getBoundingClientRect();
+                    const nodeCenter = nodeRect.top + (nodeRect.height / 2);
+
+                    if (lineBottom >= nodeCenter) {
+                        node.classList.remove('bg-bgMain');
+                        node.classList.add('bg-primary', 'border-primary', 'shadow-[0_0_15px_#7B61FF]');
+                        item.classList.add('active');
+                    } else {
+                        node.classList.add('bg-bgMain');
+                        node.classList.remove('bg-primary', 'border-primary', 'shadow-[0_0_15px_#7B61FF]');
+                        item.classList.remove('active');
+                    }
+                });
+            });
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Observer Reveal Up
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+            // FAQ Accordion logic
+            document.querySelectorAll('.faq-toggle').forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const content = toggle.nextElementSibling;
+                    const icon = toggle.querySelector('.faq-icon');
+                    const faqContainer = toggle.closest('.space-y-4');
+                    
+                    faqContainer.querySelectorAll('.faq-content').forEach(c => {
+                        if(c !== content) {
+                            c.style.maxHeight = '0px';
+                            c.style.opacity = '0';
+                        }
+                    });
+                    faqContainer.querySelectorAll('.faq-icon').forEach(i => {
+                        if(i !== icon) i.style.transform = 'rotate(0deg)';
+                    });
+
+                    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                        content.style.maxHeight = '0px';
+                        content.style.opacity = '0';
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        content.style.opacity = '1';
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // Form Submit Logic
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwbftkCLe-AkkeHxOyQ7esOzdjkMF-xXOvtc6Xg7GgtN6jKBUYPAJKGQo2hhOmcKJuJSg/exec';
+            document.querySelectorAll('.proemote-form').forEach(form => {
+                form.addEventListener('submit', e => {
+                    e.preventDefault();
+                    const btn = form.querySelector('.btn-submit');
+                    const msg = form.querySelector('.form-msg');
+                    const originalBtnContent = btn.innerHTML;
+                    btn.innerHTML = '<span class="animate-pulse italic">Enviando...</span>';
+                    btn.disabled = true;
+                    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                        .then(res => {
+                            msg.classList.remove('hidden'); msg.className = 'form-msg block p-4 rounded-xl bg-green-500/10 text-green-400 mt-4 border border-green-500/20 text-sm';
+                            msg.innerText = 'Mensaje recibido. Te contactaremos pronto.';
+                            form.reset(); btn.innerHTML = originalBtnContent; btn.disabled = false;
+                            if(form.id === 'modal-form') setTimeout(closeModal, 3000);
+                        }).catch(() => {
+                            msg.classList.remove('hidden'); msg.className = 'form-msg block p-4 rounded-xl bg-red-500/10 text-red-400 mt-4 border border-red-500/20 text-sm';
+                            msg.innerText = 'Hubo un error. Intenta de nuevo o contáctanos por WhatsApp.';
+                            btn.disabled = false; btn.innerHTML = originalBtnContent;
+                        });
+                });
+            });
+
+            // Mouse Glow General
+            const glow = document.getElementById('mouse-glow');
+            document.addEventListener('mousemove', (e) => { 
+                glow.style.left = `${e.clientX}px`; 
+                glow.style.top = `${e.clientY}px`; 
+                
+                if (e.target.closest('.with-glow')) {
+                    glow.style.opacity = '1';
+                } else {
+                    glow.style.opacity = '0';
+                }
+            });
+            document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+
+            // Tilt Effect 3D
+            document.querySelectorAll('.tilt-effect').forEach(el => {
+                el.addEventListener('mouseenter', () => el.style.transition = 'transform 0.1s ease-out, box-shadow 0.3s ease');
+                el.addEventListener('mousemove', (e) => {
+                    const rect = el.getBoundingClientRect();
+                    const rotateX = (((e.clientY - rect.top) - (rect.height / 2)) / (rect.height / 2)) * 1.5; 
+                    const rotateY = (((e.clientX - rect.left) - (rect.width / 2)) / (rect.width / 2)) * -1.5;
+                    el.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`); el.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+                    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(0.99, 0.99, 0.99)`;
+                });
+                el.addEventListener('mouseleave', () => {
+                    el.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease';
+                    el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                    el.style.setProperty('--mouse-x', `50%`); el.style.setProperty('--mouse-y', `50%`);
+                });
+            });
+
+            window.addEventListener('scroll', () => {
+                if (!isTicking) {
+                    window.requestAnimationFrame(() => {
+                        handleTimeline();
+                        isTicking = false;
+                    });
+                    isTicking = true;
+                }
+            });
+            
+            handleTimeline();
+        });
+    </script>
+</body>
+</html>
