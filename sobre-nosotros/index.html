@@ -128,7 +128,7 @@
     <nav class="fixed w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="/" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
-                <img src="https://i.imgur.com/jwddFTY.png" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'150\\' height=\\'40\\'%3E%3Crect width=\\'150\\' height=\\'40\\' fill=\\'none\\'/%3E%3Ctext x=\\'10\\' y=\\'25\\' fill=\\'%23fff\\' font-family=\\'Arial\\' font-weight=\\'bold\\' font-size=\\'20\\'%3EPROEMOTE%3C/text%3E%3C/svg%3E'" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain">
+                <img src="https://i.imgur.com/jwddFTY.png" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27150%27 height=%2740%27%3E%3Crect width=%27150%27 height=%2740%27 fill=%27none%27/%3E%3Ctext x=%2710%27 y=%2725%27 fill=%27%23fff%27 font-family=%27Arial%27 font-weight=%27bold%27 font-size=%2720%27%3EPROEMOTE%3C/text%3E%3C/svg%3E'" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain">
             </a>
             <div class="hidden md:flex gap-8 text-sm font-medium text-textSecondary relative z-10 items-center">
                 <a href="/" class="hover:text-textMain transition-colors">Inicio</a>
@@ -372,9 +372,7 @@
                 <div class="glass-card p-4 rounded-[2rem] border-white/5 group tilt-effect w-full max-w-sm" style="will-change: transform;">
                     <div class="w-full aspect-[4/5] rounded-3xl bg-white/5 mb-6 overflow-hidden relative border border-white/5">
                         <!-- Placeholder Foto: Sube la tuya sustituyendo este div interior por un <img src="..."> -->
-                        <div class="absolute inset-0 flex items-center justify-center text-white/10 group-hover:scale-105 transition-transform duration-500 bg-bgMain">
-                            <i class="ph-fill ph-user text-6xl"></i>
-                        </div>
+                        <img src="../carlos.png" alt="Carlos Molina" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 bg-bgMain">
                     </div>
                     <div class="flex justify-between items-end px-3 pb-2">
                         <div>
@@ -785,63 +783,77 @@
       Cal.ns["auditoria-gratuita"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#7B61FF"},"dark":{"cal-brand":"#7B61FF"}},"layout":"month_view"});
     </script>
 
-    <div id="mega-menu" class="fixed inset-0 z-[40] hidden pointer-events-none">
+        <div id="mega-menu" class="fixed inset-0 z-[40] hidden pointer-events-none">
         <div id="mega-menu-backdrop" class="absolute inset-0 bg-bgMain/40 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
         
         <div id="mega-menu-panel" class="absolute top-[72px] md:top-[88px] left-1/2 -translate-x-1/2 w-full max-w-5xl px-6 transform -translate-y-4 opacity-0 transition-all duration-300 pointer-events-auto">
-            <div class="glass-card rounded-[2rem] p-8 border-white/10 shadow-2xl flex flex-col md:flex-row gap-10">
+            <div class="glass-card rounded-[2rem] p-8 border-white/10 shadow-2xl flex flex-col gap-10">
                 
-                <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="space-y-6">
-                        <a href="/servicios#branding" class="group flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
-                                <i class="ph-fill ph-paint-brush-broad text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Branding & Estrategia</h4>
-                                <p class="text-xs text-textSecondary">Identidad visual y posicionamiento.</p>
-                            </div>
-                        </a>
-                        <a href="/redes-sociales" class="group flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
-                                <i class="ph-fill ph-video-camera text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Contenido & Redes</h4>
-                                <p class="text-xs text-textSecondary">Social Media y estrategia de video.</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="space-y-6">
-                        <a href="/diseno-web-SEO" class="group flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
-                                <i class="ph-fill ph-browser text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Diseño web y Posicionamiento SEO</h4>
-                                <p class="text-xs text-textSecondary">Webs de alto rendimiento y SEO.</p>
-                            </div>
-                        </a>
-                        <a href="/marketing-digital" class="group flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
-                                <i class="ph-fill ph-rocket-launch text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Marketing Digital</h4>
-                                <p class="text-xs text-textSecondary">Campañas Meta y Google escalables.</p>
-                            </div>
-                        </a>
-                    </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                    <a href="/servicios#branding" class="group flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                            <i class="ph-fill ph-paint-brush-broad text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Branding & Estrategia</h4>
+                            <p class="text-xs text-textSecondary">Identidad visual y posicionamiento.</p>
+                        </div>
+                    </a>
+                    <a href="/diseno-web-SEO" class="group flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                            <i class="ph-fill ph-browser text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Diseño web y Posicionamiento SEO</h4>
+                            <p class="text-xs text-textSecondary">Webs de alto rendimiento y SEO.</p>
+                        </div>
+                    </a>
+                    <a href="/redes-sociales" class="group flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                            <i class="ph-fill ph-share-network text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Contenido & Redes</h4>
+                            <p class="text-xs text-textSecondary">Social Media y estrategia de video.</p>
+                        </div>
+                    </a>
+                    <a href="/marketing-digital" class="group flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                            <i class="ph-fill ph-rocket-launch text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Marketing Digital</h4>
+                            <p class="text-xs text-textSecondary">Campañas Meta y Google escalables.</p>
+                        </div>
+                    </a>
+                    <a href="/eventos" class="group flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                            <i class="ph-fill ph-ticket text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Eventos & Experiencias</h4>
+                            <p class="text-xs text-textSecondary">Producción, branding y promoción digital de eventos.</p>
+                        </div>
+                    </a>
+                    <a href="/servicios#automatizacion" class="group flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                            <i class="ph-fill ph-tree-structure text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Automatización & Sistemas</h4>
+                            <p class="text-xs text-textSecondary">Funnels, CRM y flujos que trabajan sin ti.</p>
+                        </div>
+                    </a>
                 </div>
 
-                <div class="w-full md:w-[320px] rounded-2xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 p-6 flex flex-col justify-between flex-shrink-0">
-                    <div>
-                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary mb-4">
+                <div class="w-full rounded-2xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 p-6 flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+                    <div class="flex flex-col md:flex-row items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary flex-shrink-0">
                             <i class="ph-fill ph-circles-three-plus text-xl"></i>
                         </div>
-                        <h4 class="text-white font-heading font-medium text-lg mb-2">Diseñamos sistemas completos, no piezas aisladas.</h4>
+                        <h4 class="text-white font-heading font-medium text-lg">Diseñamos sistemas completos, no piezas aisladas.</h4>
                     </div>
-                    <a href="/servicios" class="inline-flex items-center gap-2 text-primary font-medium text-sm hover:text-white transition-colors mt-6 group">
+                    <a href="/servicios" class="inline-flex items-center gap-2 text-primary font-medium text-sm hover:text-white transition-colors mt-4 md:mt-0 group flex-shrink-0">
                         Ver todos los servicios <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
@@ -850,7 +862,7 @@
         </div>
     </div>
 
-    <script>
+<script>
         // Lógica Hover Mega Menú (Solo Desktop)
         document.addEventListener('DOMContentLoaded', () => {
             const servicesBtn = document.getElementById('services-menu-btn');
@@ -863,28 +875,35 @@
             const showMenu = () => {
                 clearTimeout(hideTimeout);
                 clearTimeout(displayTimeout);
-                megaMenu.classList.remove('hidden');
-                setTimeout(() => {
-                    megaMenuPanel.classList.remove('-translate-y-4', 'opacity-0');
-                    megaMenuBackdrop.classList.remove('opacity-0');
-                }, 10);
+                if(megaMenu) {
+                    megaMenu.classList.remove('hidden');
+                    setTimeout(() => {
+                        if(megaMenuPanel) megaMenuPanel.classList.remove('-translate-y-4', 'opacity-0');
+                        if(megaMenuBackdrop) megaMenuBackdrop.classList.remove('opacity-0');
+                    }, 10);
+                }
             };
 
             const hideMenu = () => {
                 hideTimeout = setTimeout(() => {
-                    megaMenuPanel.classList.add('-translate-y-4', 'opacity-0');
-                    megaMenuBackdrop.classList.add('opacity-0');
-                    setTimeout(() => megaMenu.classList.add('hidden'), 300);
+                    if(megaMenuPanel) megaMenuPanel.classList.add('-translate-y-4', 'opacity-0');
+                    if(megaMenuBackdrop) megaMenuBackdrop.classList.add('opacity-0');
+                    displayTimeout = setTimeout(() => {
+                        if(megaMenu) megaMenu.classList.add('hidden');
+                    }, 300);
                 }, 150);
             };
 
             if(window.innerWidth > 768 && servicesBtn && megaMenu) {
                 servicesBtn.addEventListener('mouseenter', showMenu);
                 servicesBtn.addEventListener('mouseleave', hideMenu);
-                megaMenuPanel.addEventListener('mouseenter', showMenu);
-                megaMenuPanel.addEventListener('mouseleave', hideMenu);
+                if(megaMenuPanel) {
+                    megaMenuPanel.addEventListener('mouseenter', showMenu);
+                    megaMenuPanel.addEventListener('mouseleave', hideMenu);
+                }
             }
         });
     </script>
+
 </body>
 </html>

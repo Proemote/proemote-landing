@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+import sys
+
+prompt_content = """<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -30,7 +32,7 @@
                         heading: ['Outfit', 'sans-serif'],
                     },
                     backgroundImage: {
-                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M0 0h40v40H0V0zm1 1h38v38H1V1z\' fill=\'%23ffffff\' fill-opacity=\'0.02\' fill-rule=\'evenodd\'/%3E%3C/svg%3E')",
+                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\\'40\\' height=\\'40\\' viewBox=\\'0 0 40 40\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h40v40H0V0zm1 1h38v38H1V1z\\' fill=\\'%23ffffff\\' fill-opacity=\\'0.02\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
                     }
                 }
             }
@@ -1557,7 +1559,7 @@
         });
     </script>
     
-        <div id="mega-menu" class="fixed inset-0 z-[40] hidden pointer-events-none">
+    <div id="mega-menu" class="fixed inset-0 z-[40] hidden pointer-events-none">
         <div id="mega-menu-backdrop" class="absolute inset-0 bg-bgMain/40 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
         
         <div id="mega-menu-panel" class="absolute top-[72px] md:top-[88px] left-1/2 -translate-x-1/2 w-full max-w-5xl px-6 transform -translate-y-4 opacity-0 transition-all duration-300 pointer-events-auto">
@@ -1635,49 +1637,20 @@
             </div>
         </div>
     </div>
+"""
 
-<script>
-        // Lógica Hover Mega Menú (Solo Desktop)
-        document.addEventListener('DOMContentLoaded', () => {
-            const servicesBtn = document.getElementById('services-menu-btn');
-            const megaMenu = document.getElementById('mega-menu');
-            const megaMenuPanel = document.getElementById('mega-menu-panel');
-            const megaMenuBackdrop = document.getElementById('mega-menu-backdrop');
-            let hideTimeout;
-            let displayTimeout;
+with open('/Users/carlosmolinamarquez/Desktop/proemote-landing/index.html', 'r', encoding='utf-8') as f:
+    old_content = f.read()
 
-            const showMenu = () => {
-                clearTimeout(hideTimeout);
-                clearTimeout(displayTimeout);
-                if(megaMenu) {
-                    megaMenu.classList.remove('hidden');
-                    setTimeout(() => {
-                        if(megaMenuPanel) megaMenuPanel.classList.remove('-translate-y-4', 'opacity-0');
-                        if(megaMenuBackdrop) megaMenuBackdrop.classList.remove('opacity-0');
-                    }, 10);
-                }
-            };
+# Grab the rest from old_content
+rest_index = old_content.find('<script>\n        // Lógica Hover Mega Menú')
+if rest_index != -1:
+    rest_content = old_content[rest_index:]
+else:
+    rest_index = old_content.rfind('<script>')
+    rest_content = old_content[rest_index:]
 
-            const hideMenu = () => {
-                hideTimeout = setTimeout(() => {
-                    if(megaMenuPanel) megaMenuPanel.classList.add('-translate-y-4', 'opacity-0');
-                    if(megaMenuBackdrop) megaMenuBackdrop.classList.add('opacity-0');
-                    displayTimeout = setTimeout(() => {
-                        if(megaMenu) megaMenu.classList.add('hidden');
-                    }, 300);
-                }, 150);
-            };
+with open('/Users/carlosmolinamarquez/Desktop/proemote-landing/index.html', 'w', encoding='utf-8') as f:
+    f.write(prompt_content + "\n" + rest_content)
 
-            if(window.innerWidth > 768 && servicesBtn && megaMenu) {
-                servicesBtn.addEventListener('mouseenter', showMenu);
-                servicesBtn.addEventListener('mouseleave', hideMenu);
-                if(megaMenuPanel) {
-                    megaMenuPanel.addEventListener('mouseenter', showMenu);
-                    megaMenuPanel.addEventListener('mouseleave', hideMenu);
-                }
-            }
-        });
-    </script>
-
-</body>
-</html>
+print("Done")
