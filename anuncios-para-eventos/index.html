@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Branding Visual del Evento | Proemote Studio</title>
+    <title>Campañas Ads para Eventos | Proemote Studio</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,8 +29,8 @@
                         heading: ['Outfit', 'sans-serif'],
                     },
                     backgroundImage: {
-                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\\'40\\' height=\\'40\\' viewBox=\\'0 0 40 40\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h40v40H0V0zm1 1h38v38H1V1z\\' fill=\\'%23ffffff\\' fill-opacity=\\'0.02\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
-                        'grid-pattern-primary': "url('data:image/svg+xml,%3Csvg width=\\'50\\' height=\\'50\\' viewBox=\\'0 0 50 50\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h50v50H0V0zm1 1h48v48H1V1z\\' fill=\\'%237B61FF\\' fill-opacity=\\'0.08\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M0 0h40v40H0V0zm1 1h38v38H1V1z\' fill=\'%23ffffff\' fill-opacity=\'0.02\' fill-rule=\'evenodd\'/%3E%3C/svg%3E')",
+                        'grid-pattern-primary': "url('data:image/svg+xml,%3Csvg width=\'50\' height=\'50\' viewBox=\'0 0 50 50\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M0 0h50v50H0V0zm1 1h48v48H1V1z\' fill=\'%237B61FF\' fill-opacity=\'0.08\' fill-rule=\'evenodd\'/%3E%3C/svg%3E')",
                     }
                 }
             }
@@ -58,8 +58,6 @@
         .foco-item .glass-card { opacity: 0; transform: translateY(40px) scale(0.97); transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none; }
         .foco-item.active .glass-card { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
         .foco-node { transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
-
-        .tab-content-evento { transition: opacity 0.2s ease-in-out; }
     </style>
 </head>
 <body class="antialiased selection:bg-primary selection:text-white relative bg-grid-pattern bg-fixed">
@@ -80,12 +78,12 @@
                 
                 <select name="Servicio" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer">
                     <option value="" disabled>¿Qué servicio te interesa?</option>
-                    <option value="Branding Visual del Evento" selected>Branding Visual del Evento</option>
-                    <option value="Eventos & Experiencias (Completo)">Organización de Evento Completa</option>
-                    <option value="Estrategia y Marca">Estrategia de marca corporativa</option>
+                    <option value="Campañas Ads Eventos" selected>Campañas Ads para Eventos</option>
+                    <option value="Promoción Digital de Eventos">Promoción Digital (Orgánico + Ads)</option>
+                    <option value="Branding Visual">Branding Visual del Evento</option>
                 </select>
 
-                <textarea name="Mensaje" rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all resize-none" placeholder="Cuéntanos brevemente sobre el evento, el formato o lo que necesitas..."></textarea>
+                <textarea name="Mensaje" rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all resize-none" placeholder="Cuéntanos fecha del evento, aforo objetivo y canales que te interesan..."></textarea>
                 
                 <div class="flex items-start gap-3 px-2">
                     <input type="checkbox" id="check-priv-modal" name="Privacidad" value="Aceptada" required class="mt-1 w-4 h-4 accent-primary cursor-pointer">
@@ -93,7 +91,7 @@
                 </div>
                 
                 <button type="submit" class="w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-accent transition-all flex items-center justify-center gap-2 group btn-submit">
-                    Solicitar información <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    Solicitar propuesta <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                 </button>
                 <div class="form-msg hidden text-center p-4 rounded-xl mt-4 font-medium transition-all text-sm"></div>
             </form>
@@ -133,368 +131,114 @@
 
         <div class="max-w-5xl mx-auto px-6 text-center relative z-10 reveal-up active">
             <div class="inline-flex items-center justify-center px-5 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-bold tracking-[0.2em] uppercase mb-8 shadow-[0_0_15px_rgba(123,97,255,0.05)]">
-                Branding Visual del Evento
+                Campañas Ads para Eventos
             </div>
 
             <h1 class="font-heading text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight mb-6 text-white">
-                La imagen de tu evento comunica<br class="hidden md:block">
-                <span class="text-primary font-bold">antes de que nadie hable.</span>
+                Tu evento tiene fecha.<br class="hidden md:block">
+                <span class="text-primary font-bold">Llenarlo no puede esperar.</span>
             </h1>
             
             <p class="text-lg md:text-xl text-textSecondary leading-relaxed max-w-3xl mx-auto mb-10">
-                Desde el naming y el concepto creativo hasta el diseño gráfico de los materiales. Creamos la identidad visual completa para que tu evento corporativo mantenga la coherencia y el nivel de principio a fin.
+                Campañas segmentadas en Meta, Google y LinkedIn diseñadas específicamente para eventos. Estructuramos tu presupuesto en fases de captación, activación y cierre para asegurar el aforo con el público correcto.
             </p>
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
                 <button onclick="openModal()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] flex items-center justify-center gap-2 focus:outline-none">
-                    Quiero empezar
+                    Quiero llenar mi evento
                 </button>
-                <a href="#planes-branding" class="w-full sm:w-auto px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white font-medium transition-all duration-300 flex items-center justify-center gap-2">
-                    Ver opciones de trabajo
+                <a href="#como-estructuramos" class="w-full sm:w-auto px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white font-medium transition-all duration-300 flex items-center justify-center gap-2">
+                    Ver cómo funciona
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- 2. EL PROBLEMA -->
+    <!-- 2. POR QUÉ LOS ADS PARA EVENTOS SON DISTINTOS -->
     <section class="py-24 relative z-10 bg-bgSurface/30 border-b border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal-up">
-                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">El Problema</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Por qué un mal branding arruina un buen evento.</h2>
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">El Enfoque</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Los Ads para eventos no son como los Ads normales.</h2>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-up delay-100 max-w-6xl mx-auto">
                 <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex flex-col h-full">
                     <div class="w-12 h-12 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500 mb-6">
-                        <i class="ph-fill ph-tag text-xl"></i>
+                        <i class="ph-fill ph-hourglass-high text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-heading text-white font-medium mb-3">Se ve genérico</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">Un logo pegado en una esquina de la pantalla no es identidad. Si la imagen del evento no refleja los valores de tu marca, la inversión pierde impacto comercial y corporativo.</p>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Tienes una fecha límite</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">En un e-commerce puedes dejar que el algoritmo aprenda durante dos meses. En un evento, el margen de error es cero. Cada semana que pasas sin conversiones, es aforo perdido para siempre.</p>
                 </div>
 
                 <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex flex-col h-full">
                     <div class="w-12 h-12 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500 mb-6">
-                        <i class="ph-fill ph-puzzle-piece text-xl"></i>
+                        <i class="ph-fill ph-target text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-heading text-white font-medium mb-3">Materiales sin conexión</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">Una invitación de un estilo, un roll-up de otro y un dossier distinto. Esta falta de coherencia transmite desorganización a tus invitados antes de que pisen el recinto.</p>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">No vale cualquier registro</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">No quieres curiosos, quieres al asistente B2B que va a comprar, decidir o prescribir en tu sector. La segmentación aquí es quirúrgica, no masiva.</p>
                 </div>
 
                 <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex flex-col h-full">
                     <div class="w-12 h-12 shrink-0 rounded-full bg-rose-500/10 flex items-center justify-center text-rose-500 mb-6">
-                        <i class="ph-fill ph-clock-countdown text-xl"></i>
+                        <i class="ph-fill ph-stack text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-heading text-white font-medium mb-3">Improvisación final</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">Poner a tu equipo interno a diseñar carteles y acreditaciones la semana antes genera estrés, quita tiempo a su trabajo real y el resultado rara vez está a la altura.</p>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Obliga a trabajar en fases</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">No es encender un anuncio y esperar. Es construir expectación anticipada, activar urgencia y cerrar con presión. Sin esta estructura, el coste por registro se dispara en la recta final.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. FILTRO POR TIPO DE EVENTO -->
-    <section class="py-24 relative z-10 bg-bgMain border-b border-white/5 with-glow">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 reveal-up">
-                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Adaptación</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Lo que necesita cada tipo de evento.</h2>
-            </div>
-            
-            <div class="flex flex-col lg:flex-row gap-8 reveal-up delay-100 max-w-6xl mx-auto">
-                <!-- Selectors -->
-                <div class="flex flex-col gap-2 lg:w-1/3 shrink-0">
-                    <button onclick="switchTiposTab('lanzamiento')" id="tab-btn-lanzamiento" class="w-full text-left px-6 py-4 rounded-xl font-medium transition-all duration-300 focus:outline-none bg-primary/10 text-white border border-primary/30 flex items-center gap-3">
-                        <i class="ph-fill ph-rocket-launch text-primary text-xl"></i> Lanzamiento de producto
-                    </button>
-                    <button onclick="switchTiposTab('congreso')" id="tab-btn-congreso" class="w-full text-left px-6 py-4 rounded-xl font-medium transition-all duration-300 focus:outline-none bg-transparent text-textSecondary hover:bg-white/5 hover:text-white border border-transparent flex items-center gap-3">
-                        <i class="ph-fill ph-microphone-stage text-primary text-xl"></i> Congreso o jornada
-                    </button>
-                    <button onclick="switchTiposTab('interno')" id="tab-btn-interno" class="w-full text-left px-6 py-4 rounded-xl font-medium transition-all duration-300 focus:outline-none bg-transparent text-textSecondary hover:bg-white/5 hover:text-white border border-transparent flex items-center gap-3">
-                        <i class="ph-fill ph-users-three text-primary text-xl"></i> Evento corporativo interno
-                    </button>
-                    <button onclick="switchTiposTab('feria')" id="tab-btn-feria" class="w-full text-left px-6 py-4 rounded-xl font-medium transition-all duration-300 focus:outline-none bg-transparent text-textSecondary hover:bg-white/5 hover:text-white border border-transparent flex items-center gap-3">
-                        <i class="ph-fill ph-storefront text-primary text-xl"></i> Feria o stand
-                    </button>
-                    <button onclick="switchTiposTab('prensa')" id="tab-btn-prensa" class="w-full text-left px-6 py-4 rounded-xl font-medium transition-all duration-300 focus:outline-none bg-transparent text-textSecondary hover:bg-white/5 hover:text-white border border-transparent flex items-center gap-3">
-                        <i class="ph-fill ph-camera text-primary text-xl"></i> Rueda de prensa
-                    </button>
-                </div>
-
-                <!-- Content -->
-                <div class="lg:w-2/3">
-                    <div class="glass-card p-10 rounded-3xl border-white/10 h-full flex flex-col justify-center">
-                        
-                        <!-- Contenido Lanzamiento -->
-                        <div id="tab-content-lanzamiento" class="tab-content-evento block opacity-100">
-                            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/20 text-primary mb-6">
-                                <i class="ph-fill ph-rocket-launch text-2xl"></i>
-                            </div>
-                            <h3 class="text-2xl font-heading text-white font-medium mb-4">Lanzamiento de producto o marca</h3>
-                            <p class="text-textSecondary leading-relaxed">Definimos una identidad propia que destaque el nuevo producto o mensaje, manteniendo la jerarquía visual para no eclipsar a la marca madre.</p>
-                        </div>
-
-                        <!-- Contenido Congreso -->
-                        <div id="tab-content-congreso" class="tab-content-evento hidden opacity-0">
-                            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/20 text-primary mb-6">
-                                <i class="ph-fill ph-microphone-stage text-2xl"></i>
-                            </div>
-                            <h3 class="text-2xl font-heading text-white font-medium mb-4">Congreso o jornada profesional</h3>
-                            <p class="text-textSecondary leading-relaxed">Aportamos claridad visual para guiar al asistente por el recinto, jerarquizar los horarios y dar peso a los ponentes en las pantallas principales.</p>
-                        </div>
-
-                        <!-- Contenido Interno -->
-                        <div id="tab-content-interno" class="tab-content-evento hidden opacity-0">
-                            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/20 text-primary mb-6">
-                                <i class="ph-fill ph-users-three text-2xl"></i>
-                            </div>
-                            <h3 class="text-2xl font-heading text-white font-medium mb-4">Evento corporativo interno</h3>
-                            <p class="text-textSecondary leading-relaxed">Creamos un branding que genere orgullo de pertenencia y motive al equipo. Alineado con los valores de la empresa, pero con un tono especial para la ocasión.</p>
-                        </div>
-
-                        <!-- Contenido Feria -->
-                        <div id="tab-content-feria" class="tab-content-evento hidden opacity-0">
-                            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/20 text-primary mb-6">
-                                <i class="ph-fill ph-storefront text-2xl"></i>
-                            </div>
-                            <h3 class="text-2xl font-heading text-white font-medium mb-4">Feria o stand</h3>
-                            <p class="text-textSecondary leading-relaxed">Diseñamos un reclamo visual rápido y potente para captar atención en pocos segundos dentro de un pabellón saturado de competidores.</p>
-                        </div>
-
-                        <!-- Contenido Prensa -->
-                        <div id="tab-content-prensa" class="tab-content-evento hidden opacity-0">
-                            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/20 text-primary mb-6">
-                                <i class="ph-fill ph-camera text-2xl"></i>
-                            </div>
-                            <h3 class="text-2xl font-heading text-white font-medium mb-4">Rueda de prensa o medios</h3>
-                            <p class="text-textSecondary leading-relaxed">Aseguramos fondos limpios, logos bien posicionados y materiales precisos para que la prensa capte el mensaje (y la fotografía) sin distracciones.</p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. QUÉ INCLUYE -->
-    <section class="py-24 relative z-10 bg-bgSurface/30 border-b border-white/5 with-glow">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 reveal-up">
-                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Alcance del servicio</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Qué diseñamos exactamente.</h2>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-up delay-100 max-w-6xl mx-auto">
-                <!-- Columna 1 -->
-                <div class="p-8 md:p-10 rounded-[2rem] border border-white/10 bg-bgMain hover:border-primary/30 transition-all tilt-effect h-full">
-                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 text-primary mb-8">
-                        <i class="ph-fill ph-lightbulb text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-heading font-medium text-white mb-6">Naming y Concepto Creativo</h3>
-                    <ul class="space-y-6">
-                        <li class="flex items-start gap-4">
-                            <i class="ph-fill ph-check-circle text-primary mt-1 text-xl"></i>
-                            <div>
-                                <h4 class="text-white font-medium">Nombre del evento</h4>
-                                <p class="text-sm text-textSecondary mt-1">Si aún no lo tiene, creamos un nombre comercial con sentido.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <i class="ph-fill ph-check-circle text-primary mt-1 text-xl"></i>
-                            <div>
-                                <h4 class="text-white font-medium">Concepto creativo y claim</h4>
-                                <p class="text-sm text-textSecondary mt-1">La frase y la idea principal que guiará todas las comunicaciones.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <i class="ph-fill ph-check-circle text-primary mt-1 text-xl"></i>
-                            <div>
-                                <h4 class="text-white font-medium">Paleta de color y tipografía</h4>
-                                <p class="text-sm text-textSecondary mt-1">Elección del estilo visual adaptado a tu empresa pero único para el evento.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <i class="ph-fill ph-check-circle text-primary mt-1 text-xl"></i>
-                            <div>
-                                <h4 class="text-white font-medium">Manual de identidad básico</h4>
-                                <p class="text-sm text-textSecondary mt-1">Reglas claras para que cualquier proveedor sepa cómo aplicar los logos.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Columna 2 -->
-                <div class="p-8 md:p-10 rounded-[2rem] border border-white/10 bg-bgMain hover:border-primary/30 transition-all tilt-effect h-full">
-                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 text-primary mb-8">
-                        <i class="ph-fill ph-pen-nib text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-heading font-medium text-white mb-6">Diseño y Producción de Materiales</h3>
-                    
-                    <h4 class="text-xs font-bold text-primary uppercase tracking-wider mb-4">Entorno Digital</h4>
-                    <ul class="space-y-4 mb-6">
-                        <li class="flex items-start gap-3">
-                            <span class="text-white/30 text-sm mt-0.5">■</span>
-                            <p class="text-sm text-white"><strong>Invitaciones y email headers:</strong> Para enviar convocatorias profesionales.</p>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-white/30 text-sm mt-0.5">■</span>
-                            <p class="text-sm text-white"><strong>Fondos de pantalla:</strong> Plantillas base para las presentaciones de los ponentes.</p>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-white/30 text-sm mt-0.5">■</span>
-                            <p class="text-sm text-white"><strong>Piezas para redes sociales:</strong> Post para anunciar fechas, agenda y registro.</p>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-white/30 text-sm mt-0.5">■</span>
-                            <p class="text-sm text-white"><strong>Señalética digital:</strong> Diseño para pantallas LED o monitores en el evento.</p>
-                        </li>
-                    </ul>
-
-                    <h4 class="text-xs font-bold text-primary uppercase tracking-wider mb-4">Entorno Físico</h4>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <span class="text-white/30 text-sm mt-0.5">■</span>
-                            <p class="text-sm text-white"><strong>Cartelería y roll-ups:</strong> Impacto visual impreso a gran escala.</p>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-white/30 text-sm mt-0.5">■</span>
-                            <p class="text-sm text-white"><strong>Credenciales y lanyards:</strong> Acreditaciones diseñadas para ser legibles.</p>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-white/30 text-sm mt-0.5">■</span>
-                            <p class="text-sm text-white"><strong>Dossiers y programas:</strong> Documentación física entregada a los asistentes.</p>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-white/30 text-sm mt-0.5">■</span>
-                            <p class="text-sm text-white"><strong>Merchandising:</strong> Aplicación de la marca en obsequios o bolsas.</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. DOS FORMAS DE TRABAJAR -->
-    <section class="py-24 relative z-10 bg-bgMain border-b border-white/5 with-glow">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 reveal-up">
-                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Dos formas de trabajar.</h2>
-                <p class="text-textSecondary">Nos adaptamos a los recursos de tu empresa.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-up delay-100 max-w-5xl mx-auto">
-                <!-- Ejecución -->
-                <div class="relative p-8 md:p-10 rounded-[2rem] border-2 border-primary/40 bg-primary/10 shadow-[0_0_40px_rgba(123,97,255,0.1)] group tilt-effect flex flex-col h-full">
-                    <div class="absolute -top-px left-8 bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-b-lg uppercase tracking-widest shadow-lg">Opción Ejecución</div>
-                    
-                    <h3 class="text-2xl font-heading font-bold text-white mt-4 mb-2">Lo hacemos nosotros de principio a fin.</h3>
-                    <p class="text-sm text-textSecondary mb-6">Para empresas que quieren delegar todo el proceso gráfico y tener la seguridad de que el resultado final está perfecto.</p>
-                    
-                    <div class="bg-black/20 rounded-xl p-5 mb-4 border border-white/5">
-                        <p class="text-sm text-white mb-2 font-medium">Qué incluye:</p>
-                        <p class="text-sm text-textSecondary">Concepto visual, diseño de todas las piezas, rondas de ajustes y entrega final de archivos listos para imprimir o publicar directamente.</p>
-                    </div>
-                    
-                    <div class="bg-black/20 rounded-xl p-5 border border-white/5 mb-6">
-                        <p class="text-sm text-white mb-2 font-medium">Para quién es:</p>
-                        <p class="text-sm text-textSecondary">Equipos de marketing o RRHH que no tienen tiempo o recursos de diseño interno para asumir el volumen de piezas de un evento.</p>
-                    </div>
-
-                    <a href="https://wa.me/34641576286?text=Buenas!%20Me%20interesa%20la%20opci%C3%B3n%20de%20EJECUCI%C3%93N%20COMPLETA%20para%20el%20branding%20de%20mi%20evento." target="_blank" rel="noopener noreferrer" class="mt-auto w-full py-4 rounded-xl border border-primary/30 bg-primary/20 hover:bg-primary text-white font-bold transition-all flex items-center justify-center gap-2 focus:outline-none">
-                        <i class="ph ph-whatsapp-logo text-xl"></i> Consultar Ejecución
-                    </a>
-                </div>
-
-                <!-- Consultoría -->
-                <div class="relative p-8 md:p-10 rounded-[2rem] border border-white/10 bg-white/5 group tilt-effect flex flex-col h-full">
-                    <div class="absolute -top-px left-8 border-x border-b border-white/20 bg-white/10 text-white text-xs font-bold px-4 py-1.5 rounded-b-lg uppercase tracking-widest">Opción Consultoría</div>
-                    
-                    <h3 class="text-2xl font-heading font-bold text-white mt-4 mb-2">Definimos el concepto, tú lo ejecutas.</h3>
-                    <p class="text-sm text-textSecondary mb-6">Para empresas que tienen equipo de diseño interno o agencia habitual, pero necesitan la estrategia e idea visual inicial.</p>
-                    
-                    <div class="bg-black/20 rounded-xl p-5 mb-4 border border-white/5">
-                        <p class="text-sm text-white mb-2 font-medium">Qué incluye:</p>
-                        <p class="text-sm text-textSecondary">Naming, concepto creativo general y un documento de dirección de arte con las reglas para que tu equipo produzca el resto de piezas sin error.</p>
-                    </div>
-                    
-                    <div class="bg-black/20 rounded-xl p-5 border border-white/5 mb-6">
-                        <p class="text-sm text-white mb-2 font-medium">Qué NO incluye:</p>
-                        <p class="text-sm text-textSecondary">No diseñamos los materiales uno a uno. Entregamos la guía para que vosotros los desarrolléis.</p>
-                    </div>
-
-                    <a href="https://wa.me/34641576286?text=Buenas!%20Me%20interesa%20la%20opci%C3%B3n%20de%20CONSULTOR%C3%8DA%20para%20el%20branding%20de%20mi%20evento." target="_blank" rel="noopener noreferrer" class="mt-auto w-full py-4 rounded-xl border border-white/20 bg-white/5 hover:bg-white/10 text-white font-bold transition-all flex items-center justify-center gap-2 focus:outline-none">
-                        <i class="ph ph-whatsapp-logo text-xl"></i> Consultar Consultoría
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. EL PROCESO -->
-    <section class="py-32 relative bg-bgSurface/30 border-b border-white/5 with-glow">
+    <!-- 3. CÓMO ESTRUCTURAMOS LA CAMPAÑA -->
+    <section id="como-estructuramos" class="py-32 relative bg-bgMain border-b border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-24 reveal-up">
-                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Metodología</span>
-                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white">Cuatro pasos para tenerlo listo.</h2>
-                <p class="text-textSecondary">No necesitas saber de diseño para trabajar con nosotros.</p>
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Estructura</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white">El plan de vuelo hacia el aforo completo.</h2>
+                <p class="text-textSecondary">Así dividimos tu presupuesto desde el día 1 hasta el evento.</p>
             </div>
 
             <div class="relative max-w-4xl mx-auto px-4 md:px-0">
                 <div class="absolute left-6 md:left-[50px] top-0 bottom-0 w-[2px] bg-white/5 rounded-full"></div>
                 <div class="foco-progress absolute left-6 md:left-[50px] top-0 w-[2px] bg-gradient-to-b from-primary to-accent rounded-full h-0 shadow-[0_0_10px_#7B61FF] transition-[height] duration-75 ease-out"></div>
 
-                <!-- Paso 1 -->
+                <!-- Fase 1 -->
                 <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
                     <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
-                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
-                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">1</div>
-                            <div>
-                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Briefing</h3>
-                                <p class="text-textSecondary leading-relaxed">Nos cuentas de qué va el evento, a quién invitas, qué hace tu empresa y qué imagen quieres transmitir.</p>
-                            </div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem] border-white/5 border-l-4 border-l-primary/50">
+                        <div class="flex items-center gap-3 text-primary font-bold text-xs tracking-widest uppercase mb-4">
+                            <i class="ph-fill ph-binoculars text-lg"></i> Semanas 8 a 5 antes del evento
                         </div>
+                        <h3 class="text-2xl font-heading font-medium text-white mb-4">Fase 1: Captación Temprana</h3>
+                        <p class="text-sm text-white/80 font-medium mb-2 border-b border-white/10 pb-2">Objetivo: Llenar el pipeline de interesados.</p>
+                        <p class="text-textSecondary text-sm leading-relaxed mb-4">Activamos campañas dirigidas a audiencias frías segmentadas por sector y cargo. Es el momento de presentar el evento y aprovechar ofertas "Early Bird" o de acceso anticipado si aplican para garantizar los primeros registros a un coste muy bajo.</p>
                     </div>
                 </div>
 
-                <!-- Paso 2 -->
+                <!-- Fase 2 -->
                 <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
                     <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
-                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
-                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">2</div>
-                            <div>
-                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Concepto inicial</h3>
-                                <p class="text-textSecondary leading-relaxed">Presentamos opciones de naming (si aplica), el concepto de la edición y la propuesta visual principal para confirmar que vamos en la dirección correcta.</p>
-                            </div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem] border-white/5 border-l-4 border-l-primary/50">
+                        <div class="flex items-center gap-3 text-primary font-bold text-xs tracking-widest uppercase mb-4">
+                            <i class="ph-fill ph-fire text-lg"></i> Semanas 4 a 2 antes del evento
                         </div>
+                        <h3 class="text-2xl font-heading font-medium text-white mb-4">Fase 2: Activación y Prueba Social</h3>
+                        <p class="text-sm text-white/80 font-medium mb-2 border-b border-white/10 pb-2">Objetivo: Convertir interesados en registrados.</p>
+                        <p class="text-textSecondary text-sm leading-relaxed mb-4">Desplegamos campañas de retargeting para impactar a quienes visitaron la web pero no completaron la compra. Usamos anuncios con los ponentes confirmados, revelamos la agenda y utilizamos testimonios de ediciones anteriores para dar peso y credibilidad.</p>
                     </div>
                 </div>
 
-                <!-- Paso 3 -->
-                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
-                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
-                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
-                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">3</div>
-                            <div>
-                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Diseño y ajustes</h3>
-                                <p class="text-textSecondary leading-relaxed">Con la base aprobada, desarrollamos todos los materiales acordados. Realizamos las rondas de revisión necesarias para pulir detalles.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Paso 4 -->
+                <!-- Fase 3 -->
                 <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-10">
                     <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
-                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
-                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">4</div>
-                            <div>
-                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Entrega de archivos</h3>
-                                <p class="text-textSecondary leading-relaxed">Te pasamos los documentos listos. Archivos PDF en alta calidad para enviar a imprenta y formatos digitales optimizados para publicar.</p>
-                            </div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem] border-white/5 border-l-4 border-l-accent/50">
+                        <div class="flex items-center gap-3 text-accent font-bold text-xs tracking-widest uppercase mb-4">
+                            <i class="ph-fill ph-alarm text-lg"></i> Última semana y 48h finales
                         </div>
+                        <h3 class="text-2xl font-heading font-medium text-white mb-4">Fase 3: Urgencia y Cierre</h3>
+                        <p class="text-sm text-white/80 font-medium mb-2 border-b border-white/10 pb-2">Objetivo: Agotar el aforo definitivo.</p>
+                        <p class="text-textSecondary text-sm leading-relaxed">Concentramos el presupuesto en retargeting agresivo hacia la base de interesados. Anuncios de "Últimas plazas", contadores de tiempo (countdown) y cierres de venta directos. En esta fase, la urgencia es el principal motor de conversión.</p>
                     </div>
                 </div>
 
@@ -502,88 +246,247 @@
         </div>
     </section>
 
-    <!-- 7. PLANES -->
-    <section id="planes-branding" class="py-32 relative z-10 bg-bgMain border-b border-white/5 with-glow">
-        <div class="max-w-[1200px] mx-auto px-6">
+    <!-- 4. CANALES QUE ACTIVAMOS -->
+    <section class="py-24 relative z-10 bg-bgSurface/30 border-b border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Los canales que garantizan el aforo.</h2>
+                <p class="text-textSecondary">Seleccionamos las plataformas según el tipo de asistente que buscas.</p>
+            </div>
             
-            <div class="text-center mb-20 reveal-up">
-                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white mb-6">Planes de Diseño y Ejecución.</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch reveal-up delay-100">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-up delay-100 max-w-5xl mx-auto">
                 
-                <!-- Plan Básica -->
-                <div class="relative p-8 rounded-[2.5rem] border border-primary/20 bg-primary/5 backdrop-blur-xl hover:border-primary/40 transition-all flex flex-col h-full overflow-hidden group tilt-effect">
-                    <div class="text-2xl lg:text-3xl font-bold font-heading text-primary mb-2 relative z-10">Identidad Básica</div>
-                    <p class="text-sm text-textSecondary mb-8 min-h-[60px] relative z-10">Para empresas que necesitan una imagen coherente sin requerir una gran producción física.</p>
-                    
-                    <ul class="space-y-4 mb-8 flex-grow relative z-10">
-                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Concepto creativo principal</span></li>
-                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Paleta de color y tipografías</span></li>
-                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Hasta 5 piezas digitales</span></li>
-                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Archivos editables finales</span></li>
-                        <li class="flex items-start gap-3 text-sm text-white/40"><i class="ph ph-x-circle text-white/40 mt-0.5 text-lg"></i> <span>Sin materiales físicos</span></li>
-                        <li class="flex items-start gap-3 text-sm text-white/40"><i class="ph ph-x-circle text-white/40 mt-0.5 text-lg"></i> <span>Sin naming inicial</span></li>
-                    </ul>
-                    
-                    <button onclick="openModal()" class="relative z-10 w-full py-4 rounded-full border border-primary/30 text-center font-bold text-white hover:bg-primary transition-all block mt-auto focus:outline-none">Elegir Básica</button>
-                </div>
-
-                <!-- Plan Completa -->
-                <div class="relative p-8 rounded-[2.5rem] border-2 border-primary/50 bg-primary/10 backdrop-blur-2xl shadow-[0_0_50px_rgba(123,97,255,0.15)] transition-all flex flex-col h-full overflow-hidden group transform lg:-translate-y-4 tilt-effect z-20">
-                    <div class="absolute -top-px left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-accent text-white text-[10px] sm:text-xs font-bold px-6 py-2 rounded-b-xl uppercase tracking-widest shadow-lg z-20 whitespace-nowrap">
-                        Más habitual
+                <div class="glass-card p-8 rounded-[2rem] border-white/10 tilt-effect flex flex-col h-full hover:border-primary/30 transition-colors">
+                    <div class="flex items-center gap-4 mb-4">
+                        <i class="ph-fill ph-linkedin-logo text-4xl text-[#0A66C2]"></i>
+                        <h3 class="text-xl font-heading font-medium text-white">LinkedIn Ads</h3>
                     </div>
-                    
-                    <div class="text-2xl lg:text-3xl font-bold font-heading text-primary mb-2 mt-6 relative z-10">Identidad Completa</div>
-                    <p class="text-sm text-white/80 mb-8 min-h-[60px] relative z-10">Para eventos que necesitan una imagen profesional en todos los puntos de contacto.</p>
-                    
-                    <ul class="space-y-4 mb-8 flex-grow relative z-10">
-                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Naming del evento (si aplica)</span></li>
-                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Concepto creativo completo</span></li>
-                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Materiales digitales ilimitados</span></li>
-                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Hasta 5 piezas físicas listas para imprimir</span></li>
-                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Archivos en alta calidad</span></li>
-                    </ul>
-                    
-                    <button onclick="openModal()" class="relative z-10 w-full py-4 rounded-full bg-primary text-center font-bold text-white hover:bg-accent transition-all block mt-auto shadow-[0_0_20px_rgba(123,97,255,0.4)] focus:outline-none">Elegir Completa</button>
+                    <p class="text-sm text-white/80 font-medium mb-2">Ideal para: Congresos, jornadas y eventos B2B.</p>
+                    <p class="text-sm text-textSecondary">El canal definitivo para segmentar por cargo, sector o tamaño de empresa. Es la vía más precisa y directa para llegar a quien toma las decisiones de asistencia o patrocinio en otras compañías.</p>
                 </div>
 
-                <!-- Plan Producción Total -->
-                <div class="relative p-8 rounded-[2.5rem] border border-primary/20 bg-primary/5 backdrop-blur-xl hover:border-primary/40 transition-all flex flex-col h-full overflow-hidden group tilt-effect">
-                    <div class="text-2xl lg:text-3xl font-bold font-heading text-primary mb-2 relative z-10">Producción Total</div>
-                    <p class="text-sm text-textSecondary mb-8 min-h-[60px] relative z-10">Para eventos de gran formato que necesitan delegar absolutamente toda la imagen y cartelería.</p>
-                    
-                    <ul class="space-y-4 mb-8 flex-grow relative z-10">
-                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span><strong>Todo lo incluido en Identidad Completa</strong></span></li>
-                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Materiales físicos ilimitados</span></li>
-                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Supervisión y pruebas de impresión</span></li>
-                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Coordinación con proveedores externos</span></li>
-                        <li class="flex items-start gap-3 text-sm text-white"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg"></i> <span>Entrega física (si aplica)</span></li>
-                    </ul>
-                    
-                    <button onclick="openModal()" class="relative z-10 w-full py-4 rounded-full border border-primary/30 text-center font-bold text-white hover:bg-primary transition-all block mt-auto focus:outline-none">Elegir Total</button>
+                <div class="glass-card p-8 rounded-[2rem] border-white/10 tilt-effect flex flex-col h-full hover:border-primary/30 transition-colors">
+                    <div class="flex items-center gap-4 mb-4">
+                        <i class="ph-fill ph-meta-logo text-4xl text-[#0668E1]"></i>
+                        <h3 class="text-xl font-heading font-medium text-white">Meta Ads (Instagram & Facebook)</h3>
+                    </div>
+                    <p class="text-sm text-white/80 font-medium mb-2">Ideal para: Eventos corporativos masivos o formativos.</p>
+                    <p class="text-sm text-textSecondary">Alcance amplio a un coste controlado. Perfecto para eventos con un fuerte componente visual o para impactar a audiencias profesionales de un sector amplio donde el volumen de registros es clave.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-[2rem] border-white/10 tilt-effect flex flex-col h-full hover:border-primary/30 transition-colors">
+                    <div class="flex items-center gap-4 mb-4">
+                        <i class="ph-fill ph-google-logo text-4xl text-[#EA4335]"></i>
+                        <h3 class="text-xl font-heading font-medium text-white">Google Ads</h3>
+                    </div>
+                    <p class="text-sm text-white/80 font-medium mb-2">Ideal para: Captar demanda activa y búsquedas intencionadas.</p>
+                    <p class="text-sm text-textSecondary">Impactamos a personas que ya están buscando en Google eventos, congresos o formaciones específicas de tu sector. Es tráfico con una altísima intención de compra o registro inmediato.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-[2rem] border-primary/30 bg-primary/5 tilt-effect flex flex-col h-full relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[40px] rounded-full"></div>
+                    <div class="flex items-center gap-4 mb-4 relative z-10">
+                        <i class="ph-fill ph-arrows-merge text-4xl text-primary"></i>
+                        <h3 class="text-xl font-heading font-medium text-white">Retargeting Multicanal</h3>
+                    </div>
+                    <p class="text-sm text-white/80 font-medium mb-2 relative z-10">Ideal para: La fase final de cierre de cualquier evento.</p>
+                    <p class="text-sm text-textSecondary relative z-10">Recuperamos a los usuarios que mostraron interés inicial en la web del evento pero no completaron el registro. Es la estrategia obligatoria para obtener el mejor coste por conversión en las semanas previas.</p>
                 </div>
 
             </div>
+        </div>
+    </section>
 
-            <!-- Opción Consultoría -->
-            <div class="mt-8 relative p-8 md:p-12 rounded-[2.5rem] border border-white/10 bg-bgMain shadow-lg hover:border-primary/30 transition-all duration-300 flex flex-col md:flex-row items-center justify-between gap-8 group tilt-effect reveal-up delay-200">
-                <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-accent rounded-l-[2.5rem]"></div>
-                <div class="flex-grow text-left">
-                    <div class="inline-flex items-center gap-2 text-white font-bold text-sm tracking-wider uppercase mb-4">
-                        <i class="ph-fill ph-strategy text-xl text-primary"></i> SOLO CONSULTORÍA
-                    </div>
-                    <h4 class="text-xl font-heading text-white mb-2">Concepto y dirección de arte</h4>
-                    <p class="text-sm text-textSecondary max-w-3xl leading-relaxed">Diseñamos la idea, la línea gráfica y creamos las guías visuales. Tu equipo interno o tu proveedor habitual se encarga de ejecutar todas las piezas siguiendo nuestras normas.</p>
-                </div>
-                <div class="w-full md:w-auto shrink-0">
-                    <button onclick="openModal()" class="w-full md:w-auto px-10 py-4 rounded-full border border-primary/30 text-center font-bold text-white hover:bg-primary transition-all block focus:outline-none whitespace-nowrap">
-                        Pedir propuesta
-                    </button>
-                </div>
+    <!-- 5. QUÉ INCLUYE EL SERVICIO -->
+    <section class="py-24 relative z-10 bg-bgMain border-b border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Alcance</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Lo que hacemos. Y lo que no.</h2>
             </div>
 
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-up delay-100 max-w-5xl mx-auto">
+                <!-- Lo que SÍ incluye -->
+                <div class="p-8 md:p-10 rounded-[2rem] border border-primary/20 bg-primary/5 tilt-effect flex flex-col h-full">
+                    <div class="inline-flex items-center gap-2 text-white font-bold text-sm tracking-wider uppercase mb-6">
+                        <i class="ph-fill ph-check-circle text-xl text-primary"></i> ESTE SERVICIO INCLUYE
+                    </div>
+                    <ul class="space-y-5">
+                        <li class="flex items-start gap-3">
+                            <span class="text-primary mt-1">■</span>
+                            <div>
+                                <p class="text-white font-medium text-sm">Briefing y estrategia B2B</p>
+                                <p class="text-textSecondary text-sm mt-1">Definición exacta del asistente objetivo y calendario de campaña.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-primary mt-1">■</span>
+                            <div>
+                                <p class="text-white font-medium text-sm">Configuración técnica (Setup)</p>
+                                <p class="text-textSecondary text-sm mt-1">Instalación de píxeles, medición de registros y creación de audiencias frías y de retargeting.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-primary mt-1">■</span>
+                            <div>
+                                <p class="text-white font-medium text-sm">Creación técnica de anuncios</p>
+                                <p class="text-textSecondary text-sm mt-1">Redacción de textos persuasivos (copywriting) adaptados a cada fase y montaje en plataformas.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-primary mt-1">■</span>
+                            <div>
+                                <p class="text-white font-medium text-sm">Optimización continua</p>
+                                <p class="text-textSecondary text-sm mt-1">Revisión periódica. Pausamos lo que no trae registros y escalamos los anuncios rentables.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-primary mt-1">■</span>
+                            <div>
+                                <p class="text-white font-medium text-sm">Informe Post-Evento</p>
+                                <p class="text-textSecondary text-sm mt-1">Reporte claro: coste real por asistente y rendimiento por cada canal utilizado.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Lo que NO incluye -->
+                <div class="p-8 md:p-10 rounded-[2rem] border border-white/10 bg-white/5 tilt-effect flex flex-col h-full">
+                    <div class="inline-flex items-center gap-2 text-white/50 font-bold text-sm tracking-wider uppercase mb-6">
+                        <i class="ph-fill ph-x-circle text-xl"></i> NO ESTÁ INCLUIDO AQUÍ
+                    </div>
+                    <p class="text-sm text-textSecondary mb-6">Este es un servicio técnico y estratégico de Paid Media puro. Si necesitas lo siguiente, deberás contratar nuestros servicios de Diseño o Promoción Orgánica:</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 opacity-60">
+                            <i class="ph ph-minus text-white/50 mt-0.5"></i>
+                            <p class="text-white text-sm">Diseño gráfico premium de cartelería y banners base (el cliente nos aporta los recursos visuales o contrata branding).</p>
+                        </li>
+                        <li class="flex items-start gap-3 opacity-60">
+                            <i class="ph ph-minus text-white/50 mt-0.5"></i>
+                            <p class="text-white text-sm">Gestión de redes sociales orgánicas (publicar en el muro o Community Management).</p>
+                        </li>
+                        <li class="flex items-start gap-3 opacity-60">
+                            <i class="ph ph-minus text-white/50 mt-0.5"></i>
+                            <p class="text-white text-sm">Cobertura audiovisual, fotografía o grabación de vídeo el día del evento.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. DOS FORMAS DE TRABAJAR -->
+    <section class="py-24 relative z-10 bg-bgSurface/30 border-b border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Opciones de colaboración.</h2>
+                <p class="text-textSecondary">Nos acoplamos a tu estructura interna.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-up delay-100 max-w-5xl mx-auto">
+                <!-- Gestión Completa -->
+                <div class="relative p-8 md:p-10 rounded-[2rem] border-2 border-primary/40 bg-primary/10 shadow-[0_0_40px_rgba(123,97,255,0.1)] group tilt-effect flex flex-col h-full">
+                    <div class="absolute -top-px left-8 bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-b-lg uppercase tracking-widest shadow-lg">Llave en mano</div>
+                    
+                    <h3 class="text-2xl font-heading font-bold text-white mt-4 mb-2">Gestión Completa</h3>
+                    <p class="text-sm text-textSecondary mb-6">Para organizadores y empresas que no tienen tiempo ni equipo técnico interno especializado en Paid Media.</p>
+                    
+                    <div class="bg-black/20 rounded-xl p-5 mb-4 border border-white/5">
+                        <p class="text-sm text-white mb-2 font-medium">Cómo funciona:</p>
+                        <p class="text-sm text-textSecondary">Nuestra agencia ejecuta y supervisa todo de principio a fin. Desde el setup técnico de los píxeles, pasando por la creación de los anuncios, hasta la optimización semanal de los costes para maximizar el aforo.</p>
+                    </div>
+
+                    <a href="https://wa.me/34641576286?text=Buenas!%20Me%20interesa%20la%20GESTI%C3%93N%20COMPLETA%20de%20campa%C3%B1as%20para%20mi%20evento." target="_blank" rel="noopener noreferrer" class="mt-auto w-full py-4 rounded-xl border border-primary/30 bg-primary/20 hover:bg-primary text-white font-bold transition-all flex items-center justify-center gap-2 focus:outline-none">
+                        <i class="ph ph-whatsapp-logo text-xl"></i> Solicitar Gestión Completa
+                    </a>
+                </div>
+
+                <!-- Consultoría y Setup -->
+                <div class="relative p-8 md:p-10 rounded-[2rem] border border-white/10 bg-white/5 group tilt-effect flex flex-col h-full">
+                    <div class="absolute -top-px left-8 border-x border-b border-white/20 bg-white/10 text-white text-xs font-bold px-4 py-1.5 rounded-b-lg uppercase tracking-widest">Soporte Técnico</div>
+                    
+                    <h3 class="text-2xl font-heading font-bold text-white mt-4 mb-2">Consultoría y Setup</h3>
+                    <p class="text-sm text-textSecondary mb-6">Para equipos de marketing internos que tienen capacidad operativa pero necesitan una estrategia y base técnica profesional para el evento.</p>
+                    
+                    <div class="bg-black/20 rounded-xl p-5 mb-4 border border-white/5">
+                        <p class="text-sm text-white mb-2 font-medium">Cómo funciona:</p>
+                        <p class="text-sm text-textSecondary">Diseñamos la estrategia de fases, instalamos las etiquetas de medición correctas y montamos la estructura de campañas en las plataformas, dejándolas listas para que tu equipo pulse "publicar" y gestione el día a día.</p>
+                    </div>
+
+                    <a href="https://wa.me/34641576286?text=Buenas!%20Me%20interesa%20la%20opci%C3%B3n%20de%20CONSULTOR%C3%8DA%20Y%20SETUP%20de%20campa%C3%B1as%20para%20eventos." target="_blank" rel="noopener noreferrer" class="mt-auto w-full py-4 rounded-xl border border-white/20 bg-white/5 hover:bg-white/10 text-white font-bold transition-all flex items-center justify-center gap-2 focus:outline-none">
+                        <i class="ph ph-whatsapp-logo text-xl"></i> Solicitar Consultoría
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. EL PROCESO -->
+    <section class="py-32 relative bg-bgMain border-b border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-24 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Metodología</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white">4 pasos rápidos y ejecutables.</h2>
+                <p class="text-textSecondary">Tú pones el evento, nosotros llevamos el tráfico.</p>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto px-4 md:px-0">
+                <div class="absolute left-6 md:left-[50px] top-0 bottom-0 w-[2px] bg-white/5 rounded-full"></div>
+                <div class="foco-progress absolute left-6 md:left-[50px] top-0 w-[2px] bg-gradient-to-b from-primary to-accent rounded-full h-0 shadow-[0_0_10px_#7B61FF] transition-[height] duration-75 ease-out"></div>
+
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">1</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Briefing del evento</h3>
+                                <p class="text-textSecondary leading-relaxed">Analizamos la fecha inamovible, tu aforo objetivo, el perfil exacto del asistente (buyer persona) y definimos el presupuesto total de inversión en plataformas publicitarias.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">2</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Estrategia y Setup</h3>
+                                <p class="text-textSecondary leading-relaxed">Diseñamos el mapa de fases. Configuramos las plataformas de pago, instalamos los píxeles en tu web para medir registros reales y dejamos la estructura técnica lista.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">3</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Lanzamiento y Optimización</h3>
+                                <p class="text-textSecondary leading-relaxed">Activamos campañas secuencialmente (captación, activación, urgencia). Semanalmente ajustamos pujas, frenamos creatividades que no funcionan y forzamos el coste a la baja.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-10">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">4</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-medium text-white mb-2">Informe Post-Evento</h3>
+                                <p class="text-textSecondary leading-relaxed">Se cierran puertas y hacemos balance. Entregamos un reporte exacto de inversión: a cuánto salió cada asistente y qué lecciones nos deja el mercado para la próxima edición.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -592,63 +495,75 @@
         <div class="max-w-3xl mx-auto px-6 reveal-up">
             <div class="text-center mb-16">
                 <h2 class="font-heading text-3xl md:text-5xl font-medium text-white mb-4">Preguntas Frecuentes</h2>
-                <p class="text-textSecondary text-lg">Resolvemos las dudas sobre el branding de eventos.</p>
+                <p class="text-textSecondary text-lg">Resolvemos dudas comunes sobre campañas paid media para eventos.</p>
             </div>
             <div class="space-y-4">
+                
                 <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
                     <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
-                        <span class="font-semibold text-white pr-4 text-lg">¿Necesito tener claro el nombre del evento antes de empezar?</span>
+                        <span class="font-semibold text-white pr-4 text-lg">¿Con cuánta antelación hay que empezar las campañas?</span>
                         <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
                     </button>
                     <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
-                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">No es obligatorio. En los planes Completo y Total incluimos el proceso de naming. Si ya lo tienes, trabajamos la identidad directamente sobre él.</p>
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Para campañas de publicidad directa, recomendamos un mínimo de 6 a 8 semanas. Menos de un mes obliga a hacer campañas de "solo urgencia", lo que encarece muchísimo el coste por registro. Más de 3 meses para eventos medianos suele quemar a la audiencia. Dos meses es el punto óptimo de tensión.</p>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
                     <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
-                        <span class="font-semibold text-white pr-4 text-lg">¿Con cuánta antelación hay que encargar el branding?</span>
+                        <span class="font-semibold text-white pr-4 text-lg">¿El presupuesto de inversión en plataformas está incluido?</span>
                         <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
                     </button>
                     <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
-                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Lo ideal es comenzar entre 6 y 8 semanas antes del evento. Esto nos da margen para crear el concepto y dejar listos todos los materiales para enviar a imprenta a tiempo.</p>
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">No. Nuestro presupuesto cubre la gestión estratégica y técnica de la agencia (Setup, montajes, optimización). El gasto de publicidad lo abonas tú directamente a Meta, LinkedIn o Google a través de tu propia cuenta publicitaria para garantizar 100% de transparencia.</p>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
                     <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
-                        <span class="font-semibold text-white pr-4 text-lg">¿Podemos usar nuestra identidad corporativa como base?</span>
+                        <span class="font-semibold text-white pr-4 text-lg">¿Hacéis vosotros los diseños de los anuncios?</span>
                         <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
                     </button>
                     <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
-                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Por supuesto. La mayoría de eventos corporativos parten de los logos y colores de la marca principal. Les damos un giro específico para que el evento destaque manteniendo la línea de empresa.</p>
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">En el servicio de Ads puro nosotros redactamos los textos (copys), pero el material visual (fotos, vídeos o diseños del cartel) nos lo proporcionáis vosotros. Si también necesitáis que creemos esa línea gráfica, podéis contratar nuestro servicio de "Branding Visual".</p>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
                     <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
-                        <span class="font-semibold text-white pr-4 text-lg">¿Entregáis los archivos para que los imprimamos nosotros?</span>
+                        <span class="font-semibold text-white pr-4 text-lg">¿Funciona para eventos pequeños o solo para grandes congresos?</span>
                         <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
                     </button>
                     <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
-                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Sí, siempre entregamos los archivos finales con sangre y cruces de corte listos para que los mandes a tu imprenta habitual sin ningún problema técnico.</p>
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Funciona para aforos de 50 personas hasta 5.000. Lo que varía es la hiper-segmentación. Si tu evento es un desayuno VIP para 30 directores financieros, usaremos LinkedIn Ads de forma quirúrgica. Si es una convención de 2.000 personas, diversificaremos con Meta Ads para ganar volumen rápido.</p>
                     </div>
                 </div>
 
                 <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
                     <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
-                        <span class="font-semibold text-white pr-4 text-lg">¿Hacéis solo el diseño o también gestionáis la impresión?</span>
+                        <span class="font-semibold text-white pr-4 text-lg">¿Qué pasa si el evento se cancela o cambia de fecha?</span>
                         <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
                     </button>
                     <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
-                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Podemos hacer ambas. Con el plan "Producción Total", nos encargamos del diseño y también gestionamos a los proveedores de impresión y la coordinación para que las piezas lleguen al recinto final.</p>
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Al tener vosotros el control de la facturación en la plataforma, las campañas se pueden pausar en menos de 5 minutos, congelando el gasto inmediatamente. Adaptaremos los textos y retomaremos el plan cuando se anuncie la nueva fecha.</p>
                     </div>
                 </div>
+
+                <div class="glass-card rounded-2xl border border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-white pr-4 text-lg">¿Puedo contratar esto si ya tengo a alguien llevando mis redes sociales?</span>
+                        <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Absolutamente. Este servicio es estrictamente técnico (Paid Media). Hacemos un tándem perfecto con el equipo que gestiona tu cuenta orgánica, nosotros empujamos tráfico de pago y ellos mantienen activa la comunidad.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- 9. CTA FINAL -->
+    <!-- 9. CTA FINAL (Luxury Glass) -->
     <section class="py-32 relative z-10 bg-bgMain with-glow overflow-hidden">
         <div class="max-w-5xl mx-auto px-6 relative z-10 reveal-up">
             
@@ -661,14 +576,14 @@
                 <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent/20 blur-[100px] rounded-full z-[-1] pointer-events-none"></div>
                 
                 <div class="text-center relative z-10">
-                    <h2 class="font-heading text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">La imagen de tu evento habla <span class="text-gradient-primary">por tu empresa.</span></h2>
-                    <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">Cuéntanos qué estáis preparando y os ayudamos a que todo se vea a la altura.</p>
+                    <h2 class="font-heading text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">Cada semana sin campaña <span class="text-gradient-primary">es aforo perdido.</span></h2>
+                    <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">No hay segunda oportunidad para la fecha de tu evento. Cuéntanos qué preparas y en 48 horas tienes una propuesta de campaña sobre la mesa.</p>
                     
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <button onclick="openModal()" class="w-full sm:w-auto px-10 py-5 rounded-full bg-primary hover:bg-accent text-white font-bold transition-all duration-300 shadow-[0_0_30px_rgba(123,97,255,0.4)] focus:outline-none">
-                            Quiero empezar
+                            Quiero llenar mi evento
                         </button>
-                        <a href="https://wa.me/34641576286?text=Buenas!%20He%20visto%20el%20servicio%20de%20branding%20visual%20para%20eventos%20y%20quiero%20m%C3%A1s%20info" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-10 py-5 rounded-full border border-white/20 bg-black/20 hover:bg-white/10 text-white font-bold transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-md">
+                        <a href="https://wa.me/34641576286?text=Buenas!%20He%20visto%20el%20servicio%20de%20Campa%C3%B1as%20Ads%20para%20eventos%20y%20quiero%20m%C3%A1s%20info" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-10 py-5 rounded-full border border-white/20 bg-black/20 hover:bg-white/10 text-white font-bold transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-md">
                             Más info sin compromiso
                         </a>
                     </div>
@@ -678,7 +593,7 @@
         </div>
     </section>
 
-                    <!-- FOOTER -->
+            <!-- FOOTER -->
     <footer class="bg-bgMain border-t border-white/5 pt-20 pb-8 relative z-10">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
             
@@ -767,27 +682,22 @@
             setTimeout(() => { modal.classList.add('hidden'); document.body.style.overflow = ''; }, 300); 
         }
 
-        // Lógica para Tabs de Tipos de Eventos
-        function switchTiposTab(tabId) {
-            const tabs = ['lanzamiento', 'congreso', 'interno', 'feria', 'prensa'];
-            
-            tabs.forEach(t => {
-                const content = document.getElementById(`tab-content-${t}`);
-                const btn = document.getElementById(`tab-btn-${t}`);
-                
-                if (t === tabId) {
-                    content.classList.remove('hidden');
-                    btn.classList.add('bg-primary/10', 'text-white', 'border-primary/30');
-                    btn.classList.remove('bg-transparent', 'text-textSecondary', 'border-transparent');
-                    requestAnimationFrame(() => content.style.opacity = '1');
-                } else {
-                    content.style.opacity = '0';
-                    content.classList.add('hidden');
-                    btn.classList.remove('bg-primary/10', 'text-white', 'border-primary/30');
-                    btn.classList.add('bg-transparent', 'text-textSecondary', 'border-transparent');
+        // Animación línea conectora Fases (Desktop)
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => {
+                const line = document.getElementById('phase-line');
+                if (line) {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                line.style.width = '80%';
+                            }
+                        });
+                    }, { threshold: 0.5 });
+                    observer.observe(line.parentElement);
                 }
-            });
-        }
+            }, 100);
+        });
 
         // Timeline Scroll Event para "Proceso"
         let isTicking = false;
