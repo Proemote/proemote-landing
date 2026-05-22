@@ -185,7 +185,7 @@
     </nav>
 
     <section class="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden bg-grid-pattern bg-bgMain">
-        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-[0.35] pointer-events-none z-[0] mix-blend-lighten">
+        <video autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" class="absolute inset-0 w-full h-full object-cover opacity-[0.35] pointer-events-none z-[0] mix-blend-lighten">
             <source src="proemote-rocket-hero.mp4" type="video/mp4">
         </video>
         <div class="absolute inset-0 bg-gradient-to-t from-bgMain via-bgMain/50 to-transparent z-[0] pointer-events-none"></div>
@@ -331,30 +331,29 @@
                 </div>
             </div>
 
-            <!-- TAB 1: Marketing Digital -->
             <div id="content-marketing" class="tab-content grid grid-cols-1 md:grid-cols-2 gap-6 reveal-up mb-12 transition-opacity duration-300 opacity-100">
-                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/30 transition-all group cursor-pointer" onclick="window.location.href='#'">
+                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/30 transition-all group cursor-pointer" onclick="window.location.href='/servicios#branding'">
                     <i class="ph-fill ph-paint-brush-broad text-3xl text-primary mb-4 block group-hover:scale-110 transition-transform w-fit"></i>
                     <h3 class="text-xl font-heading text-white font-medium mb-2">Branding & Estrategia</h3>
                     <p class="text-sm text-textSecondary mb-6">Identidad visual, arquitectura de marca y posicionamiento diferencial para destacar de la competencia.</p>
                     <span class="inline-flex items-center text-primary text-sm font-medium hover:text-white transition-colors">Saber más <i class="ph ph-arrow-right ml-1"></i></span>
                 </div>
-                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/30 transition-all group cursor-pointer" onclick="window.location.href='#'">
+                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/30 transition-all group cursor-pointer" onclick="window.location.href='/diseno-web-SEO'">
                     <i class="ph-fill ph-browser text-3xl text-primary mb-4 block group-hover:scale-110 transition-transform w-fit"></i>
                     <h3 class="text-xl font-heading text-white font-medium mb-2">Web & Diseño Digital</h3>
                     <p class="text-sm text-textSecondary mb-6">Webs enfocadas a conversión, embudos automáticos y plataformas corporativas escalables.</p>
                     <span class="inline-flex items-center text-primary text-sm font-medium hover:text-white transition-colors">Saber más <i class="ph ph-arrow-right ml-1"></i></span>
                 </div>
-                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/30 transition-all group cursor-pointer" onclick="window.location.href='#'">
+                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/30 transition-all group cursor-pointer" onclick="window.location.href='/redes-sociales'">
                     <i class="ph-fill ph-share-network text-3xl text-primary mb-4 block group-hover:scale-110 transition-transform w-fit"></i>
                     <h3 class="text-xl font-heading text-white font-medium mb-2">Contenido & Redes Sociales</h3>
                     <p class="text-sm text-textSecondary mb-6">Estrategia de contenido orgánico para crear autoridad, educar y retener a tu audiencia.</p>
                     <span class="inline-flex items-center text-primary text-sm font-medium hover:text-white transition-colors">Saber más <i class="ph ph-arrow-right ml-1"></i></span>
                 </div>
-                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/30 transition-all group cursor-pointer" onclick="window.location.href='#'">
+                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/30 transition-all group cursor-pointer" onclick="window.location.href='/marketing-digital'">
                     <i class="ph-fill ph-rocket-launch text-3xl text-primary mb-4 block group-hover:scale-110 transition-transform w-fit"></i>
-                    <h3 class="text-xl font-heading text-white font-medium mb-2">Paid Media & Ads</h3>
-                    <p class="text-sm text-textSecondary mb-6">Sistemas de tráfico de pago con Meta Ads y Google Ads diseñados para escalar ventas de forma predecible.</p>
+                    <h3 class="text-xl font-heading text-white font-medium mb-2">Marketing Digital</h3>
+                    <p class="text-sm text-textSecondary mb-6">Campañas de publicidad digital para escalar tu negocio.</p>
                     <span class="inline-flex items-center text-primary text-sm font-medium hover:text-white transition-colors">Saber más <i class="ph ph-arrow-right ml-1"></i></span>
                 </div>
             </div>
@@ -1557,7 +1556,7 @@
         });
     </script>
     
-        <div id="mega-menu" class="fixed inset-0 z-[40] hidden pointer-events-none">
+            <div id="mega-menu" class="fixed inset-0 z-[40] hidden pointer-events-none">
         <div id="mega-menu-backdrop" class="absolute inset-0 bg-bgMain/40 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
         
         <div id="mega-menu-panel" class="absolute top-[72px] md:top-[88px] left-1/2 -translate-x-1/2 w-full max-w-5xl px-6 transform -translate-y-4 opacity-0 transition-all duration-300 pointer-events-auto">
@@ -1597,7 +1596,7 @@
                         </div>
                         <div>
                             <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Marketing Digital</h4>
-                            <p class="text-xs text-textSecondary">Campañas Meta y Google escalables.</p>
+                            <p class="text-xs text-textSecondary">Campañas de publicidad digital para escalar tu negocio.</p>
                         </div>
                     </a>
                     <a href="/eventos" class="group flex items-start gap-4">
