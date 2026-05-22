@@ -424,32 +424,77 @@
     </section>
 
     <!-- FOOTER GENERAL DE PROEMOTE -->
-    <footer class="bg-bgMain border-t border-white/5 py-12 relative z-10 w-full mt-auto">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-            <!-- Izquierda: Logo, Copyright y Redes -->
-            <div class="flex flex-col items-center md:items-start gap-4">
-                <div class="flex flex-col md:flex-row items-center md:justify-start gap-4 md:gap-6 text-center md:text-left">
-                    <img src="https://i.imgur.com/2mXnkGe.png" alt="Proemote Logo Footer" class="h-12 md:h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity">
-                    <p class="text-sm text-textSecondary">© 2026 Proemote Studio. <br class="hidden md:block"><em class="italic text-white/70">Shaping what matters.</em></p>
-                </div>
-                <div class="flex items-center gap-3">
-                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-10 h-10 bg-bgSurface rounded-full border border-white/10 flex items-center justify-center text-textSecondary hover:bg-primary hover:text-white transition-all shadow-lg hover:-translate-y-1">
-                        <i class="ph-fill ph-linkedin-logo text-xl"></i>
-                    </a>
-                    <a href="https://www.instagram.com/proemote.es/" target="_blank" class="w-10 h-10 bg-bgSurface rounded-full border border-white/10 flex items-center justify-center text-textSecondary hover:bg-primary hover:text-white transition-all shadow-lg hover:-translate-y-1">
-                        <i class="ph-fill ph-instagram-logo text-xl"></i>
-                    </a>
-                </div>
-            </div>
+    <footer class="bg-bgMain border-t border-white/5 pt-20 pb-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
             
-            <!-- Centro: Enlaces Legales -->
-            <div class="flex items-center justify-center gap-6 text-sm text-textSecondary">
-                <a href="/aviso-legal" class="hover:text-primary transition-colors">Aviso Legal</a>
-                <a href="/privacidad" target="_blank" class="hover:text-primary transition-colors">Política de Privacidad</a>
+            <div class="md:col-span-12 lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
+                <div class="mb-8">
+                    <img src="https://i.imgur.com/2mXnkGe.png" alt="Proemote Logo" class="h-20 md:h-24 mb-3 opacity-90 mx-auto md:mx-0">
+                    <p class="text-white italic text-sm mb-1">Shaping what matters</p>
+                    <p class="text-textSecondary text-sm font-medium">Think first.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <p class="text-xs text-primary font-bold tracking-widest uppercase mb-1">Estudio creativo y estratégico.</p>
+                    <p class="text-xs text-textSecondary font-bold tracking-widest uppercase">Mérida, Extremadura.</p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-start gap-3 mb-8 w-full">
+                    <a href="mailto:info@proemote.es" class="text-white font-medium hover:text-primary transition-colors flex items-center gap-3 text-sm">
+                        <i class="ph ph-envelope-simple text-xl"></i> info@proemote.es
+                    </a>
+                    <a href="tel:+34641576286" class="text-white font-medium hover:text-primary transition-colors flex items-center gap-3 text-sm">
+                        <i class="ph ph-phone text-xl"></i> +34 641 57 62 86
+                    </a>
+                </div>
+
+                <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-8">
+                    <a href="/" class="px-5 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-primary/20 text-white text-xs transition-all">Inicio</a>
+                    <a href="/#foco" class="px-5 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-primary/20 text-white text-xs transition-all">Sistema</a>
+                    <a href="/contacto" class="px-5 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-primary/20 text-white text-xs transition-all">Contacto</a>
+                </div>
+                
+                <div class="flex justify-center md:justify-start gap-3 w-full">
+                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
+                        <i class="ph-fill ph-linkedin-logo"></i>
+                    </a>
+                    <a href="https://www.instagram.com/proemote.es/" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
+                        <i class="ph-fill ph-instagram-logo"></i>
+                    </a>
+                </div>
             </div>
 
-            <!-- Derecha: Espacio vacío para equilibrar el grid -->
-            <div class="hidden md:block"></div>
+            <div class="md:col-span-4 lg:col-span-2 lg:col-start-7 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Servicios</h4>
+                <ul class="space-y-4 text-sm text-textSecondary text-center md:text-left">
+                    <li><a href="/diseno-web-SEO" class="hover:text-white transition-colors">Diseño Web</a></li>
+                    <li><a href="/servicios" class="hover:text-white transition-colors">Eventos 360º</a></li>
+                    <li><a href="/marketing-digital" class="hover:text-white transition-colors">Marketing Digital</a></li>
+                    <li><a href="/redes-sociales" class="text-white transition-colors">Redes Sociales</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Empresa & Legal</h4>
+                <ul class="space-y-4 text-sm text-textSecondary text-center md:text-left">
+                    <li><a href="/aviso-legal" target="_blank" class="hover:text-white transition-colors">Aviso Legal</a></li>
+                    <li><a href="/privacidad" target="_blank" class="hover:text-white transition-colors">Política de Privacidad</a></li>
+                    <li><a href="/contacto" class="hover:text-white transition-colors">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Horario</h4>
+                <ul class="space-y-2 text-sm text-textSecondary text-center md:text-left">
+                    <li class="flex flex-col md:inline-block"><span class="font-medium text-white/80">L-V:</span> <span class="text-white">9H–14H, 16H–20H</span></li>
+                    <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-white/80">Sáb:</span> <span class="text-white">10H–13:30H</span></li>
+                    <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-white/80">Dom:</span> <span class="text-white/50">Cerrado</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 text-center md:text-left">
+            <p class="text-xs text-textSecondary w-full">© 2026 Proemote Studio. Todos los derechos reservados.</p>
         </div>
     </footer>
 
