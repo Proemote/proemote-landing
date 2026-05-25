@@ -206,8 +206,8 @@
                 <button onclick="openModal()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] flex items-center justify-center gap-2 focus:outline-none">
                     👉 Quiero mejorar mi estrategia
                 </button>
-                <a href="#foco" class="w-full sm:w-auto px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white font-medium transition-all duration-300 flex items-center justify-center gap-2">
-                    Ver cómo trabajamos <i class="ph ph-arrow-right"></i>
+                <a href="#servicios" class="w-full sm:w-auto px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white font-medium transition-all duration-300 flex items-center justify-center gap-2">
+                    Ver servicios <i class="ph ph-arrow-right"></i>
                 </a>
             </div>
         </div>
@@ -314,7 +314,7 @@
             </div>
 
             <!-- Nuevo bloque de cabecera de Servicios -->
-            <div class="text-center max-w-3xl mx-auto mb-12 reveal-up">
+            <div id="servicios" class="text-center max-w-3xl mx-auto mb-12 reveal-up">
                 <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Nuestros servicios</span>
                 <h2 class="font-heading text-3xl md:text-5xl font-medium text-white mb-6">Todo lo que necesitas para <span class="text-gradient-primary">crecer online</span>, bajo una sola dirección.</h2>
                 <p class="text-textSecondary text-lg mb-8 leading-relaxed">No trabajamos por piezas. Cada servicio está diseñado para integrarse con el resto y construir un sistema de marca que funciona solo — sin depender de ti para cada decisión.</p>
@@ -412,18 +412,18 @@
                 <div class="glass-card p-8 md:p-10 rounded-[2rem] flex flex-col h-full border-white/5 group hover:border-primary/30 transition-all">
                     <h3 class="text-2xl font-heading text-white font-medium mb-4">1. Empiezo desde cero</h3>
                     <p class="text-base text-textSecondary mb-8 flex-grow">Necesitas definir una identidad visual profesional, un mensaje claro y una base web sólida para salir al mercado con total autoridad y sin parecer un amateur.</p>
-                    <button onclick="openModal()" class="w-full inline-flex justify-center py-4 rounded-xl bg-white/5 hover:bg-primary border border-white/10 text-white text-sm font-medium transition-all shadow-lg group-hover:shadow-[0_0_15px_rgba(123,97,255,0.3)]">Sentar las bases</button>
+                    <button onclick="openModal('Empiezo desde cero')" class="w-full inline-flex justify-center py-4 rounded-xl bg-white/5 hover:bg-primary border border-white/10 text-white text-sm font-medium transition-all shadow-lg group-hover:shadow-[0_0_15px_rgba(123,97,255,0.3)]">Sentar las bases</button>
                 </div>
                 <div class="glass-card p-8 md:p-10 rounded-[2rem] flex flex-col h-full border-white/5 group hover:border-primary/30 transition-all relative overflow-hidden">
                     <div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <h3 class="text-2xl font-heading text-white font-medium mb-4 relative z-10">2. Ya tengo presencia pero no convierte</h3>
                     <p class="text-base text-textSecondary mb-8 flex-grow relative z-10">Tienes visitas y redes activas, pero el esfuerzo no se traduce en clientes o ventas. Necesitamos optimizar tu web e implementar un embudo real.</p>
-                    <button onclick="openModal()" class="w-full inline-flex justify-center py-4 rounded-xl bg-primary hover:bg-accent border border-primary/20 text-white text-sm font-medium transition-all shadow-[0_0_15px_rgba(123,97,255,0.3)] relative z-10">Auditar mi estrategia</button>
+                    <button onclick="openModal('Ya tengo presencia')" class="w-full inline-flex justify-center py-4 rounded-xl bg-primary hover:bg-accent border border-primary/20 text-white text-sm font-medium transition-all shadow-[0_0_15px_rgba(123,97,255,0.3)] relative z-10">Auditar mi estrategia</button>
                 </div>
                 <div class="glass-card p-8 md:p-10 rounded-[2rem] flex flex-col h-full border-white/5 group hover:border-primary/30 transition-all">
                     <h3 class="text-2xl font-heading text-white font-medium mb-4">3. Quiero escalar lo que ya funciona</h3>
                     <p class="text-base text-textSecondary mb-8 flex-grow">Tu negocio es rentable pero has tocado techo operativo. Es hora de implementar sistemas de paid media agresivos y automatizaciones avanzadas.</p>
-                    <button onclick="openModal()" class="w-full inline-flex justify-center py-4 rounded-xl bg-white/5 hover:bg-primary border border-white/10 text-white text-sm font-medium transition-all shadow-lg group-hover:shadow-[0_0_15px_rgba(123,97,255,0.3)]">Escalar mi negocio</button>
+                    <button onclick="openModal('Quiero escalar')" class="w-full inline-flex justify-center py-4 rounded-xl bg-white/5 hover:bg-primary border border-white/10 text-white text-sm font-medium transition-all shadow-lg group-hover:shadow-[0_0_15px_rgba(123,97,255,0.3)]">Escalar mi negocio</button>
                 </div>
             </div>
         </div>
@@ -1116,13 +1116,25 @@
         const contactModal = document.getElementById('contact-modal');
         const modalInner = contactModal.querySelector('div');
         
-        function openModal() {
+        function openModal(fase = '') {
             contactModal.classList.remove('hidden');
             setTimeout(() => {
                 contactModal.classList.remove('opacity-0');
                 modalInner.classList.remove('scale-95');
             }, 10);
             document.body.style.overflow = 'hidden'; 
+            
+            if (fase) {
+                const faseSelects = document.querySelectorAll('select[name="Fase"]');
+                faseSelects.forEach(select => {
+                    select.value = fase;
+                });
+            } else {
+                const faseSelects = document.querySelectorAll('select[name="Fase"]');
+                faseSelects.forEach(select => {
+                    select.value = '';
+                });
+            }
         }
         
         function closeModal() {

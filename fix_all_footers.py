@@ -31,7 +31,7 @@ standard_footer = """
                     <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
                         <i class="ph-fill ph-linkedin-logo"></i>
                     </a>
-                    <a href="https://www.instagram.com/proemote.es/" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
+                    <a href="https://www.instagram.com/proemote/" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
                         <i class="ph-fill ph-instagram-logo"></i>
                     </a>
                 </div>
