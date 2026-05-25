@@ -545,7 +545,7 @@ prompt_content = """<!DOCTYPE html>
                         <p class="text-textSecondary text-lg mb-8 leading-relaxed">
                             Diseñamos la estrategia de contenido que llevó sus vídeos a miles de visualizaciones sin invertir un solo euro en paid media.
                         </p>
-                        <a href="/lo-quiero-limpio-caso-de-exito.html" class="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-primary transition-colors underline decoration-white/20 hover:decoration-primary/50 underline-offset-4">
+                        <a href="/lo-quiero-limpio-caso-de-exito" class="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-primary transition-colors underline decoration-white/20 hover:decoration-primary/50 underline-offset-4">
                             Ver caso completo <i class="ph ph-arrow-up-right"></i>
                         </a>
                     </div>
