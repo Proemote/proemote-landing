@@ -1203,28 +1203,34 @@
             btn.disabled = true;
             
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(res => {
-                    msg.classList.remove('hidden');
-                    msg.className = 'form-msg block p-4 rounded-xl bg-green-500/10 text-green-400 mt-4 border border-green-500/20 text-sm mb-4';
-                    msg.innerText = '¡Solicitud recibida correctamente! Nos pondremos en contacto contigo.';
-                    
-                    btn.innerHTML = '¡Enviado! <i class="ph-fill ph-check-circle"></i>';
-                    btn.classList.remove('bg-primary', 'hover:bg-accent', 'shadow-[0_0_20px_rgba(123,97,255,0.3)]');
-                    btn.classList.add('bg-green-600', 'hover:bg-green-500', 'shadow-[0_0_20px_rgba(22,163,74,0.4)]');
-                    
-                    setTimeout(() => {
-                        form.reset();
-                        btn.innerHTML = originalContent;
-                        btn.classList.add('bg-primary', 'hover:bg-accent', 'shadow-[0_0_20px_rgba(123,97,255,0.3)]');
-                        btn.classList.remove('bg-green-600', 'hover:bg-green-500', 'shadow-[0_0_20px_rgba(22,163,74,0.4)]');
-                        btn.disabled = false;
-                        msg.classList.add('hidden');
-                    }, 5000);
+                .then(res => res.json())
+                .then(data => {
+                    if (data.result === 'success') {
+                        msg.classList.remove('hidden');
+                        msg.className = 'form-msg block p-4 rounded-xl bg-green-500/10 text-green-400 mt-4 border border-green-500/20 text-sm mb-4';
+                        msg.innerText = '¡Solicitud recibida correctamente! Nos pondremos en contacto contigo.';
+                        
+                        btn.innerHTML = '¡Enviado! <i class="ph-fill ph-check-circle"></i>';
+                        btn.classList.remove('bg-primary', 'hover:bg-accent', 'shadow-[0_0_20px_rgba(123,97,255,0.3)]');
+                        btn.classList.add('bg-green-600', 'hover:bg-green-500', 'shadow-[0_0_20px_rgba(22,163,74,0.4)]');
+                        
+                        setTimeout(() => {
+                            form.reset();
+                            btn.innerHTML = originalContent;
+                            btn.classList.add('bg-primary', 'hover:bg-accent', 'shadow-[0_0_20px_rgba(123,97,255,0.3)]');
+                            btn.classList.remove('bg-green-600', 'hover:bg-green-500', 'shadow-[0_0_20px_rgba(22,163,74,0.4)]');
+                            btn.disabled = false;
+                            msg.classList.add('hidden');
+                        }, 5000);
+                    } else {
+                        throw new Error(data.error);
+                    }
                 })
                 .catch(error => {
+                    console.error(error);
                     msg.classList.remove('hidden');
                     msg.className = 'form-msg block p-4 rounded-xl bg-red-500/10 text-red-400 mt-4 border border-red-500/20 text-sm mb-4';
-                    msg.innerText = 'Error de conexión. Por favor, inténtalo de nuevo o contáctanos por WhatsApp.';
+                    msg.innerText = 'Error de conexión. Por favor, asegúrate de que el script está publicado para "Cualquier usuario".';
                     
                     btn.innerHTML = originalContent;
                     btn.disabled = false;
