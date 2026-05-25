@@ -736,14 +736,20 @@
                     btn.innerHTML = '<span class="animate-pulse italic">Enviando candidatura...</span>';
                     btn.disabled = true;
                     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                        .then(res => {
-                            msg.classList.remove('hidden'); msg.className = 'form-msg block p-4 rounded-xl bg-green-500/10 text-green-400 mt-4 border border-green-500/20 text-sm';
-                            msg.innerText = 'Candidatura enviada correctamente. ¡Muchas gracias por tu interés!';
-                            form.reset(); btn.innerHTML = originalBtnContent; btn.disabled = false;
-                            if(form.id === 'modal-form') setTimeout(closeModal, 3000);
-                        }).catch(() => {
+                        .then(res => res.json())
+                        .then(data => {
+                            if(data.result === 'success') {
+                                msg.classList.remove('hidden'); msg.className = 'form-msg block p-4 rounded-xl bg-green-500/10 text-green-400 mt-4 border border-green-500/20 text-sm';
+                                msg.innerText = 'Candidatura enviada correctamente. ¡Muchas gracias por tu interés!';
+                                form.reset(); btn.innerHTML = originalBtnContent; btn.disabled = false;
+                                if(form.id === 'modal-form') setTimeout(closeModal, 3000);
+                            } else {
+                                throw new Error(data.error);
+                            }
+                        }).catch((err) => {
+                            console.error(err);
                             msg.classList.remove('hidden'); msg.className = 'form-msg block p-4 rounded-xl bg-red-500/10 text-red-400 mt-4 border border-red-500/20 text-sm';
-                            msg.innerText = 'Hubo un problema al procesar tu envío. Intenta de nuevo o contáctanos por WhatsApp.';
+                            msg.innerText = 'Hubo un problema de configuración en el servidor. Intenta de nuevo o contáctanos por WhatsApp.';
                             btn.disabled = false; btn.innerHTML = originalBtnContent;
                         });
                 });
