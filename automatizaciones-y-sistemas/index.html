@@ -24,10 +24,10 @@
                         textMain: '#F5F7FA',
                         textSecondary: '#A1A1B5',
                         // Colores específicos para pricing cards
-                        pricingBg: '#12121A',
+                        pricingBg: '#101017',
                         pricingBorder: '#2A2A35',
-                        pricingHighlight: '#6D54E6',
-                        pricingHighlightBg: 'rgba(109, 84, 230, 0.1)',
+                        pricingHighlight: '#7B61FF',
+                        pricingIdealBg: '#171722',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -53,35 +53,10 @@
         .glass-card { background: linear-gradient(180deg, rgba(20, 20, 31, 0.9) 0%, rgba(20, 20, 31, 0.5) 100%); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         .glass-card:hover { border-color: rgba(123, 97, 255, 0.3); box-shadow: 0 10px 40px rgba(123, 97, 255, 0.1); transform: translateY(-4px); }
 
-        .luxury-glass-card { 
-            background: rgba(255, 255, 255, 0.02); 
-            backdrop-filter: blur(16px); 
-            border: 1px solid rgba(255, 255, 255, 0.08); 
-            border-radius: 20px; 
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .luxury-glass-card:hover {
-            border-color: rgba(123, 97, 255, 0.3);
-            box-shadow: 0 12px 40px rgba(123, 97, 255, 0.1);
-            transform: translateY(-5px);
-        }
-
-        #mouse-glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(123,97,255,0.08) 0%, rgba(10,10,15,0) 60%); border-radius: 50%; pointer-events: none; z-index: 35; transform: translate(-50%, -50%); transition: opacity 0.4s ease; mix-blend-mode: screen; opacity: 0; }
-
-        .text-gradient-primary { background: linear-gradient(135deg, #9F7AEA 0%, #7B61FF 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        .reveal-up.active { opacity: 1; transform: translateY(0); }
-        
-        .foco-item .glass-card { opacity: 0; transform: translateY(40px) scale(0.97); transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none; }
-        .foco-item.active .glass-card { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
-        .foco-node { transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
-
-        /* Pricing Card Styles */
+        /* Pricing Card Styles Replicados de la Referencia */
         .pricing-card {
-            background-color: #12121A;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            background-color: #101017;
+            border: 1px solid #2A2A35 !important;
             border-radius: 24px;
             display: flex;
             flex-direction: column;
@@ -94,14 +69,16 @@
             transform: translateY(-8px);
         }
         .pricing-card.recommended {
-            border: 1px solid rgba(123, 97, 255, 0.6) !important;
-            background: linear-gradient(180deg, rgba(123, 97, 255, 0.1) 0%, rgba(18, 18, 26, 1) 100%);
+            border: 1px solid rgba(123, 97, 255, 0.5) !important;
+            background: linear-gradient(180deg, rgba(123, 97, 255, 0.1) 0%, #101017 100%);
+            box-shadow: 0 0 30px rgba(123, 97, 255, 0.1);
             transform: scale(1.02);
             z-index: 10;
         }
         .pricing-card.recommended:hover {
             transform: scale(1.02) translateY(-8px);
             box-shadow: 0 20px 50px rgba(123, 97, 255, 0.25);
+            border-color: rgba(123, 97, 255, 0.8) !important;
         }
         .pricing-btn-outline {
             background: #0d0d14;
@@ -118,25 +95,38 @@
             color: white;
             transition: all 0.3s ease;
             border: 1px solid transparent;
+            box-shadow: 0 0 20px rgba(123, 97, 255, 0.3);
         }
         .pricing-btn-solid:hover {
-            background-color: #9F7AEA;
-            box-shadow: 0 0 20px rgba(123, 97, 255, 0.4);
+            background-color: #8B5CF6; /* Un poco más claro al hover */
+            box-shadow: 0 0 30px rgba(123, 97, 255, 0.5);
         }
         .ideal-box-outline {
-            background-color: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: #171722;
+            border: 1px solid #2A2A35;
         }
         .ideal-box-solid {
-            background-color: rgba(123, 97, 255, 0.1);
-            border: 1px solid rgba(123, 97, 255, 0.2);
+            background-color: rgba(123, 97, 255, 0.15);
+            border: 1px solid rgba(123, 97, 255, 0.3);
         }
+
+        #mouse-glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(123,97,255,0.08) 0%, rgba(10,10,15,0) 60%); border-radius: 50%; pointer-events: none; z-index: 35; transform: translate(-50%, -50%); transition: opacity 0.4s ease; mix-blend-mode: screen; opacity: 0; }
+
+        .text-gradient-primary { background: linear-gradient(135deg, #9F7AEA 0%, #7B61FF 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-up.active { opacity: 1; transform: translateY(0); }
+        
+        .foco-item .glass-card { opacity: 0; transform: translateY(40px) scale(0.97); transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none; }
+        .foco-item.active .glass-card { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+        .foco-node { transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
     </style>
 </head>
 <body class="antialiased selection:bg-primary selection:text-white relative bg-grid-pattern bg-fixed">
 
     <div id="mouse-glow"></div>
 
+    <!-- MODAL DE CONTACTO -->
     <div id="contact-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-bgMain/80 backdrop-blur-md opacity-0 transition-opacity duration-300">
         <div class="glass-form tilt-effect w-full max-w-lg p-8 md:p-10 rounded-[2rem] relative shadow-2xl max-h-[95vh] overflow-y-auto transform scale-95 transition-transform duration-300" style="will-change: transform;">
             <button onclick="closeModal()" class="absolute top-6 right-6 text-textSecondary hover:text-white transition-colors focus:outline-none z-10"><i class="ph ph-x text-2xl"></i></button>
@@ -150,9 +140,9 @@
                 
                 <select name="Servicio" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer">
                     <option value="" disabled>¿Qué sistema te interesa?</option>
-                    <option value="Sistema Basico">Sistema Básico</option>
-                    <option value="Sistema Operativo" selected>Sistema Operativo (Recomendado)</option>
-                    <option value="Sistema Completo">Sistema Completo</option>
+                    <option value="Sistema Atencion 247">Atención 24/7</option>
+                    <option value="Sistema Piloto Automatico" selected>Piloto Automático (Recomendado)</option>
+                    <option value="Sistema Escala Total">Escala Total</option>
                     <option value="Sistema Personalizado">Sistema Personalizado</option>
                 </select>
 
@@ -171,6 +161,7 @@
         </div>
     </div>
 
+    <!-- HEADER FIJO -->
     <nav class="fixed w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="https://proemote.es/" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
@@ -194,6 +185,7 @@
         </div>
     </nav>
 
+    <!-- 1. HERO -->
     <section class="pt-48 pb-16 relative z-10 overflow-hidden bg-bgMain bg-grid-pattern-primary with-glow">
         <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-bgMain z-[-1] pointer-events-none"></div>
         <div class="absolute top-[10%] left-[10%] w-[30vw] h-[30vw] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-[0]"></div>
@@ -215,7 +207,7 @@
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
                 <button onclick="openModal()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] flex items-center justify-center gap-2 focus:outline-none">
-                    Quiero mi sistema de automatización <i class="ph ph-arrow-right"></i>
+                    👉 Quiero mi sistema de automatización
                 </button>
                 <a href="#como-lo-implementamos" class="w-full sm:w-auto px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white font-medium transition-all duration-300 flex items-center justify-center gap-2">
                     Ver cómo funciona
@@ -229,6 +221,135 @@
         </div>
     </section>
 
+    <!-- 2. EL PROBLEMA (MÁS AGRESIVO - PUNTOS DE DOLOR) -->
+    <section class="py-24 relative z-10 bg-bgSurface/30 border-b border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-rose-500 uppercase mb-4 block">El coste de la lentitud</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Tu negocio no pierde clientes por falta de servicio, sino por falta de velocidad.</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-up delay-100 max-w-6xl mx-auto mb-16">
+                <!-- Dolor 1 -->
+                <div class="glass-card p-8 rounded-3xl border-rose-500/10 tilt-effect flex flex-col h-full bg-rose-500/5">
+                    <div class="w-12 h-12 shrink-0 rounded-full bg-rose-500/20 flex items-center justify-center text-rose-500 mb-6">
+                        <i class="ph-fill ph-warning-circle text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Cada mensaje sin responder es una venta perdida</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Si no contestas al momento, el cliente contacta al siguiente. La lealtad en digital es de 5 minutos.</p>
+                </div>
+
+                <!-- Dolor 2 -->
+                <div class="glass-card p-8 rounded-3xl border-rose-500/10 tilt-effect flex flex-col h-full bg-rose-500/5">
+                    <div class="w-12 h-12 shrink-0 rounded-full bg-rose-500/20 flex items-center justify-center text-rose-500 mb-6">
+                        <i class="ph-fill ph-trend-down text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Cada minuto de retraso reduce el cierre</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Responder dudas repetitivas, agendar a mano y perseguir clientes destruye tu rentabilidad y satura a tu equipo.</p>
+                </div>
+
+                <!-- Dolor 3 -->
+                <div class="glass-card p-8 rounded-3xl border-rose-500/10 tilt-effect flex flex-col h-full bg-rose-500/5">
+                    <div class="w-12 h-12 shrink-0 rounded-full bg-rose-500/20 flex items-center justify-center text-rose-500 mb-6">
+                        <i class="ph-fill ph-clock-countdown text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Horarios limitados = Ingresos limitados</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Tu competencia no duerme. Un negocio que solo atiende de 9 a 18h sangra oportunidades cada noche y fin de semana.</p>
+                </div>
+            </div>
+
+            <!-- Banner Destacado del Problema -->
+            <div class="max-w-4xl mx-auto reveal-up delay-200">
+                <div class="relative p-8 md:p-12 rounded-[2.5rem] border border-primary/30 bg-gradient-to-r from-primary/10 via-accent/5 to-bgMain backdrop-blur-md shadow-[0_20px_50px_rgba(123,97,255,0.15)] group flex flex-col md:flex-row items-center gap-8 overflow-hidden">
+                    <div class="absolute -right-24 -bottom-24 w-80 h-80 bg-primary/15 blur-[100px] rounded-full pointer-events-none"></div>
+                    
+                    <div class="w-16 h-16 md:w-20 md:h-20 shrink-0 rounded-full bg-primary/20 flex items-center justify-center text-primary relative z-10 shadow-lg shadow-primary/10">
+                        <i class="ph-fill ph-users-three text-3xl md:text-4xl"></i>
+                    </div>
+                    
+                    <div class="relative z-10 text-center md:text-left flex-grow">
+                        <span class="text-xs font-bold tracking-widest text-primary uppercase block mb-2">La Alternativa Inteligente</span>
+                        <h3 class="text-2xl md:text-3xl font-heading text-white font-semibold mb-3">Contratar más personal no siempre es la solución</h3>
+                        <p class="text-sm md:text-base text-textSecondary leading-relaxed">
+                            Un empleado operativo cuesta entre <span class="text-white font-medium">1.500€ y 2.500€ al mes</span>. Un empleado digital (automatización) hace exactamente el mismo trabajo sucio por una fracción del precio, 24/7 y sin errores humanos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. EL AHA MOMENT (LO QUE HACE EL SISTEMA) -->
+    <section class="py-24 relative z-10 bg-bgMain border-b border-white/5 with-glow overflow-hidden">
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-full bg-primary/5 blur-[150px] pointer-events-none"></div>
+        
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-primary uppercase mb-4 block">El Momento de Transición</span>
+                <h2 class="font-heading text-3xl md:text-5xl font-medium text-white mb-4">Tu negocio funcionando en automático.</h2>
+                <p class="text-textSecondary text-lg max-w-2xl mx-auto">Esto es lo que hace el sistema por ti, las 24 horas del día, sin excusas ni descansos.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto mt-12 reveal-up delay-100 relative">
+                <!-- Line connection background -->
+                <div class="absolute left-[2.5rem] md:left-1/2 top-10 bottom-10 w-px bg-gradient-to-b from-primary/0 via-primary/50 to-primary/0 md:-translate-x-1/2 hidden md:block z-0"></div>
+
+                <div class="space-y-6 relative z-10">
+                    <div class="flex items-center gap-6 glass-card p-6 rounded-2xl border border-white/10 transform transition-transform hover:translate-x-2 bg-bgSurface/50 backdrop-blur-xl">
+                        <div class="w-14 h-14 shrink-0 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-2xl border border-primary/20 shadow-inner">
+                            <i class="ph-fill ph-chat-centered-dots"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-heading font-semibold text-white">Responde clientes 24/7 como un empleado</h4>
+                            <p class="text-textSecondary text-sm mt-1">Califica, informa y atiende al segundo, eliminando el tiempo de espera por WhatsApp, Web o RRSS.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6 glass-card p-6 rounded-2xl border border-white/10 transform transition-transform hover:translate-x-2 bg-bgSurface/50 backdrop-blur-xl">
+                        <div class="w-14 h-14 shrink-0 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-2xl border border-primary/20 shadow-inner">
+                            <i class="ph-fill ph-calendar-check"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-heading font-semibold text-white">Agenda citas automáticamente</h4>
+                            <p class="text-textSecondary text-sm mt-1">Cruza disponibilidad, bloquea horas en tu calendario y envía confirmaciones y recordatorios por sí solo.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6 glass-card p-6 rounded-2xl border border-white/10 transform transition-transform hover:translate-x-2 bg-bgSurface/50 backdrop-blur-xl">
+                        <div class="w-14 h-14 shrink-0 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-2xl border border-primary/20 shadow-inner">
+                            <i class="ph-fill ph-database"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-heading font-semibold text-white">Registra clientes en tu CRM sin esfuerzo</h4>
+                            <p class="text-textSecondary text-sm mt-1">Extrae datos de la conversación y etiqueta a cada prospecto según su estado e intención de compra en tu base de datos.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6 glass-card p-6 rounded-2xl border border-white/10 transform transition-transform hover:translate-x-2 bg-bgSurface/50 backdrop-blur-xl">
+                        <div class="w-14 h-14 shrink-0 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-2xl border border-primary/20 shadow-inner">
+                            <i class="ph-fill ph-arrows-left-right"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-heading font-semibold text-white">Hace seguimiento y recupera leads</h4>
+                            <p class="text-textSecondary text-sm mt-1">Vuelve a impactar a quienes preguntaron y no compraron de forma sistemática y no intrusiva tras X días.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6 p-6 rounded-2xl border border-primary/50 transform transition-transform hover:translate-x-2 bg-gradient-to-r from-primary/20 to-bgSurface backdrop-blur-xl shadow-[0_0_30px_rgba(123,97,255,0.15)]">
+                        <div class="w-14 h-14 shrink-0 bg-primary text-white rounded-xl flex items-center justify-center text-2xl shadow-[0_0_15px_rgba(123,97,255,0.6)]">
+                            <i class="ph-fill ph-bell-ringing"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-heading font-bold text-white">Solo te avisa cuando hay una oportunidad real</h4>
+                            <p class="text-primary/90 text-sm mt-1 font-medium">Tú entras a la conversación únicamente para cerrar la venta o dar el servicio. El trabajo sucio ya está hecho.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PRODUCTOS (ESTILO REFERENCIA PIXEL PERFECT) -->
     <section class="py-24 relative z-10 bg-bgSurface/30 border-b border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal-up">
@@ -236,9 +357,9 @@
                 <h2 class="font-heading text-3xl md:text-4xl font-medium text-white mb-4">Elige el sistema que necesita tu negocio.</h2>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto reveal-up delay-100 items-start">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto reveal-up delay-100 items-start">
                 
-                <!-- Plan Básico -->
+                <!-- Nivel 1: Atención 24/7 (Antes Básico) -->
                 <div class="pricing-card p-8 h-full">
                     <div class="flex items-center gap-2 mb-4">
                         <i class="ph-fill ph-eye text-primary"></i>
@@ -271,7 +392,7 @@
                     <a href="https://wa.me/34641576286?text=Hola!%20Me%20interesa%20informaci%C3%B3n%20sobre%20el%20sistema%20Atenci%C3%B3n%2024/7." target="_blank" class="w-full py-3.5 rounded-full text-center text-sm font-semibold pricing-btn-outline">Quiero empezar</a>
                 </div>
 
-                <!-- Plan Operativo (Recomendado) -->
+                <!-- Nivel 2: Piloto Automático (RECOMENDADO) -->
                 <div class="pricing-card recommended p-8 h-full shadow-[0_0_40px_rgba(109,84,230,0.15)] relative mt-0 lg:-mt-4">
                     <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#6D54E6] text-white text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-lg">
                         <i class="ph-fill ph-star"></i> MÁS RECOMENDADO
@@ -308,7 +429,7 @@
                     <a href="https://wa.me/34641576286?text=Hola!%20Me%20interesa%20informaci%C3%B3n%20sobre%20el%20sistema%20Piloto%20Autom%C3%A1tico." target="_blank" class="w-full py-3.5 rounded-full text-center text-sm font-bold pricing-btn-solid shadow-[0_0_15px_rgba(109,84,230,0.3)]">Quiero crecer</a>
                 </div>
 
-                <!-- Plan Completo -->
+                <!-- Nivel 3: Escala Total (Antes Completo) -->
                 <div class="pricing-card p-8 h-full">
                     <div class="flex items-center gap-2 mb-4">
                         <i class="ph-fill ph-rocket-launch text-primary"></i>
@@ -343,15 +464,16 @@
             </div>
 
             <div class="max-w-3xl mx-auto mt-12 text-center reveal-up delay-200">
-                <div class="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-white/10 bg-white/5">
+                <div class="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-white/10 bg-white/5 shadow-lg">
                     <i class="ph ph-infinity text-white/50"></i>
-                    <span class="text-sm text-white/80">¿Necesitas algo más complejo? <strong class="text-white">Construimos tu sistema desde cero.</strong></span>
+                    <span class="text-sm text-white/80">¿Necesitas una arquitectura a medida? <strong class="text-white">Construimos tu sistema desde cero.</strong></span>
                     <button onclick="openModal()" class="text-sm text-primary font-bold hover:underline ml-2">Consultar viabilidad</button>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 5. RENTABILIDAD (SUSTITUCIÓN DE ROLES) -->
     <section class="py-24 relative z-10 bg-bgMain border-b border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal-up">
@@ -361,23 +483,24 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto reveal-up delay-100 items-stretch">
                 <!-- Bloque 1 -->
-                <div class="glass-card p-8 rounded-3xl border-white/10 bg-white/[0.02] flex flex-col justify-between text-center md:text-left">
+                <div class="glass-card p-8 rounded-3xl border-rose-500/10 bg-rose-500/5 flex flex-col justify-between text-center md:text-left">
                     <div>
-                        <span class="text-xs font-bold tracking-wider text-white/50 uppercase block mb-2">Roles operativos sustituidos</span>
-                        <div class="text-3xl font-heading font-bold text-white mb-4">3 Funciones <span class="text-sm font-normal text-textSecondary">asumidas</span></div>
+                        <span class="text-xs font-bold tracking-wider text-rose-400 uppercase block mb-2">Roles operativos sustituidos</span>
+                        <div class="text-3xl font-heading font-bold text-white mb-4">3 Sueldos <span class="text-sm font-normal text-textSecondary">evitados</span></div>
                         <ul class="text-sm text-textSecondary leading-relaxed space-y-3 font-medium">
-                            <li class="flex items-center gap-3"><i class="ph ph-user-minus text-white/40 text-lg"></i> Recepcionista</li>
-                            <li class="flex items-center gap-3"><i class="ph ph-user-minus text-white/40 text-lg"></i> Gestor de leads / SDR</li>
-                            <li class="flex items-center gap-3"><i class="ph ph-user-minus text-white/40 text-lg"></i> Asistente administrativo</li>
+                            <li class="flex items-center gap-3 justify-center md:justify-start"><i class="ph-fill ph-user-minus text-rose-500 text-lg"></i> Recepcionista</li>
+                            <li class="flex items-center gap-3 justify-center md:justify-start"><i class="ph-fill ph-user-minus text-rose-500 text-lg"></i> Gestor de leads / SDR</li>
+                            <li class="flex items-center gap-3 justify-center md:justify-start"><i class="ph-fill ph-user-minus text-rose-500 text-lg"></i> Asistente administrativo</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Bloque 2 (Destacado) -->
-                <div class="p-8 rounded-3xl border border-primary/30 bg-primary/5 shadow-[0_0_30px_rgba(123,97,255,0.1)] flex flex-col justify-between text-center md:text-left relative overflow-hidden">
+                <div class="p-8 rounded-3xl border border-primary/40 bg-primary/10 shadow-[0_0_40px_rgba(123,97,255,0.15)] flex flex-col justify-between text-center md:text-left relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-primary text-white text-[10px] font-bold px-4 py-1.5 rounded-bl-xl uppercase tracking-wider">Activo Digital</div>
                     <div>
                         <span class="text-xs font-bold tracking-wider text-primary uppercase block mb-2 mt-2">Sistema automatizado Proemote</span>
-                        <div class="text-4xl font-heading font-bold text-white mb-4">Activo Digital</div>
+                        <div class="text-4xl font-heading font-bold text-white mb-4">Inversión <span class="text-sm font-normal text-textSecondary">estratégica</span></div>
                         <p class="text-sm text-textMain/90 leading-relaxed font-medium">No estás comprando un software, estás implementando un reemplazo de funciones. El sistema asume toda la carga operativa pesada para que tu equipo humano se dedique exclusivamente a cerrar ventas de alto valor.</p>
                     </div>
                 </div>
@@ -394,6 +517,7 @@
         </div>
     </section>
 
+    <!-- 6. EL PROCESO (SIMPLIFICADO A 4 PASOS) -->
     <section id="como-lo-implementamos" class="py-32 relative bg-bgSurface/30 border-b border-white/5 with-glow">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center mb-24 reveal-up">
@@ -465,6 +589,7 @@
         </div>
     </section>
 
+    <!-- 7. RESULTADOS (CON CREDIBILIDAD AÑADIDA) -->
     <section class="py-24 relative z-10 bg-bgMain border-b border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-20 reveal-up">
@@ -483,7 +608,7 @@
 
                 <div class="glass-card p-8 rounded-3xl border-white/5 flex flex-col justify-between text-center relative overflow-hidden">
                     <div class="absolute -right-8 -top-8 w-24 h-24 bg-primary/5 rounded-full blur-xl"></div>
-                    <div class="text-6xl font-heading font-bold text-primary mb-4">+30%</div>
+                    <div class="text-6xl font-heading font-bold text-white mb-4">+30%</div>
                     <h4 class="text-white font-medium text-lg mb-2">tasa de cierre de leads</h4>
                     <p class="text-xs text-textSecondary leading-relaxed">Al reducir a 0 el tiempo de respuesta, evitas que el prospecto contacte con tu competencia.</p>
                 </div>
@@ -498,7 +623,8 @@
         </div>
     </section>
 
-    <section class="py-32 relative bg-bgSurface/30 border-b border-white/5 with-glow">
+    <!-- 8. FAQ (GEO Y AEO OPTIMIZADO) -->
+        <section class="py-32 relative bg-bgSurface/30 border-b border-white/5 with-glow">
         <div class="max-w-3xl mx-auto px-6 reveal-up">
             <div class="text-center mb-16">
                 <h2 class="font-heading text-3xl md:text-5xl font-medium text-white mb-4">Preguntas Frecuentes</h2>
