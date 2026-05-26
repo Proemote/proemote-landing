@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayudas Digitalización Pymes Extremadura 2026 | Proemote</title>
+    <meta name="description" content="Hasta 20.000€ para digitalizar tu negocio en Extremadura. Proemote te ayuda a solicitar la ayuda y ejecutar el proyecto. Plazo abierto hasta el 14 de agosto de 2026.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Schema Markup SEO Local -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Proemote Studio",
+      "image": "https://i.imgur.com/jwddFTY.png",
+      "description": "Consultora y agencia digital experta en estrategia, branding y digitalización de pymes en Extremadura.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mérida",
+        "addressRegion": "Extremadura",
+        "addressCountry": "ES"
+      },
+      "telephone": "+34641576286",
+      "url": "https://proemote.es/"
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgMain: '#0A0A0F',
+                        bgSurface: '#14141F',
+                        primary: '#7B61FF',
+                        accent: '#9F7AEA',
+                        textMain: '#F5F7FA',
+                        textSecondary: '#A1A1B5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\\'40\\' height=\\'40\\' viewBox=\\'0 0 40 40\\' xmlns=\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h40v40H0V0zm1 1h38v38H1V1z\\' fill=\\'%23ffffff\\' fill-opacity=\\'0.02\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                        'grid-pattern-primary': "url('data:image/svg+xml,%3Csvg width=\\'50\\' height=\\'50\\' viewBox=\\'0 0 50 50\\' xmlns=\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h50v50H0V0zm1 1h48v48H1V1z\\' fill=\\'%237B61FF\\' fill-opacity=\\'0.08\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #0A0A0F; color: #F5F7FA; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A0A0F; }
+        ::-webkit-scrollbar-thumb { background: #14141F; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
+        ::-webkit-scrollbar-thumb:hover { background: #7B61FF; }
+
+        .glass-nav { background: rgba(10, 10, 15, 0.7); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass-card { background: linear-gradient(180deg, rgba(20, 20, 31, 0.9) 0%, rgba(20, 20, 31, 0.5) 100%); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .glass-card:hover { border-color: rgba(123, 97, 255, 0.3); box-shadow: 0 10px 40px rgba(123, 97, 255, 0.1); transform: translateY(-4px); }
+
+        #mouse-glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(123,97,255,0.08) 0%, rgba(10,10,15,0) 60%); border-radius: 50%; pointer-events: none; z-index: 35; transform: translate(-50%, -50%); transition: opacity 0.4s ease; mix-blend-mode: screen; opacity: 0; }
+
+        .text-gradient-primary { background: linear-gradient(135deg, #9F7AEA 0%, #7B61FF 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-up.active { opacity: 1; transform: translateY(0); }
+        
+        /* FOCO Physical Engine Animations */
+        .foco-item .glass-card { opacity: 0; transform: translateY(40px) scale(0.97); transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none; }
+        .foco-item.active .glass-card { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+        .foco-node { transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
+
+        select option { background-color: #14141F; color: #F5F7FA; }
+
+        /* Premium Form Soft Glass 3D */
+        .glass-form {
+            background: 
+                radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.04), transparent 40%),
+                linear-gradient(135deg, rgba(20, 20, 31, 0.7) 0%, rgba(123, 97, 255, 0.06) 100%);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(123, 97, 255, 0.20);
+            box-shadow: 0 10px 40px -10px rgba(123, 97, 255, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+            transform-style: preserve-3d;
+            transition: box-shadow 0.3s ease;
+            position: relative;
+        }
+        .glass-form:hover { box-shadow: 0 20px 50px -15px rgba(123, 97, 255, 0.25), inset 0 1px 0 0 rgba(255, 255, 255, 0.1); }
+        .glass-form > * { transform: translateZ(20px); position: relative; z-index: 2; }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white relative bg-grid-pattern bg-fixed">
+
+    <div id="mouse-glow"></div>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="https://proemote.es/" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
+                <img src="https://i.imgur.com/jwddFTY.png" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain">
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-textSecondary relative z-10 items-center">
+                <a href="https://proemote.es/" class="hover:text-textMain transition-colors">Inicio</a>
+                <a href="/#foco" class="hover:text-textMain transition-colors">Sistema</a>
+                <a href="/servicios" id="services-menu-btn" class="hover:text-textMain transition-colors focus:outline-none">Servicios</a>
+                <a href="/sobre-nosotros" class="hover:text-textMain transition-colors">Sobre nosotros</a>
+                <a href="https://proemote.es/portfolio" class="hover:text-textMain transition-colors">Portfolio</a>
+                <a href="/contacto" class="hover:text-textMain transition-colors">Contacto</a>
+            </div>
+            <div class="flex items-center gap-4 relative z-10">
+                <a href="#contacto" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-primary rounded-full hover:bg-accent shadow-[0_0_15px_rgba(123,97,255,0.4)] transition-all duration-300 focus:outline-none">
+                    Analizar mi caso
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden text-textSecondary hover:text-white transition-colors focus:outline-none p-2">
+                    <i class="ph ph-dots-three-vertical text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="pt-48 pb-24 relative z-10 overflow-hidden border-b border-white/5 bg-bgMain bg-grid-pattern-primary with-glow">
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-bgMain z-[-1] pointer-events-none"></div>
+        <div class="absolute top-[10%] left-[10%] w-[30vw] h-[30vw] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-[0]"></div>
+        <div class="absolute bottom-[10%] right-[10%] w-[40vw] h-[40vw] rounded-full bg-accent/10 blur-[150px] pointer-events-none z-[0]"></div>
+
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10 reveal-up active">
+            
+            <div class="inline-flex items-center justify-center px-5 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-bold tracking-[0.2em] uppercase mb-8 shadow-[0_0_15px_rgba(123,97,255,0.05)]">
+                Fondos limitados · Plazo: 14 de agosto de 2026
+            </div>
+
+            <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-8 text-white">
+                Ayudas a la <span class="text-gradient-primary">Digitalización de Pymes</span><br class="hidden md:block">
+                y Autónomos en Extremadura 2026
+            </h1>
+            
+            <p class="text-lg md:text-xl text-textSecondary leading-relaxed max-w-3xl mx-auto mb-12">
+                Hay dinero público disponible ahora mismo para digitalizar tu negocio en Extremadura. Hasta 20.000€ con los que financiar tu web, tus redes sociales, tu sistema de gestión o tu contenido audiovisual, cubriendo hasta el 80% del coste. En Proemote nos encargamos de todo: analizamos si aplicas, preparamos la solicitud y ejecutamos el proyecto si se concede. Tú no tienes que gestionar nada.
+            </p>
+            
+            <div class="flex flex-col items-center justify-center mb-10">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+                    <a href="#contacto" class="w-full sm:w-auto px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] flex items-center justify-center gap-2 focus:outline-none">
+                        Solicitar información <i class="ph ph-arrow-right"></i>
+                    </a>
+                    <a href="#detalles" class="w-full sm:w-auto px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white font-medium transition-all duration-300 flex items-center justify-center gap-2">
+                        Ver qué cubre la ayuda
+                    </a>
+                </div>
+                <span class="text-xs md:text-sm text-textSecondary/80 font-medium mt-4 flex items-center gap-1.5">
+                    <i class="ph-fill ph-shield-check text-primary text-base"></i> Análisis de viabilidad gratuito y sin compromiso.
+                </span>
+            </div>
+            
+            <div class="text-[13px] md:text-[14px] text-textSecondary font-medium flex items-center justify-center gap-2 flex-wrap">
+                <i class="ph-fill ph-clock text-primary"></i>
+                <span><strong>Concurrencia no competitiva:</strong> Las ayudas se conceden por orden de presentación.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOQUE INFORMATIVO (SEO) -->
+    <section id="detalles" class="py-32 relative z-10 bg-bgSurface/30 border-t border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white mb-4">Condiciones de la convocatoria para la <span class="text-gradient-primary">digitalización de pymes en Extremadura.</span></h2>
+                <p class="text-textSecondary text-lg max-w-2xl mx-auto">Información clara y directa sobre la financiación disponible.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 reveal-up delay-100">
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect">
+                    <i class="ph-fill ph-users text-3xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-heading text-white font-medium mb-2">Beneficiarios</h3>
+                    <p class="text-sm text-textSecondary">Autónomos y pymes con actividad económica en Extremadura.</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect">
+                    <i class="ph-fill ph-coins text-3xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-heading text-white font-medium mb-2">Importe y condiciones</h3>
+                    <p class="text-sm text-textSecondary">Hasta el 80% del gasto subvencionable, con un máximo de 20.000€ por beneficiario. Sujeto a régimen de mínimis.</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect">
+                    <i class="ph-fill ph-calendar text-3xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-heading text-white font-medium mb-2">Plazo y concesión</h3>
+                    <p class="text-sm text-textSecondary">Abierto hasta el 14 de agosto de 2026. Las ayudas no se puntúan, se asignan por orden de entrada. Cuando se acaba el presupuesto, se acaba la ayuda.</p>
+                </div>
+            </div>
+
+            <div class="reveal-up delay-200">
+                <h3 class="text-2xl font-heading text-white font-medium mb-8 text-center">Líneas subvencionables</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="text-white font-medium">Página Web</h4>
+                            <span class="text-primary font-bold text-sm bg-primary/10 px-2 py-1 rounded">Max. 500€</span>
+                        </div>
+                        <p class="text-xs text-textSecondary">Desarrollo o mejora de tu web corporativa. Nos encargamos del diseño, el desarrollo y el posicionamiento para que tu web trabaje por ti desde el primer día.</p>
+                    </div>
+
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="text-white font-medium">Tienda Online</h4>
+                            <span class="text-primary font-bold text-sm bg-primary/10 px-2 py-1 rounded">Max. 4.000€</span>
+                        </div>
+                        <p class="text-xs text-textSecondary">Creación de e-commerce. Montamos tu tienda online de principio a fin para que puedas vender sin depender de terceros ni de comisiones externas.</p>
+                    </div>
+
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="text-white font-medium">SEO y SEM</h4>
+                            <span class="text-primary font-bold text-sm bg-primary/10 px-2 py-1 rounded">Max. 7.000€</span>
+                        </div>
+                        <p class="text-xs text-textSecondary">Posicionamiento en buscadores y publicidad digital para que tus clientes te encuentren antes que a tu competencia.</p>
+                    </div>
+
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="text-white font-medium">Community Manager</h4>
+                            <span class="text-primary font-bold text-sm bg-primary/10 px-2 py-1 rounded">Max. 3.000€</span>
+                        </div>
+                        <p class="text-xs text-textSecondary">Gestión de redes sociales. Nos ocupamos de tus perfiles para que no tengas que preocuparte de qué publicar, cuándo ni cómo.</p>
+                    </div>
+
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="text-white font-medium">Contenido Multimedia</h4>
+                            <span class="text-primary font-bold text-sm bg-primary/10 px-2 py-1 rounded">Max. 2.000€</span>
+                        </div>
+                        <p class="text-xs text-textSecondary">Producimos la fotografía y el vídeo profesional que tu negocio necesita. Tú no tienes que improvisar con el móvil.</p>
+                    </div>
+
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="text-white font-medium">Software de Gestión</h4>
+                            <span class="text-primary font-bold text-sm bg-primary/10 px-2 py-1 rounded">Max. 5.000€</span>
+                        </div>
+                        <p class="text-xs text-textSecondary">CRM y facturación electrónica. Implantamos y configuramos las herramientas para que tu equipo gane horas y pierda menos información.</p>
+                    </div>
+
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="text-white font-medium">Plataforma B2B</h4>
+                            <span class="text-primary font-bold text-sm bg-primary/10 px-2 py-1 rounded">Max. 5.000€</span>
+                        </div>
+                        <p class="text-xs text-textSecondary">Sistemas de gestión comercial entre empresas, distribuidores y canales profesionales.</p>
+                    </div>
+
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="text-white font-medium">Ciberseguridad</h4>
+                            <span class="text-primary font-bold text-sm bg-primary/10 px-2 py-1 rounded">Max. 12.000€</span>
+                        </div>
+                        <p class="text-xs text-textSecondary">Protección de datos, redes e infraestructura para que tu negocio no dependa de la suerte.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS PROEMOTE (CONVERSIÓN) -->
+    <section class="py-32 relative z-10 bg-bgMain border-t border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Ejecución Profesional</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white">Lo que ejecutamos nosotros. <span class="text-gradient-primary">Tú solo tienes que aprobar.</span></h2>
+                <p class="text-textSecondary text-lg mt-4 max-w-2xl mx-auto">Gestionamos el proceso completo para que no tengas que aprender a tramitar subvenciones ni a coordinar proveedores digitales.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-up delay-100">
+                
+                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/30 transition-all group tilt-effect flex flex-col items-start text-left">
+                    <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-browser text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Presencia Web</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Nos encargamos del diseño, el desarrollo y la estructura SEO de tu web para que aparezca cuando tus clientes te buscan y convierta cuando llegan.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/30 transition-all group tilt-effect flex flex-col items-start text-left">
+                    <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-share-network text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Community Manager</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Planificamos, creamos y publicamos el contenido de tus redes con criterio y seguimiento. Tú revisas y apruebas. Nosotros ejecutamos.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/30 transition-all group tilt-effect flex flex-col items-start text-left">
+                    <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-video-camera text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Contenidos Multimedia</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Fotografía y vídeo profesional producido por nuestro equipo. No necesitas buscar fotógrafo, coordinar sesiones ni editar nada.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/30 transition-all group tilt-effect flex flex-col items-start text-left">
+                    <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-tree-structure text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Automatización y Gestión</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Implantamos las herramientas que ordenan tu negocio: clientes, presupuestos, facturas y seguimiento en un solo sitio. Tu equipo gana horas desde el primer mes.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CASOS REALES EN EXTREMADURA -->
+    <section class="py-24 relative z-10 bg-bgSurface/50 border-t border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Resultados con nuestros clientes</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white">Negocios en Extremadura que ya tienen ventaja digital.</h2>
+                <p class="text-textSecondary mt-4">Resultados orgánicos reales. Sin anuncios pagados. Con la misma metodología que aplicamos en cada proyecto.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-up delay-100">
+                
+                <div class="glass-card p-8 md:p-10 rounded-[2rem] border-white/5 flex flex-col text-center tilt-effect">
+                    <span class="font-heading text-4xl md:text-5xl font-bold text-gradient-primary mb-2">Top #4</span>
+                    <h4 class="text-white font-medium text-lg mb-4">en SEO Local</h4>
+                    <p class="text-sm text-textSecondary mb-8 flex-grow">Posicionada en el Top 4 de resultados orgánicos para búsquedas de estética y belleza en Mérida sin invertir un euro en publicidad.</p>
+                    <div class="pt-6 border-t border-white/10 text-xs text-textSecondary uppercase tracking-widest font-bold">
+                        Centro de Belleza Juany · Mérida
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 md:p-10 rounded-[2rem] border-white/5 flex flex-col text-center tilt-effect">
+                    <span class="font-heading text-4xl md:text-5xl font-bold text-gradient-primary mb-2">Top #3</span>
+                    <h4 class="text-white font-medium text-lg mb-4">para e-commerce local</h4>
+                    <p class="text-sm text-textSecondary mb-8 flex-grow">Tercer resultado orgánico estable en Google para quien busca comprar jamón ibérico en Almendralejo. Visibilidad que trabaja las 24 horas.</p>
+                    <div class="pt-6 border-t border-white/10 text-xs text-textSecondary uppercase tracking-widest font-bold">
+                        Jamón Exclusive · Almendralejo
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESO 4 PASOS -->
+    <section id="proceso" class="py-32 relative bg-bgMain border-t border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-24 reveal-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white">Cuatro pasos. El trabajo lo hacemos nosotros.</h2>
+                <p class="text-textSecondary text-xl max-w-2xl mx-auto leading-relaxed">Tu única tarea es contarnos a qué se dedica tu negocio.</p>
+            </div>
+
+            <div class="relative max-w-5xl mx-auto px-4 md:px-0">
+                <div class="absolute left-6 md:left-[50px] top-0 bottom-0 w-[2px] bg-white/5 rounded-full"></div>
+                <div id="foco-progress" class="absolute left-6 md:left-[50px] top-0 w-[2px] bg-gradient-to-b from-primary to-accent rounded-full h-0 shadow-[0_0_10px_#7B61FF] transition-[height] duration-75 ease-out"></div>
+
+                <!-- Paso 1 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
+                            <div class="text-primary font-heading text-6xl md:text-7xl font-bold opacity-80 leading-none">1</div>
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-heading font-medium text-white mb-3">Contacto</h3>
+                                <p class="text-textSecondary text-lg leading-relaxed">Rellenas el formulario en menos de dos minutos. Solo necesitamos saber a qué te dedicas y qué área quieres mejorar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
+                            <div class="text-primary font-heading text-6xl md:text-7xl font-bold opacity-80 leading-none">2</div>
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-heading font-medium text-white mb-3">Diagnóstico gratuito</h3>
+                                <p class="text-textSecondary text-lg leading-relaxed">Nuestro equipo analiza tu caso, confirma si cumples los requisitos y te dice exactamente qué líneas puedes solicitar y por cuánto.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
+                            <div class="text-primary font-heading text-6xl md:text-7xl font-bold opacity-80 leading-none">3</div>
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-heading font-medium text-white mb-3">Solicitud</h3>
+                                <p class="text-textSecondary text-lg leading-relaxed">Preparamos y gestionamos la documentación necesaria para presentar el proyecto ante la Junta de Extremadura. Tú lo revisas y firmas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-10">
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-white/20 z-10"></div>
+                    <div class="glass-card p-8 md:p-10 rounded-[2rem]">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
+                            <div class="text-primary font-heading text-6xl md:text-7xl font-bold opacity-80 leading-none">4</div>
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-heading font-medium text-white mb-3">Ejecución</h3>
+                                <p class="text-textSecondary text-lg leading-relaxed">Una vez concedida la ayuda, ejecutamos el proyecto completo. No tienes que buscar ni coordinar a nadie más.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL / FORMULARIO -->
+    <section id="contacto" class="py-32 relative bg-bgSurface border-t border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6 reveal-up">
+            <div class="glass-card rounded-[3rem] p-8 md:p-16 border-primary/20 overflow-hidden relative shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold uppercase tracking-wider mb-6">
+                            <i class="ph-fill ph-warning-circle"></i> El plazo acaba el 14 de agosto 2026
+                        </div>
+                        <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white leading-tight">Los fondos se agotan por <span class="text-gradient-primary">orden de llegada.</span></h2>
+                        <h3 class="text-xl text-white font-medium mb-4">Cada día que esperas es una solicitud más delante de la tuya.</h3>
+                        <p class="text-textSecondary text-lg mb-8 leading-relaxed">El plazo acaba el 14 de agosto 2026, pero el presupuesto puede agotarse antes. Cuéntanos tu caso ahora y en menos de 48 horas te decimos si aplicas, qué puedes solicitar y cómo lo gestionamos juntos. Sin compromiso.</p>
+                        
+                        <div class="space-y-4 mb-10">
+                            <div class="flex items-center gap-3 text-white/90">
+                                <i class="ph-fill ph-check-circle text-primary text-xl"></i>
+                                <span class="font-medium text-sm md:text-base">Diagnóstico gratuito en menos de 48 horas</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-white/90">
+                                <i class="ph-fill ph-check-circle text-primary text-xl"></i>
+                                <span class="font-medium text-sm md:text-base">Nos encargamos de la tramitación y la ejecución completa</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-white/90">
+                                <i class="ph-fill ph-check-circle text-primary text-xl"></i>
+                                <span class="font-medium text-sm md:text-base">Si tu negocio no aplica, te lo decimos sin rodeos</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-3 pt-6 border-t border-white/10">
+                            <div class="flex items-center gap-4 text-white/80 hover:text-white transition-colors w-fit">
+                                <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center"><i class="ph ph-envelope-simple text-lg text-primary"></i></div>
+                                <span class="font-medium">info@proemote.es</span>
+                            </div>
+                            <div class="flex items-center gap-4 text-white/80 hover:text-white transition-colors w-fit">
+                                <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center"><i class="ph ph-phone text-lg text-primary"></i></div>
+                                <span class="font-medium">+34 641 57 62 86</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <form id="ayudas-form" class="proemote-form glass-form tilt-effect p-8 rounded-[2rem] space-y-4 shadow-xl">
+                            <div class="flex flex-col md:flex-row gap-4">
+                                <input type="text" name="Nombre" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="Nombre de la empresa o autónomo">
+                                <input type="email" name="Email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="Email de contacto">
+                            </div>
+                            
+                            <input type="tel" name="Telefono" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="Teléfono de contacto">
+                            
+                            <select name="Tipo" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer shadow-inner">
+                                <option value="" disabled selected>Tipo de entidad</option>
+                                <option value="Autonomo">Autónomo</option>
+                                <option value="Pyme">PYME (Sociedad)</option>
+                            </select>
+
+                            <textarea name="Mensaje" rows="3" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all resize-none shadow-inner" placeholder="Cuéntanos brevemente a qué se dedica tu negocio y qué necesitas digitalizar (Ej: Necesito una nueva web y gestionar redes)."></textarea>
+                            
+                            <div class="flex items-start gap-3 px-2">
+                                <input type="checkbox" id="check-priv-ayudas" name="Privacidad" value="Aceptada" required class="mt-1 w-4 h-4 accent-primary cursor-pointer">
+                                <label for="check-priv-ayudas" class="text-sm text-textSecondary leading-tight cursor-pointer italic">He leído y acepto la <a href="/privacidad" target="_blank" class="text-primary hover:text-accent underline decoration-primary/30">política de privacidad</a>.</label>
+                            </div>
+                            
+                            <button type="submit" class="w-full py-4 bg-white text-bgMain font-bold rounded-xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2 group btn-submit">
+                                Solicitar diagnóstico de viabilidad <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                            
+                            <p class="text-center text-sm text-textSecondary mt-3 font-medium">Sin compromiso. Si tu caso no aplica, te lo decimos igualmente.</p>
+                            
+                            <div class="form-msg hidden text-center p-4 rounded-xl mt-4 font-medium transition-all text-sm"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-bgMain border-t border-white/5 pt-20 pb-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+            <div class="md:col-span-12 lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
+                <div class="mb-8">
+                    <img src="https://i.imgur.com/2mXnkGe.png" alt="Proemote Logo" class="h-20 md:h-24 mb-3 opacity-90 mx-auto md:mx-0">
+                    <p class="text-white italic text-sm mb-1">Shaping what matters</p>
+                    <p class="text-textSecondary text-sm font-medium">Think first.</p>
+                </div>
+                <div class="mb-6">
+                    <p class="text-xs text-primary font-bold tracking-widest uppercase mb-1">Estudio creativo y estratégico.</p>
+                    <p class="text-xs text-textSecondary font-bold tracking-widest uppercase">Mérida, Extremadura.</p>
+                </div>
+                <div class="flex flex-col items-center md:items-start gap-3 mb-8 w-full">
+                    <a href="mailto:info@proemote.es" class="text-white font-medium hover:text-primary transition-colors flex items-center gap-3 text-sm">
+                        <i class="ph ph-envelope-simple text-xl"></i> info@proemote.es
+                    </a>
+                    <a href="tel:+34641576286" class="text-white font-medium hover:text-primary transition-colors flex items-center gap-3 text-sm">
+                        <i class="ph ph-phone text-xl"></i> +34 641 57 62 86
+                    </a>
+                </div>
+            </div>
+            
+            <div class="md:col-span-4 lg:col-span-2 lg:col-start-7 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Servicios</h4>
+                <ul class="space-y-4 text-sm text-textSecondary text-center md:text-left">
+                    <li><a href="/web-seo" class="hover:text-white transition-colors">Diseño Web & SEO</a></li>
+                    <li><a href="/marketing-digital" class="hover:text-white transition-colors">Marketing Digital</a></li>
+                    <li><a href="/redes-sociales" class="hover:text-white transition-colors">Redes Sociales</a></li>
+                    <li><a href="/branding-y-estrategia" class="hover:text-white transition-colors">Branding & Estrategia</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Empresa & Legal</h4>
+                <ul class="space-y-4 text-sm text-textSecondary text-center md:text-left">
+                    <li><a href="/aviso-legal" target="_blank" class="hover:text-white transition-colors">Aviso Legal</a></li>
+                    <li><a href="/privacidad" target="_blank" class="hover:text-white transition-colors">Política de Privacidad</a></li>
+                    <li><a href="/contacto" class="hover:text-white transition-colors">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 text-center md:text-left">
+            <p class="text-xs text-textSecondary w-full">© 2026 Proemote Studio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante WhatsApp -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3 group reveal-up active">
+        <span class="hidden md:block px-4 py-2 bg-bgSurface border border-white/10 rounded-xl text-sm font-medium text-white shadow-lg opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
+            Consultar Ayudas por WhatsApp
+        </span>
+        <a href="https://wa.me/34641576286?text=Hola,%20necesito%20información%20sobre%20la%20viabilidad%20de%20las%20Ayudas%20de%20Digitalización%20en%20Extremadura." target="_blank" rel="noopener noreferrer" class="relative w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300">
+            <div class="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:bg-[#25D366]/30 transition-colors"></div>
+            <i class="ph-fill ph-whatsapp-logo text-3xl text-white"></i>
+        </a>
+    </div>
+
+    <!-- Scripts Esenciales -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Observer Reveal
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+            // Foco Timeline Engine
+            const progress = document.getElementById('foco-progress');
+            const items = document.querySelectorAll('.foco-item');
+            let isTicking = false;
+            const handleTimeline = () => {
+                if(!progress) return;
+                const container = progress.parentElement;
+                const rect = container.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                let p = (windowHeight * 0.6 - rect.top) / rect.height;
+                p = Math.max(0, Math.min(1, p));
+                progress.style.height = `${p * 100}%`;
+                const lineBottom = progress.getBoundingClientRect().bottom;
+                items.forEach(item => {
+                    const node = item.querySelector('.foco-node');
+                    const nodeRect = node.getBoundingClientRect();
+                    const nodeCenter = nodeRect.top + (nodeRect.height / 2);
+                    if (lineBottom >= nodeCenter) {
+                        node.classList.remove('bg-bgMain');
+                        node.classList.add('bg-primary', 'border-primary', 'shadow-[0_0_15px_#7B61FF]');
+                        item.classList.add('active');
+                    } else {
+                        node.classList.add('bg-bgMain');
+                        node.classList.remove('bg-primary', 'border-primary', 'shadow-[0_0_15px_#7B61FF]');
+                        item.classList.remove('active');
+                    }
+                });
+            };
+            window.addEventListener('scroll', () => {
+                if (!isTicking) {
+                    window.requestAnimationFrame(() => { handleTimeline(); isTicking = false; });
+                    isTicking = true;
+                }
+            });
+            handleTimeline();
+
+            // Tilt Effect 3D
+            document.querySelectorAll('.tilt-effect').forEach(el => {
+                el.addEventListener('mouseenter', () => el.style.transition = 'transform 0.1s ease-out, box-shadow 0.3s ease');
+                el.addEventListener('mousemove', (e) => {
+                    const rect = el.getBoundingClientRect();
+                    const rotateX = (((e.clientY - rect.top) - (rect.height / 2)) / (rect.height / 2)) * 1.5; 
+                    const rotateY = (((e.clientX - rect.left) - (rect.width / 2)) / (rect.width / 2)) * -1.5;
+                    el.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`); el.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+                    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(0.99, 0.99, 0.99)`;
+                });
+                el.addEventListener('mouseleave', () => {
+                    el.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease';
+                    el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                    el.style.setProperty('--mouse-x', `50%`); el.style.setProperty('--mouse-y', `50%`);
+                });
+            });
+
+            // Form Submit Feedback Simulator (Adapta al script real)
+            document.querySelectorAll('.proemote-form').forEach(form => {
+                form.addEventListener('submit', e => {
+                    e.preventDefault();
+                    const btn = form.querySelector('.btn-submit');
+                    const msg = form.querySelector('.form-msg');
+                    const originalBtnContent = btn.innerHTML;
+                    btn.innerHTML = '<span class="animate-pulse italic">Analizando viabilidad...</span>';
+                    btn.disabled = true;
+                    // Simulación de envío
+                    setTimeout(() => {
+                        msg.classList.remove('hidden'); 
+                        msg.className = 'form-msg block p-4 rounded-xl bg-green-500/10 text-green-400 mt-4 border border-green-500/20 text-sm';
+                        msg.innerText = 'Solicitud recibida. Un experto de nuestro equipo se pondrá en contacto contigo para el diagnóstico en menos de 24 horas.';
+                        form.reset(); 
+                        btn.innerHTML = originalBtnContent; 
+                        btn.disabled = false;
+                    }, 1500);
+                });
+            });
+
+            // Mouse Glow
+            const glow = document.getElementById('mouse-glow');
+            document.addEventListener('mousemove', (e) => { 
+                glow.style.left = `${e.clientX}px`; 
+                glow.style.top = `${e.clientY}px`; 
+                if (e.target.closest('.with-glow')) {
+                    glow.style.opacity = '1';
+                } else {
+                    glow.style.opacity = '0';
+                }
+            });
+            document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+            
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            // Menú móvil simple si hace falta (el script asume que la lógica está, he mantenido los ids limpios)
+        });
+    </script>
+</body>
+</html>
