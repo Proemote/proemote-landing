@@ -463,6 +463,11 @@
                     
                     <div>
                         <form id="ayudas-form" class="proemote-form glass-form tilt-effect p-8 rounded-[2rem] space-y-4 shadow-xl">
+                            <!-- Honeypot Anti-Spam Field -->
+                            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                            <!-- Campo Origen para Google Sheets -->
+                            <input type="hidden" name="Origen" value="Ayudas Pymes Extremadura 2026">
+                            
                             <div class="flex flex-col md:flex-row gap-4">
                                 <input type="text" name="Nombre" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="Nombre de la empresa o autónomo">
                                 <input type="email" name="Email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="Email de contacto">
@@ -617,24 +622,44 @@
                 });
             });
 
-            // Form Submit Feedback Simulator (Adapta al script real)
+            // Form Submit (Conexión real con Google Sheets)
+            // Reemplaza esta URL por la de tu nueva API de Google Apps Script vinculada a "Solicitudes subvencion"
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwbftkCLe-AkkeHxOyQ7esOzdjkMF-xXOvtc6Xg7GgtN6jKBUYPAJKGQo2hhOmcKJuJSg/exec';
+            
             document.querySelectorAll('.proemote-form').forEach(form => {
                 form.addEventListener('submit', e => {
                     e.preventDefault();
+                    
+                    // Anti-spam Honeypot Check
+                    if (form.querySelector('[name="_honey"]').value) {
+                        console.warn('Spam detectado');
+                        return;
+                    }
+
                     const btn = form.querySelector('.btn-submit');
                     const msg = form.querySelector('.form-msg');
                     const originalBtnContent = btn.innerHTML;
+                    
                     btn.innerHTML = '<span class="animate-pulse italic">Analizando viabilidad...</span>';
                     btn.disabled = true;
-                    // Simulación de envío
-                    setTimeout(() => {
-                        msg.classList.remove('hidden'); 
-                        msg.className = 'form-msg block p-4 rounded-xl bg-green-500/10 text-green-400 mt-4 border border-green-500/20 text-sm';
-                        msg.innerText = 'Solicitud recibida. Un experto de nuestro equipo se pondrá en contacto contigo para el diagnóstico en menos de 24 horas.';
-                        form.reset(); 
-                        btn.innerHTML = originalBtnContent; 
-                        btn.disabled = false;
-                    }, 1500);
+
+                    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                        .then(res => {
+                            msg.classList.remove('hidden'); 
+                            msg.className = 'form-msg block p-4 rounded-xl bg-green-500/10 text-green-400 mt-4 border border-green-500/20 text-sm';
+                            msg.innerText = 'Solicitud recibida. Un experto de nuestro equipo se pondrá en contacto contigo para el diagnóstico en menos de 24 horas.';
+                            form.reset(); 
+                            btn.innerHTML = originalBtnContent; 
+                            btn.disabled = false;
+                        })
+                        .catch(err => {
+                            console.error('Error!', err.message);
+                            msg.classList.remove('hidden'); 
+                            msg.className = 'form-msg block p-4 rounded-xl bg-red-500/10 text-red-400 mt-4 border border-red-500/20 text-sm';
+                            msg.innerText = 'Error al enviar los datos. Por favor, vuelve a intentarlo o escríbenos directamente por WhatsApp.';
+                            btn.innerHTML = originalBtnContent; 
+                            btn.disabled = false;
+                        });
                 });
             });
 
