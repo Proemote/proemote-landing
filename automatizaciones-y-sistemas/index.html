@@ -527,7 +527,7 @@
 
             <div class="relative max-w-4xl mx-auto px-4 md:px-0">
                 <div class="absolute left-6 md:left-[50px] top-0 bottom-0 w-[2px] bg-white/5 rounded-full"></div>
-                <div class="foco-progress absolute left-6 md:left-[50px] top-0 w-[2px] bg-gradient-to-b from-primary to-accent rounded-full h-0 shadow-[0_0_10px_#7B61FF] transition-[height] duration-75 ease-out"></div>
+                <div id="foco-progress" class="foco-progress absolute left-6 md:left-[50px] top-0 w-[2px] bg-gradient-to-b from-primary to-accent rounded-full h-0 shadow-[0_0_10px_#7B61FF] transition-[height] duration-75 ease-out"></div>
 
                 <!-- Paso 1 -->
                 <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
@@ -903,25 +903,27 @@
                 toggle.addEventListener('click', () => {
                     const content = toggle.nextElementSibling;
                     const icon = toggle.querySelector('.faq-icon');
-                    const currentColumn = toggle.closest('.faq-column');
+                    const container = toggle.closest('.space-y-4') || document;
                     
-                    currentColumn.querySelectorAll('.faq-content').forEach(c => {
+                    // Cerrar todos los demás
+                    container.querySelectorAll('.faq-content').forEach(c => {
                         if (c !== content) {
-                            c.classList.remove('grid-rows-[1fr]');
-                            c.classList.add('grid-rows-[0fr]');
+                            c.classList.add('max-h-0', 'opacity-0');
+                            c.classList.remove('max-h-[500px]', 'opacity-100');
                         }
                     });
-                    currentColumn.querySelectorAll('.faq-icon').forEach(i => {
+                    container.querySelectorAll('.faq-icon').forEach(i => {
                         if (i !== icon) i.classList.remove('rotate-180');
                     });
 
-                    if (content.classList.contains('grid-rows-[0fr]')) {
-                        content.classList.remove('grid-rows-[0fr]');
-                        content.classList.add('grid-rows-[1fr]');
+                    // Alternar actual
+                    if (content.classList.contains('max-h-0')) {
+                        content.classList.remove('max-h-0', 'opacity-0');
+                        content.classList.add('max-h-[500px]', 'opacity-100');
                         icon.classList.add('rotate-180');
                     } else {
-                        content.classList.remove('grid-rows-[1fr]');
-                        content.classList.add('grid-rows-[0fr]');
+                        content.classList.add('max-h-0', 'opacity-0');
+                        content.classList.remove('max-h-[500px]', 'opacity-100');
                         icon.classList.remove('rotate-180');
                     }
                 });
