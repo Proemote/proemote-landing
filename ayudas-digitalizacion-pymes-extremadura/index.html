@@ -105,6 +105,32 @@
 
         select option { background-color: #14141F; color: #F5F7FA; }
 
+        /* Multi-step Form Premium */
+        .form-step { display: none; animation: slideUpFade 0.4s ease forwards; }
+        .form-step.active { display: flex; }
+        @keyframes slideUpFade { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .typeform-radio input:checked ~ div.box, .typeform-checkbox input:checked ~ div.box {
+            border-color: #7B61FF;
+            background-color: rgba(123, 97, 255, 0.1);
+            box-shadow: 0 0 15px rgba(123, 97, 255, 0.15);
+        }
+        .typeform-radio input:checked ~ div.box .letter, .typeform-checkbox input:checked ~ div.box .letter {
+            background-color: #7B61FF;
+            color: white;
+            border-color: #7B61FF;
+        }
+        .typeform-input {
+            background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.2);
+            color: white; font-size: 1.125rem; padding: 0.5rem 0; width: 100%; transition: border-color 0.3s;
+        }
+        .typeform-input:focus { outline: none; border-bottom-color: #7B61FF; }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(123, 97, 255, 0.3); border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(123, 97, 255, 0.6); }
+
         /* Premium Form Soft Glass 3D */
         .glass-form {
             background: 
@@ -308,6 +334,13 @@
 
                 </div>
             </div>
+
+            <!-- CTA Intermedio 1 -->
+            <div class="mt-16 text-center reveal-up">
+                <a href="#contacto" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] focus:outline-none">
+                    Analizar mi viabilidad para estas ayudas <i class="ph ph-arrow-right"></i>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -346,7 +379,7 @@
                         </div>
                     </div>
                     
-                    <p class="text-xs text-textSecondary leading-relaxed">Web nueva, redes gestionadas durante un año completo y material audiovisual profesional. Todo por el coste de unas pocas semanas de trabajo.</p>
+                    <p class="text-xs text-textSecondary leading-relaxed mb-6">Web nueva, redes gestionadas durante un año completo y material audiovisual profesional. Todo por el coste de unas pocas semanas de trabajo.</p>
                 </div>
 
                 <!-- Tarjeta 2 -->
@@ -374,7 +407,7 @@
                         </div>
                     </div>
                     
-                    <p class="text-xs text-textSecondary leading-relaxed">Aparecer en Google cuando te buscan, gestión profesional de redes y una web que convierte. Un canal de captación completo a precio mínimo.</p>
+                    <p class="text-xs text-textSecondary leading-relaxed mb-6">Aparecer en Google cuando te buscan, gestión profesional de redes y una web que convierte. Un canal de captación completo a precio mínimo.</p>
                 </div>
 
                 <!-- Tarjeta 3 -->
@@ -402,62 +435,20 @@
                         </div>
                     </div>
                     
-                    <p class="text-xs text-textSecondary leading-relaxed">E-commerce completo, posicionamiento en buscadores y material visual profesional para tus campañas. Vender online sin la inversión habitual.</p>
+                    <p class="text-xs text-textSecondary leading-relaxed mb-6">E-commerce completo, posicionamiento en buscadores y material visual profesional para tus campañas. Vender online sin la inversión habitual.</p>
                 </div>
 
             </div>
 
             <div class="text-center mt-16 reveal-up delay-200">
-                <div class="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-accent/10 border border-accent/20 max-w-3xl">
+                <div class="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-accent/10 border border-accent/20 max-w-3xl mb-8">
                     <i class="ph-fill ph-info text-accent text-2xl flex-shrink-0"></i>
                     <span class="text-white font-medium text-sm md:text-base text-left">En el diagnóstico gratuito analizamos tu caso y te decimos exactamente qué combinación tiene más sentido para tu negocio.</span>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CÓMO SE APRUEBA -->
-    <section class="py-32 relative z-10 bg-bgSurface/30 border-t border-white/5 with-glow">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 reveal-up">
-                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white mb-6">Qué hace que una solicitud se apruebe y <span class="text-white/40">qué la hace fracasar</span></h2>
-                <p class="text-textSecondary text-lg max-w-3xl mx-auto">El error más habitual es presentar un proyecto genérico sin objetivos claros. La administración valora proyectos concretos, medibles y coherentes con la actividad real del negocio.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-up delay-100">
-                <!-- Valora -->
-                <div class="glass-card p-8 md:p-10 rounded-[2rem] border-white/5 border-t-2 border-t-green-500/50 tilt-effect bg-gradient-to-b from-green-500/5 to-transparent">
-                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400"><i class="ph-fill ph-check-circle text-xl"></i></div>
-                        Lo que la administración valora:
-                    </h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check text-green-400 mt-0.5 text-lg flex-shrink-0"></i> <span>Objetivos de negocio claros y medibles</span></li>
-                        <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check text-green-400 mt-0.5 text-lg flex-shrink-0"></i> <span>Soluciones digitales adaptadas a la actividad real de la empresa</span></li>
-                        <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check text-green-400 mt-0.5 text-lg flex-shrink-0"></i> <span>Planificación coherente con fases definidas</span></li>
-                        <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check text-green-400 mt-0.5 text-lg flex-shrink-0"></i> <span>Herramientas con impacto directo en productividad o ventas</span></li>
-                        <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check text-green-400 mt-0.5 text-lg flex-shrink-0"></i> <span>Documentación completa y bien presentada</span></li>
-                    </ul>
-                </div>
-                
-                <!-- Penaliza -->
-                <div class="glass-card p-8 md:p-10 rounded-[2rem] border-white/5 border-t-2 border-t-red-500/50 tilt-effect bg-gradient-to-b from-red-500/5 to-transparent">
-                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center text-red-400"><i class="ph-fill ph-x-circle text-xl"></i></div>
-                        Lo que penaliza o descarta una solicitud:
-                    </h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-x text-red-400 mt-0.5 text-lg flex-shrink-0"></i> <span>Proyectos vagos sin objetivos específicos</span></li>
-                        <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-x text-red-400 mt-0.5 text-lg flex-shrink-0"></i> <span>Actuaciones que no encajan con la línea solicitada</span></li>
-                        <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-x text-red-400 mt-0.5 text-lg flex-shrink-0"></i> <span>Presupuestos mal justificados o sin desglose</span></li>
-                        <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-x text-red-400 mt-0.5 text-lg flex-shrink-0"></i> <span>Documentación incompleta o fuera de plazo</span></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12 reveal-up delay-200">
-                <div class="inline-block glass-card px-8 py-5 rounded-2xl border-white/10">
-                    <p class="text-white font-medium text-sm md:text-base"><i class="ph-fill ph-shield-check text-primary mr-2 text-lg align-text-bottom"></i> En Proemote definimos el proyecto antes de presentar la solicitud. No presentamos nada que no cumpla los criterios.</p>
+                <div>
+                    <a href="#contacto" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/5 border border-white/10 hover:bg-primary text-white font-medium transition-all duration-300 focus:outline-none shadow-lg">
+                        Consultar opciones <i class="ph ph-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -473,32 +464,44 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 reveal-up delay-100">
                 
-                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect">
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex flex-col h-full">
                     <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 shadow-[0_0_15px_rgba(123,97,255,0.15)]">
                         <i class="ph-fill ph-share-network text-2xl"></i>
                     </div>
-                    <p class="text-textSecondary leading-relaxed text-sm md:text-base"><strong class="text-white">Gestión profesional de tus redes sociales</strong> durante meses por lo que normalmente costaría unas semanas. Con la ayuda cubriendo hasta el 80%, contratar un community manager deja de ser un lujo para convertirse en una decisión rentable.</p>
+                    <p class="text-textSecondary leading-relaxed text-sm md:text-base flex-grow"><strong class="text-white">Gestión profesional de tus redes sociales</strong> durante meses por lo que normalmente costaría unas semanas. Con la ayuda cubriendo hasta el 80%, contratar un community manager deja de ser un lujo para convertirse en una decisión rentable.</p>
+                    <div class="mt-8 pt-4 border-t border-white/5">
+                        <a href="#contacto" class="inline-flex items-center text-primary hover:text-white text-sm font-bold tracking-wide uppercase transition-colors group">Me interesa <i class="ph ph-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i></a>
+                    </div>
                 </div>
 
-                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect">
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex flex-col h-full">
                     <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 shadow-[0_0_15px_rgba(123,97,255,0.15)]">
                         <i class="ph-fill ph-browser text-2xl"></i>
                     </div>
-                    <p class="text-textSecondary leading-relaxed text-sm md:text-base"><strong class="text-white">Tu web rediseñada desde cero</strong> por el coste de unas pocas horas de trabajo. Una web que posiciona en Google y convierte visitas en clientes, financiada casi en su totalidad por la Junta de Extremadura.</p>
+                    <p class="text-textSecondary leading-relaxed text-sm md:text-base flex-grow"><strong class="text-white">Tu web rediseñada desde cero</strong> por el coste de unas pocas horas de trabajo. Una web que posiciona en Google y convierte visitas en clientes, financiada casi en su totalidad por la Junta de Extremadura.</p>
+                    <div class="mt-8 pt-4 border-t border-white/5">
+                        <a href="#contacto" class="inline-flex items-center text-primary hover:text-white text-sm font-bold tracking-wide uppercase transition-colors group">Me interesa <i class="ph ph-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i></a>
+                    </div>
                 </div>
 
-                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect">
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex flex-col h-full">
                     <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 shadow-[0_0_15px_rgba(123,97,255,0.15)]">
                         <i class="ph-fill ph-camera text-2xl"></i>
                     </div>
-                    <p class="text-textSecondary leading-relaxed text-sm md:text-base"><strong class="text-white">Fotografía y vídeo profesional</strong> para tu negocio sin el coste habitual de una producción. Material que utilizarás durante años en redes, web y campañas.</p>
+                    <p class="text-textSecondary leading-relaxed text-sm md:text-base flex-grow"><strong class="text-white">Fotografía y vídeo profesional</strong> para tu negocio sin el coste habitual de una producción. Material que utilizarás durante años en redes, web y campañas.</p>
+                    <div class="mt-8 pt-4 border-t border-white/5">
+                        <a href="#contacto" class="inline-flex items-center text-primary hover:text-white text-sm font-bold tracking-wide uppercase transition-colors group">Me interesa <i class="ph ph-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i></a>
+                    </div>
                 </div>
 
-                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect">
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex flex-col h-full">
                     <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 shadow-[0_0_15px_rgba(123,97,255,0.15)]">
                         <i class="ph-fill ph-hard-drives text-2xl"></i>
                     </div>
-                    <p class="text-textSecondary leading-relaxed text-sm md:text-base"><strong class="text-white">Tu negocio ordenado con un CRM</strong> y facturación electrónica por una inversión mínima. Herramientas que ahorran horas a tu equipo cada semana, pagadas mayoritariamente con fondos públicos.</p>
+                    <p class="text-textSecondary leading-relaxed text-sm md:text-base flex-grow"><strong class="text-white">Tu negocio ordenado con un CRM</strong> y facturación electrónica por una inversión mínima. Herramientas que ahorran horas a tu equipo cada semana, pagadas mayoritariamente con fondos públicos.</p>
+                    <div class="mt-8 pt-4 border-t border-white/5">
+                        <a href="#contacto" class="inline-flex items-center text-primary hover:text-white text-sm font-bold tracking-wide uppercase transition-colors group">Me interesa <i class="ph ph-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i></a>
+                    </div>
                 </div>
 
             </div>
@@ -598,15 +601,22 @@
                 </div>
 
             </div>
+            
+            <!-- CTA Intermedio 2 -->
+            <div class="mt-16 text-center reveal-up">
+                <a href="#contacto" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] focus:outline-none">
+                    Solicitar información sin compromiso <i class="ph ph-arrow-right"></i>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- PROCESO 4 PASOS -->
-    <section id="proceso" class="py-32 relative bg-bgMain border-t border-white/5 with-glow">
+    <section id="proceso" class="py-32 relative z-10 bg-bgMain border-t border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-24 reveal-up">
-                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white">Cómo funciona el proceso.</h2>
-                <p class="text-textSecondary text-xl max-w-2xl mx-auto leading-relaxed">Cuatro pasos. El trabajo lo hacemos nosotros, tu única tarea es contarnos a qué se dedica tu negocio.</p>
+            <div class="text-center mb-20 reveal-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white mb-6">Cuatro pasos. El trabajo lo hacemos nosotros.</h2>
+                <p class="text-textSecondary text-lg max-w-2xl mx-auto">Tu única tarea es contarnos a qué se dedica tu negocio.</p>
             </div>
 
             <div class="relative max-w-5xl mx-auto px-4 md:px-0">
@@ -669,109 +679,12 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- FAQs -->
-    <section class="py-32 relative bg-bgSurface/50 border-t border-white/5 with-glow">
-        <div class="max-w-6xl mx-auto px-6 reveal-up">
-            <div class="text-center mb-16">
-                <h2 class="font-heading text-3xl md:text-5xl font-medium text-white mb-4">Preguntas frecuentes sobre las ayudas a la digitalización en Extremadura</h2>
-                <p class="text-textSecondary text-lg">Resolvemos las dudas antes de empezar.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 items-start">
-                
-                <!-- Columna 1 -->
-                <div class="space-y-2 faq-column">
-                    <div class="border-b border-white/10 faq-item">
-                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
-                            <h3 class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8 m-0">¿Quién puede solicitar estas ayudas?</h3>
-                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
-                        </button>
-                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
-                            <div class="overflow-hidden">
-                                <p class="text-textSecondary pb-6 leading-relaxed">Cualquier autónomo o pyme que desarrolle su actividad económica en Extremadura, independientemente de su sector o forma jurídica.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="border-b border-white/10 faq-item">
-                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
-                            <h3 class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8 m-0">¿Cuánto me pueden subvencionar?</h3>
-                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
-                        </button>
-                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
-                            <div class="overflow-hidden">
-                                <p class="text-textSecondary pb-6 leading-relaxed">Hasta el 80% del gasto subvencionable, con un máximo de 20.000€ por beneficiario.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="border-b border-white/10 faq-item">
-                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
-                            <h3 class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8 m-0">¿Es compatible con el Kit Digital?</h3>
-                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
-                        </button>
-                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
-                            <div class="overflow-hidden">
-                                <p class="text-textSecondary pb-6 leading-relaxed">Sí. Si ya solicitaste el Kit Digital, esta convocatoria es complementaria y puedes acceder a ella igualmente. Cuéntanos tu situación y te informamos.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="border-b border-white/10 faq-item">
-                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
-                            <h3 class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8 m-0">¿Cuánto tiempo tengo para solicitarla?</h3>
-                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
-                        </button>
-                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
-                            <div class="overflow-hidden">
-                                <p class="text-textSecondary pb-6 leading-relaxed">El plazo oficial cierra el 14 de agosto de 2026, pero las ayudas se conceden por orden de entrada. Si el presupuesto se agota antes de esa fecha, la convocatoria se cierra igualmente.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Columna 2 -->
-                <div class="space-y-2 faq-column">
-                    <div class="border-b border-white/10 faq-item">
-                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
-                            <h3 class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8 m-0">¿Proemote se encarga de toda la gestión?</h3>
-                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
-                        </button>
-                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
-                            <div class="overflow-hidden">
-                                <p class="text-textSecondary pb-6 leading-relaxed">Sí. Nos ocupamos del diagnóstico, la preparación de documentación, la presentación ante la Junta de Extremadura y la ejecución completa del proyecto una vez concedido.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="border-b border-white/10 faq-item">
-                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
-                            <h3 class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8 m-0">¿Qué pasa si presento la solicitud y no me la conceden?</h3>
-                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
-                        </button>
-                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
-                            <div class="overflow-hidden">
-                                <p class="text-textSecondary pb-6 leading-relaxed">El diagnóstico previo es gratuito y está pensado precisamente para evitar esa situación. Solo te recomendamos presentar si tu caso cumple los requisitos.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="border-b border-white/10 faq-item">
-                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
-                            <h3 class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8 m-0">¿Tengo que pagar algo por adelantado?</h3>
-                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
-                        </button>
-                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
-                            <div class="overflow-hidden">
-                                <p class="text-textSecondary pb-6 leading-relaxed">El diagnóstico de viabilidad es completamente gratuito y sin compromiso. Los términos del proyecto se acuerdan antes de iniciar cualquier trabajo.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            
+            <!-- CTA Intermedio 3 -->
+            <div class="mt-20 text-center reveal-up">
+                <a href="#contacto" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] focus:outline-none">
+                    Comenzar mi solicitud ahora <i class="ph ph-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -903,39 +816,322 @@
                         </div>
                     </div>
                     
-                    <div>
-                        <form id="ayudas-form" class="proemote-form glass-form tilt-effect p-8 rounded-[2rem] space-y-4 shadow-xl">
+                    <div class="h-full flex flex-col relative">
+                        <form id="ayudas-form" class="proemote-form glass-form tilt-effect p-8 md:p-10 rounded-[2rem] shadow-xl h-full min-h-[550px] flex flex-col relative overflow-hidden">
                             <!-- Honeypot Anti-Spam Field -->
                             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                             <!-- Campo Origen para Google Sheets -->
-                            <input type="hidden" name="Origen" value="Ayudas Pymes Extremadura 2026">
-
-                            <div class="flex flex-col md:flex-row gap-4">
-                                <input type="text" name="Nombre" aria-label="Nombre de la empresa o autónomo" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="Nombre de la empresa o autónomo">
-                                <input type="email" name="Email" aria-label="Email de contacto" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="Email de contacto">
+                            <input type="hidden" name="Origen" value="Ayudas Pymes Extremadura 2026 - Typeform">
+                            <!-- Barra de progreso -->
+                            <div class="w-full bg-white/10 rounded-full h-1.5 mb-6">
+                                <div id="form-progress" class="bg-primary h-1.5 rounded-full transition-all duration-500 ease-out" style="width: 14%;"></div>
                             </div>
-                            
-                            <input type="tel" name="Telefono" aria-label="Teléfono de contacto" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="Teléfono de contacto">
-                            
-                            <select name="Tipo" aria-label="Tipo de entidad" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer shadow-inner">
-                                <option value="" disabled selected>Tipo de entidad</option>
-                                <option value="Autonomo">Autónomo</option>
-                                <option value="Pyme">PYME (Sociedad)</option>
-                            </select>
 
-                            <textarea name="Mensaje" aria-label="Mensaje o detalles del negocio" rows="3" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all resize-none shadow-inner" placeholder="Cuéntanos brevemente a qué se dedica tu negocio y qué necesitas digitalizar (Ej: Necesito una nueva web y gestionar redes)."></textarea>
-                            
-                            <div class="flex items-start gap-3 px-2">
-                                <input type="checkbox" id="check-priv-ayudas" name="Privacidad" value="Aceptada" required class="mt-1 w-4 h-4 accent-primary cursor-pointer">
-                                <label for="check-priv-ayudas" class="text-sm text-textSecondary leading-tight cursor-pointer italic">He leído y acepto la <a href="/privacidad" target="_blank" class="text-primary hover:text-accent underline decoration-primary/30">política de privacidad</a>.</label>
+                            <!-- PASO 1 -->
+                            <div class="form-step active flex-col flex-grow" data-step="1">
+                                <h3 class="text-xl md:text-2xl font-heading text-white mb-2">1 <i class="ph ph-arrow-right text-primary align-middle text-lg mx-1"></i> ¿Ya has sido beneficiario del Kit Digital? *</h3>
+                                <p class="text-sm text-textSecondary mb-6">Saber esto nos ayuda a cruzar datos, ya que esta ayuda en Extremadura es perfectamente compatible y complementaria.</p>
+                                
+                                <div class="grid grid-cols-1 gap-3 mt-4">
+                                    <label class="typeform-radio relative cursor-pointer group">
+                                        <input type="radio" name="KitDigital" value="No" required class="hidden" onchange="autoAdvance()">
+                                        <div class="box flex items-center p-4 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all">
+                                            <span class="letter w-6 h-6 rounded-full border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-4 transition-colors">A</span>
+                                            <span class="text-white font-medium">No, aún no lo he solicitado.</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-radio relative cursor-pointer group">
+                                        <input type="radio" name="KitDigital" value="Si" class="hidden" onchange="autoAdvance()">
+                                        <div class="box flex items-center p-4 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all">
+                                            <span class="letter w-6 h-6 rounded-full border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-4 transition-colors">B</span>
+                                            <span class="text-white font-medium">Sí, ya lo tengo o lo he pedido.</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                
+                                <div class="mt-auto pt-6 flex items-center gap-4">
+                                    <button type="button" onclick="nextStep()" class="px-6 py-2.5 bg-primary hover:bg-accent text-white font-bold rounded-xl transition-all flex items-center gap-2 shadow-lg">OK <i class="ph ph-caret-right"></i></button>
+                                    <span class="text-xs text-textSecondary hidden sm:inline-block">pulsa <strong>Enter ↵</strong></span>
+                                </div>
                             </div>
-                            
-                            <button type="submit" class="w-full py-4 bg-white text-bgMain font-bold rounded-xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2 group btn-submit">
-                                Solicitar diagnóstico de viabilidad <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                            </button>
-                            <p class="text-center text-xs text-textSecondary mt-3">Sin compromiso. Si tu caso no aplica, te lo decimos igualmente.</p>
-                            
-                            <div class="form-msg hidden text-center p-4 rounded-xl mt-4 font-medium transition-all text-sm"></div>
+
+                            <!-- PASO 2 -->
+                            <div class="form-step flex-col flex-grow" data-step="2">
+                                <h3 class="text-xl md:text-2xl font-heading text-white mb-2">2 <i class="ph ph-arrow-right text-primary align-middle text-lg mx-1"></i> ¿En qué áreas necesita invertir tu negocio? *</h3>
+                                <p class="text-sm text-textSecondary mb-4">Puedes marcar varias. Recuerda que la subvención cubre hasta el 80% del gasto (máximo 20.000€).</p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4 overflow-y-auto max-h-[300px] pr-2 custom-scrollbar">
+                                    <label class="typeform-checkbox relative cursor-pointer group">
+                                        <input type="checkbox" name="Servicios" value="Web (500€)" class="hidden">
+                                        <div class="box flex items-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">A</span>
+                                            <span class="text-white text-sm font-medium">Página Web (hasta 500€)</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-checkbox relative cursor-pointer group">
+                                        <input type="checkbox" name="Servicios" value="Tienda Online (4.000€)" class="hidden">
+                                        <div class="box flex items-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">B</span>
+                                            <span class="text-white text-sm font-medium">Tienda Online (hasta 4.000€)</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-checkbox relative cursor-pointer group">
+                                        <input type="checkbox" name="Servicios" value="SEO/SEM (7.000€)" class="hidden">
+                                        <div class="box flex items-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">C</span>
+                                            <span class="text-white text-sm font-medium">SEO / Publicidad (hasta 7.000€)</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-checkbox relative cursor-pointer group">
+                                        <input type="checkbox" name="Servicios" value="Redes (3.000€)" class="hidden">
+                                        <div class="box flex items-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">D</span>
+                                            <span class="text-white text-sm font-medium">Gestión Redes (hasta 3.000€)</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-checkbox relative cursor-pointer group">
+                                        <input type="checkbox" name="Servicios" value="Multimedia (2.000€)" class="hidden">
+                                        <div class="box flex items-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">E</span>
+                                            <span class="text-white text-sm font-medium">Foto/Vídeo (hasta 2.000€)</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-checkbox relative cursor-pointer group">
+                                        <input type="checkbox" name="Servicios" value="CRM/Gestión (5.000€)" class="hidden">
+                                        <div class="box flex items-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">F</span>
+                                            <span class="text-white text-sm font-medium">CRM / Gestión (hasta 5.000€)</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-checkbox relative cursor-pointer group md:col-span-2">
+                                        <input type="checkbox" name="Servicios" value="Asesoramiento" class="hidden">
+                                        <div class="box flex items-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">G</span>
+                                            <span class="text-white text-sm font-medium">Aún no lo sé, necesito que me asesoren.</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                
+                                <div class="mt-auto pt-6 flex items-center gap-4">
+                                    <button type="button" onclick="prevStep()" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-all flex-shrink-0"><i class="ph ph-caret-left"></i></button>
+                                    <button type="button" onclick="nextStep()" class="px-6 py-2.5 bg-primary hover:bg-accent text-white font-bold rounded-xl transition-all flex items-center gap-2 shadow-lg">OK <i class="ph ph-caret-right"></i></button>
+                                    <span class="text-xs text-textSecondary hidden sm:inline-block">pulsa <strong>Enter ↵</strong></span>
+                                </div>
+                            </div>
+
+                            <!-- PASO 3 -->
+                            <div class="form-step flex-col flex-grow" data-step="3">
+                                <h3 class="text-xl md:text-2xl font-heading text-white mb-6">3 <i class="ph ph-arrow-right text-primary align-middle text-lg mx-1"></i> ¿Actualmente tienes página web o tienda online operativa? *</h3>
+                                
+                                <div class="grid grid-cols-1 gap-3 mt-4">
+                                    <label class="typeform-radio relative cursor-pointer group">
+                                        <input type="radio" name="TieneWeb" value="Renovar" required class="hidden" onchange="autoAdvance()">
+                                        <div class="box flex items-center p-4 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all">
+                                            <span class="letter w-6 h-6 rounded-full border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-4 transition-colors">A</span>
+                                            <span class="text-white font-medium">Sí, pero necesita un lavado de cara completo.</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-radio relative cursor-pointer group">
+                                        <input type="radio" name="TieneWeb" value="Mejorar SEO" class="hidden" onchange="autoAdvance()">
+                                        <div class="box flex items-center p-4 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all">
+                                            <span class="letter w-6 h-6 rounded-full border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-4 transition-colors">B</span>
+                                            <span class="text-white font-medium">Sí, y solo quiero mejorarla (SEO/Ads).</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-radio relative cursor-pointer group">
+                                        <input type="radio" name="TieneWeb" value="Nueva" class="hidden" onchange="autoAdvance()">
+                                        <div class="box flex items-center p-4 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all">
+                                            <span class="letter w-6 h-6 rounded-full border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-4 transition-colors">C</span>
+                                            <span class="text-white font-medium">No, partimos desde cero.</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-radio relative cursor-pointer group">
+                                        <input type="radio" name="TieneWeb" value="No" class="hidden" onchange="autoAdvance()">
+                                        <div class="box flex items-center p-4 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all">
+                                            <span class="letter w-6 h-6 rounded-full border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-4 transition-colors">D</span>
+                                            <span class="text-white font-medium">No tengo ni necesito web por ahora.</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                
+                                <div class="mt-auto pt-6 flex items-center gap-4">
+                                    <button type="button" onclick="prevStep()" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-all flex-shrink-0"><i class="ph ph-caret-left"></i></button>
+                                    <button type="button" onclick="nextStep()" class="px-6 py-2.5 bg-primary hover:bg-accent text-white font-bold rounded-xl transition-all flex items-center gap-2 shadow-lg">OK <i class="ph ph-caret-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- PASO 4 -->
+                            <div class="form-step flex-col flex-grow" data-step="4">
+                                <h3 class="text-xl md:text-2xl font-heading text-white mb-2">4 <i class="ph ph-arrow-right text-primary align-middle text-lg mx-1"></i> ¿Cuál es el volumen aproximado de ingresos mensuales de tu negocio? *</h3>
+                                <p class="text-sm text-textSecondary mb-4">Este dato es confidencial y solo nos sirve para orientar el proyecto a tu capacidad real.</p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4 overflow-y-auto max-h-[300px] pr-2 custom-scrollbar">
+                                    <label class="typeform-radio relative cursor-pointer group">
+                                        <input type="radio" name="Ingresos" value="< 1.000€" required class="hidden" onchange="autoAdvance()">
+                                        <div class="box flex items-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded-full border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">A</span>
+                                            <span class="text-white text-sm font-medium">Menos de 1.000€ / mes</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-radio relative cursor-pointer group">
+                                        <input type="radio" name="Ingresos" value="1k-3k" class="hidden" onchange="autoAdvance()">
+                                        <div class="box flex items-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded-full border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">B</span>
+                                            <span class="text-white text-sm font-medium">Entre 1.000€ y 3.000€</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-radio relative cursor-pointer group">
+                                        <input type="radio" name="Ingresos" value="3k-5k" class="hidden" onchange="autoAdvance()">
+                                        <div class="box flex items-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded-full border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">C</span>
+                                            <span class="text-white text-sm font-medium">Entre 3.000€ y 5.000€</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-radio relative cursor-pointer group">
+                                        <input type="radio" name="Ingresos" value="5k-10k" class="hidden" onchange="autoAdvance()">
+                                        <div class="box flex items-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded-full border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">D</span>
+                                            <span class="text-white text-sm font-medium">Entre 5.000€ y 10.000€</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-radio relative cursor-pointer group">
+                                        <input type="radio" name="Ingresos" value="+10k" class="hidden" onchange="autoAdvance()">
+                                        <div class="box flex items-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded-full border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">E</span>
+                                            <span class="text-white text-sm font-medium">Más de 10.000€ / mes</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-radio relative cursor-pointer group">
+                                        <input type="radio" name="Ingresos" value="No facturo" class="hidden" onchange="autoAdvance()">
+                                        <div class="box flex items-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded-full border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">F</span>
+                                            <span class="text-white text-sm font-medium">Aún no he empezado a facturar</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                
+                                <div class="mt-auto pt-6 flex items-center gap-4">
+                                    <button type="button" onclick="prevStep()" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-all flex-shrink-0"><i class="ph ph-caret-left"></i></button>
+                                    <button type="button" onclick="nextStep()" class="px-6 py-2.5 bg-primary hover:bg-accent text-white font-bold rounded-xl transition-all flex items-center gap-2 shadow-lg">OK <i class="ph ph-caret-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- PASO 5 -->
+                            <div class="form-step flex-col flex-grow" data-step="5">
+                                <h3 class="text-xl md:text-2xl font-heading text-white mb-6">5 <i class="ph ph-arrow-right text-primary align-middle text-lg mx-1"></i> ¿El domicilio fiscal de tu empresa o actividad está en Extremadura? *</h3>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+                                    <label class="typeform-radio relative cursor-pointer group">
+                                        <input type="radio" name="Extremadura" value="Si" required class="hidden" onchange="autoAdvance()">
+                                        <div class="box flex items-center p-4 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded-full border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">A</span>
+                                            <span class="text-white font-medium">Sí, en Extremadura.</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-radio relative cursor-pointer group">
+                                        <input type="radio" name="Extremadura" value="No" class="hidden" onchange="autoAdvance()">
+                                        <div class="box flex items-center p-4 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded-full border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">B</span>
+                                            <span class="text-white font-medium">No.</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                
+                                <div class="mt-auto pt-6 flex items-center gap-4">
+                                    <button type="button" onclick="prevStep()" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-all flex-shrink-0"><i class="ph ph-caret-left"></i></button>
+                                    <button type="button" onclick="nextStep()" class="px-6 py-2.5 bg-primary hover:bg-accent text-white font-bold rounded-xl transition-all flex items-center gap-2 shadow-lg">OK <i class="ph ph-caret-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- PASO 6 -->
+                            <div class="form-step flex-col flex-grow" data-step="6">
+                                <h3 class="text-xl md:text-2xl font-heading text-white mb-2">6 <i class="ph ph-arrow-right text-primary align-middle text-lg mx-1"></i> ¿Cuál es el tamaño actual de tu equipo? *</h3>
+                                <p class="text-sm text-textSecondary mb-4">El número de empleados puede abrir la puerta a otras líneas de financiación paralelas.</p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4 overflow-y-auto max-h-[300px] pr-2 custom-scrollbar">
+                                    <label class="typeform-radio relative cursor-pointer group md:col-span-2">
+                                        <input type="radio" name="Trabajadores" value="Autónomo" required class="hidden" onchange="autoAdvance()">
+                                        <div class="box flex items-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded-full border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">A</span>
+                                            <span class="text-white text-sm font-medium">Soy autónomo (0 empleados)</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-radio relative cursor-pointer group">
+                                        <input type="radio" name="Trabajadores" value="1-3" class="hidden" onchange="autoAdvance()">
+                                        <div class="box flex items-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded-full border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">B</span>
+                                            <span class="text-white text-sm font-medium">Microempresa (1 a 3)</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-radio relative cursor-pointer group">
+                                        <input type="radio" name="Trabajadores" value="4-10" class="hidden" onchange="autoAdvance()">
+                                        <div class="box flex items-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded-full border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">C</span>
+                                            <span class="text-white text-sm font-medium">Pequeña (4 a 10)</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-radio relative cursor-pointer group">
+                                        <input type="radio" name="Trabajadores" value="11-50" class="hidden" onchange="autoAdvance()">
+                                        <div class="box flex items-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded-full border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">D</span>
+                                            <span class="text-white text-sm font-medium">Mediana (11 a 50)</span>
+                                        </div>
+                                    </label>
+                                    <label class="typeform-radio relative cursor-pointer group">
+                                        <input type="radio" name="Trabajadores" value="+50" class="hidden" onchange="autoAdvance()">
+                                        <div class="box flex items-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all h-full">
+                                            <span class="letter w-6 h-6 flex-shrink-0 rounded-full border border-white/20 flex items-center justify-center text-xs text-textSecondary mr-3 transition-colors">E</span>
+                                            <span class="text-white text-sm font-medium">Más de 50 empleados</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                
+                                <div class="mt-auto pt-6 flex items-center gap-4">
+                                    <button type="button" onclick="prevStep()" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-all flex-shrink-0"><i class="ph ph-caret-left"></i></button>
+                                    <button type="button" onclick="nextStep()" class="px-6 py-2.5 bg-primary hover:bg-accent text-white font-bold rounded-xl transition-all flex items-center gap-2 shadow-lg">OK <i class="ph ph-caret-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- PASO 7 (Final) -->
+                            <div class="form-step flex-col flex-grow" data-step="7">
+                                <h3 class="text-xl md:text-2xl font-heading text-white mb-2">7 <i class="ph ph-arrow-right text-primary align-middle text-lg mx-1"></i> Último paso. ¿Dónde te enviamos el diagnóstico?</h3>
+                                <p class="text-sm text-textSecondary mb-4">Te enviaremos los resultados detallados y los siguientes pasos.</p>
+                                
+                                <div class="space-y-4 mt-2 overflow-y-auto max-h-[350px] pr-2 custom-scrollbar">
+                                    <div>
+                                        <label class="block text-sm text-white/80 mb-1">Tu nombre completo *</label>
+                                        <input type="text" name="Nombre" aria-label="Tu nombre completo" required class="typeform-input" placeholder="Escribe tu respuesta aquí">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm text-white/80 mb-1">Nombre de tu empresa o marca *</label>
+                                        <input type="text" name="Empresa" aria-label="Nombre de tu empresa o marca" required class="typeform-input" placeholder="Escribe tu respuesta aquí">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm text-white/80 mb-1">Teléfono (para dudas rápidas) *</label>
+                                        <input type="tel" name="Telefono" aria-label="Teléfono (para dudas rápidas)" required class="typeform-input" placeholder="+34 600 000 000">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm text-white/80 mb-1">Tu mejor email *</label>
+                                        <input type="email" name="Email" aria-label="Tu mejor email" required class="typeform-input" placeholder="Escribe tu email aquí">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm text-white/80 mb-1">URL de tu web o red social (opcional)</label>
+                                        <input type="url" name="Web" aria-label="URL de tu web o red social (opcional)" class="typeform-input" placeholder="https://">
+                                    </div>
+
+                                    <div class="flex items-start gap-3 mt-4 px-1">
+                                        <input type="checkbox" id="check-priv-ayudas" name="Privacidad" value="Aceptada" required class="mt-1 w-4 h-4 accent-primary cursor-pointer">
+                                        <label for="check-priv-ayudas" class="text-xs text-textSecondary leading-tight cursor-pointer italic">He leído y acepto la <a href="/privacidad" target="_blank" class="text-primary hover:text-accent underline decoration-primary/30">política de privacidad</a>.</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-auto pt-6 flex items-center gap-4 border-t border-white/5">
+                                    <button type="button" onclick="prevStep()" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-all flex-shrink-0"><i class="ph ph-caret-left"></i></button>
+                                    <button type="submit" class="px-8 py-3 bg-primary hover:bg-accent text-white font-bold rounded-full transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(123,97,255,0.4)] btn-submit">Enviar solicitud <i class="ph ph-paper-plane-tilt"></i></button>
+                                </div>
+                                
+                                <div class="form-msg hidden text-center p-4 rounded-xl mt-4 font-medium transition-all text-sm"></div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -1165,94 +1361,101 @@
             });
             handleTimeline();
 
-            // Mobile Menu Toggle
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
+            // Lógica del Formulario Multi-Step Typeform-like
+            const formEl = document.getElementById('ayudas-form');
+            if (formEl && formEl.classList.contains('glass-form') && formEl.querySelector('.form-step')) {
+                window.currentStep = 1;
+                window.totalSteps = 7;
 
-            // Lógica Hover Mega Menú (Solo Desktop)
-            const servicesBtn = document.getElementById('services-menu-btn');
-            const megaMenu = document.getElementById('mega-menu');
-            const megaMenuPanel = document.getElementById('mega-menu-panel');
-            const megaMenuBackdrop = document.getElementById('mega-menu-backdrop');
-            let hideTimeout;
-            let displayTimeout;
-
-            const showMenu = () => {
-                clearTimeout(hideTimeout);
-                clearTimeout(displayTimeout);
-                if(megaMenu) {
-                    megaMenu.classList.remove('hidden');
-                    setTimeout(() => {
-                        if(megaMenuPanel) megaMenuPanel.classList.remove('-translate-y-4', 'opacity-0');
-                        if(megaMenuBackdrop) megaMenuBackdrop.classList.remove('opacity-0');
-                    }, 10);
-                }
-            };
-
-            const hideMenu = () => {
-                hideTimeout = setTimeout(() => {
-                    if(megaMenuPanel) megaMenuPanel.classList.add('-translate-y-4', 'opacity-0');
-                    if(megaMenuBackdrop) megaMenuBackdrop.classList.add('opacity-0');
-                    displayTimeout = setTimeout(() => {
-                        if(megaMenu) megaMenu.classList.add('hidden');
-                    }, 300);
-                }, 150);
-            };
-
-            if(window.innerWidth > 768 && servicesBtn && megaMenu) {
-                servicesBtn.addEventListener('mouseenter', showMenu);
-                servicesBtn.addEventListener('mouseleave', hideMenu);
-                if(megaMenuPanel) {
-                    megaMenuPanel.addEventListener('mouseenter', showMenu);
-                    megaMenuPanel.addEventListener('mouseleave', hideMenu);
-                }
-            }
-
-            // FAQ Accordion
-            document.querySelectorAll('.faq-toggle').forEach(toggle => {
-                toggle.addEventListener('click', () => {
-                    const content = toggle.nextElementSibling;
-                    const icon = toggle.querySelector('.faq-icon');
-                    const currentColumn = toggle.closest('.faq-column');
-                    
-                    currentColumn.querySelectorAll('.faq-content').forEach(c => {
-                        if (c !== content) { c.classList.remove('grid-rows-[1fr]'); c.classList.add('grid-rows-[0fr]'); }
-                    });
-                    currentColumn.querySelectorAll('.faq-icon').forEach(i => {
-                        if (i !== icon) i.classList.remove('rotate-180');
-                    });
-
-                    if (content.classList.contains('grid-rows-[0fr]')) {
-                        content.classList.remove('grid-rows-[0fr]'); content.classList.add('grid-rows-[1fr]'); icon.classList.add('rotate-180');
-                    } else {
-                        content.classList.remove('grid-rows-[1fr]'); content.classList.add('grid-rows-[0fr]'); icon.classList.remove('rotate-180');
+                document.querySelectorAll('.form-step').forEach(step => {
+                    if(parseInt(step.getAttribute('data-step')) !== currentStep) {
+                        step.classList.add('hidden');
+                        step.classList.remove('active');
                     }
                 });
-            });
 
-            // Tilt Effect 3D
-            document.querySelectorAll('.tilt-effect').forEach(el => {
-                el.addEventListener('mouseenter', () => el.style.transition = 'transform 0.1s ease-out, box-shadow 0.3s ease');
-                el.addEventListener('mousemove', (e) => {
-                    const rect = el.getBoundingClientRect();
-                    const rotateX = (((e.clientY - rect.top) - (rect.height / 2)) / (rect.height / 2)) * 1.5; 
-                    const rotateY = (((e.clientX - rect.left) - (rect.width / 2)) / (rect.width / 2)) * -1.5;
-                    el.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`); el.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-                    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(0.99, 0.99, 0.99)`;
-                });
-                el.addEventListener('mouseleave', () => {
-                    el.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease';
-                    el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-                    el.style.setProperty('--mouse-x', `50%`); el.style.setProperty('--mouse-y', `50%`);
-                });
-            });
+                window.updateFormUI = function() {
+                    document.querySelectorAll('.form-step').forEach(step => {
+                        step.classList.add('hidden');
+                        step.classList.remove('active');
+                    });
+                    const nextEl = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+                    if(nextEl) {
+                        nextEl.classList.remove('hidden');
+                        void nextEl.offsetWidth; 
+                        nextEl.classList.add('active');
+                    }
+                    const progress = (currentStep / totalSteps) * 100;
+                    const progressEl = document.getElementById('form-progress');
+                    if(progressEl) progressEl.style.width = `${progress}%`;
+                };
 
-            // Form Submit Feedback Simulator
+                window.validateCurrentStep = function() {
+                    const currentStepEl = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+                    if(!currentStepEl) return true;
+                    
+                    const requiredRadios = currentStepEl.querySelectorAll('input[type="radio"][required]');
+                    if(requiredRadios.length > 0) {
+                        const name = requiredRadios[0].name;
+                        const checked = currentStepEl.querySelector(`input[name="${name}"]:checked`);
+                        if(!checked) return false;
+                    }
+
+                    const checkboxes = currentStepEl.querySelectorAll('input[type="checkbox"][name="Servicios"]');
+                    if(checkboxes.length > 0) {
+                        const checked = currentStepEl.querySelectorAll('input[type="checkbox"][name="Servicios"]:checked');
+                        if(checked.length === 0) return false; 
+                    }
+
+                    const requiredInputs = currentStepEl.querySelectorAll('input[type="text"][required], input[type="email"][required], input[type="tel"][required]');
+                    let allFilled = true;
+                    requiredInputs.forEach(input => {
+                        if(!input.value.trim()) allFilled = false;
+                    });
+                    return allFilled;
+                };
+
+                window.nextStep = function() {
+                    if(!validateCurrentStep()) {
+                        const stepEl = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+                        if(stepEl) {
+                            stepEl.classList.add('animate-pulse');
+                            setTimeout(() => stepEl.classList.remove('animate-pulse'), 400);
+                        }
+                        return;
+                    }
+                    if (currentStep < totalSteps) {
+                        currentStep++;
+                        updateFormUI();
+                    }
+                };
+
+                window.prevStep = function() {
+                    if (currentStep > 1) {
+                        currentStep--;
+                        updateFormUI();
+                    }
+                };
+
+                window.autoAdvance = function() {
+                    setTimeout(() => {
+                        nextStep();
+                    }, 350);
+                };
+
+                formEl.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+                        e.preventDefault();
+                        if (currentStep < totalSteps) {
+                            nextStep();
+                        } else if (currentStep === totalSteps && validateCurrentStep()) {
+                            formEl.querySelector('.btn-submit').click();
+                        }
+                    }
+                });
+            }
+
+            // Form Submit Feedback Simulator (Adapta al script real)
             document.querySelectorAll('.proemote-form').forEach(form => {
                 form.addEventListener('submit', e => {
                     e.preventDefault();
