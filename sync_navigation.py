@@ -23,11 +23,11 @@ new_header_html = """    <!-- BARRA DE ANUNCIO GLOBAL -->
                 
                 <!-- DROPDOWN AYUDAS 2026 -->
                 <div class="relative group py-2">
-                    <button class="hover:text-textMain transition-colors flex items-center gap-1.5 focus:outline-none">
+                    <a href="/subvenciones-extremadura/" class="hover:text-textMain transition-colors flex items-center gap-1.5 focus:outline-none">
                         Ayudas 2026 
                         <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-primary/20 text-primary border border-primary/30 leading-none">Nuevo</span>
                         <i class="ph ph-caret-down text-xs transition-transform group-hover:rotate-180"></i>
-                    </button>
+                    </a>
                     <div class="absolute top-full left-0 mt-1 w-64 bg-bgSurface/95 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 flex flex-col gap-2">
                         <a href="/ayudas-digitalizacion-pymes-extremadura/" class="p-2.5 rounded-xl hover:bg-white/5 transition-all flex items-start gap-3 group/item">
                             <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover/item:bg-primary group-hover/item:text-white transition-colors flex-shrink-0">
