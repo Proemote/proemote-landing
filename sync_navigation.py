@@ -162,7 +162,36 @@ new_header_html = """    <!-- BARRA DE ANUNCIO GLOBAL -->
                 </a>
             </div>
         </div>
-    </nav>"""
+    </nav>
+    <script>
+    /* Fix: sync announcement bar (fixed) + nav position */
+    (function(){
+        var bar = document.getElementById('announcement-bar');
+        var nav = document.querySelector('.glass-nav');
+        if (!bar || !nav) return;
+        bar.style.position = 'fixed';
+        bar.style.top = '0';
+        bar.style.left = '0';
+        bar.style.right = '0';
+        bar.style.zIndex = '70';
+        
+        var spacer = document.getElementById('announcement-spacer');
+        if (!spacer) {
+            spacer = document.createElement('div');
+            spacer.id = 'announcement-spacer';
+            spacer.setAttribute('aria-hidden', 'true');
+            bar.parentNode.insertBefore(spacer, bar.nextSibling);
+        }
+        function syncHeader() {
+            var h = bar.offsetHeight;
+            nav.style.top = h + 'px';
+            spacer.style.height = h + 'px';
+        }
+        syncHeader();
+        window.addEventListener('load', syncHeader);
+        window.addEventListener('resize', syncHeader);
+    })();
+    </script>"""
 
 # Buscar todos los archivos HTML
 html_files = []
