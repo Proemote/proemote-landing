@@ -1566,7 +1566,7 @@
             }
 
             // Form Submit (Conexión real con Google Sheets)
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbwbftkCLe-AkkeHxOyQ7esOzdjkMF-xXOvtc6Xg7GgtN6jKBUYPAJKGQo2hhOmcKJuJSg/exec';
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzWaFJ-eTPZRaZADOvGHvgTt2rfP70Grzv8uHFhSRqY7aCIREbmgwia-wiuJTcncu7eyQ/exec';
             
             document.querySelectorAll('.proemote-form').forEach(form => {
                 form.addEventListener('submit', e => {
@@ -1586,38 +1586,17 @@
                     btn.innerHTML = '<span class="animate-pulse italic">Analizando viabilidad...</span>';
                     btn.disabled = true;
 
-                    // Construir payload compatible con el Google Apps Script existente
+                    // Construir payload dinámico con variables individuales para la nueva hoja dedicada
                     const rawData = new FormData(form);
                     const payload = new FormData();
                     
-                    // Campos estándar requeridos por la hoja y el script
-                    payload.append('Nombre', rawData.get('Nombre') || '');
-                    payload.append('Email', rawData.get('Email') || '');
-                    payload.append('Telefono', rawData.get('Telefono') || '');
-                    payload.append('Empresa', rawData.get('Empresa') || '');
-                    payload.append('Origen', rawData.get('Origen') || 'Ayudas Pymes Extremadura 2026 - Typeform');
-                    
-                    // Mapeamos los servicios seleccionados al campo "Interes" que espera tu Apps Script
+                    // Agrupar checkboxes múltiples (Servicios) en una sola cadena
                     const serviciosSeleccionados = rawData.getAll('Servicios');
-                    payload.append('Interes', 'Ayudas 2026: ' + (serviciosSeleccionados.join(', ') || 'Asesoramiento'));
                     
-                    // Empaquetamos todas las preguntas adicionales interactivas en el campo "Mensaje"
-                    const kitDigital = rawData.get('KitDigital') === 'Si' ? 'Sí' : 'No';
-                    const tieneWeb = rawData.get('TieneWeb') || 'No indicado';
-                    const ingresos = rawData.get('Ingresos') || 'No indicado';
-                    const extremadura = rawData.get('Extremadura') || 'No indicado';
-                    const trabajadores = rawData.get('Trabajadores') || 'No indicado';
-                    const webActual = rawData.get('Web') || 'No indicada';
-                    
-                    const mensajeText = `[Formulario de Diagnóstico Ayudas 2026]
-• ¿Beneficiario Kit Digital?: ${kitDigital}
-• ¿Tiene web/tienda activa?: ${tieneWeb}
-• Volumen de ingresos: ${ingresos}
-• ¿Es de Extremadura?: ${extremadura}
-• Número de empleados: ${trabajadores}
-• Web o Red social actual: ${webActual}`;
-                    
-                    payload.append('Mensaje', mensajeText);
+                    rawData.forEach((value, key) => {
+                        if (key !== 'Servicios') payload.append(key, value);
+                    });
+                    payload.append('Servicios', serviciosSeleccionados.join(', ') || 'Ninguno');
 
                     fetch(scriptURL, { method: 'POST', body: payload })
                         .then(res => res.text())
