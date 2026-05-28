@@ -6,12 +6,33 @@
     <title>Ayudas Digitalización Pymes Extremadura 2026 | Proemote</title>
     <meta name="description" content="Hasta 20.000€ para digitalizar tu negocio en Extremadura. Proemote te ayuda a solicitar la ayuda y ejecutar el proyecto. Plazo abierto hasta el 14 de agosto de 2026.">
     
+    <!-- Pistas de recurso para CDN Tailwind y fuentes -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+    <!-- Preload del compilador de Tailwind CSS -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Preload de las fuentes de Phosphor Icons (Regular y Fill) -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Hojas de estilo de Phosphor Icons (Regular y Fill) cargadas asíncronamente -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.min.css">
+    </noscript>
+
+    <!-- Google Fonts cargada asíncronamente -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap">
+    </noscript>
 
     <!-- Schema Markup SEO Local -->
     <script type="application/ld+json">
@@ -74,7 +95,7 @@
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal-up.active { opacity: 1; transform: translateY(0); }
         
         /* FOCO Physical Engine Animations */
@@ -117,11 +138,11 @@
                 <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                 <!-- Campo Origen para Google Sheets -->
                 <input type="hidden" name="Origen" value="Modal Landing Page">
-                <input type="text" name="Nombre" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="Tu nombre completo">
-                <input type="email" name="Email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="hola@tuempresa.com">
-                <input type="tel" name="Telefono" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="+34 600 000 000 (Opcional)">
+                <input type="text" name="Nombre" aria-label="Tu nombre completo" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="Tu nombre completo">
+                <input type="email" name="Email" aria-label="Correo electrónico" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="hola@tuempresa.com">
+                <input type="tel" name="Telefono" aria-label="Teléfono de contacto (Opcional)" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="+34 600 000 000 (Opcional)">
                 
-                <select name="Fase" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer">
+                <select name="Fase" aria-label="¿En qué fase está tu negocio?" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer">
                     <option value="" disabled selected>¿En qué fase está tu negocio?</option>
                     <option value="Empiezo desde cero">Empiezo desde cero — necesito identidad y presencia web</option>
                     <option value="Ya tengo presencia">Ya tengo presencia pero no convierte</option>
@@ -129,7 +150,7 @@
                     <option value="Servicio especifico">Solo necesito un servicio específico</option>
                 </select>
 
-                <select name="Servicio" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer">
+                <select name="Servicio" aria-label="¿Qué servicio te interesa?" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer">
                     <option value="" disabled selected>¿Qué servicio te interesa?</option>
                     <option value="Estrategia y Marca">Estrategia de marca e identidad visual</option>
                     <option value="Diseño Web">Diseño web y ecosistema digital</option>
@@ -139,7 +160,7 @@
                     <option value="Orientacion">No sé aún, necesito orientación</option>
                 </select>
 
-                <textarea name="Mensaje" rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all resize-none" placeholder="¿Qué quieres conseguir? ¿Cuál es tu mayor problema ahora mismo? (Opcional)"></textarea>
+                <textarea name="Mensaje" aria-label="Mensaje o detalles adicionales" rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all resize-none" placeholder="¿Qué quieres conseguir? ¿Cuál es tu mayor problema ahora mismo? (Opcional)"></textarea>
                 
                 <div class="flex items-start gap-3 px-2">
                     <input type="checkbox" id="check-priv-modal" name="Privacidad" value="Aceptada" required class="mt-1 w-4 h-4 accent-primary cursor-pointer">
@@ -158,7 +179,7 @@
     <nav class="fixed w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="https://proemote.es/" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
-                <img src="https://i.imgur.com/jwddFTY.png" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain">
+                <img src="logo-header.png" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain" width="135" height="56">
             </a>
             <div class="hidden md:flex gap-8 text-sm font-medium text-textSecondary relative z-10 items-center">
                 <a href="https://proemote.es/" class="hover:text-textMain transition-colors">Inicio</a>
@@ -172,7 +193,7 @@
                 <button onclick="openModal()" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-primary rounded-full hover:bg-accent shadow-[0_0_15px_rgba(123,97,255,0.4)] transition-all duration-300 focus:outline-none">
                     ¿Hablamos?
                 </button>
-                <button id="mobile-menu-btn" class="md:hidden text-textSecondary hover:text-white transition-colors focus:outline-none p-2">
+                <button id="mobile-menu-btn" aria-label="Abrir menú de navegación" class="md:hidden text-textSecondary hover:text-white transition-colors focus:outline-none p-2">
                     <i class="ph ph-dots-three-vertical text-2xl"></i>
                 </button>
             </div>
@@ -432,7 +453,7 @@
 
             <div class="relative max-w-5xl mx-auto px-4 md:px-0">
                 <div class="absolute left-6 md:left-[50px] top-0 bottom-0 w-[2px] bg-white/5 rounded-full"></div>
-                <div id="foco-progress" class="absolute left-6 md:left-[50px] top-0 w-[2px] bg-gradient-to-b from-primary to-accent rounded-full h-0 shadow-[0_0_10px_#7B61FF] transition-[height] duration-75 ease-out"></div>
+                <div id="foco-progress" class="foco-progress absolute left-6 md:left-[50px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary to-accent rounded-full origin-top scale-y-0 shadow-[0_0_10px_#7B61FF] transition-transform duration-75 ease-out"></div>
 
                 <!-- Paso 1 -->
                 <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
@@ -541,19 +562,19 @@
                             <input type="hidden" name="Origen" value="Ayudas Pymes Extremadura 2026">
                             
                             <div class="flex flex-col md:flex-row gap-4">
-                                <input type="text" name="Nombre" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="Nombre de la empresa o autónomo">
-                                <input type="email" name="Email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="Email de contacto">
+                                <input type="text" name="Nombre" aria-label="Nombre de la empresa o autónomo" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="Nombre de la empresa o autónomo">
+                                <input type="email" name="Email" aria-label="Email de contacto" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="Email de contacto">
                             </div>
                             
-                            <input type="tel" name="Telefono" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="Teléfono de contacto">
+                            <input type="tel" name="Telefono" aria-label="Teléfono de contacto" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="Teléfono de contacto">
                             
-                            <select name="Tipo" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer shadow-inner">
+                            <select name="Tipo" aria-label="Tipo de entidad" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer shadow-inner">
                                 <option value="" disabled selected>Tipo de entidad</option>
                                 <option value="Autonomo">Autónomo</option>
                                 <option value="Pyme">PYME (Sociedad)</option>
                             </select>
 
-                            <textarea name="Mensaje" rows="3" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all resize-none shadow-inner" placeholder="Cuéntanos brevemente a qué se dedica tu negocio y qué necesitas digitalizar (Ej: Necesito una nueva web y gestionar redes)."></textarea>
+                            <textarea name="Mensaje" aria-label="Detalles del negocio y digitalización requerida" rows="3" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all resize-none shadow-inner" placeholder="Cuéntanos brevemente a qué se dedica tu negocio y qué necesitas digitalizar (Ej: Necesito una nueva web y gestionar redes)."></textarea>
                             
                             <div class="flex items-start gap-3 px-2">
                                 <input type="checkbox" id="check-priv-ayudas" name="Privacidad" value="Aceptada" required class="mt-1 w-4 h-4 accent-primary cursor-pointer">
@@ -580,7 +601,7 @@
             
             <div class="md:col-span-12 lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
                 <div class="mb-8">
-                    <img src="https://i.imgur.com/2mXnkGe.png" alt="Proemote Logo" class="h-20 md:h-24 mb-3 opacity-90 mx-auto md:mx-0">
+                    <img src="logo-footer.png" alt="Proemote Logo" class="h-20 md:h-24 mb-3 opacity-90 mx-auto md:mx-0" width="93" height="96">
                     <p class="text-white italic text-sm mb-1">Shaping what matters</p>
                     <p class="text-textSecondary text-sm font-medium">Think first.</p>
                 </div>
@@ -600,10 +621,10 @@
                 </div>
 
                 <div class="flex justify-center md:justify-start gap-3 w-full">
-                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
+                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" aria-label="LinkedIn de Proemote" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
                         <i class="ph-fill ph-linkedin-logo"></i>
                     </a>
-                    <a href="https://www.instagram.com/proemote.es/" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
+                    <a href="https://www.instagram.com/proemote.es/" target="_blank" aria-label="Instagram de Proemote" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
                         <i class="ph-fill ph-instagram-logo"></i>
                     </a>
                 </div>
@@ -652,7 +673,7 @@
         <span class="hidden md:block px-4 py-2 bg-bgSurface border border-white/10 rounded-xl text-sm font-medium text-white shadow-lg opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
             Consultar Ayudas por WhatsApp
         </span>
-        <a href="https://wa.me/34641576286?text=Hola,%20necesito%20información%20sobre%20la%20viabilidad%20de%20las%20Ayudas%20de%20Digitalización%20en%20Extremadura." target="_blank" rel="noopener noreferrer" class="relative w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300">
+        <a href="https://wa.me/34641576286?text=Hola,%20necesito%20información%20sobre%20la%20viabilidad%20de%20las%20Ayudas%20de%20Digitalización%20en%20Extremadura." target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" class="relative w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300">
             <div class="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:bg-[#25D366]/30 transition-colors"></div>
             <i class="ph-fill ph-whatsapp-logo text-3xl text-white"></i>
         </a>
@@ -667,31 +688,49 @@
             }, { threshold: 0.1 });
             document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
 
-            // Foco Timeline Engine
+            // Foco Timeline Engine (Optimizado para evitar layout thrashing y usar aceleración de GPU)
             const progress = document.getElementById('foco-progress');
             const items = document.querySelectorAll('.foco-item');
             let isTicking = false;
+            
             const handleTimeline = () => {
                 if(!progress) return;
                 const container = progress.parentElement;
+                
+                // 1. Todas las lecturas del DOM juntas al inicio (Evita Forced Reflows)
                 const rect = container.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
-                let p = (windowHeight * 0.6 - rect.top) / rect.height;
-                p = Math.max(0, Math.min(1, p));
-                progress.style.height = `${p * 100}%`;
-                const lineBottom = progress.getBoundingClientRect().bottom;
+                
+                const nodeCenters = [];
                 items.forEach(item => {
                     const node = item.querySelector('.foco-node');
                     const nodeRect = node.getBoundingClientRect();
-                    const nodeCenter = nodeRect.top + (nodeRect.height / 2);
-                    if (lineBottom >= nodeCenter) {
-                        node.classList.remove('bg-bgMain');
-                        node.classList.add('bg-primary', 'border-primary', 'shadow-[0_0_15px_#7B61FF]');
-                        item.classList.add('active');
+                    nodeCenters.push({
+                        node: node,
+                        item: item,
+                        center: nodeRect.top + (nodeRect.height / 2)
+                    });
+                });
+                
+                // 2. Cálculos matemáticos puros
+                let p = (windowHeight * 0.6 - rect.top) / rect.height;
+                p = Math.max(0, Math.min(1, p));
+                
+                // La coordenada inferior física de la barra
+                const lineBottom = rect.top + (p * rect.height);
+                
+                // 3. Todas las escrituras al DOM juntas al final
+                progress.style.transform = `scaleY(${p})`;
+                
+                nodeCenters.forEach(info => {
+                    if (lineBottom >= info.center) {
+                        info.node.classList.remove('bg-bgMain');
+                        info.node.classList.add('bg-primary', 'border-primary', 'shadow-[0_0_15px_#7B61FF]');
+                        info.item.classList.add('active');
                     } else {
-                        node.classList.add('bg-bgMain');
-                        node.classList.remove('bg-primary', 'border-primary', 'shadow-[0_0_15px_#7B61FF]');
-                        item.classList.remove('active');
+                        info.node.classList.add('bg-bgMain');
+                        info.node.classList.remove('bg-primary', 'border-primary', 'shadow-[0_0_15px_#7B61FF]');
+                        info.item.classList.remove('active');
                     }
                 });
             };
