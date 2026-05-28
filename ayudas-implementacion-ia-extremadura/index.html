@@ -113,11 +113,46 @@
 
     <div id="mouse-glow"></div>
 
-            <!-- BARRA DE ANUNCIO GLOBAL -->
-    <div id="announcement-bar" class="w-full bg-primary text-white text-center py-2 px-4 text-xs md:text-sm font-medium z-[60] relative">
-        🔔 Nueva convocatoria: hasta 20.000€ para digitalizar tu negocio en Extremadura ·
-        <a href="/ayudas-digitalizacion-pymes-extremadura/" class="underline font-bold hover:text-white/80 transition-colors ml-1">Ver ayudas →</a>
+                <!-- BARRA DE ANUNCIO GLOBAL -->
+    <div id="announcement-bar" class="w-full bg-primary text-white text-center py-2 px-4 text-xs md:text-sm font-medium z-[60] relative transition-opacity duration-300" style="opacity: 1;">
+        <span id="announcement-text">🔔 Nueva convocatoria: hasta 20.000€ para digitalizar tu negocio en Extremadura ·</span>
+        <a id="announcement-link" href="/ayudas-digitalizacion-pymes-extremadura/" class="underline font-bold hover:text-white/80 transition-colors ml-1">Ver ayudas →</a>
     </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const announcements = [
+                {
+                    text: "🔔 Nueva convocatoria: hasta 20.000€ para digitalizar tu negocio en Extremadura ·",
+                    linkText: "Ver ayudas →",
+                    href: "/ayudas-digitalizacion-pymes-extremadura/"
+                },
+                {
+                    text: "🚀 Subvenciones IA 2026: hasta 100.000€ para implantar Inteligencia Artificial en pymes ·",
+                    linkText: "Ver ayudas de IA →",
+                    href: "/ayudas-implementacion-ia-extremadura/"
+                }
+            ];
+            
+            let currentIndex = 0;
+            const bar = document.getElementById('announcement-bar');
+            const textEl = document.getElementById('announcement-text');
+            const linkEl = document.getElementById('announcement-link');
+            
+            if (bar && textEl && linkEl) {
+                setInterval(() => {
+                    bar.style.opacity = 0;
+                    setTimeout(() => {
+                        currentIndex = (currentIndex + 1) % announcements.length;
+                        textEl.innerText = announcements[currentIndex].text;
+                        linkEl.innerText = announcements[currentIndex].linkText;
+                        linkEl.href = announcements[currentIndex].href;
+                        bar.style.opacity = 1;
+                    }, 300);
+                }, 4000);
+            }
+        });
+    </script>
 
     <div id="mouse-glow"></div>
 
@@ -125,7 +160,7 @@
     <nav class="fixed w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="https://proemote.es/" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
-                <img src="logo-header.png" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain" width="135" height="56">
+                <img src="/logo-header.png" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain" width="135" height="56">
             </a>
             <div class="hidden md:flex gap-8 text-sm font-medium text-textSecondary relative z-10 items-center">
                 <a href="https://proemote.es/" class="hover:text-textMain transition-colors">Inicio</a>
@@ -201,59 +236,84 @@
         </div>
     </nav>
 
-    <section class="pt-48 pb-24 relative z-10 overflow-hidden border-b border-white/5 bg-bgMain bg-grid-pattern-primary with-glow">
+    <!-- HERO SECTION -->
+    <section class="pt-32 md:pt-36 pb-16 md:pb-20 relative z-10 overflow-hidden border-b border-white/5 bg-bgMain bg-grid-pattern-primary with-glow">
         <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-bgMain z-[-1] pointer-events-none"></div>
         <div class="absolute top-[10%] left-[10%] w-[30vw] h-[30vw] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-[0]"></div>
         <div class="absolute bottom-[10%] right-[10%] w-[40vw] h-[40vw] rounded-full bg-accent/10 blur-[150px] pointer-events-none z-[0]"></div>
 
-        <div class="max-w-5xl mx-auto px-6 text-center relative z-10 reveal-up active">
-            
-            <div class="flex flex-col items-center gap-3 mb-8">
-                <div class="inline-flex items-center justify-center px-5 py-2 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-xs font-bold tracking-[0.1em] uppercase shadow-[0_0_15px_rgba(245,158,11,0.15)] text-center">
-                    ⚠️ Cierre definitivo: 17 de junio de 2026 · Fondos limitados · Sin prórroga
-                </div>
-            </div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                
+                <!-- Columna Izquierda: Texto y Acciones -->
+                <div class="lg:col-span-6 text-center lg:text-left reveal-up active flex flex-col items-center lg:items-start">
+                    <div class="inline-flex items-center justify-center px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-[11px] font-bold tracking-[0.15em] uppercase shadow-[0_0_15px_rgba(123,97,255,0.05)] mb-6">
+                        Fondos limitados · Plazo: 17 de junio de 2026
+                    </div>
 
-            <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight mb-6 text-white max-w-5xl mx-auto text-balance">
-                Implementación de <span class="text-gradient-primary whitespace-nowrap">Inteligencia Artificial</span> para Pymes en Extremadura <span class="text-gradient-primary whitespace-nowrap">Subvencionada al 85%</span>
-            </h1>
-            
-            <p class="text-lg md:text-xl text-textSecondary leading-relaxed max-w-3xl mx-auto mb-10">
-                Tu negocio atiende clientes, gestiona citas y automatiza procesos. La Junta de Extremadura financia fondos directos para reducir costes operativos, eliminar tareas repetitivas y tomar mejores decisiones. <strong>Hasta 100.000€ por beneficiario.</strong>
-            </p>
+                    <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight mb-5 text-white">
+                        Ayudas a la Implantación de <span class="text-gradient-primary">Inteligencia Artificial</span> para Pymes en Extremadura 2026
+                    </h1>
+                    
+                    <p class="text-base md:text-lg text-textSecondary leading-relaxed mb-6 max-w-2xl">
+                        Tu negocio atiende clientes, gestiona citas y automatiza procesos. La Junta de Extremadura financia fondos directos para reducir costes operativos, eliminar tareas repetitivas y tomar mejores decisiones. Hasta 100.000€ con los que implantar herramientas de IA, cubriendo hasta el 85% del coste. En Proemote nos encargamos de todo: analizamos si aplicas, preparamos la solicitud y ejecutamos el proyecto si se concede. Tú no tienes que gestionar nada.
+                    </p>
 
-            <div class="flex justify-center gap-2 md:gap-4 mb-10">
-                <div class="flex flex-col items-center">
-                    <div class="bg-bgMain border border-primary/20 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-xl text-xl md:text-2xl font-heading font-bold text-white shadow-inner cd-days">00</div>
-                    <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-textSecondary mt-2 font-medium">Días</span>
-                </div>
-                <div class="text-xl md:text-2xl font-heading font-bold text-white/30 pt-3 md:pt-4">:</div>
-                <div class="flex flex-col items-center">
-                    <div class="bg-bgMain border border-primary/20 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-xl text-xl md:text-2xl font-heading font-bold text-white shadow-inner cd-hours">00</div>
-                    <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-textSecondary mt-2 font-medium">Horas</span>
-                </div>
-                <div class="text-xl md:text-2xl font-heading font-bold text-white/30 pt-3 md:pt-4">:</div>
-                <div class="flex flex-col items-center">
-                    <div class="bg-bgMain border border-primary/20 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-xl text-xl md:text-2xl font-heading font-bold text-white shadow-inner cd-minutes">00</div>
-                    <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-textSecondary mt-2 font-medium">Minutos</span>
-                </div>
-                <div class="text-xl md:text-2xl font-heading font-bold text-white/30 pt-3 md:pt-4">:</div>
-                <div class="flex flex-col items-center">
-                    <div class="bg-bgMain border border-primary/20 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-xl text-xl md:text-2xl font-heading font-bold text-primary shadow-inner cd-seconds">00</div>
-                    <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-primary mt-2 font-medium">Segundos</span>
-                </div>
-            </div>
-            
-            <div class="flex flex-col items-center justify-center mb-6">
-                <a href="#contacto" class="w-full sm:w-auto px-10 py-4 rounded-full bg-primary hover:bg-accent text-white font-bold transition-all duration-300 shadow-[0_0_30px_rgba(123,97,255,0.5)] flex items-center justify-center gap-2 focus:outline-none text-lg">
-                    Solicitar información sin compromiso <i class="ph-bold ph-arrow-right"></i>
-                </a>
-            </div>
+                    <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto mb-6">
+                        <a href="#contacto" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-primary hover:bg-accent text-white font-semibold text-sm transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] flex items-center justify-center gap-2 focus:outline-none">
+                            Solicitar información <i class="ph ph-arrow-right"></i>
+                        </a>
+                        <a href="#detalles" class="w-full sm:w-auto px-7 py-3.5 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2">
+                            Ver qué cubre la ayuda
+                        </a>
+                    </div>
 
-            <span class="text-xs md:text-sm text-textSecondary/80 font-medium flex items-center justify-center flex-wrap gap-1.5 mt-4">
-                <i class="ph-fill ph-info text-primary"></i>
-                Concesión directa por orden de llegada · Sin baremo · 2.000.000€ disponibles para toda Extremadura
-            </span>
+                    <div class="flex flex-col gap-2.5 mb-6 text-left w-full">
+                        <div class="flex items-center gap-2 text-xs md:text-sm text-textSecondary font-medium">
+                            <i class="ph-fill ph-check-circle text-accent text-base flex-shrink-0"></i> 
+                            <span>Compatible con el Kit Digital (lo complementa).</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs md:text-sm text-textSecondary font-medium">
+                            <i class="ph-fill ph-bank text-primary text-base flex-shrink-0"></i> 
+                            <span>60% de anticipo tras la concesión sin garantías exigidas.</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs md:text-sm text-textSecondary/80 font-medium">
+                            <i class="ph-fill ph-shield-check text-primary text-base flex-shrink-0"></i> 
+                            <span>Diagnóstico de viabilidad gratuito y sin compromiso.</span>
+                        </div>
+                    </div>
+                    
+                    <div class="text-[12px] md:text-[13px] text-textSecondary/70 font-medium flex items-center gap-1.5 justify-center lg:justify-start">
+                        <i class="ph-fill ph-clock text-primary"></i>
+                        <span><strong>Concurrencia no competitiva:</strong> Concesión por orden de presentación.</span>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Imagen destacada (Split Layout - 50% de ancho) -->
+                <div class="lg:col-span-6 relative reveal-up delay-100 mt-8 lg:mt-0 flex justify-center w-full">
+                    <div class="relative w-full max-w-[540px] rounded-2xl overflow-hidden border border-white/10 bg-bgSurface/40 shadow-[0_0_40px_rgba(123,97,255,0.15)] group transition-all duration-300 hover:border-primary/40">
+                        <a href="#contacto" class="block w-full h-full relative">
+                            <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 mix-blend-overlay"></div>
+                            <img src="subvencion autonomos pymes ia.png"
+                                 alt="Subvenciones Inteligencia Artificial autónomos y pymes Extremadura 2026 - Junta de Extremadura - Proemote agencia gestora"
+                                 class="w-full h-auto object-contain opacity-95 group-hover:opacity-100 transition-opacity transform group-hover:scale-[1.01] duration-500"
+                                 loading="eager" decoding="async">
+                        </a>
+                        
+                        <!-- Tarjeta flotante reubicada arriba a la derecha -->
+                        <div class="absolute top-4 right-4 z-20 glass-card px-4 py-2.5 rounded-xl border border-white/10 flex items-center gap-2 shadow-2xl bg-bgMain/80 backdrop-blur-md">
+                            <div class="w-8 h-8 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-sm">
+                                €
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] uppercase tracking-wider text-textSecondary font-bold leading-none">Subvención</span>
+                                <span class="text-xs font-bold text-white leading-tight">85% Subvencionado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -804,7 +864,7 @@
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                 <!-- Columna Izquierda: Imagen Oficial (sin recuadros) -->
                 <div class="md:col-span-5 lg:col-span-6">
-                    <img src="../subvencion autonomos pymes ia.png" alt="Subvenciones para implantar inteligencia artificial en autónomos y pymes de Extremadura 2026 - Convocatoria oficial gestionada por Proemote" class="w-full h-auto rounded-3xl object-cover shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10" loading="lazy" decoding="async">
+                    <img src="ayudas-ia-extremadura-proemote.jpg" alt="Subvenciones para implantar inteligencia artificial en autónomos y pymes de Extremadura 2026 - Convocatoria oficial gestionada por Proemote" class="w-full h-auto rounded-3xl object-cover shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10" loading="lazy" decoding="async">
                 </div>
 
                 <!-- Columna Derecha: Enlaces en texto simple -->

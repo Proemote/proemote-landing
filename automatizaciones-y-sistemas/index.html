@@ -123,11 +123,46 @@
     </style>
 </head>
 <body class="antialiased selection:bg-primary selection:text-white relative bg-grid-pattern bg-fixed">
-            <!-- BARRA DE ANUNCIO GLOBAL -->
-    <div id="announcement-bar" class="w-full bg-primary text-white text-center py-2 px-4 text-xs md:text-sm font-medium z-[60] relative">
-        🔔 Nueva convocatoria: hasta 20.000€ para digitalizar tu negocio en Extremadura ·
-        <a href="/ayudas-digitalizacion-pymes-extremadura/" class="underline font-bold hover:text-white/80 transition-colors ml-1">Ver ayudas →</a>
+                <!-- BARRA DE ANUNCIO GLOBAL -->
+    <div id="announcement-bar" class="w-full bg-primary text-white text-center py-2 px-4 text-xs md:text-sm font-medium z-[60] relative transition-opacity duration-300" style="opacity: 1;">
+        <span id="announcement-text">🔔 Nueva convocatoria: hasta 20.000€ para digitalizar tu negocio en Extremadura ·</span>
+        <a id="announcement-link" href="/ayudas-digitalizacion-pymes-extremadura/" class="underline font-bold hover:text-white/80 transition-colors ml-1">Ver ayudas →</a>
     </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const announcements = [
+                {
+                    text: "🔔 Nueva convocatoria: hasta 20.000€ para digitalizar tu negocio en Extremadura ·",
+                    linkText: "Ver ayudas →",
+                    href: "/ayudas-digitalizacion-pymes-extremadura/"
+                },
+                {
+                    text: "🚀 Subvenciones IA 2026: hasta 100.000€ para implantar Inteligencia Artificial en pymes ·",
+                    linkText: "Ver ayudas de IA →",
+                    href: "/ayudas-implementacion-ia-extremadura/"
+                }
+            ];
+            
+            let currentIndex = 0;
+            const bar = document.getElementById('announcement-bar');
+            const textEl = document.getElementById('announcement-text');
+            const linkEl = document.getElementById('announcement-link');
+            
+            if (bar && textEl && linkEl) {
+                setInterval(() => {
+                    bar.style.opacity = 0;
+                    setTimeout(() => {
+                        currentIndex = (currentIndex + 1) % announcements.length;
+                        textEl.innerText = announcements[currentIndex].text;
+                        linkEl.innerText = announcements[currentIndex].linkText;
+                        linkEl.href = announcements[currentIndex].href;
+                        bar.style.opacity = 1;
+                    }, 300);
+                }, 4000);
+            }
+        });
+    </script>
 
     <div id="mouse-glow"></div>
 
@@ -135,7 +170,7 @@
     <nav class="fixed w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="https://proemote.es/" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
-                <img src="logo-header.png" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain" width="135" height="56">
+                <img src="/logo-header.png" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain" width="135" height="56">
             </a>
             <div class="hidden md:flex gap-8 text-sm font-medium text-textSecondary relative z-10 items-center">
                 <a href="https://proemote.es/" class="hover:text-textMain transition-colors">Inicio</a>
