@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Perfil Gratuito | Proemote</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        bgMain: '#0A0A0F',
+                        bgSurface: '#14141F',
+                        primary: '#7B61FF',
+                        accent: '#9F7AEA',
+                        textMain: '#F5F7FA',
+                        textSecondary: '#A1A1B5',
+                        danger: '#FF6B6B',
+                        success: '#10B981'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'nebula': 'nebula-drift 25s ease-in-out infinite alternate',
+                        'nebula-reverse': 'nebula-drift 30s ease-in-out infinite alternate-reverse',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        'nebula-drift': {
+                            '0%': { transform: 'translate(0%, 0%) scale(1) rotate(0deg)' },
+                            '50%': { transform: 'translate(5%, 10%) scale(1.1) rotate(5deg)' },
+                            '100%': { transform: 'translate(-5%, -5%) scale(0.95) rotate(-5deg)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bgMain: #0A0A0F;
+            --bgSurface: #14141F;
+            --primary: #7B61FF;
+            --accent: #9F7AEA;
+            --textMain: #F5F7FA;
+            --textSecondary: #A1A1B5;
+            --danger: #FF6B6B;
+        }
+
+        body {
+            background-color: var(--bgMain);
+            color: var(--textMain);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #F5F7FA 0%, #A1A1B5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .text-gradient-primary {
+            background: linear-gradient(135deg, #7B61FF 0%, #9F7AEA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-panel {
+            background: rgba(20, 20, 31, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-glow {
+            background: var(--primary, #7B61FF);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: inherit;
+            background: linear-gradient(135deg, #7B61FF, #9F7AEA);
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        .btn-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(123, 97, 255, 0.5);
+        }
+        .btn-glow:hover::before { opacity: 1; }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased bg-[#0A0A0F] text-[#F5F7FA] selection:bg-primary/30 selection:text-white relative">
+
+    <!-- Capa de Nebulosas -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden opacity-40">
+        <div class="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-[#1A103C] rounded-full mix-blend-screen filter blur-[120px] animate-nebula"></div>
+        <div class="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-[#0F172A] rounded-full mix-blend-screen filter blur-[100px] animate-nebula-reverse"></div>
+        <div class="absolute top-[30%] right-[10%] w-[45vw] h-[45vw] bg-[#2E1065] rounded-full mix-blend-screen filter blur-[130px] opacity-60 animate-nebula"></div>
+    </div>
+
+    <!-- Canvas de partículas -->
+    <canvas id="cosmos-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-[1] opacity-60"></canvas>
+    
+    <div class="fixed inset-0 bg-[#0A0A0F]/60 z-[2] pointer-events-none"></div>
+
+    <!-- Botón Sticky Móvil -->
+    <div class="fixed bottom-0 left-0 w-full p-4 bg-[#0A0A0F]/95 backdrop-blur-xl border-t border-white/10 z-50 md:hidden flex flex-col items-center justify-center pb-6">
+        <button onclick="openModal()" class="btn-glow w-full py-4 rounded-full text-white font-bold text-base flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(123,97,255,0.4)]">
+            Quiero mi análisis gratuito <i data-lucide="arrow-up" class="w-4 h-4"></i>
+        </button>
+    </div>
+
+    <main class="w-full relative z-10">
+        <!-- HERO SECTION -->
+        <section class="min-h-[90vh] flex flex-col justify-center items-center px-4 pt-20 pb-12 max-w-5xl mx-auto text-center relative reveal">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8 shadow-lg">
+                <div class="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(123,97,255,0.8)]"></div>
+                <span class="text-xs md:text-sm font-medium text-textSecondary uppercase tracking-wider">Servicio gratuito para negocios y marcas personales</span>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl lg:text-[4.5rem] font-extrabold leading-[1.15] mb-6 tracking-tight drop-shadow-lg">
+                Genera contenido sin bloquearte y <span class="text-gradient-primary">sin grabarte si no quieres.</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-textSecondary mb-10 max-w-3xl mx-auto leading-relaxed">
+                Analizamos tu perfil actual completamente gratis y te enviamos un plan personalizado en <strong class="text-white font-medium">vídeo y PDF</strong> con todo lo que necesitas para arrancar y atraer clientes. Sin reuniones interminables.
+            </p>
+
+            <button onclick="openModal()" class="btn-glow px-10 py-5 rounded-full text-white font-bold text-xl inline-flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(123,97,255,0.4)] hover:scale-105 transition-all duration-300">
+                Quiero mi análisis gratuito <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </button>
+            
+            <div class="mt-8 flex items-center justify-center gap-4 text-sm text-textSecondary opacity-80 mb-10">
+                <span class="flex items-center gap-1"><i data-lucide="file-text" class="w-4 h-4 text-primary"></i> PDF Accionable</span>
+                <span class="text-white/20">•</span>
+                <span class="flex items-center gap-1"><i data-lucide="video" class="w-4 h-4 text-primary"></i> Vídeo 5 min</span>
+                <span class="text-white/20">•</span>
+                <span class="flex items-center gap-1"><i data-lucide="clock" class="w-4 h-4 text-primary"></i> En 48 horas</span>
+            </div>
+
+            <!-- TRUST BADGES IN HERO (Diseño Cápsula Redondeada) -->
+            <div class="mt-4 z-20 flex flex-col md:flex-row gap-4 items-center justify-center w-full max-w-2xl mx-auto">
+                <!-- Bloque de Reseñas -->
+                <div class="bg-[#14141F]/80 border border-white/10 rounded-full px-6 py-3.5 backdrop-blur-xl flex items-center gap-5 shadow-2xl">
+                    <!-- Avatares superpuestos -->
+                    <div class="flex -space-x-3 shrink-0">
+                        <div class="w-10 h-10 rounded-full border-[3px] border-[#14141F] bg-gradient-to-br from-[#A78BFA] to-[#7C3AED] flex items-center justify-center text-white text-xs font-bold shadow-sm">NS</div>
+                        <div class="w-10 h-10 rounded-full border-[3px] border-[#14141F] bg-gradient-to-br from-[#F472B6] to-[#DB2777] flex items-center justify-center text-white text-xs font-bold shadow-sm z-[1]">GR</div>
+                        <div class="w-10 h-10 rounded-full border-[3px] border-[#14141F] bg-gradient-to-br from-[#60A5FA] to-[#2563EB] flex items-center justify-center text-white text-xs font-bold shadow-sm z-[2]">SC</div>
+                        <div class="w-10 h-10 rounded-full border-[3px] border-[#14141F] bg-gradient-to-br from-[#34D399] to-[#059669] flex items-center justify-center text-white text-xs font-bold shadow-sm z-[3]">JX</div>
+                    </div>
+                    <!-- Estrellas y texto -->
+                    <div class="flex flex-col items-start">
+                        <div class="flex items-center gap-2">
+                            <div class="flex text-[#FFB800] text-sm">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <span class="text-white font-bold text-sm">4,9/5</span>
+                        </div>
+                        <span class="text-textSecondary text-xs">Valoración media de nuestros clientes en Google</span>
+                    </div>
+                </div>
+
+                <!-- Bloque Premio -->
+                <div class="bg-[#14141F]/80 border border-white/10 rounded-full px-5 py-3.5 backdrop-blur-xl flex items-center gap-3 shadow-2xl h-[68px]">
+                    <span class="text-xl">🏆</span>
+                    <div class="flex flex-col items-start">
+                        <span class="text-white font-bold text-sm">Premio Impulso 2025</span>
+                        <span class="text-textSecondary text-xs">Diputación de Badajoz</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EMPATHY / PAIN POINTS -->
+        <section class="py-24 px-4 relative z-10 reveal border-t border-white/5 mt-10">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg text-white">Si esto te suena, <span class="text-textSecondary font-normal">sabemos exactamente cómo te sientes.</span></h2>
+                    <p class="text-lg text-textSecondary">Gestionar un negocio ya es difícil como para además tener que pelear con el algoritmo.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                    <!-- Pain 1 -->
+                    <div class="glass-panel p-8 rounded-2xl flex flex-col gap-5 relative group hover:border-primary/30 transition-all duration-300 shadow-lg">
+                        <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-primary shrink-0 border border-white/10 group-hover:scale-110 transition-transform">
+                            <i data-lucide="timer-off" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Falta de tiempo y energía</h3>
+                        <p class="text-textSecondary leading-relaxed relative z-10">Llegas al final del día exhausto. La simple idea de tener que pensar qué subir a redes o ponerte a grabar un vídeo hablando a cámara se te hace una montaña insuperable.</p>
+                    </div>
+                    
+                    <!-- Pain 2 -->
+                    <div class="glass-panel p-8 rounded-2xl flex flex-col gap-5 relative group hover:border-primary/30 transition-all duration-300 shadow-lg">
+                        <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-primary shrink-0 border border-white/10 group-hover:scale-110 transition-transform">
+                            <i data-lucide="brain" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">El bloqueo de las ideas</h3>
+                        <p class="text-textSecondary leading-relaxed relative z-10">Te bloqueas constantemente. Sabes que tienes que publicar para atraer clientes, pero miras la pantalla en blanco y no sabes cómo comunicar el valor real de lo que haces.</p>
+                    </div>
+                    
+                    <!-- Pain 3 -->
+                    <div class="glass-panel p-8 rounded-2xl flex flex-col gap-5 relative group hover:border-primary/30 transition-all duration-300 shadow-lg">
+                        <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-primary shrink-0 border border-white/10 group-hover:scale-110 transition-transform">
+                            <i data-lucide="ghost" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Un perfil abandonado</h3>
+                        <p class="text-textSecondary leading-relaxed relative z-10">Tienes la cuenta paralizada porque no sabes por dónde empezar. Ha pasado tanto tiempo desde tu última publicación que retomarlo ahora te genera ansiedad e inseguridad.</p>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <button onclick="openModal()" class="btn-glow px-10 py-5 rounded-full text-white font-bold text-xl inline-flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(123,97,255,0.4)] hover:scale-105 transition-all duration-300">
+                        Quiero dejar de agobiarme <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT YOU RECEIVE -->
+        <section class="py-24 px-4 relative z-20 bg-[#0A0A0F] border-y border-white/5">
+            <div class="max-w-5xl mx-auto reveal">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg">Esto es exactamente <span class="text-gradient-primary">lo que recibirás</span></h2>
+                    <p class="text-lg text-textSecondary max-w-2xl mx-auto">Un diagnóstico claro y un plan de ruta para que dejes de adivinar y empieces a ejecutar con sentido.</p>
+                </div>
+
+                <!-- Grid equilibrado: 2 columnas, última tarjeta full-width -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Card 1 -->
+                    <div class="glass-panel p-8 rounded-2xl relative overflow-hidden group hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 border border-primary/20 shrink-0">
+                            <i data-lucide="search" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-white">Análisis de tu perfil actual</h4>
+                        <p class="text-textSecondary leading-relaxed flex-grow">Detectamos de forma objetiva qué elementos de tu cuenta están ahuyentando a tus clientes hoy.</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="glass-panel p-8 rounded-2xl relative overflow-hidden group hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 border border-primary/20 shrink-0">
+                            <i data-lucide="lightbulb" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-white">Ideas de contenido para tu nicho</h4>
+                        <p class="text-textSecondary leading-relaxed flex-grow">Temáticas claras que puedes aplicar sin tener que pensar demasiado ni grabarte obligatoriamente.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="glass-panel p-8 rounded-2xl relative overflow-hidden group hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 border border-primary/20 shrink-0">
+                            <i data-lucide="target" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-white">Tono de marca recomendado</h4>
+                        <p class="text-textSecondary leading-relaxed flex-grow">Descubre exactamente cómo hablar, escribir y mostrarte para que tu audiencia confíe y te compre.</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="glass-panel p-8 rounded-2xl relative overflow-hidden group hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 border border-primary/20 shrink-0">
+                            <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-white">Mejoras accionables</h4>
+                        <p class="text-textSecondary leading-relaxed flex-grow">Pasos concretos, simples y directos que puedes aplicar hoy mismo en tu perfil sin necesitar conocimientos técnicos.</p>
+                    </div>
+
+                    <!-- Card 5 (Ocupa las 2 columnas y cambia a formato horizontal) -->
+                    <div class="glass-panel p-8 md:p-10 rounded-2xl relative overflow-hidden group hover:-translate-y-2 transition-all duration-300 md:col-span-2 bg-gradient-to-br from-primary/10 to-transparent border-primary/30 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
+                        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary flex items-center justify-center text-white shadow-[0_0_25px_rgba(123,97,255,0.6)] shrink-0 group-hover:scale-110 transition-transform duration-500">
+                            <i data-lucide="video" class="w-8 h-8 md:w-10 md:h-10"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <h4 class="text-2xl md:text-3xl font-bold mb-3 text-white">Todo en vídeo y PDF</h4>
+                            <p class="text-textSecondary leading-relaxed text-lg">Recibe una grabación nuestra de máximo 5 minutos explicando tu caso y un documento en PDF fácil de entender e implementar a tu ritmo.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-16 text-center">
+                    <button onclick="openModal()" class="btn-glow px-10 py-5 rounded-full text-white font-bold text-xl inline-flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(123,97,255,0.4)] hover:scale-105 transition-all duration-300">
+                        Solicitar mi informe a coste 0 <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="py-24 px-4 relative z-10 reveal">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg">¿Cómo funciona?</h2>
+                    <p class="text-lg text-textSecondary">Tres pasos simples. Nosotros hacemos el trabajo pesado.</p>
+                </div>
+
+                <div class="relative">
+                    <!-- Línea conectora (visible en desktop) -->
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent -translate-y-1/2 z-0"></div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 relative z-10">
+                        <!-- Step 1 -->
+                        <div class="flex flex-col items-center text-center group">
+                            <div class="w-16 h-16 rounded-2xl bg-[#14141F] border border-white/10 flex items-center justify-center text-2xl font-black text-white mb-6 shadow-xl group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-300 relative">
+                                1
+                            </div>
+                            <h4 class="text-xl font-bold mb-3 text-white">Deja tus datos</h4>
+                            <p class="text-textSecondary text-sm max-w-[250px]">Rellena el breve formulario con tu nombre, email y la URL de tu perfil o web.</p>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="flex flex-col items-center text-center group">
+                            <div class="w-16 h-16 rounded-2xl bg-[#14141F] border border-white/10 flex items-center justify-center text-2xl font-black text-white mb-6 shadow-xl group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-300 relative">
+                                2
+                            </div>
+                            <h4 class="text-xl font-bold mb-3 text-white">Analizamos tu perfil</h4>
+                            <p class="text-textSecondary text-sm max-w-[250px]">En un plazo de 48h, nuestro equipo estudia tu caso buscando errores y oportunidades.</p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flex flex-col items-center text-center group">
+                            <div class="w-16 h-16 rounded-2xl bg-[#14141F] border border-white/10 flex items-center justify-center text-2xl font-black text-white mb-6 shadow-xl group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-300 relative z-10">
+                                3
+                            </div>
+                            <!-- Glow para el paso final -->
+                            <div class="absolute w-24 h-24 bg-primary/20 blur-2xl rounded-full top-0 md:top-1/2 md:-translate-y-1/2 z-0 pointer-events-none"></div>
+                            
+                            <h4 class="text-xl font-bold mb-3 text-white relative z-10">Recibes tu plan</h4>
+                            <p class="text-textSecondary text-sm max-w-[250px] relative z-10">Te llega un email con tu vídeo personalizado y el PDF listo para que lo apliques.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 text-center relative z-20">
+                    <button onclick="openModal()" class="btn-glow px-10 py-5 rounded-full text-white font-bold text-xl inline-flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(123,97,255,0.4)] hover:scale-105 transition-all duration-300">
+                        Comenzar mi análisis gratis <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- POSITIONING / SOFT PITCH -->
+        <section class="py-16 px-4 relative z-10 reveal">
+            <div class="max-w-4xl mx-auto glass-panel p-8 md:p-12 rounded-[2rem] border border-primary/30 text-center relative overflow-hidden group">
+                <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"></div>
+                
+                <h3 class="text-2xl md:text-3xl font-bold mb-4 text-white relative z-10">¿Por qué hacemos esto gratis?</h3>
+                <p class="text-lg text-textSecondary leading-relaxed mb-6 relative z-10 max-w-2xl mx-auto">
+                    Creemos que la mejor forma de demostrarte que sabemos de lo que hablamos es ayudándote primero. El informe y el vídeo son 100% tuyos para que los apliques tú mismo.
+                </p>
+                <div class="inline-block bg-white/5 border border-white/10 px-6 py-4 rounded-xl text-white font-medium relative z-10 shadow-inner">
+                    Y si después de ver el plan quieres que seamos nosotros quienes lo implementemos por ti, podemos hablarlo. <span class="text-primary font-bold">Sin ninguna presión.</span>
+                </div>
+
+                <div class="mt-10 relative z-10">
+                    <button onclick="openModal()" class="btn-glow px-10 py-5 rounded-full text-white font-bold text-xl inline-flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(123,97,255,0.4)] hover:scale-105 transition-all duration-300">
+                        Pedir mi informe sin compromiso <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="py-24 px-4 border-y border-white/5 bg-[#0A0A0F] relative z-20 reveal">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg">El resultado de aplicar estrategia, no solo subir fotos.</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Testimonial 1 -->
+                    <div class="glass-panel p-8 rounded-2xl flex flex-col h-full reveal hover:border-primary/30 transition-colors duration-300">
+                        <div class="flex text-[#FFB800] mb-4 drop-shadow-md">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-textSecondary leading-relaxed mb-8 flex-grow italic">"Nuestra imagen ahora refleja lo que somos. Desde que nos gestionan la presencia digital, la entrada de clientes a través de Instagram y la web ha sido constante y predecible."</p>
+                        <div>
+                            <p class="font-bold text-white text-lg">Juana María Ramos</p>
+                            <p class="text-sm text-primary">Centro de Belleza</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="glass-panel p-8 rounded-2xl flex flex-col h-full reveal hover:border-primary/30 transition-colors duration-300" style="transition-delay: 100ms;">
+                        <div class="flex text-[#FFB800] mb-4 drop-shadow-md">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-textSecondary leading-relaxed mb-8 flex-grow italic">"Trabajo impecable. Hemos dejado de preocuparnos por si el contenido funciona o no. Tienen un sistema claro que filtra al cliente ideal y eso nos ahorra muchísimo tiempo."</p>
+                        <div>
+                            <p class="font-bold text-white text-lg">Sandra Cerrada</p>
+                            <p class="text-sm text-primary">Diseño web · Sector servicios</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="glass-panel p-8 rounded-2xl flex flex-col h-full reveal hover:border-primary/30 transition-colors duration-300" style="transition-delay: 200ms;">
+                        <div class="flex text-[#FFB800] mb-4 drop-shadow-md">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-textSecondary leading-relaxed mb-8 flex-grow italic">"Un salto de calidad absoluto en nuestra imagen profesional. Ahora no buscamos clientes a puerta fría, el posicionamiento que han creado hace que ellos vengan a nosotros."</p>
+                        <div>
+                            <p class="font-bold text-white text-lg">Alexandro Navarro</p>
+                            <p class="text-sm text-primary">Gestión de marca · Fotografía</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA SECTION -->
+        <section id="analisis-gratis" class="py-24 px-4 text-center pb-32 reveal relative z-10">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 max-w-2xl mx-auto drop-shadow-lg">El primer paso para recuperar el control de tus redes.</h2>
+            <p class="text-textSecondary mb-10 text-lg drop-shadow-md">Recibe tu diagnóstico en 48 horas. Sin coste, sin reuniones.</p>
+            
+            <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] relative group border border-white/10 text-center max-w-2xl mx-auto w-full shadow-[0_20px_50px_-10px_rgba(123,97,255,0.15)]">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -mr-20 -mt-20 pointer-events-none"></div>
+                
+                <div class="relative z-10 flex flex-col items-center gap-6">
+                    <div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center text-primary mb-2 shadow-inner border border-primary/20">
+                        <i data-lucide="unlock" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">Desbloquea el potencial de tu perfil</h3>
+                    
+                    <button onclick="openModal()" class="btn-glow w-full md:w-auto px-12 py-6 rounded-full text-white font-bold text-2xl flex justify-center items-center gap-3 hover:scale-105 transition-all duration-300 shadow-[0_0_50px_rgba(123,97,255,0.5)]">
+                        <span>Completar mis datos</span>
+                        <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                    </button>
+                    
+                    <p class="text-sm text-textSecondary flex items-center justify-center gap-2">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i> Tus datos son 100% seguros y privados.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Scarcity closing -->
+            <div class="mt-12 flex justify-center">
+                <div class="inline-flex items-center gap-3 bg-danger/10 border border-danger/20 px-5 py-3 rounded-xl text-danger/90 text-sm font-medium">
+                    <i data-lucide="alert-circle" class="w-5 h-5 shrink-0"></i>
+                    <p class="text-left">Analizamos un máximo de <strong>5 perfiles por semana</strong> para garantizar la calidad.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL LEAD MAGNET -->
+    <div id="lead-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-[#0A0A0F]/80 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+        
+        <!-- Modal Content -->
+        <div class="modal-content relative bg-[#14141F] border border-white/10 rounded-3xl w-full max-w-lg p-8 shadow-[0_20px_50px_-10px_rgba(123,97,255,0.3)] transform scale-95 opacity-0 transition-all duration-300 z-10">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-textSecondary hover:text-white transition-colors">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <!-- Form Header -->
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-white mb-2">Solicita tu análisis</h3>
+                <p class="text-sm text-textSecondary">Déjanos tus datos y la URL a analizar. Te enviaremos el vídeo en 48h.</p>
+            </div>
+
+            <!-- Form -->
+            <form id="lead-form" class="flex flex-col gap-4">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-textSecondary mb-1.5 text-left">Tu nombre</label>
+                    <input type="text" id="name" required placeholder="Ej. Ana García" class="w-full bg-[#0A0A0F] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-textSecondary mb-1.5 text-left">Tu mejor email</label>
+                    <input type="email" id="email" required placeholder="ana@tunegocio.com" class="w-full bg-[#0A0A0F] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all">
+                </div>
+                <div>
+                    <label for="url" class="block text-sm font-medium text-textSecondary mb-1.5 text-left">Perfil de Instagram o Web</label>
+                    <input type="text" id="url" required placeholder="@tu_cuenta o tuweb.com" class="w-full bg-[#0A0A0F] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all">
+                </div>
+
+                <div class="flex items-start gap-3 mt-2 mb-2">
+                    <input type="checkbox" id="privacy" required class="mt-1 w-4 h-4 bg-[#0A0A0F] border border-white/20 rounded accent-primary shrink-0 cursor-pointer">
+                    <label for="privacy" class="text-[12px] text-textSecondary leading-tight text-left cursor-pointer">
+                        He leído y acepto la <a href="https://proemote.es/privacidad" target="_blank" class="text-primary hover:text-white transition-colors underline">Política de Privacidad</a> y el uso de cookies.
+                    </label>
+                </div>
+
+                <button type="submit" id="submit-btn" class="btn-glow w-full py-4 rounded-xl text-white font-bold text-lg flex justify-center items-center gap-2 mt-2">
+                    <span>Enviar mis datos</span>
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                </button>
+            </form>
+
+            <!-- Success Message (Hidden by default) -->
+            <div id="success-msg" class="hidden flex-col items-center justify-center py-8 text-center">
+                <div class="w-16 h-16 bg-success/20 rounded-full flex items-center justify-center text-success mb-4 border border-success/30">
+                    <i data-lucide="check" class="w-8 h-8"></i>
+                </div>
+                <h4 class="text-2xl font-bold text-white mb-2">¡Solicitud recibida!</h4>
+                <p class="text-textSecondary">Nos ponemos a trabajar en tu perfil. Recibirás tu vídeo y PDF en la bandeja de entrada en menos de 48 horas.</p>
+                <button onclick="closeModal()" class="mt-8 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/10 rounded-xl text-white font-medium transition-colors">
+                    Volver a la página
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-12 text-center border-t border-white/5 bg-[#0A0A0F] text-textSecondary opacity-90 relative z-20">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="flex flex-col items-center md:items-start gap-4">
+                <p class="font-bold text-white text-lg">Proemote</p>
+                <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full text-xs shadow-inner">
+                    🏆 Premio Impulso 2025 · Diputación de Badajoz
+                </div>
+            </div>
+            
+            <div class="flex flex-col items-center md:items-end gap-4">
+                <div class="flex gap-6 text-sm">
+                    <a href="https://proemote.es/privacidad" target="_blank" class="hover:text-primary transition-colors drop-shadow-sm">Privacidad</a>
+                    <a href="#" class="hover:text-primary transition-colors drop-shadow-sm">Aviso Legal</a>
+                </div>
+                <p class="text-xs opacity-50">© 2026 Proemote Studio. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Inicializar iconos
+        lucide.createIcons();
+
+        // Efecto de partículas de fondo
+        const canvas = document.getElementById('cosmos-canvas');
+        const ctx = canvas.getContext('2d');
+        let particlesArray = [];
+
+        const starColors = ['255, 255, 255', '224, 231, 255', '233, 213, 255', '199, 210, 254'];
+
+        function initCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particlesArray = [];
+            const numberOfParticles = (canvas.width * canvas.height) / 6000; 
+
+            for (let i = 0; i < numberOfParticles; i++) {
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * canvas.height;
+                const size = Math.random() * 2 + 0.5; 
+                const speedX = (Math.random() - 0.5) * 0.15; 
+                const speedY = (Math.random() - 0.5) * 0.15;
+                const opacity = Math.random() * 0.7 + 0.1; 
+                const colorBase = starColors[Math.floor(Math.random() * starColors.length)];
+                
+                particlesArray.push({ x, y, size, speedX, speedY, opacity, colorBase });
+            }
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                let p = particlesArray[i];
+                ctx.fillStyle = `rgba(${p.colorBase}, ${p.opacity})`;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                p.x += p.speedX;
+                p.y += p.speedY;
+
+                if (p.x > canvas.width) p.x = 0;
+                else if (p.x < 0) p.x = canvas.width;
+                if (p.y > canvas.height) p.y = 0;
+                else if (p.y < 0) p.y = canvas.height;
+            }
+            requestAnimationFrame(animateCanvas);
+        }
+
+        window.addEventListener('resize', initCanvas);
+        initCanvas();
+        animateCanvas();
+
+        // Reveal on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+            
+            setTimeout(() => {
+                reveals.forEach(reveal => {
+                    const rect = reveal.getBoundingClientRect();
+                    if(rect.top < window.innerHeight) {
+                        reveal.classList.add('active');
+                    }
+                });
+            }, 100);
+        });
+
+        // Lógica del Modal
+        const modal = document.getElementById('lead-modal');
+        const modalContent = modal ? modal.querySelector('.modal-content') : null;
+        
+        function openModal() {
+            if(!modal) return;
+            modal.classList.remove('hidden');
+            // Retraso minúsculo para que la animación CSS aplique tras el display:block
+            setTimeout(() => {
+                if(modalContent) {
+                    modalContent.classList.remove('scale-95', 'opacity-0');
+                    modalContent.classList.add('scale-100', 'opacity-100');
+                }
+            }, 10);
+        }
+
+        function closeModal() {
+            if(!modalContent || !modal) return;
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                // Reseteamos el estado visual del formulario en caso de que lo vuelvan a abrir
+                const form = document.getElementById('lead-form');
+                const successMsg = document.getElementById('success-msg');
+                const submitBtn = document.getElementById('submit-btn');
+                
+                if (form) form.classList.remove('hidden');
+                if (successMsg) {
+                    successMsg.classList.remove('flex');
+                    successMsg.classList.add('hidden');
+                }
+                
+                if (submitBtn) {
+                    submitBtn.classList.remove('hidden');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<span>Enviar mis datos</span><i data-lucide="send" class="w-5 h-5"></i>';
+                }
+                lucide.createIcons();
+            }, 300);
+        }
+
+        // Simulación de envío del formulario dentro del modal
+        const form = document.getElementById('lead-form');
+        const successMsg = document.getElementById('success-msg');
+        const submitBtn = document.getElementById('submit-btn');
+
+        if(form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Estado de carga
+                if(submitBtn) {
+                    submitBtn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Procesando...';
+                    lucide.createIcons();
+                    submitBtn.disabled = true;
+                }
+
+                setTimeout(() => {
+                    // Ocultar form y mostrar éxito
+                    form.classList.add('hidden');
+                    if(submitBtn) submitBtn.classList.add('hidden');
+                    
+                    if(successMsg) {
+                        successMsg.classList.remove('hidden');
+                        successMsg.classList.add('flex');
+                    }
+                }, 1500);
+            });
+        }
+    </script>
+</body>
+</html>
