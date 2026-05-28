@@ -208,7 +208,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 
                 <!-- Columna Izquierda: Texto y Acciones -->
-                <div class="lg:col-span-7 text-center lg:text-left reveal-up active flex flex-col items-center lg:items-start">
+                <div class="lg:col-span-6 text-center lg:text-left reveal-up active flex flex-col items-center lg:items-start">
                     <div class="inline-flex items-center justify-center px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-[11px] font-bold tracking-[0.15em] uppercase shadow-[0_0_15px_rgba(123,97,255,0.05)] mb-6">
                         Fondos limitados · Plazo: 13 de agosto de 2026
                     </div>
@@ -251,19 +251,19 @@
                     </div>
                 </div>
 
-                <!-- Columna Derecha: Imagen destacada (Split Layout) -->
-                <div class="lg:col-span-5 relative reveal-up delay-100 mt-8 lg:mt-0 flex justify-center">
-                    <div class="relative w-full max-w-[460px] aspect-[4/3] sm:aspect-video lg:aspect-auto lg:h-[340px] rounded-2xl overflow-hidden border border-white/10 bg-bgSurface/40 shadow-[0_0_40px_rgba(123,97,255,0.15)] group transition-all duration-300 hover:border-primary/40">
+                <!-- Columna Derecha: Imagen destacada (Split Layout - 50% de ancho) -->
+                <div class="lg:col-span-6 relative reveal-up delay-100 mt-8 lg:mt-0 flex justify-center w-full">
+                    <div class="relative w-full max-w-[540px] rounded-2xl overflow-hidden border border-white/10 bg-bgSurface/40 shadow-[0_0_40px_rgba(123,97,255,0.15)] group transition-all duration-300 hover:border-primary/40">
                         <a href="#contacto" class="block w-full h-full relative">
-                            <div class="absolute inset-0 bg-gradient-to-t from-bgMain/40 via-transparent to-transparent z-10"></div>
+                            <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 mix-blend-overlay"></div>
                             <img src="subvenciones-autonomos-pymes-extremadura-proemote.png"
                                  alt="Subvenciones digitalización autónomos y pymes Extremadura 2026 - Junta de Extremadura - Proemote agencia gestora"
-                                 class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity transform group-hover:scale-[1.03] duration-500"
+                                 class="w-full h-auto object-contain opacity-95 group-hover:opacity-100 transition-opacity transform group-hover:scale-[1.01] duration-500"
                                  loading="eager" decoding="async">
                         </a>
                         
-                        <!-- Tarjeta flotante que imita la estructura/diseño sugerido -->
-                        <div class="absolute bottom-4 left-4 z-20 glass-card px-4 py-2.5 rounded-xl border border-white/10 flex items-center gap-2 shadow-2xl bg-bgMain/80 backdrop-blur-md">
+                        <!-- Tarjeta flotante reubicada arriba a la derecha -->
+                        <div class="absolute top-4 right-4 z-20 glass-card px-4 py-2.5 rounded-xl border border-white/10 flex items-center gap-2 shadow-2xl bg-bgMain/80 backdrop-blur-md">
                             <div class="w-8 h-8 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-sm">
                                 €
                             </div>
