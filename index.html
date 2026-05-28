@@ -95,6 +95,11 @@
     </style>
 </head>
 <body class="antialiased selection:bg-primary selection:text-white relative">
+    <!-- BARRA DE ANUNCIO GLOBAL -->
+    <div id="announcement-bar" class="w-full bg-primary text-white text-center py-2 px-4 text-xs md:text-sm font-medium z-[60] relative">
+        🔔 Nueva convocatoria: hasta 20.000€ para digitalizar tu negocio en Extremadura ·
+        <a href="/ayudas-digitalizacion-pymes-extremadura/" class="underline font-bold hover:text-white/80 transition-colors ml-1">Ver ayudas →</a>
+    </div>
 
     <div id="mouse-glow"></div>
 
@@ -156,7 +161,8 @@
             <div class="hidden md:flex gap-8 text-sm font-medium text-textSecondary relative z-10 items-center">
                 <a href="https://proemote.es/" class="hover:text-textMain transition-colors">Inicio</a>
                 <a href="/#foco" class="hover:text-textMain transition-colors">Sistema</a>
-                <a href="/servicios" id="services-menu-btn" class="hover:text-textMain transition-colors focus:outline-none">Servicios</a>
+                <a href="/servicios" id="services-menu-btn" class="hover:text-textMain transition-colors focus:outline-none">Servicios
+                <a href="/ayudas-digitalizacion-pymes-extremadura/" class="hover:text-textMain transition-colors flex items-center gap-1.5">Ayudas 2026 <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-primary/20 text-primary border border-primary/30 leading-none">Nuevo</span></a>
                 <a href="/sobre-nosotros" class="hover:text-textMain transition-colors">Sobre nosotros</a>
                 <a href="https://proemote.es/portfolio" class="hover:text-textMain transition-colors">Portfolio</a>
                 <a href="/contacto" class="hover:text-textMain transition-colors">Contacto</a>
@@ -175,6 +181,8 @@
             <div class="flex flex-col py-6 px-6 gap-6">
                 <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
                 <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
+                
+                <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-base font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">Ayudas 2026 <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-primary/20 text-primary border border-primary/30 leading-none">Nuevo</span></a>
                 <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
                 <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
                 <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
@@ -233,6 +241,31 @@
             </a>
         </div>
     </div>
+
+    <!-- BLOQUE AYUDAS EXTREMADURA -->
+    <section class="relative z-10 py-16 md:py-20 border-y border-primary/20 bg-gradient-to-r from-primary/10 via-bgSurface to-primary/10 overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+            <div class="absolute -left-20 top-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-primary/10 blur-3xl"></div>
+            <div class="absolute -right-20 top-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-accent/10 blur-3xl"></div>
+        </div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 reveal-up">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-primary text-xs font-semibold tracking-widest uppercase mb-6">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Convocatoria activa · Extremadura 2026
+            </div>
+            <h2 class="font-heading text-3xl md:text-5xl font-semibold text-white mb-4 leading-tight">
+                ¿Tienes un negocio en Extremadura?
+            </h2>
+            <p class="text-base md:text-lg text-textSecondary max-w-2xl mx-auto mb-8 leading-relaxed">
+                La Junta financia hasta el <strong class="text-white font-semibold">80% de tu transformación digital</strong>. Redes, web, contenido, gestión. Nosotros nos encargamos de todo.
+            </p>
+            <a href="/ayudas-digitalizacion-pymes-extremadura/" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-semibold transition-all duration-300 shadow-[0_0_25px_rgba(123,97,255,0.45)] focus:outline-none text-base">
+                → Ver ayudas disponibles
+            </a>
+            <p class="mt-5 text-xs text-textSecondary/70 font-medium">
+                Fondos limitados · Plazo: 14 de agosto de 2026 · Concesión por orden de llegada
+            </p>
+        </div>
+    </section>
 
     <!-- Sección Logos -->
     <section class="py-16 bg-bgMain relative z-10 border-b border-white/5 overflow-hidden">
