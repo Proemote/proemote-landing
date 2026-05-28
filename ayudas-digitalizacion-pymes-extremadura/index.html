@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayudas Digitalización Pymes Extremadura 2026 | Proemote</title>
-    <meta name="description" content="Hasta 20.000€ para digitalizar tu negocio en Extremadura. Proemote te ayuda a solicitar la ayuda y ejecutar el proyecto. Plazo abierto hasta el 14 de agosto de 2026.">
+    <meta name="description" content="Hasta 20.000€ para digitalizar tu negocio en Extremadura. Web, redes, gestión y más. En Proemote nos encargamos de todo: diseñamos el proyecto. Fondos limitados, solicita ahora.">
     
     <!-- Pistas de recurso para CDN Tailwind y fuentes -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
@@ -126,56 +126,6 @@
     <div id="mouse-glow"></div>
 
     <!-- NAVEGACIÓN -->
-    <!-- MODAL DE CONTACTO -->
-    <div id="contact-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-bgMain/80 backdrop-blur-md opacity-0 transition-opacity duration-300">
-        <div class="glass-form tilt-effect w-full max-w-lg p-8 md:p-10 rounded-[2rem] relative shadow-2xl max-h-[95vh] overflow-y-auto transform scale-95 transition-transform duration-300" style="will-change: transform;">
-            <button onclick="closeModal()" class="absolute top-6 right-6 text-textSecondary hover:text-white transition-colors focus:outline-none z-10"><i class="ph ph-x text-2xl"></i></button>
-            <h2 class="text-2xl font-heading font-medium text-white mb-2">Cuéntanos sobre tu proyecto</h2>
-            <p class="text-textSecondary mb-6 text-sm">Te respondemos en menos de 24h con un diagnóstico inicial sin compromiso.</p>
-            
-            <form id="modal-form" class="proemote-form space-y-4">
-                <!-- Honeypot Anti-Spam Field -->
-                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-                <!-- Campo Origen para Google Sheets -->
-                <input type="hidden" name="Origen" value="Modal Landing Page">
-                <input type="text" name="Nombre" aria-label="Tu nombre completo" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="Tu nombre completo">
-                <input type="email" name="Email" aria-label="Correo electrónico" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="hola@tuempresa.com">
-                <input type="tel" name="Telefono" aria-label="Teléfono de contacto (Opcional)" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all" placeholder="+34 600 000 000 (Opcional)">
-                
-                <select name="Fase" aria-label="¿En qué fase está tu negocio?" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer">
-                    <option value="" disabled selected>¿En qué fase está tu negocio?</option>
-                    <option value="Empiezo desde cero">Empiezo desde cero — necesito identidad y presencia web</option>
-                    <option value="Ya tengo presencia">Ya tengo presencia pero no convierte</option>
-                    <option value="Quiero escalar">Quiero escalar lo que ya funciona con paid media</option>
-                    <option value="Servicio especifico">Solo necesito un servicio específico</option>
-                </select>
-
-                <select name="Servicio" aria-label="¿Qué servicio te interesa?" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer">
-                    <option value="" disabled selected>¿Qué servicio te interesa?</option>
-                    <option value="Estrategia y Marca">Estrategia de marca e identidad visual</option>
-                    <option value="Diseño Web">Diseño web y ecosistema digital</option>
-                    <option value="Redes Sociales">Gestión de redes sociales</option>
-                    <option value="Paid Media">Captación y Paid Media (Meta Ads / Google Ads)</option>
-                    <option value="Sistema completo">Sistema completo (varios servicios)</option>
-                    <option value="Orientacion">No sé aún, necesito orientación</option>
-                </select>
-
-                <textarea name="Mensaje" aria-label="Mensaje o detalles adicionales" rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all resize-none" placeholder="¿Qué quieres conseguir? ¿Cuál es tu mayor problema ahora mismo? (Opcional)"></textarea>
-                
-                <div class="flex items-start gap-3 px-2">
-                    <input type="checkbox" id="check-priv-modal" name="Privacidad" value="Aceptada" required class="mt-1 w-4 h-4 accent-primary cursor-pointer">
-                    <label for="check-priv-modal" class="text-sm text-textSecondary leading-tight cursor-pointer italic">He leído y acepto la <a href="https://proemote.es/privacidad" target="_blank" class="text-primary hover:text-accent underline decoration-primary/30">política de privacidad</a>.</label>
-                </div>
-                
-                <button type="submit" class="w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-accent transition-all flex items-center justify-center gap-2 group btn-submit">
-                    Solicitar diagnóstico gratuito <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                </button>
-                <p class="text-center text-xs text-textSecondary font-medium mt-3">Sin permanencias · Sin presupuestos genéricos · Respuesta en menos de 24h</p>
-                <div class="form-msg hidden text-center p-4 rounded-xl mt-4 font-medium transition-all text-sm"></div>
-            </form>
-        </div>
-    </div>
-
     <nav class="fixed w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="https://proemote.es/" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
@@ -190,15 +140,16 @@
                 <a href="/contacto" class="hover:text-textMain transition-colors">Contacto</a>
             </div>
             <div class="flex items-center gap-4 relative z-10">
-                <button onclick="openModal()" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-primary rounded-full hover:bg-accent shadow-[0_0_15px_rgba(123,97,255,0.4)] transition-all duration-300 focus:outline-none">
-                    ¿Hablamos?
-                </button>
+                <a href="#contacto" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-primary rounded-full hover:bg-accent shadow-[0_0_15px_rgba(123,97,255,0.4)] transition-all duration-300 focus:outline-none">
+                    Analizar mi caso
+                </a>
                 <button id="mobile-menu-btn" aria-label="Abrir menú de navegación" class="md:hidden text-textSecondary hover:text-white transition-colors focus:outline-none p-2">
                     <i class="ph ph-dots-three-vertical text-2xl"></i>
                 </button>
             </div>
         </div>
 
+        <!-- Menú Móvil -->
         <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-bgSurface/95 backdrop-blur-xl border-b border-white/10 shadow-2xl overflow-hidden transition-all duration-300">
             <div class="flex flex-col py-6 px-6 gap-6">
                 <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
@@ -206,9 +157,9 @@
                 <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
                 <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
                 <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <button onclick="openModal()" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-primary rounded-full shadow-[0_0_15px_rgba(123,97,255,0.4)] focus:outline-none">
-                    ¿Hablamos?
-                </button>
+                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-primary rounded-full shadow-[0_0_15px_rgba(123,97,255,0.4)] focus:outline-none">
+                    Analizar mi caso
+                </a>
             </div>
         </div>
     </nav>
@@ -230,9 +181,13 @@
                 y Autónomos en Extremadura 2026
             </h1>
             
-            <p class="text-lg md:text-xl text-textSecondary leading-relaxed max-w-3xl mx-auto mb-12">
+            <p class="text-lg md:text-xl text-textSecondary leading-relaxed max-w-3xl mx-auto mb-6">
                 Hay dinero público disponible ahora mismo para digitalizar tu negocio en Extremadura. Hasta 20.000€ con los que financiar tu web, tus redes sociales, tu sistema de gestión o tu contenido audiovisual, cubriendo hasta el 80% del coste. En Proemote nos encargamos de todo: analizamos si aplicas, preparamos la solicitud y ejecutamos el proyecto si se concede. Tú no tienes que gestionar nada.
             </p>
+
+            <div class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-accent/10 border border-accent/20 text-accent text-sm md:text-base font-medium mb-12 shadow-[0_0_20px_rgba(159,122,234,0.15)]">
+                <i class="ph-fill ph-check-circle text-lg"></i> Compatible con el Kit Digital. Si ya lo solicitaste, esta ayuda lo complementa.
+            </div>
             
             <div class="flex flex-col items-center justify-center mb-10">
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
@@ -244,7 +199,7 @@
                     </a>
                 </div>
                 <span class="text-xs md:text-sm text-textSecondary/80 font-medium mt-4 flex items-center gap-1.5">
-                    <i class="ph-fill ph-shield-check text-primary text-base"></i> Análisis de viabilidad gratuito y sin compromiso.
+                    <i class="ph-fill ph-shield-check text-primary text-base"></i> Diagnóstico de viabilidad gratuito y sin compromiso.
                 </span>
             </div>
             
@@ -259,35 +214,35 @@
     <section id="detalles" class="py-32 relative z-10 bg-bgSurface/30 border-t border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal-up">
-                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white mb-4">Condiciones de la convocatoria para la <span class="text-gradient-primary">digitalización de pymes en Extremadura.</span></h2>
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white mb-4">¿En qué consiste <span class="text-gradient-primary">esta ayuda?</span></h2>
                 <p class="text-textSecondary text-lg max-w-2xl mx-auto">Información clara y directa sobre la financiación disponible.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 reveal-up delay-100">
                 <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect">
                     <i class="ph-fill ph-users text-3xl text-primary mb-4"></i>
-                    <h3 class="text-xl font-heading text-white font-medium mb-2">Beneficiarios</h3>
+                    <div class="text-xl font-heading text-white font-medium mb-2">Beneficiarios</div>
                     <p class="text-sm text-textSecondary">Autónomos y pymes con actividad económica en Extremadura.</p>
                 </div>
                 <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect">
                     <i class="ph-fill ph-coins text-3xl text-primary mb-4"></i>
-                    <h3 class="text-xl font-heading text-white font-medium mb-2">Importe y condiciones</h3>
+                    <div class="text-xl font-heading text-white font-medium mb-2">Importe y condiciones</div>
                     <p class="text-sm text-textSecondary">Hasta el 80% del gasto subvencionable, con un máximo de 20.000€ por beneficiario. Sujeto a régimen de mínimis.</p>
                 </div>
                 <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect">
                     <i class="ph-fill ph-calendar text-3xl text-primary mb-4"></i>
-                    <h3 class="text-xl font-heading text-white font-medium mb-2">Plazo y concesión</h3>
+                    <div class="text-xl font-heading text-white font-medium mb-2">Plazo y concesión</div>
                     <p class="text-sm text-textSecondary">Abierto hasta el 14 de agosto de 2026. Las ayudas no se puntúan, se asignan por orden de entrada. Cuando se acaba el presupuesto, se acaba la ayuda.</p>
                 </div>
             </div>
 
             <div class="reveal-up delay-200">
-                <h3 class="text-2xl font-heading text-white font-medium mb-8 text-center">Líneas subvencionables</h3>
+                <h2 class="text-2xl font-heading text-white font-medium mb-8 text-center">¿Qué puedes digitalizar con esta subvención?</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     
                     <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors">
                         <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-white font-medium">Página Web</h4>
+                            <h3 class="text-white font-medium">Página Web</h3>
                             <span class="text-primary font-bold text-sm bg-primary/10 px-2 py-1 rounded">Max. 500€</span>
                         </div>
                         <p class="text-xs text-textSecondary">Desarrollo o mejora de tu web corporativa. Nos encargamos del diseño, el desarrollo y el posicionamiento para que tu web trabaje por ti desde el primer día.</p>
@@ -295,7 +250,7 @@
 
                     <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors">
                         <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-white font-medium">Tienda Online</h4>
+                            <h3 class="text-white font-medium">Tienda Online</h3>
                             <span class="text-primary font-bold text-sm bg-primary/10 px-2 py-1 rounded">Max. 4.000€</span>
                         </div>
                         <p class="text-xs text-textSecondary">Creación de e-commerce. Montamos tu tienda online de principio a fin para que puedas vender sin depender de terceros ni de comisiones externas.</p>
@@ -303,7 +258,7 @@
 
                     <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors">
                         <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-white font-medium">SEO y SEM</h4>
+                            <h3 class="text-white font-medium">SEO y SEM</h3>
                             <span class="text-primary font-bold text-sm bg-primary/10 px-2 py-1 rounded">Max. 7.000€</span>
                         </div>
                         <p class="text-xs text-textSecondary">Posicionamiento en buscadores y publicidad digital para que tus clientes te encuentren antes que a tu competencia.</p>
@@ -311,7 +266,7 @@
 
                     <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors">
                         <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-white font-medium">Community Manager</h4>
+                            <h3 class="text-white font-medium">Community Manager</h3>
                             <span class="text-primary font-bold text-sm bg-primary/10 px-2 py-1 rounded">Max. 3.000€</span>
                         </div>
                         <p class="text-xs text-textSecondary">Gestión de redes sociales. Nos ocupamos de tus perfiles para que no tengas que preocuparte de qué publicar, cuándo ni cómo.</p>
@@ -319,7 +274,7 @@
 
                     <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors">
                         <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-white font-medium">Contenido Multimedia</h4>
+                            <h3 class="text-white font-medium">Contenido Multimedia</h3>
                             <span class="text-primary font-bold text-sm bg-primary/10 px-2 py-1 rounded">Max. 2.000€</span>
                         </div>
                         <p class="text-xs text-textSecondary">Producimos la fotografía y el vídeo profesional que tu negocio necesita. Tú no tienes que improvisar con el móvil.</p>
@@ -327,7 +282,7 @@
 
                     <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors">
                         <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-white font-medium">Software de Gestión</h4>
+                            <h3 class="text-white font-medium">Software de Gestión</h3>
                             <span class="text-primary font-bold text-sm bg-primary/10 px-2 py-1 rounded">Max. 5.000€</span>
                         </div>
                         <p class="text-xs text-textSecondary">CRM y facturación electrónica. Implantamos y configuramos las herramientas para que tu equipo gane horas y pierda menos información.</p>
@@ -335,7 +290,7 @@
 
                     <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors">
                         <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-white font-medium">Plataforma B2B</h4>
+                            <h3 class="text-white font-medium">Plataforma B2B</h3>
                             <span class="text-primary font-bold text-sm bg-primary/10 px-2 py-1 rounded">Max. 5.000€</span>
                         </div>
                         <p class="text-xs text-textSecondary">Sistemas de gestión comercial entre empresas, distribuidores y canales profesionales.</p>
@@ -343,7 +298,7 @@
 
                     <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors">
                         <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-white font-medium">Ciberseguridad</h4>
+                            <h3 class="text-white font-medium">Ciberseguridad</h3>
                             <span class="text-primary font-bold text-sm bg-primary/10 px-2 py-1 rounded">Max. 12.000€</span>
                         </div>
                         <p class="text-xs text-textSecondary">Protección de datos, redes e infraestructura para que tu negocio no dependa de la suerte.</p>
@@ -354,13 +309,62 @@
         </div>
     </section>
 
+    <!-- BENEFICIOS CONCRETOS -->
+    <section class="py-32 relative z-10 bg-bgSurface/50 border-t border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white mb-6">Lo que esta ayuda significa en la <span class="text-gradient-primary">práctica para tu negocio</span></h2>
+                <p class="text-textSecondary text-xl max-w-3xl mx-auto leading-relaxed">No es solo una subvención. Es la oportunidad de hacer ahora lo que llevas tiempo aplazando, pagando una fracción mínima de lo que costaría sin ella.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 reveal-up delay-100">
+                
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 shadow-[0_0_15px_rgba(123,97,255,0.15)]">
+                        <i class="ph-fill ph-share-network text-2xl"></i>
+                    </div>
+                    <p class="text-textSecondary leading-relaxed text-sm md:text-base"><strong class="text-white">Gestión profesional de tus redes sociales</strong> durante meses por lo que normalmente costaría unas semanas. Con la ayuda cubriendo hasta el 80%, contratar un community manager deja de ser un lujo para convertirse en una decisión rentable.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 shadow-[0_0_15px_rgba(123,97,255,0.15)]">
+                        <i class="ph-fill ph-browser text-2xl"></i>
+                    </div>
+                    <p class="text-textSecondary leading-relaxed text-sm md:text-base"><strong class="text-white">Tu web rediseñada desde cero</strong> por el coste de unas pocas horas de trabajo. Una web que posiciona en Google y convierte visitas en clientes, financiada casi en su totalidad por la Junta de Extremadura.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 shadow-[0_0_15px_rgba(123,97,255,0.15)]">
+                        <i class="ph-fill ph-camera text-2xl"></i>
+                    </div>
+                    <p class="text-textSecondary leading-relaxed text-sm md:text-base"><strong class="text-white">Fotografía y vídeo profesional</strong> para tu negocio sin el coste habitual de una producción. Material que utilizarás durante años en redes, web y campañas.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 shadow-[0_0_15px_rgba(123,97,255,0.15)]">
+                        <i class="ph-fill ph-hard-drives text-2xl"></i>
+                    </div>
+                    <p class="text-textSecondary leading-relaxed text-sm md:text-base"><strong class="text-white">Tu negocio ordenado con un CRM</strong> y facturación electrónica por una inversión mínima. Herramientas que ahorran horas a tu equipo cada semana, pagadas mayoritariamente con fondos públicos.</p>
+                </div>
+
+            </div>
+
+            <div class="text-center reveal-up delay-200">
+                <div class="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-accent/10 border border-accent/20 max-w-3xl">
+                    <i class="ph-fill ph-info text-accent text-2xl flex-shrink-0"></i>
+                    <span class="text-white font-medium text-sm md:text-base text-left">Todo esto es posible ahora porque existe una convocatoria abierta. Cuando se agoten los fondos, estos precios dejan de existir.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- SERVICIOS PROEMOTE (CONVERSIÓN) -->
     <section class="py-32 relative z-10 bg-bgMain border-t border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal-up">
                 <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Ejecución Profesional</span>
-                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white">Lo que ejecutamos nosotros. <span class="text-gradient-primary">Tú solo tienes que aprobar.</span></h2>
-                <p class="text-textSecondary text-lg mt-4 max-w-2xl mx-auto">Gestionamos el proceso completo para que no tengas que aprender a tramitar subvenciones ni a coordinar proveedores digitales.</p>
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white">Qué ejecutamos <span class="text-gradient-primary">nosotros.</span></h2>
+                <p class="text-textSecondary text-lg mt-4 max-w-2xl mx-auto">Gestionamos el proceso completo para que no tengas que aprender a tramitar subvenciones ni a coordinar proveedores digitales. Tú solo tienes que aprobar.</p>
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-up delay-100">
@@ -406,37 +410,37 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal-up">
                 <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Resultados con nuestros clientes</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white">Negocios en Extremadura que ya tienen ventaja digital.</h2>
-                <p class="text-textSecondary mt-4">Resultados orgánicos reales. Sin anuncios pagados. Con la misma metodología que aplicamos en cada proyecto.</p>
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-white">Resultados reales de negocios en <span class="text-gradient-primary">Extremadura.</span></h2>
+                <p class="text-textSecondary mt-4">Resultados orgánicos tangibles. Sin anuncios pagados. Con la misma metodología que aplicamos en cada proyecto.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-up delay-100">
                 
                 <div class="glass-card p-8 md:p-10 rounded-[2rem] border-white/5 flex flex-col text-center tilt-effect">
                     <span class="font-heading text-4xl md:text-5xl font-bold text-gradient-primary mb-2">Top #1</span>
-                    <h4 class="text-white font-medium text-lg mb-4">en Google Search</h4>
-                    <p class="text-sm text-textSecondary mb-8 flex-grow">Primer resultado absoluto en Google para quien busca "empresa de limpieza en Mérida". Un canal de captación de clientes automático e imparable.</p>
-                    <div class="pt-6 border-t border-white/10 text-xs text-textSecondary uppercase tracking-widest font-bold">
+                    <div class="text-white font-medium text-lg mb-4">en resultados de búsqueda</div>
+                    <p class="text-sm text-textSecondary mb-8 flex-grow">Cuando alguien en Mérida busca una empresa de limpieza, Lo Quiero Limpio aparece antes que nadie. Su competencia paga anuncios para intentar alcanzarle.</p>
+                    <h3 class="pt-6 border-t border-white/10 text-xs text-textSecondary uppercase tracking-widest font-bold">
                         Lo Quiero Limpio · Mérida
-                    </div>
+                    </h3>
                 </div>
 
                 <div class="glass-card p-8 md:p-10 rounded-[2rem] border-white/5 flex flex-col text-center tilt-effect">
                     <span class="font-heading text-4xl md:text-5xl font-bold text-gradient-primary mb-2">Top #4</span>
-                    <h4 class="text-white font-medium text-lg mb-4">en SEO Local</h4>
-                    <p class="text-sm text-textSecondary mb-8 flex-grow">Posicionada en el Top 4 de resultados orgánicos para búsquedas de estética y belleza en Mérida sin invertir un euro en publicidad.</p>
-                    <div class="pt-6 border-t border-white/10 text-xs text-textSecondary uppercase tracking-widest font-bold">
+                    <div class="text-white font-medium text-lg mb-4">en SEO Local</div>
+                    <p class="text-sm text-textSecondary mb-8 flex-grow">Posicionada entre los primeros resultados para búsquedas de estética y belleza en Mérida sin invertir un euro en publicidad.</p>
+                    <h3 class="pt-6 border-t border-white/10 text-xs text-textSecondary uppercase tracking-widest font-bold">
                         Centro de Belleza Juany · Mérida
-                    </div>
+                    </h3>
                 </div>
 
                 <div class="glass-card p-8 md:p-10 rounded-[2rem] border-white/5 flex flex-col text-center tilt-effect">
                     <span class="font-heading text-4xl md:text-5xl font-bold text-gradient-primary mb-2">Top #3</span>
-                    <h4 class="text-white font-medium text-lg mb-4">para e-commerce local</h4>
+                    <div class="text-white font-medium text-lg mb-4">para e-commerce local</div>
                     <p class="text-sm text-textSecondary mb-8 flex-grow">Tercer resultado orgánico estable en Google para quien busca comprar jamón ibérico en Almendralejo. Visibilidad que trabaja las 24 horas.</p>
-                    <div class="pt-6 border-t border-white/10 text-xs text-textSecondary uppercase tracking-widest font-bold">
+                    <h3 class="pt-6 border-t border-white/10 text-xs text-textSecondary uppercase tracking-widest font-bold">
                         Jamón Exclusive · Almendralejo
-                    </div>
+                    </h3>
                 </div>
 
             </div>
@@ -447,8 +451,8 @@
     <section id="proceso" class="py-32 relative bg-bgMain border-t border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-24 reveal-up">
-                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white">Cuatro pasos. El trabajo lo hacemos nosotros.</h2>
-                <p class="text-textSecondary text-xl max-w-2xl mx-auto leading-relaxed">Tu única tarea es contarnos a qué se dedica tu negocio.</p>
+                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white">Cómo funciona el proceso.</h2>
+                <p class="text-textSecondary text-xl max-w-2xl mx-auto leading-relaxed">Cuatro pasos. El trabajo lo hacemos nosotros, tu única tarea es contarnos a qué se dedica tu negocio.</p>
             </div>
 
             <div class="relative max-w-5xl mx-auto px-4 md:px-0">
@@ -514,18 +518,209 @@
         </div>
     </section>
 
+    <!-- FAQs -->
+    <section class="py-32 relative bg-bgSurface/50 border-t border-white/5 with-glow">
+        <div class="max-w-6xl mx-auto px-6 reveal-up">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-5xl font-medium text-white mb-4">Preguntas frecuentes sobre las ayudas a la digitalización en Extremadura</h2>
+                <p class="text-textSecondary text-lg">Resolvemos las dudas antes de empezar.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 items-start">
+                
+                <!-- Columna 1 -->
+                <div class="space-y-2 faq-column">
+                    <div class="border-b border-white/10 faq-item">
+                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
+                            <h3 class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8 m-0">¿Quién puede solicitar estas ayudas?</h3>
+                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
+                            <div class="overflow-hidden">
+                                <p class="text-textSecondary pb-6 leading-relaxed">Cualquier autónomo o pyme que desarrolle su actividad económica en Extremadura, independientemente de su sector o forma jurídica.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-white/10 faq-item">
+                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
+                            <h3 class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8 m-0">¿Cuánto me pueden subvencionar?</h3>
+                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
+                            <div class="overflow-hidden">
+                                <p class="text-textSecondary pb-6 leading-relaxed">Hasta el 80% del gasto subvencionable, con un máximo de 20.000€ por beneficiario.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-white/10 faq-item">
+                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
+                            <h3 class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8 m-0">¿Es compatible con el Kit Digital?</h3>
+                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
+                            <div class="overflow-hidden">
+                                <p class="text-textSecondary pb-6 leading-relaxed">Sí. Si ya solicitaste el Kit Digital, esta convocatoria es complementaria y puedes acceder a ella igualmente. Cuéntanos tu situación y te informamos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-white/10 faq-item">
+                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
+                            <h3 class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8 m-0">¿Cuánto tiempo tengo para solicitarla?</h3>
+                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
+                            <div class="overflow-hidden">
+                                <p class="text-textSecondary pb-6 leading-relaxed">El plazo oficial cierra el 14 de agosto de 2026, pero las ayudas se conceden por orden de entrada. Si el presupuesto se agota antes de esa fecha, la convocatoria se cierra igualmente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna 2 -->
+                <div class="space-y-2 faq-column">
+                    <div class="border-b border-white/10 faq-item">
+                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
+                            <h3 class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8 m-0">¿Proemote se encarga de toda la gestión?</h3>
+                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
+                            <div class="overflow-hidden">
+                                <p class="text-textSecondary pb-6 leading-relaxed">Sí. Nos ocupamos del diagnóstico, la preparación de documentación, la presentación ante la Junta de Extremadura y la ejecución completa del proyecto una vez concedido.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-white/10 faq-item">
+                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
+                            <h3 class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8 m-0">¿Qué pasa si presento la solicitud y no me la conceden?</h3>
+                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
+                            <div class="overflow-hidden">
+                                <p class="text-textSecondary pb-6 leading-relaxed">El diagnóstico previo es gratuito y está pensado precisamente para evitar esa situación. Solo te recomendamos presentar si tu caso cumple los requisitos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-white/10 faq-item">
+                        <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
+                            <h3 class="text-lg font-medium text-white group-hover:text-primary transition-colors pr-8 m-0">¿Tengo que pagar algo por adelantado?</h3>
+                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                        </button>
+                        <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
+                            <div class="overflow-hidden">
+                                <p class="text-textSecondary pb-6 leading-relaxed">El diagnóstico de viabilidad es completamente gratuito y sin compromiso. Los términos del proyecto se acuerdan antes de iniciar cualquier trabajo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- URGENCIA -->
+    <section class="py-24 relative z-10 bg-bgMain border-t border-white/5 overflow-hidden with-glow">
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-bgMain z-[-1] pointer-events-none"></div>
+        <div class="max-w-5xl mx-auto px-6 reveal-up">
+            <div class="glass-card border-white/10 p-8 md:p-12 rounded-[3rem] relative shadow-[0_20px_50px_rgba(0,0,0,0.4)] overflow-hidden flex flex-col md:flex-row gap-12 items-center">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+                
+                <div class="flex-1">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-6">El momento de actuar es ahora, <span class="text-white/60">no el 13 de agosto.</span></h2>
+                    <p class="text-textSecondary text-lg mb-10 leading-relaxed">Las ayudas se conceden por orden de presentación, no por fecha límite. Esto significa que no existe ninguna ventaja en esperar al último momento. Cada solicitud que se presenta antes que la tuya es dinero que se resta del fondo disponible.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-primary flex-shrink-0 shadow-inner"><i class="ph ph-hourglass-high text-xl"></i></div>
+                            <p class="text-textSecondary leading-relaxed text-sm md:text-base"><strong class="text-white">Los fondos son finitos.</strong> Cuando se agoten, la convocatoria se cierra aunque queden meses de plazo oficial.</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-primary flex-shrink-0 shadow-inner"><i class="ph ph-calendar-blank text-xl"></i></div>
+                            <p class="text-textSecondary leading-relaxed text-sm md:text-base"><strong class="text-white">Preparar y presentar una solicitud correctamente lleva tiempo.</strong> Si esperas a julio, puede que el presupuesto ya esté comprometido.</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-primary flex-shrink-0 shadow-inner"><i class="ph ph-trend-up text-xl"></i></div>
+                            <p class="text-textSecondary leading-relaxed text-sm md:text-base"><strong class="text-white">Cuanto antes se conceda, antes empieza tu proyecto.</strong> Cada mes que retrasas la solicitud es un mes menos de ventaja sobre tu competencia.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-[350px] bg-bgSurface/50 p-8 rounded-[2rem] border border-white/5 flex flex-col items-center text-center flex-shrink-0 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-primary/10 blur-3xl rounded-full"></div>
+                    <div class="relative z-10 w-full">
+                        <i class="ph ph-rocket-launch text-4xl text-primary mb-4"></i>
+                        <p class="text-xl font-heading font-bold text-white leading-tight mb-6">Presentamos tu solicitud esta semana.<br><span class="text-textSecondary text-sm font-normal mt-3 block">Tú decides si aprovechas la oportunidad o la dejas pasar.</span></p>
+                        <a href="#contacto" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-bgMain hover:bg-primary hover:text-white font-bold transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] w-full justify-center">
+                            Inicia tu solicitud <i class="ph ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OBJECIONES -->
+    <section class="py-24 relative z-10 bg-bgSurface/30 border-t border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="font-heading text-3xl md:text-5xl font-medium text-white mb-4">Dudas frecuentes antes de contactar</h2>
+                <p class="text-textSecondary text-lg">Respuestas claras para que tomes la decisión con seguridad.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-up delay-100">
+                
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-start gap-3">
+                        <i class="ph-fill ph-question text-2xl text-primary flex-shrink-0 mt-0.5"></i>
+                        No sé si mi negocio cumple los requisitos.
+                    </h3>
+                    <p class="text-sm text-textSecondary leading-relaxed pl-9">Por eso el diagnóstico es gratuito. En menos de 48 horas te decimos si aplicas, qué líneas te corresponden y por cuánto. Si no cumples, te lo decimos sin rodeos y sin hacerte perder el tiempo.</p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-start gap-3">
+                        <i class="ph-fill ph-files text-2xl text-primary flex-shrink-0 mt-0.5"></i>
+                        No tengo tiempo para gestionar trámites ni papeleo.
+                    </h3>
+                    <p class="text-sm text-textSecondary leading-relaxed pl-9">No tienes que gestionarlo tú. Proemote prepara toda la documentación, presenta la solicitud y coordina el proceso con la Junta de Extremadura. Tu único esfuerzo es rellenar el formulario de contacto.</p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-start gap-3">
+                        <i class="ph-fill ph-scales text-2xl text-primary flex-shrink-0 mt-0.5"></i>
+                        No sé si realmente vale la pena para mi tipo de negocio.
+                    </h3>
+                    <p class="text-sm text-textSecondary leading-relaxed pl-9">Si la ayuda cubre hasta el 80% del coste, la pregunta no es si vale la pena. La pregunta es si tiene sentido mejorar tu presencia digital, tu gestión o tu contenido a una fracción de lo que costaría normalmente. Si la respuesta es sí, vale la pena.</p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-start gap-3">
+                        <i class="ph-fill ph-handshake text-2xl text-primary flex-shrink-0 mt-0.5"></i>
+                        Me da miedo que me concedan la ayuda y luego no quedar contento con el resultado.
+                    </h3>
+                    <p class="text-sm text-textSecondary leading-relaxed pl-9">Trabajamos con negocios en Extremadura con resultados verificables. Antes de empezar cualquier proyecto acordamos exactamente qué se va a hacer y qué se espera conseguir. Sin letra pequeña.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- CTA FINAL / FORMULARIO -->
     <section id="contacto" class="py-32 relative bg-bgSurface border-t border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6 reveal-up">
             <div class="glass-card rounded-[3rem] p-8 md:p-16 border-primary/20 overflow-hidden relative shadow-2xl">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
                     <div>
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold uppercase tracking-wider mb-6">
-                            <i class="ph-fill ph-warning-circle"></i> El plazo acaba el 14 de agosto 2026
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider mb-6">
+                            <i class="ph-fill ph-warning-circle"></i> Plazo disponible hasta el 13 de agosto de 2026
                         </div>
                         <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-white leading-tight">Los fondos se agotan por <span class="text-gradient-primary">orden de llegada.</span></h2>
-                        <h3 class="text-xl text-white font-medium mb-4">Cada día que esperas es una solicitud más delante de la tuya.</h3>
-                        <p class="text-textSecondary text-lg mb-8 leading-relaxed">El plazo acaba el 14 de agosto 2026, pero el presupuesto puede agotarse antes. Cuéntanos tu caso ahora y en menos de 48 horas te decimos si aplicas, qué puedes solicitar y cómo lo gestionamos juntos. Sin compromiso.</p>
+                        <div class="text-xl text-white font-medium mb-4">Cada día que esperas es una solicitud más delante de la tuya.</div>
+                        <p class="text-textSecondary text-lg mb-8 leading-relaxed">La convocatoria cierra el 13 de agosto de 2026, pero el presupuesto puede agotarse antes. Cuéntanos tu caso ahora y en menos de 48 horas te decimos si aplicas, qué puedes solicitar y cómo lo gestionamos juntos. Sin compromiso.</p>
                         
                         <div class="space-y-4 mb-10">
                             <div class="flex items-center gap-3 text-white/90">
@@ -560,7 +755,7 @@
                             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                             <!-- Campo Origen para Google Sheets -->
                             <input type="hidden" name="Origen" value="Ayudas Pymes Extremadura 2026">
-                            
+
                             <div class="flex flex-col md:flex-row gap-4">
                                 <input type="text" name="Nombre" aria-label="Nombre de la empresa o autónomo" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="Nombre de la empresa o autónomo">
                                 <input type="email" name="Email" aria-label="Email de contacto" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="Email de contacto">
@@ -574,7 +769,7 @@
                                 <option value="Pyme">PYME (Sociedad)</option>
                             </select>
 
-                            <textarea name="Mensaje" aria-label="Detalles del negocio y digitalización requerida" rows="3" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all resize-none shadow-inner" placeholder="Cuéntanos brevemente a qué se dedica tu negocio y qué necesitas digitalizar (Ej: Necesito una nueva web y gestionar redes)."></textarea>
+                            <textarea name="Mensaje" aria-label="Mensaje o detalles del negocio" rows="3" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all resize-none shadow-inner" placeholder="Cuéntanos brevemente a qué se dedica tu negocio y qué necesitas digitalizar (Ej: Necesito una nueva web y gestionar redes)."></textarea>
                             
                             <div class="flex items-start gap-3 px-2">
                                 <input type="checkbox" id="check-priv-ayudas" name="Privacidad" value="Aceptada" required class="mt-1 w-4 h-4 accent-primary cursor-pointer">
@@ -584,8 +779,7 @@
                             <button type="submit" class="w-full py-4 bg-white text-bgMain font-bold rounded-xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2 group btn-submit">
                                 Solicitar diagnóstico de viabilidad <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                             </button>
-                            
-                            <p class="text-center text-sm text-textSecondary mt-3 font-medium">Sin compromiso. Si tu caso no aplica, te lo decimos igualmente.</p>
+                            <p class="text-center text-xs text-textSecondary mt-3">Sin compromiso. Si tu caso no aplica, te lo decimos igualmente.</p>
                             
                             <div class="form-msg hidden text-center p-4 rounded-xl mt-4 font-medium transition-all text-sm"></div>
                         </form>
@@ -598,19 +792,16 @@
     <!-- FOOTER -->
     <footer class="bg-bgMain border-t border-white/5 pt-20 pb-8 relative z-10">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
-            
             <div class="md:col-span-12 lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
                 <div class="mb-8">
                     <img src="logo-footer.png" alt="Proemote Logo" class="h-20 md:h-24 mb-3 opacity-90 mx-auto md:mx-0" width="93" height="96">
                     <p class="text-white italic text-sm mb-1">Shaping what matters</p>
                     <p class="text-textSecondary text-sm font-medium">Think first.</p>
                 </div>
-                
                 <div class="mb-6">
                     <p class="text-xs text-primary font-bold tracking-widest uppercase mb-1">Estudio creativo y estratégico.</p>
                     <p class="text-xs text-textSecondary font-bold tracking-widest uppercase">Mérida, Extremadura.</p>
                 </div>
-                
                 <div class="flex flex-col items-center md:items-start gap-3 mb-8 w-full">
                     <a href="mailto:info@proemote.es" class="text-white font-medium hover:text-primary transition-colors flex items-center gap-3 text-sm">
                         <i class="ph ph-envelope-simple text-xl"></i> info@proemote.es
@@ -619,7 +810,6 @@
                         <i class="ph ph-phone text-xl"></i> +34 641 57 62 86
                     </a>
                 </div>
-
                 <div class="flex justify-center md:justify-start gap-3 w-full">
                     <a href="https://www.linkedin.com/company/proemote/" target="_blank" aria-label="LinkedIn de Proemote" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
                         <i class="ph-fill ph-linkedin-logo"></i>
@@ -629,16 +819,14 @@
                     </a>
                 </div>
             </div>
-
-            <div class="md:col-span-4 lg:col-span-2 lg:col-start-5 mt-8 lg:mt-0">
+            
+            <div class="md:col-span-4 lg:col-span-2 lg:col-start-7 mt-8 lg:mt-0">
                 <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Servicios</h4>
                 <ul class="space-y-4 text-sm text-textSecondary text-center md:text-left">
-                    <li><a href="/web-seo" class="hover:text-white transition-colors">Diseño Web</a></li>
-                    <li><a href="/eventos" class="hover:text-white transition-colors">Eventos 360º</a></li>
+                    <li><a href="/web-seo" class="hover:text-white transition-colors">Diseño Web & SEO</a></li>
                     <li><a href="/marketing-digital" class="hover:text-white transition-colors">Marketing Digital</a></li>
                     <li><a href="/redes-sociales" class="hover:text-white transition-colors">Redes Sociales</a></li>
                     <li><a href="/branding-y-estrategia" class="hover:text-white transition-colors">Branding & Estrategia</a></li>
-                    <li><a href="/automatizaciones-y-sistemas" class="hover:text-white transition-colors">Automatización & Sistemas</a></li>
                 </ul>
             </div>
 
@@ -647,22 +835,10 @@
                 <ul class="space-y-4 text-sm text-textSecondary text-center md:text-left">
                     <li><a href="/aviso-legal" target="_blank" class="hover:text-white transition-colors">Aviso Legal</a></li>
                     <li><a href="/privacidad" target="_blank" class="hover:text-white transition-colors">Política de Privacidad</a></li>
-                    <li><a href="/sobre-nosotros" class="hover:text-white transition-colors">Sobre nosotros</a></li>
                     <li><a href="/contacto" class="hover:text-white transition-colors">Contacto</a></li>
-                    <li><a href="/trabaja-con-nosotros" class="hover:text-white transition-colors">Trabaja con nosotros</a></li>
-                </ul>
-            </div>
-
-            <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
-                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Horario</h4>
-                <ul class="space-y-2 text-sm text-textSecondary text-center md:text-left">
-                    <li class="flex flex-col md:inline-block"><span class="font-medium text-white/80">L-V:</span> <span class="text-white">9H–14H, 16H–20H</span></li>
-                    <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-white/80">Sáb:</span> <span class="text-white">10H–13:30H</span></li>
-                    <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-white/80">Dom:</span> <span class="text-white/50">Cerrado</span></li>
                 </ul>
             </div>
         </div>
-
         <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 text-center md:text-left">
             <p class="text-xs text-textSecondary w-full">© 2026 Proemote Studio. Todos los derechos reservados.</p>
         </div>
@@ -679,188 +855,8 @@
         </a>
     </div>
 
-    <!-- Scripts Esenciales -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Observer Reveal
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
-
-            // Foco Timeline Engine (Optimizado para evitar layout thrashing y usar aceleración de GPU)
-            const progress = document.getElementById('foco-progress');
-            const items = document.querySelectorAll('.foco-item');
-            let isTicking = false;
-            
-            const handleTimeline = () => {
-                if(!progress) return;
-                const container = progress.parentElement;
-                
-                // 1. Todas las lecturas del DOM juntas al inicio (Evita Forced Reflows)
-                const rect = container.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
-                
-                const nodeCenters = [];
-                items.forEach(item => {
-                    const node = item.querySelector('.foco-node');
-                    const nodeRect = node.getBoundingClientRect();
-                    nodeCenters.push({
-                        node: node,
-                        item: item,
-                        center: nodeRect.top + (nodeRect.height / 2)
-                    });
-                });
-                
-                // 2. Cálculos matemáticos puros
-                let p = (windowHeight * 0.6 - rect.top) / rect.height;
-                p = Math.max(0, Math.min(1, p));
-                
-                // La coordenada inferior física de la barra
-                const lineBottom = rect.top + (p * rect.height);
-                
-                // 3. Todas las escrituras al DOM juntas al final
-                progress.style.transform = `scaleY(${p})`;
-                
-                nodeCenters.forEach(info => {
-                    if (lineBottom >= info.center) {
-                        info.node.classList.remove('bg-bgMain');
-                        info.node.classList.add('bg-primary', 'border-primary', 'shadow-[0_0_15px_#7B61FF]');
-                        info.item.classList.add('active');
-                    } else {
-                        info.node.classList.add('bg-bgMain');
-                        info.node.classList.remove('bg-primary', 'border-primary', 'shadow-[0_0_15px_#7B61FF]');
-                        info.item.classList.remove('active');
-                    }
-                });
-            };
-            window.addEventListener('scroll', () => {
-                if (!isTicking) {
-                    window.requestAnimationFrame(() => { handleTimeline(); isTicking = false; });
-                    isTicking = true;
-                }
-            });
-            handleTimeline();
-
-            // Tilt Effect 3D
-            document.querySelectorAll('.tilt-effect').forEach(el => {
-                el.addEventListener('mouseenter', () => el.style.transition = 'transform 0.1s ease-out, box-shadow 0.3s ease');
-                el.addEventListener('mousemove', (e) => {
-                    const rect = el.getBoundingClientRect();
-                    const rotateX = (((e.clientY - rect.top) - (rect.height / 2)) / (rect.height / 2)) * 1.5; 
-                    const rotateY = (((e.clientX - rect.left) - (rect.width / 2)) / (rect.width / 2)) * -1.5;
-                    el.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`); el.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-                    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(0.99, 0.99, 0.99)`;
-                });
-                el.addEventListener('mouseleave', () => {
-                    el.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease';
-                    el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-                    el.style.setProperty('--mouse-x', `50%`); el.style.setProperty('--mouse-y', `50%`);
-                });
-            });
-
-            // Form Submit (Conexión real con Google Sheets)
-            // Reemplaza esta URL por la de tu nueva API de Google Apps Script vinculada a "Solicitudes subvencion"
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbzRpnXhmT8DhIV30MmIhZyi_ECh4pw8fIr054GjFf8qHIc_l8JbQz3l5JtSBCgnZWC1HA/exec';
-            
-            document.querySelectorAll('.proemote-form').forEach(form => {
-                form.addEventListener('submit', e => {
-                    e.preventDefault();
-                    
-                    // Anti-spam Honeypot Check
-                    if (form.querySelector('[name="_honey"]').value) {
-                        console.warn('Spam detectado');
-                        return;
-                    }
-
-                    const btn = form.querySelector('.btn-submit');
-                    const msg = form.querySelector('.form-msg');
-                    const originalBtnContent = btn.innerHTML;
-                    
-                    btn.innerHTML = '<span class="animate-pulse italic">Analizando viabilidad...</span>';
-                    btn.disabled = true;
-
-                    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                        .then(res => {
-                            msg.classList.remove('hidden'); 
-                            msg.className = 'form-msg block p-4 rounded-xl bg-green-500/10 text-green-400 mt-4 border border-green-500/20 text-sm';
-                            msg.innerText = 'Solicitud recibida. Un experto de nuestro equipo se pondrá en contacto contigo para el diagnóstico en menos de 24 horas.';
-                            form.reset(); 
-                            btn.innerHTML = originalBtnContent; 
-                            btn.disabled = false;
-                        })
-                        .catch(err => {
-                            console.error('Error!', err.message);
-                            msg.classList.remove('hidden'); 
-                            msg.className = 'form-msg block p-4 rounded-xl bg-red-500/10 text-red-400 mt-4 border border-red-500/20 text-sm';
-                            msg.innerText = 'Error al enviar los datos. Por favor, vuelve a intentarlo o escríbenos directamente por WhatsApp.';
-                            btn.innerHTML = originalBtnContent; 
-                            btn.disabled = false;
-                        });
-                });
-            });
-
-            // Mouse Glow
-            const glow = document.getElementById('mouse-glow');
-            document.addEventListener('mousemove', (e) => { 
-                glow.style.left = `${e.clientX}px`; 
-                glow.style.top = `${e.clientY}px`; 
-                if (e.target.closest('.with-glow')) {
-                    glow.style.opacity = '1';
-                } else {
-                    glow.style.opacity = '0';
-                }
-            });
-            document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
-            
-            // Mobile Menu Toggle
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            // Menú móvil simple si hace falta (el script asume que la lógica está, he mantenido los ids limpios)
-        });
-    
-
-        // Lógica Hover Mega Menú (Solo Desktop)
-        document.addEventListener('DOMContentLoaded', () => {
-            const servicesBtn = document.getElementById('services-menu-btn');
-            const megaMenu = document.getElementById('mega-menu');
-            const megaMenuPanel = document.getElementById('mega-menu-panel');
-            const megaMenuBackdrop = document.getElementById('mega-menu-backdrop');
-            let hideTimeout;
-            let displayTimeout;
-
-            const showMenu = () => {
-                clearTimeout(hideTimeout);
-                clearTimeout(displayTimeout);
-                if(megaMenu) {
-                    megaMenu.classList.remove('hidden');
-                    setTimeout(() => {
-                        if(megaMenuPanel) megaMenuPanel.classList.remove('-translate-y-4', 'opacity-0');
-                        if(megaMenuBackdrop) megaMenuBackdrop.classList.remove('opacity-0');
-                    }, 10);
-                }
-            };
-
-            const hideMenu = () => {
-                hideTimeout = setTimeout(() => {
-                    if(megaMenuPanel) megaMenuPanel.classList.add('-translate-y-4', 'opacity-0');
-                    if(megaMenuBackdrop) megaMenuBackdrop.classList.add('opacity-0');
-                    displayTimeout = setTimeout(() => {
-                        if(megaMenu) megaMenu.classList.add('hidden');
-                    }, 300);
-                }, 150);
-            };
-
-            if(window.innerWidth > 768 && servicesBtn && megaMenu) {
-                servicesBtn.addEventListener('mouseenter', showMenu);
-                servicesBtn.addEventListener('mouseleave', hideMenu);
-                if(megaMenuPanel) {
-                    megaMenuPanel.addEventListener('mouseenter', showMenu);
-                    megaMenuPanel.addEventListener('mouseleave', hideMenu);
-                }
-            }
-        });
-    </script>
-<div id="mega-menu" class="fixed inset-0 z-[40] hidden pointer-events-none">
+    <!-- Mega Menú Desktop -->
+    <div id="mega-menu" class="fixed inset-0 z-[40] hidden pointer-events-none">
         <div id="mega-menu-backdrop" class="absolute inset-0 bg-bgMain/40 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
         
         <div id="mega-menu-panel" class="absolute top-[72px] md:top-[88px] left-1/2 -translate-x-1/2 w-full max-w-5xl px-6 transform -translate-y-4 opacity-0 transition-all duration-300 pointer-events-auto">
@@ -937,6 +933,191 @@
 
             </div>
         </div>
+    </div>
 
+    <!-- Scripts Esenciales -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Observer Reveal
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+            // Foco Timeline Engine (Optimizado para evitar layout thrashing y usar aceleración de GPU)
+            const progress = document.getElementById('foco-progress');
+            const items = document.querySelectorAll('.foco-item');
+            let isTicking = false;
+            
+            const handleTimeline = () => {
+                if(!progress) return;
+                const container = progress.parentElement;
+                
+                // 1. Todas las lecturas del DOM juntas al inicio (Evita Forced Reflows)
+                const rect = container.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                const nodeCenters = [];
+                items.forEach(item => {
+                    const node = item.querySelector('.foco-node');
+                    const nodeRect = node.getBoundingClientRect();
+                    nodeCenters.push({
+                        node: node,
+                        item: item,
+                        center: nodeRect.top + (nodeRect.height / 2)
+                    });
+                });
+                
+                // 2. Cálculos matemáticos puros
+                let p = (windowHeight * 0.6 - rect.top) / rect.height;
+                p = Math.max(0, Math.min(1, p));
+                
+                // La coordenada inferior física de la barra
+                const lineBottom = rect.top + (p * rect.height);
+                
+                // 3. Todas las escrituras al DOM juntas al final
+                progress.style.transform = `scaleY(${p})`;
+                
+                nodeCenters.forEach(info => {
+                    if (lineBottom >= info.center) {
+                        info.node.classList.remove('bg-bgMain');
+                        info.node.classList.add('bg-primary', 'border-primary', 'shadow-[0_0_15px_#7B61FF]');
+                        info.item.classList.add('active');
+                    } else {
+                        info.node.classList.add('bg-bgMain');
+                        info.node.classList.remove('bg-primary', 'border-primary', 'shadow-[0_0_15px_#7B61FF]');
+                        info.item.classList.remove('active');
+                    }
+                });
+            };
+            window.addEventListener('scroll', () => {
+                if (!isTicking) {
+                    window.requestAnimationFrame(() => { handleTimeline(); isTicking = false; });
+                    isTicking = true;
+                }
+            });
+            handleTimeline();
+
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Lógica Hover Mega Menú (Solo Desktop)
+            const servicesBtn = document.getElementById('services-menu-btn');
+            const megaMenu = document.getElementById('mega-menu');
+            const megaMenuPanel = document.getElementById('mega-menu-panel');
+            const megaMenuBackdrop = document.getElementById('mega-menu-backdrop');
+            let hideTimeout;
+            let displayTimeout;
+
+            const showMenu = () => {
+                clearTimeout(hideTimeout);
+                clearTimeout(displayTimeout);
+                if(megaMenu) {
+                    megaMenu.classList.remove('hidden');
+                    setTimeout(() => {
+                        if(megaMenuPanel) megaMenuPanel.classList.remove('-translate-y-4', 'opacity-0');
+                        if(megaMenuBackdrop) megaMenuBackdrop.classList.remove('opacity-0');
+                    }, 10);
+                }
+            };
+
+            const hideMenu = () => {
+                hideTimeout = setTimeout(() => {
+                    if(megaMenuPanel) megaMenuPanel.classList.add('-translate-y-4', 'opacity-0');
+                    if(megaMenuBackdrop) megaMenuBackdrop.classList.add('opacity-0');
+                    displayTimeout = setTimeout(() => {
+                        if(megaMenu) megaMenu.classList.add('hidden');
+                    }, 300);
+                }, 150);
+            };
+
+            if(window.innerWidth > 768 && servicesBtn && megaMenu) {
+                servicesBtn.addEventListener('mouseenter', showMenu);
+                servicesBtn.addEventListener('mouseleave', hideMenu);
+                if(megaMenuPanel) {
+                    megaMenuPanel.addEventListener('mouseenter', showMenu);
+                    megaMenuPanel.addEventListener('mouseleave', hideMenu);
+                }
+            }
+
+            // FAQ Accordion
+            document.querySelectorAll('.faq-toggle').forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const content = toggle.nextElementSibling;
+                    const icon = toggle.querySelector('.faq-icon');
+                    const currentColumn = toggle.closest('.faq-column');
+                    
+                    currentColumn.querySelectorAll('.faq-content').forEach(c => {
+                        if (c !== content) { c.classList.remove('grid-rows-[1fr]'); c.classList.add('grid-rows-[0fr]'); }
+                    });
+                    currentColumn.querySelectorAll('.faq-icon').forEach(i => {
+                        if (i !== icon) i.classList.remove('rotate-180');
+                    });
+
+                    if (content.classList.contains('grid-rows-[0fr]')) {
+                        content.classList.remove('grid-rows-[0fr]'); content.classList.add('grid-rows-[1fr]'); icon.classList.add('rotate-180');
+                    } else {
+                        content.classList.remove('grid-rows-[1fr]'); content.classList.add('grid-rows-[0fr]'); icon.classList.remove('rotate-180');
+                    }
+                });
+            });
+
+            // Tilt Effect 3D
+            document.querySelectorAll('.tilt-effect').forEach(el => {
+                el.addEventListener('mouseenter', () => el.style.transition = 'transform 0.1s ease-out, box-shadow 0.3s ease');
+                el.addEventListener('mousemove', (e) => {
+                    const rect = el.getBoundingClientRect();
+                    const rotateX = (((e.clientY - rect.top) - (rect.height / 2)) / (rect.height / 2)) * 1.5; 
+                    const rotateY = (((e.clientX - rect.left) - (rect.width / 2)) / (rect.width / 2)) * -1.5;
+                    el.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`); el.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+                    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(0.99, 0.99, 0.99)`;
+                });
+                el.addEventListener('mouseleave', () => {
+                    el.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease';
+                    el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                    el.style.setProperty('--mouse-x', `50%`); el.style.setProperty('--mouse-y', `50%`);
+                });
+            });
+
+            // Form Submit Feedback Simulator
+            document.querySelectorAll('.proemote-form').forEach(form => {
+                form.addEventListener('submit', e => {
+                    e.preventDefault();
+                    const btn = form.querySelector('.btn-submit');
+                    const msg = form.querySelector('.form-msg');
+                    const originalBtnContent = btn.innerHTML;
+                    btn.innerHTML = '<span class="animate-pulse italic">Analizando viabilidad...</span>';
+                    btn.disabled = true;
+                    setTimeout(() => {
+                        msg.classList.remove('hidden'); 
+                        msg.className = 'form-msg block p-4 rounded-xl bg-green-500/10 text-green-400 mt-4 border border-green-500/20 text-sm';
+                        msg.innerText = 'Solicitud recibida. Un experto de nuestro equipo se pondrá en contacto contigo para el diagnóstico en menos de 24 horas.';
+                        form.reset(); 
+                        btn.innerHTML = originalBtnContent; 
+                        btn.disabled = false;
+                    }, 1500);
+                });
+            });
+
+            // Mouse Glow
+            const glow = document.getElementById('mouse-glow');
+            document.addEventListener('mousemove', (e) => { 
+                glow.style.left = `${e.clientX}px`; 
+                glow.style.top = `${e.clientY}px`; 
+                if (e.target.closest('.with-glow')) {
+                    glow.style.opacity = '1';
+                } else {
+                    glow.style.opacity = '0';
+                }
+            });
+            document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+        });
+    </script>
 </body>
 </html>
