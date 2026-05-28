@@ -70,10 +70,23 @@
     <div id="mouse-glow"></div>
 
     <!-- NAVEGACIÓN SIMPLIFICADA -->
-        <!-- BARRA DE ANUNCIO GLOBAL -->
-    <div id="announcement-bar" class="w-full bg-primary text-white text-center py-2 px-4 text-xs md:text-sm font-medium z-[60] relative transition-opacity duration-300" style="opacity: 1;">
-        <span id="announcement-text">🔔 Nueva convocatoria: hasta 20.000€ para digitalizar tu negocio en Extremadura ·</span>
-        <a id="announcement-link" href="/ayudas-digitalizacion-pymes-extremadura/" class="underline font-bold hover:text-white/80 transition-colors ml-1">Ver ayudas →</a>
+            <!-- BARRA DE ANUNCIO GLOBAL -->
+    <div id="announcement-bar" class="w-full bg-primary text-white py-2 px-10 text-xs md:text-sm font-medium z-[60] relative flex items-center justify-center min-h-[38px] overflow-hidden select-none">
+        <!-- Flecha Izquierda -->
+        <button onclick="prevAnnouncement()" aria-label="Anterior anuncio" class="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors p-1 focus:outline-none cursor-pointer">
+            <i class="ph-bold ph-caret-left text-sm md:text-base"></i>
+        </button>
+
+        <!-- Contenedor del Texto (Solo se anima el texto, no el fondo) -->
+        <div class="text-center transition-opacity duration-300 w-full max-w-4xl px-4" id="announcement-content" style="opacity: 1; transition: opacity 0.25s ease;">
+            <span id="announcement-text">🔔 Nueva convocatoria: hasta 20.000€ para digitalizar tu negocio en Extremadura ·</span>
+            <a id="announcement-link" href="/ayudas-digitalizacion-pymes-extremadura/" class="underline font-bold hover:text-white/80 transition-colors ml-1">Ver ayudas →</a>
+        </div>
+
+        <!-- Flecha Derecha -->
+        <button onclick="nextAnnouncement()" aria-label="Siguiente anuncio" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors p-1 focus:outline-none cursor-pointer">
+            <i class="ph-bold ph-caret-right text-sm md:text-base"></i>
+        </button>
     </div>
     
     <script>
@@ -92,22 +105,48 @@
             ];
             
             let currentIndex = 0;
-            const bar = document.getElementById('announcement-bar');
+            let timer = null;
+            const contentEl = document.getElementById('announcement-content');
             const textEl = document.getElementById('announcement-text');
             const linkEl = document.getElementById('announcement-link');
             
-            if (bar && textEl && linkEl) {
-                setInterval(() => {
-                    bar.style.opacity = 0;
-                    setTimeout(() => {
-                        currentIndex = (currentIndex + 1) % announcements.length;
-                        textEl.innerText = announcements[currentIndex].text;
-                        linkEl.innerText = announcements[currentIndex].linkText;
-                        linkEl.href = announcements[currentIndex].href;
-                        bar.style.opacity = 1;
-                    }, 300);
-                }, 4000);
+            function showAnnouncement(index) {
+                if (!contentEl || !textEl || !linkEl) return;
+                contentEl.style.opacity = 0;
+                setTimeout(() => {
+                    currentIndex = index;
+                    textEl.innerText = announcements[currentIndex].text;
+                    linkEl.innerText = announcements[currentIndex].linkText;
+                    linkEl.href = announcements[currentIndex].href;
+                    contentEl.style.opacity = 1;
+                }, 250);
             }
+            
+            window.prevAnnouncement = function() {
+                resetTimer();
+                let prevIndex = (currentIndex - 1 + announcements.length) % announcements.length;
+                showAnnouncement(prevIndex);
+            };
+            
+            window.nextAnnouncement = function() {
+                resetTimer();
+                let nextIndex = (currentIndex + 1) % announcements.length;
+                showAnnouncement(nextIndex);
+            };
+            
+            function startTimer() {
+                timer = setInterval(() => {
+                    let nextIndex = (currentIndex + 1) % announcements.length;
+                    showAnnouncement(nextIndex);
+                }, 4500);
+            }
+            
+            function resetTimer() {
+                clearInterval(timer);
+                startTimer();
+            }
+            
+            startTimer();
         });
     </script>
 
