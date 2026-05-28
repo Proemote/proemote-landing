@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayudas IA Extremadura 2026 | Solo hasta el 17 de junio | Proemote</title>
+    <meta name="description" content="Hasta 100.000€ para implantar inteligencia artificial en tu negocio en Extremadura. 85% subvencionado. Plazo: 17 de junio de 2026. Proemote gestiona todo.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgMain: '#0A0A0F',
+                        bgSurface: '#14141F',
+                        primary: '#7B61FF',
+                        accent: '#9F7AEA',
+                        textMain: '#F5F7FA',
+                        textSecondary: '#A1A1B5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\\'40\\' height=\\'40\\' viewBox=\\'0 0 40 40\\' xmlns=\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h40v40H0V0zm1 1h38v38H1V1z\\' fill=\\'%23ffffff\\' fill-opacity=\\'0.02\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                        'grid-pattern-primary': "url('data:image/svg+xml,%3Csvg width=\\'50\\' height=\\'50\\' viewBox=\\'0 0 50 50\\' xmlns=\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h50v50H0V0zm1 1h48v48H1V1z\\' fill=\\'%237B61FF\\' fill-opacity=\\'0.08\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #0A0A0F; color: #F5F7FA; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A0A0F; }
+        ::-webkit-scrollbar-thumb { background: #14141F; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
+        ::-webkit-scrollbar-thumb:hover { background: #7B61FF; }
+
+        .glass-nav { background: rgba(10, 10, 15, 0.7); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass-card { background: linear-gradient(180deg, rgba(20, 20, 31, 0.9) 0%, rgba(20, 20, 31, 0.5) 100%); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .glass-card:hover { border-color: rgba(123, 97, 255, 0.3); box-shadow: 0 10px 40px rgba(123, 97, 255, 0.1); transform: translateY(-4px); }
+
+        #mouse-glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(123,97,255,0.08) 0%, rgba(10,10,15,0) 60%); border-radius: 50%; pointer-events: none; z-index: 35; transform: translate(-50%, -50%); transition: opacity 0.4s ease; mix-blend-mode: screen; opacity: 0; }
+        .text-gradient-primary { background: linear-gradient(135deg, #9F7AEA 0%, #7B61FF 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-up.active { opacity: 1; transform: translateY(0); }
+        
+        select option { background-color: #14141F; color: #F5F7FA; }
+
+        .form-step { display: none; animation: slideUpFade 0.4s ease forwards; }
+        .form-step.active { display: flex; }
+        @keyframes slideUpFade { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .typeform-radio input:checked ~ div.box, .typeform-checkbox input:checked ~ div.box {
+            border-color: #7B61FF;
+            background-color: rgba(123, 97, 255, 0.1);
+            box-shadow: 0 0 15px rgba(123, 97, 255, 0.15);
+        }
+        .typeform-checkbox input:checked ~ div.box .check-indicator i { opacity: 1; }
+        .typeform-checkbox input:checked ~ div.box .check-indicator { border-color: #7B61FF; background-color: #7B61FF; }
+
+        .typeform-radio input:checked ~ div.box .letter, .typeform-checkbox input:checked ~ div.box .letter {
+            background-color: #7B61FF;
+            color: white;
+            border-color: #7B61FF;
+        }
+        .typeform-input {
+            background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.2);
+            color: white; font-size: 1.125rem; padding: 0.5rem 0; width: 100%; transition: border-color 0.3s;
+        }
+        .typeform-input:focus { outline: none; border-bottom-color: #7B61FF; }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(123, 97, 255, 0.3); border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(123, 97, 255, 0.6); }
+
+        .glass-form {
+            background: 
+                radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.04), transparent 40%),
+                linear-gradient(135deg, rgba(20, 20, 31, 0.7) 0%, rgba(123, 97, 255, 0.06) 100%);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(123, 97, 255, 0.20);
+            box-shadow: 0 10px 40px -10px rgba(123, 97, 255, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+            transform-style: preserve-3d;
+            transition: box-shadow 0.3s ease;
+            position: relative;
+        }
+        .glass-form:hover { box-shadow: 0 20px 50px -15px rgba(123, 97, 255, 0.25), inset 0 1px 0 0 rgba(255, 255, 255, 0.1); }
+        .glass-form > * { transform: translateZ(20px); position: relative; z-index: 2; }
+
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .faq-question { cursor: pointer; transition: color 0.3s ease; }
+        .faq-question:hover { color: #9F7AEA; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; opacity: 0; }
+        .faq-item.active .faq-answer { max-height: 500px; padding-top: 1rem; padding-bottom: 1.5rem; opacity: 1; }
+        .faq-icon { transition: transform 0.3s ease; }
+        .faq-item.active .faq-icon { transform: rotate(180deg); }
+
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white relative bg-grid-pattern bg-fixed">
+
+    <div id="mouse-glow"></div>
+
+        <!-- BARRA DE ANUNCIO GLOBAL -->
+    <div id="announcement-bar" class="w-full bg-primary text-white text-center py-2 px-4 text-xs md:text-sm font-medium z-[60] relative">
+        🔔 Nueva convocatoria: hasta 20.000€ para digitalizar tu negocio en Extremadura ·
+        <a href="/ayudas-digitalizacion-pymes-extremadura/" class="underline font-bold hover:text-white/80 transition-colors ml-1">Ver ayudas →</a>
+    </div>
+
+    <div id="mouse-glow"></div>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="https://proemote.es/" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
+                <img src="logo-header.png" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain" width="135" height="56">
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-textSecondary relative z-10 items-center">
+                <a href="https://proemote.es/" class="hover:text-textMain transition-colors">Inicio</a>
+                <a href="/#foco" class="hover:text-textMain transition-colors">Sistema</a>
+                <a href="/servicios" id="services-menu-btn" class="hover:text-textMain transition-colors focus:outline-none">Servicios</a>
+                
+                <!-- DROPDOWN AYUDAS 2026 -->
+                <div class="relative group py-2">
+                    <button class="hover:text-textMain transition-colors flex items-center gap-1.5 focus:outline-none">
+                        Ayudas 2026 
+                        <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-primary/20 text-primary border border-primary/30 leading-none">Nuevo</span>
+                        <i class="ph ph-caret-down text-xs transition-transform group-hover:rotate-180"></i>
+                    </button>
+                    <div class="absolute top-full left-0 mt-1 w-64 bg-bgSurface/95 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 flex flex-col gap-2">
+                        <a href="/ayudas-digitalizacion-pymes-extremadura/" class="p-2.5 rounded-xl hover:bg-white/5 transition-all flex items-start gap-3 group/item">
+                            <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover/item:bg-primary group-hover/item:text-white transition-colors flex-shrink-0">
+                                <i class="ph-fill ph-device-mobile"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium text-xs mb-0.5">Digitalización de Pymes</h4>
+                                <p class="text-[10px] text-textSecondary">Hasta 20.000€ · Web, SEO, Redes</p>
+                            </div>
+                        </a>
+                        <a href="/ayudas-implementacion-ia-extremadura/" class="p-2.5 rounded-xl hover:bg-white/5 transition-all flex items-start gap-3 group/item">
+                            <div class="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center text-accent group-hover/item:bg-accent group-hover/item:text-white transition-colors flex-shrink-0">
+                                <i class="ph-fill ph-cpu"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium text-xs mb-0.5">Implementación de IA</h4>
+                                <p class="text-[10px] text-textSecondary">Hasta 100.000€ · Automatización</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="/sobre-nosotros" class="hover:text-textMain transition-colors">Sobre nosotros</a>
+                <a href="https://proemote.es/portfolio" class="hover:text-textMain transition-colors">Portfolio</a>
+                <a href="/contacto" class="hover:text-textMain transition-colors">Contacto</a>
+            </div>
+            <div class="flex items-center gap-4 relative z-10">
+                <a href="#contacto" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-primary rounded-full hover:bg-accent shadow-[0_0_15px_rgba(123,97,255,0.4)] transition-all duration-300 focus:outline-none">
+                    Analizar mi caso
+                </a>
+                <button id="mobile-menu-btn" aria-label="Abrir menú de navegación" class="md:hidden text-textSecondary hover:text-white transition-colors focus:outline-none p-2">
+                    <i class="ph ph-dots-three-vertical text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-bgSurface/95 backdrop-blur-xl border-b border-white/10 shadow-2xl overflow-hidden transition-all duration-300">
+            <div class="flex flex-col py-6 px-6 gap-6">
+                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
+                
+                <div class="flex flex-col gap-2.5 pl-2 border-l border-white/10 my-1">
+                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
+                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
+                    </a>
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
+                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
+                    </a>
+                </div>
+
+                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
+                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
+                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
+                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-primary rounded-full shadow-[0_0_15px_rgba(123,97,255,0.4)] focus:outline-none">
+                    Analizar mi caso
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-48 pb-24 relative z-10 overflow-hidden border-b border-white/5 bg-bgMain bg-grid-pattern-primary with-glow">
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-bgMain z-[-1] pointer-events-none"></div>
+        <div class="absolute top-[10%] left-[10%] w-[30vw] h-[30vw] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-[0]"></div>
+        <div class="absolute bottom-[10%] right-[10%] w-[40vw] h-[40vw] rounded-full bg-accent/10 blur-[150px] pointer-events-none z-[0]"></div>
+
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10 reveal-up active">
+            
+            <div class="flex flex-col items-center gap-3 mb-8">
+                <div class="inline-flex items-center justify-center px-5 py-2 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-xs font-bold tracking-[0.1em] uppercase shadow-[0_0_15px_rgba(245,158,11,0.15)] text-center">
+                    ⚠️ Cierre definitivo: 17 de junio de 2026 · Fondos limitados · Sin prórroga
+                </div>
+            </div>
+
+            <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight mb-6 text-white max-w-5xl mx-auto text-balance">
+                Implementación de <span class="text-gradient-primary whitespace-nowrap">Inteligencia Artificial</span> para Pymes en Extremadura <span class="text-gradient-primary whitespace-nowrap">Subvencionada al 85%</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-textSecondary leading-relaxed max-w-3xl mx-auto mb-10">
+                Tu negocio atiende clientes, gestiona citas y automatiza procesos. La Junta de Extremadura financia fondos directos para reducir costes operativos, eliminar tareas repetitivas y tomar mejores decisiones. <strong>Hasta 100.000€ por beneficiario.</strong>
+            </p>
+
+            <div class="flex justify-center gap-2 md:gap-4 mb-10">
+                <div class="flex flex-col items-center">
+                    <div class="bg-bgMain border border-primary/20 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-xl text-xl md:text-2xl font-heading font-bold text-white shadow-inner cd-days">00</div>
+                    <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-textSecondary mt-2 font-medium">Días</span>
+                </div>
+                <div class="text-xl md:text-2xl font-heading font-bold text-white/30 pt-3 md:pt-4">:</div>
+                <div class="flex flex-col items-center">
+                    <div class="bg-bgMain border border-primary/20 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-xl text-xl md:text-2xl font-heading font-bold text-white shadow-inner cd-hours">00</div>
+                    <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-textSecondary mt-2 font-medium">Horas</span>
+                </div>
+                <div class="text-xl md:text-2xl font-heading font-bold text-white/30 pt-3 md:pt-4">:</div>
+                <div class="flex flex-col items-center">
+                    <div class="bg-bgMain border border-primary/20 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-xl text-xl md:text-2xl font-heading font-bold text-white shadow-inner cd-minutes">00</div>
+                    <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-textSecondary mt-2 font-medium">Minutos</span>
+                </div>
+                <div class="text-xl md:text-2xl font-heading font-bold text-white/30 pt-3 md:pt-4">:</div>
+                <div class="flex flex-col items-center">
+                    <div class="bg-bgMain border border-primary/20 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-xl text-xl md:text-2xl font-heading font-bold text-primary shadow-inner cd-seconds">00</div>
+                    <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-primary mt-2 font-medium">Segundos</span>
+                </div>
+            </div>
+            
+            <div class="flex flex-col items-center justify-center mb-6">
+                <a href="#contacto" class="w-full sm:w-auto px-10 py-4 rounded-full bg-primary hover:bg-accent text-white font-bold transition-all duration-300 shadow-[0_0_30px_rgba(123,97,255,0.5)] flex items-center justify-center gap-2 focus:outline-none text-lg">
+                    Solicitar información sin compromiso <i class="ph-bold ph-arrow-right"></i>
+                </a>
+            </div>
+
+            <span class="text-xs md:text-sm text-textSecondary/80 font-medium flex items-center justify-center flex-wrap gap-1.5 mt-4">
+                <i class="ph-fill ph-info text-primary"></i>
+                Concesión directa por orden de llegada · Sin baremo · 2.000.000€ disponibles para toda Extremadura
+            </span>
+        </div>
+    </section>
+
+    <section class="py-8 bg-bgSurface/80 border-b border-white/5 relative z-20">
+        <div class="max-w-7xl mx-auto px-6 reveal-up">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 text-center divide-x-0 md:divide-x divide-white/10">
+                <div class="flex flex-col items-center justify-center px-4">
+                    <i class="ph-fill ph-chart-pie-slice text-3xl text-primary mb-2"></i>
+                    <p class="text-sm md:text-base font-bold text-white">85% de la inversión financiada</p>
+                </div>
+                <div class="flex flex-col items-center justify-center px-4">
+                    <i class="ph-fill ph-target text-3xl text-primary mb-2"></i>
+                    <p class="text-sm md:text-base font-bold text-white">Máximo 100.000€ por beneficiario</p>
+                </div>
+                <div class="flex flex-col items-center justify-center px-4">
+                    <i class="ph-fill ph-hand-coins text-3xl text-primary mb-2"></i>
+                    <p class="text-sm md:text-base font-bold text-white">60% de anticipo al concederse (sin garantías)</p>
+                </div>
+                <div class="flex flex-col items-center justify-center px-4">
+                    <i class="ph-fill ph-puzzle-piece text-3xl text-primary mb-2"></i>
+                    <p class="text-sm md:text-base font-bold text-white">Compatible con Kit Digital y otras ayudas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="detalles" class="py-24 relative z-10 bg-bgSurface/30 border-t border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white mb-4">En qué consiste <span class="text-gradient-primary">esta ayuda</span></h2>
+                <p class="text-textSecondary text-lg max-w-2xl mx-auto">Condiciones claras y objetivas sobre los fondos asignados para la adopción de IA.</p>
+            </div>
+            
+            <!-- Grid de 3 tarjetas -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 reveal-up delay-100">
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex flex-col items-start">
+                    <i class="ph-fill ph-users text-3xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-heading text-white font-medium mb-2">Beneficiarios</h3>
+                    <p class="text-sm text-textSecondary">Pymes y autónomos con centro productivo en Extremadura, independientemente de su forma jurídica.</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex flex-col items-start">
+                    <i class="ph-fill ph-chart-line-up text-3xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-heading text-white font-medium mb-2">Importe</h3>
+                    <p class="text-sm text-textSecondary">Hasta el 85% de la inversión subvencionable, con un máximo de 100.000€ por beneficiario. Anticipo del 60%.</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl border-white/5 tilt-effect flex flex-col items-start">
+                    <i class="ph-fill ph-calendar-x text-3xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-heading text-white font-medium mb-2">Plazo</h3>
+                    <p class="text-sm text-textSecondary">Abierto hasta el 17 de junio de 2026. Concesión directa por estricto orden de llegada.</p>
+                </div>
+            </div>
+
+            <!-- Tarjeta ancha de Presupuesto -->
+            <div class="grid grid-cols-1 reveal-up delay-200">
+                <div class="glass-card p-8 md:p-10 rounded-[2rem] border-emerald-500/30 bg-emerald-500/5 tilt-effect shadow-[0_0_30px_rgba(16,185,129,0.05)] flex flex-col md:flex-row items-center gap-6">
+                    <div class="w-16 h-16 rounded-2xl bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                        <i class="ph-fill ph-coins text-4xl text-emerald-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-heading text-white font-bold mb-2">Presupuesto total disponible</h3>
+                        <p class="text-textSecondary leading-relaxed">2.000.000€ para toda Extremadura. Cuando se agoten los fondos, se cierra la convocatoria de forma anticipada. No hay segunda vuelta.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16 reveal-up delay-300">
+                <a href="#contacto" class="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-primary/30 bg-primary/10 hover:bg-primary/20 text-white font-medium transition-all duration-300 focus:outline-none">
+                    Verificar mi elegibilidad ahora <i class="ph ph-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="implantar" class="py-32 relative z-10 bg-bgMain border-t border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white mb-6">Qué puedes implantar <span class="text-gradient-primary">con esta ayuda</span></h2>
+                <p class="text-textSecondary text-lg max-w-2xl mx-auto">Soluciones de inteligencia artificial reales y aplicables que eliminan fricción y sistematizan tu operativa.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-up delay-100">
+                
+                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/40 transition-colors flex flex-col group">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 shadow-[0_0_15px_rgba(123,97,255,0.15)]">
+                        <i class="ph-fill ph-gear text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Automatización de procesos con IA</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed flex-grow">Herramientas que automatizan tareas repetitivas: gestión de clientes, presupuestos, seguimiento comercial y comunicaciones.</p>
+                    <p class="text-[13px] text-primary/90 italic mt-4 pt-4 border-t border-white/10 leading-relaxed">
+                        Por ejemplo: una gestoría que procesa facturas manualmente puede reducir ese tiempo en un 70%.
+                    </p>
+                    <div class="mt-6">
+                        <a href="#contacto" class="inline-flex w-full items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-primary/20 hover:border-primary/40 text-white text-sm font-bold tracking-wide transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(123,97,255,0.2)]">Me interesa esto <i class="ph-bold ph-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/40 transition-colors flex flex-col group">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 shadow-[0_0_15px_rgba(123,97,255,0.15)]">
+                        <i class="ph-fill ph-chats-circle text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Chatbots y atención automática</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed flex-grow">Sistemas de respuesta inteligente para WhatsApp, web y redes sociales. Tu negocio atiende y cualifica leads las 24 horas.</p>
+                    <p class="text-[13px] text-primary/90 italic mt-4 pt-4 border-t border-white/10 leading-relaxed">
+                        Por ejemplo: una clínica que gestiona 60 llamadas semanales puede automatizar la reserva de citas sin intervención humana.
+                    </p>
+                    <div class="mt-6">
+                        <a href="#contacto" class="inline-flex w-full items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-primary/20 hover:border-primary/40 text-white text-sm font-bold tracking-wide transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(123,97,255,0.2)]">Me interesa esto <i class="ph-bold ph-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/40 transition-colors flex flex-col group">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 shadow-[0_0_15px_rgba(123,97,255,0.15)]">
+                        <i class="ph-fill ph-megaphone text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Generación de contenido con IA</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed flex-grow">Herramientas de creación y optimización de contenido, campañas y comunicaciones integradas en tu marketing.</p>
+                    <p class="text-[13px] text-primary/90 italic mt-4 pt-4 border-t border-white/10 leading-relaxed">
+                        Por ejemplo: una tienda online que publica en redes puede generar y programar contenido semanal de forma automática.
+                    </p>
+                    <div class="mt-6">
+                        <a href="#contacto" class="inline-flex w-full items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-primary/20 hover:border-primary/40 text-white text-sm font-bold tracking-wide transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(123,97,255,0.2)]">Me interesa esto <i class="ph-bold ph-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/40 transition-colors flex flex-col group lg:col-start-2">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 shadow-[0_0_15px_rgba(123,97,255,0.15)]">
+                        <i class="ph-fill ph-chart-bar text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Analítica e inteligencia de negocio</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed flex-grow">Sistemas que procesan tus datos de ventas, clientes y operaciones para darte información útil en tiempo real.</p>
+                    <p class="text-[13px] text-primary/90 italic mt-4 pt-4 border-t border-white/10 leading-relaxed">
+                        Por ejemplo: un comercio puede saber qué productos tienen más salida por temporada y ajustar su stock automáticamente.
+                    </p>
+                    <div class="mt-6">
+                        <a href="#contacto" class="inline-flex w-full items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-primary/20 hover:border-primary/40 text-white text-sm font-bold tracking-wide transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(123,97,255,0.2)]">Me interesa esto <i class="ph-bold ph-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/40 transition-colors flex flex-col group">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 shadow-[0_0_15px_rgba(123,97,255,0.15)]">
+                        <i class="ph-fill ph-file-pdf text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading text-white font-medium mb-3">Facturación y gestión documental</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed flex-grow">Software con IA para automatizar la facturación electrónica, gestión documental y procesos administrativos.</p>
+                    <p class="text-[13px] text-primary/90 italic mt-4 pt-4 border-t border-white/10 leading-relaxed">
+                        Por ejemplo: un autónomo que dedica 4 horas semanales a facturación puede reducirlo a 30 minutos.
+                    </p>
+                    <div class="mt-6">
+                        <a href="#contacto" class="inline-flex w-full items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-primary/20 hover:border-primary/40 text-white text-sm font-bold tracking-wide transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(123,97,255,0.2)]">Me interesa esto <i class="ph-bold ph-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Tipologías Oficiales -->
+            <div class="mt-16 reveal-up delay-200">
+                <div class="glass-card border-white/10 rounded-3xl overflow-hidden">
+                    <div class="p-6 md:p-8 border-b border-white/10 bg-white/5">
+                        <h3 class="text-lg font-heading text-white font-bold flex items-center gap-3">
+                            <i class="ph-fill ph-list-checks text-primary text-xl"></i>
+                            Tipologías oficiales de la convocatoria (Decreto 173/2025)
+                        </h3>
+                    </div>
+                    <div class="p-6 md:p-8 bg-bgSurface/50">
+                        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-8 text-sm text-textSecondary">
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-primary mt-1"></i> Chatbots y Asistentes Virtuales</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-primary mt-1"></i> Análisis Predictivo</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-primary mt-1"></i> Sistemas de Recomendación</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-primary mt-1"></i> Automatización Robótica de Procesos (RPA)</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-primary mt-1"></i> IA para Marketing y Publicidad</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-primary mt-1"></i> Análisis de Imágenes y Patrones</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-primary mt-1"></i> Procesamiento de Lenguaje Natural (NLP)</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-primary mt-1"></i> Ciberseguridad Basada en IA</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-primary mt-1"></i> Gestión de RRHH con IA</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-primary mt-1"></i> Asistentes de Decisión y Planificación</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-primary mt-1"></i> Sistemas de IA Generativa</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-primary mt-1"></i> Cualquier otra solución basada en IA</li>
+                        </ul>
+                        <p class="text-xs text-textSecondary/80 mt-6 pt-4 border-t border-white/5 italic">
+                            Nota: La convocatoria incluye además la formación necesaria para el uso de las herramientas implantadas como gasto subvencionable.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="py-24 relative z-10 bg-bgSurface/50 border-t border-amber-500/20 overflow-hidden with-glow shadow-[inset_0_0_100px_rgba(245,158,11,0.05)]">
+        <div class="absolute inset-0 bg-gradient-to-b from-amber-500/5 via-transparent to-bgMain z-[-1] pointer-events-none"></div>
+        <div class="max-w-5xl mx-auto px-6 reveal-up">
+            <div class="glass-card border-amber-500/30 p-8 md:p-12 rounded-[3rem] relative shadow-[0_20px_50px_rgba(0,0,0,0.4)] overflow-hidden flex flex-col gap-8 items-center text-center">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"></div>
+                
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-white">Quedan muy pocos días. <br><span class="text-amber-400">No hay prórroga.</span></h2>
+                
+                <div class="bg-white/5 border border-amber-500/20 rounded-2xl p-6 md:p-8 max-w-3xl w-full">
+                    <p class="text-white text-lg leading-relaxed">
+                        Esta convocatoria <strong class="text-amber-400 font-bold">no puntúa expedientes ni aplica baremo</strong>. 
+                        Se concede por estricto orden de entrada hasta agotar los 2.000.000€ disponibles para toda Extremadura. 
+                        No hay segunda vuelta ni prórroga. El plazo cierra el 17 de junio de 2026.
+                    </p>
+                </div>
+                
+                <a href="#contacto" class="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-amber-500 hover:bg-amber-400 text-bgMain font-bold transition-all duration-300 shadow-[0_0_30px_rgba(245,158,11,0.4)] text-lg focus:outline-none mt-2">
+                    Comenzar trámite urgente <i class="ph-bold ph-lightning"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 relative z-10 bg-bgMain border-t border-white/5 with-glow">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 reveal-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white mb-6">Cuatro pasos. <span class="text-gradient-primary">Nos encargamos nosotros.</span></h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-6 relative reveal-up delay-100">
+                
+                <div class="relative flex flex-col items-center text-center group">
+                    <div class="w-20 h-20 rounded-[1.5rem] bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-300 shadow-lg relative z-10">
+                        <i class="ph-fill ph-paper-plane-tilt text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-medium text-white mb-3">1 · Contacto hoy</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed px-2">Rellenas el formulario o nos escribes ahora mismo. Solo necesitamos saber a qué se dedica tu negocio.</p>
+                    
+                    <div class="hidden lg:block absolute top-10 -right-6 text-white/10 text-2xl translate-x-1/2 -translate-y-1/2">
+                        <i class="ph-bold ph-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="relative flex flex-col items-center text-center group">
+                    <div class="w-20 h-20 rounded-[1.5rem] bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-300 shadow-lg relative z-10">
+                        <i class="ph-fill ph-clock-countdown text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-medium text-white mb-3">2 · Diagnóstico urgente</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed px-2">Analizamos si tu caso aplica y qué herramientas de IA tienen más sentido para tu negocio y tu operativa real.</p>
+                    
+                    <div class="hidden lg:block absolute top-10 -right-6 text-white/10 text-2xl translate-x-1/2 -translate-y-1/2">
+                        <i class="ph-bold ph-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="relative flex flex-col items-center text-center group">
+                    <div class="w-20 h-20 rounded-[1.5rem] bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-300 shadow-lg relative z-10">
+                        <i class="ph-fill ph-file-text text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-medium text-white mb-3">3 · Solicitud inmediata</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed px-2">Preparamos toda la documentación y presentamos la solicitud antes del 17 de junio. Tú revisas y firmas.</p>
+                    
+                    <div class="hidden lg:block absolute top-10 -right-6 text-white/10 text-2xl translate-x-1/2 -translate-y-1/2">
+                        <i class="ph-bold ph-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="relative flex flex-col items-center text-center group">
+                    <div class="w-20 h-20 rounded-[1.5rem] bg-primary/10 border border-primary/20 flex items-center justify-center mb-6 group-hover:bg-primary/30 transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.2)] relative z-10">
+                        <i class="ph-fill ph-rocket-launch text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-medium text-white mb-3">4 · Ejecución del proyecto</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed px-2">Una vez concedida la ayuda, implantamos las herramientas acordadas. No tienes que buscar ni coordinar a nadie más.</p>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-16 reveal-up delay-200">
+                <a href="#contacto" class="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white font-medium transition-all duration-300 focus:outline-none">
+                    Quiero que gestionen mi solicitud <i class="ph ph-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 relative z-10 bg-bgSurface/30 border-t border-white/5 with-glow">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="font-heading text-3xl md:text-5xl font-medium text-white mb-4">Resolvemos tus dudas ahora</h2>
+                <p class="text-textSecondary text-lg">Preguntas frecuentes sobre la subvención y el proceso.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 gap-4 reveal-up delay-100">
+                
+                <!-- Acordeón FAQ -->
+                <div class="glass-card rounded-[2rem] border-white/5 overflow-hidden w-full">
+                    
+                    <div class="faq-item">
+                        <button class="faq-question w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none">
+                            <h3 class="text-lg font-bold text-white flex items-center gap-3">
+                                <i class="ph-fill ph-robot text-xl text-primary flex-shrink-0"></i>
+                                No sé si la inteligencia artificial aplica a mi tipo de negocio.
+                            </h3>
+                            <i class="ph-bold ph-caret-down text-white/50 faq-icon text-xl flex-shrink-0 ml-4"></i>
+                        </button>
+                        <div class="faq-answer px-6 md:px-8 bg-white/5">
+                            <p class="text-sm md:text-base text-textSecondary leading-relaxed">Aplica a cualquier pyme o autónomo con actividad en Extremadura. No necesitas ser una empresa tecnológica. Las herramientas de IA más subvencionables son precisamente las más prácticas: automatización de clientes, facturación, atención automática y análisis de datos. En el diagnóstico te decimos exactamente qué encaja con tu negocio.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none">
+                            <h3 class="text-lg font-bold text-white flex items-center gap-3">
+                                <i class="ph-fill ph-bank text-xl text-primary flex-shrink-0"></i>
+                                ¿Tengo que pagar todo antes de recibir la subvención?
+                            </h3>
+                            <i class="ph-bold ph-caret-down text-white/50 faq-icon text-xl flex-shrink-0 ml-4"></i>
+                        </button>
+                        <div class="faq-answer px-6 md:px-8 bg-white/5">
+                            <p class="text-sm md:text-base text-textSecondary leading-relaxed">No. La Junta adelanta el 60% del importe subvencionado tras la concesión, sin exigir garantías. El resto llega tras la justificación del proyecto.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none">
+                            <h3 class="text-lg font-bold text-white flex items-center gap-3">
+                                <i class="ph-fill ph-chart-polar text-xl text-primary flex-shrink-0"></i>
+                                No sé si mi inversión sería suficientemente grande para justificar la ayuda.
+                            </h3>
+                            <i class="ph-bold ph-caret-down text-white/50 faq-icon text-xl flex-shrink-0 ml-4"></i>
+                        </button>
+                        <div class="faq-answer px-6 md:px-8 bg-white/5">
+                            <p class="text-sm md:text-base text-textSecondary leading-relaxed">El mínimo no está fijado. Lo que sí está claro es que la subvención cubre el 85% de lo que inviertas en herramientas de IA, hasta 100.000€. Cualquier implantación real justifica la solicitud.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none">
+                            <h3 class="text-lg font-bold text-white flex items-center gap-3">
+                                <i class="ph-fill ph-student text-xl text-primary flex-shrink-0"></i>
+                                ¿La formación de mis empleados para usar las herramientas también está cubierta?
+                            </h3>
+                            <i class="ph-bold ph-caret-down text-white/50 faq-icon text-xl flex-shrink-0 ml-4"></i>
+                        </button>
+                        <div class="faq-answer px-6 md:px-8 bg-white/5">
+                            <p class="text-sm md:text-base text-textSecondary leading-relaxed">Sí. La convocatoria incluye expresamente como gasto subvencionable la formación necesaria para el uso de las herramientas implantadas. Esto significa que el coste de formar a tu equipo forma parte del proyecto y entra dentro del 85% financiado.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item border-b-0">
+                        <button class="faq-question w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none">
+                            <h3 class="text-lg font-bold text-white flex items-center gap-3">
+                                <i class="ph-fill ph-hourglass-high text-xl text-primary flex-shrink-0"></i>
+                                No tengo tiempo para gestionar esto con el plazo tan corto.
+                            </h3>
+                            <i class="ph-bold ph-caret-down text-white/50 faq-icon text-xl flex-shrink-0 ml-4"></i>
+                        </button>
+                        <div class="faq-answer px-6 md:px-8 bg-white/5">
+                            <p class="text-sm md:text-base text-textSecondary leading-relaxed">Es exactamente por eso que existimos. Si nos contactas hoy, gestionamos la solicitud completa antes del cierre. Tu único esfuerzo es rellenar el formulario abajo.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-32 relative bg-bgMain border-t border-amber-500/20 with-glow">
+        <div class="max-w-7xl mx-auto px-6 reveal-up">
+            <div class="glass-card rounded-[3rem] p-8 md:p-16 border-amber-500/30 bg-gradient-to-br from-bgSurface to-bgMain overflow-hidden relative shadow-[0_30px_60px_rgba(245,158,11,0.1)]">
+                <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/10 blur-[150px] rounded-full pointer-events-none"></div>
+                
+                <div class="text-center mb-12 relative z-10 max-w-3xl mx-auto">
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4 text-white leading-tight">Cuéntanos sobre tu negocio</h2>
+                    <p class="text-lg text-white/80 font-medium">Evaluamos tu viabilidad y te respondemos en menos de 24 horas.</p>
+                </div>
+                
+                <div class="relative z-10 max-w-4xl mx-auto">
+                    <div class="h-full flex flex-col relative">
+                        <form id="ayudas-form" class="proemote-form glass-form tilt-effect p-8 md:p-10 rounded-[2rem] shadow-xl h-full min-h-[400px] flex flex-col relative overflow-hidden">
+                            <!-- Barra de progreso -->
+                            <div class="w-full bg-white/10 rounded-full h-1.5 mb-6">
+                                <div id="form-progress" class="bg-primary h-1.5 rounded-full transition-all duration-500 ease-out" style="width: 25%;"></div>
+                            </div>
+
+                            <!-- FASE 1: Situación Actual -->
+                            <div class="form-step active flex-col flex-grow" data-step="1">
+                                <h3 class="text-xl font-heading text-white mb-2">1 <i class="ph ph-arrow-right text-primary align-middle text-lg mx-1"></i> ¿Cuál es tu situación actual?</h3>
+                                <p class="text-sm text-textSecondary mb-4">Ayúdanos a entender tu punto de partida.</p>
+                                
+                                <div class="space-y-4 overflow-y-auto max-h-[350px] pr-2 custom-scrollbar">
+                                    <div>
+                                        <label class="block text-sm font-medium text-white mb-2">¿Qué tipo de negocio tienes?</label>
+                                        <select name="TipoNegocio" required class="w-full bg-transparent border-b border-white/20 text-white py-2 focus:outline-none focus:border-primary text-sm">
+                                            <option value="" disabled selected>Selecciona tu sector...</option>
+                                            <option value="Clinica/Salud">Clínica / Salud / Belleza</option>
+                                            <option value="Despacho/Servicios">Despacho / Gestoría / Servicios Profesionales</option>
+                                            <option value="Comercio/Tienda">Comercio / Tienda Online</option>
+                                            <option value="B2B">Servicios B2B a otras empresas</option>
+                                            <option value="Hosteleria/Turismo">Hostelería / Turismo</option>
+                                            <option value="Otro">Otro sector</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-white mb-2">¿Cuál es el mayor problema que quieres resolver con IA?</label>
+                                        <select name="DolorPrincipal" required class="w-full bg-transparent border-b border-white/20 text-white py-2 focus:outline-none focus:border-primary text-sm">
+                                            <option value="" disabled selected>Selecciona una opción...</option>
+                                            <option value="Consultas repetitivas">Demasiado tiempo respondiendo dudas repetitivas</option>
+                                            <option value="Desorden citas">Desorden gestionando citas y agenda</option>
+                                            <option value="Perdida de leads">Se pierden clientes por tardar en contestar</option>
+                                            <option value="Administracion manual">Exceso de tareas manuales (facturas, emails...)</option>
+                                            <option value="Otro">Otro problema distinto</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="mt-6 flex items-center gap-4">
+                                    <button type="button" onclick="nextStep()" class="px-6 py-2.5 bg-primary hover:bg-accent text-white font-bold rounded-xl transition-all flex items-center gap-2 shadow-lg">Continuar <i class="ph ph-caret-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- FASE 2: Viabilidad rápida -->
+                            <div class="form-step flex-col flex-grow" data-step="2">
+                                <h3 class="text-xl font-heading text-white mb-2">2 <i class="ph ph-arrow-right text-primary align-middle text-lg mx-1"></i> Filtro de viabilidad</h3>
+                                <p class="text-sm text-textSecondary mb-4">Comprobemos si cumples los requisitos de la Junta.</p>
+                                
+                                <div class="space-y-6 overflow-y-auto max-h-[350px] pr-2 custom-scrollbar">
+                                    <div>
+                                        <label class="block text-sm font-medium text-white mb-2">¿Tienes centro productivo / fiscal en Extremadura?</label>
+                                        <div class="flex gap-4">
+                                            <label class="typeform-radio flex-1 relative cursor-pointer group">
+                                                <input type="radio" name="CentroExtremadura" value="Si" required class="hidden">
+                                                <div class="box flex items-center justify-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all text-center"><span class="text-white text-sm font-medium">Sí</span></div>
+                                            </label>
+                                            <label class="typeform-radio flex-1 relative cursor-pointer group">
+                                                <input type="radio" name="CentroExtremadura" value="No" class="hidden">
+                                                <div class="box flex items-center justify-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all text-center"><span class="text-white text-sm font-medium">No</span></div>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-sm font-medium text-white mb-2">¿Tienes capacidad para asumir el 15% de la inversión inicial (el 85% te lo devuelven)?</label>
+                                        <div class="flex gap-4">
+                                            <label class="typeform-radio flex-1 relative cursor-pointer group">
+                                                <input type="radio" name="CapacidadInversion" value="Si" required class="hidden">
+                                                <div class="box flex items-center justify-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all text-center"><span class="text-white text-sm font-medium">Sí</span></div>
+                                            </label>
+                                            <label class="typeform-radio flex-1 relative cursor-pointer group">
+                                                <input type="radio" name="CapacidadInversion" value="No" class="hidden">
+                                                <div class="box flex items-center justify-center p-3 rounded-xl border border-white/10 bg-white/5 group-hover:bg-white/10 transition-all text-center"><span class="text-white text-sm font-medium">No / No lo sé</span></div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex items-center gap-4">
+                                    <button type="button" onclick="prevStep()" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-all flex-shrink-0"><i class="ph ph-caret-left"></i></button>
+                                    <button type="button" onclick="nextStep()" class="px-6 py-2.5 bg-primary hover:bg-accent text-white font-bold rounded-xl transition-all flex items-center gap-2 shadow-lg">Continuar <i class="ph ph-caret-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- FASE 3: El Proyecto -->
+                            <div class="form-step flex-col flex-grow" data-step="3">
+                                <h3 class="text-xl font-heading text-white mb-2">3 <i class="ph ph-arrow-right text-primary align-middle text-lg mx-1"></i> ¿Qué te gustaría conseguir?</h3>
+                                
+                                <div class="space-y-6 overflow-y-auto max-h-[350px] pr-2 custom-scrollbar">
+                                    <div>
+                                        <label class="block text-sm font-medium text-white mb-2">¿Qué funcionalidades de IA te interesan más? (Marca varias)</label>
+                                        <div class="space-y-2">
+                                            <label class="typeform-checkbox relative cursor-pointer group block">
+                                                <input type="checkbox" name="FuncionesIA[]" value="Chatbot/Respuestas" class="hidden">
+                                                <div class="box p-3 rounded-xl border border-white/10 bg-white/5 flex items-center gap-3 transition-all">
+                                                    <div class="w-5 h-5 rounded border border-white/30 flex items-center justify-center check-indicator"><i class="ph-bold ph-check text-white opacity-0 text-xs"></i></div>
+                                                    <span class="text-white text-sm">Chatbot para WhatsApp/Web (Responder dudas 24/7)</span>
+                                                </div>
+                                            </label>
+                                            <label class="typeform-checkbox relative cursor-pointer group block">
+                                                <input type="checkbox" name="FuncionesIA[]" value="Gestion Citas" class="hidden">
+                                                <div class="box p-3 rounded-xl border border-white/10 bg-white/5 flex items-center gap-3 transition-all">
+                                                    <div class="w-5 h-5 rounded border border-white/30 flex items-center justify-center check-indicator"><i class="ph-bold ph-check text-white opacity-0 text-xs"></i></div>
+                                                    <span class="text-white text-sm">Gestión automática de citas y reservas en calendario</span>
+                                                </div>
+                                            </label>
+                                            <label class="typeform-checkbox relative cursor-pointer group block">
+                                                <input type="checkbox" name="FuncionesIA[]" value="Automatizacion interna" class="hidden">
+                                                <div class="box p-3 rounded-xl border border-white/10 bg-white/5 flex items-center gap-3 transition-all">
+                                                    <div class="w-5 h-5 rounded border border-white/30 flex items-center justify-center check-indicator"><i class="ph-bold ph-check text-white opacity-0 text-xs"></i></div>
+                                                    <span class="text-white text-sm">Automatizar procesos (CRM, facturas, emails...)</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-sm font-medium text-white mb-2">Presupuesto del proyecto estimado (antes del 85% de subvención)</label>
+                                        <select name="Presupuesto" required class="w-full bg-transparent border-b border-white/20 text-white py-2 focus:outline-none focus:border-primary text-sm">
+                                            <option value="" disabled selected>Selecciona rango de inversión...</option>
+                                            <option value="Hasta 5k">Menos de 5.000 €</option>
+                                            <option value="5k-15k">5.000 € - 15.000 €</option>
+                                            <option value="15k-40k">15.000 € - 40.000 €</option>
+                                            <option value=">40k">Más de 40.000 €</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex items-center gap-4">
+                                    <button type="button" onclick="prevStep()" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-all flex-shrink-0"><i class="ph ph-caret-left"></i></button>
+                                    <button type="button" onclick="nextStep()" class="px-6 py-2.5 bg-primary hover:bg-accent text-white font-bold rounded-xl transition-all flex items-center gap-2 shadow-lg">Continuar <i class="ph ph-caret-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- FASE 4: Contacto (Final) -->
+                            <div class="form-step flex-col flex-grow" data-step="4">
+                                <h3 class="text-xl md:text-2xl font-heading text-white mb-2">4 <i class="ph ph-arrow-right text-primary align-middle text-lg mx-1"></i> Dónde te enviamos el análisis</h3>
+                                
+                                <div class="space-y-4 mt-2 overflow-y-auto max-h-[350px] pr-2 custom-scrollbar">
+                                    <div>
+                                        <label class="block text-sm text-white/80 mb-1">Nombre de la Empresa / Marca *</label>
+                                        <input type="text" name="Empresa" required class="typeform-input text-sm" placeholder="Ej: Clínica Dental López">
+                                    </div>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm text-white/80 mb-1">Tu nombre *</label>
+                                            <input type="text" name="Nombre" required class="typeform-input text-sm" placeholder="Nombre completo">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm text-white/80 mb-1">Teléfono *</label>
+                                            <input type="tel" name="Telefono" required class="typeform-input text-sm" placeholder="+34 600 000 000">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm text-white/80 mb-1">Email *</label>
+                                        <input type="email" name="Email" required class="typeform-input text-sm" placeholder="tu@email.com">
+                                    </div>
+
+                                    <div class="flex items-start gap-3 mt-4 px-1">
+                                        <input type="checkbox" id="check-priv-ayudas" name="Privacidad" value="Aceptada" required class="mt-1 w-4 h-4 accent-primary cursor-pointer">
+                                        <label for="check-priv-ayudas" class="text-xs text-textSecondary leading-tight cursor-pointer italic">He leído y acepto la política de privacidad y autorizo el análisis viabilidad.</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-6 flex items-center gap-4">
+                                    <button type="button" onclick="prevStep()" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-all flex-shrink-0"><i class="ph ph-caret-left"></i></button>
+                                    <button type="submit" class="px-8 py-3 bg-amber-500 hover:bg-amber-400 text-bgMain font-bold rounded-full transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(245,158,11,0.4)] btn-submit">Solicitar evaluación <i class="ph ph-paper-plane-tilt"></i></button>
+                                </div>
+                                
+                                <div class="form-msg hidden text-center p-4 rounded-xl mt-4 font-medium transition-all text-sm"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOCUMENTACIÓN OFICIAL -->
+    <section class="py-16 relative z-10 bg-bgMain border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 reveal-up">
+            <h2 class="text-xs font-bold text-textSecondary uppercase tracking-[0.2em] mb-12">DOCUMENTACIÓN OFICIAL DE LA CONVOCATORIA</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <!-- Columna Izquierda: Imagen Oficial (sin recuadros) -->
+                <div class="md:col-span-5 lg:col-span-6">
+                    <img src="../subvencion autonomos pymes ia.png" alt="Subvenciones para implantar inteligencia artificial en autónomos y pymes de Extremadura 2026 - Convocatoria oficial gestionada por Proemote" class="w-full h-auto rounded-3xl object-cover shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10" loading="lazy" decoding="async">
+                </div>
+
+                <!-- Columna Derecha: Enlaces en texto simple -->
+                <div class="md:col-span-7 lg:col-span-6 space-y-6">
+                    <a href="https://doe.juntaex.es/pdfs/doe/2026/130o/25040295.pdf" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 text-textSecondary hover:text-white transition-colors group">
+                        <i class="ph-bold ph-arrow-up-right text-xl text-primary flex-shrink-0 mt-0.5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                        <p class="text-sm md:text-base leading-relaxed"><strong class="text-white">Noticia oficial (DOE):</strong> Decreto 173/2025, de 9 de diciembre, por el que se establecen las bases reguladoras y se aprueba la primera convocatoria.</p>
+                    </a>
+
+                    <a href="https://www.juntaex.es/w/0714925" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 text-textSecondary hover:text-white transition-colors group">
+                        <i class="ph-bold ph-arrow-up-right text-xl text-primary flex-shrink-0 mt-0.5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                        <p class="text-sm md:text-base leading-relaxed"><strong class="text-white">Ficha del trámite en la Junta de Extremadura:</strong> Consulta los requisitos, documentación obligatoria y plazos en la sede oficial de la Junta de Extremadura.</p>
+                    </a>
+
+                    <a href="https://tramites.juntaex.es/sta/reg/auth/es/6269000040870878407984" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 text-textSecondary hover:text-white transition-colors group">
+                        <i class="ph-bold ph-arrow-up-right text-xl text-primary flex-shrink-0 mt-0.5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                        <p class="text-sm md:text-base leading-relaxed"><strong class="text-white">Sede electrónica — Tramitación online:</strong> Tramitación online directa en la sede electrónica de la Junta de Extremadura.</p>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-6 border-t border-white/5">
+                <p class="text-xs text-textSecondary/60 leading-relaxed max-w-4xl">Proemote es una agencia privada. Esta página es informativa y no constituye asesoramiento jurídico ni garantía de concesión. Para cualquier duda sobre los requisitos oficiales consulta la documentación publicada por la Junta de Extremadura y Extremadura Empresarial.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-bgMain border-t border-white/5 pt-20 pb-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+            
+            <div class="md:col-span-12 lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
+                <div class="mb-8">
+                    <img src="../logo-footer.png" alt="Proemote Logo" class="h-20 md:h-24 mb-3 opacity-90 mx-auto md:mx-0" width="93" height="96">
+                    <p class="text-white italic text-sm mb-1">Shaping what matters</p>
+                    <p class="text-textSecondary text-sm font-medium">Think first.</p>
+                </div>
+                
+                <div class="mb-6">
+                    <p class="text-xs text-primary font-bold tracking-widest uppercase mb-1">Estudio creativo y estratégico.</p>
+                    <p class="text-xs text-textSecondary font-bold tracking-widest uppercase">Mérida, Extremadura.</p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-start gap-3 mb-8 w-full">
+                    <a href="mailto:info@proemote.es" class="text-white font-medium hover:text-primary transition-colors flex items-center gap-3 text-sm">
+                        <i class="ph ph-envelope-simple text-xl"></i> info@proemote.es
+                    </a>
+                    <a href="tel:+34641576286" class="text-white font-medium hover:text-primary transition-colors flex items-center gap-3 text-sm">
+                        <i class="ph ph-phone text-xl"></i> +34 641 57 62 86
+                    </a>
+                </div>
+
+                <div class="flex justify-center md:justify-start gap-3 w-full">
+                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" aria-label="LinkedIn de Proemote" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
+                        <i class="ph-fill ph-linkedin-logo"></i>
+                    </a>
+                    <a href="https://www.instagram.com/proemote.es/" target="_blank" aria-label="Instagram de Proemote" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
+                        <i class="ph-fill ph-instagram-logo"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="md:col-span-4 lg:col-span-2 lg:col-start-5 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Servicios</h4>
+                <ul class="space-y-4 text-sm text-textSecondary text-center md:text-left">
+                    <li><a href="/web-seo" class="hover:text-white transition-colors">Diseño Web</a></li>
+                    <li><a href="/eventos" class="hover:text-white transition-colors">Eventos 360º</a></li>
+                    <li><a href="/marketing-digital" class="hover:text-white transition-colors">Marketing Digital</a></li>
+                    <li><a href="/redes-sociales" class="hover:text-white transition-colors">Redes Sociales</a></li>
+                    <li><a href="/branding-y-estrategia" class="hover:text-white transition-colors">Branding & Estrategia</a></li>
+                    <li><a href="/automatizaciones-y-sistemas" class="hover:text-white transition-colors">Automatización & Sistemas</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Empresa & Legal</h4>
+                <ul class="space-y-4 text-sm text-textSecondary text-center md:text-left">
+                    <li><a href="/aviso-legal" target="_blank" class="hover:text-white transition-colors">Aviso Legal</a></li>
+                    <li><a href="/privacidad" target="_blank" class="hover:text-white transition-colors">Política de Privacidad</a></li>
+                    <li><a href="/sobre-nosotros" class="hover:text-white transition-colors">Sobre nosotros</a></li>
+                    <li><a href="/contacto" class="hover:text-white transition-colors">Contacto</a></li>
+                    <li><a href="/trabaja-con-nosotros" class="hover:text-white transition-colors">Trabaja con nosotros</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Horario</h4>
+                <ul class="space-y-2 text-sm text-textSecondary text-center md:text-left">
+                    <li class="flex flex-col md:inline-block"><span class="font-medium text-white/80">L-V:</span> <span class="text-white">9H–14H, 16H–20H</span></li>
+                    <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-white/80">Sáb:</span> <span class="text-white">10H–13:30H</span></li>
+                    <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-white/80">Dom:</span> <span class="text-white/50">Cerrado</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 text-center md:text-left">
+            <p class="text-xs text-textSecondary w-full">© 2026 Proemote Studio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Observer Reveal
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+            // FAQ Accordion Logic
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const button = item.querySelector('.faq-question');
+                if(button) {
+                    button.addEventListener('click', () => {
+                        const isActive = item.classList.contains('active');
+                        faqItems.forEach(otherItem => {
+                            otherItem.classList.remove('active');
+                        });
+                        if (!isActive) {
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            });
+
+            // Checkbox visual update logic
+            document.querySelectorAll('input[type="checkbox"][name="FuncionesIA[]"]').forEach(cb => {
+                cb.addEventListener('change', function() {
+                    const icon = this.nextElementSibling.querySelector('i');
+                    if(icon) {
+                        if (this.checked) {
+                            icon.classList.remove('opacity-0');
+                        } else {
+                            icon.classList.add('opacity-0');
+                        }
+                    }
+                });
+            });
+
+            // Lógica Countdown (Corregida para fechas futuras)
+            function updateCountdown() {
+                // Ensure target date is correctly parsed and future
+                const dest = new Date("June 17, 2026 23:59:59").getTime();
+                const now = new Date().getTime();
+                const diff = dest - now;
+
+                if (diff < 0) {
+                    // Set all to zero if date passed
+                    document.querySelectorAll('.cd-days').forEach(el => el.innerText = "00");
+                    document.querySelectorAll('.cd-hours').forEach(el => el.innerText = "00");
+                    document.querySelectorAll('.cd-minutes').forEach(el => el.innerText = "00");
+                    document.querySelectorAll('.cd-seconds').forEach(el => el.innerText = "00");
+                    return; 
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.querySelectorAll('.cd-days').forEach(el => el.innerText = days.toString().padStart(2, '0'));
+                document.querySelectorAll('.cd-hours').forEach(el => el.innerText = hours.toString().padStart(2, '0'));
+                document.querySelectorAll('.cd-minutes').forEach(el => el.innerText = minutes.toString().padStart(2, '0'));
+                document.querySelectorAll('.cd-seconds').forEach(el => el.innerText = seconds.toString().padStart(2, '0'));
+            }
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+
+            // Lógica Formulario Multi-Step (Actualizada a 4 Fases para Leads Rápidos)
+            const formEl = document.getElementById('ayudas-form');
+            if (formEl) {
+                window.currentStep = 1;
+                window.totalSteps = 4;
+
+                document.querySelectorAll('.form-step').forEach(step => {
+                    if(parseInt(step.getAttribute('data-step')) !== currentStep) {
+                        step.classList.add('hidden');
+                        step.classList.remove('active');
+                    }
+                });
+
+                window.updateFormUI = function() {
+                    document.querySelectorAll('.form-step').forEach(step => {
+                        step.classList.add('hidden');
+                        step.classList.remove('active');
+                    });
+                    const nextEl = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+                    if(nextEl) {
+                        nextEl.classList.remove('hidden');
+                        void nextEl.offsetWidth; 
+                        nextEl.classList.add('active');
+                    }
+                    const progress = (currentStep / totalSteps) * 100;
+                    const progressEl = document.getElementById('form-progress');
+                    if(progressEl) progressEl.style.width = `${progress}%`;
+                };
+
+                window.validateCurrentStep = function() {
+                    const currentStepEl = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+                    if(!currentStepEl) return true;
+                    
+                    const requiredRadios = currentStepEl.querySelectorAll('input[type="radio"][required]');
+                    if(requiredRadios.length > 0) {
+                        const name = requiredRadios[0].name;
+                        const checked = currentStepEl.querySelector(`input[name="${name}"]:checked`);
+                        if(!checked) return false;
+                    }
+
+                    const checkboxes = currentStepEl.querySelectorAll('input[type="checkbox"][name="FuncionesIA[]"]');
+                    if(checkboxes.length > 0) {
+                        // Opcional: Requerir al menos 1 checkbox
+                        // const checked = currentStepEl.querySelectorAll('input[type="checkbox"]:checked');
+                        // if(checked.length === 0) return false; 
+                    }
+
+                    const requiredInputs = currentStepEl.querySelectorAll('input[type="text"][required], input[type="email"][required], input[type="tel"][required], input[type="number"][required], select[required], textarea[required]');
+                    let allFilled = true;
+                    requiredInputs.forEach(input => {
+                        if(!input.value.trim()) allFilled = false;
+                    });
+                    return allFilled;
+                };
+
+                window.nextStep = function() {
+                    if(!validateCurrentStep()) {
+                        const stepEl = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+                        if(stepEl) {
+                            stepEl.classList.add('animate-pulse');
+                            setTimeout(() => stepEl.classList.remove('animate-pulse'), 400);
+                        }
+                        return;
+                    }
+                    if (currentStep < totalSteps) {
+                        currentStep++;
+                        updateFormUI();
+                    }
+                };
+
+                window.prevStep = function() {
+                    if (currentStep > 1) {
+                        currentStep--;
+                        updateFormUI();
+                    }
+                };
+
+                window.autoAdvance = function() {
+                    setTimeout(() => { nextStep(); }, 350);
+                };
+            }
+
+            // Form Submit (Conexión real con Google Sheets dedicada)
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzWaFJ-eTPZRaZADOvGHvgTt2rfP70Grzv8uHFhSRqY7aCIREbmgwia-wiuJTcncu7eyQ/exec';
+            
+            document.querySelectorAll('.proemote-form').forEach(form => {
+                form.addEventListener('submit', e => {
+                    e.preventDefault();
+                    
+                    // Anti-spam Honeypot Check
+                    const honey = form.querySelector('[name="_honey"]');
+                    if (honey && honey.value) {
+                        console.warn('Spam detectado');
+                        return;
+                    }
+
+                    const btn = form.querySelector('.btn-submit');
+                    const msg = form.querySelector('.form-msg');
+                    const originalBtnContent = btn.innerHTML;
+                    
+                    btn.innerHTML = '<span class="animate-pulse italic">Analizando viabilidad...</span>';
+                    btn.disabled = true;
+
+                    // Construir payload dinámico para la nueva hoja dedicada
+                    const rawData = new FormData(form);
+                    const payload = new FormData();
+                    
+                    // Agrupar checkboxes de FuncionesIA[] en una sola cadena
+                    const funcionesIA = rawData.getAll('FuncionesIA[]');
+                    
+                    rawData.forEach((value, key) => {
+                        if (key !== 'FuncionesIA[]') payload.append(key, value);
+                    });
+                    payload.append('FuncionesIA', funcionesIA.join(', ') || 'Ninguna');
+                    payload.append('Origen', 'Ayudas IA Extremadura 2026 - Typeform');
+
+                    fetch(scriptURL, { method: 'POST', body: payload })
+                        .then(res => res.text())
+                        .then(text => {
+                            msg.classList.remove('hidden'); 
+                            msg.className = 'form-msg block p-4 rounded-xl bg-green-500/10 text-green-400 mt-4 border border-green-500/20 text-sm';
+                            msg.innerText = 'Solicitud de evaluación recibida. Un experto de nuestro equipo se pondrá en contacto contigo para el diagnóstico en menos de 24 horas.';
+                            form.reset(); 
+                            btn.innerHTML = originalBtnContent; 
+                            btn.disabled = false;
+                            
+                            // Resetear al paso 1
+                            setTimeout(() => {
+                                window.currentStep = 1;
+                                window.updateFormUI();
+                                msg.classList.add('hidden');
+                            }, 5000);
+                        })
+                        .catch(err => {
+                            console.error('Error!', err.message);
+                            msg.classList.remove('hidden'); 
+                            msg.className = 'form-msg block p-4 rounded-xl bg-red-500/10 text-red-400 mt-4 border border-red-500/20 text-sm';
+                            msg.innerText = 'Error al enviar los datos. Por favor, vuelve a intentarlo o escrébenos directamente por WhatsApp.';
+                            btn.innerHTML = originalBtnContent; 
+                            btn.disabled = false;
+                        });
+                });
+            });
+
+            // Mouse Glow
+            const glow = document.getElementById('mouse-glow');
+            document.addEventListener('mousemove', (e) => { 
+                glow.style.left = `${e.clientX}px`; 
+                glow.style.top = `${e.clientY}px`; 
+                if (e.target.closest('.with-glow')) {
+                    glow.style.opacity = '1';
+                } else {
+                    glow.style.opacity = '0';
+                }
+            });
+            document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+        });
+    </script>
+</body>
+</html>
