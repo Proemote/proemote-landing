@@ -66,7 +66,7 @@
     </style>
 </head>
 <body class="antialiased selection:bg-primary selection:text-white">
-                            <!-- BARRA DE ANUNCIO GLOBAL -->
+                                <!-- BARRA DE ANUNCIO GLOBAL -->
     <div id="announcement-bar" class="w-full bg-primary text-white py-2 px-10 text-xs md:text-sm font-medium z-[60] relative flex items-center justify-center min-h-[38px] overflow-hidden select-none">
         <!-- Flecha Izquierda -->
         <button onclick="prevAnnouncement()" aria-label="Anterior anuncio" class="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors p-1 focus:outline-none cursor-pointer">
@@ -285,6 +285,35 @@
         window.addEventListener('resize', syncHeader);
     })();
     </script>
+    <script>
+    /* Fix: sync announcement bar (fixed) + nav position */
+    (function(){
+        var bar = document.getElementById('announcement-bar');
+        var nav = document.querySelector('.glass-nav');
+        if (!bar || !nav) return;
+        bar.style.position = 'fixed';
+        bar.style.top = '0';
+        bar.style.left = '0';
+        bar.style.right = '0';
+        bar.style.zIndex = '70';
+        
+        var spacer = document.getElementById('announcement-spacer');
+        if (!spacer) {
+            spacer = document.createElement('div');
+            spacer.id = 'announcement-spacer';
+            spacer.setAttribute('aria-hidden', 'true');
+            bar.parentNode.insertBefore(spacer, bar.nextSibling);
+        }
+        function syncHeader() {
+            var h = bar.offsetHeight;
+            nav.style.top = h + 'px';
+            spacer.style.height = h + 'px';
+        }
+        syncHeader();
+        window.addEventListener('load', syncHeader);
+        window.addEventListener('resize', syncHeader);
+    })();
+    </script>
 
     <!-- PROJECT HERO IMAGE -->
     <!-- Template Note: Reemplazar la imagen de fondo con la imagen principal del proyecto -->
@@ -296,6 +325,9 @@
         </div>
         
         <div class="max-w-7xl mx-auto px-6 w-full relative z-10 pb-12 reveal-up active">
+            <a href="/portfolio/" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 text-xs font-medium mb-6 backdrop-blur-md">
+                <i class="ph ph-arrow-left"></i> Volver al portfolio
+            </a>
             <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/20 backdrop-blur border border-primary/30 text-white text-xs font-semibold tracking-widest uppercase mb-4">
                 Diseño Web
             </div>
@@ -426,7 +458,7 @@
             
             <div class="glass-card p-8 md:p-10 rounded-[2.5rem] border-primary/20 bg-gradient-to-tr from-bgSurface to-bgSurface/95 relative overflow-hidden shadow-xl flex flex-col items-center text-center">
                 <div class="flex items-center gap-1 text-[#F59E0B] mb-6 text-2xl">
-                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph ph-star text-white/20"></i>
                 </div>
                 <p class="text-white text-base md:text-lg leading-relaxed mb-8 italic">
                     "Carlos captó muy bien desde el principio la idea y el estilo que quería para mi web, y trabajó con rapidez y eficiencia. El resultado final es muy bueno."
@@ -490,6 +522,7 @@
     </section>
 
                 
+    
     
     
     

@@ -105,7 +105,7 @@
     </style>
 </head>
 <body class="antialiased selection:bg-primary selection:text-white">
-                            <!-- BARRA DE ANUNCIO GLOBAL -->
+                                <!-- BARRA DE ANUNCIO GLOBAL -->
     <div id="announcement-bar" class="w-full bg-primary text-white py-2 px-10 text-xs md:text-sm font-medium z-[60] relative flex items-center justify-center min-h-[38px] overflow-hidden select-none">
         <!-- Flecha Izquierda -->
         <button onclick="prevAnnouncement()" aria-label="Anterior anuncio" class="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors p-1 focus:outline-none cursor-pointer">
@@ -324,6 +324,35 @@
         window.addEventListener('resize', syncHeader);
     })();
     </script>
+    <script>
+    /* Fix: sync announcement bar (fixed) + nav position */
+    (function(){
+        var bar = document.getElementById('announcement-bar');
+        var nav = document.querySelector('.glass-nav');
+        if (!bar || !nav) return;
+        bar.style.position = 'fixed';
+        bar.style.top = '0';
+        bar.style.left = '0';
+        bar.style.right = '0';
+        bar.style.zIndex = '70';
+        
+        var spacer = document.getElementById('announcement-spacer');
+        if (!spacer) {
+            spacer = document.createElement('div');
+            spacer.id = 'announcement-spacer';
+            spacer.setAttribute('aria-hidden', 'true');
+            bar.parentNode.insertBefore(spacer, bar.nextSibling);
+        }
+        function syncHeader() {
+            var h = bar.offsetHeight;
+            nav.style.top = h + 'px';
+            spacer.style.height = h + 'px';
+        }
+        syncHeader();
+        window.addEventListener('load', syncHeader);
+        window.addEventListener('resize', syncHeader);
+    })();
+    </script>
 
     <!-- HERO SECTION -->
     <section class="relative pt-32 pb-16 overflow-hidden bg-grid-pattern border-b border-white/5">
@@ -391,7 +420,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-white mb-1">Ana Goros</h3>
-                        <p class="text-sm text-textSecondary mb-4">Estética y Belleza · Badajoz</p>
+                        <p class="text-sm text-textSecondary mb-4">Coaching Profesional · Madrid</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -794,6 +823,7 @@
     </section>
 
                     
+    
     
     
     
