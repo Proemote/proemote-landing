@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto | Proemote</title>
+    <title>XTRM HARD | Proemote</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,7 +66,7 @@
     </style>
 </head>
 <body class="antialiased selection:bg-primary selection:text-white">
-                        <!-- BARRA DE ANUNCIO GLOBAL -->
+                            <!-- BARRA DE ANUNCIO GLOBAL -->
     <div id="announcement-bar" class="w-full bg-primary text-white py-2 px-10 text-xs md:text-sm font-medium z-[60] relative flex items-center justify-center min-h-[38px] overflow-hidden select-none">
         <!-- Flecha Izquierda -->
         <button onclick="prevAnnouncement()" aria-label="Anterior anuncio" class="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors p-1 focus:outline-none cursor-pointer">
@@ -256,12 +256,41 @@
         window.addEventListener('resize', syncHeader);
     })();
     </script>
+    <script>
+    /* Fix: sync announcement bar (fixed) + nav position */
+    (function(){
+        var bar = document.getElementById('announcement-bar');
+        var nav = document.querySelector('.glass-nav');
+        if (!bar || !nav) return;
+        bar.style.position = 'fixed';
+        bar.style.top = '0';
+        bar.style.left = '0';
+        bar.style.right = '0';
+        bar.style.zIndex = '70';
+        
+        var spacer = document.getElementById('announcement-spacer');
+        if (!spacer) {
+            spacer = document.createElement('div');
+            spacer.id = 'announcement-spacer';
+            spacer.setAttribute('aria-hidden', 'true');
+            bar.parentNode.insertBefore(spacer, bar.nextSibling);
+        }
+        function syncHeader() {
+            var h = bar.offsetHeight;
+            nav.style.top = h + 'px';
+            spacer.style.height = h + 'px';
+        }
+        syncHeader();
+        window.addEventListener('load', syncHeader);
+        window.addEventListener('resize', syncHeader);
+    })();
+    </script>
 
     <!-- PROJECT HERO IMAGE -->
     <!-- Template Note: Reemplazar la imagen de fondo con la imagen principal del proyecto -->
     <section class="relative pt-24 pb-0 h-[60vh] min-h-[400px] overflow-hidden flex items-end">
         <div class="absolute inset-0 z-0">
-            <img src="/portfolio/web-cliente-tierras-con-alma.jpg" alt="Imagen destacada del proyecto" class="w-full h-full object-cover">
+            <img src="/portfolio/web-xtrm-hard.jpg" alt="Imagen destacada del proyecto" class="w-full h-full object-cover">
             <!-- Overlay gradient para asegurar la lectura del texto si se añade sobre la imagen -->
             <div class="absolute inset-0 bg-gradient-to-t from-bgMain via-bgMain/60 to-transparent"></div>
         </div>
@@ -271,9 +300,9 @@
                 Diseño Web
             </div>
             <h1 class="font-heading text-4xl md:text-6xl font-bold text-white mb-2 leading-tight">
-                Nombre del Proyecto
+                XTRM HARD
             </h1>
-            <p class="text-xl text-textSecondary">Cliente / Marca</p>
+            <p class="text-xl text-textSecondary">XTRM HARD</p>
         </div>
     </section>
 
@@ -294,19 +323,19 @@
                             </li>
                             <li class="flex flex-col">
                                 <span class="text-xs text-textSecondary uppercase tracking-wider mb-1">Sector</span>
-                                <span class="text-sm font-medium text-white">Sector del cliente</span>
+                                <span class="text-sm font-medium text-white">Eventos</span>
                             </li>
                             <li class="flex flex-col">
                                 <span class="text-xs text-textSecondary uppercase tracking-wider mb-1">Fecha</span>
-                                <span class="text-sm font-medium text-white">Mes y Año</span>
+                                <span class="text-sm font-medium text-white">Enero 2025</span>
                             </li>
                             <li class="flex flex-col">
                                 <span class="text-xs text-textSecondary uppercase tracking-wider mb-1">Localidad</span>
-                                <span class="text-sm font-medium text-white">Ciudad</span>
+                                <span class="text-sm font-medium text-white">Mérida</span>
                             </li>
                             <li class="flex flex-col">
                                 <span class="text-xs text-textSecondary uppercase tracking-wider mb-1">Provincia</span>
-                                <span class="text-sm font-medium text-white">Provincia</span>
+                                <span class="text-sm font-medium text-white">Badajoz</span>
                             </li>
                             <li class="flex flex-col">
                                 <span class="text-xs text-textSecondary uppercase tracking-wider mb-1">Comunidad</span>
@@ -316,7 +345,7 @@
 
                         <div class="mt-8 pt-6 border-t border-white/10">
                             <!-- Template Note: Añadir el enlace real al proyecto o eliminar si no aplica -->
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full gap-2 px-6 py-3 bg-white/5 border border-white/10 text-white font-medium rounded-xl hover:bg-primary hover:border-primary transition-all duration-300">
+                            <a href="https://xtrmhard.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full gap-2 px-6 py-3 bg-white/5 border border-white/10 text-white font-medium rounded-xl hover:bg-primary hover:border-primary transition-all duration-300">
                                 Visita su web <i class="ph ph-arrow-up-right"></i>
                             </a>
                         </div>
@@ -328,7 +357,7 @@
                     <div class="prose prose-invert prose-lg max-w-none mb-12">
                         <h2 class="font-heading text-3xl font-bold text-white mb-6">Sobre el proyecto</h2>
                         <p class="text-textSecondary leading-relaxed">
-                            Aquí va una breve descripción (2-3 líneas) de lo que se hizo en el proyecto y por qué. Cuál era el objetivo principal, qué problema resolvimos y cómo lo enfocamos desde Proemote.
+                            Evento de carreras de obstáculos en Mérida que necesitaba una web que transmitiera energía, adrenalina y confianza a los participantes. Analizamos la identidad visual de la marca, estructuramos la información del evento para facilitar la inscripción y aplicamos SEO de coincidencia exacta para captar búsquedas de eventos deportivos en Extremadura.
                         </p>
                     </div>
 
@@ -336,18 +365,80 @@
                     <div class="space-y-8">
                         <!-- Template Note: Replicar este bloque de imagen para añadir más mockups/capturas -->
                         <div class="rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
-                            <img src="/portfolio/web-cliente-tierras-con-alma.jpg" alt="Mockup del proyecto 1" class="w-full h-auto">
+                            <img src="/portfolio/web-xtrm-hard.jpg" alt="Mockup del proyecto 1" class="w-full h-auto">
                         </div>
                         
                         <!-- Ejemplo de imagen secundaria -->
                         <!-- 
                         <div class="rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
-                            <img src="/portfolio/web-cliente-tierras-con-alma.jpg" alt="Mockup del proyecto 2" class="w-full h-auto">
+                            <img src="/portfolio/web-xtrm-hard.jpg" alt="Mockup del proyecto 2" class="w-full h-auto">
                         </div>
                         -->
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+
+    <!-- BLOQUE 1: PROCESO DE TRABAJO -->
+    <section class="py-20 relative z-10 bg-bgMain border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Metodología</span>
+                <h2 class="font-heading text-3xl md:text-5xl font-medium text-white">Cómo lo hacemos</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="glass-card p-8 rounded-3xl border-white/5 flex flex-col items-start hover:border-primary/30 transition-all">
+                    <span class="text-sm font-bold text-primary mb-4 font-heading bg-primary/10 w-8 h-8 rounded-full flex items-center justify-center">01</span>
+                    <h3 class="text-lg font-heading text-white font-medium mb-3">Análisis de identidad</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Estudiamos colores, tono, servicios y competencia para entender la marca antes de escribir una línea de código.</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl border-white/5 flex flex-col items-start hover:border-primary/30 transition-all">
+                    <span class="text-sm font-bold text-primary mb-4 font-heading bg-primary/10 w-8 h-8 rounded-full flex items-center justify-center">02</span>
+                    <h3 class="text-lg font-heading text-white font-medium mb-3">Estructura y contenido</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Organizamos las páginas y secciones para facilitar la lectura, guiar al visitante y aumentar las conversiones.</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl border-white/5 flex flex-col items-start hover:border-primary/30 transition-all">
+                    <span class="text-sm font-bold text-primary mb-4 font-heading bg-primary/10 w-8 h-8 rounded-full flex items-center justify-center">03</span>
+                    <h3 class="text-lg font-heading text-white font-medium mb-3">Diseño y desarrollo</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Construimos una web a medida, sin plantillas genéricas, alineada con la identidad visual del cliente.</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl border-white/5 flex flex-col items-start hover:border-primary/30 transition-all">
+                    <span class="text-sm font-bold text-primary mb-4 font-heading bg-primary/10 w-8 h-8 rounded-full flex items-center justify-center">04</span>
+                    <h3 class="text-lg font-heading text-white font-medium mb-3">Lanzamiento y SEO</h3>
+                    <p class="text-sm text-textSecondary leading-relaxed">Publicamos con SEO básico de coincidencia exacta para que el cliente empiece a posicionar desde el primer día.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOQUE 3: HERRAMIENTAS Y PARTNERS -->
+    <section class="py-16 relative z-10 bg-bgMain border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6 reveal-up text-center">
+            <h2 class="font-heading text-lg font-medium text-textSecondary uppercase tracking-widest mb-10">Desarrollado con</h2>
+            
+            <div class="flex flex-row items-center justify-center gap-12 md:gap-20">
+                <div class="flex flex-col items-center gap-3">
+                    <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:border-primary/30 hover:bg-white/10 transition-all duration-300">
+                        <i class="ph ph-hard-drive text-3xl text-primary"></i>
+                    </div>
+                    <span class="text-xs text-textSecondary font-semibold font-heading">Hostinger</span>
+                </div>
+                <div class="flex flex-col items-center gap-3">
+                    <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:border-primary/30 hover:bg-white/10 transition-all duration-300">
+                        <i class="ph ph-code text-3xl text-primary"></i>
+                    </div>
+                    <span class="text-xs text-textSecondary font-semibold font-heading">WordPress</span>
+                </div>
+                <div class="flex flex-col items-center gap-3">
+                    <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:border-primary/30 hover:bg-white/10 transition-all duration-300">
+                        <i class="ph ph-globe text-3xl text-primary"></i>
+                    </div>
+                    <span class="text-xs text-textSecondary font-semibold font-heading">Piensa Solutions</span>
+                </div>
             </div>
         </div>
     </section>
@@ -370,6 +461,7 @@
     </section>
 
                 
+    
     
     
     
@@ -542,6 +634,15 @@
                             <p class="text-xs text-textSecondary">Campañas de publicidad digital para escalar tu negocio.</p>
                         </div>
                     </a>
+                    <a href="/automatizaciones-y-sistemas" class="group flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                            <i class="ph-fill ph-robot text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Automatización y Sistemas</h4>
+                            <p class="text-xs text-textSecondary">Funnels, CRM y flujos que trabajan sin ti.</p>
+                        </div>
+                    </a>
                     <a href="/eventos" class="group flex items-start gap-4">
                         <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
                             <i class="ph-fill ph-ticket text-xl"></i>
@@ -549,15 +650,6 @@
                         <div>
                             <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Eventos & Experiencias</h4>
                             <p class="text-xs text-textSecondary">Producción, branding y promoción digital de eventos.</p>
-                        </div>
-                    </a>
-                    <a href="/servicios#automatizacion" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
-                            <i class="ph-fill ph-tree-structure text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-medium text-sm group-hover:text-primary transition-colors mb-1">Automatización & Sistemas</h4>
-                            <p class="text-xs text-textSecondary">Funnels, CRM y flujos que trabajan sin ti.</p>
                         </div>
                     </a>
                 </div>
@@ -620,6 +712,7 @@
             }
         });
     </script>
+
 
 
     <script>
