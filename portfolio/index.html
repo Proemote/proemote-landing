@@ -374,14 +374,29 @@
 
     <!-- FILTER BAR (Sticky) -->
     <div class="sticky top-[64px] md:top-[72px] z-40 bg-bgMain/80 backdrop-blur-md border-b border-white/5 py-4">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex overflow-x-auto hide-scrollbar gap-2 md:gap-4 md:justify-center">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <!-- Categories -->
+            <div class="flex overflow-x-auto hide-scrollbar gap-2 md:gap-3 items-center">
                 <button class="filter-btn active whitespace-nowrap px-5 py-2 rounded-full border border-white/10 text-sm font-medium text-textSecondary hover:text-white transition-all duration-300" data-filter="all">Todos</button>
                 <button class="filter-btn whitespace-nowrap px-5 py-2 rounded-full border border-white/10 text-sm font-medium text-textSecondary hover:text-white transition-all duration-300" data-filter="diseno-web">Diseño Web</button>
                 <button class="filter-btn whitespace-nowrap px-5 py-2 rounded-full border border-white/10 text-sm font-medium text-textSecondary hover:text-white transition-all duration-300" data-filter="redes-sociales">Redes Sociales</button>
                 <button class="filter-btn whitespace-nowrap px-5 py-2 rounded-full border border-white/10 text-sm font-medium text-textSecondary hover:text-white transition-all duration-300" data-filter="branding">Branding</button>
                 <button class="filter-btn whitespace-nowrap px-5 py-2 rounded-full border border-white/10 text-sm font-medium text-textSecondary hover:text-white transition-all duration-300" data-filter="eventos">Eventos</button>
                 <button class="filter-btn whitespace-nowrap px-5 py-2 rounded-full border border-white/10 text-sm font-medium text-textSecondary hover:text-white transition-all duration-300" data-filter="marketing">Marketing</button>
+            </div>
+            
+            <!-- Sorting Control -->
+            <div class="flex items-center gap-2 flex-shrink-0 self-end md:self-auto">
+                <span class="text-xs text-textSecondary font-medium">Ordenar:</span>
+                <div class="relative inline-block">
+                    <select id="sort-select" class="appearance-none bg-bgSurface/80 border border-white/10 text-xs text-white rounded-full py-2 pl-4 pr-10 hover:border-primary/50 transition-colors focus:outline-none focus:border-primary cursor-pointer font-medium">
+                        <option value="recent">Más recientes primero</option>
+                        <option value="oldest">Más antiguos primero</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-textSecondary">
+                        <i class="ph ph-caret-down text-xs"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -392,7 +407,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
                 
                 <!-- 1. Tierras con Alma -->
-                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" onclick="window.location.href='/portfolio/tierras-con-alma'">
+                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2026-03" onclick="window.location.href='/portfolio/tierras-con-alma'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
                         <img src="/portfolio/web-cliente-tierras-con-alma.jpg" alt="Tierras con Alma" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
@@ -410,7 +425,7 @@
                 </div>
 
                 <!-- 2. Ana Goros -->
-                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" onclick="window.location.href='/portfolio/ana-goros'">
+                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2026-02" onclick="window.location.href='/portfolio/ana-goros'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
                         <img src="/portfolio/web-cliente-ana-goros.png" alt="Ana Goros" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
@@ -428,7 +443,7 @@
                 </div>
 
                 <!-- 3. Limpiezas Lusitania -->
-                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" onclick="window.location.href='/portfolio/limpiezas-lusitania'">
+                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2026-01" onclick="window.location.href='/portfolio/limpiezas-lusitania'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
                         <img src="/portfolio/web-cliente-limpiezas-lusitania.png" alt="Limpiezas Lusitania" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
@@ -446,7 +461,7 @@
                 </div>
 
                 <!-- 4. Centro de Belleza Juany — Rebranding -->
-                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="branding" onclick="window.location.href='/portfolio/rebranding-centro-belleza-juany'">
+                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="branding" data-date="2026-01" onclick="window.location.href='/portfolio/rebranding-centro-belleza-juany'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
                         <img src="/portfolio/rebranding-web-belleza-juany.jpg" alt="Centro de Belleza Juany Rebranding" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Branding</div>
@@ -464,7 +479,7 @@
                 </div>
 
                 <!-- 5. Centro de Belleza Juany — Web y RRSS -->
-                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web redes-sociales marketing" onclick="window.location.href='/portfolio/centro-belleza-juany'">
+                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web redes-sociales marketing" data-date="2025-07" onclick="window.location.href='/portfolio/centro-belleza-juany'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
                         <img src="/portfolio/web-centro-belleza-juany-1.jpg" alt="Centro de Belleza Juany Web" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web + RRSS</div>
@@ -482,7 +497,7 @@
                 </div>
 
                 <!-- 6. Asociación JoveNEXT — Rebranding y Web -->
-                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="branding diseno-web" onclick="window.location.href='/portfolio/asociacion-jovenext'">
+                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="branding diseno-web" data-date="2026-01" onclick="window.location.href='/portfolio/asociacion-jovenext'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
                         <img src="/portfolio/rebranding-web-jovenext.jpg" alt="JoveNEXT Rebranding" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Branding + Diseño Web</div>
@@ -500,7 +515,7 @@
                 </div>
 
                 <!-- 7. Gabriel Romero -->
-                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" onclick="window.location.href='/portfolio/gabriel-romero'">
+                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2025-09" onclick="window.location.href='/portfolio/gabriel-romero'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
                         <img src="/portfolio/web-gabriel-romero-formacion.jpg" alt="Gabriel Romero" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
@@ -518,7 +533,7 @@
                 </div>
 
                 <!-- 8. Lo Quiero Limpio -->
-                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web redes-sociales marketing" onclick="window.location.href='/lo-quiero-limpio-caso-de-exito'">
+                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web redes-sociales marketing" data-date="2025-05" onclick="window.location.href='/portfolio/lo-quiero-limpio'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
                         <img src="/portfolio/web-lo-quiero-limpio-seo-rrss.jpg" alt="Lo Quiero Limpio" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Web + Branding + RRSS</div>
@@ -536,7 +551,7 @@
                 </div>
 
                 <!-- 9. Jamón Exclusive -->
-                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" onclick="window.location.href='/portfolio/jamon-exclusive'">
+                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2025-04" onclick="window.location.href='/portfolio/jamon-exclusive'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
                         <img src="/portfolio/web-jamon-exclusive.jpg" alt="Jamón Exclusive" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Web + SEO</div>
@@ -554,7 +569,7 @@
                 </div>
 
                 <!-- 10. XTRM HARD -->
-                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" onclick="window.location.href='/portfolio/xtrm-hard'">
+                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2025-01" onclick="window.location.href='/portfolio/xtrm-hard'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
                         <img src="/portfolio/web-xtrm-hard.jpg" alt="XTRM Hard" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Web + SEO</div>
@@ -572,7 +587,7 @@
                 </div>
 
                 <!-- 11. Asociación Meridia -->
-                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" onclick="window.location.href='/portfolio/asociacion-meridia'">
+                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2024-01" onclick="window.location.href='/portfolio/asociacion-meridia'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
                         <img src="/portfolio/web-seo-rrss-meridia.jpg" alt="Asociación Meridia" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Web + SEO + RRSS</div>
@@ -590,7 +605,7 @@
                 </div>
 
                 <!-- 12. JoveNEXT — Web -->
-                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" onclick="window.location.href='/portfolio/jovenext-web'">
+                <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2024-03" onclick="window.location.href='/portfolio/jovenext-web'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
                         <img src="/portfolio/web-jovenext-inicial.jpg" alt="JoveNEXT Web Inicial" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
@@ -607,6 +622,11 @@
                     </div>
                 </div>
 
+            </div>
+
+            <!-- PAGINATION CONTROLS -->
+            <div id="pagination-container" class="flex justify-center items-center gap-2 mt-12 flex-wrap">
+                <!-- Page buttons generated dynamically -->
             </div>
         </div>
     </section>
@@ -904,37 +924,171 @@
 
     <!-- Scripts -->
     <script>
-        // Filters Logic
+        // Filters, Sorting & Pagination Engine
         document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('project-grid');
+            if (!grid) return;
+            
+            // Read and clone card elements to preserve original markup and state
+            const cards = Array.from(grid.querySelectorAll('.project-card'));
+            
+            let currentFilter = 'all';
+            let currentSort = 'recent'; // 'recent' or 'oldest'
+            let currentPage = 1;
+            const itemsPerPage = 6;
+            
+            function sortCards(cardsArray, order) {
+                return cardsArray.sort((a, b) => {
+                    const dateA = a.getAttribute('data-date') || '1970-01';
+                    const dateB = b.getAttribute('data-date') || '1970-01';
+                    if (order === 'recent') {
+                        return dateB.localeCompare(dateA); // Newest first (oldest at the end pages)
+                    } else {
+                        return dateA.localeCompare(dateB); // Oldest first (oldest at the front pages)
+                    }
+                });
+            }
+            
+            function render() {
+                // 1. Filter
+                const filteredCards = cards.filter(card => {
+                    if (currentFilter === 'all') return true;
+                    const categories = card.getAttribute('data-category').split(' ');
+                    return categories.includes(currentFilter);
+                });
+                
+                // 2. Sort
+                const sortedCards = sortCards(filteredCards, currentSort);
+                
+                // 3. Paginate
+                const totalItems = sortedCards.length;
+                const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
+                
+                // Clamp currentPage
+                if (currentPage > totalPages) currentPage = totalPages;
+                if (currentPage < 1) currentPage = 1;
+                
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+                const cardsToDisplay = sortedCards.slice(startIndex, endIndex);
+                
+                // Clear grid and append displayed cards
+                grid.innerHTML = '';
+                cardsToDisplay.forEach(card => {
+                    card.classList.remove('hide');
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                    grid.appendChild(card);
+                    
+                    // Observe card for animations
+                    if (window.observer) {
+                        window.observer.observe(card);
+                    }
+                });
+                
+                // If empty category, show a message
+                if (cardsToDisplay.length === 0) {
+                    grid.innerHTML = `
+                        <div class="col-span-full py-16 text-center">
+                            <p class="text-textSecondary text-lg">No se han encontrado proyectos en esta categoría.</p>
+                        </div>
+                    `;
+                }
+                
+                renderPagination(totalPages);
+            }
+            
+            function renderPagination(totalPages) {
+                const pagContainer = document.getElementById('pagination-container');
+                if (!pagContainer) return;
+                pagContainer.innerHTML = '';
+                
+                if (totalPages <= 1) return;
+                
+                // Previous button
+                const prevBtn = document.createElement('button');
+                prevBtn.className = `w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 text-sm font-medium ${
+                    currentPage === 1 
+                    ? 'border-white/5 text-textSecondary/30 cursor-not-allowed' 
+                    : 'border-white/10 text-textSecondary hover:text-white hover:border-primary/50'
+                }`;
+                prevBtn.innerHTML = '<i class="ph ph-caret-left"></i>';
+                prevBtn.disabled = (currentPage === 1);
+                prevBtn.addEventListener('click', () => {
+                    currentPage--;
+                    render();
+                    scrollToGrid();
+                });
+                pagContainer.appendChild(prevBtn);
+                
+                // Page numbers
+                for (let i = 1; i <= totalPages; i++) {
+                    const pageBtn = document.createElement('button');
+                    const isActive = (i === currentPage);
+                    pageBtn.className = `w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 text-sm font-medium ${
+                        isActive 
+                        ? 'bg-primary/20 border-primary text-white' 
+                        : 'border-white/10 text-textSecondary hover:text-white hover:border-primary/50'
+                    }`;
+                    pageBtn.innerText = i;
+                    pageBtn.addEventListener('click', () => {
+                        currentPage = i;
+                        render();
+                        scrollToGrid();
+                    });
+                    pagContainer.appendChild(pageBtn);
+                }
+                
+                // Next button
+                const nextBtn = document.createElement('button');
+                nextBtn.className = `w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 text-sm font-medium ${
+                    currentPage === totalPages 
+                    ? 'border-white/5 text-textSecondary/30 cursor-not-allowed' 
+                    : 'border-white/10 text-textSecondary hover:text-white hover:border-primary/50'
+                }`;
+                nextBtn.innerHTML = '<i class="ph ph-caret-right"></i>';
+                nextBtn.disabled = (currentPage === totalPages);
+                nextBtn.addEventListener('click', () => {
+                    currentPage++;
+                    render();
+                    scrollToGrid();
+                });
+                pagContainer.appendChild(nextBtn);
+            }
+            
+            function scrollToGrid() {
+                const bar = document.querySelector('.sticky');
+                if (bar) {
+                    // Smoothly scroll grid filter bar to viewport top with an offset for the header
+                    const topPos = bar.getBoundingClientRect().top + window.scrollY - 100;
+                    window.scrollTo({ top: topPos, behavior: 'smooth' });
+                }
+            }
+            
+            // Hook up Filter buttons
             const filterBtns = document.querySelectorAll('.filter-btn');
-            const projectCards = document.querySelectorAll('.project-card');
-
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    // Remove active class from all buttons
                     filterBtns.forEach(b => b.classList.remove('active'));
-                    // Add active class to clicked button
                     btn.classList.add('active');
-
-                    const filterValue = btn.getAttribute('data-filter');
-
-                    projectCards.forEach(card => {
-                        const categories = card.getAttribute('data-category').split(' ');
-                        
-                        if (filterValue === 'all' || categories.includes(filterValue)) {
-                            card.classList.remove('hide');
-                            // Trigger reflow for animation
-                            void card.offsetWidth;
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        } else {
-                            card.classList.add('hide');
-                            card.style.opacity = '0';
-                            card.style.transform = 'translateY(20px)';
-                        }
-                    });
+                    currentFilter = btn.getAttribute('data-filter');
+                    currentPage = 1;
+                    render();
                 });
             });
+            
+            // Hook up Sort select
+            const sortSelect = document.getElementById('sort-select');
+            if (sortSelect) {
+                sortSelect.addEventListener('change', (e) => {
+                    currentSort = e.target.value;
+                    currentPage = 1;
+                    render();
+                });
+            }
+            
+            // Initial render
+            render();
         });
 
         // Scroll Animations (Reveal Up)
@@ -951,6 +1105,7 @@
                 }
             });
         }, observerOptions);
+        window.observer = observer;
 
         document.querySelectorAll('.reveal-up').forEach((el) => {
             observer.observe(el);
