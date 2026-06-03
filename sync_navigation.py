@@ -88,7 +88,7 @@ new_header_html = """    <!-- BARRA DE ANUNCIO GLOBAL -->
     <nav class="fixed w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="https://proemote.es/" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
-                <img src="/logo-header.png" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain" width="135" height="56">
+                <img src="/logo-header.png" alt="Proemote - Agencia de digitalización de pymes y subvención digital empresas Extremadura" class="h-8 md:h-10 w-auto object-contain" width="135" height="56">
             </a>
             <div class="hidden md:flex gap-8 text-sm font-medium text-textSecondary relative z-10 items-center">
                 <a href="https://proemote.es/" class="hover:text-textMain transition-colors">Inicio</a>
@@ -108,7 +108,7 @@ new_header_html = """    <!-- BARRA DE ANUNCIO GLOBAL -->
                                 <i class="ph-fill ph-device-mobile"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-medium text-xs mb-0.5">Digitalización de Pymes</h4>
+                                <p class="text-white font-medium text-xs mb-0.5">Digitalización de Pymes</p>
                                 <p class="text-[10px] text-textSecondary">Hasta 20.000€ · Web, SEO, Redes</p>
                             </div>
                         </a>
@@ -117,7 +117,7 @@ new_header_html = """    <!-- BARRA DE ANUNCIO GLOBAL -->
                                 <i class="ph-fill ph-cpu"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-medium text-xs mb-0.5">Implementación de IA</h4>
+                                <p class="text-white font-medium text-xs mb-0.5">Implementación de IA</p>
                                 <p class="text-[10px] text-textSecondary">Hasta 100.000€ · Automatización</p>
                             </div>
                         </a>

@@ -509,17 +509,22 @@
 
             <!-- Form -->
             <form id="lead-form" class="flex flex-col gap-4">
+                <!-- Honeypot Anti-Spam Field -->
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                <!-- Campo Origen para Google Sheets -->
+                <input type="hidden" name="Origen" value="Análisis Gratuito - Web">
+                
                 <div>
                     <label for="name" class="block text-sm font-medium text-textSecondary mb-1.5 text-left">Tu nombre</label>
-                    <input type="text" id="name" required placeholder="Ej. Ana García" class="w-full bg-[#0A0A0F] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all">
+                    <input type="text" id="name" name="name" required placeholder="Ej. Ana García" class="w-full bg-[#0A0A0F] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all">
                 </div>
                 <div>
                     <label for="email" class="block text-sm font-medium text-textSecondary mb-1.5 text-left">Tu mejor email</label>
-                    <input type="email" id="email" required placeholder="ana@tunegocio.com" class="w-full bg-[#0A0A0F] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all">
+                    <input type="email" id="email" name="email" required placeholder="ana@tunegocio.com" class="w-full bg-[#0A0A0F] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all">
                 </div>
                 <div>
                     <label for="url" class="block text-sm font-medium text-textSecondary mb-1.5 text-left">Perfil de Instagram o Web</label>
-                    <input type="text" id="url" required placeholder="@tu_cuenta o tuweb.com" class="w-full bg-[#0A0A0F] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all">
+                    <input type="text" id="url" name="url" required placeholder="@tu_cuenta o tuweb.com" class="w-full bg-[#0A0A0F] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all">
                 </div>
 
                 <div class="flex items-start gap-3 mt-2 mb-2">
@@ -693,7 +698,10 @@
             }, 300);
         }
 
-        // Simulación de envío del formulario dentro del modal
+        // Conexión con Google Sheets
+        // TODO: Reemplazar esta URL con la URL de Apps Script correspondiente para el análisis gratuito
+        const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
         const form = document.getElementById('lead-form');
         const successMsg = document.getElementById('success-msg');
         const submitBtn = document.getElementById('submit-btn');
@@ -702,23 +710,68 @@
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
                 
+                // Anti-spam Honeypot Check
+                const honey = form.querySelector('[name="_honey"]');
+                if (honey && honey.value) {
+                    console.warn('Spam detectado');
+                    return;
+                }
+
+                // Asegurar elemento de mensaje de error/estado
+                let msg = form.querySelector('.form-msg');
+                if (!msg) {
+                    msg = document.createElement('div');
+                    msg.className = 'form-msg hidden text-center p-4 rounded-xl mt-4 font-medium transition-all text-sm';
+                    form.appendChild(msg);
+                }
+                
                 // Estado de carga
                 if(submitBtn) {
-                    submitBtn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Procesando...';
+                    submitBtn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Enviando datos...';
                     lucide.createIcons();
                     submitBtn.disabled = true;
                 }
+                msg.classList.add('hidden');
 
-                setTimeout(() => {
-                    // Ocultar form y mostrar éxito
-                    form.classList.add('hidden');
-                    if(submitBtn) submitBtn.classList.add('hidden');
-                    
-                    if(successMsg) {
-                        successMsg.classList.remove('hidden');
-                        successMsg.classList.add('flex');
-                    }
-                }, 1500);
+                // Si no se ha configurado la URL real, simulamos el éxito localmente para no romper la experiencia en preview/desarrollo
+                if (scriptURL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                    console.warn('Google Sheets scriptURL no configurado. Usando simulación local.');
+                    setTimeout(() => {
+                        form.classList.add('hidden');
+                        if(submitBtn) submitBtn.classList.add('hidden');
+                        if(successMsg) {
+                            successMsg.classList.remove('hidden');
+                            successMsg.classList.add('flex');
+                        }
+                    }, 1200);
+                    return;
+                }
+
+                const payload = new FormData(form);
+
+                fetch(scriptURL, { method: 'POST', body: payload })
+                    .then(res => {
+                        // Ocultar form y mostrar éxito
+                        form.classList.add('hidden');
+                        if(submitBtn) submitBtn.classList.add('hidden');
+                        
+                        if(successMsg) {
+                            successMsg.classList.remove('hidden');
+                            successMsg.classList.add('flex');
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Error!', err.message);
+                        msg.classList.remove('hidden'); 
+                        msg.className = 'form-msg block p-4 rounded-xl bg-danger/10 text-danger mt-4 border border-danger/20 text-sm';
+                        msg.innerText = 'Error al enviar los datos. Por favor, vuelve a intentarlo o escrébenos a info@proemote.es';
+                        
+                        if(submitBtn) {
+                            submitBtn.innerHTML = '<span>Enviar mis datos</span><i data-lucide="send" class="w-5 h-5"></i>';
+                            lucide.createIcons();
+                            submitBtn.disabled = false;
+                        }
+                    });
             });
         }
     </script>

@@ -86,7 +86,7 @@
     </style>
 </head>
 <body class="antialiased selection:bg-primary selection:text-white relative">
-                                <!-- BARRA DE ANUNCIO GLOBAL -->
+                                        <!-- BARRA DE ANUNCIO GLOBAL -->
     <div id="announcement-bar" class="w-full bg-primary text-white py-2 px-10 text-xs md:text-sm font-medium z-[60] relative flex items-center justify-center min-h-[38px] overflow-hidden select-none">
         <!-- Flecha Izquierda -->
         <button onclick="prevAnnouncement()" aria-label="Anterior anuncio" class="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors p-1 focus:outline-none cursor-pointer">
@@ -172,7 +172,7 @@
     <nav class="fixed w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="https://proemote.es/" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
-                <img src="/logo-header.png" alt="Proemote Logo" class="h-8 md:h-10 w-auto object-contain" width="135" height="56">
+                <img src="/logo-header.png" alt="Proemote - Agencia de digitalización de pymes y subvención digital empresas Extremadura" class="h-8 md:h-10 w-auto object-contain" width="135" height="56">
             </a>
             <div class="hidden md:flex gap-8 text-sm font-medium text-textSecondary relative z-10 items-center">
                 <a href="https://proemote.es/" class="hover:text-textMain transition-colors">Inicio</a>
@@ -192,7 +192,7 @@
                                 <i class="ph-fill ph-device-mobile"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-medium text-xs mb-0.5">Digitalización de Pymes</h4>
+                                <p class="text-white font-medium text-xs mb-0.5">Digitalización de Pymes</p>
                                 <p class="text-[10px] text-textSecondary">Hasta 20.000€ · Web, SEO, Redes</p>
                             </div>
                         </a>
@@ -201,7 +201,7 @@
                                 <i class="ph-fill ph-cpu"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-medium text-xs mb-0.5">Implementación de IA</h4>
+                                <p class="text-white font-medium text-xs mb-0.5">Implementación de IA</p>
                                 <p class="text-[10px] text-textSecondary">Hasta 100.000€ · Automatización</p>
                             </div>
                         </a>
@@ -247,6 +247,64 @@
             </div>
         </div>
     </nav>
+    <script>
+    /* Fix: sync announcement bar (fixed) + nav position */
+    (function(){
+        var bar = document.getElementById('announcement-bar');
+        var nav = document.querySelector('.glass-nav');
+        if (!bar || !nav) return;
+        bar.style.position = 'fixed';
+        bar.style.top = '0';
+        bar.style.left = '0';
+        bar.style.right = '0';
+        bar.style.zIndex = '70';
+        
+        var spacer = document.getElementById('announcement-spacer');
+        if (!spacer) {
+            spacer = document.createElement('div');
+            spacer.id = 'announcement-spacer';
+            spacer.setAttribute('aria-hidden', 'true');
+            bar.parentNode.insertBefore(spacer, bar.nextSibling);
+        }
+        function syncHeader() {
+            var h = bar.offsetHeight;
+            nav.style.top = h + 'px';
+            spacer.style.height = h + 'px';
+        }
+        syncHeader();
+        window.addEventListener('load', syncHeader);
+        window.addEventListener('resize', syncHeader);
+    })();
+    </script>
+    <script>
+    /* Fix: sync announcement bar (fixed) + nav position */
+    (function(){
+        var bar = document.getElementById('announcement-bar');
+        var nav = document.querySelector('.glass-nav');
+        if (!bar || !nav) return;
+        bar.style.position = 'fixed';
+        bar.style.top = '0';
+        bar.style.left = '0';
+        bar.style.right = '0';
+        bar.style.zIndex = '70';
+        
+        var spacer = document.getElementById('announcement-spacer');
+        if (!spacer) {
+            spacer = document.createElement('div');
+            spacer.id = 'announcement-spacer';
+            spacer.setAttribute('aria-hidden', 'true');
+            bar.parentNode.insertBefore(spacer, bar.nextSibling);
+        }
+        function syncHeader() {
+            var h = bar.offsetHeight;
+            nav.style.top = h + 'px';
+            spacer.style.height = h + 'px';
+        }
+        syncHeader();
+        window.addEventListener('load', syncHeader);
+        window.addEventListener('resize', syncHeader);
+    })();
+    </script>
     <script>
     /* Fix: sync announcement bar (fixed) + nav position */
     (function(){
