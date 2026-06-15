@@ -55,7 +55,8 @@
 
         /* UI Components */
         .glass-nav { background: rgba(10, 10, 15, 0.7); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-        .glass-card { background: linear-gradient(180deg, rgba(20, 20, 31, 0.9) 0%, rgba(20, 20, 31, 0.5) 100%); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(0, 0, 0, 0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .dark .glass-card { background: linear-gradient(180deg, rgba(20, 20, 31, 0.9) 0%, rgba(20, 20, 31, 0.5) 100%); border: 1px solid rgba(255, 255, 255, 0.05); }
         .glass-card:hover { border-color: rgba(123, 97, 255, 0.3); box-shadow: 0 10px 40px rgba(123, 97, 255, 0.1); transform: translateY(-4px); }
 
         /* Mouse Tracking Glow */
@@ -267,21 +268,21 @@
     </div>
 
     <!-- Menú Móvil -->
-    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-white/95 dark:bg-base/95 backdrop-blur-2xl pt-24 pb-6 px-6 flex flex-col transition-colors duration-300">
+    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-white/95 dark:bg-bgMain/95 backdrop-blur-2xl pt-24 pb-6 px-6 flex flex-col transition-colors duration-300">
         <div class="flex flex-col gap-6 items-center text-center mt-10">
-            <a href="https://proemotion.es/" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Inicio</a>
-            <a href="/#foco" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Sistema</a>
-            <a href="/servicios" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Servicios</a>
+            <a href="https://proemotion.es/" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-primary dark:hover:text-white">Inicio</a>
+            <a href="/#foco" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-primary dark:hover:text-white">Sistema</a>
+            <a href="/servicios" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-primary dark:hover:text-white">Servicios</a>
             
             <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1 items-center">
                 <span class="text-xs font-bold tracking-widest text-gray-400 dark:text-white/40 uppercase mb-1">Ayudas 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                <a href="/ayudas-digitalizacion-pymes-extremadura/" class="mobile-link text-sm font-medium text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Digitalización de Pymes</a>
-                <a href="/ayudas-implementacion-ia-extremadura/" class="mobile-link text-sm font-medium text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white mt-1">Implementación de IA</a>
+                <a href="/ayudas-digitalizacion-pymes-extremadura/" class="mobile-link text-sm font-medium text-gray-600 dark:text-white/60 hover:text-primary dark:hover:text-white">Digitalización de Pymes</a>
+                <a href="/ayudas-implementacion-ia-extremadura/" class="mobile-link text-sm font-medium text-gray-600 dark:text-white/60 hover:text-primary dark:hover:text-white mt-1">Implementación de IA</a>
             </div>
 
-            <a href="/sobre-nosotros" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Sobre nosotros</a>
-            <a href="https://proemote.es/portfolio" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Portfolio</a>
-            <a href="/contacto" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Contacto</a>
+            <a href="/sobre-nosotros" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-primary dark:hover:text-white">Sobre nosotros</a>
+            <a href="https://proemote.es/portfolio" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-primary dark:hover:text-white">Portfolio</a>
+            <a href="/contacto" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-primary dark:hover:text-white">Contacto</a>
             
             <a href="https://proemote.es/diagnostico-negocio-gratis" target="_blank" rel="noopener" class="bg-gradient-to-r from-violet-600 to-indigo-600 text-white py-3.5 px-8 rounded-full font-semibold text-[14px] transition-all w-full max-w-xs mt-6 shadow-[0_0_20px_rgba(139,92,246,0.3)]">
                 Iniciar estudio gratuito
@@ -310,7 +311,7 @@
     </section>
 
     <!-- FILTER BAR (Sticky) -->
-    <div class="sticky top-[64px] md:top-[72px] z-40 bg-bgMain/80 backdrop-blur-md border-b border-gray-200 dark:border-white/5 py-4">
+    <div class="sticky top-[64px] md:top-[72px] z-40 bg-white/90 dark:bg-bgMain/80 backdrop-blur-md border-b border-gray-200 dark:border-white/5 py-4">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-4 w-full">
             <!-- Categories -->
             <div class="flex overflow-x-auto hide-scrollbar gap-2 md:gap-3 items-center w-full pb-1 md:pb-0" style="scrollbar-width: none;">
@@ -347,7 +348,7 @@
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2026-03" onclick="window.location.href='/portfolio/tierras-con-alma'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-cliente-tierras-con-alma.jpg" alt="Tierras con Alma" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
-                        <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
                             <p class="text-gray-900 dark:text-white text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Desarrollo de página web corporativa orientada a conversión.</p>
                         </div>
@@ -365,7 +366,7 @@
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2026-02" onclick="window.location.href='/portfolio/ana-goros'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-cliente-ana-goros.png" alt="Ana Goros" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
-                        <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
                             <p class="text-gray-900 dark:text-white text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Diseño elegante y minimalista para captar clientes de alto valor.</p>
                         </div>
@@ -383,7 +384,7 @@
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2026-01" onclick="window.location.href='/portfolio/limpiezas-lusitania'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-cliente-limpiezas-lusitania.png" alt="Limpiezas Lusitania" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
-                        <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
                             <p class="text-gray-900 dark:text-white text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Modernización digital para empresa con más de 25 años de trayectoria.</p>
                         </div>
@@ -401,7 +402,7 @@
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="branding" data-date="2026-01" onclick="window.location.href='/portfolio/rebranding-centro-belleza-juany'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/rebranding-web-belleza-juany.jpg" alt="Centro de Belleza Juany Rebranding" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
-                        <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Branding</div>
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Branding</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
                             <p class="text-gray-900 dark:text-white text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Renovación completa de identidad visual para un nuevo ciclo de negocio.</p>
                         </div>
@@ -419,7 +420,7 @@
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web redes-sociales marketing" data-date="2025-07" onclick="window.location.href='/portfolio/centro-belleza-juany'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-centro-belleza-juany-1.jpg" alt="Centro de Belleza Juany Web" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
-                        <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web + RRSS</div>
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web + RRSS</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
                             <p class="text-gray-900 dark:text-white text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Implementación web y estrategia de RRSS para triplicar alcance.</p>
                         </div>
@@ -437,7 +438,7 @@
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="branding diseno-web" data-date="2026-01" onclick="window.location.href='/portfolio/asociacion-jovenext'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/rebranding-web-jovenext.jpg" alt="JoveNEXT Rebranding" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
-                        <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Branding + Diseño Web</div>
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Branding + Diseño Web</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
                             <p class="text-gray-900 dark:text-white text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Creación de identidad fresca y plataforma digital para jóvenes.</p>
                         </div>
@@ -455,7 +456,7 @@
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2025-09" onclick="window.location.href='/portfolio/gabriel-romero'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-gabriel-romero-formacion.jpg" alt="Gabriel Romero" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
-                        <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
                             <p class="text-gray-900 dark:text-white text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Landing page enfocada en captación de leads para formación profesional.</p>
                         </div>
@@ -473,7 +474,7 @@
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web redes-sociales marketing" data-date="2025-05" onclick="window.location.href='/portfolio/lo-quiero-limpio'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-lo-quiero-limpio-seo-rrss.jpg" alt="Lo Quiero Limpio" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
-                        <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Web + Branding + RRSS</div>
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Web + Branding + RRSS</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
                             <p class="text-gray-900 dark:text-white text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Estrategia integral que consiguió más de 73K reproducciones orgánicas.</p>
                         </div>
@@ -491,7 +492,7 @@
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2025-04" onclick="window.location.href='/portfolio/jamon-exclusive'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-jamon-exclusive.jpg" alt="Jamón Exclusive" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
-                        <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Web + SEO</div>
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Web + SEO</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
                             <p class="text-gray-900 dark:text-white text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">E-commerce de productos ibéricos con diseño premium.</p>
                         </div>
@@ -509,7 +510,7 @@
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2025-01" onclick="window.location.href='/portfolio/xtrm-hard'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-xtrm-hard.jpg" alt="XTRM Hard" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
-                        <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Web + SEO</div>
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Web + SEO</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
                             <p class="text-gray-900 dark:text-white text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Tienda online de ropa deportiva con estilo agresivo y dinámico.</p>
                         </div>
@@ -527,7 +528,7 @@
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2024-01" onclick="window.location.href='/portfolio/asociacion-meridia'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-seo-rrss-meridia.jpg" alt="Asociación Meridia" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
-                        <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Web + SEO + RRSS</div>
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Web + SEO + RRSS</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
                             <p class="text-gray-900 dark:text-white text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Web corporativa para asociación sin ánimo de lucro.</p>
                         </div>
@@ -545,7 +546,7 @@
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2024-03" onclick="window.location.href='/portfolio/jovenext-web'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-jovenext-inicial.jpg" alt="JoveNEXT Web Inicial" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
-                        <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
                             <p class="text-gray-900 dark:text-white text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Primera fase de implementación digital para la organización.</p>
                         </div>
@@ -563,7 +564,7 @@
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="eventos" data-date="2026-04" onclick="window.location.href='/portfolio/xtrm-hard-matrix'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/eventos/organizacion-eventos-proemote-xtrm-hard-matrix.png" alt="MATRIX" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
-                        <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
                             <p class="text-gray-900 dark:text-white text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Producción integral del evento, diseño, ticketing y control de accesos.</p>
                         </div>
@@ -581,7 +582,7 @@
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="eventos" data-date="2025-12" onclick="window.location.href='/portfolio/xtrm-hard-xmas-edition'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/eventos/organizacion-eventos-proemote-xtrm-hard-xmas-edition-cartel-1.jpg" alt="XMAS EDITION" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
-                        <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
                             <p class="text-gray-900 dark:text-white text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Edición navideña, ticketing con Fourvenues y producción de aftermovie.</p>
                         </div>
@@ -599,7 +600,7 @@
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="eventos" data-date="2025-06" onclick="window.location.href='/portfolio/xtrm-hard-san-juan'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/eventos/organizacion-eventos-proemote-xtrm-hard-badajoz.jpg" alt="FERIA SAN JUAN BOILER ROOM" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
-                        <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
                             <p class="text-gray-900 dark:text-white text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Edición especial Feria de San Juan, ticketing y comunicación.</p>
                         </div>
@@ -617,7 +618,7 @@
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="eventos" data-date="2025-05" onclick="window.location.href='/portfolio/xtrm-hard-infernus'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/eventos/organizacion-eventos-proemote-xtrm-hard-infernus-badajoz.png" alt="INFERNUS" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
-                        <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
                             <p class="text-gray-900 dark:text-white text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Evento con estética oscura, gestión de entradas y aftermovie.</p>
                         </div>
@@ -635,7 +636,7 @@
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="eventos" data-date="2025-04" onclick="window.location.href='/portfolio/xtrm-hard-the-resurrection'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/eventos/organizacion-eventos-proemote-xtrm-hard-the-resurrection.png" alt="THE RESURRECTION" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
-                        <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
                             <p class="text-gray-900 dark:text-white text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Primer evento fuera de la capital, ticketing y control de accesos.</p>
                         </div>
@@ -653,7 +654,7 @@
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="eventos" data-date="2025-03" onclick="window.location.href='/portfolio/xtrm-hard-the-church'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/eventos/organizacion-eventos-proemote-xtrm-hard-the-church.jpg" alt="THE CHURCH" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
-                        <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
                             <p class="text-gray-900 dark:text-white text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Gestión de ticketing con Fourvenues, aftermovie y redes sociales.</p>
                         </div>
@@ -671,7 +672,7 @@
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="eventos" data-date="2024-05" onclick="window.location.href='/portfolio/xtrm-hard-last-one-standing'">
                     <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/eventos/organizacion-eventos-proemote-xtrm-hard-merida.jpg" alt="LAST ONE STANDING" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
-                        <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
                             <p class="text-gray-900 dark:text-white text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Diseño de cartel, ticketing y difusión en redes sociales.</p>
                         </div>
@@ -918,7 +919,7 @@
     
     
         <!-- FOOTER -->
-    <footer class="bg-white dark:bg-base border-t border-gray-200 dark:border-white/5 pt-20 pb-8 relative z-10 transition-colors duration-300">
+    <footer class="bg-white dark:bg-bgMain border-t border-gray-200 dark:border-white/5 pt-20 pb-8 relative z-10 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
             
             <div class="md:col-span-12 lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
@@ -929,24 +930,24 @@
                 </div>
                 
                 <div class="mb-6">
-                    <p class="text-xs text-marca font-bold tracking-widest uppercase mb-1">Estudio creativo y estratégico.</p>
+                    <p class="text-xs text-primary font-bold tracking-widest uppercase mb-1">Estudio creativo y estratégico.</p>
                     <p class="text-xs text-gray-500 dark:text-white/40 font-bold tracking-widest uppercase">Mérida, Extremadura.</p>
                 </div>
                 
                 <div class="flex flex-col items-center md:items-start gap-3 mb-8 w-full">
-                    <a href="mailto:info@proemote.es" class="text-gray-900 dark:text-white font-medium hover:text-marca transition-colors flex items-center gap-3 text-sm">
-                        <i class="ph ph-envelope-simple text-xl text-marca"></i> info@proemote.es
+                    <a href="mailto:info@proemote.es" class="text-gray-900 dark:text-white font-medium hover:text-primary transition-colors flex items-center gap-3 text-sm">
+                        <i class="ph ph-envelope-simple text-xl text-primary"></i> info@proemote.es
                     </a>
-                    <a href="tel:+34641576286" class="text-gray-900 dark:text-white font-medium hover:text-marca transition-colors flex items-center gap-3 text-sm">
-                        <i class="ph ph-phone text-xl text-marca"></i> +34 641 57 62 86
+                    <a href="tel:+34641576286" class="text-gray-900 dark:text-white font-medium hover:text-primary transition-colors flex items-center gap-3 text-sm">
+                        <i class="ph ph-phone text-xl text-primary"></i> +34 641 57 62 86
                     </a>
                 </div>
 
                 <div class="flex justify-center md:justify-start gap-3 w-full">
-                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-500 dark:text-white/40 hover:text-white hover:bg-marca transition-all">
+                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-500 dark:text-white/40 hover:text-white hover:bg-primary transition-all">
                         <i class="ph-fill ph-linkedin-logo"></i>
                     </a>
-                    <a href="https://www.instagram.com/proemote/" target="_blank" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-500 dark:text-white/40 hover:text-white hover:bg-marca transition-all">
+                    <a href="https://www.instagram.com/proemote/" target="_blank" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-500 dark:text-white/40 hover:text-white hover:bg-primary transition-all">
                         <i class="ph-fill ph-instagram-logo"></i>
                     </a>
                 </div>
