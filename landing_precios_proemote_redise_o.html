@@ -9,7 +9,6 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         
-        /* Estilo de scroll horizontal suave para móvil/tablet */
         .hide-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -18,7 +17,6 @@
             scrollbar-width: none;
         }
 
-        /* Animación suave para el toggle interno */
         .toggle-content {
             transition: all 0.3s ease-in-out;
             max-height: 0;
@@ -26,7 +24,7 @@
             overflow: hidden;
         }
         .toggle-content.open {
-            max-height: 250px; /* Aumentado para acomodar más items */
+            max-height: 300px;
             opacity: 1;
         }
         .rotate-180 {
@@ -38,7 +36,6 @@
 
     <main class="w-full min-h-screen flex flex-col items-center py-16 px-4 md:px-8">
 
-        <!-- Encabezado Estratégico -->
         <div class="w-full max-w-4xl mx-auto text-center mb-16">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6">
                 <span class="w-2 h-2 rounded-full bg-violet-500 animate-pulse"></span>
@@ -58,7 +55,6 @@
             </p>
         </div>
 
-        <!-- Contenedor de Tarjetas (Usamos grid que permite scroll en móviles y distribuye en pantallas grandes) -->
         <div class="flex flex-col xl:flex-row gap-6 max-w-[1300px] w-full items-stretch justify-center hide-scrollbar xl:flex-wrap">
 
             <!-- ==========================================
@@ -68,36 +64,36 @@
                 
                 <div class="mb-8">
                     <span class="inline-block px-3 py-1 text-[10px] font-bold text-[#8b8b9b] uppercase tracking-[0.15em] border border-[#2d2d3a] rounded-full mb-5">
-                        Opción recomendada
+                        ENTRADA
                     </span>
                     <h2 class="text-[26px] font-normal tracking-tight leading-tight text-white mb-3">Puesta a Punto FOCO™</h2>
-                    <p class="text-[14px] text-[#8b8b9b] leading-relaxed">Tu negocio visible, profesional y listo en 48 horas.</p>
+                    <p class="text-[14px] text-[#8b8b9b] leading-relaxed">Tu negocio visible, profesional y listo en 48 horas. Sin excusas.</p>
                 </div>
 
                 <ul class="flex flex-col gap-4 text-[14px] text-[#c4c4d4] mb-8">
                     <li class="flex items-start gap-3">
                         <svg class="w-5 h-5 shrink-0 mt-0.5 text-violet-500" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.026 8.232a.75.75 0 0 1 .18 1.044l-6.5 8.5a.75.75 0 0 1-1.15.06l-3.5-4a.75.75 0 1 1 1.128-.992l2.87 3.28 5.928-7.752a.75.75 0 0 1 1.044-.14z" fill="#0c0c11"/></svg>
-                        <span class="leading-snug">Optimización profesional de Google Business</span>
+                        <span class="leading-snug">Optimización profesional para mejorar tu visibilidad local</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <svg class="w-5 h-5 shrink-0 mt-0.5 text-violet-500" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.026 8.232a.75.75 0 0 1 .18 1.044l-6.5 8.5a.75.75 0 0 1-1.15.06l-3.5-4a.75.75 0 1 1 1.128-.992l2.87 3.28 5.928-7.752a.75.75 0 0 1 1.044-.14z" fill="#0c0c11"/></svg>
-                        <span class="leading-snug">Revisión de tu presencia digital actual</span>
+                        <span class="leading-snug">Auditoría y búsqueda de términos que usan tus clientes locales</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <svg class="w-5 h-5 shrink-0 mt-0.5 text-violet-500" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.026 8.232a.75.75 0 0 1 .18 1.044l-6.5 8.5a.75.75 0 0 1-1.15.06l-3.5-4a.75.75 0 1 1 1.128-.992l2.87 3.28 5.928-7.752a.75.75 0 0 1 1.044-.14z" fill="#0c0c11"/></svg>
-                        <span class="leading-snug">Identificación de oportunidades rápidas</span>
+                        <span class="leading-snug">Identificación de oportunidades rápidas de mejora</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <svg class="w-5 h-5 shrink-0 mt-0.5 text-violet-500" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.026 8.232a.75.75 0 0 1 .18 1.044l-6.5 8.5a.75.75 0 0 1-1.15.06l-3.5-4a.75.75 0 1 1 1.128-.992l2.87 3.28 5.928-7.752a.75.75 0 0 1 1.044-.14z" fill="#0c0c11"/></svg>
-                        <span class="leading-snug">Plan de acción para los próximos 30 días</span>
+                        <span class="leading-snug">Plan detallado paso a paso para los siguientes 30 días</span>
                     </li>
                 </ul>
 
                 <div class="mt-auto flex flex-col pt-6">
-                    <!-- Toggle Detalles -->
+                    
                     <div class="mb-6 border border-[#22222c] rounded-xl bg-[#0a0a0e] overflow-hidden">
                         <button class="flex items-center justify-between w-full p-3 text-[12px] font-medium text-[#8b8b9b] hover:text-white transition-colors" onclick="toggleCard(this)">
-                            <span>Ver valor por separado</span>
+                            <span class="flex items-center gap-1.5"><span class="text-[14px]">🔒</span> Ver desglose de valor real</span>
                             <svg class="w-4 h-4 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                         </button>
                         <div class="toggle-content px-3 pb-3">
@@ -115,23 +111,27 @@
                         <span class="text-[12px] text-[#6b6b7b] ml-1">+ IVA</span>
                     </div>
                     <div class="text-[13px] font-medium text-violet-400 mb-6">
-                        Ahorras 200€ · -67% · Pago único
+                        Ahorras 200€ · -67% 
                     </div>
 
                     <div class="flex gap-1.5 mb-3">
                         <div class="h-1.5 w-6 rounded-full bg-violet-600 shadow-[0_0_8px_rgba(139,92,246,0.5)]"></div>
-                        <div class="h-1.5 w-6 rounded-full bg-[#2d2d3a]"></div>
+                        <div class="h-1.5 w-6 rounded-full bg-violet-600 shadow-[0_0_8px_rgba(139,92,246,0.5)]"></div>
                         <div class="h-1.5 w-6 rounded-full bg-[#2d2d3a]"></div>
                         <div class="h-1.5 w-6 rounded-full bg-[#2d2d3a]"></div>
                     </div>
-                    <span class="text-[10px] font-bold tracking-wider uppercase text-[#6b6b7b] mb-6">
-                        Plazas limitadas
+                    <span class="text-[10px] font-bold tracking-wider uppercase text-[#6b6b7b] mb-4">
+                        3 / 5 plazas disponibles
                     </span>
 
+                    <div class="p-3 bg-white/[0.02] rounded-lg border border-white/5 text-[12px] italic text-[#8b8b9b] mb-5">
+                        "Ya pareces una empresa seria. Generas confianza antes de que te llamen."
+                    </div>
+
                     <button class="w-full py-3.5 rounded-full font-medium text-[14px] mb-4 bg-transparent text-white border border-[#2d2d3a] hover:bg-[#1a1a24] transition-colors">
-                        Solicitar Puesta a Punto →
+                        Iniciar FOCO →
                     </button>
-                    <div class="text-center text-[11px] text-[#6b6b7b]">Sin permanencia</div>
+                    <div class="text-center text-[11px] text-[#6b6b7b]">Pago único · Sin permanencia</div>
                 </div>
             </div>
 
@@ -142,36 +142,36 @@
                 
                 <div class="mb-8">
                     <span class="inline-block px-3 py-1 text-[10px] font-bold text-[#8b8b9b] uppercase tracking-[0.15em] border border-[#2d2d3a] rounded-full mb-5">
-                        CREDIBILIDAD DIGITAL
+                        PRESENCIA DIGITAL
                     </span>
                     <h2 class="text-[26px] font-normal tracking-tight leading-tight text-white mb-3">Sistema Presencia™</h2>
-                    <p class="text-[14px] text-[#8b8b9b] leading-relaxed">De invisible a negocio profesional y de confianza.</p>
+                    <p class="text-[14px] text-[#8b8b9b] leading-relaxed">De no existir en internet a tener una imagen profesional en 7 días.</p>
                 </div>
 
                 <ul class="flex flex-col gap-4 text-[14px] text-[#c4c4d4] mb-8">
                     <li class="flex items-start gap-3">
                         <svg class="w-5 h-5 shrink-0 mt-0.5 text-violet-500" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.026 8.232a.75.75 0 0 1 .18 1.044l-6.5 8.5a.75.75 0 0 1-1.15.06l-3.5-4a.75.75 0 1 1 1.128-.992l2.87 3.28 5.928-7.752a.75.75 0 0 1 1.044-.14z" fill="#0c0c11"/></svg>
-                        <span class="leading-snug">Todo lo incluido en la Puesta a Punto FOCO™</span>
+                        <span class="leading-snug">Tu página web Starter (fácil de entender, atractiva y enfocada a que te llamen)</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <svg class="w-5 h-5 shrink-0 mt-0.5 text-violet-500" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.026 8.232a.75.75 0 0 1 .18 1.044l-6.5 8.5a.75.75 0 0 1-1.15.06l-3.5-4a.75.75 0 1 1 1.128-.992l2.87 3.28 5.928-7.752a.75.75 0 0 1 1.044-.14z" fill="#0c0c11"/></svg>
-                        <span class="leading-snug">Web corporativa Starter (1-3 páginas)</span>
+                        <span class="leading-snug">Ficha de Google Business configurada profesionalmente</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <svg class="w-5 h-5 shrink-0 mt-0.5 text-violet-500" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.026 8.232a.75.75 0 0 1 .18 1.044l-6.5 8.5a.75.75 0 0 1-1.15.06l-3.5-4a.75.75 0 1 1 1.128-.992l2.87 3.28 5.928-7.752a.75.75 0 0 1 1.044-.14z" fill="#0c0c11"/></svg>
-                        <span class="leading-snug">Copywriting persuasivo y diseño de identidad base</span>
+                        <span class="leading-snug">Textos legales obligatorios incluidos (olvídate de multas)</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <svg class="w-5 h-5 shrink-0 mt-0.5 text-violet-500" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.026 8.232a.75.75 0 0 1 .18 1.044l-6.5 8.5a.75.75 0 0 1-1.15.06l-3.5-4a.75.75 0 1 1 1.128-.992l2.87 3.28 5.928-7.752a.75.75 0 0 1 1.044-.14z" fill="#0c0c11"/></svg>
-                        <span class="leading-snug">Integración directa con tu WhatsApp y Formularios</span>
+                        <span class="leading-snug">Vídeo tutorial sencillo para que sepas usarlo todo tú mismo</span>
                     </li>
                 </ul>
 
                 <div class="mt-auto flex flex-col pt-6">
-                    <!-- Toggle Detalles -->
+                    
                     <div class="mb-6 border border-[#22222c] rounded-xl bg-[#0a0a0e] overflow-hidden">
                         <button class="flex items-center justify-between w-full p-3 text-[12px] font-medium text-[#8b8b9b] hover:text-white transition-colors" onclick="toggleCard(this)">
-                            <span>Ver valor por separado</span>
+                            <span class="flex items-center gap-1.5"><span class="text-[14px]">🔒</span> Ver desglose de valor real</span>
                             <svg class="w-4 h-4 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                         </button>
                         <div class="toggle-content px-3 pb-3">
@@ -190,7 +190,7 @@
                         <span class="text-[12px] text-[#6b6b7b] ml-1">+ IVA</span>
                     </div>
                     <div class="text-[13px] font-medium text-violet-400 mb-6">
-                        Ahorras 346€ · -33% · Pago único
+                        Ahorras 346€ · -33% 
                     </div>
 
                     <div class="flex gap-1.5 mb-3">
@@ -199,14 +199,18 @@
                         <div class="h-1.5 w-6 rounded-full bg-[#2d2d3a]"></div>
                         <div class="h-1.5 w-6 rounded-full bg-[#2d2d3a]"></div>
                     </div>
-                    <span class="text-[10px] font-bold tracking-wider uppercase text-[#6b6b7b] mb-6">
-                        2 PLAZAS DISPONIBLES ESTE MES
+                    <span class="text-[10px] font-bold tracking-wider uppercase text-[#6b6b7b] mb-4">
+                        2 / 3 plazas disponibles
                     </span>
 
+                    <div class="p-3 bg-white/[0.02] rounded-lg border border-white/5 text-[12px] italic text-[#8b8b9b] mb-5">
+                        "Tu web lista y publicada en 7 días, o te devolvemos el 20% de lo pagado."
+                    </div>
+
                     <button class="w-full py-3.5 rounded-full font-medium text-[14px] mb-4 bg-transparent text-white border border-[#2d2d3a] hover:bg-[#1a1a24] transition-colors">
-                        Solicitar Sistema Presencia →
+                        Quiero mi Sistema Presencia →
                     </button>
-                    <div class="text-center text-[11px] text-[#6b6b7b]">Sin permanencia</div>
+                    <div class="text-center text-[11px] text-[#6b6b7b]">Pago único · Sin cuotas mensuales</div>
                 </div>
             </div>
 
@@ -216,7 +220,7 @@
             <div class="flex flex-col flex-1 min-w-[280px] xl:max-w-[320px] bg-[#0b0714] border border-violet-600 rounded-[1.5rem] p-8 relative shadow-[0_0_40px_rgba(139,92,246,0.15)] z-10 xl:scale-105">
                 
                 <div class="absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-4 py-1 text-[11px] font-medium rounded-full bg-[#1a103c] border border-violet-500 text-violet-300 shadow-lg whitespace-nowrap">
-                    <span class="text-yellow-400">⭐</span> Más elegido · Mejor relación valor/precio
+                    <span class="text-yellow-400">⭐</span> Opción recomendada
                 </div>
 
                 <div class="mb-8 mt-2">
@@ -224,34 +228,33 @@
                         CAPTACIÓN DE CLIENTES
                     </span>
                     <h2 class="text-[26px] font-normal tracking-tight leading-tight text-white mb-3">Sistema Captación™</h2>
-                    <p class="text-[14px] text-[#8b8b9b] leading-relaxed">Un sistema diseñado para atraer oportunidades de forma constante. Tu negocio generando oportunidades incluso cuando no estás pendiente.</p>
+                    <p class="text-[14px] text-[#8b8b9b] leading-relaxed">Flujo constante de clientes. Un sistema informático trabajando en automático para ti.</p>
                 </div>
 
                 <ul class="flex flex-col gap-4 text-[14px] text-[#c4c4d4] mb-8">
                     <li class="flex items-start gap-3">
                         <svg class="w-5 h-5 shrink-0 mt-0.5 text-violet-400" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.026 8.232a.75.75 0 0 1 .18 1.044l-6.5 8.5a.75.75 0 0 1-1.15.06l-3.5-4a.75.75 0 1 1 1.128-.992l2.87 3.28 5.928-7.752a.75.75 0 0 1 1.044-.14z" fill="#0b0714"/></svg>
-                        <span class="leading-snug">Construcción del Sistema Presencia™ completo</span>
+                        <span class="leading-snug">Página web Pro optimizada para alto rendimiento y captación</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <svg class="w-5 h-5 shrink-0 mt-0.5 text-violet-400" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.026 8.232a.75.75 0 0 1 .18 1.044l-6.5 8.5a.75.75 0 0 1-1.15.06l-3.5-4a.75.75 0 1 1 1.128-.992l2.87 3.28 5.928-7.752a.75.75 0 0 1 1.044-.14z" fill="#0b0714"/></svg>
-                        <span class="leading-snug">Web optimizada específicamente para conversión</span>
+                        <span class="leading-snug">Posicionamiento SEO local para adelantar a tu competencia</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-white font-medium bg-violet-900/10 p-2 -mx-2 rounded-lg border border-violet-500/20">
+                        <svg class="w-5 h-5 shrink-0 mt-0.5 text-violet-400" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.026 8.232a.75.75 0 0 1 .18 1.044l-6.5 8.5a.75.75 0 0 1-1.15.06l-3.5-4a.75.75 0 1 1 1.128-.992l2.87 3.28 5.928-7.752a.75.75 0 0 1 1.044-.14z" fill="#0b0714"/></svg>
+                        <span class="leading-snug">Asistente virtual IA que atiende tu WhatsApp y agenda citas 24h</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <svg class="w-5 h-5 shrink-0 mt-0.5 text-violet-400" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.026 8.232a.75.75 0 0 1 .18 1.044l-6.5 8.5a.75.75 0 0 1-1.15.06l-3.5-4a.75.75 0 1 1 1.128-.992l2.87 3.28 5.928-7.752a.75.75 0 0 1 1.044-.14z" fill="#0b0714"/></svg>
-                        <span class="leading-snug">Gestión estratégica de 1 Red Social <br><span class="text-[11px] text-violet-400/80">(Plan Presencia 249€/mes)</span></span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <svg class="w-5 h-5 shrink-0 mt-0.5 text-violet-400" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.026 8.232a.75.75 0 0 1 .18 1.044l-6.5 8.5a.75.75 0 0 1-1.15.06l-3.5-4a.75.75 0 1 1 1.128-.992l2.87 3.28 5.928-7.752a.75.75 0 0 1 1.044-.14z" fill="#0b0714"/></svg>
-                        <span class="leading-snug">Sistema de campañas publicitarias Meta Ads <br><span class="text-[11px] text-violet-400/80">(Inversión publicitaria no incluida)</span></span>
+                        <span class="leading-snug">Un programa sencillo (CRM) para organizar tus contactos</span>
                     </li>
                 </ul>
 
                 <div class="mt-auto flex flex-col pt-6">
                     
-                    <!-- Toggle Detalles -->
                     <div class="mb-6 border border-violet-500/30 rounded-xl bg-[#110920] overflow-hidden">
                         <button class="flex items-center justify-between w-full p-3 text-[12px] font-medium text-violet-300 hover:text-white transition-colors" onclick="toggleCard(this)">
-                            <span>Ver valor por separado</span>
+                            <span class="flex items-center gap-1.5"><span class="text-[14px]">🔒</span> Ver desglose de valor real</span>
                             <svg class="w-4 h-4 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                         </button>
                         <div class="toggle-content px-3 pb-3">
@@ -276,7 +279,7 @@
                                 <span class="text-[12px] text-[#8b8b9b]">+ IVA</span>
                             </div>
                             <p class="text-[12px] font-medium text-violet-400 mt-0.5 mb-1">Ahorras 806€ · -35%</p>
-                            <p class="text-[11px] text-[#8b8b9b] leading-tight mt-1">Configuramos el sistema completo.</p>
+                            <p class="text-[11px] text-[#8b8b9b] leading-tight mt-1">Configuramos el sistema informático completo.</p>
                         </div>
                         <div class="border-t border-violet-900/50 pt-3">
                             <p class="text-[11px] text-violet-400 font-bold uppercase tracking-wider mb-0.5">Gestión mensual</p>
@@ -284,7 +287,7 @@
                                 <span class="text-[20px] font-medium text-white">249€</span>
                                 <span class="text-[12px] text-[#8b8b9b]">/mes + IVA</span>
                             </div>
-                            <p class="text-[11px] text-[#8b8b9b] leading-tight mt-1">Mantenemos funcionando el sistema de captación, contenidos y optimización continua.</p>
+                            <p class="text-[11px] text-[#8b8b9b] leading-tight mt-1">Nos encargamos de tus redes (1 red) y del mantenimiento del sistema.</p>
                         </div>
                     </div>
 
@@ -294,12 +297,16 @@
                         <div class="h-1.5 w-6 rounded-full bg-violet-500 shadow-[0_0_10px_rgba(139,92,246,0.8)]"></div>
                         <div class="h-1.5 w-6 rounded-full bg-[#2d2d3a]"></div>
                     </div>
-                    <span class="text-[10px] font-bold tracking-wider uppercase text-violet-400 mb-6">
-                        ¡ÚLTIMA PLAZA DISPONIBLE!
+                    <span class="text-[10px] font-bold tracking-wider uppercase text-violet-400 mb-4">
+                        ÚLTIMA PLAZA DEL MES
                     </span>
 
+                    <div class="p-3 bg-violet-900/10 rounded-lg border border-violet-500/20 text-[12px] italic text-violet-200/80 mb-5">
+                        "Garantía real: si en 90 días no observamos una mejora clara en tu visibilidad local, seguimos trabajando gratis."
+                    </div>
+
                     <button class="w-full py-3.5 rounded-full font-medium text-[14px] bg-violet-600 text-white border border-violet-500 hover:bg-violet-500 shadow-[0_0_20px_rgba(139,92,246,0.3)] transition-all">
-                        Solicitar plan Captación →
+                        Dar el salto a Captación →
                     </button>
                 </div>
             </div>
@@ -314,34 +321,33 @@
                         ESCALADO Y AUTOMATIZACIÓN
                     </span>
                     <h2 class="text-[26px] font-normal tracking-tight leading-tight text-white mb-3">Sistema Escala™</h2>
-                    <p class="text-[14px] text-[#8b8b9b] leading-relaxed">Tu negocio vendiendo y escalando solo. Sin contratar a nadie más.</p>
+                    <p class="text-[14px] text-[#8b8b9b] leading-relaxed">Tu negocio vendiendo de forma autónoma. Automatización e ingresos estables.</p>
                 </div>
 
                 <ul class="flex flex-col gap-4 text-[14px] text-[#c4c4d4] mb-8">
                     <li class="flex items-start gap-3">
                         <svg class="w-5 h-5 shrink-0 mt-0.5 text-violet-500" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.026 8.232a.75.75 0 0 1 .18 1.044l-6.5 8.5a.75.75 0 0 1-1.15.06l-3.5-4a.75.75 0 1 1 1.128-.992l2.87 3.28 5.928-7.752a.75.75 0 0 1 1.044-.14z" fill="#0c0c11"/></svg>
-                        <span class="leading-snug">Automatización de atención y seguimiento (CRM Completo)</span>
+                        <span class="leading-snug">Web de categoría Élite (máxima velocidad y diseño de lujo)</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-white font-medium bg-white/5 p-2 -mx-2 rounded-lg border border-white/10">
+                        <svg class="w-5 h-5 shrink-0 mt-0.5 text-violet-500" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.026 8.232a.75.75 0 0 1 .18 1.044l-6.5 8.5a.75.75 0 0 1-1.15.06l-3.5-4a.75.75 0 1 1 1.128-.992l2.87 3.28 5.928-7.752a.75.75 0 0 1 1.044-.14z" fill="#0c0c11"/></svg>
+                        <span class="leading-snug">Piloto automático: el sistema agenda citas y hace el seguimiento solo</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <svg class="w-5 h-5 shrink-0 mt-0.5 text-violet-500" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.026 8.232a.75.75 0 0 1 .18 1.044l-6.5 8.5a.75.75 0 0 1-1.15.06l-3.5-4a.75.75 0 1 1 1.128-.992l2.87 3.28 5.928-7.752a.75.75 0 0 1 1.044-.14z" fill="#0c0c11"/></svg>
-                        <span class="leading-snug">Campaña de recuperación automática de clientes</span>
+                        <span class="leading-snug">Estrategia completa para tus redes sociales durante todo el año</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <svg class="w-5 h-5 shrink-0 mt-0.5 text-violet-500" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.026 8.232a.75.75 0 0 1 .18 1.044l-6.5 8.5a.75.75 0 0 1-1.15.06l-3.5-4a.75.75 0 1 1 1.128-.992l2.87 3.28 5.928-7.752a.75.75 0 0 1 1.044-.14z" fill="#0c0c11"/></svg>
-                        <span class="leading-snug">Sistema de campañas publicitarias Meta / Google <br><span class="text-[11px] text-[#8b8b9b]">(Inversión publicitaria no incluida)</span></span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <svg class="w-5 h-5 shrink-0 mt-0.5 text-violet-500" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.026 8.232a.75.75 0 0 1 .18 1.044l-6.5 8.5a.75.75 0 0 1-1.15.06l-3.5-4a.75.75 0 1 1 1.128-.992l2.87 3.28 5.928-7.752a.75.75 0 0 1 1.044-.14z" fill="#0c0c11"/></svg>
-                        <span class="leading-snug">Gestión de Redes Sociales <br><span class="text-[11px] text-[#8b8b9b]">(Plan Escala 499€/mes)</span></span>
+                        <span class="leading-snug">Campañas de anuncios Meta/Google y reactivación de clientes</span>
                     </li>
                 </ul>
 
                 <div class="mt-auto flex flex-col pt-6">
                     
-                    <!-- Toggle Detalles -->
                     <div class="mb-6 border border-[#22222c] rounded-xl bg-[#0a0a0e] overflow-hidden">
                         <button class="flex items-center justify-between w-full p-3 text-[12px] font-medium text-[#8b8b9b] hover:text-white transition-colors" onclick="toggleCard(this)">
-                            <span>Ver valor por separado</span>
+                            <span class="flex items-center gap-1.5"><span class="text-[14px]">🔒</span> Ver desglose de valor real</span>
                             <svg class="w-4 h-4 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                         </button>
                         <div class="toggle-content px-3 pb-3">
@@ -352,7 +358,7 @@
                                 <div class="flex justify-between text-[11px] text-[#6b6b7b]"><span>Configuración SEO avanzada</span><span>499€</span></div>
                                 <div class="flex justify-between text-[11px] text-[#6b6b7b]"><span>Sistema de campañas</span><span>499€</span></div>
                                 <div class="flex justify-between text-[11px] text-[#6b6b7b]"><span>Plan estratégico de contenidos</span><span>300€</span></div>
-                                <div class="flex justify-between text-[11px] text-[#6b6b7b]"><span>Recuperación de clientes</span><span>199€</span></div>
+                                <div class="flex justify-between text-[11px] text-[#6b6b7b]"><span>Campaña recuperación clientes</span><span>199€</span></div>
                                 <div class="flex justify-between text-[12px] text-violet-400 font-medium pt-1.5 mt-1.5 border-t border-[#22222c]"><span>Valor de mercado estimado</span><span class="line-through">3.836€</span></div>
                             </div>
                         </div>
@@ -367,7 +373,7 @@
                                 <span class="text-[12px] text-[#6b6b7b]">+ IVA</span>
                             </div>
                             <p class="text-[12px] font-medium text-[#8b8b9b] mt-0.5 mb-1">Ahorras 846€ · -22%</p>
-                            <p class="text-[11px] text-[#6b6b7b] leading-tight mt-1">Configuramos el sistema completo.</p>
+                            <p class="text-[11px] text-[#6b6b7b] leading-tight mt-1">Configuramos todo el ecosistema y la automatización.</p>
                         </div>
                         <div class="border-t border-[#2d2d3a] pt-3">
                             <p class="text-[11px] text-[#8b8b9b] font-bold uppercase tracking-wider mb-0.5">Gestión mensual</p>
@@ -375,7 +381,7 @@
                                 <span class="text-[20px] font-medium text-white">499€</span>
                                 <span class="text-[12px] text-[#6b6b7b]">/mes + IVA</span>
                             </div>
-                            <p class="text-[11px] text-[#6b6b7b] leading-tight mt-1">Gestionamos anuncios, automatizaciones, redes sociales y optimización continua para sostener el crecimiento.</p>
+                            <p class="text-[11px] text-[#6b6b7b] leading-tight mt-1">Gestión completa de publicidad, redes y optimización continua. <br><span class="opacity-70">(Inversión publicitaria no incluida)</span></p>
                         </div>
                     </div>
 
@@ -385,27 +391,22 @@
                         <div class="h-1.5 w-6 rounded-full bg-[#2d2d3a]"></div>
                         <div class="h-1.5 w-6 rounded-full bg-[#2d2d3a]"></div>
                     </div>
-                    <span class="text-[10px] font-bold tracking-wider uppercase text-[#6b6b7b] mb-6">
-                        PLAZAS MUY LIMITADAS
+                    <span class="text-[10px] font-bold tracking-wider uppercase text-[#6b6b7b] mb-4">
+                        SOLO 1 PLAZA DISPONIBLE
                     </span>
 
+                    <div class="p-3 bg-white/[0.02] rounded-lg border border-white/5 text-[12px] italic text-[#8b8b9b] mb-5">
+                        "El sistema capta, atiende y te genera ventas de forma predecible aunque tú no mires."
+                    </div>
+
                     <button class="w-full py-3.5 rounded-full font-medium text-[14px] bg-transparent text-white border border-[#2d2d3a] hover:bg-[#1a1a24] transition-colors">
-                        Solicitar Sistema Escala →
+                        Hablemos para escalar →
                     </button>
                 </div>
             </div>
 
         </div>
 
-        <!-- Garantía SEO -->
-        <div class="mt-12 max-w-2xl mx-auto w-full px-4 text-center">
-            <div class="inline-flex items-center gap-3 bg-green-500/10 border border-green-500/20 rounded-xl py-3 px-5 text-[13px] md:text-[14px] text-green-200/90 font-medium">
-                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <span>Si en 90 días no observamos una mejora clara en tu visibilidad local, seguimos trabajando sin coste hasta completar el plan acordado.</span>
-            </div>
-        </div>
-
-        <!-- Sección de Reseñas / Testimonios -->
         <div class="mt-24 max-w-[1300px] w-full mx-auto px-4">
             <div class="text-center mb-12">
                 <h3 class="text-[28px] font-light text-white mb-2">Historias de negocios que escalan</h3>
@@ -441,7 +442,7 @@
                         <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                         <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                     </div>
-                    <p class="text-[14px] text-[#c4c4d4] leading-relaxed mb-6">"El CRM automatizado del Sistema Escala nos ha cambiado la vida. Ahora los clientes reciben atención en el momento y no se nos escapa ningún contacto por falta de tiempo."</p>
+                    <p class="text-[14px] text-[#c4c4d4] leading-relaxed mb-6">"El asistente virtual y el CRM del Sistema Escala nos ha cambiado la vida. Ahora los clientes reciben atención en el momento y no se nos escapa ningún contacto por falta de tiempo."</p>
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 rounded-full bg-indigo-900/50 flex items-center justify-center text-indigo-300 font-bold text-sm">LM</div>
                         <div>
@@ -472,7 +473,6 @@
             </div>
         </div>
 
-        <!-- CTA Final -->
         <div class="mt-24 max-w-4xl mx-auto w-full px-4 mb-10">
             <div class="bg-gradient-to-b from-[#110920] to-[#0c0c11] border border-[#2d2d3a] rounded-3xl p-10 md:p-14 text-center shadow-[0_0_50px_rgba(139,92,246,0.05)]">
                 <h2 class="text-[30px] md:text-[38px] font-normal tracking-tight leading-tight text-white mb-4">¿No sabes qué sistema necesita tu negocio?</h2>
@@ -495,20 +495,19 @@
     </main>
 
     <script>
-        // Lógica para desplegar el "Ver valor por separado" de cada tarjeta de forma independiente
+        // Lógica para desplegar el desglose de valor
         function toggleCard(button) {
             const content = button.nextElementSibling;
             const icon = button.querySelector('svg');
             
-            // Toggle de clases
             if (content.classList.contains('open')) {
                 content.classList.remove('open');
                 icon.classList.remove('rotate-180');
-                button.querySelector('span').textContent = 'Ver valor por separado';
+                button.innerHTML = '<span class="flex items-center gap-1.5"><span class="text-[14px]">🔒</span> Ver desglose de valor real</span> <svg class="w-4 h-4 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>';
             } else {
                 content.classList.add('open');
                 icon.classList.add('rotate-180');
-                button.querySelector('span').textContent = 'Ocultar desglose de valor';
+                button.innerHTML = '<span class="flex items-center gap-1.5"><span class="text-[14px]">🔓</span> Ocultar desglose</span> <svg class="w-4 h-4 transition-transform duration-300 rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>';
             }
         }
     </script>
