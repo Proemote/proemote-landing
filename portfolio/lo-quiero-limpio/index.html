@@ -46,7 +46,8 @@
         body { transition: background-color 0.3s ease, color 0.3s ease; }
 
         /* Base & Scrollbar */
-        body { background-color: #0A0A0F; color: #F5F7FA; overflow-x: hidden; }
+        .dark body { background-color: #0A0A0F; color: #F5F7FA; }
+        body { background-color: #f9fafb; color: #111827; overflow-x: hidden; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0A0A0F; }
         ::-webkit-scrollbar-thumb { background: #14141F; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
@@ -252,24 +253,24 @@
     </div>
 
         <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
+        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-gray-50 dark:bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
             <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
+                <a href="https://proemote.es/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
+                    <span class="text-xs font-bold tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
                         <i class="ph ph-cpu text-accent"></i> Implementación de IA
                     </a>
                 </div>
 
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
+                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
+                <a href="https://proemote.es/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Portfolio</a>
+                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Contacto</a>
                 <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
                     Analizar mi caso
                 </a>
@@ -309,24 +310,24 @@
     </script>
 
         <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
+        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-gray-50 dark:bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
             <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
+                <a href="https://proemote.es/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
+                    <span class="text-xs font-bold tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
                         <i class="ph ph-cpu text-accent"></i> Implementación de IA
                     </a>
                 </div>
 
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
+                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
+                <a href="https://proemote.es/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Portfolio</a>
+                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Contacto</a>
                 <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
                     Analizar mi caso
                 </a>
@@ -366,24 +367,24 @@
     </script>
 
         <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
+        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-gray-50 dark:bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
             <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
+                <a href="https://proemote.es/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
+                    <span class="text-xs font-bold tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
                         <i class="ph ph-cpu text-accent"></i> Implementación de IA
                     </a>
                 </div>
 
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
+                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
+                <a href="https://proemote.es/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Portfolio</a>
+                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Contacto</a>
                 <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
                     Analizar mi caso
                 </a>
@@ -423,24 +424,24 @@
     </script>
 
         <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
+        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-gray-50 dark:bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
             <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
+                <a href="https://proemote.es/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
+                    <span class="text-xs font-bold tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
                         <i class="ph ph-cpu text-accent"></i> Implementación de IA
                     </a>
                 </div>
 
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
+                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
+                <a href="https://proemote.es/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Portfolio</a>
+                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Contacto</a>
                 <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
                     Analizar mi caso
                 </a>
@@ -672,12 +673,12 @@
             <h1 class="font-heading text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
                 Lo Quiero Limpio
             </h1>
-            <p class="text-xl text-textSecondary">Lo Quiero Limpio</p>
+            <p class="text-xl text-gray-600 dark:text-textSecondary">Lo Quiero Limpio</p>
         </div>
     </section>
 
     <!-- PROJECT DETAILS GRID -->
-    <section class="py-20 relative z-10 bg-bgMain bg-grid-pattern">
+    <section class="py-20 relative z-10 bg-white dark:bg-bgMain bg-grid-pattern">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                 
@@ -688,27 +689,27 @@
                         
                         <ul class="space-y-4">
                             <li class="flex flex-col">
-                                <span class="text-xs text-textSecondary uppercase tracking-wider mb-1">Tipo</span>
+                                <span class="text-xs text-gray-600 dark:text-textSecondary uppercase tracking-wider mb-1">Tipo</span>
                                 <span class="text-sm font-medium text-gray-900 dark:text-white">Web Corporativa + RRSS</span>
                             </li>
                             <li class="flex flex-col">
-                                <span class="text-xs text-textSecondary uppercase tracking-wider mb-1">Sector</span>
+                                <span class="text-xs text-gray-600 dark:text-textSecondary uppercase tracking-wider mb-1">Sector</span>
                                 <span class="text-sm font-medium text-gray-900 dark:text-white">Limpieza</span>
                             </li>
                             <li class="flex flex-col">
-                                <span class="text-xs text-textSecondary uppercase tracking-wider mb-1">Fecha</span>
+                                <span class="text-xs text-gray-600 dark:text-textSecondary uppercase tracking-wider mb-1">Fecha</span>
                                 <span class="text-sm font-medium text-gray-900 dark:text-white">2025</span>
                             </li>
                             <li class="flex flex-col">
-                                <span class="text-xs text-textSecondary uppercase tracking-wider mb-1">Localidad</span>
+                                <span class="text-xs text-gray-600 dark:text-textSecondary uppercase tracking-wider mb-1">Localidad</span>
                                 <span class="text-sm font-medium text-gray-900 dark:text-white">Mérida</span>
                             </li>
                             <li class="flex flex-col">
-                                <span class="text-xs text-textSecondary uppercase tracking-wider mb-1">Provincia</span>
+                                <span class="text-xs text-gray-600 dark:text-textSecondary uppercase tracking-wider mb-1">Provincia</span>
                                 <span class="text-sm font-medium text-gray-900 dark:text-white">Badajoz</span>
                             </li>
                             <li class="flex flex-col">
-                                <span class="text-xs text-textSecondary uppercase tracking-wider mb-1">Comunidad</span>
+                                <span class="text-xs text-gray-600 dark:text-textSecondary uppercase tracking-wider mb-1">Comunidad</span>
                                 <span class="text-sm font-medium text-gray-900 dark:text-white">Extremadura</span>
                             </li>
                         </ul>
@@ -730,7 +731,7 @@
                             <i class="ph-bold ph-trend-up"></i>
                             <span><strong>Resultado destacado:</strong> 1.er resultado en Google para "empresa de limpieza Mérida" o "limpieza Mérida"</span>
                         </div>
-                        <p class="text-textSecondary leading-relaxed">
+                        <p class="text-gray-600 dark:text-textSecondary leading-relaxed">
                             Empresa de limpieza en Mérida que buscaba una presencia digital profesional para diferenciarse en un sector muy competitivo. Diseñamos una web corporativa a medida con SEO básico para búsquedas locales en Extremadura. Además, nos hicimos cargo de la gestión de redes sociales, creando contenido viral en TikTok que les hizo ganar más de 1000 seguidores rápidamente, mientras que en Instagram mejoró notablemente su engagement y conexión con la audiencia local.
                         </p>
                     </div>
@@ -752,10 +753,10 @@
 
 
     <!-- BLOQUE 1: PROCESO DE TRABAJO -->
-    <section class="py-20 relative z-10 bg-bgMain border-t border-gray-200 dark:border-white/5">
+    <section class="py-20 relative z-10 bg-white dark:bg-bgMain border-t border-gray-200 dark:border-white/5">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal-up">
-                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Metodología</span>
+                <span class="text-xs font-bold tracking-[0.2em] text-gray-600 dark:text-textSecondary uppercase mb-4 block">Metodología</span>
                 <h2 class="font-heading text-3xl md:text-5xl font-medium text-gray-900 dark:text-white">Cómo lo hacemos</h2>
             </div>
             
@@ -763,50 +764,50 @@
                 <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5 flex flex-col items-start hover:border-primary/30 transition-all">
                     <span class="text-sm font-bold text-primary mb-4 font-heading bg-primary/10 w-8 h-8 rounded-full flex items-center justify-center">01</span>
                     <h3 class="text-lg font-heading text-gray-900 dark:text-white font-medium mb-3">Estrategia Digital</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">Planteamos una presencia online integral: desde una web profesional hasta contenido diferencial para redes sociales.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">Planteamos una presencia online integral: desde una web profesional hasta contenido diferencial para redes sociales.</p>
                 </div>
                 <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5 flex flex-col items-start hover:border-primary/30 transition-all">
                     <span class="text-sm font-bold text-primary mb-4 font-heading bg-primary/10 w-8 h-8 rounded-full flex items-center justify-center">02</span>
                     <h3 class="text-lg font-heading text-gray-900 dark:text-white font-medium mb-3">Diseño y SEO Local</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">Construimos una web orientada a convertir y la posicionamos en Google para búsquedas de limpieza en Mérida.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">Construimos una web orientada a convertir y la posicionamos en Google para búsquedas de limpieza en Mérida.</p>
                 </div>
                 <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5 flex flex-col items-start hover:border-primary/30 transition-all">
                     <span class="text-sm font-bold text-primary mb-4 font-heading bg-primary/10 w-8 h-8 rounded-full flex items-center justify-center">03</span>
                     <h3 class="text-lg font-heading text-gray-900 dark:text-white font-medium mb-3">Creación de Contenido</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">Ideamos guiones, grabamos vídeos nativos y creamos dinámicas para entretener, conectar y aportar valor real a la audiencia.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">Ideamos guiones, grabamos vídeos nativos y creamos dinámicas para entretener, conectar y aportar valor real a la audiencia.</p>
                 </div>
                 <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5 flex flex-col items-start hover:border-primary/30 transition-all">
                     <span class="text-sm font-bold text-primary mb-4 font-heading bg-primary/10 w-8 h-8 rounded-full flex items-center justify-center">04</span>
                     <h3 class="text-lg font-heading text-gray-900 dark:text-white font-medium mb-3">Impacto y Viralización</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">Al distribuir los vídeos en TikTok e Instagram logramos alcance viral, superando los 1000 seguidores nuevos en tiempo récord.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">Al distribuir los vídeos en TikTok e Instagram logramos alcance viral, superando los 1000 seguidores nuevos en tiempo récord.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- BLOQUE 3: HERRAMIENTAS Y PARTNERS -->
-    <section class="py-16 relative z-10 bg-bgMain border-t border-gray-200 dark:border-white/5">
+    <section class="py-16 relative z-10 bg-white dark:bg-bgMain border-t border-gray-200 dark:border-white/5">
         <div class="max-w-4xl mx-auto px-6 reveal-up text-center">
-            <h2 class="font-heading text-lg font-medium text-textSecondary uppercase tracking-widest mb-10">Desarrollado con</h2>
+            <h2 class="font-heading text-lg font-medium text-gray-600 dark:text-textSecondary uppercase tracking-widest mb-10">Desarrollado con</h2>
             
             <div class="flex flex-row items-center justify-center gap-12 md:gap-20">
                 <div class="flex flex-col items-center gap-3">
                     <div class="w-16 h-16 rounded-2xl bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white hover:border-primary/30 hover:bg-gray-200 dark:hover:bg-white/10 transition-all duration-300">
                         <i class="ph ph-hard-drive text-3xl text-primary"></i>
                     </div>
-                    <span class="text-xs text-textSecondary font-semibold font-heading">Hostinger</span>
+                    <span class="text-xs text-gray-600 dark:text-textSecondary font-semibold font-heading">Hostinger</span>
                 </div>
                 <div class="flex flex-col items-center gap-3">
                     <div class="w-16 h-16 rounded-2xl bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white hover:border-primary/30 hover:bg-gray-200 dark:hover:bg-white/10 transition-all duration-300">
                         <i class="ph ph-code text-3xl text-primary"></i>
                     </div>
-                    <span class="text-xs text-textSecondary font-semibold font-heading">WordPress</span>
+                    <span class="text-xs text-gray-600 dark:text-textSecondary font-semibold font-heading">WordPress</span>
                 </div>
                 <div class="flex flex-col items-center gap-3">
                     <div class="w-16 h-16 rounded-2xl bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white hover:border-primary/30 hover:bg-gray-200 dark:hover:bg-white/10 transition-all duration-300">
                         <i class="ph ph-globe text-3xl text-primary"></i>
                     </div>
-                    <span class="text-xs text-textSecondary font-semibold font-heading">Piensa Solutions</span>
+                    <span class="text-xs text-gray-600 dark:text-textSecondary font-semibold font-heading">Piensa Solutions</span>
                 </div>
             </div>
         </div>
@@ -820,7 +821,7 @@
             <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white leading-tight">
                 ¿Quieres resultados como estos para tu marca?
             </h2>
-            <p class="text-lg md:text-xl text-textSecondary mb-10 max-w-2xl mx-auto leading-relaxed">
+            <p class="text-lg md:text-xl text-gray-600 dark:text-textSecondary mb-10 max-w-2xl mx-auto leading-relaxed">
                 Diseños únicos, rápidos y optimizados para atraer clientes, generar confianza y aumentar tus ventas online.
             </p>
             <a href="/web-seo" class="inline-flex justify-center items-center gap-2 px-10 py-5 bg-primary text-white font-bold text-lg rounded-full hover:bg-accent transition-all duration-300 shadow-[0_0_30px_rgba(123,97,255,0.4)]">

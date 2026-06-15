@@ -46,7 +46,8 @@
         body { transition: background-color 0.3s ease, color 0.3s ease; }
 
         /* Base & Scrollbar */
-        body { background-color: #0A0A0F; color: #F5F7FA; overflow-x: hidden; }
+        .dark body { background-color: #0A0A0F; color: #F5F7FA; }
+        body { background-color: #f9fafb; color: #111827; overflow-x: hidden; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0A0A0F; }
         ::-webkit-scrollbar-thumb { background: #14141F; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
@@ -290,408 +291,6 @@
         </div>
     </div>
 
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-
     <!-- HERO SECTION -->
     <section class="relative pt-32 pb-16 overflow-hidden bg-grid-pattern border-b border-gray-200 dark:border-white/5">
         <div class="absolute top-[20%] left-[10%] w-[40vw] h-[40vw] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-[0]"></div>
@@ -704,7 +303,7 @@
             <h1 class="font-heading text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight mb-6">
                 Cada proyecto, una historia que <span class="text-gradient-primary">merece ser contada.</span>
             </h1>
-            <p class="text-lg md:text-xl text-textSecondary max-w-2xl mx-auto leading-relaxed">
+            <p class="text-lg md:text-xl text-gray-600 dark:text-textSecondary max-w-2xl mx-auto leading-relaxed">
                 Aquí puedes ver algunos de los trabajos que hemos realizado para marcas, negocios y asociaciones de Extremadura.
             </p>
         </div>
@@ -715,23 +314,23 @@
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-4 w-full">
             <!-- Categories -->
             <div class="flex overflow-x-auto hide-scrollbar gap-2 md:gap-3 items-center w-full pb-1 md:pb-0" style="scrollbar-width: none;">
-                <button class="filter-btn active whitespace-nowrap px-5 py-2 rounded-full border border-gray-200 dark:border-white/10 text-sm font-medium text-textSecondary hover:text-white transition-all duration-300" data-filter="all">Todos</button>
-                <button class="filter-btn whitespace-nowrap px-5 py-2 rounded-full border border-gray-200 dark:border-white/10 text-sm font-medium text-textSecondary hover:text-white transition-all duration-300" data-filter="diseno-web">Diseño Web</button>
-                <button class="filter-btn whitespace-nowrap px-5 py-2 rounded-full border border-gray-200 dark:border-white/10 text-sm font-medium text-textSecondary hover:text-white transition-all duration-300" data-filter="redes-sociales">Redes Sociales</button>
-                <button class="filter-btn whitespace-nowrap px-5 py-2 rounded-full border border-gray-200 dark:border-white/10 text-sm font-medium text-textSecondary hover:text-white transition-all duration-300" data-filter="branding">Branding</button>
-                <button class="filter-btn whitespace-nowrap px-5 py-2 rounded-full border border-gray-200 dark:border-white/10 text-sm font-medium text-textSecondary hover:text-white transition-all duration-300" data-filter="eventos">Eventos</button>
-                <button class="filter-btn whitespace-nowrap px-5 py-2 rounded-full border border-gray-200 dark:border-white/10 text-sm font-medium text-textSecondary hover:text-white transition-all duration-300" data-filter="marketing">Marketing</button>
+                <button class="filter-btn active whitespace-nowrap px-5 py-2 rounded-full border border-gray-200 dark:border-white/10 text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-all duration-300" data-filter="all">Todos</button>
+                <button class="filter-btn whitespace-nowrap px-5 py-2 rounded-full border border-gray-200 dark:border-white/10 text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-all duration-300" data-filter="diseno-web">Diseño Web</button>
+                <button class="filter-btn whitespace-nowrap px-5 py-2 rounded-full border border-gray-200 dark:border-white/10 text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-all duration-300" data-filter="redes-sociales">Redes Sociales</button>
+                <button class="filter-btn whitespace-nowrap px-5 py-2 rounded-full border border-gray-200 dark:border-white/10 text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-all duration-300" data-filter="branding">Branding</button>
+                <button class="filter-btn whitespace-nowrap px-5 py-2 rounded-full border border-gray-200 dark:border-white/10 text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-all duration-300" data-filter="eventos">Eventos</button>
+                <button class="filter-btn whitespace-nowrap px-5 py-2 rounded-full border border-gray-200 dark:border-white/10 text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-all duration-300" data-filter="marketing">Marketing</button>
             </div>
             
             <!-- Sorting Control -->
             <div class="flex items-center justify-between md:justify-end gap-2 w-full md:w-auto flex-shrink-0 pt-2 md:pt-0 border-t border-gray-200 dark:border-white/5 md:border-none mt-1 md:mt-0">
-                <span class="text-xs text-textSecondary font-medium">Ordenar:</span>
+                <span class="text-xs text-gray-600 dark:text-textSecondary font-medium">Ordenar:</span>
                 <div class="relative inline-block">
-                    <select id="sort-select" class="appearance-none bg-bgSurface/80 border border-gray-200 dark:border-white/10 text-xs text-gray-900 dark:text-white rounded-full py-2 pl-4 pr-10 hover:border-primary/50 transition-colors focus:outline-none focus:border-primary cursor-pointer font-medium">
+                    <select id="sort-select" class="appearance-none bg-gray-50 dark:bg-bgSurface/80 border border-gray-200 dark:border-white/10 text-xs text-gray-900 dark:text-white rounded-full py-2 pl-4 pr-10 hover:border-primary/50 transition-colors focus:outline-none focus:border-primary cursor-pointer font-medium">
                         <option value="recent">Más recientes primero</option>
                         <option value="oldest">Más antiguos primero</option>
                     </select>
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-textSecondary">
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-gray-600 dark:text-textSecondary">
                         <i class="ph ph-caret-down text-xs"></i>
                     </div>
                 </div>
@@ -746,7 +345,7 @@
                 
                 <!-- 1. Tierras con Alma -->
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2026-03" onclick="window.location.href='/portfolio/tierras-con-alma'">
-                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-cliente-tierras-con-alma.jpg" alt="Tierras con Alma" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
@@ -755,7 +354,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Tierras con Alma</h3>
-                        <p class="text-sm text-textSecondary mb-4">Turismo Rural · Extremadura</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Turismo Rural · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -764,7 +363,7 @@
 
                 <!-- 2. Ana Goros -->
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2026-02" onclick="window.location.href='/portfolio/ana-goros'">
-                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-cliente-ana-goros.png" alt="Ana Goros" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
@@ -773,7 +372,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Ana Goros</h3>
-                        <p class="text-sm text-textSecondary mb-4">Coaching Profesional · Madrid</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Coaching Profesional · Madrid</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -782,7 +381,7 @@
 
                 <!-- 3. Limpiezas Lusitania -->
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2026-01" onclick="window.location.href='/portfolio/limpiezas-lusitania'">
-                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-cliente-limpiezas-lusitania.png" alt="Limpiezas Lusitania" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
@@ -791,7 +390,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Limpiezas Lusitania</h3>
-                        <p class="text-sm text-textSecondary mb-4">Limpieza Profesional · Extremadura</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Limpieza Profesional · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -800,7 +399,7 @@
 
                 <!-- 4. Centro de Belleza Juany — Rebranding -->
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="branding" data-date="2026-01" onclick="window.location.href='/portfolio/rebranding-centro-belleza-juany'">
-                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/rebranding-web-belleza-juany.jpg" alt="Centro de Belleza Juany Rebranding" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Branding</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
@@ -809,7 +408,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Centro de Belleza Juany</h3>
-                        <p class="text-sm text-textSecondary mb-4">Estética · Extremadura</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Estética · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -818,7 +417,7 @@
 
                 <!-- 5. Centro de Belleza Juany — Web y RRSS -->
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web redes-sociales marketing" data-date="2025-07" onclick="window.location.href='/portfolio/centro-belleza-juany'">
-                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-centro-belleza-juany-1.jpg" alt="Centro de Belleza Juany Web" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web + RRSS</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
@@ -827,7 +426,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Centro de Belleza Juany</h3>
-                        <p class="text-sm text-textSecondary mb-4">Estética · Extremadura</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Estética · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -836,7 +435,7 @@
 
                 <!-- 6. Asociación JoveNEXT — Rebranding y Web -->
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="branding diseno-web" data-date="2026-01" onclick="window.location.href='/portfolio/asociacion-jovenext'">
-                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/rebranding-web-jovenext.jpg" alt="JoveNEXT Rebranding" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Branding + Diseño Web</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
@@ -845,7 +444,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Asociación JoveNEXT</h3>
-                        <p class="text-sm text-textSecondary mb-4">Asociación Juvenil · Extremadura</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Asociación Juvenil · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -854,7 +453,7 @@
 
                 <!-- 7. Gabriel Romero -->
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2025-09" onclick="window.location.href='/portfolio/gabriel-romero'">
-                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-gabriel-romero-formacion.jpg" alt="Gabriel Romero" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
@@ -863,7 +462,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Gabriel Romero</h3>
-                        <p class="text-sm text-textSecondary mb-4">Formación · Extremadura</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Formación · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -872,7 +471,7 @@
 
                 <!-- 8. Lo Quiero Limpio -->
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web redes-sociales marketing" data-date="2025-05" onclick="window.location.href='/portfolio/lo-quiero-limpio'">
-                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-lo-quiero-limpio-seo-rrss.jpg" alt="Lo Quiero Limpio" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Web + Branding + RRSS</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
@@ -881,7 +480,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Lo Quiero Limpio</h3>
-                        <p class="text-sm text-textSecondary mb-4">Limpieza · Extremadura</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Limpieza · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -890,7 +489,7 @@
 
                 <!-- 9. Jamón Exclusive -->
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2025-04" onclick="window.location.href='/portfolio/jamon-exclusive'">
-                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-jamon-exclusive.jpg" alt="Jamón Exclusive" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Web + SEO</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
@@ -899,7 +498,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Jamón Exclusive</h3>
-                        <p class="text-sm text-textSecondary mb-4">Alimentación Gourmet · Extremadura</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Alimentación Gourmet · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -908,7 +507,7 @@
 
                 <!-- 10. XTRM HARD -->
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2025-01" onclick="window.location.href='/portfolio/xtrm-hard'">
-                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-xtrm-hard.jpg" alt="XTRM Hard" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Web + SEO</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
@@ -917,7 +516,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">XTRM HARD</h3>
-                        <p class="text-sm text-textSecondary mb-4">Deporte y Fitness · Extremadura</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Deporte y Fitness · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -926,7 +525,7 @@
 
                 <!-- 11. Asociación Meridia -->
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2024-01" onclick="window.location.href='/portfolio/asociacion-meridia'">
-                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-seo-rrss-meridia.jpg" alt="Asociación Meridia" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Web + SEO + RRSS</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
@@ -935,7 +534,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Asociación Meridia</h3>
-                        <p class="text-sm text-textSecondary mb-4">Asociación · Extremadura</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Asociación · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -944,7 +543,7 @@
 
                 <!-- 12. JoveNEXT — Web -->
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="diseno-web" data-date="2024-03" onclick="window.location.href='/portfolio/jovenext-web'">
-                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/web-jovenext-inicial.jpg" alt="JoveNEXT Web Inicial" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Diseño Web</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
@@ -953,7 +552,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">JoveNEXT — Web</h3>
-                        <p class="text-sm text-textSecondary mb-4">Asociación Juvenil · Extremadura</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Asociación Juvenil · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -962,7 +561,7 @@
 
                 <!-- 13. MATRIX -->
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="eventos" data-date="2026-04" onclick="window.location.href='/portfolio/xtrm-hard-matrix'">
-                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/eventos/organizacion-eventos-proemote-xtrm-hard-matrix.png" alt="MATRIX" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
@@ -971,7 +570,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">MATRIX</h3>
-                        <p class="text-sm text-textSecondary mb-4">Eventos · Extremadura</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Eventos · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -980,7 +579,7 @@
 
                 <!-- 14. XMAS EDITION -->
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="eventos" data-date="2025-12" onclick="window.location.href='/portfolio/xtrm-hard-xmas-edition'">
-                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/eventos/organizacion-eventos-proemote-xtrm-hard-xmas-edition-cartel-1.jpg" alt="XMAS EDITION" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
@@ -989,7 +588,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">XMAS EDITION</h3>
-                        <p class="text-sm text-textSecondary mb-4">Eventos · Extremadura</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Eventos · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -998,7 +597,7 @@
 
                 <!-- 15. FERIA SAN JUAN BOILER ROOM -->
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="eventos" data-date="2025-06" onclick="window.location.href='/portfolio/xtrm-hard-san-juan'">
-                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/eventos/organizacion-eventos-proemote-xtrm-hard-badajoz.jpg" alt="FERIA SAN JUAN BOILER ROOM" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
@@ -1007,7 +606,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">FERIA SAN JUAN BOILER ROOM</h3>
-                        <p class="text-sm text-textSecondary mb-4">Eventos · Extremadura</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Eventos · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -1016,7 +615,7 @@
 
                 <!-- 16. INFERNUS -->
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="eventos" data-date="2025-05" onclick="window.location.href='/portfolio/xtrm-hard-infernus'">
-                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/eventos/organizacion-eventos-proemote-xtrm-hard-infernus-badajoz.png" alt="INFERNUS" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
@@ -1025,7 +624,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">INFERNUS</h3>
-                        <p class="text-sm text-textSecondary mb-4">Eventos · Extremadura</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Eventos · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -1034,7 +633,7 @@
 
                 <!-- 17. THE RESURRECTION -->
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="eventos" data-date="2025-04" onclick="window.location.href='/portfolio/xtrm-hard-the-resurrection'">
-                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/eventos/organizacion-eventos-proemote-xtrm-hard-the-resurrection.png" alt="THE RESURRECTION" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
@@ -1043,7 +642,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">THE RESURRECTION</h3>
-                        <p class="text-sm text-textSecondary mb-4">Eventos · Extremadura</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Eventos · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -1052,7 +651,7 @@
 
                 <!-- 18. THE CHURCH -->
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="eventos" data-date="2025-03" onclick="window.location.href='/portfolio/xtrm-hard-the-church'">
-                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/eventos/organizacion-eventos-proemote-xtrm-hard-the-church.jpg" alt="THE CHURCH" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
@@ -1061,7 +660,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">THE CHURCH</h3>
-                        <p class="text-sm text-textSecondary mb-4">Eventos · Extremadura</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Eventos · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -1070,7 +669,7 @@
 
                 <!-- 19. LAST ONE STANDING -->
                 <div class="project-card glass-card rounded-[2rem] overflow-hidden flex flex-col group reveal-up cursor-pointer" data-category="eventos" data-date="2024-05" onclick="window.location.href='/portfolio/xtrm-hard-last-one-standing'">
-                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-bgSurface">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden bg-white dark:bg-bgSurface">
                         <img src="/portfolio/eventos/organizacion-eventos-proemote-xtrm-hard-merida.jpg" alt="LAST ONE STANDING" class="project-img w-full h-full object-cover transition-transform duration-700 ease-out">
                         <div class="absolute top-4 left-4 bg-bgMain/80 backdrop-blur border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white text-xs font-semibold px-3 py-1 rounded-full z-10">Evento</div>
                         <div class="project-overlay absolute inset-0 flex flex-col justify-end p-6 z-10">
@@ -1079,7 +678,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">LAST ONE STANDING</h3>
-                        <p class="text-sm text-textSecondary mb-4">Eventos · Extremadura</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Eventos · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </div>
@@ -1096,7 +695,7 @@
     </section>
 
     <!-- CASE STUDY HIGHLIGHT -->
-    <section class="py-16 md:py-24 border-y border-gray-200 dark:border-white/5 relative overflow-hidden bg-bgSurface">
+    <section class="py-16 md:py-24 border-y border-gray-200 dark:border-white/5 relative overflow-hidden bg-white dark:bg-bgSurface">
         <div class="max-w-7xl mx-auto px-6 relative z-10 reveal-up">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="order-2 lg:order-1 flex flex-col items-start text-left">
@@ -1104,7 +703,7 @@
                     <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-[1.1] tracking-tight mb-6">
                         De empresa local a viral. <span class="text-gradient-primary">Sin pagar un euro en publicidad.</span>
                     </h2>
-                    <p class="text-lg text-textSecondary mb-10 leading-relaxed max-w-lg">
+                    <p class="text-lg text-gray-600 dark:text-textSecondary mb-10 leading-relaxed max-w-lg">
                         Descubre cómo ayudamos a esta empresa de limpieza extremeña a crecer y viralizar vídeos de manera orgánica.
                     </p>
                     <a href="/lo-quiero-limpio-caso-de-exito" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-bgMain font-bold rounded-full hover:bg-primary hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(123,97,255,0.4)] group">
@@ -1121,9 +720,9 @@
     </section>
 
     <!-- PARTNERS / TECH STACK STRIP -->
-    <section class="py-20 border-b border-gray-200 dark:border-white/5 bg-bgMain relative z-10">
+    <section class="py-20 border-b border-gray-200 dark:border-white/5 bg-white dark:bg-bgMain relative z-10">
         <div class="max-w-4xl mx-auto px-6 text-center reveal-up">
-            <h3 class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-12">Trabajamos con las mejores herramientas</h3>
+            <h3 class="text-xs font-bold tracking-[0.2em] text-gray-600 dark:text-textSecondary uppercase mb-12">Trabajamos con las mejores herramientas</h3>
             <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60">
                 <!-- Hostinger Text Logo -->
                 <div class="text-2xl font-bold tracking-wider hover:text-white transition-colors duration-300 grayscale hover:grayscale-0">Hostinger</div>
@@ -1138,9 +737,9 @@
     </section>
 
     <!-- CLIENT LOGO SLIDER -->
-    <section class="py-20 bg-bgMain relative z-10 overflow-hidden">
+    <section class="py-20 bg-white dark:bg-bgMain relative z-10 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 mb-12 reveal-up">
-            <p class="text-center text-xs font-bold tracking-[0.2em] text-textSecondary uppercase">Algunos de los clientes que ya han confiado en <span class="text-primary">Proemote</span></p>
+            <p class="text-center text-xs font-bold tracking-[0.2em] text-gray-600 dark:text-textSecondary uppercase">Algunos de los clientes que ya han confiado en <span class="text-primary">Proemote</span></p>
         </div>
         
         <div id="logos-container" class="relative w-full flex items-center overflow-x-auto hide-scrollbar cursor-grab [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
@@ -1178,7 +777,7 @@
     </section>
 
     <!-- REVIEWS -->
-    <section class="py-24 border-t border-gray-200 dark:border-white/5 bg-bgSurface/20 relative z-10">
+    <section class="py-24 border-t border-gray-200 dark:border-white/5 bg-gray-50 dark:bg-bgSurface/20 relative z-10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal-up">
                 <h2 class="font-heading text-3xl md:text-5xl font-bold mb-6">Lo que dicen nuestros clientes</h2>
@@ -1189,7 +788,7 @@
                 <div class="glass-card p-6 rounded-2xl flex flex-col">
                     <div class="flex justify-between items-center mb-4">
                         <div class="star-rating text-lg tracking-widest">★★★★★</div>
-                        <div class="text-xs bg-gray-200 dark:bg-white/10 px-2 py-1 rounded text-textSecondary font-semibold">Google</div>
+                        <div class="text-xs bg-gray-200 dark:bg-white/10 px-2 py-1 rounded text-gray-600 dark:text-textSecondary font-semibold">Google</div>
                     </div>
                     <p class="text-sm text-gray-900 dark:text-white mb-6 flex-grow leading-relaxed italic">"Empresa de limpieza de más de 25 años que necesitaba modernizarse. Contactamos con Proemote para la creación de nuestra página web. Ha sido todo un acierto. El servicio fue muy profesional y adaptable. ¡Ha sido todo un acierto!"</p>
                     <div class="flex items-center gap-3 mt-auto">
@@ -1204,14 +803,14 @@
                 <div class="glass-card p-6 rounded-2xl flex flex-col">
                     <div class="flex justify-between items-center mb-4">
                         <div class="star-rating text-lg tracking-widest">★★★★★</div>
-                        <div class="text-xs bg-gray-200 dark:bg-white/10 px-2 py-1 rounded text-textSecondary font-semibold">Google</div>
+                        <div class="text-xs bg-gray-200 dark:bg-white/10 px-2 py-1 rounded text-gray-600 dark:text-textSecondary font-semibold">Google</div>
                     </div>
                     <p class="text-sm text-gray-900 dark:text-white mb-6 flex-grow leading-relaxed italic">"Muy satisfecha con su trabajo. Me diseñaron la web y gestionan mis redes sociales. En todo momento la atención es muy profesional. Totalmente recomendable."</p>
                     <div class="flex items-center gap-3 mt-auto">
                         <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">JM</div>
                         <div>
                             <p class="text-sm font-bold text-gray-900 dark:text-white">Juana María Ramos Marrero</p>
-                            <p class="text-xs text-textSecondary">Centro de Belleza Juany</p>
+                            <p class="text-xs text-gray-600 dark:text-textSecondary">Centro de Belleza Juany</p>
                         </div>
                     </div>
                 </div>
@@ -1220,7 +819,7 @@
                 <div class="glass-card p-6 rounded-2xl flex flex-col">
                     <div class="flex justify-between items-center mb-4">
                         <div class="star-rating text-lg tracking-widest">★★★★★</div>
-                        <div class="text-xs bg-gray-200 dark:bg-white/10 px-2 py-1 rounded text-textSecondary font-semibold">Google</div>
+                        <div class="text-xs bg-gray-200 dark:bg-white/10 px-2 py-1 rounded text-gray-600 dark:text-textSecondary font-semibold">Google</div>
                     </div>
                     <p class="text-sm text-gray-900 dark:text-white mb-6 flex-grow leading-relaxed italic">"Estamos muy satisfechos con la web que nos diseñaron. Son un equipo atento, creativo y profesional. Gestionaron el dominio y posicionaron la web muy rápido. Muy recomendado."</p>
                     <div class="flex items-center gap-3 mt-auto">
@@ -1235,7 +834,7 @@
                 <div class="glass-card p-6 rounded-2xl flex flex-col">
                     <div class="flex justify-between items-center mb-4">
                         <div class="star-rating text-lg tracking-widest">★★★★★</div>
-                        <div class="text-xs bg-gray-200 dark:bg-white/10 px-2 py-1 rounded text-textSecondary font-semibold">Google</div>
+                        <div class="text-xs bg-gray-200 dark:bg-white/10 px-2 py-1 rounded text-gray-600 dark:text-textSecondary font-semibold">Google</div>
                     </div>
                     <p class="text-sm text-gray-900 dark:text-white mb-6 flex-grow leading-relaxed italic">"Contratamos a Proemote para el diseño de nuestra web y quedamos muy satisfechos. Servicio ágil, profesional y adaptado a lo que necesitábamos. Carlos nos atendió con mucha cercanía."</p>
                     <div class="flex items-center gap-3 mt-auto">
@@ -1250,7 +849,7 @@
                 <div class="glass-card p-6 rounded-2xl flex flex-col">
                     <div class="flex justify-between items-center mb-4">
                         <div class="star-rating text-lg tracking-widest">★★★★★</div>
-                        <div class="text-xs bg-gray-200 dark:bg-white/10 px-2 py-1 rounded text-textSecondary font-semibold">Google</div>
+                        <div class="text-xs bg-gray-200 dark:bg-white/10 px-2 py-1 rounded text-gray-600 dark:text-textSecondary font-semibold">Google</div>
                     </div>
                     <p class="text-sm text-gray-900 dark:text-white mb-6 flex-grow leading-relaxed italic">"Trabajar con Proemote ha sido todo un acierto. Un equipo atento, creativo y profesional. Lo recomiendo a todo tipo de negocios que buscan dar un salto de calidad."</p>
                     <div class="flex items-center gap-3 mt-auto">
@@ -1265,7 +864,7 @@
                 <div class="glass-card p-6 rounded-2xl flex flex-col">
                     <div class="flex justify-between items-center mb-4">
                         <div class="star-rating text-lg tracking-widest">★★★★★</div>
-                        <div class="text-xs bg-gray-200 dark:bg-white/10 px-2 py-1 rounded text-textSecondary font-semibold">Google</div>
+                        <div class="text-xs bg-gray-200 dark:bg-white/10 px-2 py-1 rounded text-gray-600 dark:text-textSecondary font-semibold">Google</div>
                     </div>
                     <p class="text-sm text-gray-900 dark:text-white mb-6 flex-grow leading-relaxed italic">"Carlos captó muy bien desde el principio la idea y el estilo que quería para mi web, y trabajó con rapidez y eficiencia. El resultado final es muy bueno."</p>
                     <div class="flex items-center gap-3 mt-auto">
@@ -1280,12 +879,12 @@
     </section>
 
     <!-- CONTACT BLOCK -->
-    <section class="py-24 border-t border-gray-200 dark:border-white/5 relative z-10 bg-bgMain">
+    <section class="py-24 border-t border-gray-200 dark:border-white/5 relative z-10 bg-white dark:bg-bgMain">
         <div class="max-w-4xl mx-auto px-6 text-center reveal-up">
             <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">¿Listo para tu próximo proyecto?</h2>
-            <p class="text-xl text-textSecondary mb-12">Cuéntanos qué necesitas. Te respondemos en menos de 24h.</p>
+            <p class="text-xl text-gray-600 dark:text-textSecondary mb-12">Cuéntanos qué necesitas. Te respondemos en menos de 24h.</p>
             
-            <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-12 text-sm text-textSecondary">
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-12 text-sm text-gray-600 dark:text-textSecondary">
                 <div class="flex items-center gap-3">
                     <i class="ph-fill ph-envelope text-2xl text-primary"></i>
                     <span>info@proemote.es</span>
@@ -1459,7 +1058,7 @@
                 if (cardsToDisplay.length === 0) {
                     grid.innerHTML = `
                         <div class="col-span-full py-16 text-center">
-                            <p class="text-textSecondary text-lg">No se han encontrado proyectos en esta categoría.</p>
+                            <p class="text-gray-600 dark:text-textSecondary text-lg">No se han encontrado proyectos en esta categoría.</p>
                         </div>
                     `;
                 }

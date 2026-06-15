@@ -41,7 +41,8 @@
     <style>
         body { transition: background-color 0.3s ease, color 0.3s ease; }
 
-        body { background-color: #0A0A0F; color: #F5F7FA; overflow-x: hidden; }
+        .dark body { background-color: #0A0A0F; color: #F5F7FA; }
+        body { background-color: #f9fafb; color: #111827; overflow-x: hidden; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0A0A0F; }
         ::-webkit-scrollbar-thumb { background: #14141F; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
@@ -92,7 +93,7 @@
         }
     </script>
 </head>
-<body class="antialiased selection:bg-primary selection:text-white relative bg-grid-pattern bg-fixed">
+<body class="antialiased selection:bg-primary selection:text-white relative bg-grid-pattern bg-fixed bg-gray-50 dark:bg-bgMain text-gray-900 dark:text-textMain">
                                                             <!-- BARRA DE ANUNCIO GLOBAL -->
         <div class="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
         <header class="w-full max-w-5xl backdrop-blur-xl bg-white/80 dark:bg-white/[0.02] border border-gray-200 dark:border-white/10 rounded-full flex items-center justify-between px-6 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.05)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-colors duration-300">
@@ -267,24 +268,24 @@
     </div>
 
         <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
+        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-gray-50 dark:bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
             <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
+                <a href="https://proemote.es/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
+                    <span class="text-xs font-bold tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
                         <i class="ph ph-cpu text-accent"></i> Implementación de IA
                     </a>
                 </div>
 
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
+                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
+                <a href="https://proemote.es/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Portfolio</a>
+                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Contacto</a>
                 <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
                     Analizar mi caso
                 </a>
@@ -324,24 +325,24 @@
     </script>
 
         <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
+        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-gray-50 dark:bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
             <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
+                <a href="https://proemote.es/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
+                    <span class="text-xs font-bold tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
                         <i class="ph ph-cpu text-accent"></i> Implementación de IA
                     </a>
                 </div>
 
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
+                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
+                <a href="https://proemote.es/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Portfolio</a>
+                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Contacto</a>
                 <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
                     Analizar mi caso
                 </a>
@@ -381,24 +382,24 @@
     </script>
 
         <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
+        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-gray-50 dark:bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
             <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
+                <a href="https://proemote.es/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
+                    <span class="text-xs font-bold tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
                         <i class="ph ph-cpu text-accent"></i> Implementación de IA
                     </a>
                 </div>
 
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
+                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
+                <a href="https://proemote.es/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Portfolio</a>
+                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Contacto</a>
                 <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
                     Analizar mi caso
                 </a>
@@ -438,24 +439,24 @@
     </script>
 
         <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
+        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-gray-50 dark:bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
             <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
+                <a href="https://proemote.es/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
+                    <span class="text-xs font-bold tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
                         <i class="ph ph-cpu text-accent"></i> Implementación de IA
                     </a>
                 </div>
 
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
+                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
+                <a href="https://proemote.es/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Portfolio</a>
+                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Contacto</a>
                 <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
                     Analizar mi caso
                 </a>
@@ -668,7 +669,7 @@
     })();
     </script>
 
-    <section class="pt-48 pb-24 relative z-10 overflow-hidden border-b border-gray-200 dark:border-white/5 bg-bgMain bg-grid-pattern-primary with-glow">
+    <section class="pt-48 pb-24 relative z-10 overflow-hidden border-b border-gray-200 dark:border-white/5 bg-white dark:bg-bgMain bg-grid-pattern-primary with-glow">
         <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-bgMain z-[-1] pointer-events-none"></div>
         
         <!-- Decoración de fondo -->
@@ -688,7 +689,7 @@
                 gestionadas con <span class="text-gradient-primary">estrategia real.</span>
             </h1>
             
-            <p class="text-lg md:text-xl text-textSecondary leading-relaxed max-w-3xl mx-auto mb-12">
+            <p class="text-lg md:text-xl text-gray-600 dark:text-textSecondary leading-relaxed max-w-3xl mx-auto mb-12">
                 No publicamos por publicar. Cada pieza de contenido tiene un objetivo, una audiencia y un lugar dentro de tu sistema de marca.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
@@ -699,7 +700,7 @@
                     Ver cómo trabajamos
                 </a>
             </div>
-            <div class="text-[13px] md:text-[14px] text-textSecondary font-medium flex items-center justify-center gap-2 flex-wrap">
+            <div class="text-[13px] md:text-[14px] text-gray-600 dark:text-textSecondary font-medium flex items-center justify-center gap-2 flex-wrap">
                 <span class="text-[#F59E0B] text-base tracking-widest leading-none mt-[-2px]">★★★★★</span>
                 <span><strong class="text-gray-900 dark:text-white">Valoración 4,9 en Google</strong> · Más de 20 marcas gestionadas</span>
             </div>
@@ -707,11 +708,11 @@
     </section>
 
     <!-- SECCIÓN NOS ENCARGAMOS DE TODO -->
-    <section class="py-32 relative z-10 bg-bgSurface/30 border-t border-gray-200 dark:border-white/5 with-glow">
+    <section class="py-32 relative z-10 bg-gray-50 dark:bg-bgSurface/30 border-t border-gray-200 dark:border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal-up">
                 <h2 class="font-heading text-4xl md:text-5xl font-medium text-gray-900 dark:text-white">Nos encargamos <span class="text-gradient-primary">de todo.</span></h2>
-                <p class="text-textSecondary text-lg mt-4 max-w-2xl mx-auto">Desde la estrategia hasta la publicación. Tú céntrate en tu negocio.</p>
+                <p class="text-gray-600 dark:text-textSecondary text-lg mt-4 max-w-2xl mx-auto">Desde la estrategia hasta la publicación. Tú céntrate en tu negocio.</p>
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-up delay-100">
@@ -721,7 +722,7 @@
                         <i class="ph-fill ph-compass text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-heading text-gray-900 dark:text-white font-medium mb-3">Estrategia de contenido</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">Definimos qué publicar, cuándo y para quién. Cada mes con un calendario editorial alineado a tus objetivos de negocio.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">Definimos qué publicar, cuándo y para quién. Cada mes con un calendario editorial alineado a tus objetivos de negocio.</p>
                 </div>
 
                 <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5 hover:border-primary/30 transition-all group tilt-effect flex flex-col items-start text-left" style="will-change: transform;">
@@ -729,7 +730,7 @@
                         <i class="ph-fill ph-sparkle text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-heading text-gray-900 dark:text-white font-medium mb-3">Creación y producción</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">Redacción, diseño de piezas gráficas y guiones para video. Contenido pensado para generar atención desde el primer segundo.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">Redacción, diseño de piezas gráficas y guiones para video. Contenido pensado para generar atención desde el primer segundo.</p>
                 </div>
 
                 <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5 hover:border-primary/30 transition-all group tilt-effect flex flex-col items-start text-left" style="will-change: transform;">
@@ -737,7 +738,7 @@
                         <i class="ph-fill ph-broadcast text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-heading text-gray-900 dark:text-white font-medium mb-3">Publicación y gestión</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">Programamos, publicamos y gestionamos la comunidad. Tu perfil activo sin que tengas que estar pendiente.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">Programamos, publicamos y gestionamos la comunidad. Tu perfil activo sin que tengas que estar pendiente.</p>
                 </div>
 
                 <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5 hover:border-primary/30 transition-all group tilt-effect flex flex-col items-start text-left" style="will-change: transform;">
@@ -745,7 +746,7 @@
                         <i class="ph-fill ph-trend-up text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-heading text-gray-900 dark:text-white font-medium mb-3">Análisis y optimización</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">Revisamos métricas reales cada mes y ajustamos la estrategia. Sin suposiciones — solo datos y decisiones.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">Revisamos métricas reales cada mes y ajustamos la estrategia. Sin suposiciones — solo datos y decisiones.</p>
                 </div>
 
             </div>
@@ -753,11 +754,11 @@
     </section>
 
     <!-- PROCESO (CÓMO TRABAJAMOS) -->
-    <section id="proceso" class="py-32 relative bg-bgSurface/50 border-t border-gray-200 dark:border-white/5 with-glow">
+    <section id="proceso" class="py-32 relative bg-white dark:bg-bgSurface/50 border-t border-gray-200 dark:border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-24 reveal-up">
                 <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-gray-900 dark:text-white">Cómo funciona trabajar con nosotros.</h2>
-                <p class="text-textSecondary text-xl max-w-2xl mx-auto leading-relaxed">Un sistema paso a paso para profesionalizar tus redes sin fricción.</p>
+                <p class="text-gray-600 dark:text-textSecondary text-xl max-w-2xl mx-auto leading-relaxed">Un sistema paso a paso para profesionalizar tus redes sin fricción.</p>
             </div>
 
             <div class="relative max-w-5xl mx-auto px-4 md:px-0">
@@ -766,13 +767,13 @@
 
                 <!-- Paso 1 -->
                 <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
-                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-gray-300 dark:border-white/20 z-10"></div>
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-white dark:bg-bgMain border-2 border-gray-300 dark:border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-10 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
                             <div class="text-primary font-heading text-6xl md:text-7xl font-bold opacity-80 leading-none">1</div>
                             <div>
                                 <h3 class="text-2xl md:text-3xl font-heading font-medium text-gray-900 dark:text-white mb-3">Diagnóstico inicial</h3>
-                                <p class="text-textSecondary text-lg leading-relaxed">Analizamos tu situación actual: qué tienes, qué falta y qué está frenando tu crecimiento en redes. Gratuito y sin compromiso.</p>
+                                <p class="text-gray-600 dark:text-textSecondary text-lg leading-relaxed">Analizamos tu situación actual: qué tienes, qué falta y qué está frenando tu crecimiento en redes. Gratuito y sin compromiso.</p>
                             </div>
                         </div>
                     </div>
@@ -780,13 +781,13 @@
 
                 <!-- Paso 2 -->
                 <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
-                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-gray-300 dark:border-white/20 z-10"></div>
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-white dark:bg-bgMain border-2 border-gray-300 dark:border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-10 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
                             <div class="text-primary font-heading text-6xl md:text-7xl font-bold opacity-80 leading-none">2</div>
                             <div>
                                 <h3 class="text-2xl md:text-3xl font-heading font-medium text-gray-900 dark:text-white mb-3">Estrategia personalizada</h3>
-                                <p class="text-textSecondary text-lg leading-relaxed">Diseñamos un plan de contenido adaptado a tu negocio, tu audiencia y tus objetivos. Nada genérico.</p>
+                                <p class="text-gray-600 dark:text-textSecondary text-lg leading-relaxed">Diseñamos un plan de contenido adaptado a tu negocio, tu audiencia y tus objetivos. Nada genérico.</p>
                             </div>
                         </div>
                     </div>
@@ -794,13 +795,13 @@
 
                 <!-- Paso 3 -->
                 <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
-                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-gray-300 dark:border-white/20 z-10"></div>
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-white dark:bg-bgMain border-2 border-gray-300 dark:border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-10 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
                             <div class="text-primary font-heading text-6xl md:text-7xl font-bold opacity-80 leading-none">3</div>
                             <div>
                                 <h3 class="text-2xl md:text-3xl font-heading font-medium text-gray-900 dark:text-white mb-3">Producción mensual</h3>
-                                <p class="text-textSecondary text-lg leading-relaxed">Creamos todo el contenido del mes: textos, diseños y formatos de video según el plan acordado.</p>
+                                <p class="text-gray-600 dark:text-textSecondary text-lg leading-relaxed">Creamos todo el contenido del mes: textos, diseños y formatos de video según el plan acordado.</p>
                             </div>
                         </div>
                     </div>
@@ -808,13 +809,13 @@
 
                 <!-- Paso 4 -->
                 <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
-                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-gray-300 dark:border-white/20 z-10"></div>
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-white dark:bg-bgMain border-2 border-gray-300 dark:border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-10 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
                             <div class="text-primary font-heading text-6xl md:text-7xl font-bold opacity-80 leading-none">4</div>
                             <div>
                                 <h3 class="text-2xl md:text-3xl font-heading font-medium text-gray-900 dark:text-white mb-3">Publicación y seguimiento</h3>
-                                <p class="text-textSecondary text-lg leading-relaxed">Publicamos en los canales definidos, gestionamos comentarios y mensajes directos relevantes.</p>
+                                <p class="text-gray-600 dark:text-textSecondary text-lg leading-relaxed">Publicamos en los canales definidos, gestionamos comentarios y mensajes directos relevantes.</p>
                             </div>
                         </div>
                     </div>
@@ -822,13 +823,13 @@
 
                 <!-- Paso 5 -->
                 <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-10">
-                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-gray-300 dark:border-white/20 z-10"></div>
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-white dark:bg-bgMain border-2 border-gray-300 dark:border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-10 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
                             <div class="text-primary font-heading text-6xl md:text-7xl font-bold opacity-80 leading-none">5</div>
                             <div>
                                 <h3 class="text-2xl md:text-3xl font-heading font-medium text-gray-900 dark:text-white mb-3">Informe mensual</h3>
-                                <p class="text-textSecondary text-lg leading-relaxed">Cada mes recibes un informe claro con lo que ha funcionado, lo que ajustamos y cuál es el siguiente paso.</p>
+                                <p class="text-gray-600 dark:text-textSecondary text-lg leading-relaxed">Cada mes recibes un informe claro con lo que ha funcionado, lo que ajustamos y cuál es el siguiente paso.</p>
                             </div>
                         </div>
                     </div>
@@ -844,36 +845,36 @@
     </section>
 
     <!-- SECCIÓN DE PLANES / SELECTOR -->
-    <section id="planes" class="py-32 relative z-10 bg-bgSurface/30 border-t border-gray-200 dark:border-white/5 with-glow">
+    <section id="planes" class="py-32 relative z-10 bg-gray-50 dark:bg-bgSurface/30 border-t border-gray-200 dark:border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             
             <!-- Introducción Estratégica -->
             <div class="text-center mb-16 reveal-up">
                 <h2 class="font-heading text-4xl md:text-5xl font-medium text-gray-900 dark:text-white mb-6">Elige la ruta para <span class="text-gradient-primary">tu marca.</span></h2>
-                <p class="text-textSecondary text-lg max-w-2xl mx-auto leading-relaxed">Diseñamos presupuestos a medida según las necesidades de tu negocio. Elige un enfoque para solicitar tu diagnóstico gratuito.</p>
+                <p class="text-gray-600 dark:text-textSecondary text-lg max-w-2xl mx-auto leading-relaxed">Diseñamos presupuestos a medida según las necesidades de tu negocio. Elige un enfoque para solicitar tu diagnóstico gratuito.</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left mt-10">
                     <div class="relative p-6 md:p-8 rounded-[2rem] border border-primary/20 bg-primary/5 overflow-hidden tilt-effect transition-all hover:border-primary/40 shadow-[0_0_20px_rgba(123,97,255,0.05)]">
                         <div class="absolute top-0 left-0 w-full h-1 bg-primary/50"></div>
                         <h3 class="text-gray-900 dark:text-white font-bold mb-3 flex items-center gap-2 text-lg"><i class="ph-fill ph-device-mobile text-primary"></i> Gestión de Redes</h3>
-                        <p class="text-sm text-textSecondary leading-relaxed">Contenido constante y estructurado. Ideal para negocios que buscan cubrir volumen (publicaciones y frecuencia), mantener su perfil activo y dar respuesta profesional a su comunidad de forma sólida y recurrente.</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">Contenido constante y estructurado. Ideal para negocios que buscan cubrir volumen (publicaciones y frecuencia), mantener su perfil activo y dar respuesta profesional a su comunidad de forma sólida y recurrente.</p>
                     </div>
                     <div class="relative p-6 md:p-8 rounded-[2rem] border border-primary/40 bg-primary/10 backdrop-blur-md overflow-hidden tilt-effect shadow-[0_0_40px_rgba(123,97,255,0.15)] hover:border-primary transition-all">
                         <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent"></div>
                         <h3 class="text-gray-900 dark:text-white font-bold mb-3 flex items-center gap-2 text-lg"><i class="ph-fill ph-video-camera text-primary"></i> Agencia de Contenidos</h3>
-                        <p class="text-sm text-textSecondary leading-relaxed">Alto impacto y posicionamiento. Incluye análisis de mercado, competencia y tendencias. Un servicio profundo diseñado para aumentar exponencialmente tu alcance y consolidarte como referente en tu sector.</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">Alto impacto y posicionamiento. Incluye análisis de mercado, competencia y tendencias. Un servicio profundo diseñado para aumentar exponencialmente tu alcance y consolidarte como referente en tu sector.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Selector -->
             <div class="flex flex-col items-center justify-center mb-16 reveal-up delay-100">
-                <span class="text-sm font-bold tracking-widest text-textSecondary uppercase mb-4 flex items-center gap-2">👉 Selecciona el enfoque</span>
-                <div class="inline-flex bg-bgMain p-1.5 rounded-full border border-gray-200 dark:border-white/10 shadow-lg relative">
+                <span class="text-sm font-bold tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-4 flex items-center gap-2">👉 Selecciona el enfoque</span>
+                <div class="inline-flex bg-white dark:bg-bgMain p-1.5 rounded-full border border-gray-200 dark:border-white/10 shadow-lg relative">
                     <button id="btn-tab-gestion" onclick="switchPricingTab('gestion')" class="relative z-10 px-6 sm:px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 text-gray-900 dark:text-white bg-gray-200 dark:bg-white/10 shadow-md focus:outline-none">
                         📱 Gestión de redes
                     </button>
-                    <button id="btn-tab-video" onclick="switchPricingTab('video')" class="relative z-10 px-6 sm:px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 text-textSecondary hover:text-white focus:outline-none">
+                    <button id="btn-tab-video" onclick="switchPricingTab('video')" class="relative z-10 px-6 sm:px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 text-gray-600 dark:text-textSecondary hover:text-white focus:outline-none">
                         🎬 Agencia de Contenidos
                     </button>
                 </div>
@@ -893,34 +894,34 @@
                             </div>
                             
                             <h3 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">Presencia</h3>
-                            <p class="text-sm text-textSecondary mb-8 min-h-[40px]">Para negocios que necesitan una presencia digital profesional y constante.</p>
+                            <p class="text-sm text-gray-600 dark:text-textSecondary mb-8 min-h-[40px]">Para negocios que necesitan una presencia digital profesional y constante.</p>
                             
                             <div class="mb-8">
                                 <div class="flex items-end gap-1 mb-2">
                                     <span class="font-heading text-5xl md:text-6xl font-bold text-gray-900 dark:text-white leading-none">249€</span>
-                                    <span class="text-textSecondary text-base font-medium pb-1">/mes</span>
+                                    <span class="text-gray-600 dark:text-textSecondary text-base font-medium pb-1">/mes</span>
                                 </div>
                             </div>
                             
                             <h4 class="text-gray-900 dark:text-white text-sm font-bold mb-4 flex items-center gap-2">El plan incluye:</h4>
                             <ul class="space-y-3 mb-8">
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Redes:</strong> 1 perfil</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Posts:</strong> 4 individuales, 2 carruseles y 2 reels</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Redes:</strong> 1 perfil</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Posts:</strong> 4 individuales, 2 carruseles y 2 reels</span></li>
                                 <li class="flex items-start gap-3 text-sm text-gray-500 dark:text-white/40"><i class="ph-fill ph-x-circle text-gray-400 dark:text-white/20 mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Estrategia de contenido:</strong> No incluida</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Copywriting:</strong> Básico</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Planificación y programación:</strong> Incluida</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Copywriting:</strong> Básico</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Planificación y programación:</strong> Incluida</span></li>
                                 <li class="flex items-start gap-3 text-sm text-gray-500 dark:text-white/40"><i class="ph-fill ph-x-circle text-gray-400 dark:text-white/20 mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Optimización de perfil:</strong> No incluida</span></li>
                                 <li class="flex items-start gap-3 text-sm text-gray-500 dark:text-white/40"><i class="ph-fill ph-x-circle text-gray-400 dark:text-white/20 mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Google Business y Reseñas:</strong> No incluido</span></li>
                                 <li class="flex items-start gap-3 text-sm text-gray-500 dark:text-white/40"><i class="ph-fill ph-x-circle text-gray-400 dark:text-white/20 mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Gestión Ads:</strong> No incluida</span></li>
                                 <li class="flex items-start gap-3 text-sm text-gray-500 dark:text-white/40"><i class="ph-fill ph-x-circle text-gray-400 dark:text-white/20 mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Analítica:</strong> No incluida</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Reuniones:</strong> Solo sesión inicial</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Soporte:</strong> WhatsApp</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Respuesta a mensajes:</strong> ≤72h</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Reuniones:</strong> Solo sesión inicial</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Soporte:</strong> WhatsApp</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Respuesta a mensajes:</strong> ≤72h</span></li>
                             </ul>
 
                             <div class="bg-primary/10 border border-primary/20 rounded-xl p-4 mt-auto mb-6">
                                 <h4 class="text-primary text-xs font-bold uppercase tracking-wider mb-1">Ideal para:</h4>
-                                <p class="text-xs text-textSecondary leading-relaxed">Garantizar que tu negocio transmite confianza a través de una presencia profesional básica.</p>
+                                <p class="text-xs text-gray-600 dark:text-textSecondary leading-relaxed">Garantizar que tu negocio transmite confianza a través de una presencia profesional básica.</p>
                             </div>
                             
                             <a href="https://wa.me/34641576286?text=Hola%2C%20me%20interesa%20el%20plan%20Presencia%20de%20gesti%C3%B3n%20de%20redes%20sociales.%20%C2%BFPodr%C3%ADamos%20hablar%3F" target="_blank" rel="noopener noreferrer" class="block w-full py-4 rounded-full border border-primary/30 text-center font-bold text-white hover:bg-primary hover:border-primary transition-all shadow-[0_0_15px_rgba(123,97,255,0.05)] focus:outline-none">Quiero empezar</a>
@@ -943,13 +944,13 @@
                             </div>
                             
                             <h3 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">Crecimiento</h3>
-                            <p class="text-sm text-textSecondary mb-8 min-h-[40px]">Para negocios que quieren crecer y captar clientes de forma constante.</p>
+                            <p class="text-sm text-gray-600 dark:text-textSecondary mb-8 min-h-[40px]">Para negocios que quieren crecer y captar clientes de forma constante.</p>
                             
                             <div class="mb-8 relative">
                                 <div class="text-textSecondary/50 line-through text-lg font-heading font-medium mb-1">399€</div>
                                 <div class="flex items-end gap-1 mb-3">
                                     <span class="font-heading text-5xl md:text-6xl font-bold text-gradient-primary leading-none drop-shadow-[0_0_15px_rgba(123,97,255,0.3)]">299€</span>
-                                    <span class="text-textSecondary text-base font-medium pb-1">/mes</span>
+                                    <span class="text-gray-600 dark:text-textSecondary text-base font-medium pb-1">/mes</span>
                                 </div>
                                 <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
                                     <span class="text-[11px] font-bold text-accent tracking-wider uppercase">Plazas limitadas este mes</span>
@@ -958,23 +959,23 @@
                             
                             <h4 class="text-gray-900 dark:text-white text-sm font-bold mb-4 flex items-center gap-2">El plan incluye:</h4>
                             <ul class="space-y-3 mb-8">
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Redes:</strong> Hasta 2 perfiles</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Posts:</strong> 8 individuales, 4 carruseles y 4 reels</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Estrategia de contenido:</strong> Básica</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Copywriting:</strong> Optimizado</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Planificación y programación:</strong> Incluida</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Optimización de perfil:</strong> Incluida</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Redes:</strong> Hasta 2 perfiles</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Posts:</strong> 8 individuales, 4 carruseles y 4 reels</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Estrategia de contenido:</strong> Básica</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Copywriting:</strong> Optimizado</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Planificación y programación:</strong> Incluida</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Optimización de perfil:</strong> Incluida</span></li>
                                 <li class="flex items-start gap-3 text-sm text-gray-500 dark:text-white/40"><i class="ph-fill ph-x-circle text-gray-400 dark:text-white/20 mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Google Business y Reseñas:</strong> No incluido</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Gestión Ads:</strong> Básico opcional</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Analítica:</strong> Básica</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Reuniones:</strong> 1 al mes</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Soporte:</strong> Prioritario</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Respuesta a mensajes y reseñas:</strong> ≤48h</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Gestión Ads:</strong> Básico opcional</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Analítica:</strong> Básica</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Reuniones:</strong> 1 al mes</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Soporte:</strong> Prioritario</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Respuesta a mensajes y reseñas:</strong> ≤48h</span></li>
                             </ul>
 
                             <div class="bg-primary/20 border border-primary/30 rounded-xl p-4 mt-auto mb-6">
                                 <h4 class="text-primary text-xs font-bold uppercase tracking-wider mb-1">Ideal para:</h4>
-                                <p class="text-xs text-textSecondary leading-relaxed text-gray-800 dark:text-white/90">Acelerar el crecimiento orgánico e incrementar el volumen de atracción hacia tu marca.</p>
+                                <p class="text-xs text-gray-600 dark:text-textSecondary leading-relaxed text-gray-800 dark:text-white/90">Acelerar el crecimiento orgánico e incrementar el volumen de atracción hacia tu marca.</p>
                             </div>
                             
                             <a href="https://wa.me/34641576286?text=Hola%2C%20me%20interesa%20el%20plan%20Crecimiento%20de%20gesti%C3%B3n%20de%20redes%20sociales.%20%C2%BFPodr%C3%ADamos%20hablar%3F" target="_blank" rel="noopener noreferrer" class="block w-full py-4 rounded-full bg-primary text-center font-bold text-white hover:bg-accent transition-all shadow-[0_0_20px_rgba(123,97,255,0.4)] focus:outline-none">Quiero crecer</a>
@@ -991,34 +992,34 @@
                             </div>
                             
                             <h3 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">Escala</h3>
-                            <p class="text-sm text-textSecondary mb-8 min-h-[40px]">Para empresas que quieren delegar completamente y escalar su presencia digital.</p>
+                            <p class="text-sm text-gray-600 dark:text-textSecondary mb-8 min-h-[40px]">Para empresas que quieren delegar completamente y escalar su presencia digital.</p>
                             
                             <div class="mb-8">
                                 <div class="flex items-end gap-1 mb-2">
                                     <span class="font-heading text-5xl md:text-6xl font-bold text-gray-900 dark:text-white leading-none">499€</span>
-                                    <span class="text-textSecondary text-base font-medium pb-1">/mes</span>
+                                    <span class="text-gray-600 dark:text-textSecondary text-base font-medium pb-1">/mes</span>
                                 </div>
                             </div>
                             
                             <h4 class="text-gray-900 dark:text-white text-sm font-bold mb-4 flex items-center gap-2">El plan incluye:</h4>
                             <ul class="space-y-3 mb-8">
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Redes:</strong> Hasta 3 perfiles</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Posts:</strong> 10 individuales, 6 carruseles y 6 reels</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Estrategia de contenido:</strong> Avanzada</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Copywriting:</strong> Enfocado a conversión</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Planificación y programación:</strong> Incluida</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Optimización de perfil:</strong> Avanzada</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Google Business y Reseñas:</strong> Incluido</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Gestión Ads:</strong> Básico incluido</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Analítica:</strong> Mensual completa</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Reuniones:</strong> 2 al mes</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Soporte:</strong> Máximo</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Respuesta a mensajes y reseñas:</strong> ≤24h</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Redes:</strong> Hasta 3 perfiles</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Posts:</strong> 10 individuales, 6 carruseles y 6 reels</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Estrategia de contenido:</strong> Avanzada</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Copywriting:</strong> Enfocado a conversión</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Planificación y programación:</strong> Incluida</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Optimización de perfil:</strong> Avanzada</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Google Business y Reseñas:</strong> Incluido</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Gestión Ads:</strong> Básico incluido</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Analítica:</strong> Mensual completa</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Reuniones:</strong> 2 al mes</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Soporte:</strong> Máximo</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span><strong>Respuesta a mensajes y reseñas:</strong> ≤24h</span></li>
                             </ul>
 
                             <div class="bg-primary/10 border border-primary/20 rounded-xl p-4 mt-auto mb-6">
                                 <h4 class="text-primary text-xs font-bold uppercase tracking-wider mb-1">Ideal para:</h4>
-                                <p class="text-xs text-textSecondary leading-relaxed">Dominar los canales de adquisición digitales para escalar la estructura comercial completa.</p>
+                                <p class="text-xs text-gray-600 dark:text-textSecondary leading-relaxed">Dominar los canales de adquisición digitales para escalar la estructura comercial completa.</p>
                             </div>
                             
                             <a href="https://wa.me/34641576286?text=Hola%2C%20me%20interesa%20el%20plan%20Escala%20de%20gesti%C3%B3n%20de%20redes%20sociales.%20%C2%BFPodr%C3%ADamos%20hablar%3F" target="_blank" rel="noopener noreferrer" class="block w-full py-4 rounded-full border border-primary/30 text-center font-bold text-white bg-primary/5 hover:bg-primary hover:border-primary transition-all shadow-[0_0_15px_rgba(123,97,255,0.05)] focus:outline-none">Quiero escalar</a>
@@ -1036,7 +1037,7 @@
                         <p class="text-gray-800 dark:text-white/90 text-sm md:text-base mb-4 leading-relaxed">
                             <strong class="text-gray-900 dark:text-white">Todos los planes incluyen:</strong> portadas personalizadas para reels, hashtags optimizados, calendario visual mensual y diagnóstico inicial gratuito.
                         </p>
-                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-textSecondary text-xs md:text-sm font-medium">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-textSecondary text-xs md:text-sm font-medium">
                             <i class="ph-fill ph-info text-primary"></i> 
                             <span>Sin permanencia. Puedes cambiar de plan cada mes según lo que necesite tu negocio.</span>
                         </div>
@@ -1059,27 +1060,27 @@
                             </div>
                             
                             <h3 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">Core</h3>
-                            <p class="text-sm text-textSecondary mb-8 min-h-[40px]">Tu primer paso hacia el contenido vertical con estrategia.</p>
+                            <p class="text-sm text-gray-600 dark:text-textSecondary mb-8 min-h-[40px]">Tu primer paso hacia el contenido vertical con estrategia.</p>
                             
                             <div class="mb-8">
                                 <div class="flex items-end gap-1 mb-2">
                                     <span class="font-heading text-5xl md:text-6xl font-bold text-gray-900 dark:text-white leading-none">549€</span>
-                                    <span class="text-textSecondary text-base font-medium pb-1">/mes</span>
+                                    <span class="text-gray-600 dark:text-textSecondary text-base font-medium pb-1">/mes</span>
                                 </div>
                             </div>
                             
                             <h4 class="text-gray-900 dark:text-white text-sm font-bold mb-4 flex items-center gap-2">El plan incluye:</h4>
                             <ul class="space-y-3 mb-8">
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Estrategia básica</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Investigación de mercado básica</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>4 guiones estratégicos</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>4 reels verticales editados</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Contenido viral + educativo</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>1 sesión de grabación mensual (3–4h)</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Edición básica y subtítulos</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Miniaturas básicas</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Copywriting básico</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>1 reunión mensual</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Estrategia básica</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Investigación de mercado básica</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>4 guiones estratégicos</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>4 reels verticales editados</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Contenido viral + educativo</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>1 sesión de grabación mensual (3–4h)</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Edición básica y subtítulos</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Miniaturas básicas</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Copywriting básico</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>1 reunión mensual</span></li>
                                 
                                 <!-- Elementos desactivados -->
                                 <li class="flex items-start gap-3 text-sm text-gray-500 dark:text-white/40 pt-2"><i class="ph-fill ph-x-circle text-gray-400 dark:text-white/20 mt-0.5 text-lg flex-shrink-0"></i> <span>Análisis de competencia</span></li>
@@ -1090,7 +1091,7 @@
 
                             <div class="bg-primary/10 border border-primary/20 rounded-xl p-4 mt-auto mb-6">
                                 <h4 class="text-primary text-xs font-bold uppercase tracking-wider mb-1">Ideal para:</h4>
-                                <p class="text-xs text-textSecondary leading-relaxed">Negocios que quieren empezar a construir presencia y visibilidad mediante vídeo corto.</p>
+                                <p class="text-xs text-gray-600 dark:text-textSecondary leading-relaxed">Negocios que quieren empezar a construir presencia y visibilidad mediante vídeo corto.</p>
                             </div>
                             
                             <a href="https://wa.me/34641576286?text=Hola%2C%20me%20interesa%20el%20plan%20Core%20de%20la%20Agencia%20de%20Contenidos.%20%C2%BFPodr%C3%ADamos%20hablar%3F" target="_blank" rel="noopener noreferrer" class="block w-full py-4 rounded-full border border-primary/30 text-center font-bold text-white bg-primary/5 hover:bg-primary hover:border-primary transition-all shadow-[0_0_15px_rgba(123,97,255,0.05)] focus:outline-none">Quiero empezar</a>
@@ -1113,13 +1114,13 @@
                             </div>
                             
                             <h3 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">Boost</h3>
-                            <p class="text-sm text-textSecondary mb-8 min-h-[40px]">El volumen y la calidad necesarios para impulsar tu autoridad.</p>
+                            <p class="text-sm text-gray-600 dark:text-textSecondary mb-8 min-h-[40px]">El volumen y la calidad necesarios para impulsar tu autoridad.</p>
                             
                             <div class="mb-8 relative">
                                 <div class="text-textSecondary/50 line-through text-lg font-heading font-medium mb-1">849€</div>
                                 <div class="flex items-end gap-1 mb-3">
                                     <span class="font-heading text-5xl md:text-6xl font-bold text-gradient-primary leading-none drop-shadow-[0_0_15px_rgba(123,97,255,0.3)]">699€</span>
-                                    <span class="text-textSecondary text-base font-medium pb-1">/mes</span>
+                                    <span class="text-gray-600 dark:text-textSecondary text-base font-medium pb-1">/mes</span>
                                 </div>
                                 <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
                                     <span class="text-[11px] font-bold text-accent tracking-wider uppercase">Precio especial de lanzamiento para nuevos clientes</span>
@@ -1149,7 +1150,7 @@
 
                             <div class="bg-primary/20 border border-primary/30 rounded-xl p-4 mt-auto mb-6">
                                 <h4 class="text-primary text-xs font-bold uppercase tracking-wider mb-1">Ideal para:</h4>
-                                <p class="text-xs text-textSecondary leading-relaxed text-gray-800 dark:text-white/90">Marcas que quieren posicionarse como referentes y acelerar su crecimiento.</p>
+                                <p class="text-xs text-gray-600 dark:text-textSecondary leading-relaxed text-gray-800 dark:text-white/90">Marcas que quieren posicionarse como referentes y acelerar su crecimiento.</p>
                             </div>
                             
                             <a href="https://wa.me/34641576286?text=Hola%2C%20me%20interesa%20el%20plan%20Boost%20de%20la%20Agencia%20de%20Contenidos.%20%C2%BFPodr%C3%ADamos%20hablar%3F" target="_blank" rel="noopener noreferrer" class="block w-full py-4 rounded-full bg-primary text-center font-bold text-white hover:bg-accent transition-all shadow-[0_0_20px_rgba(123,97,255,0.4)] focus:outline-none">Quiero más alcance</a>
@@ -1166,35 +1167,35 @@
                             </div>
                             
                             <h3 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">Expert</h3>
-                            <p class="text-sm text-textSecondary mb-8 min-h-[40px]">Todo el poder del video al servicio integral de las ventas de tu negocio.</p>
+                            <p class="text-sm text-gray-600 dark:text-textSecondary mb-8 min-h-[40px]">Todo el poder del video al servicio integral de las ventas de tu negocio.</p>
                             
                             <div class="mb-8">
                                 <div class="flex items-end gap-1 mb-2">
                                     <span class="font-heading text-5xl md:text-6xl font-bold text-gray-900 dark:text-white leading-none">1.199€</span>
-                                    <span class="text-textSecondary text-base font-medium pb-1">/mes</span>
+                                    <span class="text-gray-600 dark:text-textSecondary text-base font-medium pb-1">/mes</span>
                                 </div>
                             </div>
                             
                             <h4 class="text-gray-900 dark:text-white text-sm font-bold mb-4 flex items-center gap-2">El plan incluye:</h4>
                             <ul class="space-y-3 mb-8">
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Estrategia integral de negocio y ventas</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Investigación profunda y continua</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Análisis continuo de competencia</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>12 guiones premium</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>12 reels producidos</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Contenido orientado a conversión</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary font-medium"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Grabación intensiva premium</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Edición profesional avanzada</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Subtítulos premium</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Test A/B de miniaturas</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Copywriting de ventas</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Analítica avanzada</span></li>
-                                <li class="flex items-start gap-3 text-sm text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>4 reuniones estratégicas al mes</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Estrategia integral de negocio y ventas</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Investigación profunda y continua</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Análisis continuo de competencia</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>12 guiones premium</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>12 reels producidos</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Contenido orientado a conversión</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary font-medium"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Grabación intensiva premium</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Edición profesional avanzada</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Subtítulos premium</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Test A/B de miniaturas</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Copywriting de ventas</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>Analítica avanzada</span></li>
+                                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-textSecondary"><i class="ph-fill ph-check-circle text-primary mt-0.5 text-lg flex-shrink-0"></i> <span>4 reuniones estratégicas al mes</span></li>
                             </ul>
 
                             <div class="bg-primary/10 border border-primary/20 rounded-xl p-4 mt-auto mb-6">
                                 <h4 class="text-primary text-xs font-bold uppercase tracking-wider mb-1">Ideal para:</h4>
-                                <p class="text-xs text-textSecondary leading-relaxed">Negocios que quieren convertir el contenido en una máquina constante de captación y ventas.</p>
+                                <p class="text-xs text-gray-600 dark:text-textSecondary leading-relaxed">Negocios que quieren convertir el contenido en una máquina constante de captación y ventas.</p>
                             </div>
                             
                             <a href="https://wa.me/34641576286?text=Hola%2C%20me%20interesa%20el%20plan%20Expert%20de%20la%20Agencia%20de%20Contenidos.%20%C2%BFPodr%C3%ADamos%20hablar%3F" target="_blank" rel="noopener noreferrer" class="block w-full py-4 rounded-full border border-primary/30 text-center font-bold text-white bg-primary/5 hover:bg-primary hover:border-primary transition-all shadow-[0_0_15px_rgba(123,97,255,0.05)] focus:outline-none">Quiero escalar</a>
@@ -1212,7 +1213,7 @@
                         <p class="text-gray-800 dark:text-white/90 text-sm md:text-base mb-4 leading-relaxed">
                             <strong class="text-gray-900 dark:text-white">Todos los planes incluyen:</strong> portadas personalizadas para reels, hashtags optimizados, calendario visual mensual y diagnóstico inicial gratuito.
                         </p>
-                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-textSecondary text-xs md:text-sm font-medium">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-textSecondary text-xs md:text-sm font-medium">
                             <i class="ph-fill ph-info text-primary"></i> 
                             <span>Sin permanencia. Puedes cambiar de plan cada mes según lo que necesite tu negocio.</span>
                         </div>
@@ -1225,10 +1226,10 @@
     </section>
 
     <!-- RESULTADOS / PRUEBA SOCIAL -->
-    <section class="py-24 relative z-10 bg-bgMain border-t border-gray-200 dark:border-white/5 with-glow">
+    <section class="py-24 relative z-10 bg-white dark:bg-bgMain border-t border-gray-200 dark:border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal-up">
-                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Impacto Real</span>
+                <span class="text-xs font-bold tracking-[0.2em] text-gray-600 dark:text-textSecondary uppercase mb-4 block">Impacto Real</span>
                 <h2 class="font-heading text-3xl md:text-4xl font-medium text-gray-900 dark:text-white">Resultados que ya hemos conseguido para otros.</h2>
             </div>
 
@@ -1237,8 +1238,8 @@
                 <div class="glass-card p-8 md:p-10 rounded-[2rem] border-gray-200 dark:border-white/5 flex flex-col text-center tilt-effect" style="will-change: transform;">
                     <span class="font-heading text-5xl md:text-6xl font-bold text-gradient-primary mb-2">73.300</span>
                     <h4 class="text-gray-900 dark:text-white font-medium text-lg mb-4">visualizaciones</h4>
-                    <p class="text-sm text-textSecondary mb-8 flex-grow">en un único video orgánico. 0€ en publicidad.</p>
-                    <div class="pt-6 border-t border-gray-200 dark:border-white/10 text-xs text-textSecondary uppercase tracking-widest font-bold">
+                    <p class="text-sm text-gray-600 dark:text-textSecondary mb-8 flex-grow">en un único video orgánico. 0€ en publicidad.</p>
+                    <div class="pt-6 border-t border-gray-200 dark:border-white/10 text-xs text-gray-600 dark:text-textSecondary uppercase tracking-widest font-bold">
                         Lo Quiero Limpio · Empresa de limpieza, Mérida
                     </div>
                 </div>
@@ -1246,8 +1247,8 @@
                 <div class="glass-card p-8 md:p-10 rounded-[2rem] border-gray-200 dark:border-white/5 flex flex-col text-center tilt-effect" style="will-change: transform;">
                     <span class="font-heading text-5xl md:text-6xl font-bold text-gradient-primary mb-2">+300%</span>
                     <h4 class="text-gray-900 dark:text-white font-medium text-lg mb-4">de alcance orgánico</h4>
-                    <p class="text-sm text-textSecondary mb-8 flex-grow">de 200–300 visitas por publicación a más de 1.000.</p>
-                    <div class="pt-6 border-t border-gray-200 dark:border-white/10 text-xs text-textSecondary uppercase tracking-widest font-bold">
+                    <p class="text-sm text-gray-600 dark:text-textSecondary mb-8 flex-grow">de 200–300 visitas por publicación a más de 1.000.</p>
+                    <div class="pt-6 border-t border-gray-200 dark:border-white/10 text-xs text-gray-600 dark:text-textSecondary uppercase tracking-widest font-bold">
                         Juany Centro Estética · Mérida
                     </div>
                 </div>
@@ -1255,8 +1256,8 @@
                 <div class="glass-card p-8 md:p-10 rounded-[2rem] border-gray-200 dark:border-white/5 flex flex-col text-center tilt-effect" style="will-change: transform;">
                     <span class="font-heading text-5xl md:text-6xl font-bold text-gradient-primary mb-2">+100.000</span>
                     <h4 class="text-gray-900 dark:text-white font-medium text-lg mb-4">personas alcanzadas</h4>
-                    <p class="text-sm text-textSecondary mb-8 flex-grow">con menos de 1.000 seguidores en el perfil.</p>
-                    <div class="pt-6 border-t border-gray-200 dark:border-white/10 text-xs text-textSecondary uppercase tracking-widest font-bold">
+                    <p class="text-sm text-gray-600 dark:text-textSecondary mb-8 flex-grow">con menos de 1.000 seguidores en el perfil.</p>
+                    <div class="pt-6 border-t border-gray-200 dark:border-white/10 text-xs text-gray-600 dark:text-textSecondary uppercase tracking-widest font-bold">
                         XTRM Hard · Eventos, Extremadura
                     </div>
                 </div>
@@ -1266,11 +1267,11 @@
     </section>
 
     <!-- FAQs -->
-    <section class="py-32 relative bg-bgMain border-t border-gray-200 dark:border-white/5 with-glow">
+    <section class="py-32 relative bg-white dark:bg-bgMain border-t border-gray-200 dark:border-white/5 with-glow">
         <div class="max-w-6xl mx-auto px-6 reveal-up">
             <div class="text-center mb-16">
                 <h2 class="font-heading text-3xl md:text-5xl font-medium text-gray-900 dark:text-white mb-4">Preguntas Frecuentes</h2>
-                <p class="text-textSecondary text-lg">Resolvemos las dudas antes de empezar.</p>
+                <p class="text-gray-600 dark:text-textSecondary text-lg">Resolvemos las dudas antes de empezar.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 items-start">
@@ -1279,11 +1280,11 @@
                     <div class="border-b border-gray-200 dark:border-white/10 faq-item">
                         <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
                             <span class="text-lg font-medium text-gray-900 dark:text-white group-hover:text-primary transition-colors pr-8">¿En qué redes sociales trabajáis?</span>
-                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                            <i class="ph ph-caret-down text-gray-600 dark:text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
                         </button>
                         <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
                             <div class="overflow-hidden">
-                                <p class="text-textSecondary pb-6 leading-relaxed">Trabajamos principalmente con Instagram y TikTok, que son donde la mayoría de negocios locales tienen más oportunidad de crecimiento orgánico. También gestionamos LinkedIn y Facebook según el perfil del cliente.</p>
+                                <p class="text-gray-600 dark:text-textSecondary pb-6 leading-relaxed">Trabajamos principalmente con Instagram y TikTok, que son donde la mayoría de negocios locales tienen más oportunidad de crecimiento orgánico. También gestionamos LinkedIn y Facebook según el perfil del cliente.</p>
                             </div>
                         </div>
                     </div>
@@ -1291,11 +1292,11 @@
                     <div class="border-b border-gray-200 dark:border-white/10 faq-item">
                         <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
                             <span class="text-lg font-medium text-gray-900 dark:text-white group-hover:text-primary transition-colors pr-8">¿Tengo que darme de alta en nuevas plataformas?</span>
-                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                            <i class="ph ph-caret-down text-gray-600 dark:text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
                         </button>
                         <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
                             <div class="overflow-hidden">
-                                <p class="text-textSecondary pb-6 leading-relaxed">No necesariamente. Trabajamos con lo que ya tienes y te recomendamos qué tiene sentido abrir o cerrar según tu negocio.</p>
+                                <p class="text-gray-600 dark:text-textSecondary pb-6 leading-relaxed">No necesariamente. Trabajamos con lo que ya tienes y te recomendamos qué tiene sentido abrir o cerrar según tu negocio.</p>
                             </div>
                         </div>
                     </div>
@@ -1303,11 +1304,11 @@
                     <div class="border-b border-gray-200 dark:border-white/10 faq-item">
                         <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
                             <span class="text-lg font-medium text-gray-900 dark:text-white group-hover:text-primary transition-colors pr-8">¿Vosotros grabáis o solo gestionáis?</span>
-                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                            <i class="ph ph-caret-down text-gray-600 dark:text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
                         </button>
                         <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
                             <div class="overflow-hidden">
-                                <p class="text-textSecondary pb-6 leading-relaxed">Dependiendo del plan, podemos encargarnos de la dirección creativa, los guiones y la edición. La grabación la coordinamos contigo o con un equipo de producción si el proyecto lo requiere.</p>
+                                <p class="text-gray-600 dark:text-textSecondary pb-6 leading-relaxed">Dependiendo del plan, podemos encargarnos de la dirección creativa, los guiones y la edición. La grabación la coordinamos contigo o con un equipo de producción si el proyecto lo requiere.</p>
                             </div>
                         </div>
                     </div>
@@ -1317,11 +1318,11 @@
                     <div class="border-b border-gray-200 dark:border-white/10 faq-item">
                         <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
                             <span class="text-lg font-medium text-gray-900 dark:text-white group-hover:text-primary transition-colors pr-8">¿Cuánto tiempo tarda en verse resultados?</span>
-                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                            <i class="ph ph-caret-down text-gray-600 dark:text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
                         </button>
                         <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
                             <div class="overflow-hidden">
-                                <p class="text-textSecondary pb-6 leading-relaxed">Los primeros indicadores (alcance, interacción, seguidores nuevos) suelen verse en el primer mes. Los resultados en captación de clientes aparecen habitualmente a partir del mes 2–3.</p>
+                                <p class="text-gray-600 dark:text-textSecondary pb-6 leading-relaxed">Los primeros indicadores (alcance, interacción, seguidores nuevos) suelen verse en el primer mes. Los resultados en captación de clientes aparecen habitualmente a partir del mes 2–3.</p>
                             </div>
                         </div>
                     </div>
@@ -1329,11 +1330,11 @@
                     <div class="border-b border-gray-200 dark:border-white/10 faq-item">
                         <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
                             <span class="text-lg font-medium text-gray-900 dark:text-white group-hover:text-primary transition-colors pr-8">¿Tengo que aprobar el contenido antes de publicar?</span>
-                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                            <i class="ph ph-caret-down text-gray-600 dark:text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
                         </button>
                         <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
                             <div class="overflow-hidden">
-                                <p class="text-textSecondary pb-6 leading-relaxed">Sí. Cada mes te enviamos el calendario editorial para que lo revises y apruebes antes de lanzar nada.</p>
+                                <p class="text-gray-600 dark:text-textSecondary pb-6 leading-relaxed">Sí. Cada mes te enviamos el calendario editorial para que lo revises y apruebes antes de lanzar nada.</p>
                             </div>
                         </div>
                     </div>
@@ -1341,11 +1342,11 @@
                     <div class="border-b border-gray-200 dark:border-white/10 faq-item">
                         <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
                             <span class="text-lg font-medium text-gray-900 dark:text-white group-hover:text-primary transition-colors pr-8">¿Puedo contratar solo este servicio o necesito el sistema completo?</span>
-                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                            <i class="ph ph-caret-down text-gray-600 dark:text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
                         </button>
                         <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
                             <div class="overflow-hidden">
-                                <p class="text-textSecondary pb-6 leading-relaxed">Puedes contratar la gestión de redes de forma independiente. Si en algún momento necesitas más (web, paid media, identidad), lo integramos sin problema.</p>
+                                <p class="text-gray-600 dark:text-textSecondary pb-6 leading-relaxed">Puedes contratar la gestión de redes de forma independiente. Si en algún momento necesitas más (web, paid media, identidad), lo integramos sin problema.</p>
                             </div>
                         </div>
                     </div>
@@ -1356,13 +1357,13 @@
     </section>
 
     <!-- CTA FINAL -->
-    <section id="contacto" class="py-32 relative bg-bgSurface border-t border-gray-200 dark:border-white/5 with-glow">
+    <section id="contacto" class="py-32 relative bg-white dark:bg-bgSurface border-t border-gray-200 dark:border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6 reveal-up">
             <div class="glass-card rounded-[3rem] p-8 md:p-16 border-primary/20 overflow-hidden relative shadow-2xl">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
                     <div>
                         <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-gray-900 dark:text-white leading-tight">Analizamos tu marca, <br><span class="text-gradient-primary">sin coste.</span></h2>
-                        <p class="text-textSecondary text-lg mb-8 leading-relaxed">Cuéntanos en qué punto está tu negocio y qué quieres conseguir. Te enviamos un diagnóstico inicial con las áreas de mejora más importantes — sin compromiso y en menos de 24 horas.</p>
+                        <p class="text-gray-600 dark:text-textSecondary text-lg mb-8 leading-relaxed">Cuéntanos en qué punto está tu negocio y qué quieres conseguir. Te enviamos un diagnóstico inicial con las áreas de mejora más importantes — sin compromiso y en menos de 24 horas.</p>
                         
                         <div class="space-y-4 mb-10">
                             <div class="flex items-center gap-3 text-gray-800 dark:text-white/90">
@@ -1423,14 +1424,14 @@
                             
                             <div class="flex items-start gap-3 px-2">
                                 <input type="checkbox" id="check-priv-cta" name="Privacidad" value="Aceptada" required class="mt-1 w-4 h-4 accent-primary cursor-pointer">
-                                <label for="check-priv-cta" class="text-sm text-textSecondary leading-tight cursor-pointer italic">He leído y acepto la <a href="/privacidad" target="_blank" class="text-primary hover:text-accent underline decoration-primary/30">política de privacidad</a>.</label>
+                                <label for="check-priv-cta" class="text-sm text-gray-600 dark:text-textSecondary leading-tight cursor-pointer italic">He leído y acepto la <a href="/privacidad" target="_blank" class="text-primary hover:text-accent underline decoration-primary/30">política de privacidad</a>.</label>
                             </div>
                             
                             <button type="submit" class="w-full py-4 bg-white text-bgMain font-bold rounded-xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2 group btn-submit">
                                 Solicitar análisis gratuito <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                             </button>
                             
-                            <p class="text-center text-sm text-textSecondary mt-3 font-medium">Sin permanencias · Sin contratos de larga duración · Solo trabajo con resultados</p>
+                            <p class="text-center text-sm text-gray-600 dark:text-textSecondary mt-3 font-medium">Sin permanencias · Sin contratos de larga duración · Solo trabajo con resultados</p>
                             <div class="form-msg hidden text-center p-4 rounded-xl mt-4 font-medium transition-all text-sm"></div>
                         </form>
                     </div>
@@ -1525,7 +1526,7 @@
     </footer>
 
     <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3 group reveal-up active">
-        <span class="hidden md:block px-4 py-2 bg-bgSurface border border-gray-200 dark:border-white/10 rounded-xl text-sm font-medium text-gray-900 dark:text-white shadow-lg opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
+        <span class="hidden md:block px-4 py-2 bg-white dark:bg-bgSurface border border-gray-200 dark:border-white/10 rounded-xl text-sm font-medium text-gray-900 dark:text-white shadow-lg opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
             Hablar por WhatsApp
         </span>
         <a href="https://wa.me/34641576286" target="_blank" rel="noopener noreferrer" class="relative w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300">

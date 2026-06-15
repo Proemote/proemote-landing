@@ -41,7 +41,8 @@
     <style>
         body { transition: background-color 0.3s ease, color 0.3s ease; }
 
-        body { background-color: #0A0A0F; color: #F5F7FA; overflow-x: hidden; }
+        .dark body { background-color: #0A0A0F; color: #F5F7FA; }
+        body { background-color: #f9fafb; color: #111827; overflow-x: hidden; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0A0A0F; }
         ::-webkit-scrollbar-thumb { background: #14141F; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
@@ -87,7 +88,7 @@
         }
     </script>
 </head>
-<body class="antialiased selection:bg-primary selection:text-white relative bg-grid-pattern bg-fixed">
+<body class="antialiased selection:bg-primary selection:text-white relative bg-grid-pattern bg-fixed bg-gray-50 dark:bg-bgMain text-gray-900 dark:text-textMain">
                                                             <!-- BARRA DE ANUNCIO GLOBAL -->
         <div class="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
         <header class="w-full max-w-5xl backdrop-blur-xl bg-white/80 dark:bg-white/[0.02] border border-gray-200 dark:border-white/10 rounded-full flex items-center justify-between px-6 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.05)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-colors duration-300">
@@ -262,24 +263,24 @@
     </div>
 
         <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
+        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-gray-50 dark:bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
             <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
+                <a href="https://proemote.es/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
+                    <span class="text-xs font-bold tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
                         <i class="ph ph-cpu text-accent"></i> Implementación de IA
                     </a>
                 </div>
 
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
+                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
+                <a href="https://proemote.es/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Portfolio</a>
+                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Contacto</a>
                 <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
                     Analizar mi caso
                 </a>
@@ -319,24 +320,24 @@
     </script>
 
         <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
+        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-gray-50 dark:bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
             <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
+                <a href="https://proemote.es/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
+                    <span class="text-xs font-bold tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
                         <i class="ph ph-cpu text-accent"></i> Implementación de IA
                     </a>
                 </div>
 
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
+                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
+                <a href="https://proemote.es/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Portfolio</a>
+                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Contacto</a>
                 <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
                     Analizar mi caso
                 </a>
@@ -376,24 +377,24 @@
     </script>
 
         <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
+        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-gray-50 dark:bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
             <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
+                <a href="https://proemote.es/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
+                    <span class="text-xs font-bold tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
                         <i class="ph ph-cpu text-accent"></i> Implementación de IA
                     </a>
                 </div>
 
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
+                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
+                <a href="https://proemote.es/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Portfolio</a>
+                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Contacto</a>
                 <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
                     Analizar mi caso
                 </a>
@@ -433,24 +434,24 @@
     </script>
 
         <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
+        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-gray-50 dark:bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
             <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
+                <a href="https://proemote.es/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
+                    <span class="text-xs font-bold tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
                         <i class="ph ph-cpu text-accent"></i> Implementación de IA
                     </a>
                 </div>
 
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
+                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
+                <a href="https://proemote.es/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Portfolio</a>
+                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors">Contacto</a>
                 <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
                     Analizar mi caso
                 </a>
@@ -664,7 +665,7 @@
     </script>
 
     <!-- 1. HERO -->
-    <section class="pt-48 pb-16 relative z-10 overflow-hidden bg-bgMain bg-grid-pattern-primary with-glow">
+    <section class="pt-48 pb-16 relative z-10 overflow-hidden bg-white dark:bg-bgMain bg-grid-pattern-primary with-glow">
         <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-bgMain z-[-1] pointer-events-none"></div>
         <div class="absolute top-[10%] left-[10%] w-[30vw] h-[30vw] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-[0]"></div>
         <div class="absolute bottom-[10%] right-[10%] w-[40vw] h-[40vw] rounded-full bg-accent/10 blur-[150px] pointer-events-none z-[0]"></div>
@@ -679,7 +680,7 @@
                 <span class="text-primary font-bold">de marcas líderes.</span>
             </h1>
             
-            <p class="text-lg md:text-xl text-textSecondary leading-relaxed max-w-3xl mx-auto mb-10">
+            <p class="text-lg md:text-xl text-gray-600 dark:text-textSecondary leading-relaxed max-w-3xl mx-auto mb-10">
                 Buscamos mentes creativas, estrategas y desarrolladores apasionados por la excelencia. Un equipo distribuido que prioriza la autonomía, el impacto real y el crecimiento constante.
             </p>
             
@@ -692,7 +693,7 @@
                 </button>
             </div>
 
-            <div class="flex items-center justify-center gap-2 text-sm text-textSecondary mt-8 italic">
+            <div class="flex items-center justify-center gap-2 text-sm text-gray-600 dark:text-textSecondary mt-8 italic">
                 <span class="text-primary">✦</span>
                 <span>Trabajo remoto / Híbrido | Entorno flexible y orientado a resultados</span>
             </div>
@@ -700,10 +701,10 @@
     </section>
 
     <!-- 2. NUESTROS VALORES / CULTURA -->
-    <section class="py-24 relative z-10 bg-bgSurface/30 border-b border-gray-200 dark:border-white/5 with-glow">
+    <section class="py-24 relative z-10 bg-gray-50 dark:bg-bgSurface/30 border-b border-gray-200 dark:border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal-up">
-                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Cultura de Estudio</span>
+                <span class="text-xs font-bold tracking-[0.2em] text-gray-600 dark:text-textSecondary uppercase mb-4 block">Cultura de Estudio</span>
                 <h2 class="font-heading text-3xl md:text-4xl font-medium text-gray-900 dark:text-white mb-4">Lo que nos define en Proemote.</h2>
             </div>
             
@@ -714,7 +715,7 @@
                         <i class="ph-fill ph-steering-wheel text-xl"></i>
                     </div>
                     <h3 class="text-xl font-heading text-gray-900 dark:text-white font-medium mb-3">Autonomía total</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">No controlamos las horas frente a la pantalla. Confiamos en tu criterio profesional y nos organizamos 100% por objetivos cumplidos.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">No controlamos las horas frente a la pantalla. Confiamos en tu criterio profesional y nos organizamos 100% por objetivos cumplidos.</p>
                 </div>
 
                 <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5 tilt-effect flex flex-col h-full">
@@ -722,7 +723,7 @@
                         <i class="ph-fill ph-seal-check text-xl"></i>
                     </div>
                     <h3 class="text-xl font-heading text-gray-900 dark:text-white font-medium mb-3">Calidad sin excusas</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">No hacemos entregas a medias ni chapuzas para salir del paso. Cada píxel, cada línea de código y cada estrategia tiene que rozar la perfección.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">No hacemos entregas a medias ni chapuzas para salir del paso. Cada píxel, cada línea de código y cada estrategia tiene que rozar la perfección.</p>
                 </div>
 
                 <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5 tilt-effect flex flex-col h-full">
@@ -730,7 +731,7 @@
                         <i class="ph-fill ph-compass text-xl"></i>
                     </div>
                     <h3 class="text-xl font-heading text-gray-900 dark:text-white font-medium mb-3">Curiosidad constante</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">Las tecnologías y herramientas cambian cada semana. Buscamos personas que disfruten experimentando y aprendiendo por propia iniciativa.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">Las tecnologías y herramientas cambian cada semana. Buscamos personas que disfruten experimentando y aprendiendo por propia iniciativa.</p>
                 </div>
 
                 <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5 tilt-effect flex flex-col h-full">
@@ -738,7 +739,7 @@
                         <i class="ph-fill ph-lightning text-xl"></i>
                     </div>
                     <h3 class="text-xl font-heading text-gray-900 dark:text-white font-medium mb-3">Impacto real</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">Aquí tu voz importa desde el primer día. Propón cambios, redefine flujos y aporta ideas. Todo lo que hagas tendrá una repercusión directa.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">Aquí tu voz importa desde el primer día. Propón cambios, redefine flujos y aporta ideas. Todo lo que hagas tendrá una repercusión directa.</p>
                 </div>
 
             </div>
@@ -746,12 +747,12 @@
     </section>
 
     <!-- 3. VACANTES ABIERTAS (Luxury Glass Style) -->
-    <section id="vacantes" class="py-24 relative z-10 bg-bgMain border-b border-gray-200 dark:border-white/5 with-glow">
+    <section id="vacantes" class="py-24 relative z-10 bg-white dark:bg-bgMain border-b border-gray-200 dark:border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal-up">
-                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Vacantes</span>
+                <span class="text-xs font-bold tracking-[0.2em] text-gray-600 dark:text-textSecondary uppercase mb-4 block">Vacantes</span>
                 <h2 class="font-heading text-3xl md:text-4xl font-medium text-gray-900 dark:text-white mb-4">Puestos abiertos actualmente.</h2>
-                <p class="text-textSecondary">Si encajas en alguno de estos perfiles, queremos conocerte hoy mismo.</p>
+                <p class="text-gray-600 dark:text-textSecondary">Si encajas en alguno de estos perfiles, queremos conocerte hoy mismo.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto reveal-up delay-100">
@@ -761,11 +762,11 @@
                     <div>
                         <div class="flex justify-between items-start mb-6">
                             <span class="text-xs font-bold text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full uppercase tracking-wider">Desarrollo</span>
-                            <span class="text-xs text-textSecondary flex items-center gap-1"><i class="ph ph-map-pin"></i> Remoto / Mérida</span>
+                            <span class="text-xs text-gray-600 dark:text-textSecondary flex items-center gap-1"><i class="ph ph-map-pin"></i> Remoto / Mérida</span>
                         </div>
                         <h3 class="text-2xl font-heading text-gray-900 dark:text-white font-bold mb-3">Senior Frontend Developer</h3>
-                        <p class="text-sm text-textSecondary mb-6">Buscamos un desarrollador meticuloso con el diseño y la conversión. Experto en HTML, CSS, Tailwind y frameworks modernos.</p>
-                        <ul class="space-y-2 mb-8 text-xs text-textSecondary border-t border-gray-200 dark:border-white/5 pt-4">
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-6">Buscamos un desarrollador meticuloso con el diseño y la conversión. Experto en HTML, CSS, Tailwind y frameworks modernos.</p>
+                        <ul class="space-y-2 mb-8 text-xs text-gray-600 dark:text-textSecondary border-t border-gray-200 dark:border-white/5 pt-4">
                             <li class="flex items-center gap-2"><span class="text-primary">▪</span> Dominio absoluto de Tailwind CSS e interacciones fluidas.</li>
                             <li class="flex items-center gap-2"><span class="text-primary">▪</span> Foco en rendimiento y optimización de velocidad de carga.</li>
                             <li class="flex items-center gap-2"><span class="text-primary">▪</span> Experiencia en estructurar landing pages de alta conversión.</li>
@@ -781,11 +782,11 @@
                     <div>
                         <div class="flex justify-between items-start mb-6">
                             <span class="text-xs font-bold text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full uppercase tracking-wider">Diseño</span>
-                            <span class="text-xs text-textSecondary flex items-center gap-1"><i class="ph ph-map-pin"></i> Remoto / Mérida</span>
+                            <span class="text-xs text-gray-600 dark:text-textSecondary flex items-center gap-1"><i class="ph ph-map-pin"></i> Remoto / Mérida</span>
                         </div>
                         <h3 class="text-2xl font-heading text-gray-900 dark:text-white font-bold mb-3">Diseñador Gráfico & Motion</h3>
-                        <p class="text-sm text-textSecondary mb-6">Diseño de identidades visuales memorables, layouts web y recursos en movimiento para marcas y eventos corporativos.</p>
-                        <ul class="space-y-2 mb-8 text-xs text-textSecondary border-t border-gray-200 dark:border-white/5 pt-4">
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-6">Diseño de identidades visuales memorables, layouts web y recursos en movimiento para marcas y eventos corporativos.</p>
+                        <ul class="space-y-2 mb-8 text-xs text-gray-600 dark:text-textSecondary border-t border-gray-200 dark:border-white/5 pt-4">
                             <li class="flex items-center gap-2"><span class="text-primary">▪</span> Portfolio impecable de branding digital e interfaces.</li>
                             <li class="flex items-center gap-2"><span class="text-primary">▪</span> Dominio de Figma y herramientas de animación.</li>
                             <li class="flex items-center gap-2"><span class="text-primary">▪</span> Sensibilidad extrema por el espaciado, tipografía y color.</li>
@@ -801,11 +802,11 @@
                     <div>
                         <div class="flex justify-between items-start mb-6">
                             <span class="text-xs font-bold text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full uppercase tracking-wider">Sistemas</span>
-                            <span class="text-xs text-textSecondary flex items-center gap-1"><i class="ph ph-map-pin"></i> 100% Remoto</span>
+                            <span class="text-xs text-gray-600 dark:text-textSecondary flex items-center gap-1"><i class="ph ph-map-pin"></i> 100% Remoto</span>
                         </div>
                         <h3 class="text-2xl font-heading text-gray-900 dark:text-white font-bold mb-3">Especialista en Automatizaciones</h3>
-                        <p class="text-sm text-textSecondary mb-6">Diseño e integración de flujos de trabajo eficientes utilizando Zapier, Make, herramientas de WhatsApp Business y CRMs.</p>
-                        <ul class="space-y-2 mb-8 text-xs text-textSecondary border-t border-gray-200 dark:border-white/5 pt-4">
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-6">Diseño e integración de flujos de trabajo eficientes utilizando Zapier, Make, herramientas de WhatsApp Business y CRMs.</p>
+                        <ul class="space-y-2 mb-8 text-xs text-gray-600 dark:text-textSecondary border-t border-gray-200 dark:border-white/5 pt-4">
                             <li class="flex items-center gap-2"><span class="text-primary">▪</span> Experiencia demostrable conectando APIs y bases de datos.</li>
                             <li class="flex items-center gap-2"><span class="text-primary">▪</span> Configuración de flujos de nutrición y leads automatizados.</li>
                             <li class="flex items-center gap-2"><span class="text-primary">▪</span> Capacidad analítica para simplificar procesos complejos.</li>
@@ -821,11 +822,11 @@
                     <div>
                         <div class="flex justify-between items-start mb-6">
                             <span class="text-xs font-bold text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full uppercase tracking-wider">Contenido</span>
-                            <span class="text-xs text-textSecondary flex items-center gap-1"><i class="ph ph-map-pin"></i> 100% Remoto</span>
+                            <span class="text-xs text-gray-600 dark:text-textSecondary flex items-center gap-1"><i class="ph ph-map-pin"></i> 100% Remoto</span>
                         </div>
                         <h3 class="text-2xl font-heading text-gray-900 dark:text-white font-bold mb-3">Copywriter Creativo</h3>
-                        <p class="text-sm text-textSecondary mb-6">Redacción persuasiva orientada a la venta. Creación de copys para landing pages, campañas de publicidad (Ads) y embudos de email.</p>
-                        <ul class="space-y-2 mb-8 text-xs text-textSecondary border-t border-gray-200 dark:border-white/5 pt-4">
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-6">Redacción persuasiva orientada a la venta. Creación de copys para landing pages, campañas de publicidad (Ads) y embudos de email.</p>
+                        <ul class="space-y-2 mb-8 text-xs text-gray-600 dark:text-textSecondary border-t border-gray-200 dark:border-white/5 pt-4">
                             <li class="flex items-center gap-2"><span class="text-primary">▪</span> Habilidad para sintetizar mensajes complejos de forma directa.</li>
                             <li class="flex items-center gap-2"><span class="text-primary">▪</span> Foco absoluto en resultados comerciales y conversión.</li>
                             <li class="flex items-center gap-2"><span class="text-primary">▪</span> Experiencia redactando secuencias persuasivas de email.</li>
@@ -840,10 +841,10 @@
 
             <!-- Candidatura Espontánea extra horizontal block -->
             <div class="max-w-5xl mx-auto mt-8 reveal-up">
-                <div class="relative p-6 md:p-8 rounded-3xl border border-gray-200 dark:border-white/10 bg-bgMain hover:border-primary/30 transition-all duration-300 flex flex-col sm:flex-row items-center justify-between gap-6 tilt-effect">
+                <div class="relative p-6 md:p-8 rounded-3xl border border-gray-200 dark:border-white/10 bg-white dark:bg-bgMain hover:border-primary/30 transition-all duration-300 flex flex-col sm:flex-row items-center justify-between gap-6 tilt-effect">
                     <div>
                         <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-1">¿No ves tu puesto pero crees que deberías estar en el equipo?</h4>
-                        <p class="text-sm text-textSecondary">Buscamos talento constantemente: project managers, editores de vídeo, estrategas de paid media...</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary">Buscamos talento constantemente: project managers, editores de vídeo, estrategas de paid media...</p>
                     </div>
                     <button onclick="openModalWithPuesto('Candidatura Espontánea')" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-primary text-sm font-bold text-white hover:bg-accent transition-all whitespace-nowrap">
                         Proponer mi perfil
@@ -854,12 +855,12 @@
     </section>
 
     <!-- 4. LO QUE OFRECEMOS -->
-    <section class="py-24 relative z-10 bg-bgSurface/30 border-b border-gray-200 dark:border-white/5 with-glow">
+    <section class="py-24 relative z-10 bg-gray-50 dark:bg-bgSurface/30 border-b border-gray-200 dark:border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal-up">
-                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Beneficios</span>
+                <span class="text-xs font-bold tracking-[0.2em] text-gray-600 dark:text-textSecondary uppercase mb-4 block">Beneficios</span>
                 <h2 class="font-heading text-3xl md:text-4xl font-medium text-gray-900 dark:text-white mb-4">Lo que tendrás en Proemote.</h2>
-                <p class="text-textSecondary text-lg max-w-2xl mx-auto">Queremos que trabajes a gusto, con foco y sin distracciones inútiles.</p>
+                <p class="text-gray-600 dark:text-textSecondary text-lg max-w-2xl mx-auto">Queremos que trabajes a gusto, con foco y sin distracciones inútiles.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto reveal-up">
@@ -867,7 +868,7 @@
                     <div>
                         <i class="ph ph-calendar text-3xl text-primary mb-4"></i>
                         <h3 class="text-lg font-heading font-medium text-gray-900 dark:text-white mb-2">Flexibilidad y conciliación</h3>
-                        <p class="text-xs text-textSecondary leading-relaxed">Tú decides cuándo y desde dónde trabajas. Nos importan tus entregas, no las horas sentado.</p>
+                        <p class="text-xs text-gray-600 dark:text-textSecondary leading-relaxed">Tú decides cuándo y desde dónde trabajas. Nos importan tus entregas, no las horas sentado.</p>
                     </div>
                 </div>
 
@@ -875,7 +876,7 @@
                     <div>
                         <i class="ph ph-laptop text-3xl text-primary mb-4"></i>
                         <h3 class="text-lg font-heading font-medium text-gray-900 dark:text-white mb-2">Equipo de primer nivel</h3>
-                        <p class="text-xs text-textSecondary leading-relaxed">Trabajarás con las herramientas más potentes del mercado y hardware de última generación.</p>
+                        <p class="text-xs text-gray-600 dark:text-textSecondary leading-relaxed">Trabajarás con las herramientas más potentes del mercado y hardware de última generación.</p>
                     </div>
                 </div>
 
@@ -883,7 +884,7 @@
                     <div>
                         <i class="ph ph-student text-3xl text-primary mb-4"></i>
                         <h3 class="text-lg font-heading font-medium text-gray-900 dark:text-white mb-2">Formación continua</h3>
-                        <p class="text-xs text-textSecondary leading-relaxed">Presupuesto anual asignado para libros, cursos o eventos técnicos del sector que elijas.</p>
+                        <p class="text-xs text-gray-600 dark:text-textSecondary leading-relaxed">Presupuesto anual asignado para libros, cursos o eventos técnicos del sector que elijas.</p>
                     </div>
                 </div>
 
@@ -891,7 +892,7 @@
                     <div>
                         <i class="ph ph-chart-line-up text-3xl text-primary mb-4"></i>
                         <h3 class="text-lg font-heading font-medium text-gray-900 dark:text-white mb-2">Proyectos con propósito</h3>
-                        <p class="text-xs text-textSecondary leading-relaxed">Sin burocracias de multinacionales. Proyectos de primer nivel con contacto directo e impacto ágil.</p>
+                        <p class="text-xs text-gray-600 dark:text-textSecondary leading-relaxed">Sin burocracias de multinacionales. Proyectos de primer nivel con contacto directo e impacto ágil.</p>
                     </div>
                 </div>
             </div>
@@ -899,12 +900,12 @@
     </section>
 
     <!-- 5. EL PROCESO DE SELECCIÓN -->
-    <section class="py-32 relative bg-bgMain border-b border-gray-200 dark:border-white/5 with-glow">
+    <section class="py-32 relative bg-white dark:bg-bgMain border-b border-gray-200 dark:border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-24 reveal-up">
-                <span class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-4 block">Fases</span>
+                <span class="text-xs font-bold tracking-[0.2em] text-gray-600 dark:text-textSecondary uppercase mb-4 block">Fases</span>
                 <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-gray-900 dark:text-white">Así es nuestro proceso.</h2>
-                <p class="text-textSecondary">Sin rodeos inútiles. Respetamos tu tiempo de principio a fin.</p>
+                <p class="text-gray-600 dark:text-textSecondary">Sin rodeos inútiles. Respetamos tu tiempo de principio a fin.</p>
             </div>
 
             <div class="relative max-w-4xl mx-auto px-4 md:px-0">
@@ -913,13 +914,13 @@
 
                 <!-- Paso 1 -->
                 <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
-                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-gray-300 dark:border-white/20 z-10"></div>
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-white dark:bg-bgMain border-2 border-gray-300 dark:border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-10 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
                             <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">1</div>
                             <div>
                                 <h3 class="text-2xl font-heading font-medium text-gray-900 dark:text-white mb-2">Aplicación y portfolio</h3>
-                                <p class="text-textSecondary leading-relaxed">Envías tu perfil con muestras reales de tu trabajo o enlaces a proyectos en los que hayas tenido un rol fundamental.</p>
+                                <p class="text-gray-600 dark:text-textSecondary leading-relaxed">Envías tu perfil con muestras reales de tu trabajo o enlaces a proyectos en los que hayas tenido un rol fundamental.</p>
                             </div>
                         </div>
                     </div>
@@ -927,13 +928,13 @@
 
                 <!-- Paso 2 -->
                 <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
-                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-gray-300 dark:border-white/20 z-10"></div>
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-white dark:bg-bgMain border-2 border-gray-300 dark:border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-10 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
                             <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">2</div>
                             <div>
                                 <h3 class="text-2xl font-heading font-medium text-gray-900 dark:text-white mb-2">Charla técnica o creativa</h3>
-                                <p class="text-textSecondary leading-relaxed">Hacemos una videollamada corta. No para hacer preguntas teóricas de manual, sino para entender cómo piensas, cómo resuelves retos y qué esperas de nosotros.</p>
+                                <p class="text-gray-600 dark:text-textSecondary leading-relaxed">Hacemos una videollamada corta. No para hacer preguntas teóricas de manual, sino para entender cómo piensas, cómo resuelves retos y qué esperas de nosotros.</p>
                             </div>
                         </div>
                     </div>
@@ -941,13 +942,13 @@
 
                 <!-- Paso 3 -->
                 <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-16">
-                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-gray-300 dark:border-white/20 z-10"></div>
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-white dark:bg-bgMain border-2 border-gray-300 dark:border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-10 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
                             <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">3</div>
                             <div>
                                 <h3 class="text-2xl font-heading font-medium text-gray-900 dark:text-white mb-2">Prueba práctica remunerada</h3>
-                                <p class="text-textSecondary leading-relaxed">Planteamos un ejercicio práctico muy similar a una tarea real. Respetamos tu tiempo y talento, por lo que compensamos económicamente la ejecución de esta fase.</p>
+                                <p class="text-gray-600 dark:text-textSecondary leading-relaxed">Planteamos un ejercicio práctico muy similar a una tarea real. Respetamos tu tiempo y talento, por lo que compensamos económicamente la ejecución de esta fase.</p>
                             </div>
                         </div>
                     </div>
@@ -955,13 +956,13 @@
 
                 <!-- Paso 4 -->
                 <div class="foco-item relative pl-12 sm:pl-24 md:pl-32 mb-10">
-                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-bgMain border-2 border-gray-300 dark:border-white/20 z-10"></div>
+                    <div class="foco-node absolute left-6 md:left-[50px] top-10 w-4 h-4 -translate-x-[7px] rounded-full bg-white dark:bg-bgMain border-2 border-gray-300 dark:border-white/20 z-10"></div>
                     <div class="glass-card p-8 md:p-10 rounded-[2rem]">
                         <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
                             <div class="text-primary font-heading text-5xl md:text-6xl font-bold opacity-80 leading-none">4</div>
                             <div>
                                 <h3 class="text-2xl font-heading font-medium text-gray-900 dark:text-white mb-2">Propuesta e incorporación</h3>
-                                <p class="text-textSecondary leading-relaxed">Si todo encaja, te presentamos una oferta formal y planificamos tu onboarding para que empieces a aportar valor desde el primer día.</p>
+                                <p class="text-gray-600 dark:text-textSecondary leading-relaxed">Si todo encaja, te presentamos una oferta formal y planificamos tu onboarding para que empieces a aportar valor desde el primer día.</p>
                             </div>
                         </div>
                     </div>
@@ -972,11 +973,11 @@
     </section>
 
     <!-- 6. FAQ -->
-    <section class="py-32 relative bg-bgSurface/30 border-b border-gray-200 dark:border-white/5 with-glow">
+    <section class="py-32 relative bg-gray-50 dark:bg-bgSurface/30 border-b border-gray-200 dark:border-white/5 with-glow">
         <div class="max-w-3xl mx-auto px-6 reveal-up">
             <div class="text-center mb-16">
                 <h2 class="font-heading text-3xl md:text-5xl font-medium text-gray-900 dark:text-white mb-4">Preguntas Frecuentes</h2>
-                <p class="text-textSecondary text-lg">Resolvemos tus dudas sobre cómo es trabajar con nosotros.</p>
+                <p class="text-gray-600 dark:text-textSecondary text-lg">Resolvemos tus dudas sobre cómo es trabajar con nosotros.</p>
             </div>
             
             <div class="space-y-4">
@@ -987,7 +988,7 @@
                         <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
                     </button>
                     <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
-                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Sí, admitimos trabajo 100% en remoto para la mayoría de perfiles. Si resides cerca de Mérida (Extremadura), disponemos de una oficina física donde puedes compaginar un modelo híbrido si lo prefieres.</p>
+                        <p class="text-gray-600 dark:text-textSecondary text-sm pb-5 leading-relaxed">Sí, admitimos trabajo 100% en remoto para la mayoría de perfiles. Si resides cerca de Mérida (Extremadura), disponemos de una oficina física donde puedes compaginar un modelo híbrido si lo prefieres.</p>
                     </div>
                 </div>
 
@@ -997,7 +998,7 @@
                         <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
                     </button>
                     <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
-                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">No. En nuestros proyectos de eventos, diferenciamos radicalmente la cobertura en directo ágil (para historias, reels, entrega rápida en 24-48h) de la producción cinematográfica a largo plazo. Buscamos creadores que entiendan la inmediatez del formato digital.</p>
+                        <p class="text-gray-600 dark:text-textSecondary text-sm pb-5 leading-relaxed">No. En nuestros proyectos de eventos, diferenciamos radicalmente la cobertura en directo ágil (para historias, reels, entrega rápida en 24-48h) de la producción cinematográfica a largo plazo. Buscamos creadores que entiendan la inmediatez del formato digital.</p>
                     </div>
                 </div>
 
@@ -1007,7 +1008,7 @@
                         <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
                     </button>
                     <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
-                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Sí, siempre estamos abiertos a conocer talento sobresaliente. Si eres especialista en Paid Media, Project Manager, Editor de vídeo o especialista SEO, envíanos tu propuesta por la opción "Candidatura Espontánea".</p>
+                        <p class="text-gray-600 dark:text-textSecondary text-sm pb-5 leading-relaxed">Sí, siempre estamos abiertos a conocer talento sobresaliente. Si eres especialista en Paid Media, Project Manager, Editor de vídeo o especialista SEO, envíanos tu propuesta por la opción "Candidatura Espontánea".</p>
                     </div>
                 </div>
 
@@ -1017,7 +1018,7 @@
                         <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
                     </button>
                     <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
-                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">Es un ejercicio realista que simula un requerimiento de un cliente real. No te pediremos algoritmos absurdos de pizarra. Medimos tu capacidad de ejecución, orden y criterio resolutivo. Como valoramos tu tiempo, la prueba está remunerada independientemente de si avanzamos o no.</p>
+                        <p class="text-gray-600 dark:text-textSecondary text-sm pb-5 leading-relaxed">Es un ejercicio realista que simula un requerimiento de un cliente real. No te pediremos algoritmos absurdos de pizarra. Medimos tu capacidad de ejecución, orden y criterio resolutivo. Como valoramos tu tiempo, la prueba está remunerada independientemente de si avanzamos o no.</p>
                     </div>
                 </div>
 
@@ -1027,7 +1028,7 @@
                         <i class="ph ph-caret-down text-primary transition-transform duration-300 faq-icon"></i>
                     </button>
                     <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
-                        <p class="text-textSecondary text-sm pb-5 leading-relaxed">No. Nos da igual de dónde venga tu aprendizaje. Lo que nos importa es tu portfolio, tu experiencia real, tus ganas de aprender, tu nivel de resolución y tu alineación cultural con el equipo.</p>
+                        <p class="text-gray-600 dark:text-textSecondary text-sm pb-5 leading-relaxed">No. Nos da igual de dónde venga tu aprendizaje. Lo que nos importa es tu portfolio, tu experiencia real, tus ganas de aprender, tu nivel de resolución y tu alineación cultural con el equipo.</p>
                     </div>
                 </div>
 
@@ -1036,7 +1037,7 @@
     </section>
 
     <!-- 7. CTA FINAL (Luxury Glass Container with Round Soft Corners) -->
-    <section class="py-32 relative z-10 bg-bgMain with-glow overflow-hidden">
+    <section class="py-32 relative z-10 bg-white dark:bg-bgMain with-glow overflow-hidden">
         <div class="max-w-5xl mx-auto px-6 relative z-10 reveal-up">
             
             <!-- Luxury Glass Card -->

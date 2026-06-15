@@ -28,8 +28,24 @@ def process_classes(class_str):
             new_c = 'bg-gray-200 dark:' + c
         elif c == 'bg-[#09090b]':
             new_c = 'bg-white dark:bg-[#09090b]'
+        elif c == 'bg-bgMain':
+            new_c = 'bg-white dark:bg-bgMain'
+        elif c.startswith('bg-bgSurface'):
+            parts = c.split('/')
+            if len(parts) == 2:
+                opacity = parts[1]
+                if opacity in ['50', '40']:
+                    new_c = f'bg-white dark:{c}'
+                else:
+                    new_c = f'bg-gray-50 dark:{c}'
+            else:
+                new_c = 'bg-white dark:bg-bgSurface'
             
         # Text
+        elif c == 'text-textMain':
+            new_c = 'text-gray-900 dark:text-textMain'
+        elif c == 'text-textSecondary':
+            new_c = 'text-gray-600 dark:text-textSecondary'
         elif c.startswith('text-white'):
             # Only change text-white if it's NOT on a violet background
             if not is_violet_bg and not is_gradient:

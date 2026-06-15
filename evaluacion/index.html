@@ -43,7 +43,8 @@
         body { transition: background-color 0.3s ease, color 0.3s ease; }
 
         /* Base & Scrollbar */
-        body { background-color: #0A0A0F; color: #F5F7FA; overflow-x: hidden; }
+        .dark body { background-color: #0A0A0F; color: #F5F7FA; }
+        body { background-color: #f9fafb; color: #111827; overflow-x: hidden; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0A0A0F; }
         ::-webkit-scrollbar-thumb { background: #14141F; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
@@ -366,412 +367,6 @@
         </div>
     </div>
 
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <!-- Ambient Glows -->
-    <div class="ambient-glow top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
-    <div class="ambient-glow bottom-0 right-0 translate-x-1/3 translate-y-1/3" style="background: radial-gradient(circle, rgba(159,122,234,0.1) 0%, rgba(10,10,15,0) 70%);"></div>
-
-    <!-- MAIN CONTENT -->
     <main class="flex-grow flex items-center justify-center pt-32 pb-16 relative z-10">
         <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start mt-8">
             
@@ -786,7 +381,7 @@
                     <span class="text-primary">Construimos autoridad que vende.</span>
                 </h1>
                 
-                <p class="reveal-up text-textSecondary font-normal text-lg mb-12 leading-relaxed" style="transition-delay: 200ms;">
+                <p class="reveal-up text-gray-600 dark:text-textSecondary font-normal text-lg mb-12 leading-relaxed" style="transition-delay: 200ms;">
                     Diseñamos estrategias probadas y producimos vídeos de alta calidad para convertir tus visitas en clientes reales. Trabajamos con un número limitado de proyectos al mes — y solo con aquellos a los que podemos hacer crecer.
                 </p>
 
@@ -796,7 +391,7 @@
                             <i class="ph ph-magnifying-glass text-lg"></i>
                         </div>
                         <h3 class="font-heading font-medium text-gray-900 dark:text-white text-base mb-2">1. Estudio de tu sector</h3>
-                        <p class="text-sm font-normal text-textSecondary leading-relaxed">Analizamos qué busca tu cliente ideal y qué hace tu competencia antes de encender la cámara.</p>
+                        <p class="text-sm font-normal text-gray-600 dark:text-textSecondary leading-relaxed">Analizamos qué busca tu cliente ideal y qué hace tu competencia antes de encender la cámara.</p>
                     </div>
                     
                     <div class="feature-glass-card reveal-up" style="transition-delay: 400ms;">
@@ -804,7 +399,7 @@
                             <i class="ph ph-pen-nib text-lg"></i>
                         </div>
                         <h3 class="font-heading font-medium text-gray-900 dark:text-white text-base mb-2">2. Guiones de venta</h3>
-                        <p class="text-sm font-normal text-textSecondary leading-relaxed">Escribimos cada vídeo con un objetivo claro: captar la atención, generar confianza y conseguir clientes.</p>
+                        <p class="text-sm font-normal text-gray-600 dark:text-textSecondary leading-relaxed">Escribimos cada vídeo con un objetivo claro: captar la atención, generar confianza y conseguir clientes.</p>
                     </div>
 
                     <div class="feature-glass-card reveal-up" style="transition-delay: 500ms;">
@@ -812,7 +407,7 @@
                             <i class="ph ph-video-camera text-lg"></i>
                         </div>
                         <h3 class="font-heading font-medium text-gray-900 dark:text-white text-base mb-2">3. Rodaje optimizado</h3>
-                        <p class="text-sm font-normal text-textSecondary leading-relaxed">Grabamos en un solo día todo el contenido que tu marca necesita para publicar durante un mes entero.</p>
+                        <p class="text-sm font-normal text-gray-600 dark:text-textSecondary leading-relaxed">Grabamos en un solo día todo el contenido que tu marca necesita para publicar durante un mes entero.</p>
                     </div>
 
                     <div class="feature-glass-card reveal-up" style="transition-delay: 600ms;">
@@ -820,13 +415,13 @@
                             <i class="ph ph-chart-line-up text-lg"></i>
                         </div>
                         <h3 class="font-heading font-medium text-gray-900 dark:text-white text-base mb-2">4. Mejora constante</h3>
-                        <p class="text-sm font-normal text-textSecondary leading-relaxed">Revisamos los resultados mes a mes para adaptarnos. Tratamos tus redes como una herramienta comercial, no un gasto.</p>
+                        <p class="text-sm font-normal text-gray-600 dark:text-textSecondary leading-relaxed">Revisamos los resultados mes a mes para adaptarnos. Tratamos tus redes como una herramienta comercial, no un gasto.</p>
                     </div>
                 </div>
 
                 <div class="reveal-up pl-6 border-l-[3px] border-primary/50 bg-gradient-to-r from-primary/5 to-transparent py-5 pr-5 rounded-r-2xl" style="transition-delay: 700ms;">
                     <span class="block text-xs font-medium tracking-widest text-primary uppercase mb-2">Filtro de viabilidad</span>
-                    <p class="text-sm font-normal text-textSecondary leading-relaxed">
+                    <p class="text-sm font-normal text-gray-600 dark:text-textSecondary leading-relaxed">
                         Este formulario no es un simple contacto. Es un análisis. Revisamos tu negocio y tus objetivos antes de agendar una llamada. Si creemos que no hay encaje o que no recuperarás la inversión, te lo diremos sin rodeos.
                     </p>
                 </div>
@@ -836,7 +431,7 @@
             <div class="lg:col-span-7 luxury-glass-card p-8 md:p-12 reveal-up" style="transition-delay: 400ms;">
                 <div class="mb-10 border-b border-gray-200 dark:border-white/10 pb-8">
                     <h2 class="text-3xl font-heading font-medium text-gray-900 dark:text-white mb-3">Solicita acceso al servicio</h2>
-                    <p class="text-sm font-normal text-textSecondary leading-relaxed">Rellena los datos con precisión. Cuanto mejor nos expliques tu situación, más útil será nuestra respuesta. Solo respondemos a candidaturas que tomamos en serio.</p>
+                    <p class="text-sm font-normal text-gray-600 dark:text-textSecondary leading-relaxed">Rellena los datos con precisión. Cuanto mejor nos expliques tu situación, más útil será nuestra respuesta. Solo respondemos a candidaturas que tomamos en serio.</p>
                 </div>
 
                 <form id="eval-form" class="space-y-8">
@@ -847,22 +442,22 @@
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs text-textSecondary mb-1.5 font-medium">Nombre y apellidos *</label>
+                                <label class="block text-xs text-gray-600 dark:text-textSecondary mb-1.5 font-medium">Nombre y apellidos *</label>
                                 <input type="text" name="nombre" required class="form-input" placeholder="Ej. Carlos Molina">
                             </div>
                             <div>
-                                <label class="block text-xs text-textSecondary mb-1.5 font-medium">Correo electrónico *</label>
+                                <label class="block text-xs text-gray-600 dark:text-textSecondary mb-1.5 font-medium">Correo electrónico *</label>
                                 <input type="email" name="email" required class="form-input" placeholder="hola@tuempresa.com">
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs text-textSecondary mb-1.5 font-medium">WhatsApp (con prefijo) *</label>
+                                <label class="block text-xs text-gray-600 dark:text-textSecondary mb-1.5 font-medium">WhatsApp (con prefijo) *</label>
                                 <input type="tel" name="telefono" required class="form-input" placeholder="+34 600 000 000">
                             </div>
                             <div>
-                                <label class="block text-xs text-textSecondary mb-1.5 font-medium">País / Ciudad desde donde trabajas *</label>
+                                <label class="block text-xs text-gray-600 dark:text-textSecondary mb-1.5 font-medium">País / Ciudad desde donde trabajas *</label>
                                 <input type="text" name="ubicacion" required class="form-input" placeholder="Ej. Madrid, España">
                             </div>
                         </div>
@@ -874,17 +469,17 @@
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs text-textSecondary mb-1.5 font-medium">Usuario de Instagram / TikTok *</label>
+                                <label class="block text-xs text-gray-600 dark:text-textSecondary mb-1.5 font-medium">Usuario de Instagram / TikTok *</label>
                                 <input type="text" name="redes" required class="form-input" placeholder="@tu_cuenta">
                             </div>
                             <div>
-                                <label class="block text-xs text-textSecondary mb-1.5 font-medium">Web o enlace de tu marca *</label>
+                                <label class="block text-xs text-gray-600 dark:text-textSecondary mb-1.5 font-medium">Web o enlace de tu marca *</label>
                                 <input type="url" name="web" required class="form-input" placeholder="https://...">
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-xs text-textSecondary mb-1.5 font-medium">¿A qué te dedicas exactamente y qué vendes? *</label>
+                            <label class="block text-xs text-gray-600 dark:text-textSecondary mb-1.5 font-medium">¿A qué te dedicas exactamente y qué vendes? *</label>
                             <input type="text" name="dedicacion" required class="form-input" placeholder="Ej. Consultoría estratégica, infoproductos B2B, clínica estética...">
                         </div>
                     </div>
@@ -894,17 +489,17 @@
                         <h3 class="text-xs font-bold tracking-widest text-primary uppercase mb-2">3. Mercado y Objetivos</h3>
                         
                         <div>
-                            <label class="block text-xs text-textSecondary mb-1.5 font-medium">¿Qué te hace diferente frente a otros profesionales de tu sector? *</label>
+                            <label class="block text-xs text-gray-600 dark:text-textSecondary mb-1.5 font-medium">¿Qué te hace diferente frente a otros profesionales de tu sector? *</label>
                             <textarea name="diferencia" required rows="2" class="form-input resize-none" placeholder="Tu propuesta de valor única..."></textarea>
                         </div>
 
                         <div>
-                            <label class="block text-xs text-textSecondary mb-1.5 font-medium">Comparte entre 3 y 5 referentes o cuentas que te gusten de tu nicho. *</label>
+                            <label class="block text-xs text-gray-600 dark:text-textSecondary mb-1.5 font-medium">Comparte entre 3 y 5 referentes o cuentas que te gusten de tu nicho. *</label>
                             <textarea name="referentes" required rows="2" class="form-input resize-none" placeholder="Ej: @referente1, @referente2..."></textarea>
                         </div>
 
                         <div>
-                            <label class="block text-xs text-textSecondary mb-1.5 font-medium">¿Qué quieres conseguir con tu contenido en los próximos 90 días? *</label>
+                            <label class="block text-xs text-gray-600 dark:text-textSecondary mb-1.5 font-medium">¿Qué quieres conseguir con tu contenido en los próximos 90 días? *</label>
                             <textarea name="objetivos_90" required rows="2" class="form-input resize-none" placeholder="Tus metas concretas a corto/medio plazo..."></textarea>
                         </div>
                     </div>
@@ -915,7 +510,7 @@
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs text-textSecondary mb-1.5 font-medium">Facturación mensual aprox. *</label>
+                                <label class="block text-xs text-gray-600 dark:text-textSecondary mb-1.5 font-medium">Facturación mensual aprox. *</label>
                                 <div class="relative">
                                     <select name="facturacion" required class="form-input">
                                         <option value="" disabled selected>Selecciona un tramo</option>
@@ -925,11 +520,11 @@
                                         <option value="Más de 10.000€">Más de 10.000 €/mes</option>
                                         <option value="Prefiero no decirlo">Prefiero no decirlo</option>
                                     </select>
-                                    <i class="ph ph-caret-down absolute right-4 top-1/2 -translate-y-1/2 text-textSecondary pointer-events-none"></i>
+                                    <i class="ph ph-caret-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-600 dark:text-textSecondary pointer-events-none"></i>
                                 </div>
                             </div>
                             <div>
-                                <label class="block text-xs text-textSecondary mb-1.5 font-medium">Presupuesto mensual para marketing *</label>
+                                <label class="block text-xs text-gray-600 dark:text-textSecondary mb-1.5 font-medium">Presupuesto mensual para marketing *</label>
                                 <div class="relative">
                                     <select name="presupuesto" required class="form-input">
                                         <option value="" disabled selected>Capacidad de inversión</option>
@@ -938,11 +533,11 @@
                                         <option value="1.000€ - 2.000€">Entre 1.000€ y 2.000€</option>
                                         <option value="Más de 2.000€">Más de 2.000€</option>
                                     </select>
-                                    <i class="ph ph-caret-down absolute right-4 top-1/2 -translate-y-1/2 text-textSecondary pointer-events-none"></i>
+                                    <i class="ph ph-caret-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-600 dark:text-textSecondary pointer-events-none"></i>
                                 </div>
                             </div>
                             <div class="md:col-span-2">
-                                <label class="block text-xs text-textSecondary mb-1.5 font-medium">¿Cuándo te gustaría empezar? *</label>
+                                <label class="block text-xs text-gray-600 dark:text-textSecondary mb-1.5 font-medium">¿Cuándo te gustaría empezar? *</label>
                                 <div class="relative">
                                     <select name="inicio" required class="form-input">
                                         <option value="" disabled selected>Selecciona una opción</option>
@@ -950,7 +545,7 @@
                                         <option value="Próximas semanas">En las próximas semanas</option>
                                         <option value="Solo busco información">Solo busco información / precios</option>
                                     </select>
-                                    <i class="ph ph-caret-down absolute right-4 top-1/2 -translate-y-1/2 text-textSecondary pointer-events-none"></i>
+                                    <i class="ph ph-caret-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-600 dark:text-textSecondary pointer-events-none"></i>
                                 </div>
                             </div>
                         </div>
@@ -961,7 +556,7 @@
                         <h3 class="text-xs font-bold tracking-widest text-primary uppercase mb-2">5. Compromiso</h3>
                         
                         <div>
-                            <label class="block text-xs text-textSecondary mb-1.5 font-medium">¿Estás dispuesto/a a salir en cámara y grabar contenido de forma seria? *</label>
+                            <label class="block text-xs text-gray-600 dark:text-textSecondary mb-1.5 font-medium">¿Estás dispuesto/a a salir en cámara y grabar contenido de forma seria? *</label>
                             <div class="relative">
                                 <select name="camara" required class="form-input">
                                     <option value="" disabled selected>Selecciona una opción</option>
@@ -969,12 +564,12 @@
                                     <option value="Me cuesta pero lo haré">Me cuesta, pero entiendo que es necesario</option>
                                     <option value="No quiero salir">Prefiero no salir en cámara (o lo mínimo posible)</option>
                                 </select>
-                                <i class="ph ph-caret-down absolute right-4 top-1/2 -translate-y-1/2 text-textSecondary pointer-events-none"></i>
+                                <i class="ph ph-caret-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-600 dark:text-textSecondary pointer-events-none"></i>
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-xs text-textSecondary mb-1.5 font-medium">Para obtener buenos resultados, es fundamental tu compromiso en la creación. ¿Puedes tomarte en serio este tema actualmente? *</label>
+                            <label class="block text-xs text-gray-600 dark:text-textSecondary mb-1.5 font-medium">Para obtener buenos resultados, es fundamental tu compromiso en la creación. ¿Puedes tomarte en serio este tema actualmente? *</label>
                             <div class="relative">
                                 <select name="compromiso_serio" required class="form-input">
                                     <option value="" disabled selected>Selecciona tu situación actual</option>
@@ -982,14 +577,14 @@
                                     <option value="Quiero pero no tengo tiempo">Quiero, pero tengo muy poco tiempo libre</option>
                                     <option value="Solo estoy ojeando">Por ahora solo estoy mirando opciones</option>
                                 </select>
-                                <i class="ph ph-caret-down absolute right-4 top-1/2 -translate-y-1/2 text-textSecondary pointer-events-none"></i>
+                                <i class="ph ph-caret-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-600 dark:text-textSecondary pointer-events-none"></i>
                             </div>
                         </div>
 
                         <div class="pt-4">
                             <div class="flex items-start gap-3">
                                 <input type="checkbox" id="privacidad" required class="mt-0.5 w-4 h-4 accent-primary cursor-pointer shrink-0">
-                                <label for="privacidad" class="text-xs text-textSecondary leading-relaxed cursor-pointer select-none">
+                                <label for="privacidad" class="text-xs text-gray-600 dark:text-textSecondary leading-relaxed cursor-pointer select-none">
                                     He leído y acepto la <a href="https://proemote.es/privacidad" target="_blank" class="text-primary hover:text-accent underline decoration-primary/30 transition-colors">política de privacidad</a> sobre el tratamiento de mis datos.
                                 </label>
                             </div>
@@ -1090,7 +685,7 @@
 
     <!-- WhatsApp Bubble -->
     <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3 group reveal-up active">
-        <span class="hidden md:block px-4 py-2 bg-bgSurface border border-gray-200 dark:border-white/10 rounded-xl text-sm font-medium text-gray-900 dark:text-white shadow-lg opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
+        <span class="hidden md:block px-4 py-2 bg-white dark:bg-bgSurface border border-gray-200 dark:border-white/10 rounded-xl text-sm font-medium text-gray-900 dark:text-white shadow-lg opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
             Hablar por WhatsApp
         </span>
         <a href="https://wa.me/34641576286" target="_blank" rel="noopener noreferrer" class="relative w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300">

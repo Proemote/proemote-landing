@@ -42,7 +42,8 @@
     <style>
         body { transition: background-color 0.3s ease, color 0.3s ease; }
 
-        body { background-color: #0A0A0F; color: #F5F7FA; overflow-x: hidden; }
+        .dark body { background-color: #0A0A0F; color: #F5F7FA; }
+        body { background-color: #f9fafb; color: #111827; overflow-x: hidden; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0A0A0F; }
         ::-webkit-scrollbar-thumb { background: #14141F; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
@@ -121,7 +122,7 @@
         }
     </script>
 </head>
-<body class="antialiased selection:bg-primary selection:text-white relative bg-grid-pattern bg-fixed">
+<body class="antialiased selection:bg-primary selection:text-white relative bg-grid-pattern bg-fixed bg-gray-50 dark:bg-bgMain text-gray-900 dark:text-textMain">
 
     <div id="mouse-glow"></div>
 
@@ -298,410 +299,8 @@
         </div>
     </div>
 
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-
     <!-- HERO SECTION -->
-    <section class="pt-32 md:pt-36 pb-16 md:pb-20 relative z-10 overflow-hidden border-b border-gray-200 dark:border-white/5 bg-bgMain bg-grid-pattern-primary with-glow">
+    <section class="pt-32 md:pt-36 pb-16 md:pb-20 relative z-10 overflow-hidden border-b border-gray-200 dark:border-white/5 bg-white dark:bg-bgMain bg-grid-pattern-primary with-glow">
         <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-bgMain z-[-1] pointer-events-none"></div>
         <div class="absolute top-[10%] left-[10%] w-[30vw] h-[30vw] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-[0]"></div>
         <div class="absolute bottom-[10%] right-[10%] w-[40vw] h-[40vw] rounded-full bg-accent/10 blur-[150px] pointer-events-none z-[0]"></div>
@@ -719,7 +318,7 @@
                         Ayudas a la Implantación de <span class="text-gradient-primary">Inteligencia Artificial</span> para Pymes en Extremadura 2026
                     </h1>
                     
-                    <p class="text-base md:text-lg text-textSecondary leading-relaxed mb-6 max-w-2xl">
+                    <p class="text-base md:text-lg text-gray-600 dark:text-textSecondary leading-relaxed mb-6 max-w-2xl">
                         Tu negocio atiende clientes, gestiona citas y automatiza procesos. La Junta de Extremadura financia fondos directos para reducir costes operativos, eliminar tareas repetitivas y tomar mejores decisiones. Hasta 100.000€ con los que implantar herramientas de IA, cubriendo hasta el 85% del coste. En Proemote nos encargamos de todo: analizamos si aplicas, preparamos la solicitud y ejecutamos el proyecto si se concede. Tú no tienes que gestionar nada.
                     </p>
 
@@ -733,11 +332,11 @@
                     </div>
 
                     <div class="flex flex-col gap-2.5 mb-6 text-left w-full">
-                        <div class="flex items-center gap-2 text-xs md:text-sm text-textSecondary font-medium">
+                        <div class="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-textSecondary font-medium">
                             <i class="ph-fill ph-check-circle text-accent text-base flex-shrink-0"></i> 
                             <span>Compatible con el Kit Digital (lo complementa).</span>
                         </div>
-                        <div class="flex items-center gap-2 text-xs md:text-sm text-textSecondary font-medium">
+                        <div class="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-textSecondary font-medium">
                             <i class="ph-fill ph-bank text-primary text-base flex-shrink-0"></i> 
                             <span>60% de anticipo tras la concesión sin garantías exigidas.</span>
                         </div>
@@ -755,7 +354,7 @@
 
                 <!-- Columna Derecha: Imagen destacada (Split Layout - 50% de ancho) -->
                 <div class="lg:col-span-6 relative reveal-up delay-100 mt-8 lg:mt-0 flex justify-center w-full">
-                    <div class="relative w-full max-w-[540px] rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 bg-bgSurface/40 shadow-[0_0_40px_rgba(123,97,255,0.15)] group transition-all duration-300 hover:border-primary/40">
+                    <div class="relative w-full max-w-[540px] rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 bg-white dark:bg-bgSurface/40 shadow-[0_0_40px_rgba(123,97,255,0.15)] group transition-all duration-300 hover:border-primary/40">
                         <a href="#contacto" class="block w-full h-full relative">
                             <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 mix-blend-overlay"></div>
                             <img src="subvencion autonomos pymes ia.png"
@@ -770,7 +369,7 @@
                                 €
                             </div>
                             <div class="flex flex-col">
-                                <span class="text-[10px] uppercase tracking-wider text-textSecondary font-bold leading-none">Subvención</span>
+                                <span class="text-[10px] uppercase tracking-wider text-gray-600 dark:text-textSecondary font-bold leading-none">Subvención</span>
                                 <span class="text-xs font-bold text-gray-900 dark:text-white leading-tight">85% Subvencionado</span>
                             </div>
                         </div>
@@ -781,7 +380,7 @@
         </div>
     </section>
 
-    <section class="py-8 bg-bgSurface/80 border-b border-gray-200 dark:border-white/5 relative z-20">
+    <section class="py-8 bg-gray-50 dark:bg-bgSurface/80 border-b border-gray-200 dark:border-white/5 relative z-20">
         <div class="max-w-7xl mx-auto px-6 reveal-up">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 text-center divide-x-0 md:divide-x divide-white/10">
                 <div class="flex flex-col items-center justify-center px-4">
@@ -804,11 +403,11 @@
         </div>
     </section>
 
-    <section id="detalles" class="py-24 relative z-10 bg-bgSurface/30 border-t border-gray-200 dark:border-white/5 with-glow">
+    <section id="detalles" class="py-24 relative z-10 bg-gray-50 dark:bg-bgSurface/30 border-t border-gray-200 dark:border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal-up">
                 <h2 class="font-heading text-4xl md:text-5xl font-medium text-gray-900 dark:text-white mb-4">En qué consiste <span class="text-gradient-primary">esta ayuda</span></h2>
-                <p class="text-textSecondary text-lg max-w-2xl mx-auto">Condiciones claras y objetivas sobre los fondos asignados para la adopción de IA.</p>
+                <p class="text-gray-600 dark:text-textSecondary text-lg max-w-2xl mx-auto">Condiciones claras y objetivas sobre los fondos asignados para la adopción de IA.</p>
             </div>
             
             <!-- Grid de 3 tarjetas -->
@@ -816,17 +415,17 @@
                 <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5 tilt-effect flex flex-col items-start">
                     <i class="ph-fill ph-users text-3xl text-primary mb-4"></i>
                     <h3 class="text-xl font-heading text-gray-900 dark:text-white font-medium mb-2">Beneficiarios</h3>
-                    <p class="text-sm text-textSecondary">Pymes y autónomos con centro productivo en Extremadura, independientemente de su forma jurídica.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary">Pymes y autónomos con centro productivo en Extremadura, independientemente de su forma jurídica.</p>
                 </div>
                 <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5 tilt-effect flex flex-col items-start">
                     <i class="ph-fill ph-chart-line-up text-3xl text-primary mb-4"></i>
                     <h3 class="text-xl font-heading text-gray-900 dark:text-white font-medium mb-2">Importe</h3>
-                    <p class="text-sm text-textSecondary">Hasta el 85% de la inversión subvencionable, con un máximo de 100.000€ por beneficiario. Anticipo del 60%.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary">Hasta el 85% de la inversión subvencionable, con un máximo de 100.000€ por beneficiario. Anticipo del 60%.</p>
                 </div>
                 <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5 tilt-effect flex flex-col items-start">
                     <i class="ph-fill ph-calendar-x text-3xl text-primary mb-4"></i>
                     <h3 class="text-xl font-heading text-gray-900 dark:text-white font-medium mb-2">Plazo</h3>
-                    <p class="text-sm text-textSecondary">Abierto hasta el 17 de junio de 2026. Concesión directa por estricto orden de llegada.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary">Abierto hasta el 17 de junio de 2026. Concesión directa por estricto orden de llegada.</p>
                 </div>
             </div>
 
@@ -838,7 +437,7 @@
                     </div>
                     <div>
                         <h3 class="text-2xl font-heading text-gray-900 dark:text-white font-bold mb-2">Presupuesto total disponible</h3>
-                        <p class="text-textSecondary leading-relaxed">2.000.000€ para toda Extremadura. Cuando se agoten los fondos, se cierra la convocatoria de forma anticipada. No hay segunda vuelta.</p>
+                        <p class="text-gray-600 dark:text-textSecondary leading-relaxed">2.000.000€ para toda Extremadura. Cuando se agoten los fondos, se cierra la convocatoria de forma anticipada. No hay segunda vuelta.</p>
                     </div>
                 </div>
             </div>
@@ -851,11 +450,11 @@
         </div>
     </section>
 
-    <section id="implantar" class="py-32 relative z-10 bg-bgMain border-t border-gray-200 dark:border-white/5 with-glow">
+    <section id="implantar" class="py-32 relative z-10 bg-white dark:bg-bgMain border-t border-gray-200 dark:border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal-up">
                 <h2 class="font-heading text-4xl md:text-5xl font-medium text-gray-900 dark:text-white mb-6">Qué puedes implantar <span class="text-gradient-primary">con esta ayuda</span></h2>
-                <p class="text-textSecondary text-lg max-w-2xl mx-auto">Soluciones de inteligencia artificial reales y aplicables que eliminan fricción y sistematizan tu operativa.</p>
+                <p class="text-gray-600 dark:text-textSecondary text-lg max-w-2xl mx-auto">Soluciones de inteligencia artificial reales y aplicables que eliminan fricción y sistematizan tu operativa.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-up delay-100">
@@ -865,7 +464,7 @@
                         <i class="ph-fill ph-gear text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-heading text-gray-900 dark:text-white font-medium mb-3">Automatización de procesos con IA</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed flex-grow">Herramientas que automatizan tareas repetitivas: gestión de clientes, presupuestos, seguimiento comercial y comunicaciones.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed flex-grow">Herramientas que automatizan tareas repetitivas: gestión de clientes, presupuestos, seguimiento comercial y comunicaciones.</p>
                     <p class="text-[13px] text-primary/90 italic mt-4 pt-4 border-t border-gray-200 dark:border-white/10 leading-relaxed">
                         Por ejemplo: una gestoría que procesa facturas manualmente puede reducir ese tiempo en un 70%.
                     </p>
@@ -879,7 +478,7 @@
                         <i class="ph-fill ph-chats-circle text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-heading text-gray-900 dark:text-white font-medium mb-3">Chatbots y atención automática</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed flex-grow">Sistemas de respuesta inteligente para WhatsApp, web y redes sociales. Tu negocio atiende y cualifica leads las 24 horas.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed flex-grow">Sistemas de respuesta inteligente para WhatsApp, web y redes sociales. Tu negocio atiende y cualifica leads las 24 horas.</p>
                     <p class="text-[13px] text-primary/90 italic mt-4 pt-4 border-t border-gray-200 dark:border-white/10 leading-relaxed">
                         Por ejemplo: una clínica que gestiona 60 llamadas semanales puede automatizar la reserva de citas sin intervención humana.
                     </p>
@@ -893,7 +492,7 @@
                         <i class="ph-fill ph-megaphone text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-heading text-gray-900 dark:text-white font-medium mb-3">Generación de contenido con IA</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed flex-grow">Herramientas de creación y optimización de contenido, campañas y comunicaciones integradas en tu marketing.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed flex-grow">Herramientas de creación y optimización de contenido, campañas y comunicaciones integradas en tu marketing.</p>
                     <p class="text-[13px] text-primary/90 italic mt-4 pt-4 border-t border-gray-200 dark:border-white/10 leading-relaxed">
                         Por ejemplo: una tienda online que publica en redes puede generar y programar contenido semanal de forma automática.
                     </p>
@@ -907,7 +506,7 @@
                         <i class="ph-fill ph-chart-bar text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-heading text-gray-900 dark:text-white font-medium mb-3">Analítica e inteligencia de negocio</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed flex-grow">Sistemas que procesan tus datos de ventas, clientes y operaciones para darte información útil en tiempo real.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed flex-grow">Sistemas que procesan tus datos de ventas, clientes y operaciones para darte información útil en tiempo real.</p>
                     <p class="text-[13px] text-primary/90 italic mt-4 pt-4 border-t border-gray-200 dark:border-white/10 leading-relaxed">
                         Por ejemplo: un comercio puede saber qué productos tienen más salida por temporada y ajustar su stock automáticamente.
                     </p>
@@ -921,7 +520,7 @@
                         <i class="ph-fill ph-file-pdf text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-heading text-gray-900 dark:text-white font-medium mb-3">Facturación y gestión documental</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed flex-grow">Software con IA para automatizar la facturación electrónica, gestión documental y procesos administrativos.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed flex-grow">Software con IA para automatizar la facturación electrónica, gestión documental y procesos administrativos.</p>
                     <p class="text-[13px] text-primary/90 italic mt-4 pt-4 border-t border-gray-200 dark:border-white/10 leading-relaxed">
                         Por ejemplo: un autónomo que dedica 4 horas semanales a facturación puede reducirlo a 30 minutos.
                     </p>
@@ -941,8 +540,8 @@
                             Tipologías oficiales de la convocatoria (Decreto 173/2025)
                         </h3>
                     </div>
-                    <div class="p-6 md:p-8 bg-bgSurface/50">
-                        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-8 text-sm text-textSecondary">
+                    <div class="p-6 md:p-8 bg-white dark:bg-bgSurface/50">
+                        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-8 text-sm text-gray-600 dark:text-textSecondary">
                             <li class="flex items-start gap-2"><i class="ph-bold ph-check text-primary mt-1"></i> Chatbots y Asistentes Virtuales</li>
                             <li class="flex items-start gap-2"><i class="ph-bold ph-check text-primary mt-1"></i> Análisis Predictivo</li>
                             <li class="flex items-start gap-2"><i class="ph-bold ph-check text-primary mt-1"></i> Sistemas de Recomendación</li>
@@ -966,7 +565,7 @@
         </div>
     </section>
 
-    <section class="py-24 relative z-10 bg-bgSurface/50 border-t border-amber-500/20 overflow-hidden with-glow shadow-[inset_0_0_100px_rgba(245,158,11,0.05)]">
+    <section class="py-24 relative z-10 bg-white dark:bg-bgSurface/50 border-t border-amber-500/20 overflow-hidden with-glow shadow-[inset_0_0_100px_rgba(245,158,11,0.05)]">
         <div class="absolute inset-0 bg-gradient-to-b from-amber-500/5 via-transparent to-bgMain z-[-1] pointer-events-none"></div>
         <div class="max-w-5xl mx-auto px-6 reveal-up">
             <div class="glass-card border-amber-500/30 p-8 md:p-12 rounded-[3rem] relative shadow-[0_20px_50px_rgba(0,0,0,0.4)] overflow-hidden flex flex-col gap-8 items-center text-center">
@@ -989,7 +588,7 @@
         </div>
     </section>
 
-    <section class="py-32 relative z-10 bg-bgMain border-t border-gray-200 dark:border-white/5 with-glow">
+    <section class="py-32 relative z-10 bg-white dark:bg-bgMain border-t border-gray-200 dark:border-white/5 with-glow">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-20 reveal-up">
                 <h2 class="font-heading text-4xl md:text-5xl font-medium text-gray-900 dark:text-white mb-6">Cuatro pasos. <span class="text-gradient-primary">Nos encargamos nosotros.</span></h2>
@@ -1002,7 +601,7 @@
                         <i class="ph-fill ph-paper-plane-tilt text-3xl text-primary"></i>
                     </div>
                     <h3 class="text-xl font-heading font-medium text-gray-900 dark:text-white mb-3">1 · Contacto hoy</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed px-2">Rellenas el formulario o nos escribes ahora mismo. Solo necesitamos saber a qué se dedica tu negocio.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed px-2">Rellenas el formulario o nos escribes ahora mismo. Solo necesitamos saber a qué se dedica tu negocio.</p>
                     
                     <div class="hidden lg:block absolute top-10 -right-6 text-gray-400 dark:text-white/10 text-2xl translate-x-1/2 -translate-y-1/2">
                         <i class="ph-bold ph-arrow-right"></i>
@@ -1014,7 +613,7 @@
                         <i class="ph-fill ph-clock-countdown text-3xl text-primary"></i>
                     </div>
                     <h3 class="text-xl font-heading font-medium text-gray-900 dark:text-white mb-3">2 · Diagnóstico urgente</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed px-2">Analizamos si tu caso aplica y qué herramientas de IA tienen más sentido para tu negocio y tu operativa real.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed px-2">Analizamos si tu caso aplica y qué herramientas de IA tienen más sentido para tu negocio y tu operativa real.</p>
                     
                     <div class="hidden lg:block absolute top-10 -right-6 text-gray-400 dark:text-white/10 text-2xl translate-x-1/2 -translate-y-1/2">
                         <i class="ph-bold ph-arrow-right"></i>
@@ -1026,7 +625,7 @@
                         <i class="ph-fill ph-file-text text-3xl text-primary"></i>
                     </div>
                     <h3 class="text-xl font-heading font-medium text-gray-900 dark:text-white mb-3">3 · Solicitud inmediata</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed px-2">Preparamos toda la documentación y presentamos la solicitud antes del 17 de junio. Tú revisas y firmas.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed px-2">Preparamos toda la documentación y presentamos la solicitud antes del 17 de junio. Tú revisas y firmas.</p>
                     
                     <div class="hidden lg:block absolute top-10 -right-6 text-gray-400 dark:text-white/10 text-2xl translate-x-1/2 -translate-y-1/2">
                         <i class="ph-bold ph-arrow-right"></i>
@@ -1038,7 +637,7 @@
                         <i class="ph-fill ph-rocket-launch text-3xl text-gray-900 dark:text-white"></i>
                     </div>
                     <h3 class="text-xl font-heading font-medium text-gray-900 dark:text-white mb-3">4 · Ejecución del proyecto</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed px-2">Una vez concedida la ayuda, implantamos las herramientas acordadas. No tienes que buscar ni coordinar a nadie más.</p>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed px-2">Una vez concedida la ayuda, implantamos las herramientas acordadas. No tienes que buscar ni coordinar a nadie más.</p>
                 </div>
 
             </div>
@@ -1051,11 +650,11 @@
         </div>
     </section>
 
-    <section class="py-24 relative z-10 bg-bgSurface/30 border-t border-gray-200 dark:border-white/5 with-glow">
+    <section class="py-24 relative z-10 bg-gray-50 dark:bg-bgSurface/30 border-t border-gray-200 dark:border-white/5 with-glow">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-16 reveal-up">
                 <h2 class="font-heading text-3xl md:text-5xl font-medium text-gray-900 dark:text-white mb-4">Resolvemos tus dudas ahora</h2>
-                <p class="text-textSecondary text-lg">Preguntas frecuentes sobre la subvención y el proceso.</p>
+                <p class="text-gray-600 dark:text-textSecondary text-lg">Preguntas frecuentes sobre la subvención y el proceso.</p>
             </div>
             
             <div class="grid grid-cols-1 gap-4 reveal-up delay-100">
@@ -1072,7 +671,7 @@
                             <i class="ph-bold ph-caret-down text-gray-600 dark:text-white/50 faq-icon text-xl flex-shrink-0 ml-4"></i>
                         </button>
                         <div class="faq-answer px-6 md:px-8 bg-gray-100 dark:bg-white/5">
-                            <p class="text-sm md:text-base text-textSecondary leading-relaxed">Aplica a cualquier pyme o autónomo con actividad en Extremadura. No necesitas ser una empresa tecnológica. Las herramientas de IA más subvencionables son precisamente las más prácticas: automatización de clientes, facturación, atención automática y análisis de datos. En el diagnóstico te decimos exactamente qué encaja con tu negocio.</p>
+                            <p class="text-sm md:text-base text-gray-600 dark:text-textSecondary leading-relaxed">Aplica a cualquier pyme o autónomo con actividad en Extremadura. No necesitas ser una empresa tecnológica. Las herramientas de IA más subvencionables son precisamente las más prácticas: automatización de clientes, facturación, atención automática y análisis de datos. En el diagnóstico te decimos exactamente qué encaja con tu negocio.</p>
                         </div>
                     </div>
 
@@ -1085,7 +684,7 @@
                             <i class="ph-bold ph-caret-down text-gray-600 dark:text-white/50 faq-icon text-xl flex-shrink-0 ml-4"></i>
                         </button>
                         <div class="faq-answer px-6 md:px-8 bg-gray-100 dark:bg-white/5">
-                            <p class="text-sm md:text-base text-textSecondary leading-relaxed">No. La Junta adelanta el 60% del importe subvencionado tras la concesión, sin exigir garantías. El resto llega tras la justificación del proyecto.</p>
+                            <p class="text-sm md:text-base text-gray-600 dark:text-textSecondary leading-relaxed">No. La Junta adelanta el 60% del importe subvencionado tras la concesión, sin exigir garantías. El resto llega tras la justificación del proyecto.</p>
                         </div>
                     </div>
 
@@ -1098,7 +697,7 @@
                             <i class="ph-bold ph-caret-down text-gray-600 dark:text-white/50 faq-icon text-xl flex-shrink-0 ml-4"></i>
                         </button>
                         <div class="faq-answer px-6 md:px-8 bg-gray-100 dark:bg-white/5">
-                            <p class="text-sm md:text-base text-textSecondary leading-relaxed">El mínimo no está fijado. Lo que sí está claro es que la subvención cubre el 85% de lo que inviertas en herramientas de IA, hasta 100.000€. Cualquier implantación real justifica la solicitud.</p>
+                            <p class="text-sm md:text-base text-gray-600 dark:text-textSecondary leading-relaxed">El mínimo no está fijado. Lo que sí está claro es que la subvención cubre el 85% de lo que inviertas en herramientas de IA, hasta 100.000€. Cualquier implantación real justifica la solicitud.</p>
                         </div>
                     </div>
 
@@ -1111,7 +710,7 @@
                             <i class="ph-bold ph-caret-down text-gray-600 dark:text-white/50 faq-icon text-xl flex-shrink-0 ml-4"></i>
                         </button>
                         <div class="faq-answer px-6 md:px-8 bg-gray-100 dark:bg-white/5">
-                            <p class="text-sm md:text-base text-textSecondary leading-relaxed">Sí. La convocatoria incluye expresamente como gasto subvencionable la formación necesaria para el uso de las herramientas implantadas. Esto significa que el coste de formar a tu equipo forma parte del proyecto y entra dentro del 85% financiado.</p>
+                            <p class="text-sm md:text-base text-gray-600 dark:text-textSecondary leading-relaxed">Sí. La convocatoria incluye expresamente como gasto subvencionable la formación necesaria para el uso de las herramientas implantadas. Esto significa que el coste de formar a tu equipo forma parte del proyecto y entra dentro del 85% financiado.</p>
                         </div>
                     </div>
 
@@ -1124,7 +723,7 @@
                             <i class="ph-bold ph-caret-down text-gray-600 dark:text-white/50 faq-icon text-xl flex-shrink-0 ml-4"></i>
                         </button>
                         <div class="faq-answer px-6 md:px-8 bg-gray-100 dark:bg-white/5">
-                            <p class="text-sm md:text-base text-textSecondary leading-relaxed">Es exactamente por eso que existimos. Si nos contactas hoy, gestionamos la solicitud completa antes del cierre. Tu único esfuerzo es rellenar el formulario abajo.</p>
+                            <p class="text-sm md:text-base text-gray-600 dark:text-textSecondary leading-relaxed">Es exactamente por eso que existimos. Si nos contactas hoy, gestionamos la solicitud completa antes del cierre. Tu único esfuerzo es rellenar el formulario abajo.</p>
                         </div>
                     </div>
 
@@ -1133,7 +732,7 @@
         </div>
     </section>
 
-    <section id="contacto" class="py-32 relative bg-bgMain border-t border-amber-500/20 with-glow">
+    <section id="contacto" class="py-32 relative bg-white dark:bg-bgMain border-t border-amber-500/20 with-glow">
         <div class="max-w-7xl mx-auto px-6 reveal-up">
             <div class="glass-card rounded-[3rem] p-8 md:p-16 border-amber-500/30 bg-gradient-to-br from-bgSurface to-bgMain overflow-hidden relative shadow-[0_30px_60px_rgba(245,158,11,0.1)]">
                 <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/10 blur-[150px] rounded-full pointer-events-none"></div>
@@ -1154,7 +753,7 @@
                             <!-- FASE 1: Situación Actual -->
                             <div class="form-step active flex-col flex-grow" data-step="1">
                                 <h3 class="text-xl font-heading text-gray-900 dark:text-white mb-2">1 <i class="ph ph-arrow-right text-primary align-middle text-lg mx-1"></i> ¿Cuál es tu situación actual?</h3>
-                                <p class="text-sm text-textSecondary mb-4">Ayúdanos a entender tu punto de partida.</p>
+                                <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Ayúdanos a entender tu punto de partida.</p>
                                 
                                 <div class="space-y-4 overflow-y-auto max-h-[350px] pr-2 custom-scrollbar">
                                     <div>
@@ -1190,7 +789,7 @@
                             <!-- FASE 2: Viabilidad rápida -->
                             <div class="form-step flex-col flex-grow" data-step="2">
                                 <h3 class="text-xl font-heading text-gray-900 dark:text-white mb-2">2 <i class="ph ph-arrow-right text-primary align-middle text-lg mx-1"></i> Filtro de viabilidad</h3>
-                                <p class="text-sm text-textSecondary mb-4">Comprobemos si cumples los requisitos de la Junta.</p>
+                                <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Comprobemos si cumples los requisitos de la Junta.</p>
                                 
                                 <div class="space-y-6 overflow-y-auto max-h-[350px] pr-2 custom-scrollbar">
                                     <div>
@@ -1302,7 +901,7 @@
 
                                     <div class="flex items-start gap-3 mt-4 px-1">
                                         <input type="checkbox" id="check-priv-ayudas" name="Privacidad" value="Aceptada" required class="mt-1 w-4 h-4 accent-primary cursor-pointer">
-                                        <label for="check-priv-ayudas" class="text-xs text-textSecondary leading-tight cursor-pointer italic">He leído y acepto la <a href="/privacidad" target="_blank" class="underline hover:text-white transition-colors">política de privacidad</a> y autorizo el análisis viabilidad.</label>
+                                        <label for="check-priv-ayudas" class="text-xs text-gray-600 dark:text-textSecondary leading-tight cursor-pointer italic">He leído y acepto la <a href="/privacidad" target="_blank" class="underline hover:text-white transition-colors">política de privacidad</a> y autorizo el análisis viabilidad.</label>
                                     </div>
                                 </div>
                                 
@@ -1321,9 +920,9 @@
     </section>
 
     <!-- DOCUMENTACIÓN OFICIAL -->
-    <section class="py-16 relative z-10 bg-bgMain border-t border-gray-200 dark:border-white/5">
+    <section class="py-16 relative z-10 bg-white dark:bg-bgMain border-t border-gray-200 dark:border-white/5">
         <div class="max-w-7xl mx-auto px-6 reveal-up">
-            <h2 class="text-xs font-bold text-textSecondary uppercase tracking-[0.2em] mb-12">DOCUMENTACIÓN OFICIAL DE LA CONVOCATORIA</h2>
+            <h2 class="text-xs font-bold text-gray-600 dark:text-textSecondary uppercase tracking-[0.2em] mb-12">DOCUMENTACIÓN OFICIAL DE LA CONVOCATORIA</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                 <!-- Columna Izquierda: Imagen Oficial (sin recuadros) -->
@@ -1333,17 +932,17 @@
 
                 <!-- Columna Derecha: Enlaces en texto simple -->
                 <div class="md:col-span-7 lg:col-span-6 space-y-6">
-                    <a href="https://doe.juntaex.es/pdfs/doe/2026/130o/25040295.pdf" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 text-textSecondary hover:text-white transition-colors group">
+                    <a href="https://doe.juntaex.es/pdfs/doe/2026/130o/25040295.pdf" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 text-gray-600 dark:text-textSecondary hover:text-white transition-colors group">
                         <i class="ph-bold ph-arrow-up-right text-xl text-primary flex-shrink-0 mt-0.5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
                         <p class="text-sm md:text-base leading-relaxed"><strong class="text-gray-900 dark:text-white">Noticia oficial (DOE):</strong> Decreto 173/2025, de 9 de diciembre, por el que se establecen las bases reguladoras y se aprueba la primera convocatoria.</p>
                     </a>
 
-                    <a href="https://www.juntaex.es/w/0714925" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 text-textSecondary hover:text-white transition-colors group">
+                    <a href="https://www.juntaex.es/w/0714925" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 text-gray-600 dark:text-textSecondary hover:text-white transition-colors group">
                         <i class="ph-bold ph-arrow-up-right text-xl text-primary flex-shrink-0 mt-0.5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
                         <p class="text-sm md:text-base leading-relaxed"><strong class="text-gray-900 dark:text-white">Ficha del trámite en la Junta de Extremadura:</strong> Consulta los requisitos, documentación obligatoria y plazos en la sede oficial de la Junta de Extremadura.</p>
                     </a>
 
-                    <a href="https://tramites.juntaex.es/sta/reg/auth/es/6269000040870878407984" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 text-textSecondary hover:text-white transition-colors group">
+                    <a href="https://tramites.juntaex.es/sta/reg/auth/es/6269000040870878407984" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 text-gray-600 dark:text-textSecondary hover:text-white transition-colors group">
                         <i class="ph-bold ph-arrow-up-right text-xl text-primary flex-shrink-0 mt-0.5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
                         <p class="text-sm md:text-base leading-relaxed"><strong class="text-gray-900 dark:text-white">Sede electrónica — Tramitación online:</strong> Tramitación online directa en la sede electrónica de la Junta de Extremadura.</p>
                     </a>

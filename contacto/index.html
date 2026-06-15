@@ -40,7 +40,8 @@
     <style>
         body { transition: background-color 0.3s ease, color 0.3s ease; }
 
-        body { background-color: #0A0A0F; color: #F5F7FA; overflow-x: hidden; }
+        .dark body { background-color: #0A0A0F; color: #F5F7FA; }
+        body { background-color: #f9fafb; color: #111827; overflow-x: hidden; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0A0A0F; }
         ::-webkit-scrollbar-thumb { background: #14141F; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
@@ -86,7 +87,7 @@
         }
     </script>
 </head>
-<body class="antialiased selection:bg-primary selection:text-white relative bg-grid-pattern bg-fixed">
+<body class="antialiased selection:bg-primary selection:text-white relative bg-grid-pattern bg-fixed bg-gray-50 dark:bg-bgMain text-gray-900 dark:text-textMain">
                                                             <!-- BARRA DE ANUNCIO GLOBAL -->
         <div class="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
         <header class="w-full max-w-5xl backdrop-blur-xl bg-white/80 dark:bg-white/[0.02] border border-gray-200 dark:border-white/10 rounded-full flex items-center justify-between px-6 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.05)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-colors duration-300">
@@ -260,408 +261,6 @@
         </div>
     </div>
 
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-
     <!-- HERO SECTION -->
     <section class="relative pt-32 pb-16 overflow-hidden bg-grid-pattern border-b border-gray-200 dark:border-white/5">
         <div class="absolute top-[20%] left-[10%] w-[40vw] h-[40vw] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-[0]"></div>
@@ -674,7 +273,7 @@
             <h1 class="font-heading text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight mb-6 text-gray-900 dark:text-white">
                 <span class="text-gradient-primary">Contacto</span>
             </h1>
-            <p class="text-lg md:text-xl text-textSecondary leading-relaxed mb-8 max-w-2xl mx-auto">
+            <p class="text-lg md:text-xl text-gray-600 dark:text-textSecondary leading-relaxed mb-8 max-w-2xl mx-auto">
                 Si quieres que tu marca conecte mejor y avance con foco, cuéntanos qué necesitas y te respondemos con una propuesta clara y a medida. Contáctanos y te respondemos en <strong class="text-gray-900 dark:text-white font-medium">menos de 24 horas</strong>.
             </p>
         </div>
@@ -687,7 +286,7 @@
                 <div class="lg:col-span-7 reveal-up delay-100">
                     <div class="mb-8">
                         <h2 class="font-heading text-3xl md:text-4xl font-medium text-gray-900 dark:text-white mb-2">Cuéntanos qué tienes en mente</h2>
-                        <p class="text-textSecondary">Déjanos tus datos y te contactamos.</p>
+                        <p class="text-gray-600 dark:text-textSecondary">Déjanos tus datos y te contactamos.</p>
                     </div>
 
                     <form id="proemote-form-contact" class="proemote-form glass-form tilt-effect p-8 md:p-10 rounded-[2.5rem] space-y-6 shadow-2xl" style="will-change: transform;">
@@ -711,7 +310,7 @@
                             <div class="space-y-2">
                                 <label class="text-sm font-medium text-gray-700 dark:text-white/80 block">Número de teléfono</label>
                                 <input type="tel" name="Telefono" class="w-full bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl px-5 py-4 text-gray-900 dark:text-white placeholder-white/30 focus:outline-none focus:border-primary transition-all shadow-inner" placeholder="+34 600 000 000">
-                                <p class="text-[11px] text-textSecondary mt-1">Solo para contactar contigo, cero spam.</p>
+                                <p class="text-[11px] text-gray-600 dark:text-textSecondary mt-1">Solo para contactar contigo, cero spam.</p>
                             </div>
                             <div class="space-y-2">
                                 <label class="text-sm font-medium text-gray-700 dark:text-white/80 block">Empresa</label>
@@ -745,7 +344,7 @@
                         
                         <div class="flex items-start gap-3 px-2 pt-2">
                             <input type="checkbox" id="check-priv-contact" name="Privacidad" value="Aceptada" required class="mt-1 w-4 h-4 accent-primary cursor-pointer">
-                            <label for="check-priv-contact" class="text-sm text-textSecondary leading-tight cursor-pointer italic">He leído y acepto la <a href="/privacidad" target="_blank" class="text-primary hover:text-accent underline decoration-primary/30">política de privacidad</a>.</label>
+                            <label for="check-priv-contact" class="text-sm text-gray-600 dark:text-textSecondary leading-tight cursor-pointer italic">He leído y acepto la <a href="/privacidad" target="_blank" class="text-primary hover:text-accent underline decoration-primary/30">política de privacidad</a>.</label>
                         </div>
                         
                         <button type="submit" class="w-full py-4 mt-4 bg-primary text-white font-bold rounded-xl hover:bg-accent transition-all flex items-center justify-center gap-2 group btn-submit shadow-[0_0_20px_rgba(123,97,255,0.3)]">
@@ -760,7 +359,7 @@
                     
                     <div class="glass-card p-8 md:p-10 rounded-[2.5rem] border-gray-200 dark:border-white/5">
                         <h3 class="font-heading text-2xl font-medium text-gray-900 dark:text-white mb-2">Envíanos un mensaje</h3>
-                        <p class="text-sm text-textSecondary mb-8 leading-relaxed">Puedes contactar con nosotros a través del formulario o a través de las siguientes direcciones directamente.</p>
+                        <p class="text-sm text-gray-600 dark:text-textSecondary mb-8 leading-relaxed">Puedes contactar con nosotros a través del formulario o a través de las siguientes direcciones directamente.</p>
                         
                         <div class="space-y-6">
                             <div class="flex items-start gap-4">
@@ -769,7 +368,7 @@
                                 </div>
                                 <div>
                                     <h4 class="text-gray-900 dark:text-white font-medium mb-1">Dirección</h4>
-                                    <p class="text-sm text-textSecondary leading-relaxed">Calle Vicente Barrantes, 7<br>06800 Mérida (Badajoz)<br>Extremadura</p>
+                                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">Calle Vicente Barrantes, 7<br>06800 Mérida (Badajoz)<br>Extremadura</p>
                                 </div>
                             </div>
 
@@ -797,7 +396,7 @@
                         <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent z-0 pointer-events-none"></div>
                         <div class="relative z-10">
                             <h3 class="font-heading text-2xl font-medium text-gray-900 dark:text-white mb-4">¿Aún no eres cliente?</h3>
-                            <p class="text-sm text-textSecondary leading-relaxed mb-8">
+                            <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed mb-8">
                                 Solicita tu primera reunión de 30 minutos <strong class="text-gray-900 dark:text-white">totalmente gratis</strong>. En esta sesión, evaluaremos tus necesidades actuales y te ofreceremos un plan de acción ajustado a tu negocio (sin ningún compromiso).
                             </p>
                             <button data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view"}' class="w-full py-4 bg-white text-bgMain font-bold rounded-xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2 shadow-lg focus:outline-none">
@@ -811,18 +410,18 @@
         </div>
     </section>
 
-    <div class="w-full border-t border-gray-200 dark:border-white/5 bg-bgSurface/50 py-4 mt-16 relative z-10">
+    <div class="w-full border-t border-gray-200 dark:border-white/5 bg-white dark:bg-bgSurface/50 py-4 mt-16 relative z-10">
         <div class="max-w-7xl mx-auto px-6 flex justify-center text-center reveal-up">
-            <p class="text-[13px] md:text-[14px] text-textSecondary font-medium flex items-center justify-center gap-2 flex-wrap">
+            <p class="text-[13px] md:text-[14px] text-gray-600 dark:text-textSecondary font-medium flex items-center justify-center gap-2 flex-wrap">
                 <span class="text-[#F59E0B] text-base tracking-widest leading-none mt-[-2px]">★★★★★</span>
                 <span><strong class="text-gray-900 dark:text-white">4,9 sobre 5 en Google</strong> · Basado en reseñas verificadas de clientes</span>
             </p>
         </div>
     </div>
 
-    <section class="py-16 bg-bgMain relative z-10 border-b border-gray-200 dark:border-white/5 overflow-hidden">
+    <section class="py-16 bg-white dark:bg-bgMain relative z-10 border-b border-gray-200 dark:border-white/5 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 mb-10 reveal-up">
-            <p class="text-center text-xs font-bold tracking-[0.2em] text-textSecondary uppercase">Algunos de <span class="text-primary">los clientes</span> con los que hemos trabajado</p>
+            <p class="text-center text-xs font-bold tracking-[0.2em] text-gray-600 dark:text-textSecondary uppercase">Algunos de <span class="text-primary">los clientes</span> con los que hemos trabajado</p>
         </div>
         <div id="logos-container" class="relative w-full flex items-center overflow-x-auto hide-scrollbar cursor-grab [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
             <div id="logos-track" class="flex w-max items-center gap-16 md:gap-24 px-8 py-4">
@@ -858,19 +457,19 @@
         </div>
     </section>
 
-    <section class="py-24 relative bg-bgMain border-t border-gray-200 dark:border-white/5 overflow-hidden">
+    <section class="py-24 relative bg-white dark:bg-bgMain border-t border-gray-200 dark:border-white/5 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 reveal-up">
             <div class="text-center mb-16">
                 <span class="text-xs font-bold tracking-[0.2em] text-primary uppercase mb-4 block">Trustindex® 12 reseñas</span>
                 <h2 class="font-heading text-3xl md:text-5xl font-medium text-gray-900 dark:text-white mb-4">Opiniones de nuestros clientes</h2>
-                <p class="text-textSecondary text-lg">Estas son algunas reseñas reales sobre nuestros servicios.</p>
+                <p class="text-gray-600 dark:text-textSecondary text-lg">Estas son algunas reseñas reales sobre nuestros servicios.</p>
             </div>
             
             <div class="relative group">
-                <button id="prev-review" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 md:-translate-x-6 z-10 w-12 h-12 rounded-full bg-bgSurface border border-gray-200 dark:border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all shadow-xl hover:bg-primary hover:border-primary hidden md:flex focus:outline-none">
+                <button id="prev-review" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 md:-translate-x-6 z-10 w-12 h-12 rounded-full bg-white dark:bg-bgSurface border border-gray-200 dark:border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all shadow-xl hover:bg-primary hover:border-primary hidden md:flex focus:outline-none">
                     <i class="ph ph-caret-left text-xl"></i>
                 </button>
-                <button id="next-review" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 md:translate-x-6 z-10 w-12 h-12 rounded-full bg-bgSurface border border-gray-200 dark:border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all shadow-xl hover:bg-primary hover:border-primary hidden md:flex focus:outline-none">
+                <button id="next-review" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 md:translate-x-6 z-10 w-12 h-12 rounded-full bg-white dark:bg-bgSurface border border-gray-200 dark:border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all shadow-xl hover:bg-primary hover:border-primary hidden md:flex focus:outline-none">
                     <i class="ph ph-caret-right text-xl"></i>
                 </button>
 
@@ -886,7 +485,7 @@
                                 <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold font-heading text-sm">NS</div>
                                 <div>
                                     <h4 class="text-gray-900 dark:text-white font-medium text-sm">Noemí Sánchez Menaya</h4>
-                                    <p class="text-[11px] text-textSecondary">hace 1 mes</p>
+                                    <p class="text-[11px] text-gray-600 dark:text-textSecondary">hace 1 mes</p>
                                 </div>
                             </div>
                             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-5 h-5 opacity-80">
@@ -903,7 +502,7 @@
                                 <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold font-heading text-sm">LL</div>
                                 <div>
                                     <h4 class="text-gray-900 dark:text-white font-medium text-sm">Limpiezas Lusitania</h4>
-                                    <p class="text-[11px] text-textSecondary">hace 2 meses</p>
+                                    <p class="text-[11px] text-gray-600 dark:text-textSecondary">hace 2 meses</p>
                                 </div>
                             </div>
                             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-5 h-5 opacity-80">
@@ -920,7 +519,7 @@
                                 <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold font-heading text-sm">AG</div>
                                 <div>
                                     <h4 class="text-gray-900 dark:text-white font-medium text-sm">ana gorostegui</h4>
-                                    <p class="text-[11px] text-textSecondary">hace 2 meses</p>
+                                    <p class="text-[11px] text-gray-600 dark:text-textSecondary">hace 2 meses</p>
                                 </div>
                             </div>
                             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-5 h-5 opacity-80">
@@ -937,7 +536,7 @@
                                 <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold font-heading text-sm">JM</div>
                                 <div>
                                     <h4 class="text-gray-900 dark:text-white font-medium text-sm">Juana María Ramos Marrero</h4>
-                                    <p class="text-[11px] text-textSecondary">hace 3 meses</p>
+                                    <p class="text-[11px] text-gray-600 dark:text-textSecondary">hace 3 meses</p>
                                 </div>
                             </div>
                             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-5 h-5 opacity-80">
@@ -954,7 +553,7 @@
                                 <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold font-heading text-sm">JX</div>
                                 <div>
                                     <h4 class="text-gray-900 dark:text-white font-medium text-sm">JoveNEXT</h4>
-                                    <p class="text-[11px] text-textSecondary">hace 3 meses</p>
+                                    <p class="text-[11px] text-gray-600 dark:text-textSecondary">hace 3 meses</p>
                                 </div>
                             </div>
                             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-5 h-5 opacity-80">
@@ -971,7 +570,7 @@
                                 <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold font-heading text-sm">AM</div>
                                 <div>
                                     <h4 class="text-gray-900 dark:text-white font-medium text-sm">Asociación Meridia</h4>
-                                    <p class="text-[11px] text-textSecondary">hace 6 meses</p>
+                                    <p class="text-[11px] text-gray-600 dark:text-textSecondary">hace 6 meses</p>
                                 </div>
                             </div>
                             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-5 h-5 opacity-80">
@@ -988,7 +587,7 @@
                                 <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold font-heading text-sm">SC</div>
                                 <div>
                                     <h4 class="text-gray-900 dark:text-white font-medium text-sm">Sandra Cerrada Sanchez</h4>
-                                    <p class="text-[11px] text-textSecondary">hace 6 meses</p>
+                                    <p class="text-[11px] text-gray-600 dark:text-textSecondary">hace 6 meses</p>
                                 </div>
                             </div>
                             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-5 h-5 opacity-80">
@@ -1005,7 +604,7 @@
                                 <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold font-heading text-sm">GR</div>
                                 <div>
                                     <h4 class="text-gray-900 dark:text-white font-medium text-sm">Gabriel Romero Pérez</h4>
-                                    <p class="text-[11px] text-textSecondary">hace 6 meses</p>
+                                    <p class="text-[11px] text-gray-600 dark:text-textSecondary">hace 6 meses</p>
                                 </div>
                             </div>
                             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-5 h-5 opacity-80">
@@ -1022,7 +621,7 @@
                                 <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold font-heading text-sm">AN</div>
                                 <div>
                                     <h4 class="text-gray-900 dark:text-white font-medium text-sm">Alexandro Navarro</h4>
-                                    <p class="text-[11px] text-textSecondary">hace 9 meses</p>
+                                    <p class="text-[11px] text-gray-600 dark:text-textSecondary">hace 9 meses</p>
                                 </div>
                             </div>
                             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-5 h-5 opacity-80">
@@ -1039,7 +638,7 @@
                                 <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold font-heading text-sm">AO</div>
                                 <div>
                                     <h4 class="text-gray-900 dark:text-white font-medium text-sm">A one</h4>
-                                    <p class="text-[11px] text-textSecondary">hace 10 meses</p>
+                                    <p class="text-[11px] text-gray-600 dark:text-textSecondary">hace 10 meses</p>
                                 </div>
                             </div>
                             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-5 h-5 opacity-80">
@@ -1049,17 +648,17 @@
                 </div>
             </div>
             
-            <div class="mt-8 flex justify-center items-center gap-2 text-textSecondary text-sm">
+            <div class="mt-8 flex justify-center items-center gap-2 text-gray-600 dark:text-textSecondary text-sm">
                 <i class="ph ph-arrows-left-right"></i> Desliza para ver más
             </div>
         </div>
     </section>
 
-    <section class="py-24 relative bg-bgSurface border-t border-gray-200 dark:border-white/5">
+    <section class="py-24 relative bg-white dark:bg-bgSurface border-t border-gray-200 dark:border-white/5">
         <div class="max-w-6xl mx-auto px-6 reveal-up">
             <div class="text-center mb-16">
                 <h2 class="font-heading text-3xl md:text-5xl font-medium text-gray-900 dark:text-white mb-4">Preguntas Frecuentes</h2>
-                <p class="text-textSecondary text-lg">Resolvemos las dudas de contacto antes de empezar.</p>
+                <p class="text-gray-600 dark:text-textSecondary text-lg">Resolvemos las dudas de contacto antes de empezar.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 items-start">
@@ -1068,11 +667,11 @@
                     <div class="border-b border-gray-200 dark:border-white/10 faq-item">
                         <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
                             <span class="text-lg font-medium text-gray-900 dark:text-white group-hover:text-primary transition-colors pr-8">¿Qué información debo incluir en el formulario para que me ayudéis mejor?</span>
-                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                            <i class="ph ph-caret-down text-gray-600 dark:text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
                         </button>
                         <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
                             <div class="overflow-hidden">
-                                <p class="text-textSecondary pb-6 leading-relaxed">Cuéntanos tu objetivo (qué quieres lograr), tu punto de partida (en qué estás ahora) y cualquier detalle clave: sector, plazos y presupuesto aproximado si lo tienes.</p>
+                                <p class="text-gray-600 dark:text-textSecondary pb-6 leading-relaxed">Cuéntanos tu objetivo (qué quieres lograr), tu punto de partida (en qué estás ahora) y cualquier detalle clave: sector, plazos y presupuesto aproximado si lo tienes.</p>
                             </div>
                         </div>
                     </div>
@@ -1080,11 +679,11 @@
                     <div class="border-b border-gray-200 dark:border-white/10 faq-item">
                         <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
                             <span class="text-lg font-medium text-gray-900 dark:text-white group-hover:text-primary transition-colors pr-8">¿La primera toma de contacto tiene coste?</span>
-                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                            <i class="ph ph-caret-down text-gray-600 dark:text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
                         </button>
                         <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
                             <div class="overflow-hidden">
-                                <p class="text-textSecondary pb-6 leading-relaxed">No. La primera sesión de 30 minutos es una auditoría totalmente gratuita donde evaluamos tu situación y te decimos con honestidad si podemos ayudarte y cómo. Sin letra pequeña ni compromiso.</p>
+                                <p class="text-gray-600 dark:text-textSecondary pb-6 leading-relaxed">No. La primera sesión de 30 minutos es una auditoría totalmente gratuita donde evaluamos tu situación y te decimos con honestidad si podemos ayudarte y cómo. Sin letra pequeña ni compromiso.</p>
                             </div>
                         </div>
                     </div>
@@ -1092,11 +691,11 @@
                     <div class="border-b border-gray-200 dark:border-white/10 faq-item">
                         <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
                             <span class="text-lg font-medium text-gray-900 dark:text-white group-hover:text-primary transition-colors pr-8">¿Podéis ayudarme aunque no tenga claro qué necesito?</span>
-                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                            <i class="ph ph-caret-down text-gray-600 dark:text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
                         </button>
                         <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
                             <div class="overflow-hidden">
-                                <p class="text-textSecondary pb-6 leading-relaxed">Por supuesto. Gran parte de nuestro trabajo es precisamente la auditoría estratégica inicial. Analizamos tu ecosistema y te proponemos la hoja de ruta que realmente necesitas para crecer, no la que crees que necesitas.</p>
+                                <p class="text-gray-600 dark:text-textSecondary pb-6 leading-relaxed">Por supuesto. Gran parte de nuestro trabajo es precisamente la auditoría estratégica inicial. Analizamos tu ecosistema y te proponemos la hoja de ruta que realmente necesitas para crecer, no la que crees que necesitas.</p>
                             </div>
                         </div>
                     </div>
@@ -1106,11 +705,11 @@
                     <div class="border-b border-gray-200 dark:border-white/10 faq-item">
                         <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
                             <span class="text-lg font-medium text-gray-900 dark:text-white group-hover:text-primary transition-colors pr-8">¿Ofrecéis presupuestos cerrados o planes mensuales?</span>
-                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                            <i class="ph ph-caret-down text-gray-600 dark:text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
                         </button>
                         <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
                             <div class="overflow-hidden">
-                                <p class="text-textSecondary pb-6 leading-relaxed">Trabajamos por proyectos y entregables estratégicos (ej. Ecosistema Web, Branding). Sabrás desde el primer minuto qué activos vas a recibir y con qué inversión exacta. Para áreas de crecimiento (Gestión de Redes, Paid Media, SEO), sí trabajamos con integraciones recurrentes enfocadas a rendimiento.</p>
+                                <p class="text-gray-600 dark:text-textSecondary pb-6 leading-relaxed">Trabajamos por proyectos y entregables estratégicos (ej. Ecosistema Web, Branding). Sabrás desde el primer minuto qué activos vas a recibir y con qué inversión exacta. Para áreas de crecimiento (Gestión de Redes, Paid Media, SEO), sí trabajamos con integraciones recurrentes enfocadas a rendimiento.</p>
                             </div>
                         </div>
                     </div>
@@ -1118,11 +717,11 @@
                     <div class="border-b border-gray-200 dark:border-white/10 faq-item">
                         <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
                             <span class="text-lg font-medium text-gray-900 dark:text-white group-hover:text-primary transition-colors pr-8">¿Trabajáis con clientes de fuera de Badajoz/Extremadura?</span>
-                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                            <i class="ph ph-caret-down text-gray-600 dark:text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
                         </button>
                         <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
                             <div class="overflow-hidden">
-                                <p class="text-textSecondary pb-6 leading-relaxed">Nuestra sede matriz está en Mérida, pero operamos con marcas en toda España. La arquitectura digital y la estrategia no tienen fronteras físicas; ejecutamos los proyectos de forma 100% remota y fluida.</p>
+                                <p class="text-gray-600 dark:text-textSecondary pb-6 leading-relaxed">Nuestra sede matriz está en Mérida, pero operamos con marcas en toda España. La arquitectura digital y la estrategia no tienen fronteras físicas; ejecutamos los proyectos de forma 100% remota y fluida.</p>
                             </div>
                         </div>
                     </div>
@@ -1130,11 +729,11 @@
                     <div class="border-b border-gray-200 dark:border-white/10 faq-item">
                         <button class="w-full py-6 flex items-center justify-between text-left focus:outline-none faq-toggle group">
                             <span class="text-lg font-medium text-gray-900 dark:text-white group-hover:text-primary transition-colors pr-8">¿Y si ya estoy trabajando con otra agencia o alguien interno?</span>
-                            <i class="ph ph-caret-down text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
+                            <i class="ph ph-caret-down text-gray-600 dark:text-textSecondary group-hover:text-primary transition-transform duration-300 faq-icon flex-shrink-0"></i>
                         </button>
                         <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out faq-content">
                             <div class="overflow-hidden">
-                                <p class="text-textSecondary pb-6 leading-relaxed">No hay ningún problema. Podemos integrarnos como tu brazo estratégico externo, auditar lo que ya se está haciendo (consultoría) o asumir piezas específicas del ecosistema (ej. Rediseño Web o Paid Media) respetando el trabajo de tu equipo actual.</p>
+                                <p class="text-gray-600 dark:text-textSecondary pb-6 leading-relaxed">No hay ningún problema. Podemos integrarnos como tu brazo estratégico externo, auditar lo que ya se está haciendo (consultoría) o asumir piezas específicas del ecosistema (ej. Rediseño Web o Paid Media) respetando el trabajo de tu equipo actual.</p>
                             </div>
                         </div>
                     </div>
@@ -1231,7 +830,7 @@
 
     <!-- WhatsApp Bubble -->
     <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3 group reveal-up active">
-        <span class="hidden md:block px-4 py-2 bg-bgSurface border border-gray-200 dark:border-white/10 rounded-xl text-sm font-medium text-gray-900 dark:text-white shadow-lg opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
+        <span class="hidden md:block px-4 py-2 bg-white dark:bg-bgSurface border border-gray-200 dark:border-white/10 rounded-xl text-sm font-medium text-gray-900 dark:text-white shadow-lg opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
             Hablar por WhatsApp
         </span>
         <a href="https://wa.me/34641576286" target="_blank" rel="noopener noreferrer" class="relative w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300">

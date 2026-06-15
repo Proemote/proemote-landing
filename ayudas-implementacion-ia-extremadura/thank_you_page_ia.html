@@ -42,7 +42,8 @@
     <style>
         body { transition: background-color 0.3s ease, color 0.3s ease; }
 
-        body { background-color: #0A0A0F; color: #F5F7FA; overflow-x: hidden; }
+        .dark body { background-color: #0A0A0F; color: #F5F7FA; }
+        body { background-color: #f9fafb; color: #111827; overflow-x: hidden; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0A0A0F; }
         ::-webkit-scrollbar-thumb { background: #14141F; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
@@ -253,408 +254,6 @@
         </div>
     </div>
 
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-
-        <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
-            <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="https://proemote.es/" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
-                
-                <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
-                        <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
-                    </a>
-                </div>
-
-                <a href="/sobre-nosotros" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="https://proemote.es/portfolio" class="text-base font-medium text-textSecondary hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-textSecondary hover:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
-                    Analizar mi caso
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var navContainer = document.getElementById('nav-container');
-        if (!bar || !navContainer) return;
-        
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            navContainer.style.top = (h + 16) + 'px'; // 16px gap above the pill
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-    <script>
-    /* Fix: sync announcement bar (fixed) + nav position */
-    (function(){
-        var bar = document.getElementById('announcement-bar');
-        var nav = document.querySelector('.glass-nav');
-        if (!bar || !nav) return;
-        bar.style.position = 'fixed';
-        bar.style.top = '0';
-        bar.style.left = '0';
-        bar.style.right = '0';
-        bar.style.zIndex = '70';
-        
-        var spacer = document.getElementById('announcement-spacer');
-        if (!spacer) {
-            spacer = document.createElement('div');
-            spacer.id = 'announcement-spacer';
-            spacer.setAttribute('aria-hidden', 'true');
-            bar.parentNode.insertBefore(spacer, bar.nextSibling);
-        }
-        function syncHeader() {
-            var h = bar.offsetHeight;
-            nav.style.top = h + 'px';
-            spacer.style.height = h + 'px';
-        }
-        syncHeader();
-        window.addEventListener('load', syncHeader);
-        window.addEventListener('resize', syncHeader);
-    })();
-    </script>
-
     <main class="flex-grow pt-32 pb-24 relative z-10 overflow-hidden flex flex-col justify-center with-glow">
         <div class="absolute inset-0 bg-gradient-to-b from-success/5 via-transparent to-bgMain z-[-1] pointer-events-none"></div>
         <div class="absolute top-[20%] left-[50%] -translate-x-1/2 w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] rounded-full bg-success/10 blur-[150px] pointer-events-none z-[0]"></div>
@@ -677,11 +276,11 @@
                 ¡Enhorabuena! Has dado el <span class="text-gradient-success whitespace-nowrap">primer paso.</span>
             </h1>
             
-            <p class="text-lg md:text-xl text-textSecondary leading-relaxed max-w-2xl mx-auto mb-16">
+            <p class="text-lg md:text-xl text-gray-600 dark:text-textSecondary leading-relaxed max-w-2xl mx-auto mb-16">
                 Nuestro equipo ya tiene tus datos. Hemos empezado a analizar la viabilidad de tu negocio para la implantación de Inteligencia Artificial financiada al 85%.
             </p>
 
-            <h2 class="text-xs font-bold tracking-[0.2em] text-textSecondary uppercase mb-8">¿Qué va a pasar ahora?</h2>
+            <h2 class="text-xs font-bold tracking-[0.2em] text-gray-600 dark:text-textSecondary uppercase mb-8">¿Qué va a pasar ahora?</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16 relative">
                 <!-- Línea conectora solo desktop -->
@@ -692,7 +291,7 @@
                         <i class="ph-fill ph-hourglass-high text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-heading text-gray-900 dark:text-white font-bold mb-3">1. Análisis urgente</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">
                         En las próximas <strong class="text-gray-900 dark:text-white">24 horas</strong> laborables, un experto de Proemote evaluará tu perfil cruzándolo con las bases de la Junta de Extremadura.
                     </p>
                 </div>
@@ -702,7 +301,7 @@
                         <i class="ph-fill ph-phone-call text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-heading text-gray-900 dark:text-white font-bold mb-3">2. Llamada breve</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">
                         Te llamaremos al número que nos has dejado para confirmar si cumples los requisitos y proponerte las herramientas exactas para tu caso.
                     </p>
                 </div>
@@ -712,19 +311,19 @@
                         <i class="ph-fill ph-file-text text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-heading text-gray-900 dark:text-white font-bold mb-3">3. Presentación</h3>
-                    <p class="text-sm text-textSecondary leading-relaxed">
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">
                         Si todo encaja, preparamos la documentación administrativa de inmediato para presentarla antes del cierre por orden de llegada.
                     </p>
                 </div>
             </div>
 
-            <div class="bg-bgSurface/80 border border-gray-200 dark:border-white/10 p-8 md:p-10 rounded-[2rem] max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-8 justify-between">
+            <div class="bg-gray-50 dark:bg-bgSurface/80 border border-gray-200 dark:border-white/10 p-8 md:p-10 rounded-[2rem] max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-8 justify-between">
                 <div class="text-left flex-1">
                     <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
                         <i class="ph-fill ph-address-book text-primary text-xl"></i>
                         Guarda nuestro número
                     </h4>
-                    <p class="text-sm text-textSecondary leading-relaxed">
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">
                         Para que sepas que somos nosotros cuando te llamemos, puedes guardarnos en tu agenda. Si tienes alguna duda urgente, escríbenos directamente.
                     </p>
                 </div>
@@ -737,7 +336,7 @@
             </div>
 
             <div class="mt-16">
-                <a href="javascript:history.back()" class="inline-flex items-center gap-2 text-textSecondary hover:text-white transition-colors text-sm font-medium">
+                <a href="javascript:history.back()" class="inline-flex items-center gap-2 text-gray-600 dark:text-textSecondary hover:text-white transition-colors text-sm font-medium">
                     <i class="ph-bold ph-arrow-left"></i> Volver a la página anterior
                 </a>
             </div>
