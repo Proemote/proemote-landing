@@ -1,15 +1,9 @@
 import os
 import re
 
-with open('index.html', 'r', encoding='utf-8') as f:
-    index_content = f.read()
-
-match = re.search(r'(<div id="mega-menu".*?)</body>', index_content, re.DOTALL)
-if match:
-    mega_menu_html = match.group(1)
-else:
-    print("Mega menu not found in index.html!")
-    exit(1)
+with open('new_mega_menu.html', 'r', encoding='utf-8') as f:
+    mega_menu_html = f.read()
+    mega_menu_html = re.sub(r'</body>\s*</html>', '', mega_menu_html, flags=re.IGNORECASE).strip()
 
 html_files = []
 for root, dirs, files in os.walk('.'):
