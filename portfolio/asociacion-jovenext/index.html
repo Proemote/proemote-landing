@@ -142,9 +142,15 @@
                 </a>
             </div>
             
-            <button id="mobile-menu-btn" class="md:hidden text-gray-800 dark:text-white/80 p-1" aria-label="Abrir menú">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
-            </button>
+            <div class="flex items-center gap-2 md:hidden relative z-10">
+                <button id="mobile-theme-toggle-header" class="p-2 text-gray-600 dark:text-white/80 hover:text-primary transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
+                    <svg class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1.5M12 19.5V21M3 12h1.5M19.5 12H21M5.636 5.636l1.06 1.06M17.303 17.303l1.06 1.06M5.636 18.364l1.06-1.06M17.303 6.697l1.06-1.06M12 8.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5z" /></svg>
+                    <svg class="w-5 h-5 hidden dark:block text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
+                </button>
+                <button id="mobile-menu-btn" class="text-gray-800 dark:text-white/80 p-1" aria-label="Abrir menú">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+                </button>
+            </div>
         </header>
     </div>
 
@@ -236,7 +242,7 @@
             <a href="/servicios" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-primary dark:hover:text-white">Servicios</a>
             
             <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1 items-center">
-                <span class="text-xs font-bold tracking-widest text-gray-400 dark:text-white/40 uppercase mb-1">Ayudas 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
+                <a href="/subvenciones-extremadura" class="text-xs font-bold tracking-widest text-gray-600 dark:text-white/60 uppercase mb-1 flex items-center gap-2 hover:text-primary transition-colors">Ayudas 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></a>
                 <a href="/ayudas-digitalizacion-pymes-extremadura/" class="mobile-link text-sm font-medium text-gray-600 dark:text-white/60 hover:text-primary dark:hover:text-white">Digitalización de Pymes</a>
                 <a href="/ayudas-implementacion-ia-extremadura/" class="mobile-link text-sm font-medium text-gray-600 dark:text-white/60 hover:text-primary dark:hover:text-white mt-1">Implementación de IA</a>
             </div>
@@ -260,7 +266,7 @@
                 <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
+                    <a href="/subvenciones-extremadura" class="text-xs font-bold tracking-widest text-gray-600 dark:text-white/60 uppercase mb-1 flex items-center gap-2 hover:text-primary transition-colors">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></a>
                     <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
@@ -317,7 +323,7 @@
                 <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
+                    <a href="/subvenciones-extremadura" class="text-xs font-bold tracking-widest text-gray-600 dark:text-white/60 uppercase mb-1 flex items-center gap-2 hover:text-primary transition-colors">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></a>
                     <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
@@ -374,7 +380,7 @@
                 <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
+                    <a href="/subvenciones-extremadura" class="text-xs font-bold tracking-widest text-gray-600 dark:text-white/60 uppercase mb-1 flex items-center gap-2 hover:text-primary transition-colors">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></a>
                     <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
@@ -431,7 +437,7 @@
                 <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <span class="text-xs font-bold tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
+                    <a href="/subvenciones-extremadura" class="text-xs font-bold tracking-widest text-gray-600 dark:text-white/60 uppercase mb-1 flex items-center gap-2 hover:text-primary transition-colors">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></a>
                     <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
@@ -1118,7 +1124,7 @@
     })();
     
         // --- Theme Toggle Logic ---
-        const themeToggles = [document.getElementById('theme-toggle'), document.getElementById('mobile-theme-toggle')];
+        const themeToggles = [document.getElementById('theme-toggle'), document.getElementById('mobile-theme-toggle'), document.getElementById('mobile-theme-toggle-header')];
         const iconSun = document.getElementById('icon-sun');
         const iconMoon = document.getElementById('icon-moon');
         const htmlElement = document.documentElement;
