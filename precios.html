@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planes · Proemote</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  min-height: 100vh;
+  background: #0d0b14;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 35% at 50% 0%, rgba(109,40,217,0.16) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.page {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 72px 28px 64px;
+}
+
+/* ── HEADER ── */
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+
+.eyebrow .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #8b5cf6;
+}
+
+.header h1 {
+  font-size: clamp(32px, 4.8vw, 58px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.header h1 .accent {
+  display: block;
+  background: linear-gradient(90deg, #9b6ef3, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.4);
+  max-width: 520px;
+  margin: 16px auto 0;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.header p strong {
+  color: rgba(255,255,255,0.65);
+  font-weight: 600;
+}
+
+/* ── GRID ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+@media (max-width: 1060px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 580px)  { .grid { grid-template-columns: 1fr; } }
+
+/* ── CARD ── */
+.card {
+  position: relative;
+  background: #141020;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: border-color 0.2s;
+}
+
+.card:hover { border-color: rgba(255,255,255,0.1); }
+
+.card.featured {
+  background: #170f2b;
+  border: 1px solid rgba(139,92,246,0.35);
+  box-shadow: 0 0 0 1px rgba(139,92,246,0.1), 0 24px 56px rgba(109,40,217,0.2);
+}
+
+/* ── BADGE ── */
+.badge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #6d28d9;
+  color: #fff;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* ── CARD HEADER ── */
+.card-step {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  margin-bottom: 10px;
+}
+
+.card-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.card-tagline {
+  font-size: 13px;
+  color: rgba(255,255,255,0.38);
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+/* ── SLOT BAR ── */
+.slots {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.slot-bars {
+  display: flex;
+  gap: 4px;
+}
+
+.slot-bar {
+  height: 3px;
+  flex: 1;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.08);
+}
+
+.slot-bar.taken { background: rgba(255,255,255,0.18); }
+.slot-bar.last  { background: #8b5cf6; }
+.slot-bar.free  { background: rgba(34,197,94,0.5); }
+
+.slot-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+.slot-label.urgent { color: #a78bfa; }
+
+/* ── PRICE ── */
+.price-block {
+  margin-bottom: 6px;
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 3px;
+}
+
+.price {
+  font-size: 44px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #fff;
+  line-height: 1;
+}
+
+.price-original {
+  font-size: 14px;
+  color: rgba(255,255,255,0.2);
+  text-decoration: line-through;
+}
+
+.price-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 4px;
+}
+
+.monthly-note {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+/* ── DEADLINE ── */
+.deadline {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #d97706;
+  background: rgba(217,119,6,0.08);
+  border: 1px solid rgba(217,119,6,0.18);
+  border-radius: 7px;
+  padding: 6px 10px;
+  margin-bottom: 20px;
+}
+
+/* ── SEPARATOR ── */
+.sep {
+  height: 1px;
+  background: rgba(255,255,255,0.05);
+  margin: 20px 0;
+}
+
+/* ── FEATURES ── */
+.features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-bottom: 18px;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.45;
+}
+
+.check {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(139,92,246,0.15);
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check svg { width: 9px; height: 9px; }
+
+.card.featured .check {
+  background: rgba(139,92,246,0.25);
+}
+
+/* ── VALUE STACK LINK ── */
+.value-link {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.2);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  text-align: left;
+  transition: color 0.15s;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.value-link:hover { color: rgba(255,255,255,0.45); }
+
+.value-link svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+.value-stack {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+  animation: fadeUp 0.16s ease;
+}
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:none; } }
+
+.vs-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
+  padding: 6px 9px;
+  border-radius: 7px;
+  background: rgba(255,255,255,0.03);
+  border-left: 2px solid rgba(109,40,217,0.4);
+}
+
+.vs-item span:first-child { color: rgba(255,255,255,0.45); flex: 1; }
+.vs-item span:last-child  { color: rgba(139,92,246,0.8); font-weight: 700; white-space: nowrap; }
+
+.vs-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 9px;
+  border-radius: 7px;
+  background: rgba(109,40,217,0.08);
+  margin-top: 2px;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.vs-total span:first-child { color: rgba(255,255,255,0.6); }
+.vs-total span:last-child  { color: rgba(139,92,246,0.6); text-decoration: line-through; }
+
+/* ── RESULT ── */
+.result {
+  font-size: 12px;
+  color: rgba(255,255,255,0.25);
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 22px;
+  flex-grow: 1;
+}
+
+/* ── CTA ── */
+.cta {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 14px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.2s, opacity 0.2s;
+  margin-top: auto;
+}
+
+.cta .arrow { font-size: 16px; }
+
+.cta.default {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.75);
+}
+
+.cta.default:hover {
+  background: rgba(255,255,255,0.09);
+  color: #fff;
+}
+
+.cta.primary {
+  background: #6d28d9;
+  border: 1px solid rgba(139,92,246,0.5);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(109,40,217,0.35);
+}
+
+.cta.primary:hover { background: #7c3aed; }
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  transform: scale(0);
+  animation: ripple 0.55s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes ripple { to { transform: scale(4); opacity: 0; } }
+
+/* ── BOTTOM ── */
+.bottom {
+  text-align: center;
+  margin-top: 48px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bottom p {
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.8;
+}
+
+.bottom p strong { color: rgba(255,255,255,0.55); font-weight: 600; }
+.bottom p a { color: #8b5cf6; font-weight: 600; text-decoration: none; }
+
+.footer {
+  text-align: center;
+  margin-top: 36px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.12);
+  letter-spacing: 0.3px;
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header class="header">
+    <div class="eyebrow"><span class="dot"></span>Método FOCO™</div>
+    <h1>
+      Haz que internet trabaje para tu negocio.
+      <span class="accent">Palabras claras. Resultados reales.</span>
+    </h1>
+    <p>
+      Olvídate de perseguir clientes. Construimos el camino para que te encuentren, confíen en ti y te llamen.
+      Empieza por el paso que te dé más seguridad.
+      <strong>Trabajamos con muy pocos clientes al mes para poder hacer las cosas bien.</strong>
+    </p>
+  </header>
+
+  <div class="grid" id="cards"></div>
+
+  <div class="bottom">
+    <p>
+      <strong>¿No sabes por cuál empezar?</strong> Cada plan incluye todo lo del anterior más un paso más de sistema.
+      Todos incluyen <a href="#">diagnóstico inicial gratuito</a>.
+    </p>
+  </div>
+
+  <div class="footer">
+    proemote.es · info@proemote.es · 641 57 62 86 · Precios sin IVA · Garantía de implementación en 30 días
+  </div>
+
+</div>
+
+<script>
+const CHECK_SVG = `<svg viewBox="0 0 10 10" fill="none" stroke="rgba(139,92,246,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5l2.5 2.5L8 3"/></svg>`;
+
+const LOCK_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`;
+
+const offers = [
+  {
+    step: "Para empezar bien",
+    name: "Puesta a Punto FOCO™",
+    tagline: "La cara visible de tu negocio, impecable en 48 horas.",
+    badge: null,
+    deadline: "⏳ Precio válido hasta el 30 de junio",
+    price: "97€",
+    priceLabel: "Pago único · Sin comisiones ocultas",
+    originalPrice: "Valor: 566€",
+    saving: null,
+    monthlyNote: null,
+    totalSlots: 5,
+    availableSlots: 3,
+    features: [
+      "Tu perfil de Google Maps perfecto (para salir primero)",
+      "Buscamos qué palabras usa la gente para encontrarte",
+      "Limpieza y orden profesional en tus redes sociales",
+      "Hoja de ruta clara para tus próximos 30 días",
+      "Te acompañamos por WhatsApp para cualquier duda",
+    ],
+    stack: [
+      { item: "Optimización Google Business Profile", value: "149€" },
+      { item: "Auditoría SEO + keywords de tu negocio", value: "149€" },
+      { item: "Puesta a punto profesional de redes sociales", value: "69€" },
+      { item: "Plan de acción personalizado 30 días", value: "100€" },
+      { item: "Soporte directo por WhatsApp 30 días", value: "99€" },
+    ],
+    result: '"Cuando te busquen en internet, verán a un profesional en el que confiar."',
+    cta: "Empezar con FOCO",
+    featured: false,
+  },
+  {
+    step: "Paso 1",
+    name: "Plan Start™",
+    tagline: "Tu primera web profesional, lista para recibir visitas en 7 días.",
+    badge: null,
+    deadline: null,
+    price: "699€",
+    priceLabel: "Pago único · Sin comisiones ocultas",
+    originalPrice: "Valor: 1.066€",
+    saving: null,
+    monthlyNote: null,
+    totalSlots: 3,
+    availableSlots: 2,
+    features: [
+      "Página web clara, directa y diseñada para que te llamen",
+      "Tu negocio destacado y visible en Google Maps",
+      "Todos los textos legales para evitar multas",
+      "Análisis de tu competencia y pasos a seguir",
+    ],
+    stack: [
+      { item: "Web One Page con psicología de conversión", value: "499€" },
+      { item: "Google Business optimizado", value: "149€" },
+      { item: "Textos legales completos", value: "150€" },
+      { item: "Radiografía Digital + plan de acción", value: "100€" },
+      { item: "Formación en vídeo incluida", value: "99€" },
+      { item: "Puesta a punto RRSS profesional", value: "69€" },
+    ],
+    result: '"Tu web funcionando en 7 días, o te devolvemos el 20%."',
+    cta: "Quiero mi web Start",
+    featured: false,
+  },
+  {
+    step: "Paso 2",
+    name: "Plan Growth™",
+    tagline: "Clientes nuevos cada mes sin que tengas que ir a buscarlos.",
+    badge: "Ecosistema más desplegado",
+    deadline: null,
+    price: "1.490€",
+    priceLabel: "Pago único · Sin comisiones ocultas",
+    originalPrice: "Valor: 3.090€",
+    saving: null,
+    monthlyNote: "+ 249€/mes gestión de redes (1 red)",
+    totalSlots: 2,
+    availableSlots: 1,
+    features: [
+      "Página web completa enfocada en generar ventas",
+      "Trabajamos para ponerte entre los 3 primeros de tu ciudad",
+      "Un asistente virtual que atiende tu WhatsApp 24 horas",
+      "Un sistema para organizar tus contactos y no perder clientes",
+      "Te gestionamos las redes sociales (2 meses incluidos)",
+    ],
+    stack: [
+      { item: "Web Pro con psicología de conversión", value: "899€" },
+      { item: "Google Business optimizado", value: "149€" },
+      { item: "SEO local hacia top 3 en Google (3 meses)", value: "447€" },
+      { item: "Agente WhatsApp con IA disponible 24/7", value: "450€" },
+      { item: "CRM básico configurado", value: "200€" },
+      { item: "Radiografía Digital + plan de acción", value: "150€" },
+      { item: "Informes mensuales de resultados (3 meses)", value: "297€" },
+      { item: "Gestión de redes — 2 meses incluidos", value: "498€" },
+    ],
+    result: '"Garantía: Si en 90 días no estás arriba en Google, seguimos trabajando gratis."',
+    cta: "Dar el salto con Growth",
+    featured: true,
+  },
+  {
+    step: "Paso 3",
+    name: "Piloto Automático Scale™",
+    tagline: "El negocio capta clientes por ti. Delegación casi total.",
+    badge: null,
+    deadline: null,
+    price: "2.990€",
+    priceLabel: "Pago único · Sin comisiones ocultas",
+    originalPrice: "Valor: 5.430€",
+    saving: null,
+    monthlyNote: "+ 499€/mes gestión de redes (hasta 3 redes)",
+    totalSlots: 1,
+    availableSlots: 1,
+    features: [
+      "Web premium de alto rendimiento y máxima autoridad",
+      "La web capta al cliente, atiende sus dudas y te lo agenda (IA)",
+      "Posicionamiento en Google para servicios muy rentables",
+      "Te decimos exactamente qué publicar durante 3 meses",
+      "Anuncios listos y campañas para recuperar clientes antiguos",
+    ],
+    stack: [
+      { item: "Web Elite con psicología de conversión", value: "1.199€" },
+      { item: "Google Business avanzado", value: "149€" },
+      { item: "SEO avanzado estratégico", value: "499€" },
+      { item: "Piloto Automático IA (agenda + CRM + seguimiento)", value: "990€" },
+      { item: "Auditoría de marca inicial", value: "300€" },
+      { item: "Estrategia de contenido trimestral", value: "300€" },
+      { item: "Gestión de redes — 2 meses (3 redes)", value: "798€" },
+      { item: "Informes mensuales (3 meses)", value: "297€" },
+      { item: "2 reuniones estratégicas mensuales", value: "200€" },
+      { item: "Configuración Google Ads básica", value: "299€" },
+      { item: "Reactivación base de datos", value: "199€" },
+    ],
+    result: '"Tú solo te encargas de atender a los clientes que ya vienen convencidos."',
+    cta: "Hablemos para escalar",
+    featured: false,
+  },
+];
+
+function slotState(total, available) {
+  if (available === 1) return { label: "Última plaza del mes", urgent: true };
+  if (available === 0) return { label: "Sin plazas disponibles", urgent: true };
+  return { label: `${available} / ${total} plazas disponibles`, urgent: false };
+}
+
+function buildCard(offer) {
+  const card = document.createElement("div");
+  card.className = "card" + (offer.featured ? " featured" : "");
+
+  const taken = offer.totalSlots - offer.availableSlots;
+  const { label, urgent } = slotState(offer.totalSlots, offer.availableSlots);
+
+  let bars = "";
+  for (let i = 0; i < offer.totalSlots; i++) {
+    let cls = "slot-bar";
+    if (i < taken) cls += " taken";
+    else if (offer.availableSlots === 1 && i === taken) cls += " last";
+    else cls += " free";
+    bars += `<div class="${cls}"></div>`;
+  }
+
+  const features = offer.features.map(f =>
+    `<li class="feature"><span class="check">${CHECK_SVG}</span><span>${f}</span></li>`
+  ).join("");
+
+  const stackId = "vs" + Math.random().toString(36).slice(2);
+  const stackItems = offer.stack.map(s =>
+    `<div class="vs-item"><span>✓ ${s.item}</span><span>${s.value}</span></div>`
+  ).join("") +
+  `<div class="vs-total"><span>Valor total</span><span>${offer.originalPrice.replace("Valor: ","")}</span></div>`;
+
+  card.innerHTML = `
+    ${offer.badge ? `<div class="badge">${offer.badge}</div>` : ""}
+
+    <div class="card-step">${offer.step}</div>
+    <div class="card-name">${offer.name}</div>
+    <div class="card-tagline">${offer.tagline}</div>
+
+    <div class="slots">
+      <div class="slot-bars">${bars}</div>
+      <div class="slot-label ${urgent ? "urgent" : ""}">${label}</div>
+    </div>
+
+    <div class="price-block">
+      <div class="price-row">
+        <span class="price">${offer.price}</span>
+        <span class="price-original">${offer.originalPrice}</span>
+      </div>
+      ${offer.monthlyNote ? `<div class="monthly-note">${offer.monthlyNote}</div>` : ""}
+      <div class="price-sub">${offer.priceLabel}</div>
+    </div>
+
+    ${offer.deadline ? `<div class="deadline">${offer.deadline}</div>` : ""}
+
+    <div class="sep"></div>
+
+    <ul class="features">${features}</ul>
+
+    <button class="value-link" data-target="${stackId}">
+      ${LOCK_SVG}
+      <span>Ver el valor real de lo que incluye</span>
+    </button>
+
+    <div class="value-stack" id="${stackId}">${stackItems}</div>
+
+    <div class="result">${offer.result}</div>
+
+    <button class="cta ${offer.featured ? "primary" : "default"}">
+      <span>${offer.cta}</span>
+      <span class="arrow">→</span>
+    </button>
+  `;
+
+  // toggle stack
+  const vBtn = card.querySelector(".value-link");
+  const vList = card.querySelector(`#${stackId}`);
+  vBtn.addEventListener("click", () => {
+    const open = vList.style.display === "flex";
+    vList.style.display = open ? "none" : "flex";
+    vBtn.querySelector("span:last-of-type").textContent =
+      open ? "Ver el valor real de lo que incluye" : "Ocultar desglose de valor";
+  });
+
+  // ripple
+  card.querySelector(".cta").addEventListener("click", function(e) {
+    const r = this.getBoundingClientRect();
+    const size = Math.max(r.width, r.height) * 2;
+    const s = document.createElement("span");
+    s.className = "ripple";
+    s.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX-r.left-size/2}px;top:${e.clientY-r.top-size/2}px`;
+    this.appendChild(s);
+    setTimeout(() => s.remove(), 600);
+  });
+
+  return card;
+}
+
+const grid = document.getElementById("cards");
+offers.forEach(o => grid.appendChild(buildCard(o)));
+</script>
+</body>
+</html>
