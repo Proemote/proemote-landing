@@ -176,8 +176,8 @@
     <div id="mouse-spotlight" class="fixed inset-0 w-full h-full pointer-events-none z-[3] hidden md:block transition-opacity duration-500" style="background: radial-gradient(circle 800px at var(--mouse-x, 50vw) var(--mouse-y, 50vh), rgba(123, 97, 255, 0.08), transparent 60%);"></div>
 
     <!-- Botón Sticky Móvil (Más opaco) -->
-    <div class="fixed bottom-0 left-0 w-full p-4 bg-[#0A0A0F]/95 backdrop-blur-xl border-t border-white/10 z-50 md:hidden flex flex-col items-center justify-center pb-6 animate-[slideUp_0.5s_ease-out]">
-        <button data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="btn-glow w-full py-4 rounded-full text-white font-bold text-base flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(123,97,255,0.4)]">
+    <div class="fixed bottom-0 left-0 w-full p-4 bg-[#0A0A0F]/95 backdrop-blur-xl border-t border-gray-200 dark:border-white/10 z-50 md:hidden flex flex-col items-center justify-center pb-6 animate-[slideUp_0.5s_ease-out]">
+        <button data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="btn-glow w-full py-4 rounded-full text-gray-900 dark:text-white font-bold text-base flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(123,97,255,0.4)]">
             Ver disponibilidad para auditoría <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </button>
         <p class="text-[11px] text-textSecondary/80 mt-2 font-medium">Se abre el calendario aquí mismo.</p>
@@ -187,7 +187,7 @@
         <!-- HERO SECTION -->
         <section class="min-h-[80vh] flex flex-col justify-center items-center px-4 pt-16 pb-12 max-w-4xl mx-auto text-center relative reveal">
             
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-6 shadow-lg">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 dark:border-white/10 bg-gray-100 dark:bg-white/5 backdrop-blur-md mb-6 shadow-lg">
                 <div class="w-2 h-2 rounded-full bg-danger animate-pulse shadow-[0_0_8px_rgba(255,107,107,0.8)]"></div>
                 <span class="text-xs md:text-sm font-medium text-textSecondary uppercase tracking-wider">Publicar fotos sueltas no atrae clientes.</span>
             </div>
@@ -200,22 +200,22 @@
                 Auditoría en vídeo de 30 minutos para negocios locales. Detectamos las fugas de dinero en tu perfil y trazamos la ruta para que dejes de competir por precio. Sin coste hoy.
             </p>
 
-            <div class="glass-panel p-6 md:p-8 rounded-[2rem] flex flex-col items-center w-full max-w-lg mx-auto relative group border border-white/10 hover:border-primary/40 transition-colors duration-500 shadow-2xl">
+            <div class="glass-panel p-6 md:p-8 rounded-[2rem] flex flex-col items-center w-full max-w-lg mx-auto relative group border border-gray-200 dark:border-white/10 hover:border-primary/40 transition-colors duration-500 shadow-2xl">
                 <div class="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2rem] pointer-events-none"></div>
                 
-                <button data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="btn-glow w-full py-5 rounded-xl text-white font-bold text-lg md:text-xl inline-flex items-center justify-center gap-2 mb-3 shadow-[0_0_30px_rgba(123,97,255,0.3)]">
+                <button data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="btn-glow w-full py-5 rounded-xl text-gray-900 dark:text-white font-bold text-lg md:text-xl inline-flex items-center justify-center gap-2 mb-3 shadow-[0_0_30px_rgba(123,97,255,0.3)]">
                     Agendar videollamada gratis
                 </button>
                 <p class="text-xs text-textSecondary mb-6 font-medium">Se abre un calendario aquí mismo. Elige el hueco que mejor te venga.</p>
                 
                 <div class="flex flex-col gap-3 w-full text-left">
-                    <div class="flex items-center gap-3 text-sm text-textSecondary bg-white/5 py-2.5 px-4 rounded-lg border border-white/5">
+                    <div class="flex items-center gap-3 text-sm text-textSecondary bg-gray-100 dark:bg-white/5 py-2.5 px-4 rounded-lg border border-gray-200 dark:border-white/5">
                         <i data-lucide="video" class="w-4 h-4 text-primary shrink-0"></i> <span>Reunión 1 a 1 de 30 min con un experto.</span>
                     </div>
-                    <div class="flex items-center gap-3 text-sm text-textSecondary bg-white/5 py-2.5 px-4 rounded-lg border border-white/5">
+                    <div class="flex items-center gap-3 text-sm text-textSecondary bg-gray-100 dark:bg-white/5 py-2.5 px-4 rounded-lg border border-gray-200 dark:border-white/5">
                         <i data-lucide="search" class="w-4 h-4 text-primary shrink-0"></i> <span>Diagnóstico de errores actuales de tu marca.</span>
                     </div>
-                    <div class="flex items-center gap-3 text-sm text-textSecondary bg-white/5 py-2.5 px-4 rounded-lg border border-white/5">
+                    <div class="flex items-center gap-3 text-sm text-textSecondary bg-gray-100 dark:bg-white/5 py-2.5 px-4 rounded-lg border border-gray-200 dark:border-white/5">
                         <i data-lucide="target" class="w-4 h-4 text-primary shrink-0"></i> <span>Hoja de ruta paso a paso aplicable hoy mismo.</span>
                     </div>
                 </div>
@@ -223,7 +223,7 @@
         </section>
 
         <!-- TRUST BAR -->
-        <div class="w-full border-y border-white/5 bg-[#14141F]/40 backdrop-blur-md py-6 relative z-20 reveal">
+        <div class="w-full border-y border-gray-200 dark:border-white/5 bg-[#14141F]/40 backdrop-blur-md py-6 relative z-20 reveal">
             <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 text-sm text-textSecondary font-medium">
                 <span class="flex items-center gap-2 drop-shadow-md">🏆 Premio Impulso 2025 · Diputación de Badajoz</span>
                 <span class="flex items-center gap-2 drop-shadow-md">⭐⭐⭐⭐⭐ 4,9/5 · 12 reseñas verificadas en Google</span>
@@ -241,26 +241,26 @@
                         <div class="w-12 h-12 rounded-xl bg-danger/10 flex items-center justify-center text-danger shrink-0 border border-danger/30 shadow-inner">
                             <i data-lucide="alert-circle" class="w-6 h-6"></i>
                         </div>
-                        <p class="text-textSecondary leading-relaxed relative z-10 text-lg">Inviertes horas creando contenido y subiendo fotos que <strong class="text-white font-medium">solo ven tus amigos y conocidos</strong>, sin atraer clientes nuevos.</p>
+                        <p class="text-textSecondary leading-relaxed relative z-10 text-lg">Inviertes horas creando contenido y subiendo fotos que <strong class="text-gray-900 dark:text-white font-medium">solo ven tus amigos y conocidos</strong>, sin atraer clientes nuevos.</p>
                     </div>
                     <div class="glass-panel p-8 rounded-2xl flex flex-col gap-5 relative group hover:border-danger/40 transition-colors duration-300 shadow-lg">
                         <div class="w-12 h-12 rounded-xl bg-danger/10 flex items-center justify-center text-danger shrink-0 border border-danger/30 shadow-inner">
                             <i data-lucide="alert-circle" class="w-6 h-6"></i>
                         </div>
-                        <p class="text-textSecondary leading-relaxed relative z-10 text-lg">Sabes que ofreces un servicio superior, pero <strong class="text-white font-medium">tu imagen online proyecta lo contrario</strong> y los clientes acaban yéndose a la competencia.</p>
+                        <p class="text-textSecondary leading-relaxed relative z-10 text-lg">Sabes que ofreces un servicio superior, pero <strong class="text-gray-900 dark:text-white font-medium">tu imagen online proyecta lo contrario</strong> y los clientes acaban yéndose a la competencia.</p>
                     </div>
                     <div class="glass-panel p-8 rounded-2xl flex flex-col gap-5 relative group hover:border-danger/40 transition-colors duration-300 shadow-lg">
                         <div class="w-12 h-12 rounded-xl bg-danger/10 flex items-center justify-center text-danger shrink-0 border border-danger/30 shadow-inner">
                             <i data-lucide="alert-circle" class="w-6 h-6"></i>
                         </div>
-                        <p class="text-textSecondary leading-relaxed relative z-10 text-lg">Terminas atrapado compitiendo por precio, <strong class="text-white font-medium">dando descuentos innecesarios</strong> porque tu marca no impone autoridad.</p>
+                        <p class="text-textSecondary leading-relaxed relative z-10 text-lg">Terminas atrapado compitiendo por precio, <strong class="text-gray-900 dark:text-white font-medium">dando descuentos innecesarios</strong> porque tu marca no impone autoridad.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- SOLUTION -->
-        <section class="py-24 px-4 relative z-20 bg-[#0A0A0F] border-b border-white/5">
+        <section class="py-24 px-4 relative z-20 bg-[#0A0A0F] border-b border-gray-200 dark:border-white/5">
             <div class="max-w-5xl mx-auto reveal">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg">La transformación que te llevas en 30 minutos</h2>
@@ -271,28 +271,28 @@
                     <div class="glass-panel p-10 md:p-12 rounded-[2rem] relative overflow-hidden group hover:-translate-y-2 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(123,97,255,0.2)] hover:border-primary/30">
                         <span class="absolute -top-4 -right-2 text-[8rem] font-black text-white/[0.03] select-none leading-none group-hover:text-primary/[0.05] transition-colors duration-500">01</span>
                         <div class="text-primary text-sm font-bold tracking-widest uppercase mb-4">Diagnóstico</div>
-                        <h4 class="text-2xl font-bold mb-4 text-white relative z-10">Taponar la fuga de ventas</h4>
+                        <h4 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white relative z-10">Taponar la fuga de ventas</h4>
                         <p class="text-textSecondary leading-relaxed text-lg relative z-10">Detectamos en directo qué elementos de tu perfil actual generan desconfianza y hacen que el usuario abandone antes de contactarte.</p>
                     </div>
 
                     <div class="glass-panel p-10 md:p-12 rounded-[2rem] relative overflow-hidden group hover:-translate-y-2 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(123,97,255,0.2)] hover:border-primary/30">
                         <span class="absolute -top-4 -right-2 text-[8rem] font-black text-white/[0.03] select-none leading-none group-hover:text-primary/[0.05] transition-colors duration-500">02</span>
                         <div class="text-primary text-sm font-bold tracking-widest uppercase mb-4">Estrategia</div>
-                        <h4 class="text-2xl font-bold mb-4 text-white relative z-10">Contenido que filtra clientes</h4>
+                        <h4 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white relative z-10">Contenido que filtra clientes</h4>
                         <p class="text-textSecondary leading-relaxed text-lg relative z-10">Se acabó subir "cualquier cosa". Trazamos un embudo claro para que cada pieza posicione tus servicios y atraiga solo perfiles dispuestos a pagar lo que vales.</p>
                     </div>
 
                     <div class="glass-panel p-10 md:p-12 rounded-[2rem] relative overflow-hidden group hover:-translate-y-2 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(123,97,255,0.2)] hover:border-primary/30">
                         <span class="absolute -top-4 -right-2 text-[8rem] font-black text-white/[0.03] select-none leading-none group-hover:text-primary/[0.05] transition-colors duration-500">03</span>
                         <div class="text-primary text-sm font-bold tracking-widest uppercase mb-4">Posicionamiento</div>
-                        <h4 class="text-2xl font-bold mb-4 text-white relative z-10">Autoridad visual inmediata</h4>
+                        <h4 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white relative z-10">Autoridad visual inmediata</h4>
                         <p class="text-textSecondary leading-relaxed text-lg relative z-10">Descubrirás cómo alinear tu imagen con la calidad real de tu negocio. Si te ves premium, dejas de justificar tu precio.</p>
                     </div>
 
                     <div class="glass-panel p-10 md:p-12 rounded-[2rem] relative overflow-hidden group hover:-translate-y-2 transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(123,97,255,0.2)] hover:border-primary/30">
                         <span class="absolute -top-4 -right-2 text-[8rem] font-black text-white/[0.03] select-none leading-none group-hover:text-primary/[0.05] transition-colors duration-500">04</span>
                         <div class="text-primary text-sm font-bold tracking-widest uppercase mb-4">Eficiencia</div>
-                        <h4 class="text-2xl font-bold mb-4 text-white relative z-10">Libertad operativa</h4>
+                        <h4 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white relative z-10">Libertad operativa</h4>
                         <p class="text-textSecondary leading-relaxed text-lg relative z-10">Rediseñamos tus procesos para que la captación digital trabaje en automático. Tu tiempo debe invertirse en operar tu negocio, no en descifrar el algoritmo.</p>
                     </div>
                 </div>
@@ -308,40 +308,40 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
                 <div class="glass-panel p-2 rounded-2xl overflow-hidden relative group reveal max-w-[300px] mx-auto w-full md:-translate-y-10" style="transition-delay: 100ms;">
-                    <div class="aspect-[9/16] w-full rounded-xl flex flex-col items-center justify-center text-textSecondary relative overflow-hidden bg-white/5 backdrop-blur-sm border border-white/5">
+                    <div class="aspect-[9/16] w-full rounded-xl flex flex-col items-center justify-center text-textSecondary relative overflow-hidden bg-gray-100 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/5">
                         <img src="https://i.imgur.com/JFeqa6f.jpg" alt="Resultados orgánicos" class="w-full h-full object-contain p-3 scale-95 -translate-y-12 opacity-100 transition-transform duration-500 group-hover:scale-100">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/50 to-transparent z-10 pointer-events-none"></div>
                         <div class="absolute bottom-6 left-6 right-6 z-20 flex flex-col justify-end h-[110px]">
                             <div class="mb-auto">
                                 <span class="bg-primary text-white text-xs font-bold px-3 py-1 rounded-md inline-block shadow-[0_0_10px_rgba(123,97,255,0.4)]">Empresa de Limpieza</span>
                             </div>
-                            <p class="text-white font-bold text-lg leading-tight drop-shadow-md">73.000 impactos locales que <span class="text-primary">multiplicaron los presupuestos.</span></p>
+                            <p class="text-gray-900 dark:text-white font-bold text-lg leading-tight drop-shadow-md">73.000 impactos locales que <span class="text-primary">multiplicaron los presupuestos.</span></p>
                         </div>
                     </div>
                 </div>
 
                 <div class="glass-panel p-2 rounded-2xl overflow-hidden relative group reveal max-w-[300px] mx-auto w-full md:-translate-y-10" style="transition-delay: 200ms;">
-                    <div class="aspect-[9/16] w-full rounded-xl flex flex-col items-center justify-center text-textSecondary relative overflow-hidden bg-white/5 backdrop-blur-sm border border-white/5">
+                    <div class="aspect-[9/16] w-full rounded-xl flex flex-col items-center justify-center text-textSecondary relative overflow-hidden bg-gray-100 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/5">
                         <img src="https://i.imgur.com/WHv3nvC.jpg" alt="Agenda cerrada" class="w-full h-full object-contain p-3 scale-95 -translate-y-12 opacity-100 transition-transform duration-500 group-hover:scale-100">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/50 to-transparent z-10 pointer-events-none"></div>
                         <div class="absolute bottom-6 left-6 right-6 z-20 flex flex-col justify-end h-[110px]">
                             <div class="mb-auto">
                                 <span class="bg-primary text-white text-xs font-bold px-3 py-1 rounded-md inline-block shadow-[0_0_10px_rgba(123,97,255,0.4)]">Centro de Estética</span>
                             </div>
-                            <p class="text-white font-bold text-lg leading-tight drop-shadow-md">Agenda recurrente cerrada a <span class="text-primary">3 semanas vista.</span></p>
+                            <p class="text-gray-900 dark:text-white font-bold text-lg leading-tight drop-shadow-md">Agenda recurrente cerrada a <span class="text-primary">3 semanas vista.</span></p>
                         </div>
                     </div>
                 </div>
 
                 <div class="glass-panel p-2 rounded-2xl overflow-hidden relative group reveal max-w-[300px] mx-auto w-full md:scale-110 md:-translate-y-4" style="transition-delay: 300ms;">
-                    <div class="aspect-[9/16] w-full rounded-xl flex flex-col items-center justify-center text-textSecondary relative overflow-hidden bg-white/5 backdrop-blur-sm border border-white/5">
+                    <div class="aspect-[9/16] w-full rounded-xl flex flex-col items-center justify-center text-textSecondary relative overflow-hidden bg-gray-100 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/5">
                         <img src="https://i.imgur.com/wRWI7YJ.jpg" alt="Autoridad de sector" class="w-full h-full object-contain p-1 scale-[1.15] opacity-100 transition-transform duration-500 group-hover:scale-[1.25]">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/50 to-transparent z-10 pointer-events-none"></div>
                         <div class="absolute bottom-6 left-6 right-6 z-20 flex flex-col justify-end h-[110px]">
                             <div class="mb-auto">
                                 <span class="bg-primary text-white text-xs font-bold px-3 py-1 rounded-md inline-block shadow-[0_0_10px_rgba(123,97,255,0.4)]">Sello de eventos</span>
                             </div>
-                            <p class="text-white font-bold text-lg leading-tight drop-shadow-md">Autoridad validada: impacto que provocó un <span class="text-primary">Sold Out.</span></p>
+                            <p class="text-gray-900 dark:text-white font-bold text-lg leading-tight drop-shadow-md">Autoridad validada: impacto que provocó un <span class="text-primary">Sold Out.</span></p>
                         </div>
                     </div>
                 </div>
@@ -356,10 +356,10 @@
                 
                 <div class="flex justify-center items-end gap-4 mb-6 relative z-10">
                     <span class="text-lg text-textSecondary line-through decoration-danger decoration-2 opacity-60">Consultoría: 100€</span>
-                    <span class="text-5xl font-extrabold text-white drop-shadow-md">Hoy: 0€</span>
+                    <span class="text-5xl font-extrabold text-gray-900 dark:text-white drop-shadow-md">Hoy: 0€</span>
                 </div>
                 
-                <button data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="btn-glow w-full md:w-auto px-10 py-5 rounded-xl text-white font-bold text-lg shadow-[0_0_20px_rgba(123,97,255,0.3)] relative z-10 mx-auto">
+                <button data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="btn-glow w-full md:w-auto px-10 py-5 rounded-xl text-gray-900 dark:text-white font-bold text-lg shadow-[0_0_20px_rgba(123,97,255,0.3)] relative z-10 mx-auto">
                     Asegurar mi auditoría gratuita
                 </button>
                 
@@ -371,7 +371,7 @@
         </section>
 
         <!-- TESTIMONIALS (Reframing) -->
-        <section class="py-24 px-4 border-y border-white/5 bg-[#0A0A0F] relative z-20 reveal">
+        <section class="py-24 px-4 border-y border-gray-200 dark:border-white/5 bg-[#0A0A0F] relative z-20 reveal">
             <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg">Negocios que ya han elevado su autoridad</h2>
@@ -382,7 +382,7 @@
                         <div class="text-xl mb-4 tracking-widest text-[#FFB800] drop-shadow-md">⭐⭐⭐⭐⭐</div>
                         <p class="text-textSecondary leading-relaxed mb-8 flex-grow italic relative z-10">"Nuestra imagen ahora refleja lo que somos. Desde que nos gestionan la presencia digital, la entrada de clientes a través de Instagram y la web ha sido constante y predecible."</p>
                         <div>
-                            <p class="font-bold text-white text-lg">Juana María Ramos</p>
+                            <p class="font-bold text-gray-900 dark:text-white text-lg">Juana María Ramos</p>
                             <p class="text-sm text-primary">Centro de Belleza</p>
                         </div>
                     </div>
@@ -391,7 +391,7 @@
                         <div class="text-xl mb-4 tracking-widest text-[#FFB800] drop-shadow-md">⭐⭐⭐⭐⭐</div>
                         <p class="text-textSecondary leading-relaxed mb-8 flex-grow italic relative z-10">"Trabajo impecable. Hemos dejado de preocuparnos por si el contenido funciona o no. Tienen un sistema claro que filtra al cliente ideal y eso nos ahorra muchísimo tiempo."</p>
                         <div>
-                            <p class="font-bold text-white text-lg">Sandra Cerrada</p>
+                            <p class="font-bold text-gray-900 dark:text-white text-lg">Sandra Cerrada</p>
                             <p class="text-sm text-primary">Diseño web · Sector servicios</p>
                         </div>
                     </div>
@@ -400,7 +400,7 @@
                         <div class="text-xl mb-4 tracking-widest text-[#FFB800] drop-shadow-md">⭐⭐⭐⭐⭐</div>
                         <p class="text-textSecondary leading-relaxed mb-8 flex-grow italic relative z-10">"Un salto de calidad absoluto en nuestra imagen profesional. Ahora no buscamos clientes a puerta fría, el posicionamiento que han creado hace que ellos vengan a nosotros."</p>
                         <div>
-                            <p class="font-bold text-white text-lg">Alexandro Navarro</p>
+                            <p class="font-bold text-gray-900 dark:text-white text-lg">Alexandro Navarro</p>
                             <p class="text-sm text-primary">Gestión de marca · Fotografía</p>
                         </div>
                     </div>
@@ -410,7 +410,7 @@
 
         <!-- ABOUT (Corporate Identity) -->
         <section class="py-20 px-4 relative z-10">
-            <div class="max-w-4xl mx-auto glass-panel p-8 md:p-16 rounded-[2.5rem] border border-white/10 text-center reveal shadow-2xl">
+            <div class="max-w-4xl mx-auto glass-panel p-8 md:p-16 rounded-[2.5rem] border border-gray-200 dark:border-white/10 text-center reveal shadow-2xl">
                 
                 <div class="w-24 h-24 md:w-28 md:h-28 rounded-full mx-auto mb-6 flex items-center justify-center bg-primary/10 border border-primary/30 shadow-[0_0_30px_rgba(123,97,255,0.2)]">
                     <i data-lucide="building-2" class="w-10 h-10 text-primary"></i>
@@ -419,18 +419,18 @@
                 <span class="text-primary font-bold tracking-widest uppercase text-xs mb-4 block drop-shadow-md">El equipo experto de Proemote</span>
                 <h2 class="text-3xl md:text-5xl font-bold mb-6 drop-shadow-lg">Odiamos <span class="text-gradient-primary">publicar por publicar.</span></h2>
                 <p class="text-lg md:text-xl text-textSecondary leading-relaxed mb-8 relative z-10">
-                    Las agencias tradicionales te venden "3 posts a la semana". Eso es quemar el dinero. Nosotros somos arquitectos de sistemas digitales: unimos <strong class="text-white">estrategia, psicología de consumo y ejecución visual</strong> para posicionar tu marca y generar retornos tangibles.
+                    Las agencias tradicionales te venden "3 posts a la semana". Eso es quemar el dinero. Nosotros somos arquitectos de sistemas digitales: unimos <strong class="text-gray-900 dark:text-white">estrategia, psicología de consumo y ejecución visual</strong> para posicionar tu marca y generar retornos tangibles.
                 </p>
-                <div class="flex justify-center items-center gap-2 text-white/50 text-sm font-medium">
-                    <i data-lucide="x" class="w-4 h-4 text-danger"></i> Sin plantillas <span class="mx-2 text-white/20">|</span> 
-                    <i data-lucide="x" class="w-4 h-4 text-danger"></i> Sin métricas vacías <span class="mx-2 text-white/20">|</span> 
+                <div class="flex justify-center items-center gap-2 text-gray-600 dark:text-white/50 text-sm font-medium">
+                    <i data-lucide="x" class="w-4 h-4 text-danger"></i> Sin plantillas <span class="mx-2 text-gray-400 dark:text-white/20">|</span> 
+                    <i data-lucide="x" class="w-4 h-4 text-danger"></i> Sin métricas vacías <span class="mx-2 text-gray-400 dark:text-white/20">|</span> 
                     <i data-lucide="x" class="w-4 h-4 text-danger"></i> Sin humo
                 </div>
             </div>
         </section>
 
         <!-- FAQs -->
-        <section class="py-24 px-4 bg-[#0A0A0F] border-y border-white/5 relative z-20">
+        <section class="py-24 px-4 bg-[#0A0A0F] border-y border-gray-200 dark:border-white/5 relative z-20">
             <div class="max-w-3xl mx-auto reveal">
                 <h2 class="text-3xl font-bold mb-10 text-center drop-shadow-lg">Dudas frecuentes</h2>
                 
@@ -483,7 +483,7 @@
             <h2 class="text-4xl md:text-5xl font-extrabold mb-6 max-w-3xl mx-auto drop-shadow-lg">Tu negocio es rentable. <br> <span class="text-gradient-primary">Haz que tu imagen digital también lo sea.</span></h2>
             <p class="text-textSecondary mb-10 text-lg drop-shadow-md">Bloquea tu espacio en la agenda ahora mismo.</p>
             
-            <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] relative overflow-hidden group hover:border-primary/40 transition-colors duration-500 shadow-[0_20px_50px_-10px_rgba(123,97,255,0.2)] max-w-lg mx-auto w-full border border-white/10 text-center">
+            <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] relative overflow-hidden group hover:border-primary/40 transition-colors duration-500 shadow-[0_20px_50px_-10px_rgba(123,97,255,0.2)] max-w-lg mx-auto w-full border border-gray-200 dark:border-white/10 text-center">
                 <div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[80px] -mr-20 -mt-20 group-hover:bg-primary/30 transition-colors duration-500 pointer-events-none"></div>
                 
                 <h3 class="text-3xl font-bold mb-2 relative z-10 drop-shadow-md">Auditoría Estratégica 1a1</h3>
@@ -491,19 +491,19 @@
                 
                 <div class="flex justify-center items-end gap-4 mb-8 relative z-10">
                     <span class="text-xl text-textSecondary line-through decoration-danger decoration-2 opacity-60">Consultoría: 100€</span>
-                    <span class="text-6xl font-extrabold text-white drop-shadow-lg">0€</span>
+                    <span class="text-6xl font-extrabold text-gray-900 dark:text-white drop-shadow-lg">0€</span>
                 </div>
                 
-                <div class="flex flex-col gap-4 w-full mb-8 relative z-10 text-left bg-black/20 p-6 rounded-2xl border border-white/5">
+                <div class="flex flex-col gap-4 w-full mb-8 relative z-10 text-left bg-black/20 p-6 rounded-2xl border border-gray-200 dark:border-white/5">
                     <div class="flex items-start gap-3 text-sm text-textSecondary">
-                        <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0"></i> <span class="leading-relaxed"><strong class="text-white font-medium">Diagnóstico sin filtros:</strong> Detectamos por qué pierdes clientes.</span>
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0"></i> <span class="leading-relaxed"><strong class="text-gray-900 dark:text-white font-medium">Diagnóstico sin filtros:</strong> Detectamos por qué pierdes clientes.</span>
                     </div>
                     <div class="flex items-start gap-3 text-sm text-textSecondary">
-                        <i data-lucide="map" class="w-5 h-5 text-primary shrink-0"></i> <span class="leading-relaxed"><strong class="text-white font-medium">Ruta clara:</strong> Los pasos para generar autoridad comercial.</span>
+                        <i data-lucide="map" class="w-5 h-5 text-primary shrink-0"></i> <span class="leading-relaxed"><strong class="text-gray-900 dark:text-white font-medium">Ruta clara:</strong> Los pasos para generar autoridad comercial.</span>
                     </div>
                 </div>
 
-                <button data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="btn-glow w-full py-5 rounded-xl text-white font-bold text-xl shadow-[0_0_20px_rgba(123,97,255,0.3)] relative z-10 mb-3">
+                <button data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="btn-glow w-full py-5 rounded-xl text-gray-900 dark:text-white font-bold text-xl shadow-[0_0_20px_rgba(123,97,255,0.3)] relative z-10 mb-3">
                     Reservar mi sesión de auditoría
                 </button>
                 <div class="flex flex-col items-center gap-1 text-xs text-textSecondary relative z-10">
@@ -711,7 +711,7 @@
         <div id="mega-menu-backdrop" class="absolute inset-0 bg-[#05020a]/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
         
         <div id="mega-menu-panel" class="absolute top-[96px] md:top-[112px] left-1/2 -translate-x-1/2 w-full max-w-5xl px-6 transform -translate-y-4 opacity-0 transition-all duration-300 pointer-events-auto">
-            <div class="backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-[2rem] p-8 shadow-2xl flex flex-col gap-10">
+            <div class="backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 rounded-[2rem] p-8 shadow-2xl flex flex-col gap-10">
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                     <a href="/branding-y-estrategia" class="group flex items-start gap-4">
@@ -719,8 +719,8 @@
                             <i class="ph-fill ph-paint-brush-broad text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Branding & Estrategia</h4>
-                            <p class="text-xs text-white/40 font-light">Identidad visual y posicionamiento.</p>
+                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Branding & Estrategia</h4>
+                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Identidad visual y posicionamiento.</p>
                         </div>
                     </a>
                     <a href="/web-seo" class="group flex items-start gap-4">
@@ -728,8 +728,8 @@
                             <i class="ph-fill ph-browser text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Diseño web y Posicionamiento SEO</h4>
-                            <p class="text-xs text-white/40 font-light">Webs de alto rendimiento y SEO.</p>
+                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Diseño web y Posicionamiento SEO</h4>
+                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Webs de alto rendimiento y SEO.</p>
                         </div>
                     </a>
                     <a href="/redes-sociales" class="group flex items-start gap-4">
@@ -737,8 +737,8 @@
                             <i class="ph-fill ph-share-network text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Contenido & Redes</h4>
-                            <p class="text-xs text-white/40 font-light">Social Media y estrategia de video.</p>
+                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Contenido & Redes</h4>
+                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Social Media y estrategia de video.</p>
                         </div>
                     </a>
                     <a href="/marketing-digital" class="group flex items-start gap-4">
@@ -746,8 +746,8 @@
                             <i class="ph-fill ph-rocket-launch text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Marketing Digital</h4>
-                            <p class="text-xs text-white/40 font-light">Campañas de publicidad digital para escalar tu negocio.</p>
+                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Marketing Digital</h4>
+                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Campañas de publicidad digital para escalar tu negocio.</p>
                         </div>
                     </a>
                     <a href="/automatizaciones-y-sistemas" class="group flex items-start gap-4">
@@ -755,8 +755,8 @@
                             <i class="ph-fill ph-robot text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Automatización y Sistemas</h4>
-                            <p class="text-xs text-white/40 font-light">Funnels, CRM y flujos que trabajan sin ti.</p>
+                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Automatización y Sistemas</h4>
+                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Funnels, CRM y flujos que trabajan sin ti.</p>
                         </div>
                     </a>
                     <a href="/eventos" class="group flex items-start gap-4">
@@ -764,8 +764,8 @@
                             <i class="ph-fill ph-ticket text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Eventos & Experiencias</h4>
-                            <p class="text-xs text-white/40 font-light">Producción, branding y promoción digital de eventos.</p>
+                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Eventos & Experiencias</h4>
+                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Producción, branding y promoción digital de eventos.</p>
                         </div>
                     </a>
                 </div>
@@ -775,7 +775,7 @@
                         <div class="w-10 h-10 rounded-full bg-violet-500/20 flex items-center justify-center text-violet-400 flex-shrink-0">
                             <i class="ph-fill ph-circles-three-plus text-xl"></i>
                         </div>
-                        <h4 class="text-white font-sans font-light text-lg">Diseñamos sistemas completos, no piezas aisladas.</h4>
+                        <h4 class="text-gray-900 dark:text-white font-sans font-light text-lg">Diseñamos sistemas completos, no piezas aisladas.</h4>
                     </div>
                     <a href="/servicios" class="inline-flex items-center gap-2 text-violet-400 font-medium text-sm hover:text-white transition-colors mt-4 md:mt-0 group flex-shrink-0">
                         Ver todos los servicios <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>

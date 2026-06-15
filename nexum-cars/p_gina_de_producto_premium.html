@@ -84,7 +84,7 @@
 <body class="font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-background">
 
     <!-- Navbar (Replicado para consistencia) -->
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-background/95 backdrop-blur-md border-b border-white/5 py-4 shadow-lg">
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-background/95 backdrop-blur-md border-b border-gray-200 dark:border-white/5 py-4 shadow-lg">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
             <a href="index.html" class="font-heading text-2xl font-semibold tracking-wider text-textlight flex items-center gap-2">
                 NEXUM<span class="text-accent">CARS</span>
@@ -127,7 +127,7 @@
                 <!-- Imagen Principal -->
                 <div class="lg:col-span-3 aspect-[16/10] lg:aspect-auto lg:h-[600px] bg-surface rounded-sm overflow-hidden relative group">
                     <img id="main-image" src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=2070&auto=format&fit=crop" alt="Volkswagen Golf Exterior" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    <div class="absolute top-4 left-4 bg-background/80 backdrop-blur-sm text-textlight text-xs font-semibold px-3 py-1 rounded-full border border-white/10 uppercase tracking-widest">
+                    <div class="absolute top-4 left-4 bg-background/80 backdrop-blur-sm text-textlight text-xs font-semibold px-3 py-1 rounded-full border border-gray-200 dark:border-white/10 uppercase tracking-widest">
                         Novedad
                     </div>
                 </div>
@@ -150,32 +150,32 @@
 
             <!-- 3. Dashboard de Especificaciones Clave (Filtro Racional) -->
             <div class="grid grid-cols-3 md:grid-cols-6 gap-3 mb-12">
-                <div class="bg-surface border border-white/5 p-4 rounded-sm flex flex-col items-center text-center spec-card">
+                <div class="bg-surface border border-gray-200 dark:border-white/5 p-4 rounded-sm flex flex-col items-center text-center spec-card">
                     <svg class="w-6 h-6 text-accent mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <span class="text-xs text-muted uppercase tracking-wider mb-1">Año</span>
                     <span class="font-semibold text-sm">2021</span>
                 </div>
-                <div class="bg-surface border border-white/5 p-4 rounded-sm flex flex-col items-center text-center spec-card">
+                <div class="bg-surface border border-gray-200 dark:border-white/5 p-4 rounded-sm flex flex-col items-center text-center spec-card">
                     <svg class="w-6 h-6 text-accent mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
                     <span class="text-xs text-muted uppercase tracking-wider mb-1">Kilómetros</span>
                     <span class="font-semibold text-sm">71.000 Km</span>
                 </div>
-                <div class="bg-surface border border-white/5 p-4 rounded-sm flex flex-col items-center text-center spec-card">
+                <div class="bg-surface border border-gray-200 dark:border-white/5 p-4 rounded-sm flex flex-col items-center text-center spec-card">
                     <svg class="w-6 h-6 text-accent mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                     <span class="text-xs text-muted uppercase tracking-wider mb-1">Motor</span>
                     <span class="font-semibold text-sm">1.5 TSI (Gasolina)</span>
                 </div>
-                <div class="bg-surface border border-white/5 p-4 rounded-sm flex flex-col items-center text-center spec-card">
+                <div class="bg-surface border border-gray-200 dark:border-white/5 p-4 rounded-sm flex flex-col items-center text-center spec-card">
                     <svg class="w-6 h-6 text-accent mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                     <span class="text-xs text-muted uppercase tracking-wider mb-1">Garantía</span>
                     <span class="font-semibold text-sm">1 Año Incluida</span>
                 </div>
-                <div class="bg-surface border border-white/5 p-4 rounded-sm flex flex-col items-center text-center spec-card">
+                <div class="bg-surface border border-gray-200 dark:border-white/5 p-4 rounded-sm flex flex-col items-center text-center spec-card">
                     <svg class="w-6 h-6 text-accent mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                     <span class="text-xs text-muted uppercase tracking-wider mb-1">Mantenimiento</span>
                     <span class="font-semibold text-sm">Revisión Completa</span>
                 </div>
-                <div class="bg-surface border border-white/5 p-4 rounded-sm flex flex-col items-center text-center spec-card">
+                <div class="bg-surface border border-gray-200 dark:border-white/5 p-4 rounded-sm flex flex-col items-center text-center spec-card">
                     <svg class="w-6 h-6 text-accent mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                     <span class="text-xs text-muted uppercase tracking-wider mb-1">Trámites</span>
                     <span class="font-semibold text-sm">Transferencia Inc.</span>
@@ -200,7 +200,7 @@
                 <!-- Columna Izquierda: Opciones Exterior -->
                 <div class="md:col-span-6 relative">
                     <h2 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-outline mb-6 tracking-tighter">EXTERIOR</h2>
-                    <ul class="space-y-3 text-sm text-textlight/80 font-light pl-2 border-l border-white/10">
+                    <ul class="space-y-3 text-sm text-textlight/80 font-light pl-2 border-l border-gray-200 dark:border-white/10">
                         <li class="flex items-start gap-3">
                             <span class="text-accent mt-0.5">•</span> 
                             Pintura Sólida / Metalizada en estado impecable
@@ -231,7 +231,7 @@
                 <!-- Columna Derecha: Opciones Interior -->
                 <div class="md:col-span-6 relative mt-8 md:mt-0 md:pt-32">
                     <h2 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-outline mb-6 tracking-tighter text-right">INTERIOR</h2>
-                    <ul class="space-y-3 text-sm text-textlight/80 font-light pr-2 border-r border-white/10 text-right">
+                    <ul class="space-y-3 text-sm text-textlight/80 font-light pr-2 border-r border-gray-200 dark:border-white/10 text-right">
                         <li class="flex items-start justify-end gap-3">
                             Volkswagen Digital Cockpit Pro (Cuadro de mandos digital)
                             <span class="text-accent mt-0.5">•</span> 
@@ -299,7 +299,7 @@
     </main>
 
     <!-- 6. Sticky Bottom CTA (Asegura la conversión independientemente del scroll) -->
-    <div class="fixed bottom-0 left-0 w-full bg-surface/95 backdrop-blur-md border-t border-white/10 p-4 z-40 transform translate-y-full transition-transform duration-500 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]" id="sticky-cta">
+    <div class="fixed bottom-0 left-0 w-full bg-surface/95 backdrop-blur-md border-t border-gray-200 dark:border-white/10 p-4 z-40 transform translate-y-full transition-transform duration-500 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]" id="sticky-cta">
         <div class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div class="hidden md:block">
                 <p class="text-sm text-muted font-medium uppercase tracking-widest">Volkswagen Golf VIII 1.5 TSI</p>
@@ -319,7 +319,7 @@
     </div>
 
     <!-- 7. Sección Contacto Fija (Para los que prefieren formulario o llamada) -->
-    <section id="contacto" class="py-24 bg-background relative border-t border-white/5">
+    <section id="contacto" class="py-24 bg-background relative border-t border-gray-200 dark:border-white/5">
         <div class="max-w-3xl mx-auto px-6 text-center">
             <h2 class="font-heading text-3xl font-semibold mb-4">¿Te interesa esta unidad?</h2>
             <p class="text-muted font-light mb-8">Gestión transparente y atención directa con Isidro Castañeda.</p>
@@ -331,7 +331,7 @@
     </section>
 
     <!-- FOOTER (Replicado) -->
-    <footer class="bg-[#050505] pt-16 pb-24 lg:pb-8 border-t border-white/5">
+    <footer class="bg-[#050505] pt-16 pb-24 lg:pb-8 border-t border-gray-200 dark:border-white/5">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center md:text-left">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div>

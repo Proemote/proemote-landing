@@ -155,11 +155,11 @@
 <body class="antialiased selection:bg-brand-purple selection:text-background flex flex-col min-h-screen">
 
     <!-- 1. HEADER COMPACTO -->
-    <header class="w-full relative z-40 fixed top-0 left-0 bg-[#030303]/80 backdrop-blur-xl border-b border-white/5">
+    <header class="w-full relative z-40 fixed top-0 left-0 bg-[#030303]/80 backdrop-blur-xl border-b border-gray-200 dark:border-white/5">
         <div class="max-w-7xl mx-auto py-4 px-6 md:px-8 flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <!-- Handshake SVG approximation for Proemote -->
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-900 dark:text-white">
                     <path d="m11 17 2 2a1 1 0 1 0 3-3"></path>
                     <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"></path>
                     <path d="m21 3-6.11 8.81"></path>
@@ -175,7 +175,7 @@
             </div>
 
             <div>
-                <button onclick="openTestModal()" class="px-5 py-2 rounded-full text-xs md:text-sm font-medium text-white bg-brand-purple/20 border border-brand-purple/50 hover:bg-brand-purple hover:border-brand-purple transition-all duration-300 flex items-center gap-2">
+                <button onclick="openTestModal()" class="px-5 py-2 rounded-full text-xs md:text-sm font-medium text-gray-900 dark:text-white bg-brand-purple/20 border border-brand-purple/50 hover:bg-brand-purple hover:border-brand-purple transition-all duration-300 flex items-center gap-2">
                     Radiografía gratuita &rarr;
                 </button>
             </div>
@@ -204,7 +204,7 @@
                 </div>
 
                 <h1 class="font-display font-medium text-[46px] sm:text-[60px] md:text-[80px] lg:text-[100px] leading-[1.05] tracking-tight max-w-4xl mx-auto drop-shadow-2xl animate-slide-up" style="animation-delay: 0.1s;">
-                    <span class="text-white">Haces buen trabajo.</span><br/>
+                    <span class="text-gray-900 dark:text-white">Haces buen trabajo.</span><br/>
                     <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-purpleLight via-brand-purpleLight to-brand-purple">El problema es que tu cliente ideal no te encuentra.</span>
                 </h1>
                 
@@ -212,7 +212,7 @@
                     Responde 8 preguntas sobre tu negocio. En 2 minutos te diremos exactamente qué está frenando tus ventas y qué debes cambiar esta semana.
                 </p>
                 
-                <button onclick="openTestModal()" class="mt-10 px-8 py-5 rounded-full bg-brand-purple text-white font-bold text-lg hover:bg-brand-purpleLight transition-all duration-300 transform hover:-translate-y-1 shadow-[0_0_30px_rgba(124,58,237,0.4)] hover:shadow-[0_0_50px_rgba(124,58,237,0.6)] flex items-center justify-center gap-3 group animate-slide-up border border-brand-purpleLight/50" style="animation-delay: 0.3s;">
+                <button onclick="openTestModal()" class="mt-10 px-8 py-5 rounded-full bg-brand-purple text-gray-900 dark:text-white font-bold text-lg hover:bg-brand-purpleLight transition-all duration-300 transform hover:-translate-y-1 shadow-[0_0_30px_rgba(124,58,237,0.4)] hover:shadow-[0_0_50px_rgba(124,58,237,0.6)] flex items-center justify-center gap-3 group animate-slide-up border border-brand-purpleLight/50" style="animation-delay: 0.3s;">
                     Descubrir qué frena mi negocio (2 min, gratis) &rarr;
                 </button>
             </div>
@@ -225,42 +225,42 @@
                 <div class="relative flex overflow-hidden w-full mask-fade-edges">
                     <div class="marquee-container flex gap-8 items-center">
                         <!-- Group 1 -->
-                        <div class="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2.5 rounded-full backdrop-blur-sm">
+                        <div class="flex items-center gap-3 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 px-4 py-2.5 rounded-full backdrop-blur-sm">
                             <div class="flex gap-0.5 text-brand-purpleLight">
                                 <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                                 <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                             </div>
                             <span class="text-gray-300 text-sm font-medium whitespace-nowrap">4.9/5 en Reseñas</span>
                         </div>
-                        <div class="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2.5 rounded-full backdrop-blur-sm">
+                        <div class="flex items-center gap-3 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 px-4 py-2.5 rounded-full backdrop-blur-sm">
                             <div class="w-5 h-5 rounded-full bg-brand-purple/20 flex items-center justify-center text-brand-purpleLight font-bold text-xs">P</div>
                             <span class="text-gray-300 text-sm font-medium whitespace-nowrap">Premio Impulso 2025</span>
                         </div>
-                        <div class="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2.5 rounded-full backdrop-blur-sm">
+                        <div class="flex items-center gap-3 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 px-4 py-2.5 rounded-full backdrop-blur-sm">
                             <div class="w-5 h-5 rounded-full bg-brand-purple/20 flex items-center justify-center text-brand-purpleLight font-bold text-xs">J</div>
                             <span class="text-gray-300 text-sm font-medium whitespace-nowrap">+300% Centro Belleza Juany</span>
                         </div>
-                        <div class="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2.5 rounded-full backdrop-blur-sm">
+                        <div class="flex items-center gap-3 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 px-4 py-2.5 rounded-full backdrop-blur-sm">
                             <div class="w-5 h-5 rounded-full bg-brand-purple/20 flex items-center justify-center text-brand-purpleLight font-bold text-xs">L</div>
                             <span class="text-gray-300 text-sm font-medium whitespace-nowrap">+1.000 seg. Lo Quiero Limpio</span>
                         </div>
                         <!-- Group 2 (Duplicado) -->
-                        <div class="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2.5 rounded-full backdrop-blur-sm">
+                        <div class="flex items-center gap-3 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 px-4 py-2.5 rounded-full backdrop-blur-sm">
                             <div class="flex gap-0.5 text-brand-purpleLight">
                                 <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                                 <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                             </div>
                             <span class="text-gray-300 text-sm font-medium whitespace-nowrap">4.9/5 en Reseñas</span>
                         </div>
-                        <div class="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2.5 rounded-full backdrop-blur-sm">
+                        <div class="flex items-center gap-3 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 px-4 py-2.5 rounded-full backdrop-blur-sm">
                             <div class="w-5 h-5 rounded-full bg-brand-purple/20 flex items-center justify-center text-brand-purpleLight font-bold text-xs">P</div>
                             <span class="text-gray-300 text-sm font-medium whitespace-nowrap">Premio Impulso 2025</span>
                         </div>
-                        <div class="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2.5 rounded-full backdrop-blur-sm">
+                        <div class="flex items-center gap-3 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 px-4 py-2.5 rounded-full backdrop-blur-sm">
                             <div class="w-5 h-5 rounded-full bg-brand-purple/20 flex items-center justify-center text-brand-purpleLight font-bold text-xs">J</div>
                             <span class="text-gray-300 text-sm font-medium whitespace-nowrap">+300% Centro Belleza Juany</span>
                         </div>
-                        <div class="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-2.5 rounded-full backdrop-blur-sm">
+                        <div class="flex items-center gap-3 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 px-4 py-2.5 rounded-full backdrop-blur-sm">
                             <div class="w-5 h-5 rounded-full bg-brand-purple/20 flex items-center justify-center text-brand-purpleLight font-bold text-xs">L</div>
                             <span class="text-gray-300 text-sm font-medium whitespace-nowrap">+1.000 seg. Lo Quiero Limpio</span>
                         </div>
@@ -272,7 +272,7 @@
         <!-- 3. COPYBLOCK #1 -->
         <section class="py-24 px-6 relative z-20 bg-[#030303]">
             <div class="max-w-3xl mx-auto text-center space-y-6 reveal-on-scroll">
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white tracking-tight leading-tight">
                     El problema no es tu negocio, <br class="hidden md:block"/> 
                     <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-purpleLight to-brand-purple">es tu brújula digital.</span>
                 </h2>
@@ -280,7 +280,7 @@
                     Si pagas a alguien para que te lleve las redes sin una estrategia clara, o tienes una web "escaparate" que nunca te trae a nadie por la puerta, tu negocio pierde dinero cada día. Delegar está bien, pero necesitas la Brújula Digital adecuada: <strong class="bg-clip-text text-transparent bg-gradient-to-r from-brand-purpleLight to-brand-purple font-semibold">estar exactamente donde tus clientes buscan</strong> con la tarjeta en la mano.
                 </p>
                 <div class="pt-8">
-                    <button onclick="openTestModal()" class="px-6 py-3 bg-white/5 hover:bg-white/10 border border-brand-purple/30 hover:border-brand-purple rounded-full text-white font-medium transition-all inline-flex items-center gap-2 text-sm">
+                    <button onclick="openTestModal()" class="px-6 py-3 bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 border border-brand-purple/30 hover:border-brand-purple rounded-full text-gray-900 dark:text-white font-medium transition-all inline-flex items-center gap-2 text-sm">
                         Descubrir qué frena mi negocio (2 min, gratis) &rarr;
                     </button>
                 </div>
@@ -297,7 +297,7 @@
                         <div class="inline-flex p-3 rounded-xl bg-brand-purple/10 text-brand-purple mb-2 border border-brand-purple/20">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
                         </div>
-                        <h3 class="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">
                             Error #1: Vendes tus servicios en lugar de resolver dudas
                         </h3>
                         <p class="text-lg text-gray-300 leading-relaxed">
@@ -312,14 +312,14 @@
                                     J
                                 </div>
                                 <div>
-                                    <h4 class="text-white font-semibold text-lg">Centro Belleza Juany</h4>
+                                    <h4 class="text-gray-900 dark:text-white font-semibold text-lg">Centro Belleza Juany</h4>
                                     <p class="text-sm text-brand-purpleLight flex items-center gap-1 font-medium mt-1">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
                                         +300% atacando problemas reales
                                     </p>
                                 </div>
                             </div>
-                            <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-gray-300 text-sm leading-relaxed">
+                            <div class="bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl p-5 text-gray-300 text-sm leading-relaxed">
                                 "Teníamos las redes abandonadas. Subíamos alguna foto sin estrategia. En cuanto pasamos a crear contenido profesional que atacaba los problemas reales de nuestras clientas, las reservas se dispararon."
                             </div>
                         </div>
@@ -332,7 +332,7 @@
                         <div class="inline-flex p-3 rounded-xl bg-brand-purple/10 text-brand-purple mb-2 border border-brand-purple/20">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
                         </div>
-                        <h3 class="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">
                             Error #2: Eres invisible en tu propia ciudad
                         </h3>
                         <p class="text-lg text-gray-300 leading-relaxed">
@@ -347,16 +347,16 @@
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                                 </div>
                                 <div>
-                                    <h4 class="text-white font-semibold text-lg">Lo Quiero Limpio</h4>
+                                    <h4 class="text-gray-900 dark:text-white font-semibold text-lg">Lo Quiero Limpio</h4>
                                     <p class="text-sm text-brand-purpleLight font-medium mt-1">
                                         Posición #1 en Google
                                     </p>
                                 </div>
                             </div>
-                            <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
-                                <p class="text-xs text-gray-400 mb-3 uppercase tracking-wider font-semibold">Búsqueda: <span class="text-white">"empresa de limpieza Mérida"</span></p>
+                            <div class="bg-gray-100 dark:bg-white/5 rounded-2xl p-5 border border-gray-200 dark:border-white/10">
+                                <p class="text-xs text-gray-400 mb-3 uppercase tracking-wider font-semibold">Búsqueda: <span class="text-gray-900 dark:text-white">"empresa de limpieza Mérida"</span></p>
                                 <div class="flex items-start gap-4 bg-[#030303] p-4 rounded-xl border border-brand-purple/30">
-                                    <div class="w-6 h-6 rounded bg-brand-purple text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5 shadow-[0_0_10px_rgba(124,58,237,0.5)]">1</div>
+                                    <div class="w-6 h-6 rounded bg-brand-purple text-gray-900 dark:text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5 shadow-[0_0_10px_rgba(124,58,237,0.5)]">1</div>
                                     <div>
                                         <p class="text-brand-purpleLight text-sm font-medium">Lo Quiero Limpio - Servicios Integrales en Mérida</p>
                                         <p class="text-xs text-gray-400 mt-1 line-clamp-2">La mejor empresa de limpieza de la ciudad especializada en locales comerciales...</p>
@@ -373,19 +373,19 @@
         <section class="py-12 px-6 relative z-20 bg-[#030303]">
             <div class="max-w-6xl mx-auto">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="p-6 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-brand-purple/30 transition-colors glass-card reveal-on-scroll">
+                    <div class="p-6 rounded-3xl bg-white/[0.02] border border-gray-200 dark:border-white/5 hover:border-brand-purple/30 transition-colors glass-card reveal-on-scroll">
                         <p class="text-sm text-gray-300 font-medium leading-relaxed">"De 0 a 40 presupuestos mensuales en 3 meses."</p>
                         <p class="text-xs text-brand-purpleLight font-bold mt-4">— Lo Quiero Limpio</p>
                     </div>
-                    <div class="p-6 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-brand-purple/30 transition-colors glass-card reveal-on-scroll delay-100">
+                    <div class="p-6 rounded-3xl bg-white/[0.02] border border-gray-200 dark:border-white/5 hover:border-brand-purple/30 transition-colors glass-card reveal-on-scroll delay-100">
                         <p class="text-sm text-gray-300 font-medium leading-relaxed">"Agenda llena a 3 semanas vista."</p>
                         <p class="text-xs text-brand-purpleLight font-bold mt-4">— Centro Belleza Juany</p>
                     </div>
-                    <div class="p-6 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-brand-purple/30 transition-colors glass-card reveal-on-scroll delay-200">
+                    <div class="p-6 rounded-3xl bg-white/[0.02] border border-gray-200 dark:border-white/5 hover:border-brand-purple/30 transition-colors glass-card reveal-on-scroll delay-200">
                         <p class="text-sm text-gray-300 font-medium leading-relaxed">"En 2 semanas pasé de 5 a 18 reservas mensuales."</p>
                         <p class="text-xs text-brand-purpleLight font-bold mt-4">— José, Fontanería</p>
                     </div>
-                    <div class="p-6 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-brand-purple/30 transition-colors glass-card reveal-on-scroll delay-300">
+                    <div class="p-6 rounded-3xl bg-white/[0.02] border border-gray-200 dark:border-white/5 hover:border-brand-purple/30 transition-colors glass-card reveal-on-scroll delay-300">
                         <p class="text-sm text-gray-300 font-medium leading-relaxed">"Me mostró exactamente qué estaba roto. Cambié una cosa y duplicamos clientes."</p>
                         <p class="text-xs text-brand-purpleLight font-bold mt-4">— Laura, Peluquería</p>
                     </div>
@@ -398,22 +398,22 @@
             <div class="max-w-4xl mx-auto glass-card rounded-[40px] p-8 md:p-12 border border-brand-purple/20 relative overflow-hidden bg-white/[0.02] reveal-on-scroll">
                 <div class="absolute top-0 right-0 w-64 h-64 bg-brand-purple/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
                 
-                <h3 class="text-2xl md:text-3xl font-bold text-white mb-10 text-center tracking-tight">¿Por qué usar la Brújula Digital y no hacerlo yo mismo?</h3>
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-10 text-center tracking-tight">¿Por qué usar la Brújula Digital y no hacerlo yo mismo?</h3>
                 
                 <div class="grid md:grid-cols-2 gap-10 mt-8">
                     <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-400 mb-6">
+                        <div class="w-12 h-12 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-400 mb-6">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
-                        <h4 class="text-white font-semibold text-xl">El camino lento</h4>
+                        <h4 class="text-gray-900 dark:text-white font-semibold text-xl">El camino lento</h4>
                         <p class="text-base text-gray-400 leading-relaxed">Podrías intentar replicar esto tú mismo. Pasarías horas analizando tu Instagram, tu web, tu presencia en Google. Probablemente encontrarías algo.</p>
                     </div>
-                    <div class="space-y-4 border-t md:border-t-0 md:border-l border-white/10 pt-8 md:pt-0 md:pl-10">
+                    <div class="space-y-4 border-t md:border-t-0 md:border-l border-gray-200 dark:border-white/10 pt-8 md:pt-0 md:pl-10">
                         <div class="w-12 h-12 rounded-full bg-brand-purple/20 flex items-center justify-center text-brand-purpleLight mb-6 shadow-[0_0_20px_rgba(124,58,237,0.3)] border border-brand-purple/50">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                         </div>
                         <h4 class="text-brand-purpleLight font-semibold text-xl">El sistema exacto</h4>
-                        <p class="text-base text-gray-300 leading-relaxed">Nuestra Brújula no es una opinión. Es un sistema probado en 50+ negocios locales. En 2 min identificamos exactamente dónde está tu problema — y eso es mucho más rápido y preciso.<br><br><strong class="text-white">El tiempo que ahorras en diagnosis es el que ganas aplicando.</strong></p>
+                        <p class="text-base text-gray-300 leading-relaxed">Nuestra Brújula no es una opinión. Es un sistema probado en 50+ negocios locales. En 2 min identificamos exactamente dónde está tu problema — y eso es mucho más rápido y preciso.<br><br><strong class="text-gray-900 dark:text-white">El tiempo que ahorras en diagnosis es el que ganas aplicando.</strong></p>
                     </div>
                 </div>
             </div>
@@ -425,11 +425,11 @@
                 <div class="absolute top-0 right-0 w-64 h-64 bg-brand-purple/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
                 <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-purple/10 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none"></div>
                 
-                <h2 class="text-2xl md:text-3xl lg:text-4xl font-medium text-white mb-8 relative z-10 leading-relaxed tracking-tight">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-900 dark:text-white mb-8 relative z-10 leading-relaxed tracking-tight">
                     "La diferencia entre un negocio con la agenda a rebosar y uno que lucha por llegar a fin de mes no es la suerte.<br><br><span class="text-brand-purpleLight font-bold">Es saber qué tocar para que internet funcione.</span>"
                 </h2>
                 <div class="flex flex-col items-center justify-center relative z-10">
-                    <p class="text-white font-bold">— Carlos Molina</p>
+                    <p class="text-gray-900 dark:text-white font-bold">— Carlos Molina</p>
                     <p class="text-sm text-gray-400">CEO de Proemote</p>
                 </div>
             </div>
@@ -439,7 +439,7 @@
         <section class="py-16 px-6 relative z-20 bg-[#030303]">
             <div class="max-w-4xl mx-auto reveal-on-scroll">
                 <div class="text-center mb-12">
-                    <h3 class="text-3xl font-bold text-white mb-4 tracking-tight">¿Es esto para ti?</h3>
+                    <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">¿Es esto para ti?</h3>
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-6">
@@ -447,7 +447,7 @@
                         <div class="w-12 h-12 rounded-full bg-brand-purple/20 flex items-center justify-center text-brand-purpleLight mb-6 border border-brand-purple/50">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                         </div>
-                        <h4 class="text-white font-bold text-xl mb-4">Para quién SÍ es</h4>
+                        <h4 class="text-gray-900 dark:text-white font-bold text-xl mb-4">Para quién SÍ es</h4>
                         <p class="text-gray-300 text-base leading-relaxed">Si tienes un negocio local con clientes presenciales, ofreces servicios en tu zona y el teléfono no te da todo lo que debería (o si te va bien, pero sabes que podrías facturar más online), este diagnóstico te va a cambiar el juego.</p>
                     </div>
                     
@@ -455,7 +455,7 @@
                         <div class="w-12 h-12 rounded-full bg-red-500/10 flex items-center justify-center text-red-400 mb-6 border border-red-500/30">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                         </div>
-                        <h4 class="text-white font-bold text-xl mb-4">Para quién NO es</h4>
+                        <h4 class="text-gray-900 dark:text-white font-bold text-xl mb-4">Para quién NO es</h4>
                         <p class="text-gray-400 text-base leading-relaxed">Para dueños de negocio que creen que ya lo hacen todo perfecto, que piensan que el marketing no sirve de nada o que no están dispuestos a cambiar ni una coma de su estrategia para mejorar.</p>
                     </div>
                 </div>
@@ -470,27 +470,27 @@
                 <div class="relative mx-auto w-full max-w-[320px] animate-float reveal-on-scroll">
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-brand-purple/20 blur-[100px] -z-10 pointer-events-none"></div>
                     <div class="relative w-full h-[640px] bg-[#030303] border-[8px] border-[#1a1a1a] rounded-[45px] shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden ring-1 ring-white/10">
-                        <div class="absolute top-3 left-1/2 -translate-x-1/2 h-[28px] w-[95px] bg-[#030303] rounded-full z-30 flex items-center justify-end px-2 border border-white/5">
+                        <div class="absolute top-3 left-1/2 -translate-x-1/2 h-[28px] w-[95px] bg-[#030303] rounded-full z-30 flex items-center justify-end px-2 border border-gray-200 dark:border-white/5">
                             <div class="w-2.5 h-2.5 rounded-full bg-[#111] shadow-[inset_0_0_2px_rgba(255,255,255,0.2)]"></div>
                         </div>
                         <div class="absolute inset-0 bg-[#0a0a0a] pt-14 p-5 flex flex-col gap-4 overflow-hidden">
                             <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-brand-purple/20 blur-3xl pointer-events-none"></div>
-                            <div class="text-center pb-4 border-b border-white/5 relative z-10">
+                            <div class="text-center pb-4 border-b border-gray-200 dark:border-white/5 relative z-10">
                                 <p class="text-[10px] text-brand-purpleLight font-bold uppercase tracking-widest mb-1">Diagnóstico</p>
-                                <h4 class="text-white font-display font-medium text-4xl tracking-tight">45<span class="text-sm text-gray-500 font-normal">/100</span></h4>
+                                <h4 class="text-gray-900 dark:text-white font-display font-medium text-4xl tracking-tight">45<span class="text-sm text-gray-500 font-normal">/100</span></h4>
                             </div>
                             <div class="space-y-3 flex-1 relative z-10">
-                                <div class="p-4 bg-white/[0.03] border border-white/5 rounded-2xl relative overflow-hidden">
+                                <div class="p-4 bg-white/[0.03] border border-gray-200 dark:border-white/5 rounded-2xl relative overflow-hidden">
                                     <div class="absolute left-0 top-0 bottom-0 w-1 bg-red-500"></div>
                                     <p class="text-gray-300 text-xs font-medium mb-1">Visibilidad SEO Local</p>
                                     <p class="text-red-400 text-xs font-semibold mb-3">CRÍTICO: No apareces</p>
-                                    <div class="h-1.5 bg-white/10 rounded-full w-full overflow-hidden"><div class="h-full bg-red-500 w-[15%]"></div></div>
+                                    <div class="h-1.5 bg-gray-200 dark:bg-white/10 rounded-full w-full overflow-hidden"><div class="h-full bg-red-500 w-[15%]"></div></div>
                                 </div>
-                                <div class="p-4 bg-white/[0.03] border border-white/5 rounded-2xl relative overflow-hidden">
+                                <div class="p-4 bg-white/[0.03] border border-gray-200 dark:border-white/5 rounded-2xl relative overflow-hidden">
                                     <div class="absolute left-0 top-0 bottom-0 w-1 bg-yellow-500"></div>
                                     <p class="text-gray-300 text-xs font-medium mb-1">Conversión en IG</p>
                                     <p class="text-yellow-400 text-xs font-semibold mb-3">MEJORABLE: Vacío</p>
-                                    <div class="h-1.5 bg-white/10 rounded-full w-full overflow-hidden"><div class="h-full bg-yellow-500 w-[45%]"></div></div>
+                                    <div class="h-1.5 bg-gray-200 dark:bg-white/10 rounded-full w-full overflow-hidden"><div class="h-full bg-yellow-500 w-[45%]"></div></div>
                                 </div>
                                 <div class="p-4 bg-brand-purple/10 border border-brand-purple/30 rounded-2xl relative mt-2">
                                     <p class="text-brand-purpleLight text-[10px] font-bold tracking-widest uppercase mb-2 flex items-center gap-1.5">
@@ -505,23 +505,23 @@
 
                 <!-- Text & Button -->
                 <div class="space-y-8 text-center md:text-left reveal-on-scroll">
-                    <h3 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Aquí está tu diagnóstico</h3>
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Aquí está tu diagnóstico</h3>
                     <ul class="space-y-4 text-left">
-                        <li class="flex items-start gap-3 bg-white/[0.02] p-4 rounded-2xl border border-white/5">
+                        <li class="flex items-start gap-3 bg-white/[0.02] p-4 rounded-2xl border border-gray-200 dark:border-white/5">
                             <div class="w-6 h-6 rounded-full bg-brand-purple/20 text-brand-purpleLight flex items-center justify-center shrink-0 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
                             <span class="text-gray-300 text-base">Informe PDF privado con tu puntuación Brújula Digital y diagnóstico.</span>
                         </li>
-                        <li class="flex items-start gap-3 bg-white/[0.02] p-4 rounded-2xl border border-white/5">
+                        <li class="flex items-start gap-3 bg-white/[0.02] p-4 rounded-2xl border border-gray-200 dark:border-white/5">
                             <div class="w-6 h-6 rounded-full bg-brand-purple/20 text-brand-purpleLight flex items-center justify-center shrink-0 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
                             <span class="text-gray-300 text-base">Plan de acción paso a paso aplicable por ti mismo (acceso inmediato).</span>
                         </li>
-                        <li class="flex items-start gap-3 bg-white/[0.02] p-4 rounded-2xl border border-white/5">
+                        <li class="flex items-start gap-3 bg-white/[0.02] p-4 rounded-2xl border border-gray-200 dark:border-white/5">
                             <div class="w-6 h-6 rounded-full bg-brand-purple/20 text-brand-purpleLight flex items-center justify-center shrink-0 mt-0.5"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
                             <span class="text-gray-300 text-base">Resultado visible esta semana si sigues los 3 primeros pasos.</span>
                         </li>
                     </ul>
                     <div class="pt-4">
-                        <button onclick="openTestModal()" class="w-full md:w-auto px-8 py-5 rounded-full bg-brand-purple text-white font-bold text-lg hover:bg-brand-purpleLight transition-all shadow-[0_0_20px_rgba(124,58,237,0.3)] flex items-center justify-center gap-2">
+                        <button onclick="openTestModal()" class="w-full md:w-auto px-8 py-5 rounded-full bg-brand-purple text-gray-900 dark:text-white font-bold text-lg hover:bg-brand-purpleLight transition-all shadow-[0_0_20px_rgba(124,58,237,0.3)] flex items-center justify-center gap-2">
                             Quiero mi diagnóstico gratuito (100% Gratis) &rarr;
                         </button>
                         <p class="text-xs text-gray-500 mt-4 text-center md:text-left">Tus respuestas son 100% privadas. No spam, nunca.</p>
@@ -531,14 +531,14 @@
         </section>
 
         <!-- FAQ (Acordeón Animado) -->
-        <section class="py-20 px-6 relative z-20 bg-[#030303] border-t border-white/5">
+        <section class="py-20 px-6 relative z-20 bg-[#030303] border-t border-gray-200 dark:border-white/5">
             <div class="max-w-3xl mx-auto reveal-on-scroll">
-                <h3 class="text-3xl font-bold text-white mb-10 text-center">Preguntas frecuentes</h3>
+                <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-10 text-center">Preguntas frecuentes</h3>
                 <div class="space-y-4">
                     <!-- FAQ 1 -->
-                    <div class="glass-card rounded-2xl border border-white/10 overflow-hidden faq-item cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="glass-card rounded-2xl border border-gray-200 dark:border-white/10 overflow-hidden faq-item cursor-pointer" onclick="toggleFaq(this)">
                         <div class="p-6 flex justify-between items-center bg-white/[0.02]">
-                            <h4 class="text-white font-semibold">¿Realmente es gratis?</h4>
+                            <h4 class="text-gray-900 dark:text-white font-semibold">¿Realmente es gratis?</h4>
                             <svg class="w-5 h-5 text-brand-purpleLight transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
                         <div class="faq-answer">
@@ -548,9 +548,9 @@
                         </div>
                     </div>
                     <!-- FAQ 2 -->
-                    <div class="glass-card rounded-2xl border border-white/10 overflow-hidden faq-item cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="glass-card rounded-2xl border border-gray-200 dark:border-white/10 overflow-hidden faq-item cursor-pointer" onclick="toggleFaq(this)">
                         <div class="p-6 flex justify-between items-center bg-white/[0.02]">
-                            <h4 class="text-white font-semibold">¿Cuánto tiempo tarda en llegar el resultado?</h4>
+                            <h4 class="text-gray-900 dark:text-white font-semibold">¿Cuánto tiempo tarda en llegar el resultado?</h4>
                             <svg class="w-5 h-5 text-brand-purpleLight transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
                         <div class="faq-answer">
@@ -560,9 +560,9 @@
                         </div>
                     </div>
                     <!-- FAQ 3 -->
-                    <div class="glass-card rounded-2xl border border-white/10 overflow-hidden faq-item cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="glass-card rounded-2xl border border-gray-200 dark:border-white/10 overflow-hidden faq-item cursor-pointer" onclick="toggleFaq(this)">
                         <div class="p-6 flex justify-between items-center bg-white/[0.02]">
-                            <h4 class="text-white font-semibold">¿Cuándo puedo empezar a aplicar los cambios?</h4>
+                            <h4 class="text-gray-900 dark:text-white font-semibold">¿Cuándo puedo empezar a aplicar los cambios?</h4>
                             <svg class="w-5 h-5 text-brand-purpleLight transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
                         <div class="faq-answer">
@@ -572,9 +572,9 @@
                         </div>
                     </div>
                     <!-- FAQ 4 -->
-                    <div class="glass-card rounded-2xl border border-white/10 overflow-hidden faq-item cursor-pointer" onclick="toggleFaq(this)">
+                    <div class="glass-card rounded-2xl border border-gray-200 dark:border-white/10 overflow-hidden faq-item cursor-pointer" onclick="toggleFaq(this)">
                         <div class="p-6 flex justify-between items-center bg-white/[0.02]">
-                            <h4 class="text-white font-semibold">¿Qué pasa con mi email? ¿Me vais a hacer spam?</h4>
+                            <h4 class="text-gray-900 dark:text-white font-semibold">¿Qué pasa con mi email? ¿Me vais a hacer spam?</h4>
                             <svg class="w-5 h-5 text-brand-purpleLight transform transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
                         <div class="faq-answer">
@@ -670,7 +670,7 @@
     <!-- MODAL QUIZ TYPEFORM MULTI-STEP -->
     <div id="testModal" class="fixed inset-0 z-50 modal-overlay flex flex-col">
         <!-- Barra superior -->
-        <div class="w-full px-6 py-4 flex items-center justify-between shrink-0 border-b border-white/5" id="quizHeaderBlock">
+        <div class="w-full px-6 py-4 flex items-center justify-between shrink-0 border-b border-gray-200 dark:border-white/5" id="quizHeaderBlock">
             <p class="text-[11px] font-bold text-gray-400 tracking-widest uppercase" id="quizProgressText">PASO 1 DE 17</p>
             <button onclick="closeTestModal()" class="text-gray-400 hover:text-white p-2 transition-colors">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -678,7 +678,7 @@
         </div>
         
         <!-- Línea de progreso fina -->
-        <div class="w-full h-1 bg-white/5 shrink-0" id="quizProgressBarBlock">
+        <div class="w-full h-1 bg-gray-100 dark:bg-white/5 shrink-0" id="quizProgressBarBlock">
             <div class="h-full bg-brand-purple transition-all duration-300 w-[5%]" id="quizProgressBar"></div>
         </div>
 
@@ -836,7 +836,7 @@
             body.className = `flex-1 overflow-y-auto overflow-x-hidden relative bg-[#030303] w-full flex flex-col p-6 items-center justify-center step-${direction}`;
 
             let html = `<div class="max-w-2xl w-full mx-auto pb-20" id="questionContainer">`;
-            html += `<h2 class="text-3xl md:text-4xl font-display font-semibold text-white mb-8 md:mb-12 leading-tight text-center md:text-left">${q.q}</h2>`;
+            html += `<h2 class="text-3xl md:text-4xl font-display font-semibold text-gray-900 dark:text-white mb-8 md:mb-12 leading-tight text-center md:text-left">${q.q}</h2>`;
             html += `<div class="space-y-4">`;
             
             if (q.type === 'single' || q.type === 'multi') {
@@ -845,22 +845,22 @@
                     const activeClass = isSelected ? 'border-brand-purple bg-brand-purple/10 ring-1 ring-brand-purple' : 'border-white/10 bg-white/[0.03] hover:bg-white/[0.08]';
                     
                     html += `
-                        <button onclick="handleSelect('${q.id}', '${opt}', '${q.type}')" class="w-full text-left px-6 py-5 rounded-2xl border ${activeClass} text-white font-medium transition-all flex items-center justify-between text-lg md:text-xl">
+                        <button onclick="handleSelect('${q.id}', '${opt}', '${q.type}')" class="w-full text-left px-6 py-5 rounded-2xl border ${activeClass} text-gray-900 dark:text-white font-medium transition-all flex items-center justify-between text-lg md:text-xl">
                             <span>${opt}</span>
                             <div class="w-6 h-6 shrink-0 rounded-full border-2 ${isSelected ? 'border-brand-purple bg-brand-purple flex items-center justify-center' : 'border-gray-500'}">
-                                ${isSelected ? '<svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>' : ''}
+                                ${isSelected ? '<svg class="w-4 h-4 text-gray-900 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>' : ''}
                             </div>
                         </button>
                     `;
                 });
             } else if (q.type === 'text') {
                 const val = quizAnswers[q.id] || '';
-                html += `<input type="text" id="textInput_${q.id}" oninput="handleText('${q.id}', this.value)" placeholder="${q.placeholder}" value="${val}" class="w-full px-6 py-5 rounded-2xl border border-white/20 bg-white/[0.03] text-white focus:border-brand-purple focus:bg-brand-purple/5 focus:outline-none text-xl transition-colors">`;
+                html += `<input type="text" id="textInput_${q.id}" oninput="handleText('${q.id}', this.value)" placeholder="${q.placeholder}" value="${val}" class="w-full px-6 py-5 rounded-2xl border border-gray-300 dark:border-white/20 bg-white/[0.03] text-gray-900 dark:text-white focus:border-brand-purple focus:bg-brand-purple/5 focus:outline-none text-xl transition-colors">`;
             }
 
             // Always render continue button
             html += `</div>`;
-            html += `<button onclick="quizNext()" id="btnContinue" class="mt-10 w-full md:w-auto md:min-w-[200px] px-8 py-4 rounded-xl bg-brand-purple text-white font-bold text-lg hover:bg-brand-purpleLight transition-all opacity-50 cursor-not-allowed">Continuar &rarr;</button>`;
+            html += `<button onclick="quizNext()" id="btnContinue" class="mt-10 w-full md:w-auto md:min-w-[200px] px-8 py-4 rounded-xl bg-brand-purple text-gray-900 dark:text-white font-bold text-lg hover:bg-brand-purpleLight transition-all opacity-50 cursor-not-allowed">Continuar &rarr;</button>`;
             html += `</div>`;
             
             body.innerHTML = html;
@@ -967,12 +967,12 @@
                     <div class="w-16 h-16 rounded-full bg-brand-purple/20 text-brand-purple flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     </div>
-                    <h3 class="text-3xl font-display font-bold text-white mb-3">Tu diagnóstico está listo</h3>
+                    <h3 class="text-3xl font-display font-bold text-gray-900 dark:text-white mb-3">Tu diagnóstico está listo</h3>
                     <p class="text-gray-400 mb-8 text-base">Dinos dónde enviarlo y lo recibirás al instante en PDF.</p>
                     
                     <div class="space-y-4 text-left">
-                        <input type="text" id="finalName" placeholder="Tu nombre" class="w-full px-5 py-4 rounded-xl border border-white/10 bg-white/[0.03] text-white focus:border-brand-purple focus:outline-none text-lg">
-                        <input type="email" id="finalEmail" placeholder="tu@email.com" class="w-full px-5 py-4 rounded-xl border border-white/10 bg-white/[0.03] text-white focus:border-brand-purple focus:outline-none text-lg">
+                        <input type="text" id="finalName" placeholder="Tu nombre" class="w-full px-5 py-4 rounded-xl border border-gray-200 dark:border-white/10 bg-white/[0.03] text-gray-900 dark:text-white focus:border-brand-purple focus:outline-none text-lg">
+                        <input type="email" id="finalEmail" placeholder="tu@email.com" class="w-full px-5 py-4 rounded-xl border border-gray-200 dark:border-white/10 bg-white/[0.03] text-gray-900 dark:text-white focus:border-brand-purple focus:outline-none text-lg">
                         
                         <div class="flex items-start gap-3 mt-4 mb-2 px-1">
                             <input type="checkbox" id="termsCheckbox" class="mt-1 w-4 h-4 rounded border-gray-600 bg-gray-800 text-brand-purple focus:ring-brand-purple">
@@ -981,7 +981,7 @@
                             </label>
                         </div>
 
-                        <button onclick="submitFinal()" class="w-full py-4 rounded-xl bg-brand-purple text-white font-bold text-lg hover:bg-brand-purpleLight transition-all shadow-lg mt-2">Ver mi Brújula Digital gratis &rarr;</button>
+                        <button onclick="submitFinal()" class="w-full py-4 rounded-xl bg-brand-purple text-gray-900 dark:text-white font-bold text-lg hover:bg-brand-purpleLight transition-all shadow-lg mt-2">Ver mi Brújula Digital gratis &rarr;</button>
                         <p class="text-xs text-center text-gray-500 mt-4">Tus datos son privados. No spam, nunca.</p>
                     </div>
                 </div>
@@ -1014,8 +1014,8 @@
             body.innerHTML = `
                 <div class="text-center max-w-sm">
                     <div class="w-16 h-16 border-4 border-brand-purple/20 border-t-brand-purple rounded-full animate-spin mx-auto mb-8"></div>
-                    <h3 class="text-2xl md:text-3xl font-display font-bold text-white mb-3" id="loadingText">Analizando tu negocio...</h3>
-                    <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden mt-6">
+                    <h3 class="text-2xl md:text-3xl font-display font-bold text-gray-900 dark:text-white mb-3" id="loadingText">Analizando tu negocio...</h3>
+                    <div class="w-full h-2 bg-gray-200 dark:bg-white/10 rounded-full overflow-hidden mt-6">
                         <div class="h-full bg-brand-purple w-0 transition-all duration-1000 ease-out" id="loadingBar"></div>
                     </div>
                 </div>
@@ -1050,7 +1050,7 @@
         <div id="mega-menu-backdrop" class="absolute inset-0 bg-[#05020a]/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
         
         <div id="mega-menu-panel" class="absolute top-[96px] md:top-[112px] left-1/2 -translate-x-1/2 w-full max-w-5xl px-6 transform -translate-y-4 opacity-0 transition-all duration-300 pointer-events-auto">
-            <div class="backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-[2rem] p-8 shadow-2xl flex flex-col gap-10">
+            <div class="backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 rounded-[2rem] p-8 shadow-2xl flex flex-col gap-10">
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                     <a href="/branding-y-estrategia" class="group flex items-start gap-4">
@@ -1058,8 +1058,8 @@
                             <i class="ph-fill ph-paint-brush-broad text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Branding & Estrategia</h4>
-                            <p class="text-xs text-white/40 font-light">Identidad visual y posicionamiento.</p>
+                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Branding & Estrategia</h4>
+                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Identidad visual y posicionamiento.</p>
                         </div>
                     </a>
                     <a href="/web-seo" class="group flex items-start gap-4">
@@ -1067,8 +1067,8 @@
                             <i class="ph-fill ph-browser text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Diseño web y Posicionamiento SEO</h4>
-                            <p class="text-xs text-white/40 font-light">Webs de alto rendimiento y SEO.</p>
+                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Diseño web y Posicionamiento SEO</h4>
+                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Webs de alto rendimiento y SEO.</p>
                         </div>
                     </a>
                     <a href="/redes-sociales" class="group flex items-start gap-4">
@@ -1076,8 +1076,8 @@
                             <i class="ph-fill ph-share-network text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Contenido & Redes</h4>
-                            <p class="text-xs text-white/40 font-light">Social Media y estrategia de video.</p>
+                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Contenido & Redes</h4>
+                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Social Media y estrategia de video.</p>
                         </div>
                     </a>
                     <a href="/marketing-digital" class="group flex items-start gap-4">
@@ -1085,8 +1085,8 @@
                             <i class="ph-fill ph-rocket-launch text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Marketing Digital</h4>
-                            <p class="text-xs text-white/40 font-light">Campañas de publicidad digital para escalar tu negocio.</p>
+                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Marketing Digital</h4>
+                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Campañas de publicidad digital para escalar tu negocio.</p>
                         </div>
                     </a>
                     <a href="/automatizaciones-y-sistemas" class="group flex items-start gap-4">
@@ -1094,8 +1094,8 @@
                             <i class="ph-fill ph-robot text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Automatización y Sistemas</h4>
-                            <p class="text-xs text-white/40 font-light">Funnels, CRM y flujos que trabajan sin ti.</p>
+                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Automatización y Sistemas</h4>
+                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Funnels, CRM y flujos que trabajan sin ti.</p>
                         </div>
                     </a>
                     <a href="/eventos" class="group flex items-start gap-4">
@@ -1103,8 +1103,8 @@
                             <i class="ph-fill ph-ticket text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Eventos & Experiencias</h4>
-                            <p class="text-xs text-white/40 font-light">Producción, branding y promoción digital de eventos.</p>
+                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Eventos & Experiencias</h4>
+                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Producción, branding y promoción digital de eventos.</p>
                         </div>
                     </a>
                 </div>
@@ -1114,7 +1114,7 @@
                         <div class="w-10 h-10 rounded-full bg-violet-500/20 flex items-center justify-center text-violet-400 flex-shrink-0">
                             <i class="ph-fill ph-circles-three-plus text-xl"></i>
                         </div>
-                        <h4 class="text-white font-sans font-light text-lg">Diseñamos sistemas completos, no piezas aisladas.</h4>
+                        <h4 class="text-gray-900 dark:text-white font-sans font-light text-lg">Diseñamos sistemas completos, no piezas aisladas.</h4>
                     </div>
                     <a href="/servicios" class="inline-flex items-center gap-2 text-violet-400 font-medium text-sm hover:text-white transition-colors mt-4 md:mt-0 group flex-shrink-0">
                         Ver todos los servicios <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
