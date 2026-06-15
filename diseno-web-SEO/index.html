@@ -8,6 +8,15 @@
     <script>
         window.location.href = "/web-seo/";
     </script>
+    <!-- Theme Initialization Script -->
+    <script>
+        if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            document.documentElement.classList.remove('dark')
+        } else {
+            document.documentElement.classList.add('dark')
+            localStorage.theme = 'dark'
+        }
+    </script>
 </head>
 <body>
     <p>Si no eres redirigido automáticamente, haz clic <a href="/web-seo/">aquí</a>.</p>
@@ -158,6 +167,96 @@
         syncHeader();
         window.addEventListener('resize', syncHeader);
     })();
-    </script>
+    
+        // --- Theme Toggle Logic ---
+        const themeToggles = [document.getElementById('theme-toggle'), document.getElementById('mobile-theme-toggle')];
+        const iconSun = document.getElementById('icon-sun');
+        const iconMoon = document.getElementById('icon-moon');
+        const htmlElement = document.documentElement;
+
+        function updateIconState() {
+            if(!iconSun || !iconMoon) return;
+            if (htmlElement.classList.contains('dark')) {
+                iconSun.classList.add('translate-x-8', 'opacity-0');
+                iconSun.classList.remove('translate-x-0', 'opacity-100');
+                iconMoon.classList.remove('translate-x-8', 'opacity-0');
+                iconMoon.classList.add('translate-x-0', 'opacity-100');
+            } else {
+                iconSun.classList.remove('translate-x-8', 'opacity-0');
+                iconSun.classList.add('translate-x-0', 'opacity-100');
+                iconMoon.classList.add('translate-x-8', 'opacity-0');
+                iconMoon.classList.remove('translate-x-0', 'opacity-100');
+            }
+        }
+
+        function toggleTheme() {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+            updateIconState();
+        }
+
+        themeToggles.forEach(btn => {
+            if(btn) btn.addEventListener('click', toggleTheme);
+        });
+
+        updateIconState();
+
+        // --- Menu Toggle ---
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const closeBtn = document.getElementById('mobile-menu-close');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            if (menu) menu.classList.toggle('hidden');
+        }
+
+        if(btn) btn.addEventListener('click', toggleMenu);
+        if(closeBtn) closeBtn.addEventListener('click', toggleMenu);
+        if(mobileLinks) mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Lógica Hover Mega Menú (Solo Desktop)
+        const servicesBtn = document.getElementById('services-menu-btn');
+        const megaMenu = document.getElementById('mega-menu');
+        const megaMenuPanel = document.getElementById('mega-menu-panel');
+        const megaMenuBackdrop = document.getElementById('mega-menu-backdrop');
+        let hideTimeout;
+        let displayTimeout;
+
+        const showMenu = () => {
+            clearTimeout(hideTimeout);
+            clearTimeout(displayTimeout);
+            if(megaMenu) {
+                megaMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    if(megaMenuPanel) megaMenuPanel.classList.remove('-translate-y-4', 'opacity-0');
+                    if(megaMenuBackdrop) megaMenuBackdrop.classList.remove('opacity-0');
+                }, 10);
+            }
+        };
+
+        const hideMenu = () => {
+            hideTimeout = setTimeout(() => {
+                if(megaMenuPanel) megaMenuPanel.classList.add('-translate-y-4', 'opacity-0');
+                if(megaMenuBackdrop) megaMenuBackdrop.classList.add('opacity-0');
+                displayTimeout = setTimeout(() => {
+                    if(megaMenu) megaMenu.classList.add('hidden');
+                }, 300);
+            }, 150);
+        };
+
+        if(window.innerWidth > 768 && servicesBtn && megaMenu) {
+            servicesBtn.addEventListener('mouseenter', showMenu);
+            servicesBtn.addEventListener('mouseleave', hideMenu);
+            if(megaMenuPanel) {
+                megaMenuPanel.addEventListener('mouseenter', showMenu);
+                megaMenuPanel.addEventListener('mouseleave', hideMenu);
+            }
+        }
+</script>
 </body>
 </html>

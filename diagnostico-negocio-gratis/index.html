@@ -16,6 +16,7 @@
     <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -39,6 +40,16 @@
                     }
                 }
             }
+        }
+    </script>
+
+    <!-- Theme Initialization Script -->
+    <script>
+        if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            document.documentElement.classList.remove('dark')
+        } else {
+            document.documentElement.classList.add('dark')
+            localStorage.theme = 'dark'
         }
     </script>
 
@@ -169,40 +180,34 @@
         }
     </style>
 </head>
-<body class="antialiased font-sans flex flex-col min-h-screen bg-[#05020a] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#170929] via-[#05020a] to-[#05020a] text-white/60">
+<body class="antialiased font-sans flex flex-col min-h-screen bg-gray-50 dark:bg-[#05020a] dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] dark:from-[#170929] dark:via-[#05020a] dark:to-[#05020a] text-gray-900 dark:text-white/60">
 
     <!-- 1. HEADER COMPACTO -->
-    <header class="fixed w-full z-50 top-0 left-0 backdrop-blur-xl bg-[#05020a]/80 border-b border-white/5">
+    <header class="fixed w-full z-50 top-0 left-0 backdrop-blur-xl bg-white/80 dark:bg-[#05020a]/80 border-b border-gray-200 dark:border-white/5 transition-colors duration-300">
         <div class="max-w-7xl mx-auto py-4 px-6 md:px-8 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
-                    <path d="m11 17 2 2a1 1 0 1 0 3-3"></path>
-                    <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"></path>
-                    <path d="m21 3-6.11 8.81"></path>
-                    <path d="M9.9 9.9a3 3 0 0 0-4.24 0l-2.16 2.16a1 1 0 1 0 3 3l.88-.88a1 1 0 1 1 3 3l-2.81 2.81a5.79 5.79 0 0 1-7.06.87l-.47-.28a2 2 0 0 0-1.42-.25L3 21"></path>
-                </svg>
-                <span class="text-white font-medium text-lg tracking-tight">Proemote</span>
-            </div>
+            <a href="https://proemote.es/" class="flex items-center gap-2">
+                <img src="/logo-header.png" alt="Proemote" class="h-6 md:h-8 w-auto object-contain dark:invert-0 invert">
+            </a>
             
-            <div class="hidden md:flex items-center gap-6 text-[11px] text-white/40 font-medium tracking-wider uppercase">
+            <div class="hidden md:flex items-center gap-6 text-[11px] text-gray-500 dark:text-white/40 font-medium tracking-wider uppercase">
                 <span class="flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5 text-brand-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 
+                    <svg class="w-3.5 h-3.5 text-violet-600 dark:text-brand-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 
                     2 MINUTOS
                 </span>
                 <span class="flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5 text-brand-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg> 
+                    <svg class="w-3.5 h-3.5 text-violet-600 dark:text-brand-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg> 
                     SIN TARJETA
                 </span>
                 <span class="flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5 text-brand-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> 
+                    <svg class="w-3.5 h-3.5 text-violet-600 dark:text-brand-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> 
                     PLAN AL INSTANTE
                 </span>
             </div>
 
             <div>
                 <!-- CTA Secundario -->
-                <button onclick="openTestModal()" class="bg-brand-violet/10 hover:bg-brand-violet text-white border border-brand-violet/30 hover:border-brand-violet hover:shadow-[0_0_15px_rgba(139,92,246,0.5)] py-2.5 px-5 rounded-full font-medium text-[13px] transition-all flex items-center gap-2">
-                    Radiografía gratuita &rarr;
+                <button onclick="openTestModal()" class="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white shadow-[0_0_15px_rgba(139,92,246,0.3)] hover:shadow-[0_0_25px_rgba(139,92,246,0.5)] py-2.5 px-5 rounded-full font-semibold text-[13px] transition-all">
+                    Radiografía gratuita
                 </button>
             </div>
         </div>
@@ -681,9 +686,7 @@
                             <h4 class="text-white font-medium text-sm md:text-[15px]">¿Es para mi tipo de negocio?</h4>
                             <svg class="w-5 h-5 text-white/40 transform transition-transform duration-300 faq-icon shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
-                        <div class="faq-answer">
-                            <div class="faq-answer-inner">
-                                <div class="px-6 pb-6 text-sm text-white/50 font-light leading-relaxed">Si tienes un local físico y quieres más clientes en tu zona, sí. Si eres e-commerce o B2B puramente digital, probablemente no.</div>
+<p class="text-white/70 text-base font-light leading-relaxed">Si tienes un local físico y quieres más clientes en tu zona, sí. Si eres e-commerce o B2B puramente digital, probablemente no.</p>
                             </div>
                         </div>
                     </div>
@@ -693,83 +696,47 @@
 
     </main>
 
-    
-    
-    
-    
-    
-    <!-- FOOTER -->
-    <footer class="bg-bgMain border-t border-white/5 pt-20 pb-8 relative z-10">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+    <script>
+        // Theme Toggle Script
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <!-- FOOTER ESTILO ROUND -->
+    <div class="w-full flex justify-center px-4 pb-8 mt-12 relative z-10">
+        <footer class="w-full max-w-5xl backdrop-blur-xl bg-white/80 dark:bg-white/[0.02] border border-gray-200 dark:border-white/10 rounded-[2rem] md:rounded-full flex flex-col md:flex-row items-center justify-between p-6 md:py-4 md:px-8 gap-6 shadow-[0_8px_32px_rgba(0,0,0,0.05)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-colors duration-300">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <img src="/logo-header.png" alt="Proemote" class="h-6 md:h-8 w-auto object-contain dark:invert-0 invert">
+            </div>
             
-            <div class="md:col-span-12 lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
-                <div class="mb-8">
-                    <img src="https://i.imgur.com/2mXnkGe.png" alt="Proemote Logo" class="h-20 md:h-24 mb-3 opacity-90 mx-auto md:mx-0">
-                    <p class="text-white italic text-sm mb-1">Shaping what matters</p>
-                    <p class="text-textSecondary text-sm font-medium">Think first.</p>
-                </div>
-                
-                <div class="mb-6">
-                    <p class="text-xs text-primary font-bold tracking-widest uppercase mb-1">Estudio creativo y estratégico.</p>
-                    <p class="text-xs text-textSecondary font-bold tracking-widest uppercase">Mérida, Extremadura.</p>
-                </div>
-                
-                <div class="flex flex-col items-center md:items-start gap-3 mb-8 w-full">
-                    <a href="mailto:info@proemote.es" class="text-white font-medium hover:text-primary transition-colors flex items-center gap-3 text-sm">
-                        <i class="ph ph-envelope-simple text-xl"></i> info@proemote.es
-                    </a>
-                    <a href="tel:+34641576286" class="text-white font-medium hover:text-primary transition-colors flex items-center gap-3 text-sm">
-                        <i class="ph ph-phone text-xl"></i> +34 641 57 62 86
-                    </a>
-                </div>
-
-                <div class="flex justify-center md:justify-start gap-3 w-full">
-                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
-                        <i class="ph-fill ph-linkedin-logo"></i>
-                    </a>
-                    <a href="https://www.instagram.com/proemote/" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-textSecondary hover:text-white hover:bg-primary transition-all">
-                        <i class="ph-fill ph-instagram-logo"></i>
-                    </a>
-                </div>
+            <!-- Features (2 MINUTOS, SIN TARJETA, PLAN AL INSTANTE) -->
+            <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 text-[11px] font-semibold tracking-wider uppercase text-gray-600 dark:text-white/60">
+                <span class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-violet-500 dark:text-brand-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 
+                    2 MINUTOS
+                </span>
+                <span class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-violet-500 dark:text-brand-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg> 
+                    SIN TARJETA
+                </span>
+                <span class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-violet-500 dark:text-brand-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> 
+                    PLAN AL INSTANTE
+                </span>
             </div>
 
-            <div class="md:col-span-4 lg:col-span-2 lg:col-start-5 mt-8 lg:mt-0">
-                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Servicios</h4>
-                <ul class="space-y-4 text-sm text-textSecondary text-center md:text-left">
-                    <li><a href="/diseno-web-SEO" class="hover:text-white transition-colors">Diseño Web</a></li>
-                    <li><a href="/eventos" class="hover:text-white transition-colors">Eventos 360º</a></li>
-                    <li><a href="/marketing-digital" class="hover:text-white transition-colors">Marketing Digital</a></li>
-                    <li><a href="/redes-sociales" class="hover:text-white transition-colors">Redes Sociales</a></li>
-                    <li><a href="/branding-y-estrategia" class="hover:text-white transition-colors">Branding & Estrategia</a></li>
-                    <li><a href="/automatizaciones-y-sistemas" class="hover:text-white transition-colors">Automatización & Sistemas</a></li>
-                </ul>
+            <!-- Button -->
+            <div>
+                <button onclick="openTestModal()" class="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white shadow-[0_0_15px_rgba(139,92,246,0.3)] hover:shadow-[0_0_25px_rgba(139,92,246,0.5)] py-2.5 px-6 rounded-full font-semibold text-[13px] transition-all">
+                    Iniciar estudio gratis
+                </button>
             </div>
-
-            <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
-                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Empresa & Legal</h4>
-                <ul class="space-y-4 text-sm text-textSecondary text-center md:text-left">
-                    <li><a href="/aviso-legal" target="_blank" class="hover:text-white transition-colors">Aviso Legal</a></li>
-                    <li><a href="/privacidad" target="_blank" class="hover:text-white transition-colors">Política de Privacidad</a></li>
-                    <li><a href="/sobre-nosotros" class="hover:text-white transition-colors">Sobre nosotros</a></li>
-                    <li><a href="/contacto" class="hover:text-white transition-colors">Contacto</a></li>
-                    <li><a href="/trabaja-con-nosotros" class="hover:text-white transition-colors">Trabaja con nosotros</a></li>
-                </ul>
-            </div>
-
-            <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
-                <h4 class="text-[10px] font-bold tracking-widest text-textSecondary uppercase mb-6 text-center md:text-left">Horario</h4>
-                <ul class="space-y-2 text-sm text-textSecondary text-center md:text-left">
-                    <li class="flex flex-col md:inline-block"><span class="font-medium text-white/80">L-V:</span> <span class="text-white">9H–14H, 16H–20H</span></li>
-                    <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-white/80">Sáb:</span> <span class="text-white">10H–13:30H</span></li>
-                    <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-white/80">Dom:</span> <span class="text-white/50">Cerrado</span></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 text-center md:text-left">
-            <p class="text-xs text-textSecondary w-full">© 2026 Proemote Studio. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <!-- MODAL QUIZ -->
     <div id="testModal" class="fixed inset-0 h-[100dvh] z-[60] modal-overlay flex flex-col bg-[#09090b]">
@@ -1085,7 +1052,7 @@
             const body = document.getElementById('quizBody');
             const q = quizData[index];
             
-            body.className = `flex-1 overflow-y-auto overflow-x-hidden relative w-full flex flex-col p-8 md:p-12 items-center justify-center step-${direction}`;
+            body.className = `flex-1 overflow-y-auto overflow-x-hidden relative w-full flex flex-col p-8 md:p-12 items-center justify-start md:justify-center pt-12 md:pt-16 step-${direction}`;
 
             let html = `<div class="max-w-2xl w-full mx-auto pb-24" id="questionContainer">`;
             html += `<h2 class="text-3xl md:text-4xl lg:text-5xl font-medium text-white mb-10 md:mb-12 leading-tight tracking-tight text-left">${q.q}</h2>`;
@@ -1205,7 +1172,7 @@
             document.getElementById('quizProgressBarBlock').style.display = 'none';
             document.getElementById('btnBack').style.display = 'none';
             
-            body.className = 'flex-1 overflow-y-auto w-full flex flex-col items-center justify-center p-6 step-enter';
+            body.className = 'flex-1 overflow-y-auto w-full flex flex-col items-center justify-start md:justify-center p-6 pt-12 md:pt-16 step-enter';
             
             body.innerHTML = `
                 <div class="max-w-md w-full bg-[#09090b] border border-white/10 rounded-3xl p-8 md:p-10 text-center">
@@ -1248,7 +1215,7 @@
 
         function renderLoadingScreen() {
             const body = document.getElementById('quizBody');
-            body.className = 'flex-1 w-full flex flex-col items-center justify-center p-6 step-enter';
+            body.className = 'flex-1 w-full flex flex-col items-center justify-start md:justify-center p-6 pt-12 md:pt-16 step-enter';
             
             body.innerHTML = `
                 <div class="text-center max-w-sm">

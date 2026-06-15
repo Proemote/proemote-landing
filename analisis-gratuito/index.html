@@ -10,6 +10,7 @@
     
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -49,6 +50,8 @@
     </script>
 
     <style>
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+
         :root {
             --bgMain: #0A0A0F;
             --bgSurface: #14141F;
@@ -119,6 +122,15 @@
             transform: translateY(0);
         }
     </style>
+    <!-- Theme Initialization Script -->
+    <script>
+        if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            document.documentElement.classList.remove('dark')
+        } else {
+            document.documentElement.classList.add('dark')
+            localStorage.theme = 'dark'
+        }
+    </script>
 </head>
 <body class="antialiased bg-[#0A0A0F] text-[#F5F7FA] selection:bg-primary/30 selection:text-white relative">
 
@@ -554,22 +566,76 @@
         </div>
     </div>
 
-    <footer class="py-12 text-center border-t border-white/5 bg-[#0A0A0F] text-textSecondary opacity-90 relative z-20">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div class="flex flex-col items-center md:items-start gap-4">
-                <p class="font-bold text-white text-lg">Proemote</p>
-                <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full text-xs shadow-inner">
-                    🏆 Premio Impulso 2025 · Diputación de Badajoz
-                </div>
-            </div>
+        <!-- FOOTER -->
+    <footer class="bg-white dark:bg-base border-t border-gray-200 dark:border-white/5 pt-20 pb-8 relative z-10 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
             
-            <div class="flex flex-col items-center md:items-end gap-4">
-                <div class="flex gap-6 text-sm">
-                    <a href="https://proemote.es/privacidad" target="_blank" class="hover:text-primary transition-colors drop-shadow-sm">Privacidad</a>
-                    <a href="#" class="hover:text-primary transition-colors drop-shadow-sm">Aviso Legal</a>
+            <div class="md:col-span-12 lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
+                <div class="mb-8">
+                    <img src="https://i.imgur.com/2mXnkGe.png" alt="Proemote Logo" class="h-20 md:h-24 mb-3 opacity-90 mx-auto md:mx-0 dark:invert-0 invert">
+                    <p class="text-gray-900 dark:text-white italic text-sm mb-1">Shaping what matters</p>
+                    <p class="text-gray-500 dark:text-white/40 text-sm font-medium">Think first.</p>
                 </div>
-                <p class="text-xs opacity-50">© 2026 Proemote Studio. Todos los derechos reservados.</p>
+                
+                <div class="mb-6">
+                    <p class="text-xs text-marca font-bold tracking-widest uppercase mb-1">Estudio creativo y estratégico.</p>
+                    <p class="text-xs text-gray-500 dark:text-white/40 font-bold tracking-widest uppercase">Mérida, Extremadura.</p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-start gap-3 mb-8 w-full">
+                    <a href="mailto:info@proemote.es" class="text-gray-900 dark:text-white font-medium hover:text-marca transition-colors flex items-center gap-3 text-sm">
+                        <i class="ph ph-envelope-simple text-xl text-marca"></i> info@proemote.es
+                    </a>
+                    <a href="tel:+34641576286" class="text-gray-900 dark:text-white font-medium hover:text-marca transition-colors flex items-center gap-3 text-sm">
+                        <i class="ph ph-phone text-xl text-marca"></i> +34 641 57 62 86
+                    </a>
+                </div>
+
+                <div class="flex justify-center md:justify-start gap-3 w-full">
+                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-500 dark:text-white/40 hover:text-white hover:bg-marca transition-all">
+                        <i class="ph-fill ph-linkedin-logo"></i>
+                    </a>
+                    <a href="https://www.instagram.com/proemote/" target="_blank" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-500 dark:text-white/40 hover:text-white hover:bg-marca transition-all">
+                        <i class="ph-fill ph-instagram-logo"></i>
+                    </a>
+                </div>
             </div>
+
+            <div class="md:col-span-4 lg:col-span-2 lg:col-start-5 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Servicios</h4>
+                <ul class="space-y-4 text-sm text-gray-500 dark:text-white/40 text-center md:text-left">
+                    <li><a href="/diseno-web-SEO" class="hover:text-gray-900 dark:hover:text-white transition-colors">Diseño Web</a></li>
+                    <li><a href="/eventos" class="hover:text-gray-900 dark:hover:text-white transition-colors">Eventos 360º</a></li>
+                    <li><a href="/marketing-digital" class="hover:text-gray-900 dark:hover:text-white transition-colors">Marketing Digital</a></li>
+                    <li><a href="/redes-sociales" class="hover:text-gray-900 dark:hover:text-white transition-colors">Redes Sociales</a></li>
+                    <li><a href="/branding-y-estrategia" class="hover:text-gray-900 dark:hover:text-white transition-colors">Branding & Estrategia</a></li>
+                    <li><a href="/automatizaciones-y-sistemas" class="hover:text-gray-900 dark:hover:text-white transition-colors">Automatización & Sistemas</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Empresa & Legal</h4>
+                <ul class="space-y-4 text-sm text-gray-500 dark:text-white/40 text-center md:text-left">
+                    <li><a href="/aviso-legal" target="_blank" class="hover:text-gray-900 dark:hover:text-white transition-colors">Aviso Legal</a></li>
+                    <li><a href="/privacidad" target="_blank" class="hover:text-gray-900 dark:hover:text-white transition-colors">Política de Privacidad</a></li>
+                    <li><a href="/sobre-nosotros" class="hover:text-gray-900 dark:hover:text-white transition-colors">Sobre nosotros</a></li>
+                    <li><a href="/contacto" class="hover:text-gray-900 dark:hover:text-white transition-colors">Contacto</a></li>
+                    <li><a href="/trabaja-con-nosotros" class="hover:text-gray-900 dark:hover:text-white transition-colors">Trabaja con nosotros</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
+                <h4 class="text-[10px] font-bold tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Horario</h4>
+                <ul class="space-y-2 text-sm text-gray-500 dark:text-white/40 text-center md:text-left">
+                    <li class="flex flex-col md:inline-block"><span class="font-medium text-gray-900 dark:text-white/80">L-V:</span> <span class="text-gray-900 dark:text-white">9H–14H, 16H–20H</span></li>
+                    <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-gray-900 dark:text-white/80">Sáb:</span> <span class="text-gray-900 dark:text-white">10H–13:30H</span></li>
+                    <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-gray-900 dark:text-white/80">Dom:</span> <span class="text-gray-400 dark:text-white/50">Cerrado</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-gray-200 dark:border-white/5 flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 text-center md:text-left">
+            <p class="text-xs text-gray-500 dark:text-white/40 w-full">© 2026 Proemote Studio. Todos los derechos reservados.</p>
         </div>
     </footer>
 
@@ -922,6 +988,96 @@
         syncHeader();
         window.addEventListener('resize', syncHeader);
     })();
-    </script>
+    
+        // --- Theme Toggle Logic ---
+        const themeToggles = [document.getElementById('theme-toggle'), document.getElementById('mobile-theme-toggle')];
+        const iconSun = document.getElementById('icon-sun');
+        const iconMoon = document.getElementById('icon-moon');
+        const htmlElement = document.documentElement;
+
+        function updateIconState() {
+            if(!iconSun || !iconMoon) return;
+            if (htmlElement.classList.contains('dark')) {
+                iconSun.classList.add('translate-x-8', 'opacity-0');
+                iconSun.classList.remove('translate-x-0', 'opacity-100');
+                iconMoon.classList.remove('translate-x-8', 'opacity-0');
+                iconMoon.classList.add('translate-x-0', 'opacity-100');
+            } else {
+                iconSun.classList.remove('translate-x-8', 'opacity-0');
+                iconSun.classList.add('translate-x-0', 'opacity-100');
+                iconMoon.classList.add('translate-x-8', 'opacity-0');
+                iconMoon.classList.remove('translate-x-0', 'opacity-100');
+            }
+        }
+
+        function toggleTheme() {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+            updateIconState();
+        }
+
+        themeToggles.forEach(btn => {
+            if(btn) btn.addEventListener('click', toggleTheme);
+        });
+
+        updateIconState();
+
+        // --- Menu Toggle ---
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const closeBtn = document.getElementById('mobile-menu-close');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            if (menu) menu.classList.toggle('hidden');
+        }
+
+        if(btn) btn.addEventListener('click', toggleMenu);
+        if(closeBtn) closeBtn.addEventListener('click', toggleMenu);
+        if(mobileLinks) mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Lógica Hover Mega Menú (Solo Desktop)
+        const servicesBtn = document.getElementById('services-menu-btn');
+        const megaMenu = document.getElementById('mega-menu');
+        const megaMenuPanel = document.getElementById('mega-menu-panel');
+        const megaMenuBackdrop = document.getElementById('mega-menu-backdrop');
+        let hideTimeout;
+        let displayTimeout;
+
+        const showMenu = () => {
+            clearTimeout(hideTimeout);
+            clearTimeout(displayTimeout);
+            if(megaMenu) {
+                megaMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    if(megaMenuPanel) megaMenuPanel.classList.remove('-translate-y-4', 'opacity-0');
+                    if(megaMenuBackdrop) megaMenuBackdrop.classList.remove('opacity-0');
+                }, 10);
+            }
+        };
+
+        const hideMenu = () => {
+            hideTimeout = setTimeout(() => {
+                if(megaMenuPanel) megaMenuPanel.classList.add('-translate-y-4', 'opacity-0');
+                if(megaMenuBackdrop) megaMenuBackdrop.classList.add('opacity-0');
+                displayTimeout = setTimeout(() => {
+                    if(megaMenu) megaMenu.classList.add('hidden');
+                }, 300);
+            }, 150);
+        };
+
+        if(window.innerWidth > 768 && servicesBtn && megaMenu) {
+            servicesBtn.addEventListener('mouseenter', showMenu);
+            servicesBtn.addEventListener('mouseleave', hideMenu);
+            if(megaMenuPanel) {
+                megaMenuPanel.addEventListener('mouseenter', showMenu);
+                megaMenuPanel.addEventListener('mouseleave', hideMenu);
+            }
+        }
+</script>
 </body>
 </html>
