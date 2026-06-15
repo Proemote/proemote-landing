@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proemote® | Agencia de marketing digital en Extremadura</title>
     
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +30,9 @@
                         marcadark: '#5b21b6', 
                         garantia: '#18121f', /* Morado oscuro sutil */
                         garantialight: '#291e36', /* Borde morado más claro */
-                        garantiatext: '#E5D5D3'
+                        garantiatext: '#E5D5D3',
+                        primary: '#7B61FF',
+                        accent: '#9F7AEA'
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -88,24 +93,24 @@
     <div class="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
         <header class="w-full max-w-5xl backdrop-blur-xl bg-white/80 dark:bg-white/[0.02] border border-gray-200 dark:border-white/10 rounded-full flex items-center justify-between px-6 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.05)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-colors duration-300">
             <a href="https://proemote.es/" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
-                <img src="/logo-header.png" alt="Proemote - Agencia de digitalización" class="h-6 md:h-8 w-auto object-contain">
+                <img src="/logo-header.png" alt="Proemote - Agencia de digitalización" class="h-6 md:h-8 w-auto object-contain dark:invert-0 invert">
             </a>
 
             <div class="hidden md:flex gap-6 text-[13px] font-medium text-gray-600 dark:text-white/60 relative z-10 items-center">
                 <a href="https://proemote.es/" class="hover:text-gray-900 dark:hover:text-white transition-colors">Inicio</a>
                 <a href="/#foco" class="hover:text-gray-900 dark:hover:text-white transition-colors">Sistema</a>
-                <a href="/servicios" class="hover:text-gray-900 dark:hover:text-white transition-colors">Servicios</a>
+                <a href="/servicios" id="services-menu-btn" class="hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <!-- DROPDOWN AYUDAS 2026 -->
                 <div class="relative group py-2">
                     <a href="/subvenciones-extremadura/" class="hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1.5 focus:outline-none">
                         Ayudas 2026 
-                        <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-marca/20 text-marca border border-marca/30 leading-none">Nuevo</span>
+                        <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-primary/20 text-primary border border-primary/30 leading-none">Nuevo</span>
                         <i class="ph ph-caret-down text-xs transition-transform group-hover:rotate-180"></i>
                     </a>
                     <div class="absolute top-full left-0 mt-4 w-64 bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-2xl p-4 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 flex flex-col gap-2 pointer-events-auto">
                         <a href="/ayudas-digitalizacion-pymes-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition-all flex items-start gap-3 group/item">
-                            <div class="w-8 h-8 rounded-lg bg-marca/10 flex items-center justify-center text-marca group-hover/item:bg-marca group-hover/item:text-white transition-colors flex-shrink-0">
+                            <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover/item:bg-primary group-hover/item:text-white transition-colors flex-shrink-0">
                                 <i class="ph-fill ph-device-mobile"></i>
                             </div>
                             <div>
@@ -114,7 +119,7 @@
                             </div>
                         </a>
                         <a href="/ayudas-implementacion-ia-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition-all flex items-start gap-3 group/item">
-                            <div class="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-500 group-hover/item:bg-indigo-500 group-hover/item:text-white transition-colors flex-shrink-0">
+                            <div class="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center text-accent group-hover/item:bg-accent group-hover/item:text-white transition-colors flex-shrink-0">
                                 <i class="ph-fill ph-cpu"></i>
                             </div>
                             <div>
@@ -152,6 +157,86 @@
         </header>
     </div>
 
+    <!-- MEGA MENU SERVICES -->
+    <div id="mega-menu" class="fixed inset-0 z-[40] hidden pointer-events-none">
+        <div id="mega-menu-backdrop" class="absolute inset-0 bg-[#05020a]/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+        
+        <div id="mega-menu-panel" class="absolute top-[96px] md:top-[112px] left-1/2 -translate-x-1/2 w-full max-w-5xl px-6 transform -translate-y-4 opacity-0 transition-all duration-300 pointer-events-auto">
+            <div class="backdrop-blur-xl bg-white/95 dark:bg-[#09090b]/95 border border-gray-200 dark:border-white/10 rounded-[2rem] p-8 shadow-2xl flex flex-col gap-10">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                    <a href="/branding-y-estrategia" class="group flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                            <i class="ph-fill ph-paint-brush-broad text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-primary transition-colors mb-1">Branding & Estrategia</h4>
+                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Identidad visual y posicionamiento.</p>
+                        </div>
+                    </a>
+                    <a href="/web-seo" class="group flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                            <i class="ph-fill ph-browser text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-primary transition-colors mb-1">Diseño web y Posicionamiento SEO</h4>
+                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Webs de alto rendimiento y SEO.</p>
+                        </div>
+                    </a>
+                    <a href="/redes-sociales" class="group flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                            <i class="ph-fill ph-share-network text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-primary transition-colors mb-1">Contenido & Redes</h4>
+                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Social Media y estrategia de video.</p>
+                        </div>
+                    </a>
+                    <a href="/marketing-digital" class="group flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                            <i class="ph-fill ph-rocket-launch text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-primary transition-colors mb-1">Marketing Digital</h4>
+                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Campañas de publicidad digital para escalar tu negocio.</p>
+                        </div>
+                    </a>
+                    <a href="/automatizaciones-y-sistemas" class="group flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                            <i class="ph-fill ph-robot text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-primary transition-colors mb-1">Automatización y Sistemas</h4>
+                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Funnels, CRM y flujos que trabajan sin ti.</p>
+                        </div>
+                    </a>
+                    <a href="/eventos" class="group flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                            <i class="ph-fill ph-ticket text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-primary transition-colors mb-1">Eventos & Experiencias</h4>
+                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Producción, branding y promoción digital de eventos.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="w-full rounded-2xl bg-violet-50 dark:bg-violet-500/10 border border-violet-200 dark:border-violet-500/20 p-6 flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+                    <div class="flex flex-col md:flex-row items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-violet-500/20 flex items-center justify-center text-violet-400 flex-shrink-0">
+                            <i class="ph-fill ph-circles-three-plus text-xl"></i>
+                        </div>
+                        <h4 class="text-gray-900 dark:text-white font-sans font-light text-lg">Diseñamos sistemas completos, no piezas aisladas.</h4>
+                    </div>
+                    <a href="/servicios" class="inline-flex items-center gap-2 text-primary font-medium text-sm hover:text-gray-900 dark:hover:text-white transition-colors mt-4 md:mt-0 group flex-shrink-0">
+                        Ver todos los servicios <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <!-- Menú Móvil -->
     <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-white/95 dark:bg-base/95 backdrop-blur-2xl pt-24 pb-6 px-6 flex flex-col transition-colors duration-300">
         <div class="flex flex-col gap-6 items-center text-center mt-10">
@@ -160,7 +245,7 @@
             <a href="/servicios" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Servicios</a>
             
             <div class="flex flex-col gap-2 pl-2 border-l border-gray-200 dark:border-white/10 my-1 items-center">
-                <span class="text-xs font-bold tracking-widest text-gray-400 dark:text-white/40 uppercase mb-1">Ayudas 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-marca/20 text-marca border border-marca/30">Nuevas</span></span>
+                <span class="text-xs font-bold tracking-widest text-gray-400 dark:text-white/40 uppercase mb-1">Ayudas 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
                 <a href="/ayudas-digitalizacion-pymes-extremadura/" class="mobile-link text-sm font-medium text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Digitalización de Pymes</a>
                 <a href="/ayudas-implementacion-ia-extremadura/" class="mobile-link text-sm font-medium text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white mt-1">Implementación de IA</a>
             </div>
@@ -1584,6 +1669,45 @@
                     requestAnimationFrame(autoScroll);
                 }
                 autoScroll();
+            }
+        }
+
+        // Lógica Hover Mega Menú (Solo Desktop)
+        const servicesBtn = document.getElementById('services-menu-btn');
+        const megaMenu = document.getElementById('mega-menu');
+        const megaMenuPanel = document.getElementById('mega-menu-panel');
+        const megaMenuBackdrop = document.getElementById('mega-menu-backdrop');
+        let hideTimeout;
+        let displayTimeout;
+
+        const showMenu = () => {
+            clearTimeout(hideTimeout);
+            clearTimeout(displayTimeout);
+            if(megaMenu) {
+                megaMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    if(megaMenuPanel) megaMenuPanel.classList.remove('-translate-y-4', 'opacity-0');
+                    if(megaMenuBackdrop) megaMenuBackdrop.classList.remove('opacity-0');
+                }, 10);
+            }
+        };
+
+        const hideMenu = () => {
+            hideTimeout = setTimeout(() => {
+                if(megaMenuPanel) megaMenuPanel.classList.add('-translate-y-4', 'opacity-0');
+                if(megaMenuBackdrop) megaMenuBackdrop.classList.add('opacity-0');
+                displayTimeout = setTimeout(() => {
+                    if(megaMenu) megaMenu.classList.add('hidden');
+                }, 300);
+            }, 150);
+        };
+
+        if(window.innerWidth > 768 && servicesBtn && megaMenu) {
+            servicesBtn.addEventListener('mouseenter', showMenu);
+            servicesBtn.addEventListener('mouseleave', hideMenu);
+            if(megaMenuPanel) {
+                megaMenuPanel.addEventListener('mouseenter', showMenu);
+                megaMenuPanel.addEventListener('mouseleave', hideMenu);
             }
         }
 
