@@ -234,8 +234,8 @@
             <!-- Shader Background -->
             <div class="absolute inset-0 w-full h-full z-0 pointer-events-none">
                 <canvas id="heroShaderCanvas" class="w-full h-full"></canvas>
-                <div class="absolute inset-0 bg-[#05020a]/80"></div>
-                <div class="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-white dark:from-[#05020a] to-transparent"></div>
+                <div class="absolute inset-0 bg-gray-50/80 dark:bg-[#05020a]/80"></div>
+                <div class="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-gray-50 dark:from-[#05020a] to-transparent"></div>
             </div>
 
             <!-- Main Content -->
@@ -369,7 +369,7 @@
                     </div>
                     <div class="relative">
                         <!-- Tarjeta Estándar -->
-                        <div class="backdrop-blur-xl bg-[#11071F] border border-gray-200 dark:border-white/10 hover:border-white/20 rounded-3xl p-8 transition-all duration-500 relative z-10">
+                        <div class="backdrop-blur-xl bg-white dark:bg-[#11071F] border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 rounded-3xl p-8 shadow-sm dark:shadow-none transition-all duration-500 relative z-10">
                             <div class="flex items-center gap-4 mb-6">
                                 <div class="w-14 h-14 rounded-full bg-brand-violet border border-brand-violet/50 flex items-center justify-center text-white font-medium text-2xl shadow-[0_0_15px_rgba(139,92,246,0.3)]">
                                     J
@@ -404,7 +404,7 @@
                     </div>
                     <div class="relative">
                         <!-- Tarjeta Estándar -->
-                        <div class="backdrop-blur-xl bg-[#11071F] border border-gray-200 dark:border-white/10 hover:border-white/20 rounded-3xl p-8 transition-all duration-500 relative z-10">
+                        <div class="backdrop-blur-xl bg-white dark:bg-[#11071F] border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 rounded-3xl p-8 shadow-sm dark:shadow-none transition-all duration-500 relative z-10">
                              <div class="flex items-center gap-4 mb-6">
                                 <div class="w-14 h-14 rounded-full bg-brand-violet/20 border border-brand-violet/50 flex items-center justify-center text-brand-violetLight">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
@@ -418,7 +418,7 @@
                             </div>
                             <div class="bg-gray-100 dark:bg-white/5 rounded-2xl p-5 border border-gray-200 dark:border-white/10">
                                 <p class="text-[11px] text-gray-500 dark:text-white/40 mb-3 uppercase tracking-wide font-medium">Búsqueda: <span class="text-gray-700 dark:text-white/80">"empresa de limpieza Mérida"</span></p>
-                                <div class="flex items-start gap-4 bg-black/20 p-4 rounded-xl border border-gray-200 dark:border-white/5">
+                                <div class="flex items-start gap-4 bg-gray-50 dark:bg-black/20 p-4 rounded-xl border border-gray-200 dark:border-white/5">
                                     <div class="w-6 h-6 rounded bg-brand-violet text-white flex items-center justify-center text-xs font-medium shrink-0 mt-0.5 shadow-[0_0_10px_rgba(139,92,246,0.5)]">1</div>
                                     <div>
                                         <p class="text-brand-violetLight text-sm font-medium">Lo Quiero Limpio - Servicios Integrales en Mérida</p>
@@ -434,7 +434,7 @@
 
         <!-- MICRO-TESTIMONIOS SCROLL REEL LUXURY (Vanilla JS Implementation) -->
         <section class="py-24 px-6 relative z-20 reveal-on-scroll">
-            <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-stretch gap-6 bg-[#0a0513]/60 backdrop-blur-xl border border-gray-200 dark:border-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] rounded-[24px] overflow-hidden p-2">
+            <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-stretch gap-6 bg-white/60 dark:bg-[#0a0513]/60 backdrop-blur-xl border border-gray-200 dark:border-white/5 shadow-sm dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] rounded-[24px] overflow-hidden p-2">
                 
                 <!-- Reel Section -->
                 <div class="relative h-64 md:h-[320px] w-full shrink-0 overflow-hidden md:w-[380px] mask-fade-edges-reel">
@@ -484,7 +484,7 @@
         <!-- ¿POR QUÉ BRÚJULA DIGITAL? -->
         <section class="py-20 px-6 relative z-20 reveal-on-scroll">
             <div class="max-w-5xl mx-auto">
-                <div class="backdrop-blur-xl bg-[#0a0513] border border-gray-200 dark:border-white/5 rounded-[32px] p-8 md:p-12 shadow-2xl">
+                <div class="backdrop-blur-xl bg-white dark:bg-[#0a0513] border border-gray-200 dark:border-white/5 rounded-[32px] p-8 md:p-12 shadow-lg dark:shadow-2xl">
                     <h3 class="text-2xl md:text-3xl font-medium text-gray-900 dark:text-white tracking-tight mb-12 text-center md:text-left">¿Por qué usar la Brújula Digital y no hacerlo yo mismo?</h3>
                     <div class="grid md:grid-cols-2 gap-12 relative">
                         <!-- Divider Line -->
@@ -522,7 +522,7 @@
                 
                 <div class="grid md:grid-cols-2 gap-6">
                     <!-- Para quién NO (Izquierda) -->
-                    <div class="backdrop-blur-xl bg-[#0e071a] border border-gray-200 dark:border-white/5 rounded-[24px] p-8 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(0,0,0,0.5)] transition-all duration-300 group cursor-default">
+                    <div class="backdrop-blur-xl bg-white dark:bg-[#0e071a] border border-gray-200 dark:border-white/5 rounded-[24px] p-8 hover:-translate-y-2 hover:shadow-lg dark:hover:shadow-[0_10px_40px_rgba(0,0,0,0.5)] transition-all duration-300 group cursor-default">
                         <div class="w-12 h-12 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-500 dark:text-white/40 mb-6 border border-gray-200 dark:border-white/10 group-hover:scale-110 transition-transform">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                         </div>
@@ -531,7 +531,7 @@
                     </div>
                     
                     <!-- Para quién SÍ (Derecha) -->
-                    <div class="backdrop-blur-xl bg-[#11071F] border border-brand-violet/20 rounded-[24px] p-8 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(139,92,246,0.15)] transition-all duration-300 group cursor-default">
+                    <div class="backdrop-blur-xl bg-white dark:bg-[#11071F] border border-gray-200 dark:border-brand-violet/20 rounded-[24px] p-8 hover:-translate-y-2 hover:shadow-lg dark:hover:shadow-[0_10px_40px_rgba(139,92,246,0.15)] transition-all duration-300 group cursor-default">
                         <div class="w-12 h-12 rounded-full bg-brand-violet/20 flex items-center justify-center text-brand-violetLight mb-6 border border-brand-violet/50 group-hover:scale-110 transition-transform">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                         </div>
@@ -544,7 +544,7 @@
 
         <!-- CITA CARLOS -->
         <section class="py-16 px-6 relative z-20 reveal-on-scroll">
-            <div class="max-w-4xl mx-auto text-center backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 rounded-3xl p-10 md:p-16">
+            <div class="max-w-4xl mx-auto text-center backdrop-blur-xl bg-white dark:bg-gradient-to-br dark:from-white/5 dark:to-white/[0.02] border border-gray-200 dark:border-white/10 rounded-3xl p-10 md:p-16 shadow-sm dark:shadow-none">
                 <h2 class="text-2xl md:text-3xl font-light text-gray-900 dark:text-white mb-10 relative z-10 leading-relaxed tracking-tight italic">
                     "La diferencia entre un negocio local estancado y uno que crece predeciblemente no es el algoritmo ni el presupuesto.<br><br><span class="bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-indigo-300 font-medium">Es tener un sistema que conecte tu servicio con la persona que lo está buscando hoy en tu ciudad.</span>"
                 </h2>
@@ -699,12 +699,13 @@
                         <div class="p-6 flex justify-between items-center">
                             <h4 class="text-gray-900 dark:text-white font-medium text-sm md:text-[15px]">¿Es para mi tipo de negocio?</h4>
                             <svg class="w-5 h-5 text-gray-500 dark:text-white/40 transform transition-transform duration-300 faq-icon shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
                         <div class="faq-answer">
                             <div class="faq-answer-inner">
-                                <p class="px-6 pb-6 text-sm text-gray-600 dark:text-white/50 font-light leading-relaxed">Si tienes un local físico y quieres más clientes en tu zona, sí. Si eres e-commerce o B2B puramente digital, probablemente no.</p>
+                                <div class="px-6 pb-6 text-sm text-gray-600 dark:text-white/50 font-light leading-relaxed">Si tienes un local físico y quieres más clientes en tu zona, sí. Si eres e-commerce o B2B puramente digital, probablemente no.</div>
                             </div>
                         </div>
-                </div>
+                    </div>
             </div>
         </section>
 
