@@ -2,7 +2,7 @@ import os
 import re
 
 for root, dirs, files in os.walk('.'):
-    if '.git' in root or '.gemini' in root:
+    if '.git' in root or '.gemini' in root or 'nexum-cars' in root:
         continue
     for file in files:
         if file.endswith('.html'):

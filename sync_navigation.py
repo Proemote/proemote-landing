@@ -196,7 +196,7 @@ new_header_html = """    <!-- BARRA DE ANUNCIO GLOBAL -->
 # Buscar todos los archivos HTML
 html_files = []
 for root, dirs, files in os.walk('.'):
-    if '.gemini' in root or '.git' in root:
+    if '.gemini' in root or '.git' in root or 'nexum-cars' in root:
         continue
     for file in files:
         if file.endswith('.html'):

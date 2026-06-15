@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexum Cars Nacional | Compra y Venta de Vehículos Premium</title>
+    <meta name="description" content="En Nexum Cars seleccionamos, revisamos y gestionamos la compra o venta de tu vehículo para ofrecerte una experiencia transparente, segura y sin complicaciones.">
+    
+    <!-- Google Fonts: Outfit (Headings) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuración Personalizada -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#0D0D0D', // 70% Negro
+                        textlight: '#F5F3EE',  // 20% Blanco marfil
+                        accent: '#C8A46A',     // 10% Dorado champagne
+                        surface: '#1A1A1A',    // Auxiliar oscuro
+                        muted: '#A3A3A3',      // Auxiliar texto
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(13, 13, 13, 0.4), rgba(13, 13, 13, 1)), url('https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=2069&auto=format&fit=crop')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0D0D0D;
+            color: #F5F3EE;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Utilidades de Animación Reveal Base */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* Animación precisa vinculada a la línea del proceso */
+        .process-step {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .process-step.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Efecto Hover Premium para Tarjetas */
+        .premium-card {
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .premium-card:hover {
+            transform: translateY(-5px);
+            border-color: #C8A46A;
+            box-shadow: 0 10px 40px -10px rgba(200, 164, 106, 0.1);
+        }
+
+        /* Ocultar scrollbar en el carrusel pero permitir scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Estilos de botones */
+        .btn-primary {
+            background-color: #C8A46A;
+            color: #0D0D0D;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #F5F3EE;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 1px solid #C8A46A;
+            color: #C8A46A;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: rgba(200, 164, 106, 0.1);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-background">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-background/90 backdrop-blur-md border-b border-white/5 py-4" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#inicio" class="font-heading text-2xl font-semibold tracking-wider text-textlight flex items-center gap-2">
+                NEXUM<span class="text-accent">CARS</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="#inicio" class="text-muted hover:text-accent transition-colors">Inicio</a>
+                <a href="#vehiculos" class="text-muted hover:text-accent transition-colors">Vehículos Disponibles</a>
+                <a href="#vender" class="text-muted hover:text-accent transition-colors">Vende Tu Coche</a>
+                <a href="#nosotros" class="text-muted hover:text-accent transition-colors">¿Quiénes Somos?</a>
+                <a href="#contacto" class="btn-primary px-5 py-2 rounded-sm font-semibold">Contactar</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-textlight focus:outline-none" id="mobile-menu-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div class="md:hidden hidden absolute top-full left-0 w-full bg-surface border-b border-white/5 py-4 px-6 flex flex-col gap-4 shadow-2xl" id="mobile-menu">
+            <a href="#inicio" class="text-textlight hover:text-accent transition-colors">Inicio</a>
+            <a href="#vehiculos" class="text-textlight hover:text-accent transition-colors">Vehículos Disponibles</a>
+            <a href="#vender" class="text-textlight hover:text-accent transition-colors">Vende Tu Coche</a>
+            <a href="#nosotros" class="text-textlight hover:text-accent transition-colors">¿Quiénes Somos?</a>
+            <a href="#contacto" class="text-accent font-semibold mt-2">Contactar</a>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <section id="inicio" class="relative min-h-[95vh] flex items-center bg-hero-pattern bg-cover bg-center bg-no-repeat pt-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full">
+            <div class="max-w-4xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/30 bg-accent/5 text-accent text-xs font-semibold tracking-widest uppercase mb-6 reveal">
+                    <span class="w-2 h-2 rounded-full bg-accent"></span> Premium Auto Selection
+                </div>
+                
+                <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tighter mb-6 reveal reveal-delay-1">
+                    La forma más segura de <br class="hidden md:block"/>
+                    <span class="text-accent italic font-light tracking-tight">comprar o vender</span> tu coche
+                </h1>
+                
+                <p class="text-lg md:text-xl text-muted font-light leading-relaxed mb-10 max-w-2xl reveal reveal-delay-2">
+                    En Nexum Cars seleccionamos, revisamos y gestionamos cada operación para ofrecerte una experiencia transparente, rápida y sin complicaciones.
+                </p>
+                
+                <!-- Beneficios -->
+                <ul class="flex flex-col sm:flex-row gap-4 sm:gap-8 mb-12 reveal reveal-delay-3 text-sm text-textlight/80">
+                    <li class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Vehículos revisados
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        12 meses de garantía
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Tasación segura
+                    </li>
+                </ul>
+
+                <!-- Botones -->
+                <div class="flex flex-col sm:flex-row gap-4 reveal reveal-delay-3">
+                    <a href="#vehiculos" class="btn-primary flex items-center justify-center gap-2 px-8 py-4 rounded-sm font-semibold tracking-wide text-sm text-center">
+                        EXPLORAR VEHÍCULOS
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                    <a href="#vender" class="btn-secondary flex items-center justify-center px-8 py-4 rounded-sm font-semibold tracking-wide text-sm text-center">
+                        SOLICITAR VALORACIÓN
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <a href="#problema" class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block opacity-50 hover:text-accent transition-colors">
+            <svg class="w-6 h-6 text-textlight" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </a>
+    </section>
+
+    <!-- 2. PROBLEMA -->
+    <section id="problema" class="py-24 md:py-32 bg-background relative overflow-hidden">
+        <!-- Decoración de fondo -->
+        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
+            <h2 class="font-heading text-3xl md:text-5xl font-medium mb-8 leading-tight tracking-tight reveal">
+                Comprar o vender un coche <br class="hidden md:block"/>
+                <span class="text-muted">no debería ser un quebradero de cabeza</span>
+            </h2>
+            
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4 my-12 reveal reveal-delay-1">
+                <span class="px-4 py-2 rounded-full border border-white/10 bg-surface/50 text-muted text-sm">Cientos de anuncios dudosos</span>
+                <span class="px-4 py-2 rounded-full border border-white/10 bg-surface/50 text-muted text-sm">Miedo a equivocarse</span>
+                <span class="px-4 py-2 rounded-full border border-accent/20 bg-accent/5 text-accent text-sm font-medium">Precios injustos</span>
+                <span class="px-4 py-2 rounded-full border border-white/10 bg-surface/50 text-muted text-sm">Trámites complejos</span>
+                <span class="px-4 py-2 rounded-full border border-white/10 bg-surface/50 text-muted text-sm">Incertidumbre constante</span>
+            </div>
+
+            <p class="text-xl md:text-2xl font-heading font-light text-textlight/90 reveal reveal-delay-2">
+                Por eso en Nexum Cars hemos creado una forma <br class="hidden md:block"/>
+                <span class="text-accent italic">diferente de hacer las cosas.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. VEHÍCULOS DISPONIBLES (CARRUSEL) -->
+    <section id="vehiculos" class="py-24 bg-surface/30 border-y border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal">
+                <div>
+                    <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-3 tracking-tight">Vehículos <span class="text-accent italic font-light tracking-normal">Disponibles</span></h2>
+                    <p class="text-muted">Nuestra selección premium revisada y garantizada.</p>
+                </div>
+                <a href="#contacto" class="hidden md:inline-flex items-center gap-2 text-accent text-sm font-semibold tracking-wider uppercase hover:text-textlight transition-colors mt-6 md:mt-0">
+                    Ver todo el stock
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+            </div>
+
+            <!-- Carrusel Container -->
+            <div class="flex overflow-x-auto gap-6 pb-8 pt-4 snap-x snap-mandatory no-scrollbar reveal reveal-delay-1">
+                
+                <!-- Card Coche 1 -->
+                <div class="snap-start shrink-0 w-[85vw] md:w-[400px] premium-card bg-surface rounded-sm overflow-hidden flex flex-col group">
+                    <div class="aspect-[4/3] overflow-hidden relative bg-background">
+                        <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=2070&auto=format&fit=crop" alt="Volkswagen Golf Azul" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-background/80 backdrop-blur-sm text-textlight text-xs font-semibold px-3 py-1 rounded-full border border-white/10">
+                            Recién llegado
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading text-xl font-semibold tracking-tight">Volkswagen Golf</h3>
+                            <span class="text-accent font-semibold">Consultar</span>
+                        </div>
+                        <p class="text-muted text-sm mb-6">Edición Advance, estado impecable, pintura metalizada azul original.</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-8 text-sm text-textlight/80 border-y border-white/5 py-4">
+                            <div class="flex flex-col gap-1">
+                                <span class="text-xs text-muted uppercase tracking-wider">Combustible</span>
+                                <span>Diésel / Gasolina</span>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <span class="text-xs text-muted uppercase tracking-wider">Transmisión</span>
+                                <span>Manual / Auto</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-auto flex gap-3">
+                            <a href="#contacto" class="btn-primary flex-1 py-3 text-center text-sm font-semibold rounded-sm tracking-wide">Me interesa</a>
+                            <a href="#contacto" class="btn-secondary px-4 py-3 text-center rounded-sm flex items-center justify-center" aria-label="Ver ficha completa">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Coche 2 -->
+                <div class="snap-start shrink-0 w-[85vw] md:w-[400px] premium-card bg-surface rounded-sm overflow-hidden flex flex-col group">
+                    <div class="aspect-[4/3] overflow-hidden relative bg-background">
+                        <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?q=80&w=2070&auto=format&fit=crop" alt="Volkswagen Golf Rojo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading text-xl font-semibold tracking-tight">Volkswagen Golf</h3>
+                            <span class="text-accent font-semibold">Consultar</span>
+                        </div>
+                        <p class="text-muted text-sm mb-6">Excelente unidad, revisiones al día, acabado deportivo color rojo intenso.</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-8 text-sm text-textlight/80 border-y border-white/5 py-4">
+                            <div class="flex flex-col gap-1">
+                                <span class="text-xs text-muted uppercase tracking-wider">Combustible</span>
+                                <span>Diésel / Gasolina</span>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <span class="text-xs text-muted uppercase tracking-wider">Transmisión</span>
+                                <span>Manual / Auto</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-auto flex gap-3">
+                            <a href="#contacto" class="btn-primary flex-1 py-3 text-center text-sm font-semibold rounded-sm tracking-wide">Me interesa</a>
+                            <a href="#contacto" class="btn-secondary px-4 py-3 text-center rounded-sm flex items-center justify-center" aria-label="Ver ficha completa">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Coche 3 -->
+                <div class="snap-start shrink-0 w-[85vw] md:w-[400px] premium-card bg-surface rounded-sm overflow-hidden flex flex-col group">
+                    <div class="aspect-[4/3] overflow-hidden relative bg-background">
+                        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2070&auto=format&fit=crop" alt="BMW Serie 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-background/80 backdrop-blur-sm text-textlight text-xs font-semibold px-3 py-1 rounded-full border border-white/10">
+                            Próximamente
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading text-xl font-semibold tracking-tight">BMW Serie 3</h3>
+                            <span class="text-accent font-semibold">Reservado</span>
+                        </div>
+                        <p class="text-muted text-sm mb-6">Paquete M, interior en cuero, historial completo en servicio oficial.</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-8 text-sm text-textlight/80 border-y border-white/5 py-4">
+                            <div class="flex flex-col gap-1">
+                                <span class="text-xs text-muted uppercase tracking-wider">Combustible</span>
+                                <span>Diésel</span>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <span class="text-xs text-muted uppercase tracking-wider">Transmisión</span>
+                                <span>Automática</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-auto flex gap-3">
+                            <button disabled class="bg-surface border border-white/5 text-muted flex-1 py-3 text-center text-sm font-semibold rounded-sm cursor-not-allowed uppercase tracking-wide">No Disponible</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-6 md:hidden text-center">
+                <a href="#contacto" class="inline-flex items-center gap-2 text-accent text-sm font-semibold tracking-wider uppercase">
+                    Ver todo el stock
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SERVICIOS / VENDE TU COCHE -->
+    <section id="vender" class="py-24 bg-background relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-4 tracking-tight">Todo lo que necesitas para operar <br/> con <span class="text-accent font-light italic tracking-normal">tranquilidad</span></h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                <!-- Servicio 1 -->
+                <div class="premium-card bg-surface p-8 md:p-10 rounded-sm reveal reveal-delay-1">
+                    <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold mb-3 tracking-tight">Compra tu coche ideal</h3>
+                    <p class="text-muted font-light leading-relaxed">Selección cuidada de vehículos premium y un acompañamiento personalizado para encontrar la unidad que encaja perfectamente contigo.</p>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="premium-card bg-surface p-8 md:p-10 rounded-sm reveal reveal-delay-2">
+                    <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold mb-3 tracking-tight">Vende tu coche fácilmente</h3>
+                    <p class="text-muted font-light leading-relaxed">Valoración justa acorde al mercado actual, máxima rapidez en la gestión y total seguridad en la transacción económica.</p>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="premium-card bg-surface p-8 md:p-10 rounded-sm reveal reveal-delay-1">
+                    <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold mb-3 tracking-tight">Financiación adaptada a ti</h3>
+                    <p class="text-muted font-light leading-relaxed">Soluciones financieras flexibles y a medida para cada situación, facilitando el acceso a tu próximo vehículo sin descapitalizarte.</p>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="premium-card bg-surface p-8 md:p-10 rounded-sm reveal reveal-delay-2">
+                    <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold mb-3 tracking-tight">12 meses de garantía</h3>
+                    <p class="text-muted font-light leading-relaxed">Protección total y tranquilidad desde el primer kilómetro. Todos nuestros vehículos se entregan con una garantía premium europea.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. DIFERENCIALES -->
+    <section id="diferenciales" class="py-24 bg-surface/30 border-y border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 reveal">
+                    <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-6 tracking-tight">Más que una <br/><span class="text-accent italic font-light tracking-normal">compraventa</span> de vehículos</h2>
+                    <p class="text-muted font-light mb-8">Nuestra filosofía se basa en eliminar la incertidumbre del sector. Actuamos como tu consultor personal de automoción.</p>
+                    <a href="#proceso" class="text-accent uppercase tracking-widest text-sm font-semibold flex items-center gap-2 hover:text-white transition-colors">
+                        Descubre nuestro método
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+                
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <div class="flex gap-4 reveal reveal-delay-1">
+                        <div class="mt-1"><svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg></div>
+                        <div>
+                            <h4 class="font-heading text-lg font-medium mb-1 tracking-tight">Transparencia real</h4>
+                            <p class="text-sm text-muted font-light">Historial documentado, sin sorpresas ocultas ni letra pequeña.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 reveal reveal-delay-2">
+                        <div class="mt-1"><svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg></div>
+                        <div>
+                            <h4 class="font-heading text-lg font-medium mb-1 tracking-tight">Selección rigurosa</h4>
+                            <p class="text-sm text-muted font-light">Aceptamos solo vehículos que cumplen nuestros altos estándares.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 reveal reveal-delay-1">
+                        <div class="mt-1"><svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div>
+                        <div>
+                            <h4 class="font-heading text-lg font-medium mb-1 tracking-tight">Trato personalizado</h4>
+                            <p class="text-sm text-muted font-light">Un único interlocutor durante todo tu proceso, siempre disponible.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 reveal reveal-delay-2">
+                        <div class="mt-1"><svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+                        <div>
+                            <h4 class="font-heading text-lg font-medium mb-1 tracking-tight">Procesos ágiles</h4>
+                            <p class="text-sm text-muted font-light">Nos encargamos del papeleo para que tú no pierdas ni un minuto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. HISTORIA DEL FUNDADOR -->
+    <section id="nosotros" class="py-24 bg-surface relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
+                <!-- Imagen -->
+                <div class="w-full lg:w-1/2 reveal">
+                    <div class="aspect-[4/5] relative rounded-sm overflow-hidden bg-background">
+                        <img src="https://i.imgur.com/QRESpqv.jpeg" alt="Isidro Castañeda Delgado - Fundador" class="w-full h-full object-cover object-top opacity-90 transition-opacity duration-500 hover:opacity-100 filter grayscale-[20%] contrast-125 hover:grayscale-0">
+                        <div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <p class="text-accent font-heading font-semibold text-xl tracking-wide">Isidro Castañeda Delgado</p>
+                            <p class="text-sm text-textlight/70 uppercase tracking-widest mt-1">Fundador, Nexum Cars</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Texto -->
+                <div class="w-full lg:w-1/2 reveal reveal-delay-1">
+                    <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-8 tracking-tight">Mi historia, <br/><span class="text-accent italic font-light tracking-normal">tu confianza</span></h2>
+                    
+                    <div class="space-y-6 text-muted font-light leading-relaxed">
+                        <p>Desde muy pequeño, los coches han formado parte de mi vida. Lo que comenzó como una afición se convirtió con los años en una verdadera pasión por el mundo del automóvil.</p>
+                        
+                        <p>Con el tiempo entendí que muchas personas afrontaban la compra o venta de un coche con <strong class="text-textlight font-medium">incertidumbre y desconfianza</strong>. El mercado puede ser opaco y las experiencias negativas abundan.</p>
+                        
+                        <div class="pl-6 border-l-2 border-accent py-2 my-6">
+                            <p class="text-lg text-textlight italic font-heading">"Por eso decidí crear Nexum Cars. Mi objetivo es sencillo: ofrecer la experiencia que a mí me gustaría recibir."</p>
+                        </div>
+                        
+                        <p>Mi compromiso es ayudarte a tomar una decisión con tranquilidad, ofreciéndote cercanía, honestidad y el rigor que exige una inversión importante.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. PROCESO (ARQUITECTURA CORREGIDA) -->
+    <section id="proceso" class="py-32 bg-background relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-24 reveal">
+                <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-4 tracking-tight">Un proceso sencillo y <span class="text-accent italic font-light tracking-normal">transparente</span></h2>
+                <p class="text-muted">Olvídate de las complicaciones. Nosotros nos encargamos de todo.</p>
+            </div>
+
+            <!-- Contenedor del Timeline Interactivo -->
+            <div class="relative w-full mx-auto pb-10" id="timeline-container">
+                
+                <!-- Línea de fondo (Gris) -->
+                <div class="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-[2px] bg-white/5 md:-translate-x-1/2 z-0"></div>
+                
+                <!-- Línea de progreso (Dorada) -->
+                <div id="timeline-progress-bar" class="absolute left-[28px] md:left-1/2 top-0 w-[2px] bg-gradient-to-b from-accent to-accent/50 md:-translate-x-1/2 z-0 shadow-[0_0_15px_rgba(200,164,106,0.6)] origin-top transition-[height] duration-75 ease-linear" style="height: 0%;"></div>
+
+                <!-- Pasos -->
+                <!-- Paso 1 (Izquierda Desktop / Derecha Mobile) -->
+                <div class="process-step relative w-full flex items-center mb-20">
+                    <div class="step-dot absolute left-[28px] md:left-1/2 top-0 transform -translate-x-1/2 w-4 h-4 rounded-full border-2 border-accent bg-surface z-10 transition-colors duration-300 shadow-[0_0_10px_rgba(0,0,0,1)]"></div>
+                    <div class="w-full pl-[70px] md:pl-0 md:w-1/2 md:pr-16 md:text-right">
+                        <span class="text-accent text-xs font-bold tracking-widest uppercase mb-1 block">Paso 1</span>
+                        <h3 class="font-heading text-xl font-semibold mb-2 text-textlight tracking-tight">Cuéntanos qué necesitas</h3>
+                        <p class="text-sm text-muted font-light leading-relaxed">Contáctanos por WhatsApp o formulario. Analizamos tu caso: si buscas coche o quieres vender el tuyo.</p>
+                    </div>
+                </div>
+
+                <!-- Paso 2 (Derecha Desktop / Derecha Mobile) -->
+                <div class="process-step relative w-full flex items-center mb-20">
+                    <div class="step-dot absolute left-[28px] md:left-1/2 top-0 transform -translate-x-1/2 w-4 h-4 rounded-full border-2 border-accent bg-surface z-10 transition-colors duration-300 shadow-[0_0_10px_rgba(0,0,0,1)]"></div>
+                    <div class="w-full pl-[70px] md:w-1/2 md:ml-auto md:pl-16 text-left">
+                        <span class="text-accent text-xs font-bold tracking-widest uppercase mb-1 block">Paso 2</span>
+                        <h3 class="font-heading text-xl font-semibold mb-2 text-textlight tracking-tight">Te asesoramos</h3>
+                        <p class="text-sm text-muted font-light leading-relaxed">Te orientamos sobre el mercado, precios realistas y las mejores opciones disponibles para tu presupuesto.</p>
+                    </div>
+                </div>
+
+                <!-- Paso 3 (Izquierda Desktop / Derecha Mobile) -->
+                <div class="process-step relative w-full flex items-center mb-20">
+                    <div class="step-dot absolute left-[28px] md:left-1/2 top-0 transform -translate-x-1/2 w-4 h-4 rounded-full border-2 border-accent bg-surface z-10 transition-colors duration-300 shadow-[0_0_10px_rgba(0,0,0,1)]"></div>
+                    <div class="w-full pl-[70px] md:pl-0 md:w-1/2 md:pr-16 md:text-right">
+                        <span class="text-accent text-xs font-bold tracking-widest uppercase mb-1 block">Paso 3</span>
+                        <h3 class="font-heading text-xl font-semibold mb-2 text-textlight tracking-tight">Seleccionamos o valoramos</h3>
+                        <p class="text-sm text-muted font-light leading-relaxed">Buscamos unidades que cumplan los filtros o tasamos tu coche al mejor precio de mercado.</p>
+                    </div>
+                </div>
+
+                <!-- Paso 4 (Derecha Desktop / Derecha Mobile) -->
+                <div class="process-step relative w-full flex items-center mb-20">
+                    <div class="step-dot absolute left-[28px] md:left-1/2 top-0 transform -translate-x-1/2 w-4 h-4 rounded-full border-2 border-accent bg-surface z-10 transition-colors duration-300 shadow-[0_0_10px_rgba(0,0,0,1)]"></div>
+                    <div class="w-full pl-[70px] md:w-1/2 md:ml-auto md:pl-16 text-left">
+                        <span class="text-accent text-xs font-bold tracking-widest uppercase mb-1 block">Paso 4</span>
+                        <h3 class="font-heading text-xl font-semibold mb-2 text-textlight tracking-tight">Gestionamos la operación</h3>
+                        <p class="text-sm text-muted font-light leading-relaxed">Revisión mecánica exhaustiva, contratos claros, transferencias en DGT y financiación si la necesitas.</p>
+                    </div>
+                </div>
+
+                <!-- Paso 5 Final (Izquierda Desktop / Derecha Mobile) -->
+                <div class="process-step relative w-full flex items-center">
+                    <!-- Punto final más grande -->
+                    <div class="step-dot absolute left-[28px] md:left-1/2 top-0 transform -translate-x-1/2 w-6 h-6 rounded-full border-4 border-accent bg-surface z-10 transition-colors duration-300 shadow-[0_0_10px_rgba(0,0,0,1)] flex items-center justify-center">
+                        <div class="w-2 h-2 bg-accent rounded-full opacity-0 transition-opacity duration-300 inner-dot"></div>
+                    </div>
+                    <div class="w-full pl-[70px] md:pl-0 md:w-1/2 md:pr-16 md:text-right">
+                        <span class="text-accent text-xs font-bold tracking-widest uppercase mb-1 block">Paso 5</span>
+                        <h3 class="font-heading text-2xl font-bold mb-2 text-accent tracking-tight">Disfrutas de tu coche</h3>
+                        <p class="text-sm text-muted font-light leading-relaxed">Entrega llave en mano. Tu única preocupación será decidir a dónde ir de viaje con total tranquilidad.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. TESTIMONIOS -->
+    <section id="testimonios" class="py-24 bg-surface/30 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-heading text-3xl md:text-4xl font-semibold mb-4 tracking-tight">Lo que dicen <span class="text-accent italic font-light tracking-normal">nuestros clientes</span></h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Testimonio 1 -->
+                <div class="premium-card bg-surface p-8 rounded-sm reveal relative flex flex-col">
+                    <svg class="absolute top-6 right-6 w-8 h-8 text-white/5" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    
+                    <div class="flex items-center gap-1 mb-4 text-accent">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-textlight font-light italic mb-6 flex-grow">"La experiencia con Nexum Cars superó todas mis expectativas. Encontraron el coche perfecto para mí y el proceso fue increíblemente sencillo y transparente. Sentí confianza desde el primer minuto."</p>
+                    <div class="flex items-center gap-3 mt-auto pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-heading font-semibold">L</div>
+                        <div>
+                            <p class="font-medium text-sm">Laura G.</p>
+                            <p class="text-xs text-muted">Cliente Compra</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 2 -->
+                <div class="premium-card bg-surface p-8 rounded-sm reveal reveal-delay-1 relative flex flex-col">
+                    <svg class="absolute top-6 right-6 w-8 h-8 text-white/5" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    
+                    <div class="flex items-center gap-1 mb-4 text-accent">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-textlight font-light italic mb-6 flex-grow">"Vendí mi coche con ellos y fue todo rapidísimo. Me tasaron el vehículo muy bien, se encargaron de todo el papeleo en Tráfico y en 48 horas tenía el dinero ingresado. Un equipo súper profesional."</p>
+                    <div class="flex items-center gap-3 mt-auto pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-heading font-semibold">C</div>
+                        <div>
+                            <p class="font-medium text-sm">Carlos M.</p>
+                            <p class="text-xs text-muted">Cliente Venta</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonio 3 -->
+                <div class="premium-card bg-surface p-8 rounded-sm reveal reveal-delay-2 relative flex flex-col md:col-span-2 lg:col-span-1">
+                    <svg class="absolute top-6 right-6 w-8 h-8 text-white/5" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    
+                    <div class="flex items-center gap-1 mb-4 text-accent">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-textlight font-light italic mb-6 flex-grow">"Isidro es un gran asesor. Yo no entiendo de coches y tenía mucho miedo a equivocarme. Me explicó todo con paciencia y me guió hasta encontrar un vehículo de gerencia impecable y con garantía oficial."</p>
+                    <div class="flex items-center gap-3 mt-auto pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-heading font-semibold">E</div>
+                        <div>
+                            <p class="font-medium text-sm">Elena R.</p>
+                            <p class="text-xs text-muted">Cliente Compra</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. CTA FINAL -->
+    <section id="contacto" class="py-32 bg-background relative overflow-hidden">
+        <!-- Glow effect -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-3xl mx-auto px-6 text-center relative z-10 reveal">
+            <h2 class="font-heading text-4xl md:text-5xl font-semibold mb-6 tracking-tight">¿Hablamos sobre tu <br/><span class="text-accent italic font-light tracking-normal">próximo coche?</span></h2>
+            <p class="text-muted text-lg mb-10 font-light">Tanto si buscas comprar como si necesitas vender, estamos aquí para asesorarte sin ningún compromiso. El primer paso hacia la tranquilidad.</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://wa.me/34648837425?text=Hola%20Isidro,%20he%20visto%20la%20web%20de%20Nexum%20Cars%20y%20me%20gustaría%20recibir%20información." target="_blank" rel="noopener noreferrer" class="btn-primary flex items-center justify-center gap-2 px-8 py-4 rounded-sm font-semibold tracking-wide shadow-lg shadow-accent/20">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    CONTACTAR POR WHATSAPP
+                </a>
+                <a href="tel:+34648837425" class="btn-secondary flex items-center justify-center gap-2 px-8 py-4 rounded-sm font-semibold tracking-wide">
+                    LLAMAR AHORA
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#050505] pt-16 pb-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <!-- Marca -->
+                <div>
+                    <a href="#inicio" class="font-heading text-2xl font-semibold tracking-wider text-textlight mb-4 block">
+                        NEXUM<span class="text-accent">CARS</span>
+                    </a>
+                    <p class="text-muted text-sm font-light max-w-xs">La forma más segura, transparente y profesional de comprar o vender tu vehículo premium en España.</p>
+                </div>
+
+                <!-- Contacto -->
+                <div>
+                    <h4 class="font-heading text-lg mb-4 text-textlight tracking-tight">Contacto</h4>
+                    <ul class="space-y-3 text-sm text-muted font-light">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span>Calle Dion Casio Nº4<br/>06800 Mérida, España</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            <a href="tel:+34648837425" class="hover:text-accent transition-colors">648 83 74 25</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <a href="mailto:gestion@nexumcarsnacional.com" class="hover:text-accent transition-colors">gestion@nexumcarsnacional.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Redes & Legal -->
+                <div>
+                    <h4 class="font-heading text-lg mb-4 text-textlight tracking-tight">Síguenos</h4>
+                    <a href="https://instagram.com/nexumcarsnacional" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-muted hover:text-accent transition-colors mb-6">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        @nexumcarsnacional
+                    </a>
+                    
+                    <div class="space-y-2 text-xs text-muted/60">
+                        <p><a href="#" class="hover:text-textlight transition-colors">Aviso Legal</a></p>
+                        <p><a href="#" class="hover:text-textlight transition-colors">Política de Privacidad</a></p>
+                        <p><a href="#" class="hover:text-textlight transition-colors">Política de Cookies</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-white/5 text-center text-xs text-muted/50">
+                &copy; 2026 Nexum Cars Nacional. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/34648837425?text=Hola%20Isidro,%20he%20visto%20la%20web%20de%20Nexum%20Cars%20y%20me%20gustaría%20recibir%20información." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform duration-300 group" aria-label="Contactar por WhatsApp">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <!-- Tooltip -->
+        <span class="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-surface text-textlight text-sm px-3 py-1.5 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border border-white/10 hidden md:block">
+            ¿En qué te ayudamos?
+        </span>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Lógica del Menú Móvil
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const navLinks = menu.querySelectorAll('a');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                });
+            });
+
+            // 2. Efecto de Scroll en Navbar
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow-lg');
+                    navbar.classList.replace('bg-background/90', 'bg-background/95');
+                } else {
+                    navbar.classList.remove('shadow-lg');
+                    navbar.classList.replace('bg-background/95', 'bg-background/90');
+                }
+            });
+
+            // 3. Animaciones Reveal Básicas
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => revealOnScroll.observe(el));
+
+            // 4. Lógica de Scroll Precisa para la Línea del Proceso
+            const processSection = document.getElementById('proceso');
+            const progressBar = document.getElementById('timeline-progress-bar');
+            const processSteps = document.querySelectorAll('.process-step');
+            const timelineContainer = document.getElementById('timeline-container');
+
+            function updateTimeline() {
+                if(!processSection || !progressBar || !timelineContainer) return;
+                
+                const rect = timelineContainer.getBoundingClientRect();
+                const windowCenter = window.innerHeight / 2;
+                
+                // Calculamos cuánto hemos bajado desde el top del contenedor respecto al centro de la pantalla
+                let scrolled = windowCenter - rect.top;
+                
+                // Limitamos la barra para que no baje más del 100% ni suba menos del 0%
+                const maxScroll = rect.height;
+                if(scrolled < 0) scrolled = 0;
+                if(scrolled > maxScroll) scrolled = maxScroll;
+                
+                // Dibujamos la barra en píxeles exactos
+                progressBar.style.height = `${scrolled}px`;
+
+                // Evaluamos cada paso
+                processSteps.forEach(step => {
+                    const dot = step.querySelector('.step-dot');
+                    // El punto gatillo es la posición "Y" del paso dentro del contenedor + un pequeño buffer
+                    const triggerPoint = step.offsetTop + 16; 
+
+                    if (scrolled >= triggerPoint) {
+                        step.classList.add('active');
+                        if (dot) {
+                            dot.classList.add('bg-accent', 'shadow-[0_0_15px_rgba(200,164,106,0.8)]');
+                            dot.classList.remove('bg-surface');
+                            const innerDot = dot.querySelector('.inner-dot');
+                            if(innerDot) innerDot.classList.remove('opacity-0');
+                        }
+                    } else {
+                        // Reversión suave si subimos (opcional, pero da sensación interactiva)
+                        step.classList.remove('active');
+                        if (dot) {
+                            dot.classList.remove('bg-accent', 'shadow-[0_0_15px_rgba(200,164,106,0.8)]');
+                            dot.classList.add('bg-surface');
+                            const innerDot = dot.querySelector('.inner-dot');
+                            if(innerDot) innerDot.classList.add('opacity-0');
+                        }
+                    }
+                });
+            }
+
+            // Escuchar eventos de scroll y resize
+            window.addEventListener('scroll', updateTimeline);
+            window.addEventListener('resize', updateTimeline);
+            
+            // Disparo inicial
+            updateTimeline();
+            setTimeout(() => {
+                revealElements.forEach(el => {
+                    if(el.getBoundingClientRect().top < window.innerHeight) {
+                        el.classList.add('active');
+                    }
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>
