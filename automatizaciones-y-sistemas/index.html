@@ -2990,50 +2990,47 @@
 
     <!-- Scripts de Modal -->
     <script>
-      const contactModal = document.getElementById("contact-modal");
-      const modalInner = contactModal.querySelector("div");
+      (function() {
+        const contactModal = document.getElementById("contact-modal");
+        if (!contactModal) return; // No modal on this page, skip safely
+        const modalInner = contactModal.querySelector("div");
 
-      function openModal(fase = "") {
-        contactModal.classList.remove("hidden");
-        setTimeout(() => {
-          contactModal.classList.remove("opacity-0");
-          modalInner.classList.remove("scale-95");
-        }, 10);
-        document.body.style.overflow = "hidden";
+        window.openModal = function(fase) {
+          fase = fase || "";
+          contactModal.classList.remove("hidden");
+          setTimeout(() => {
+            contactModal.classList.remove("opacity-0");
+            if (modalInner) modalInner.classList.remove("scale-95");
+          }, 10);
+          document.body.style.overflow = "hidden";
 
-        if (fase) {
           const faseSelects = document.querySelectorAll('select[name="Fase"]');
           faseSelects.forEach((select) => {
             select.value = fase;
           });
-        } else {
-          const faseSelects = document.querySelectorAll('select[name="Fase"]');
-          faseSelects.forEach((select) => {
-            select.value = "";
-          });
-        }
-      }
+        };
 
-      function closeModal() {
-        contactModal.classList.add("opacity-0");
-        modalInner.classList.add("scale-95");
-        setTimeout(() => {
-          contactModal.classList.add("hidden");
-          document.body.style.overflow = "";
-        }, 300);
-      }
+        window.closeModal = function() {
+          contactModal.classList.add("opacity-0");
+          if (modalInner) modalInner.classList.add("scale-95");
+          setTimeout(() => {
+            contactModal.classList.add("hidden");
+            document.body.style.overflow = "";
+          }, 300);
+        };
 
-      contactModal.addEventListener("click", (e) => {
-        if (e.target === contactModal) {
-          closeModal();
-        }
-      });
+        contactModal.addEventListener("click", (e) => {
+          if (e.target === contactModal) {
+            window.closeModal();
+          }
+        });
 
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && !contactModal.classList.contains("hidden")) {
-          closeModal();
-        }
-      });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && !contactModal.classList.contains("hidden")) {
+            window.closeModal();
+          }
+        });
+      })();
     </script>
 
     <script>
