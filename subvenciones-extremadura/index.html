@@ -521,26 +521,7 @@
             
             // Evaluar fechas dinámicamente antes de renderizar
             evaluateDates();
-            renderCards();
-
-            // Mobile Menu Toggle
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
-
-            // Mouse Glow effect
-            const mouseGlow = document.getElementById('mouse-glow');
-            document.addEventListener('mousemove', (e) => {
-                if (mouseGlow) {
-                    mouseGlow.style.left = `${e.clientX}px`;
-                    mouseGlow.style.top = `${e.clientY}px`;
-                }
-            });
-        });
+            renderCards(););
 
         // 4. Lógica de negocio: Fechas y Estados
         function evaluateDates() {

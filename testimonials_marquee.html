@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proemote Testimonials Marquee</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    },
+                    animation: {
+                        marquee: 'marquee var(--duration) linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(calc(-50% - 1rem))' }, // Ajuste para el gap
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Utilidad para pausar la animación en hover */
+        .pause-on-hover:hover .animate-marquee {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 transition-colors duration-300 min-h-screen">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useMemo, useEffect, useRef, useCallback } = React;
+
+        // --- DATOS DE LAS RESEÑAS ---
+        const REVIEWS_DATA = [
+            {
+                name: "Sandra Cerrada Sánchez",
+                role: "CEO Fintegra",
+                rating: 5,
+                text: "Excelente trabajo de Proemote. Sus diseños web son modernos y muy cuidados, y el servicio de gestión de redes sociales es profesional y eficaz. Un equipo creativo y comprometido que realmente aporta valor. Muy recomendados."
+            },
+            {
+                name: "JoveNEXT",
+                role: "Asociaciones y ONGs",
+                rating: 5,
+                text: "Estamos muy satisfechos con la web que nos diseñaron desde Proemote. Son un equipo atento, creativo y profesional. Nos diseñaron la web y nos ha gustado mucho."
+            },
+            {
+                name: "Ana Gorostegui",
+                role: "Coaching",
+                rating: 4,
+                text: "Carlos captó muy bien desde el principio la idea y el estilo que quería para mi web, y trabajó con rapidez y eficiencia. El resultado final es muy bueno."
+            },
+            {
+                name: "Asociación Meridia",
+                role: "Asociaciones y ONGs",
+                rating: 5,
+                text: "Contratamos a Proemote para el diseño de la página web de la Asociación Meridia y quedamos muy satisfechos con el resultado. El servicio fue ágil, profesional y nos atendieron maravillosamente."
+            },
+            {
+                name: "Gabriel Romero Pérez",
+                role: "Profesor de Formación Vial",
+                rating: 5,
+                text: "Una experiencia de usuario impecable. La estructura es clara, el contenido es de gran valor y, sin duda, la web se posiciona como un referente inmediato en el sector."
+            },
+            {
+                name: "Limpiezas Lusitania",
+                role: "Servicios de limpieza",
+                rating: 5,
+                text: "Somos una empresa de limpieza que lleva más de 25 años en el sector, pero necesitábamos modernizarnos un poco. Por ello, contactamos con Proemote para la creación de nuestra web."
+            },
+            {
+                name: "Alexandro Navarro",
+                role: "Fotógrafo",
+                rating: 5,
+                text: "Trabajar con Proemote ha sido todo un acierto. Son un equipo atento, creativo y profesional. Lo recomiendo a todo tipo de negocios que buscan dar un salto de calidad en su imagen profesional; si buscan un cambio con un presupuesto ajustado, es su mejor opción."
+            },
+            {
+                name: "Juany",
+                role: "CEO Centro de Belleza Juany",
+                rating: 5,
+                text: "Muy satisfecha con su trabajo. Me diseñaron la web y me gestionan las redes sociales, y en todo momento la atención es muy profesional. Totalmente recomendable."
+            },
+            {
+                name: "Ana Jacinto",
+                role: "CEO Lo Quiero Limpio",
+                rating: 5,
+                text: "Espero tener un largo recorrido con Proemote y conseguir mucho éxito. Muy contenta con sus servicios. ¡Seguimos trabajando juntos!"
+            },
+            {
+                name: "Lara Santiago López",
+                role: "Cliente counseling",
+                rating: 5,
+                text: "Lo recomiendo 100%, he tenido muy buena experiencia con la sesión de counselling."
+            },
+            {
+                name: "Alba Mulero",
+                role: "Cliente orientación profesional",
+                rating: 5,
+                text: "Muy profesional. ¡Lo recomiendo! :)"
+            },
+            {
+                name: "Noemí Sánchez Menaya",
+                role: "CEO Tierras con Alma",
+                rating: 5,
+                text: "Profesional y cercano."
+            }
+        ];
+
+        // Dividir en 6 arriba y 6 abajo
+        const row1 = REVIEWS_DATA.slice(0, 6);
+        const row2 = REVIEWS_DATA.slice(6, 12);
+
+        // --- ICONOS ---
+        const GoogleIcon = ({ className }) => (
+            <svg className={className} viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+        );
+
+        const StarIcon = () => (
+            <svg className="w-3.5 h-3.5 text-[#FABB05]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+        );
+
+        // --- COMPONENTE DE TARJETA ---
+        const ReviewCard = ({ review }) => {
+            // Obtenemos la inicial para el avatar
+            const initial = review.name.charAt(0).toUpperCase();
+            
+            return (
+                <div className="w-[320px] md:w-[380px] p-5 md:p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 flex flex-col gap-4 flex-shrink-0 shadow-sm hover:shadow-md transition-shadow select-none">
+                    <div className="flex items-center gap-3 pointer-events-none">
+                        <div className="relative">
+                            <div className="w-10 h-10 rounded-full border border-slate-100 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-300 font-semibold bg-slate-50 dark:bg-slate-800 text-lg shadow-sm">
+                                {initial}
+                            </div>
+                            <div className="absolute -bottom-1 -right-1 bg-white dark:bg-slate-900 rounded-full p-[2px] shadow-sm">
+                                <GoogleIcon className="w-3.5 h-3.5" />
+                            </div>
+                        </div>
+                        <div className="flex flex-col">
+                            <span className="font-semibold text-slate-900 dark:text-slate-100 text-sm leading-tight">{review.name}</span>
+                            {review.role && <span className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-medium">{review.role}</span>}
+                            <div className="flex gap-0.5 mt-1">
+                                {[...Array(5)].map((_, i) => (
+                                    <StarIcon key={i} />
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed line-clamp-4 pointer-events-none">
+                        {review.text}
+                    </p>
+                </div>
+            );
+        };
+
+        // --- COMPONENTE DE FILA MARQUEE ---
+        const MarqueeRow = ({ data, reverse = false, baseSpeed = 0.5 }) => {
+            const [translateX, setTranslateX] = useState(0);
+            const [isHovered, setIsHovered] = useState(false);
+            const [isDragging, setIsDragging] = useState(false);
+            const [startX, setStartX] = useState(0);
+            const containerRef = useRef(null);
+            const contentRef = useRef(null);
+
+            // Cuadruplicamos los datos para garantizar el bucle infinito al hacer drag rápido
+            const doubledData = useMemo(() => [...data, ...data, ...data, ...data], [data]);
+
+            // Animación automática (Auto-play) controlada por JS
+            useEffect(() => {
+                if (isHovered || isDragging) return;
+                
+                let animationFrameId;
+                let lastTime = performance.now();
+
+                const loop = (time) => {
+                    const deltaTime = time - lastTime;
+                    lastTime = time;
+
+                    setTranslateX((prev) => {
+                        if (!contentRef.current) return prev;
+                        const contentWidth = contentRef.current.scrollWidth / 4; 
+                        
+                        // Ajustamos la velocidad con deltaTime para mantenerla constante independientemente de los FPS
+                        let next = prev + (reverse ? baseSpeed : -baseSpeed) * (deltaTime / 16);
+                        
+                        // Lógica de bucle infinito (Loop reset) sin parpadeos
+                        if (!reverse && next <= -contentWidth) {
+                            next += contentWidth;
+                        } else if (reverse && next >= 0) {
+                            next -= contentWidth;
+                        }
+                        return next;
+                    });
+                    animationFrameId = requestAnimationFrame(loop);
+                };
+                animationFrameId = requestAnimationFrame(loop);
+                return () => cancelAnimationFrame(animationFrameId);
+            }, [isHovered, isDragging, reverse, baseSpeed]);
+
+            // Controladores de Drag/Swipe
+            const handleDragStart = useCallback((clientX) => {
+                setIsDragging(true);
+                setStartX(clientX - translateX);
+            }, [translateX]);
+
+            const handleDragMove = useCallback((clientX) => {
+                if (!isDragging) return;
+                const newTranslate = clientX - startX;
+                setTranslateX(newTranslate);
+            }, [isDragging, startX]);
+
+            const handleDragEnd = useCallback(() => {
+                setIsDragging(false);
+                // Ajustamos el translateX para mantenerlo en el rango lógico del bucle al soltar
+                if (contentRef.current) {
+                    const contentWidth = contentRef.current.scrollWidth / 4;
+                    setTranslateX((prev) => {
+                        let next = prev;
+                        if (next > 0) next = (next % contentWidth) - contentWidth;
+                        if (next < -contentWidth * 2) next = (next % contentWidth);
+                        return next;
+                    });
+                }
+            }, []);
+
+            return (
+                <div 
+                    className={`flex overflow-hidden w-full py-2 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => { setIsHovered(false); handleDragEnd(); }}
+                    onMouseDown={(e) => handleDragStart(e.clientX)}
+                    onMouseMove={(e) => handleDragMove(e.clientX)}
+                    onMouseUp={handleDragEnd}
+                    onTouchStart={(e) => handleDragStart(e.touches[0].clientX)}
+                    onTouchMove={(e) => handleDragMove(e.touches[0].clientX)}
+                    onTouchEnd={handleDragEnd}
+                    ref={containerRef}
+                >
+                    <div 
+                        ref={contentRef}
+                        className="flex gap-4 sm:gap-6 min-w-max will-change-transform"
+                        style={{ transform: `translate3d(${translateX}px, 0, 0)` }}
+                    >
+                        {doubledData.map((review, i) => (
+                            <ReviewCard key={`${review.name}-${i}`} review={review} />
+                        ))}
+                    </div>
+                </div>
+            );
+        };
+
+        // --- CONTENEDOR PRINCIPAL ---
+        const TestimonialsMarquee = () => {
+            return (
+                <section className="py-16 md:py-24 relative overflow-hidden flex flex-col items-center">
+                    
+                    {/* Encabezado Opcional */}
+                    <div className="text-center max-w-2xl px-4 mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-4">
+                            Lo que dicen nuestros clientes
+                        </h2>
+                        <p className="text-slate-600 dark:text-slate-400 text-lg">
+                            Descubre cómo hemos ayudado a empresas y asociaciones a dar el salto digital con resultados reales.
+                        </p>
+                    </div>
+
+                    <div className="relative w-full max-w-[100vw] overflow-hidden flex flex-col gap-4 sm:gap-6">
+                        
+                        {/* Gradientes laterales para difuminar bordes */}
+                        <div className="pointer-events-none absolute left-0 top-0 h-full w-16 md:w-32 z-10 bg-gradient-to-r from-slate-50 dark:from-slate-950 to-transparent"></div>
+                        <div className="pointer-events-none absolute right-0 top-0 h-full w-16 md:w-32 z-10 bg-gradient-to-l from-slate-50 dark:from-slate-950 to-transparent"></div>
+
+                        {/* Fila 1 - Moviéndose hacia la izquierda */}
+                        <MarqueeRow data={row1} reverse={false} baseSpeed={0.6} />
+                        
+                        {/* Fila 2 - Moviéndose hacia la derecha */}
+                        <MarqueeRow data={row2} reverse={true} baseSpeed={0.5} />
+                        
+                    </div>
+                </section>
+            );
+        };
+
+        // --- APP Y THEME TOGGLE (Para propósitos de la demo) ---
+        const App = () => {
+            const [isDark, setIsDark] = useState(false);
+
+            useEffect(() => {
+                if (isDark) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            }, [isDark]);
+
+            return (
+                <div className="relative w-full">
+                    <div className="absolute top-4 right-4 z-50">
+                        <button 
+                            onClick={() => setIsDark(!isDark)}
+                            className="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full shadow-sm text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+                        >
+                            {isDark ? '☀️ Modo Claro' : '🌙 Modo Oscuro'}
+                        </button>
+                    </div>
+                    <TestimonialsMarquee />
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

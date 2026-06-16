@@ -408,63 +408,106 @@
         </section>
 
         <!-- TESTIMONIALS -->
-        <section class="py-24 px-4 border-y border-gray-200 dark:border-white/5 bg-[#0A0A0F] relative z-20 reveal">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg">El resultado de aplicar estrategia, no solo subir fotos.</h2>
-                </div>
+            <!-- NEW DOUBLE MARQUEE REVIEWS -->
+    <style>
+        .pause-on-hover:hover .animate-marquee {
+            animation-play-state: paused;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 1rem)); }
+        }
+        .animate-marquee {
+            animation: marquee var(--duration, 40s) linear infinite;
+        }
+    </style>
+    <section class="py-16 md:py-24 relative overflow-hidden flex flex-col items-center border-t border-gray-200 dark:border-white/5 bg-gray-50 dark:bg-bgSurface transition-colors duration-300">
+        
+        <div class="text-center max-w-2xl px-4 mb-12 relative z-10 reveal-up">
+            <h2 class="text-3xl md:text-4xl font-heading font-medium text-gray-900 dark:text-white tracking-tight mb-4">
+                Lo que dicen nuestros clientes
+            </h2>
+            <p class="text-gray-600 dark:text-textSecondary text-lg font-light">
+                Descubre cómo hemos ayudado a empresas y asociaciones a dar el salto digital con resultados reales.
+            </p>
+        </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Testimonial 1 -->
-                    <div class="glass-panel p-8 rounded-2xl flex flex-col h-full reveal hover:border-primary/30 transition-colors duration-300">
-                        <div class="flex text-[#FFB800] mb-4 drop-shadow-md">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-gray-600 dark:text-textSecondary leading-relaxed mb-8 flex-grow italic">"Nuestra imagen ahora refleja lo que somos. Desde que nos gestionan la presencia digital, la entrada de clientes a través de Instagram y la web ha sido constante y predecible."</p>
-                        <div>
-                            <p class="font-bold text-gray-900 dark:text-white text-lg">Juana María Ramos</p>
-                            <p class="text-sm text-primary">Centro de Belleza</p>
-                        </div>
-                    </div>
+        <div class="relative w-full max-w-[100vw] overflow-hidden flex flex-col gap-4 sm:gap-6 z-10 pause-on-hover">
+            
+            <div class="pointer-events-none absolute left-0 top-0 h-full w-16 md:w-32 z-20 bg-gradient-to-r from-gray-50 dark:from-bgSurface to-transparent"></div>
+            <div class="pointer-events-none absolute right-0 top-0 h-full w-16 md:w-32 z-20 bg-gradient-to-l from-gray-50 dark:from-bgSurface to-transparent"></div>
 
-                    <!-- Testimonial 2 -->
-                    <div class="glass-panel p-8 rounded-2xl flex flex-col h-full reveal hover:border-primary/30 transition-colors duration-300" style="transition-delay: 100ms;">
-                        <div class="flex text-[#FFB800] mb-4 drop-shadow-md">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-gray-600 dark:text-textSecondary leading-relaxed mb-8 flex-grow italic">"Trabajo impecable. Hemos dejado de preocuparnos por si el contenido funciona o no. Tienen un sistema claro que filtra al cliente ideal y eso nos ahorra muchísimo tiempo."</p>
-                        <div>
-                            <p class="font-bold text-gray-900 dark:text-white text-lg">Sandra Cerrada</p>
-                            <p class="text-sm text-primary">Diseño web · Sector servicios</p>
-                        </div>
-                    </div>
+            <!-- ROW 1 (Left to Right) -->
+            <div class="flex overflow-hidden w-full py-2 cursor-grab">
+                <div class="flex gap-4 sm:gap-6 min-w-max animate-marquee" style="--duration: 45s;">
+                    <!-- Clone 1 -->
+                    <script>
+                        const reviewsRow1 = [
+                            { n: "Sandra Cerrada Sánchez", r: "CEO Fintegra", s: 5, t: "Excelente trabajo de Proemote. Sus diseños web son modernos y muy cuidados, y el servicio de gestión de redes sociales es profesional y eficaz. Un equipo creativo y comprometido que realmente aporta valor." },
+                            { n: "JoveNEXT", r: "Asociaciones y ONGs", s: 5, t: "Estamos muy satisfechos con la web que nos diseñaron desde Proemote. Son un equipo atento, creativo y profesional. Nos diseñaron la web y nos ha gustado mucho." },
+                            { n: "Ana Gorostegui", r: "Coaching", s: 4, t: "Carlos captó muy bien desde el principio la idea y el estilo que quería para mi web, y trabajó con rapidez y eficiencia. El resultado final es muy bueno." },
+                            { n: "Asociación Meridia", r: "Asociaciones y ONGs", s: 5, t: "Contratamos a Proemote para el diseño de la página web y quedamos muy satisfechos con el resultado. El servicio fue ágil, profesional y nos atendieron maravillosamente." },
+                            { n: "Gabriel Romero Pérez", r: "Profesor de Formación Vial", s: 5, t: "Una experiencia de usuario impecable. La estructura es clara, el contenido es de gran valor y, sin duda, la web se posiciona como un referente inmediato en el sector." },
+                            { n: "Limpiezas Lusitania", r: "Servicios de limpieza", s: 5, t: "Somos una empresa de limpieza que lleva más de 25 años en el sector, pero necesitábamos modernizarnos un poco. Por ello, contactamos con Proemote para la creación de nuestra web." }
+                        ];
+                        const reviewsRow2 = [
+                            { n: "Alexandro Navarro", r: "Fotógrafo", s: 5, t: "Trabajar con Proemote ha sido todo un acierto. Lo recomiendo a todo tipo de negocios que buscan dar un salto de calidad en su imagen profesional; si buscan un cambio, es su mejor opción." },
+                            { n: "Juany", r: "CEO Centro de Belleza Juany", s: 5, t: "Muy satisfecha con su trabajo. Me diseñaron la web y me gestionan las redes sociales, y en todo momento la atención es muy profesional. Totalmente recomendable." },
+                            { n: "Ana Jacinto", r: "CEO Lo Quiero Limpio", s: 5, t: "Espero tener un largo recorrido con Proemote y conseguir mucho éxito. Muy contenta con sus servicios. ¡Seguimos trabajando juntos!" },
+                            { n: "Lara Santiago López", r: "Cliente counseling", s: 5, t: "Lo recomiendo 100%, he tenido muy buena experiencia con la sesión de counselling." },
+                            { n: "Alba Mulero", r: "Cliente orientación", s: 5, t: "Muy profesional. ¡Lo recomiendo! :)" },
+                            { n: "Noemí Sánchez Menaya", r: "CEO Tierras con Alma", s: 5, t: "Profesional y cercano." }
+                        ];
+                        
+                        function createReviewCardHTML(rev) {
+                            const init = rev.n.charAt(0).toUpperCase();
+                            const stars = Array(rev.s).fill('<svg class="w-3.5 h-3.5 text-[#FABB05]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>').join('');
+                            return `
+                                <div class="w-[320px] md:w-[380px] p-5 md:p-6 rounded-2xl border border-gray-200 dark:border-white/5 bg-white dark:bg-bgMain/50 flex flex-col gap-4 flex-shrink-0 shadow-sm hover:border-primary/30 transition-colors select-none">
+                                    <div class="flex items-center gap-3 pointer-events-none">
+                                        <div class="relative">
+                                            <div class="w-10 h-10 rounded-full border border-gray-100 dark:border-white/10 flex items-center justify-center text-gray-700 dark:text-white/80 font-semibold bg-gray-50 dark:bg-bgSurface text-lg shadow-sm">
+                                                ${init}
+                                            </div>
+                                            <div class="absolute -bottom-1 -right-1 bg-white dark:bg-bgMain rounded-full p-[2px] shadow-sm">
+                                                <svg viewBox="0 0 24 24" width="14" height="14" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                                                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                                                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                                                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <span class="font-medium text-gray-900 dark:text-white text-sm leading-tight">${rev.n}</span>
+                                            <span class="text-xs text-gray-500 dark:text-white/50 mt-0.5 font-light">${rev.r}</span>
+                                            <div class="flex gap-0.5 mt-1">${stars}</div>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600 dark:text-textSecondary text-sm font-light leading-relaxed pointer-events-none">${rev.t}</p>
+                                </div>
+                            `;
+                        }
 
-                    <!-- Testimonial 3 -->
-                    <div class="glass-panel p-8 rounded-2xl flex flex-col h-full reveal hover:border-primary/30 transition-colors duration-300" style="transition-delay: 200ms;">
-                        <div class="flex text-[#FFB800] mb-4 drop-shadow-md">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-gray-600 dark:text-textSecondary leading-relaxed mb-8 flex-grow italic">"Un salto de calidad absoluto en nuestra imagen profesional. Ahora no buscamos clientes a puerta fría, el posicionamiento que han creado hace que ellos vengan a nosotros."</p>
-                        <div>
-                            <p class="font-bold text-gray-900 dark:text-white text-lg">Alexandro Navarro</p>
-                            <p class="text-sm text-primary">Gestión de marca · Fotografía</p>
-                        </div>
-                    </div>
+                        const longRow1 = [...reviewsRow1, ...reviewsRow1, ...reviewsRow1, ...reviewsRow1];
+                        document.write(longRow1.map(createReviewCardHTML).join(''));
+                    </script>
                 </div>
             </div>
-        </section>
+
+            <!-- ROW 2 (Right to Left) -->
+            <div class="flex overflow-hidden w-full py-2 cursor-grab" dir="rtl">
+                <div class="flex gap-4 sm:gap-6 min-w-max animate-marquee" style="--duration: 50s;" dir="ltr">
+                    <script>
+                        const longRow2 = [...reviewsRow2, ...reviewsRow2, ...reviewsRow2, ...reviewsRow2];
+                        document.write(longRow2.map(createReviewCardHTML).join(''));
+                    </script>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <!-- END NEW DOUBLE MARQUEE REVIEWS -->
 
         <!-- FINAL CTA SECTION -->
         <section id="analisis-gratis" class="py-24 px-4 text-center pb-32 reveal relative z-10">
