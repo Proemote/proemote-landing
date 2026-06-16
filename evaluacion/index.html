@@ -82,24 +82,23 @@
 
         /* Premium Form Soft Glass 3D (Sink Effect & dynamic glare) */
         .glass-form {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(123, 97, 255, 0.20);
+            box-shadow: 0 10px 40px -10px rgba(123, 97, 255, 0.15);
+            transform-style: preserve-3d;
+            transition: box-shadow 0.3s ease, background 0.3s ease;
+            position: relative;
+        }
+        .dark .glass-form {
             background: 
                 radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.04), transparent 40%),
                 linear-gradient(135deg, rgba(20, 20, 31, 0.7) 0%, rgba(123, 97, 255, 0.06) 100%);
-            backdrop-filter: blur(24px);
-            border: 1px solid rgba(123, 97, 255, 0.20);
             box-shadow: 0 10px 40px -10px rgba(123, 97, 255, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
-            transform-style: preserve-3d;
-            transition: box-shadow 0.3s ease;
-            position: relative;
         }
-        .glass-form:hover {
-            box-shadow: 0 20px 50px -15px rgba(123, 97, 255, 0.25), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
-        }
-        .glass-form > * {
-            transform: translateZ(20px);
-            position: relative;
-            z-index: 2;
-        }
+        .glass-form:hover { box-shadow: 0 20px 50px -15px rgba(123, 97, 255, 0.25); }
+        .dark .glass-form:hover { box-shadow: 0 20px 50px -15px rgba(123, 97, 255, 0.25), inset 0 1px 0 0 rgba(255, 255, 255, 0.1); }
+        .glass-form > * { transform: translateZ(20px); position: relative; z-index: 2; }
     
         /* Estilos Evaluacion */
         .bg-grid-pattern { background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%23ffffff' fill-opacity='0.02' fill-rule='evenodd'/%3E%3C/svg%3E"); }
@@ -219,11 +218,11 @@
                 <div class="relative group py-2">
                     <a href="/subvenciones-extremadura/" class="hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1.5 focus:outline-none">
                         Ayudas 2026 
-                        <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-primary/20 text-primary border border-primary/30 leading-none">Nuevo</span>
+                        <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-medium bg-primary/20 text-primary border border-primary/30 leading-none">Nuevo</span>
                         <i class="ph ph-caret-down text-xs transition-transform group-hover:rotate-180"></i>
                     </a>
-                    <div class="absolute top-full left-0 mt-4 w-64 bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-2xl p-4 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 flex flex-col gap-2 pointer-events-auto">
-                        <a href="/ayudas-digitalizacion-pymes-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 transition-all flex items-start gap-3 group/item">
+                    <div class="absolute top-full left-0 mt-4 before:absolute before:-top-4 before:left-0 before:w-full before:h-4 w-64 bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-2xl p-4 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 flex flex-col gap-2 pointer-events-auto">
+                        <a href="/ayudas-digitalizacion-pymes-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 border border-gray-300 dark:border-white/10 transition-all flex items-start gap-3 group/item">
                             <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover/item:bg-primary group-hover/item:text-white transition-colors flex-shrink-0">
                                 <i class="ph-fill ph-device-mobile"></i>
                             </div>
@@ -232,7 +231,7 @@
                                 <p class="text-[10px] text-gray-500 dark:text-white/40">Hasta 20.000€ · Web, SEO, Redes</p>
                             </div>
                         </a>
-                        <a href="/ayudas-implementacion-ia-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 transition-all flex items-start gap-3 group/item">
+                        <a href="/ayudas-implementacion-ia-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 border border-gray-300 dark:border-white/10 transition-all flex items-start gap-3 group/item">
                             <div class="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center text-accent group-hover/item:bg-accent group-hover/item:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                                 <i class="ph-fill ph-cpu"></i>
                             </div>
@@ -364,11 +363,17 @@
             
             <a href="/servicios" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Servicios</a>
             
-            <div class="flex flex-col gap-2 pl-2 border-l border-gray-200 dark:border-white/10 my-1 items-center">
-                <a href="/subvenciones-extremadura" class="text-xs font-bold tracking-widest text-gray-600 dark:text-white/60 uppercase mb-1 flex items-center gap-2 hover:text-primary transition-colors">Ayudas 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></a>
-                <a href="/ayudas-digitalizacion-pymes-extremadura/" class="mobile-link text-sm font-medium text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Digitalización de Pymes</a>
-                <a href="/ayudas-implementacion-ia-extremadura/" class="mobile-link text-sm font-medium text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white mt-1">Implementación de IA</a>
-            </div>
+            <details class="w-full text-center group">
+                <summary class="list-none cursor-pointer text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white flex items-center justify-center gap-2">
+                    Ayudas 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span>
+                    <svg class="w-4 h-4 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </summary>
+                <div class="flex flex-col gap-3 mt-4 mb-2">
+                    <a href="/subvenciones-extremadura" class="mobile-link text-sm font-medium text-gray-500 dark:text-white/50 hover:text-marca dark:hover:text-white">Ver todas las ayudas</a>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="mobile-link text-sm font-medium text-gray-500 dark:text-white/50 hover:text-marca dark:hover:text-white">Digitalización de Pymes</a>
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="mobile-link text-sm font-medium text-gray-500 dark:text-white/50 hover:text-marca dark:hover:text-white">Implementación de IA</a>
+                </div>
+            </details>
 
             <a href="/sobre-nosotros" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Sobre nosotros</a>
             <a href="https://proemote.es/portfolio" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Portfolio</a>
@@ -381,7 +386,7 @@
           <div class="inline-flex items-center justify-center gap-3 px-4 py-2 mt-8 rounded-full border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 border dark:border-white/10 dark:bg-bgSurface/50 backdrop-blur-sm shadow-sm reveal-up delay-200">
             <div class="flex -space-x-2">
                 <img class="w-8 h-8 rounded-full border-2 border-white dark:border-[#0A0A0F]" src="/favicon.png" alt="User">
-                <div class="w-8 h-8 rounded-full border-2 border-white dark:border-[#0A0A0F] bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xs">G</div>
+                <div class="w-8 h-8 rounded-full border-2 border-white dark:border-[#0A0A0F] bg-blue-100 flex items-center justify-center text-blue-600 font-medium text-xs">G</div>
             </div>
             <div class="flex flex-col text-left">
                 <div class="flex gap-0.5 text-yellow-400 text-[10px]">
@@ -420,7 +425,7 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
                     <div class="feature-glass-card reveal-up" style="transition-delay: 300ms;">
-                        <div class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-200 dark:border-white/10 flex items-center justify-center text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] mb-4">
                             <i class="ph ph-magnifying-glass text-lg"></i>
                         </div>
                         <h3 class="font-heading font-medium text-gray-900 dark:text-white text-base mb-2">1. Estudio de tu sector</h3>
@@ -428,7 +433,7 @@
                     </div>
                     
                     <div class="feature-glass-card reveal-up" style="transition-delay: 400ms;">
-                        <div class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-200 dark:border-white/10 flex items-center justify-center text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] mb-4">
                             <i class="ph ph-pen-nib text-lg"></i>
                         </div>
                         <h3 class="font-heading font-medium text-gray-900 dark:text-white text-base mb-2">2. Guiones de venta</h3>
@@ -436,7 +441,7 @@
                     </div>
 
                     <div class="feature-glass-card reveal-up" style="transition-delay: 500ms;">
-                        <div class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-200 dark:border-white/10 flex items-center justify-center text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] mb-4">
                             <i class="ph ph-video-camera text-lg"></i>
                         </div>
                         <h3 class="font-heading font-medium text-gray-900 dark:text-white text-base mb-2">3. Rodaje optimizado</h3>
@@ -444,7 +449,7 @@
                     </div>
 
                     <div class="feature-glass-card reveal-up" style="transition-delay: 600ms;">
-                        <div class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-200 dark:border-white/10 flex items-center justify-center text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] mb-4">
                             <i class="ph ph-chart-line-up text-lg"></i>
                         </div>
                         <h3 class="font-heading font-medium text-gray-900 dark:text-white text-base mb-2">4. Mejora constante</h3>
@@ -471,7 +476,7 @@
                     
                     <!-- BLOQUE 1: Datos Base -->
                     <div class="space-y-4">
-                        <h3 class="text-xs font-bold tracking-widest text-primary uppercase mb-2">1. Datos Personales</h3>
+                        <h3 class="text-xs font-medium tracking-widest text-primary uppercase mb-2">1. Datos Personales</h3>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
@@ -498,7 +503,7 @@
 
                     <!-- BLOQUE 2: Tu Proyecto -->
                     <div class="space-y-4 pt-4 border-t border-gray-200 dark:border-white/5">
-                        <h3 class="text-xs font-bold tracking-widest text-primary uppercase mb-2">2. Tu Proyecto</h3>
+                        <h3 class="text-xs font-medium tracking-widest text-primary uppercase mb-2">2. Tu Proyecto</h3>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
@@ -519,7 +524,7 @@
 
                     <!-- BLOQUE 3: Posicionamiento -->
                     <div class="space-y-4 pt-4 border-t border-gray-200 dark:border-white/5">
-                        <h3 class="text-xs font-bold tracking-widest text-primary uppercase mb-2">3. Mercado y Objetivos</h3>
+                        <h3 class="text-xs font-medium tracking-widest text-primary uppercase mb-2">3. Mercado y Objetivos</h3>
                         
                         <div>
                             <label class="block text-xs text-gray-600 dark:text-textSecondary mb-1.5 font-medium">¿Qué te hace diferente frente a otros profesionales de tu sector? *</label>
@@ -539,7 +544,7 @@
 
                     <!-- BLOQUE 4: Inversión y Tiempos -->
                     <div class="space-y-4 pt-4 border-t border-gray-200 dark:border-white/5">
-                        <h3 class="text-xs font-bold tracking-widest text-primary uppercase mb-2">4. Inversión y Tiempos</h3>
+                        <h3 class="text-xs font-medium tracking-widest text-primary uppercase mb-2">4. Inversión y Tiempos</h3>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
@@ -586,7 +591,7 @@
 
                     <!-- BLOQUE 5: Nivel de Compromiso -->
                     <div class="space-y-4 pt-4 border-t border-gray-200 dark:border-white/5">
-                        <h3 class="text-xs font-bold tracking-widest text-primary uppercase mb-2">5. Compromiso</h3>
+                        <h3 class="text-xs font-medium tracking-widest text-primary uppercase mb-2">5. Compromiso</h3>
                         
                         <div>
                             <label class="block text-xs text-gray-600 dark:text-textSecondary mb-1.5 font-medium">¿Estás dispuesto/a a salir en cámara y grabar contenido de forma seria? *</label>
@@ -655,8 +660,8 @@
                 </div>
                 
                 <div class="mb-6">
-                    <p class="text-xs text-primary font-bold tracking-widest uppercase mb-1">Estudio creativo y estratégico.</p>
-                    <p class="text-xs text-gray-500 dark:text-white/40 font-bold tracking-widest uppercase">Mérida, Extremadura.</p>
+                    <p class="text-xs text-primary font-medium tracking-widest uppercase mb-1">Estudio creativo y estratégico.</p>
+                    <p class="text-xs text-gray-500 dark:text-white/40 font-medium tracking-widest uppercase">Mérida, Extremadura.</p>
                 </div>
                 
                 <div class="flex flex-col items-center md:items-start gap-3 mb-8 w-full">
@@ -679,7 +684,7 @@
             </div>
 
             <div class="md:col-span-4 lg:col-span-2 lg:col-start-5 mt-8 lg:mt-0">
-                <h4 class="text-[10px] font-bold tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Servicios</h4>
+                <h4 class="text-[10px] font-medium tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Servicios</h4>
                 <ul class="space-y-4 text-sm text-gray-500 dark:text-white/40 text-center md:text-left">
                     <li><a href="/diseno-web-SEO" class="hover:text-gray-900 dark:hover:text-white transition-colors">Diseño Web</a></li>
                     <li><a href="/eventos" class="hover:text-gray-900 dark:hover:text-white transition-colors">Eventos 360º</a></li>
@@ -691,7 +696,7 @@
             </div>
 
             <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
-                <h4 class="text-[10px] font-bold tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Empresa & Legal</h4>
+                <h4 class="text-[10px] font-medium tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Empresa & Legal</h4>
                 <ul class="space-y-4 text-sm text-gray-500 dark:text-white/40 text-center md:text-left">
                     <li><a href="/aviso-legal" target="_blank" class="hover:text-gray-900 dark:hover:text-white transition-colors">Aviso Legal</a></li>
                     <li><a href="/privacidad" target="_blank" class="hover:text-gray-900 dark:hover:text-white transition-colors">Política de Privacidad</a></li>
@@ -702,7 +707,7 @@
             </div>
 
             <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
-                <h4 class="text-[10px] font-bold tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Horario</h4>
+                <h4 class="text-[10px] font-medium tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Horario</h4>
                 <ul class="space-y-2 text-sm text-gray-500 dark:text-white/40 text-center md:text-left">
                     <li class="flex flex-col md:inline-block"><span class="font-medium text-gray-900 dark:text-white/80">L-V:</span> <span class="text-gray-900 dark:text-white">9H–14H, 16H–20H</span></li>
                     <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-gray-900 dark:text-white/80">Sáb:</span> <span class="text-gray-900 dark:text-white">10H–13:30H</span></li>

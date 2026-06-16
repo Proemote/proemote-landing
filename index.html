@@ -109,7 +109,7 @@
                         <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-primary/20 text-primary border border-primary/30 leading-none">Nuevo</span>
                         <i class="ph ph-caret-down text-xs transition-transform group-hover:rotate-180"></i>
                     </a>
-                    <div class="absolute top-full left-0 mt-4 w-64 bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-2xl p-4 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 flex flex-col gap-2 pointer-events-auto">
+                    <div class="absolute top-full left-0 mt-4 before:absolute before:-top-4 before:left-0 before:w-full before:h-4 w-64 bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-2xl p-4 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 flex flex-col gap-2 pointer-events-auto">
                         <a href="/ayudas-digitalizacion-pymes-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition-all flex items-start gap-3 group/item">
                             <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover/item:bg-primary group-hover/item:text-white transition-colors flex-shrink-0">
                                 <i class="ph-fill ph-device-mobile"></i>
@@ -251,11 +251,17 @@
             
             <a href="/servicios" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Servicios</a>
             
-            <div class="flex flex-col gap-2 pl-2 border-l border-gray-200 dark:border-white/10 my-1 items-center">
-                <a href="/subvenciones-extremadura" class="text-xs font-bold tracking-widest text-gray-600 dark:text-white/60 uppercase mb-1 flex items-center gap-2 hover:text-primary transition-colors">Ayudas 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></a>
-                <a href="/ayudas-digitalizacion-pymes-extremadura/" class="mobile-link text-sm font-medium text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Digitalización de Pymes</a>
-                <a href="/ayudas-implementacion-ia-extremadura/" class="mobile-link text-sm font-medium text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white mt-1">Implementación de IA</a>
-            </div>
+            <details class="w-full text-center group">
+                <summary class="list-none cursor-pointer text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white flex items-center justify-center gap-2">
+                    Ayudas 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span>
+                    <svg class="w-4 h-4 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </summary>
+                <div class="flex flex-col gap-3 mt-4 mb-2">
+                    <a href="/subvenciones-extremadura" class="mobile-link text-sm font-medium text-gray-500 dark:text-white/50 hover:text-marca dark:hover:text-white">Ver todas las ayudas</a>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="mobile-link text-sm font-medium text-gray-500 dark:text-white/50 hover:text-marca dark:hover:text-white">Digitalización de Pymes</a>
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="mobile-link text-sm font-medium text-gray-500 dark:text-white/50 hover:text-marca dark:hover:text-white">Implementación de IA</a>
+                </div>
+            </details>
 
             <a href="/sobre-nosotros" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Sobre nosotros</a>
             <a href="https://proemote.es/portfolio" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Portfolio</a>
@@ -1073,14 +1079,14 @@
             </p>
         </div>
 
-        <div class="relative w-full max-w-[100vw] overflow-hidden flex flex-col gap-4 sm:gap-6 z-10 pause-on-hover">
+        <div class="relative w-full max-w-[100vw] overflow-hidden flex flex-col gap-4 sm:gap-6 z-10">
             
             <div class="pointer-events-none absolute left-0 top-0 h-full w-16 md:w-32 z-20 bg-gradient-to-r from-gray-50 dark:from-[#05020a] to-transparent"></div>
             <div class="pointer-events-none absolute right-0 top-0 h-full w-16 md:w-32 z-20 bg-gradient-to-l from-gray-50 dark:from-[#05020a] to-transparent"></div>
 
             <!-- ROW 1 (Left to Right) -->
             <div class="flex overflow-hidden w-full py-2">
-                <div class="flex gap-4 sm:gap-6 animate-marquee" style="--duration: 45s;">
+                <div class="flex gap-4 sm:gap-6 animate-marquee w-max" style="--duration: 45s;">
                     <div class="w-[320px] md:w-[380px] p-5 md:p-6 rounded-2xl border border-gray-200 dark:border-white/5 bg-white dark:bg-white/[0.03] flex flex-col gap-4 flex-shrink-0 shadow-sm hover:border-primary/30 transition-colors select-none">
                                     <div class="flex items-center gap-3 pointer-events-none">
                                         <div class="relative">
@@ -1615,7 +1621,7 @@
 
             <!-- ROW 2 (Right to Left) -->
             <div class="flex overflow-hidden w-full py-2">
-                <div class="flex gap-4 sm:gap-6 animate-marquee-reverse" style="--duration: 50s;">
+                <div class="flex gap-4 sm:gap-6 animate-marquee-reverse w-max" style="--duration: 50s;">
                     <div class="w-[320px] md:w-[380px] p-5 md:p-6 rounded-2xl border border-gray-200 dark:border-white/5 bg-white dark:bg-white/[0.03] flex flex-col gap-4 flex-shrink-0 shadow-sm hover:border-primary/30 transition-colors select-none">
                                     <div class="flex items-center gap-3 pointer-events-none">
                                         <div class="relative">

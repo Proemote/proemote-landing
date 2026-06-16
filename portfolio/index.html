@@ -94,17 +94,22 @@
     
         /* Premium Form Soft Glass 3D */
         .glass-form {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(123, 97, 255, 0.20);
+            box-shadow: 0 10px 40px -10px rgba(123, 97, 255, 0.15);
+            transform-style: preserve-3d;
+            transition: box-shadow 0.3s ease, background 0.3s ease;
+            position: relative;
+        }
+        .dark .glass-form {
             background: 
                 radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.04), transparent 40%),
                 linear-gradient(135deg, rgba(20, 20, 31, 0.7) 0%, rgba(123, 97, 255, 0.06) 100%);
-            backdrop-filter: blur(24px);
-            border: 1px solid rgba(123, 97, 255, 0.20);
             box-shadow: 0 10px 40px -10px rgba(123, 97, 255, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
-            transform-style: preserve-3d;
-            transition: box-shadow 0.3s ease;
-            position: relative;
         }
-        .glass-form:hover { box-shadow: 0 20px 50px -15px rgba(123, 97, 255, 0.25), inset 0 1px 0 0 rgba(255, 255, 255, 0.1); }
+        .glass-form:hover { box-shadow: 0 20px 50px -15px rgba(123, 97, 255, 0.25); }
+        .dark .glass-form:hover { box-shadow: 0 20px 50px -15px rgba(123, 97, 255, 0.25), inset 0 1px 0 0 rgba(255, 255, 255, 0.1); }
         .glass-form > * { transform: translateZ(20px); position: relative; z-index: 2; }
 
     
@@ -141,11 +146,11 @@
                 <div class="relative group py-2">
                     <a href="/subvenciones-extremadura/" class="hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1.5 focus:outline-none">
                         Ayudas 2026 
-                        <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-primary/20 text-primary border border-primary/30 leading-none">Nuevo</span>
+                        <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-medium bg-primary/20 text-primary border border-primary/30 leading-none">Nuevo</span>
                         <i class="ph ph-caret-down text-xs transition-transform group-hover:rotate-180"></i>
                     </a>
-                    <div class="absolute top-full left-0 mt-4 w-64 bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-2xl p-4 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 flex flex-col gap-2 pointer-events-auto">
-                        <a href="/ayudas-digitalizacion-pymes-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 transition-all flex items-start gap-3 group/item">
+                    <div class="absolute top-full left-0 mt-4 before:absolute before:-top-4 before:left-0 before:w-full before:h-4 w-64 bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-2xl p-4 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 flex flex-col gap-2 pointer-events-auto">
+                        <a href="/ayudas-digitalizacion-pymes-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 border border-gray-300 dark:border-white/10 transition-all flex items-start gap-3 group/item">
                             <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover/item:bg-primary group-hover/item:text-white transition-colors flex-shrink-0">
                                 <i class="ph-fill ph-device-mobile"></i>
                             </div>
@@ -154,7 +159,7 @@
                                 <p class="text-[10px] text-gray-500 dark:text-white/40">Hasta 20.000€ · Web, SEO, Redes</p>
                             </div>
                         </a>
-                        <a href="/ayudas-implementacion-ia-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 transition-all flex items-start gap-3 group/item">
+                        <a href="/ayudas-implementacion-ia-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 border border-gray-300 dark:border-white/10 transition-all flex items-start gap-3 group/item">
                             <div class="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center text-accent group-hover/item:bg-accent group-hover/item:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                                 <i class="ph-fill ph-cpu"></i>
                             </div>
@@ -286,11 +291,17 @@
             
             <a href="/servicios" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Servicios</a>
             
-            <div class="flex flex-col gap-2 pl-2 border-l border-gray-200 dark:border-white/10 my-1 items-center">
-                <a href="/subvenciones-extremadura" class="text-xs font-bold tracking-widest text-gray-600 dark:text-white/60 uppercase mb-1 flex items-center gap-2 hover:text-primary transition-colors">Ayudas 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></a>
-                <a href="/ayudas-digitalizacion-pymes-extremadura/" class="mobile-link text-sm font-medium text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Digitalización de Pymes</a>
-                <a href="/ayudas-implementacion-ia-extremadura/" class="mobile-link text-sm font-medium text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white mt-1">Implementación de IA</a>
-            </div>
+            <details class="w-full text-center group">
+                <summary class="list-none cursor-pointer text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white flex items-center justify-center gap-2">
+                    Ayudas 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span>
+                    <svg class="w-4 h-4 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </summary>
+                <div class="flex flex-col gap-3 mt-4 mb-2">
+                    <a href="/subvenciones-extremadura" class="mobile-link text-sm font-medium text-gray-500 dark:text-white/50 hover:text-marca dark:hover:text-white">Ver todas las ayudas</a>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="mobile-link text-sm font-medium text-gray-500 dark:text-white/50 hover:text-marca dark:hover:text-white">Digitalización de Pymes</a>
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="mobile-link text-sm font-medium text-gray-500 dark:text-white/50 hover:text-marca dark:hover:text-white">Implementación de IA</a>
+                </div>
+            </details>
 
             <a href="/sobre-nosotros" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Sobre nosotros</a>
             <a href="https://proemote.es/portfolio" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Portfolio</a>
@@ -303,7 +314,7 @@
           <div class="inline-flex items-center justify-center gap-3 px-4 py-2 mt-8 rounded-full border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 border dark:border-white/10 dark:bg-bgSurface/50 backdrop-blur-sm shadow-sm reveal-up delay-200">
             <div class="flex -space-x-2">
                 <img class="w-8 h-8 rounded-full border-2 border-white dark:border-[#0A0A0F]" src="/favicon.png" alt="User">
-                <div class="w-8 h-8 rounded-full border-2 border-white dark:border-[#0A0A0F] bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xs">G</div>
+                <div class="w-8 h-8 rounded-full border-2 border-white dark:border-[#0A0A0F] bg-blue-100 flex items-center justify-center text-blue-600 font-medium text-xs">G</div>
             </div>
             <div class="flex flex-col text-left">
                 <div class="flex gap-0.5 text-yellow-400 text-[10px]">
@@ -384,7 +395,7 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Tierras con Alma</h3>
+                        <h3 class="font-heading text-xl font-medium text-gray-900 dark:text-white mb-1">Tierras con Alma</h3>
                         <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Turismo Rural · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -402,7 +413,7 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Ana Goros</h3>
+                        <h3 class="font-heading text-xl font-medium text-gray-900 dark:text-white mb-1">Ana Goros</h3>
                         <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Coaching Profesional · Madrid</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -420,7 +431,7 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Limpiezas Lusitania</h3>
+                        <h3 class="font-heading text-xl font-medium text-gray-900 dark:text-white mb-1">Limpiezas Lusitania</h3>
                         <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Limpieza Profesional · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -438,7 +449,7 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Centro de Belleza Juany</h3>
+                        <h3 class="font-heading text-xl font-medium text-gray-900 dark:text-white mb-1">Centro de Belleza Juany</h3>
                         <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Estética · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -456,7 +467,7 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Centro de Belleza Juany</h3>
+                        <h3 class="font-heading text-xl font-medium text-gray-900 dark:text-white mb-1">Centro de Belleza Juany</h3>
                         <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Estética · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -474,7 +485,7 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Asociación JoveNEXT</h3>
+                        <h3 class="font-heading text-xl font-medium text-gray-900 dark:text-white mb-1">Asociación JoveNEXT</h3>
                         <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Asociación Juvenil · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -492,7 +503,7 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Gabriel Romero</h3>
+                        <h3 class="font-heading text-xl font-medium text-gray-900 dark:text-white mb-1">Gabriel Romero</h3>
                         <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Formación · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -510,7 +521,7 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Lo Quiero Limpio</h3>
+                        <h3 class="font-heading text-xl font-medium text-gray-900 dark:text-white mb-1">Lo Quiero Limpio</h3>
                         <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Limpieza · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -528,7 +539,7 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Jamón Exclusive</h3>
+                        <h3 class="font-heading text-xl font-medium text-gray-900 dark:text-white mb-1">Jamón Exclusive</h3>
                         <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Alimentación Gourmet · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -546,7 +557,7 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">XTRM HARD</h3>
+                        <h3 class="font-heading text-xl font-medium text-gray-900 dark:text-white mb-1">XTRM HARD</h3>
                         <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Deporte y Fitness · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -564,7 +575,7 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Asociación Meridia</h3>
+                        <h3 class="font-heading text-xl font-medium text-gray-900 dark:text-white mb-1">Asociación Meridia</h3>
                         <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Asociación · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -582,7 +593,7 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">JoveNEXT — Web</h3>
+                        <h3 class="font-heading text-xl font-medium text-gray-900 dark:text-white mb-1">JoveNEXT — Web</h3>
                         <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Asociación Juvenil · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -600,7 +611,7 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">MATRIX</h3>
+                        <h3 class="font-heading text-xl font-medium text-gray-900 dark:text-white mb-1">MATRIX</h3>
                         <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Eventos · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -618,7 +629,7 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">XMAS EDITION</h3>
+                        <h3 class="font-heading text-xl font-medium text-gray-900 dark:text-white mb-1">XMAS EDITION</h3>
                         <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Eventos · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -636,7 +647,7 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">FERIA SAN JUAN BOILER ROOM</h3>
+                        <h3 class="font-heading text-xl font-medium text-gray-900 dark:text-white mb-1">FERIA SAN JUAN BOILER ROOM</h3>
                         <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Eventos · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -654,7 +665,7 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">INFERNUS</h3>
+                        <h3 class="font-heading text-xl font-medium text-gray-900 dark:text-white mb-1">INFERNUS</h3>
                         <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Eventos · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -672,7 +683,7 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">THE RESURRECTION</h3>
+                        <h3 class="font-heading text-xl font-medium text-gray-900 dark:text-white mb-1">THE RESURRECTION</h3>
                         <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Eventos · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -690,7 +701,7 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">THE CHURCH</h3>
+                        <h3 class="font-heading text-xl font-medium text-gray-900 dark:text-white mb-1">THE CHURCH</h3>
                         <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Eventos · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -708,7 +719,7 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">LAST ONE STANDING</h3>
+                        <h3 class="font-heading text-xl font-medium text-gray-900 dark:text-white mb-1">LAST ONE STANDING</h3>
                         <p class="text-sm text-gray-600 dark:text-textSecondary mb-4">Eventos · Extremadura</p>
                         <div class="mt-auto flex items-center gap-2 text-sm font-medium text-primary group-hover:text-accent transition-colors">
                             Ver trabajo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -730,14 +741,14 @@
         <div class="max-w-7xl mx-auto px-6 relative z-10 reveal-up">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="order-2 lg:order-1 flex flex-col items-start text-left">
-                    <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-accent text-sm font-bold tracking-widest uppercase mb-6">Caso de éxito</span>
-                    <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-[1.1] tracking-tight mb-6">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-accent text-sm font-medium tracking-widest uppercase mb-6">Caso de éxito</span>
+                    <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-medium text-gray-900 dark:text-white leading-[1.1] tracking-tight mb-6">
                         De empresa local a viral. <span class="text-gradient-primary">Sin pagar un euro en publicidad.</span>
                     </h2>
                     <p class="text-lg text-gray-600 dark:text-textSecondary mb-10 leading-relaxed max-w-lg">
                         Descubre cómo ayudamos a esta empresa de limpieza extremeña a crecer y viralizar vídeos de manera orgánica.
                     </p>
-                    <a href="/lo-quiero-limpio-caso-de-exito" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-bgMain font-bold rounded-full hover:bg-primary hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(123,97,255,0.4)] group">
+                    <a href="/lo-quiero-limpio-caso-de-exito" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-bgMain font-medium rounded-full hover:bg-primary hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(123,97,255,0.4)] group">
                         Leer el caso completo <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
@@ -753,14 +764,14 @@
     <!-- PARTNERS / TECH STACK STRIP -->
     <section class="py-20 border-b border-gray-200 dark:border-white/5 bg-white dark:bg-[#0A0A0F] relative z-10">
         <div class="max-w-4xl mx-auto px-6 text-center reveal-up">
-            <h3 class="text-xs font-bold tracking-[0.2em] text-gray-600 dark:text-textSecondary uppercase mb-12">Trabajamos con las mejores herramientas</h3>
+            <h3 class="text-xs font-medium tracking-[0.2em] text-gray-600 dark:text-textSecondary uppercase mb-12">Trabajamos con las mejores herramientas</h3>
             <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60">
                 <!-- Hostinger Text Logo -->
-                <div class="text-2xl font-bold tracking-wider hover:text-gray-900 dark:text-white transition-colors duration-300 grayscale hover:grayscale-0">Hostinger</div>
+                <div class="text-2xl font-medium tracking-wider hover:text-gray-900 dark:text-white transition-colors duration-300 grayscale hover:grayscale-0">Hostinger</div>
                 <!-- Piensa Solutions Text Logo -->
-                <div class="text-2xl font-bold tracking-wider hover:text-[#00c853] transition-colors duration-300 grayscale hover:grayscale-0">Piensa Solutions</div>
+                <div class="text-2xl font-medium tracking-wider hover:text-[#00c853] transition-colors duration-300 grayscale hover:grayscale-0">Piensa Solutions</div>
                 <!-- WordPress Text Logo -->
-                <div class="text-2xl font-bold hover:text-[#21759b] transition-colors duration-300 grayscale hover:grayscale-0 flex items-center gap-2">
+                <div class="text-2xl font-medium hover:text-[#21759b] transition-colors duration-300 grayscale hover:grayscale-0 flex items-center gap-2">
                     <i class="ph-fill ph-wordpress-logo text-3xl"></i> WordPress
                 </div>
             </div>
@@ -770,7 +781,7 @@
     <!-- CLIENT LOGO SLIDER -->
     <section class="py-20 bg-white dark:bg-[#0A0A0F] relative z-10 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 mb-12 reveal-up">
-            <p class="text-center text-xs font-bold tracking-[0.2em] text-gray-600 dark:text-textSecondary uppercase">Algunos de los clientes que ya han confiado en <span class="text-primary">Proemote</span></p>
+            <p class="text-center text-xs font-medium tracking-[0.2em] text-gray-600 dark:text-textSecondary uppercase">Algunos de los clientes que ya han confiado en <span class="text-primary">Proemote</span></p>
         </div>
         
         <div id="logos-container" class="relative w-full flex items-center overflow-x-auto hide-scrollbar cursor-grab [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
@@ -811,7 +822,7 @@
     <section class="py-24 border-t border-gray-200 dark:border-white/5 bg-gray-50 dark:bg-bgSurface/20 relative z-10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 reveal-up">
-                <h2 class="font-heading text-3xl md:text-5xl font-bold mb-6">Lo que dicen nuestros clientes</h2>
+                <h2 class="font-heading text-3xl md:text-5xl font-medium mb-6">Lo que dicen nuestros clientes</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-up">
@@ -823,9 +834,9 @@
                     </div>
                     <p class="text-sm text-gray-900 dark:text-white mb-6 flex-grow leading-relaxed italic">"Empresa de limpieza de más de 25 años que necesitaba modernizarse. Contactamos con Proemote para la creación de nuestra página web. Ha sido todo un acierto. El servicio fue muy profesional y adaptable. ¡Ha sido todo un acierto!"</p>
                     <div class="flex items-center gap-3 mt-auto">
-                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">LL</div>
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-medium">LL</div>
                         <div>
-                            <p class="text-sm font-bold text-gray-900 dark:text-white">Limpiezas Lusitania</p>
+                            <p class="text-sm font-medium text-gray-900 dark:text-white">Limpiezas Lusitania</p>
                         </div>
                     </div>
                 </div>
@@ -838,9 +849,9 @@
                     </div>
                     <p class="text-sm text-gray-900 dark:text-white mb-6 flex-grow leading-relaxed italic">"Muy satisfecha con su trabajo. Me diseñaron la web y gestionan mis redes sociales. En todo momento la atención es muy profesional. Totalmente recomendable."</p>
                     <div class="flex items-center gap-3 mt-auto">
-                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">JM</div>
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-medium">JM</div>
                         <div>
-                            <p class="text-sm font-bold text-gray-900 dark:text-white">Juana María Ramos Marrero</p>
+                            <p class="text-sm font-medium text-gray-900 dark:text-white">Juana María Ramos Marrero</p>
                             <p class="text-xs text-gray-600 dark:text-textSecondary">Centro de Belleza Juany</p>
                         </div>
                     </div>
@@ -854,9 +865,9 @@
                     </div>
                     <p class="text-sm text-gray-900 dark:text-white mb-6 flex-grow leading-relaxed italic">"Estamos muy satisfechos con la web que nos diseñaron. Son un equipo atento, creativo y profesional. Gestionaron el dominio y posicionaron la web muy rápido. Muy recomendado."</p>
                     <div class="flex items-center gap-3 mt-auto">
-                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">J</div>
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-medium">J</div>
                         <div>
-                            <p class="text-sm font-bold text-gray-900 dark:text-white">JoveNEXT</p>
+                            <p class="text-sm font-medium text-gray-900 dark:text-white">JoveNEXT</p>
                         </div>
                     </div>
                 </div>
@@ -869,9 +880,9 @@
                     </div>
                     <p class="text-sm text-gray-900 dark:text-white mb-6 flex-grow leading-relaxed italic">"Contratamos a Proemote para el diseño de nuestra web y quedamos muy satisfechos. Servicio ágil, profesional y adaptado a lo que necesitábamos. Carlos nos atendió con mucha cercanía."</p>
                     <div class="flex items-center gap-3 mt-auto">
-                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">AM</div>
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-medium">AM</div>
                         <div>
-                            <p class="text-sm font-bold text-gray-900 dark:text-white">Asociación Meridia</p>
+                            <p class="text-sm font-medium text-gray-900 dark:text-white">Asociación Meridia</p>
                         </div>
                     </div>
                 </div>
@@ -884,9 +895,9 @@
                     </div>
                     <p class="text-sm text-gray-900 dark:text-white mb-6 flex-grow leading-relaxed italic">"Trabajar con Proemote ha sido todo un acierto. Un equipo atento, creativo y profesional. Lo recomiendo a todo tipo de negocios que buscan dar un salto de calidad."</p>
                     <div class="flex items-center gap-3 mt-auto">
-                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">AN</div>
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-medium">AN</div>
                         <div>
-                            <p class="text-sm font-bold text-gray-900 dark:text-white">Alexandro Navarro</p>
+                            <p class="text-sm font-medium text-gray-900 dark:text-white">Alexandro Navarro</p>
                         </div>
                     </div>
                 </div>
@@ -899,9 +910,9 @@
                     </div>
                     <p class="text-sm text-gray-900 dark:text-white mb-6 flex-grow leading-relaxed italic">"Carlos captó muy bien desde el principio la idea y el estilo que quería para mi web, y trabajó con rapidez y eficiencia. El resultado final es muy bueno."</p>
                     <div class="flex items-center gap-3 mt-auto">
-                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">AG</div>
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-medium">AG</div>
                         <div>
-                            <p class="text-sm font-bold text-gray-900 dark:text-white">ana gorostegui</p>
+                            <p class="text-sm font-medium text-gray-900 dark:text-white">ana gorostegui</p>
                         </div>
                     </div>
                 </div>
@@ -967,7 +978,7 @@
             <div class="absolute bottom-0 left-0 w-64 h-64 bg-indigo-200/40 dark:bg-indigo-600/10 rounded-full blur-[80px] pointer-events-none transition-colors duration-300"></div>
             
             <div class="relative z-10 flex flex-col items-center">
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-100 dark:bg-violet-500/10 border-violet-200 dark:border-violet-500/20 text-[10px] font-bold tracking-widest uppercase text-violet-700 dark:text-violet-300 mb-6 shadow-sm">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-100 dark:bg-violet-500/10 border-violet-200 dark:border-violet-500/20 text-[10px] font-medium tracking-widest uppercase text-violet-700 dark:text-violet-300 mb-6 shadow-sm">
                     <span class="w-1.5 h-1.5 rounded-full bg-violet-600 dark:bg-marca"></span>
                     Siguiente paso
                 </div>
@@ -1013,8 +1024,8 @@
                 </div>
                 
                 <div class="mb-6">
-                    <p class="text-xs text-primary font-bold tracking-widest uppercase mb-1">Estudio creativo y estratégico.</p>
-                    <p class="text-xs text-gray-500 dark:text-white/40 font-bold tracking-widest uppercase">Mérida, Extremadura.</p>
+                    <p class="text-xs text-primary font-medium tracking-widest uppercase mb-1">Estudio creativo y estratégico.</p>
+                    <p class="text-xs text-gray-500 dark:text-white/40 font-medium tracking-widest uppercase">Mérida, Extremadura.</p>
                 </div>
                 
                 <div class="flex flex-col items-center md:items-start gap-3 mb-8 w-full">
@@ -1037,7 +1048,7 @@
             </div>
 
             <div class="md:col-span-4 lg:col-span-2 lg:col-start-5 mt-8 lg:mt-0">
-                <h4 class="text-[10px] font-bold tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Servicios</h4>
+                <h4 class="text-[10px] font-medium tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Servicios</h4>
                 <ul class="space-y-4 text-sm text-gray-500 dark:text-white/40 text-center md:text-left">
                     <li><a href="/diseno-web-SEO" class="hover:text-gray-900 dark:hover:text-white transition-colors">Diseño Web</a></li>
                     <li><a href="/eventos" class="hover:text-gray-900 dark:hover:text-white transition-colors">Eventos 360º</a></li>
@@ -1049,7 +1060,7 @@
             </div>
 
             <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
-                <h4 class="text-[10px] font-bold tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Empresa & Legal</h4>
+                <h4 class="text-[10px] font-medium tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Empresa & Legal</h4>
                 <ul class="space-y-4 text-sm text-gray-500 dark:text-white/40 text-center md:text-left">
                     <li><a href="/aviso-legal" target="_blank" class="hover:text-gray-900 dark:hover:text-white transition-colors">Aviso Legal</a></li>
                     <li><a href="/privacidad" target="_blank" class="hover:text-gray-900 dark:hover:text-white transition-colors">Política de Privacidad</a></li>
@@ -1060,7 +1071,7 @@
             </div>
 
             <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
-                <h4 class="text-[10px] font-bold tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Horario</h4>
+                <h4 class="text-[10px] font-medium tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Horario</h4>
                 <ul class="space-y-2 text-sm text-gray-500 dark:text-white/40 text-center md:text-left">
                     <li class="flex flex-col md:inline-block"><span class="font-medium text-gray-900 dark:text-white/80">L-V:</span> <span class="text-gray-900 dark:text-white">9H–14H, 16H–20H</span></li>
                     <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-gray-900 dark:text-white/80">Sáb:</span> <span class="text-gray-900 dark:text-white">10H–13:30H</span></li>

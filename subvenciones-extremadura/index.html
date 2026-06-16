@@ -97,11 +97,11 @@
                 <div class="relative group py-2">
                     <a href="/subvenciones-extremadura/" class="hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1.5 focus:outline-none">
                         Ayudas 2026 
-                        <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-primary/20 text-primary border border-primary/30 leading-none">Nuevo</span>
+                        <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-medium bg-primary/20 text-primary border border-primary/30 leading-none">Nuevo</span>
                         <i class="ph ph-caret-down text-xs transition-transform group-hover:rotate-180"></i>
                     </a>
-                    <div class="absolute top-full left-0 mt-4 w-64 bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-2xl p-4 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 flex flex-col gap-2 pointer-events-auto">
-                        <a href="/ayudas-digitalizacion-pymes-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 transition-all flex items-start gap-3 group/item">
+                    <div class="absolute top-full left-0 mt-4 before:absolute before:-top-4 before:left-0 before:w-full before:h-4 w-64 bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-2xl p-4 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 flex flex-col gap-2 pointer-events-auto">
+                        <a href="/ayudas-digitalizacion-pymes-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 border border-gray-300 dark:border-white/10 transition-all flex items-start gap-3 group/item">
                             <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover/item:bg-primary group-hover/item:text-white transition-colors flex-shrink-0">
                                 <i class="ph-fill ph-device-mobile"></i>
                             </div>
@@ -110,7 +110,7 @@
                                 <p class="text-[10px] text-gray-500 dark:text-white/40">Hasta 20.000€ · Web, SEO, Redes</p>
                             </div>
                         </a>
-                        <a href="/ayudas-implementacion-ia-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 transition-all flex items-start gap-3 group/item">
+                        <a href="/ayudas-implementacion-ia-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 border border-gray-300 dark:border-white/10 transition-all flex items-start gap-3 group/item">
                             <div class="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center text-accent group-hover/item:bg-accent group-hover/item:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                                 <i class="ph-fill ph-cpu"></i>
                             </div>
@@ -242,11 +242,17 @@
             
             <a href="/servicios" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Servicios</a>
             
-            <div class="flex flex-col gap-2 pl-2 border-l border-gray-200 dark:border-white/10 my-1 items-center">
-                <a href="/subvenciones-extremadura" class="text-xs font-bold tracking-widest text-gray-600 dark:text-white/60 uppercase mb-1 flex items-center gap-2 hover:text-primary transition-colors">Ayudas 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></a>
-                <a href="/ayudas-digitalizacion-pymes-extremadura/" class="mobile-link text-sm font-medium text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Digitalización de Pymes</a>
-                <a href="/ayudas-implementacion-ia-extremadura/" class="mobile-link text-sm font-medium text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white mt-1">Implementación de IA</a>
-            </div>
+            <details class="w-full text-center group">
+                <summary class="list-none cursor-pointer text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white flex items-center justify-center gap-2">
+                    Ayudas 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span>
+                    <svg class="w-4 h-4 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </summary>
+                <div class="flex flex-col gap-3 mt-4 mb-2">
+                    <a href="/subvenciones-extremadura" class="mobile-link text-sm font-medium text-gray-500 dark:text-white/50 hover:text-marca dark:hover:text-white">Ver todas las ayudas</a>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="mobile-link text-sm font-medium text-gray-500 dark:text-white/50 hover:text-marca dark:hover:text-white">Digitalización de Pymes</a>
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="mobile-link text-sm font-medium text-gray-500 dark:text-white/50 hover:text-marca dark:hover:text-white">Implementación de IA</a>
+                </div>
+            </details>
 
             <a href="/sobre-nosotros" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Sobre nosotros</a>
             <a href="https://proemote.es/portfolio" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Portfolio</a>
@@ -259,7 +265,7 @@
           <div class="inline-flex items-center justify-center gap-3 px-4 py-2 mt-8 rounded-full border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 border dark:border-white/10 dark:bg-bgSurface/50 backdrop-blur-sm shadow-sm reveal-up delay-200">
             <div class="flex -space-x-2">
                 <img class="w-8 h-8 rounded-full border-2 border-white dark:border-[#0A0A0F]" src="/favicon.png" alt="User">
-                <div class="w-8 h-8 rounded-full border-2 border-white dark:border-[#0A0A0F] bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xs">G</div>
+                <div class="w-8 h-8 rounded-full border-2 border-white dark:border-[#0A0A0F] bg-blue-100 flex items-center justify-center text-blue-600 font-medium text-xs">G</div>
             </div>
             <div class="flex flex-col text-left">
                 <div class="flex gap-0.5 text-yellow-400 text-[10px]">
@@ -284,16 +290,16 @@
         <div class="absolute top-[-10%] left-[20%] w-[30vw] h-[30vw] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-[0]"></div>
 
         <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-            <div class="inline-flex items-center justify-center px-4 py-1.5 rounded-full border border-gray-200 dark:border-white/10 bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 text-gray-600 dark:text-textSecondary text-xs font-bold tracking-[0.2em] uppercase mb-6">
+            <div class="inline-flex items-center justify-center px-4 py-1.5 rounded-full border border-gray-200 dark:border-white/10 bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 text-gray-600 dark:text-textSecondary text-xs font-medium tracking-[0.2em] uppercase mb-6">
                 Ayudas y Subvenciones · Extremadura 2026
             </div>
             
-            <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6 text-gray-900 dark:text-white text-balance">
+            <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-medium leading-tight tracking-tight mb-6 text-gray-900 dark:text-white text-balance">
                 Ayudas disponibles para <br><span class="text-gradient-primary">tu negocio en Extremadura</span>
             </h1>
             
             <p class="text-lg text-gray-600 dark:text-textSecondary leading-relaxed max-w-3xl mx-auto mb-8">
-                La Junta de Extremadura tiene abiertas convocatorias para financiar la digitalización y la automatización con IA de pymes y autónomos. Gestionamos la solicitud y la ejecución. <strong>Tú no tienes que gestionar nada.</strong>
+                La Junta de Extremadura tiene abiertas convocatorias para financiar la digitalización y la automatización con IA de pymes y autónomos. Gestionamos la solicitud y la ejecución. <strong class="font-medium">Tú no tienes que gestionar nada.</strong>
             </p>
 
             <div class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-amber-500/30 bg-amber-500/10 text-amber-400 text-sm font-medium shadow-[0_0_15px_rgba(245,158,11,0.1)]">
@@ -331,7 +337,7 @@
                 
                 <!-- Tipo de inversión -->
                 <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
-                    <span class="text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-textSecondary w-32 shrink-0">Tipo inversión</span>
+                    <span class="text-xs font-medium uppercase tracking-wider text-gray-600 dark:text-textSecondary w-32 shrink-0">Tipo inversión</span>
                     <div class="flex flex-wrap gap-2" id="filter-inversion">
                         <!-- Generados por JS -->
                     </div>
@@ -339,7 +345,7 @@
 
                 <!-- Beneficiario -->
                 <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
-                    <span class="text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-textSecondary w-32 shrink-0">Beneficiario</span>
+                    <span class="text-xs font-medium uppercase tracking-wider text-gray-600 dark:text-textSecondary w-32 shrink-0">Beneficiario</span>
                     <div class="flex flex-wrap gap-2" id="filter-beneficiario">
                         <!-- Generados por JS -->
                     </div>
@@ -347,7 +353,7 @@
 
                 <!-- Estado -->
                 <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
-                    <span class="text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-textSecondary w-32 shrink-0">Estado</span>
+                    <span class="text-xs font-medium uppercase tracking-wider text-gray-600 dark:text-textSecondary w-32 shrink-0">Estado</span>
                     <div class="flex flex-wrap gap-2" id="filter-estado">
                         <!-- Generados por JS -->
                     </div>
@@ -394,7 +400,7 @@
             <div class="absolute bottom-0 left-0 w-64 h-64 bg-indigo-200/40 dark:bg-indigo-600/10 rounded-full blur-[80px] pointer-events-none transition-colors duration-300"></div>
             
             <div class="relative z-10 flex flex-col items-center">
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-100 dark:bg-violet-500/10 border-violet-200 dark:border-violet-500/20 text-[10px] font-bold tracking-widest uppercase text-violet-700 dark:text-violet-300 mb-6 shadow-sm">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-100 dark:bg-violet-500/10 border-violet-200 dark:border-violet-500/20 text-[10px] font-medium tracking-widest uppercase text-violet-700 dark:text-violet-300 mb-6 shadow-sm">
                     <span class="w-1.5 h-1.5 rounded-full bg-violet-600 dark:bg-marca"></span>
                     Siguiente paso
                 </div>
@@ -450,8 +456,8 @@
                 </div>
                 
                 <div class="mb-6">
-                    <p class="text-xs text-primary font-bold tracking-widest uppercase mb-1">Estudio creativo y estratégico.</p>
-                    <p class="text-xs text-gray-500 dark:text-white/40 font-bold tracking-widest uppercase">Mérida, Extremadura.</p>
+                    <p class="text-xs text-primary font-medium tracking-widest uppercase mb-1">Estudio creativo y estratégico.</p>
+                    <p class="text-xs text-gray-500 dark:text-white/40 font-medium tracking-widest uppercase">Mérida, Extremadura.</p>
                 </div>
                 
                 <div class="flex flex-col items-center md:items-start gap-3 mb-8 w-full">
@@ -474,7 +480,7 @@
             </div>
 
             <div class="md:col-span-4 lg:col-span-2 lg:col-start-5 mt-8 lg:mt-0">
-                <h4 class="text-[10px] font-bold tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Servicios</h4>
+                <h4 class="text-[10px] font-medium tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Servicios</h4>
                 <ul class="space-y-4 text-sm text-gray-500 dark:text-white/40 text-center md:text-left">
                     <li><a href="/diseno-web-SEO" class="hover:text-gray-900 dark:hover:text-white transition-colors">Diseño Web</a></li>
                     <li><a href="/eventos" class="hover:text-gray-900 dark:hover:text-white transition-colors">Eventos 360º</a></li>
@@ -486,7 +492,7 @@
             </div>
 
             <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
-                <h4 class="text-[10px] font-bold tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Empresa & Legal</h4>
+                <h4 class="text-[10px] font-medium tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Empresa & Legal</h4>
                 <ul class="space-y-4 text-sm text-gray-500 dark:text-white/40 text-center md:text-left">
                     <li><a href="/aviso-legal" target="_blank" class="hover:text-gray-900 dark:hover:text-white transition-colors">Aviso Legal</a></li>
                     <li><a href="/privacidad" target="_blank" class="hover:text-gray-900 dark:hover:text-white transition-colors">Política de Privacidad</a></li>
@@ -497,7 +503,7 @@
             </div>
 
             <div class="md:col-span-4 lg:col-span-2 mt-8 lg:mt-0">
-                <h4 class="text-[10px] font-bold tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Horario</h4>
+                <h4 class="text-[10px] font-medium tracking-widest text-gray-500 dark:text-white/40 uppercase mb-6 text-center md:text-left">Horario</h4>
                 <ul class="space-y-2 text-sm text-gray-500 dark:text-white/40 text-center md:text-left">
                     <li class="flex flex-col md:inline-block"><span class="font-medium text-gray-900 dark:text-white/80">L-V:</span> <span class="text-gray-900 dark:text-white">9H–14H, 16H–20H</span></li>
                     <li class="flex flex-col md:inline-block mt-2"><span class="font-medium text-gray-900 dark:text-white/80">Sáb:</span> <span class="text-gray-900 dark:text-white">10H–13:30H</span></li>
@@ -758,7 +764,7 @@
                         <span class="text-xs text-amber-500/80 font-medium flex items-center gap-2">
                             <i class="ph-bold ph-warning"></i> Convocatoria crítica
                         </span>
-                        <span class="text-xs font-bold text-amber-400">⏱ Quedan ${days} días para el cierre</span>
+                        <span class="text-xs font-medium text-amber-400">⏱ Quedan ${days} días para el cierre</span>
                     </div>
                 `;
             }
@@ -776,7 +782,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-[rgba(20,20,31,0.95)] via-[rgba(20,20,31,0.4)] to-transparent pointer-events-none"></div>
                     
                     <!-- Badge de Estado -->
-                    <div class="absolute top-4 right-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-bold ${badgeClass} backdrop-blur-md shadow-lg z-10">
+                    <div class="absolute top-4 right-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-medium ${badgeClass} backdrop-blur-md shadow-lg z-10">
                         <i class="ph-fill ${badgeIcon}"></i> ${badgeText}
                     </div>
 
@@ -798,7 +804,7 @@
                         <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0"><i class="ph-fill ph-money"></i></div>
                         <div>
                             <p class="text-[10px] uppercase tracking-wider text-gray-600 dark:text-textSecondary font-medium">Financiación</p>
-                            <p class="text-sm font-bold text-gray-900 dark:text-white">${data.financiacion}</p>
+                            <p class="text-sm font-medium text-gray-900 dark:text-white">${data.financiacion}</p>
                             <p class="text-xs text-primary/80">${data.porcentaje} financiado</p>
                         </div>
                     </div>
@@ -806,7 +812,7 @@
                         <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0"><i class="ph-fill ph-calendar-blank"></i></div>
                         <div>
                             <p class="text-[10px] uppercase tracking-wider text-gray-600 dark:text-textSecondary font-medium">Plazo</p>
-                            <p class="text-sm font-bold text-gray-900 dark:text-white">${formatDate(data.plazoIso)}</p>
+                            <p class="text-sm font-medium text-gray-900 dark:text-white">${formatDate(data.plazoIso)}</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-3">
@@ -830,11 +836,11 @@
                     <p class="text-xs text-textSecondary/80 italic">Fondo: ${data.presupuesto_total} · Orden de llegada</p>
                     
                     ${!isClosed ? `
-                    <a href="${data.url}" class="w-full sm:w-auto text-center px-6 py-2.5 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 hover:bg-primary/20 border border-gray-200 dark:border-white/10 hover:border-primary/50 text-white text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 group">
+                    <a href="${data.url}" class="w-full sm:w-auto text-center px-6 py-2.5 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 hover:bg-primary/20 border border-gray-200 dark:border-white/10 hover:border-primary/50 text-white text-sm font-medium transition-all duration-300 flex items-center justify-center gap-2 group">
                         Ver ayuda y solicitar <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </a>
                     ` : `
-                    <span class="w-full sm:w-auto text-center px-6 py-2.5 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-200 dark:border-white/5 text-textSecondary/50 text-sm font-bold">Convocatoria cerrada</span>
+                    <span class="w-full sm:w-auto text-center px-6 py-2.5 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-200 dark:border-white/5 text-textSecondary/50 text-sm font-medium">Convocatoria cerrada</span>
                     `}
                 </div>
             `;
