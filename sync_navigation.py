@@ -28,11 +28,6 @@ new_header_html = """    <!-- BARRA DE ANUNCIO GLOBAL -->
                     text: "🔔 Nueva convocatoria: hasta 20.000€ para digitalizar tu negocio en Extremadura ·",
                     linkText: "Ver ayudas →",
                     href: "/ayudas-digitalizacion-pymes-extremadura/"
-                },
-                {
-                    text: "🚀 Subvenciones IA 2026: hasta 100.000€ para implantar Inteligencia Artificial en pymes ·",
-                    linkText: "Ver ayudas de IA →",
-                    href: "/ayudas-implementacion-ia-extremadura/"
                 }
             ];
             
@@ -113,15 +108,6 @@ new_header_html = """    <!-- BARRA DE ANUNCIO GLOBAL -->
                                 <p class="text-[10px] text-textSecondary">Hasta 20.000€ · Web, SEO, Redes</p>
                             </div>
                         </a>
-                        <a href="/ayudas-implementacion-ia-extremadura/" class="p-2.5 rounded-xl hover:bg-white/5 transition-all flex items-start gap-3 group/item">
-                            <div class="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center text-accent group-hover/item:bg-accent group-hover/item:text-white transition-colors flex-shrink-0">
-                                <i class="ph-fill ph-cpu"></i>
-                            </div>
-                            <div>
-                                <p class="text-white font-medium text-xs mb-0.5">Implementación de IA</p>
-                                <p class="text-[10px] text-textSecondary">Hasta 100.000€ · Automatización</p>
-                            </div>
-                        </a>
                     </div>
                 </div>
 
@@ -153,9 +139,6 @@ new_header_html = """    <!-- BARRA DE ANUNCIO GLOBAL -->
                     <span class="text-xs font-bold tracking-widest text-textSecondary uppercase mb-1 flex items-center gap-1.5">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevas</span></span>
                     <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
-                    </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-textSecondary hover:text-white transition-colors flex items-center gap-2 mt-1">
-                        <i class="ph ph-cpu text-accent"></i> Implementación de IA
                     </a>
                 </div>
 
