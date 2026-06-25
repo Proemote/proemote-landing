@@ -22,29 +22,31 @@ function DimensionCard({ clave, valor }) {
   return (
     <div style={{
       ...glass,
+      borderRadius: 16,
       borderTop: `2px solid ${estado.color}`,
-      padding: '22px 18px',
+      padding: '16px 12px',
       transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+      minWidth: 0,
     }}>
-      <div style={{ fontSize: 22, marginBottom: 10 }}>{dim.icon}</div>
-      <div style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.38)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 12, lineHeight: 1.35 }}>
+      <div style={{ fontSize: 18, marginBottom: 8 }}>{dim.icon}</div>
+      <div style={{ fontSize: 9, fontWeight: 700, color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 10, lineHeight: 1.3 }}>
         {dim.label}
       </div>
-      <div style={{ fontSize: 40, fontWeight: 900, color: estado.color, lineHeight: 1, marginBottom: 14, textShadow: `0 0 28px ${estado.color}70` }}>
+      <div style={{ fontSize: 32, fontWeight: 900, color: estado.color, lineHeight: 1, marginBottom: 10, textShadow: `0 0 20px ${estado.color}70` }}>
         {valor}
-        <span style={{ fontSize: 16, fontWeight: 400, color: 'rgba(255,255,255,0.2)', marginLeft: 2 }}>/100</span>
+        <span style={{ fontSize: 12, fontWeight: 400, color: 'rgba(255,255,255,0.2)', marginLeft: 2 }}>/100</span>
       </div>
-      <div style={{ height: 4, background: 'rgba(255,255,255,0.06)', borderRadius: 2, overflow: 'hidden' }}>
+      <div style={{ height: 3, background: 'rgba(255,255,255,0.06)', borderRadius: 2, overflow: 'hidden' }}>
         <div style={{
           height: '100%',
           width: `${valor}%`,
           background: `linear-gradient(90deg, ${estado.color}60, ${estado.color})`,
           borderRadius: 2,
-          boxShadow: `0 0 10px ${estado.color}80`,
+          boxShadow: `0 0 8px ${estado.color}80`,
           transition: 'width 1s ease',
         }} />
       </div>
-      <div style={{ marginTop: 8, fontSize: 10, fontWeight: 700, color: estado.color, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+      <div style={{ marginTop: 6, fontSize: 9, fontWeight: 700, color: estado.color, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
         {estado.label}
       </div>
     </div>
@@ -166,9 +168,10 @@ export default function Informe({ puntuaciones, analisis, respuestas, onSolicita
         {/* Grid dimensiones */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(195px, 1fr))',
-          gap: 16,
+          gridTemplateColumns: 'repeat(5, 1fr)',
+          gap: 10,
           marginTop: 36,
+          overflowX: 'auto',
         }}>
           {dimensiones.map(key => (
             <DimensionCard key={key} clave={key} valor={puntuaciones[key]} />

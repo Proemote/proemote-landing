@@ -133,8 +133,8 @@ export const calcularPuntuaciones = (respuestas) => {
 
 export const getEstado = (puntuacion) => {
   if (puntuacion <= 20) return { label: "Crítico", color: "#ef4444", bg: "rgba(239,68,68,0.12)" };
-  if (puntuacion <= 40) return { label: "Bajo", color: "#f97316", bg: "rgba(249,115,22,0.12)" };
-  if (puntuacion <= 60) return { label: "Medio", color: "#f59e0b", bg: "rgba(245,158,11,0.12)" };
+  if (puntuacion <= 40) return { label: "Bajo", color: "#f43f5e", bg: "rgba(244,63,94,0.12)" };
+  if (puntuacion <= 60) return { label: "Medio", color: "#eab308", bg: "rgba(234,179,8,0.12)" };
   if (puntuacion <= 80) return { label: "Bueno", color: "#10b981", bg: "rgba(16,185,129,0.12)" };
   return { label: "Excelente", color: "#8b5cf6", bg: "rgba(139,92,246,0.12)" };
 };
