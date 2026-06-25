@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayudas a la Digitalización de Pymes y Autónomos en Extremadura 2026 | Proemote</title>
+    <meta name="description" content="Consigue hasta 20.000€ en ayudas para digitalizar tu empresa en Extremadura. Subvenciones a fondo perdido para web, SEO, redes y CRM. Tramitamos y ejecutamos.">
+    <link rel="canonical" href="https://proemote.es/ayudas-digitalizacion-pymes-extremadura/">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/Phosphor.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/Phosphor-Fill.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        bgMain: '#0A0A0F',
+                        bgSurface: '#14141F',
+                        primary: '#7B61FF',
+                        accent: '#9F7AEA',
+                        textMain: '#F5F7FA',
+                        textSecondary: '#A1A1B5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\\'40\\' height=\\'40\\' viewBox=\\'0 0 40 40\\' xmlns=\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h40v40H0V0zm1 1h38v38H1V1z\\' fill=\\'%23ffffff\\' fill-opacity=\\'0.02\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                        'grid-pattern-primary': "url('data:image/svg+xml,%3Csvg width=\\'50\\' height=\\'50\\' viewBox=\\'0 0 50 50\\' xmlns=\'http://www.w3.org/2000/svg\\'%3E%3Cpath d=\\'M0 0h50v50H0V0zm1 1h48v48H1V1z\\' fill=\\'%237B61FF\\' fill-opacity=\\'0.08\\' fill-rule=\\'evenodd\\'/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { transition: background-color 0.3s ease, color 0.3s ease; overflow-x: hidden; }
+        .dark body { background-color: #0A0A0F; color: #F5F7FA; }
+        body { background-color: #f9fafb; color: #111827; }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A0A0F; }
+        ::-webkit-scrollbar-thumb { background: #14141F; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
+        ::-webkit-scrollbar-thumb:hover { background: #7B61FF; }
+
+        .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(0, 0, 0, 0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .dark .glass-card { background: linear-gradient(180deg, rgba(20, 20, 31, 0.9) 0%, rgba(20, 20, 31, 0.5) 100%); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass-card:hover { border-color: rgba(123, 97, 255, 0.3); box-shadow: 0 10px 40px rgba(123, 97, 255, 0.1); transform: translateY(-4px); }
+
+        .text-gradient-primary { background: linear-gradient(135deg, #9F7AEA 0%, #7B61FF 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .reveal-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-up.active { opacity: 1; transform: translateY(0); }
+        
+        /* Formularios y Calculadora */
+        .typeform-radio input:checked ~ div.box, .typeform-checkbox input:checked ~ div.box {
+            border-color: #7B61FF; background-color: rgba(123, 97, 255, 0.1); box-shadow: 0 0 15px rgba(123, 97, 255, 0.15);
+        }
+        .typeform-radio input:checked ~ div.box .letter, .typeform-checkbox input:checked ~ div.box .letter {
+            background-color: #7B61FF; color: white; border-color: #7B61FF;
+        }
+        
+        .typeform-input {
+            background: transparent; border: none; border-bottom: 1px solid rgba(0,0,0,0.2);
+            font-size: 1.125rem; padding: 0.5rem 0; width: 100%; transition: border-color 0.3s; color: #111827;
+        }
+        .dark .typeform-input { border-bottom-color: rgba(255,255,255,0.2); color: white; }
+        .typeform-input:focus { outline: none; border-bottom-color: #7B61FF; }
+        
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(123, 97, 255, 0.3); border-radius: 4px; }
+
+        .glass-form { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(24px); border: 1px solid rgba(123, 97, 255, 0.20); box-shadow: 0 10px 40px -10px rgba(123, 97, 255, 0.15); }
+        .dark .glass-form { background: linear-gradient(135deg, rgba(20, 20, 31, 0.7) 0%, rgba(123, 97, 255, 0.06) 100%); box-shadow: 0 10px 40px -10px rgba(123, 97, 255, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.05); }
+    </style>
+    <script>
+        if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            document.documentElement.classList.remove('dark')
+        } else {
+            document.documentElement.classList.add('dark')
+            localStorage.theme = 'dark'
+        }
+    </script>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white relative bg-grid-pattern bg-fixed bg-gray-50 dark:bg-[#0A0A0F] text-gray-900 dark:text-textMain">
+
+    <div class="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
+        <header class="w-full max-w-5xl backdrop-blur-xl bg-white/80 dark:bg-white/[0.02] border border-gray-200 dark:border-white/10 rounded-full flex items-center justify-between px-6 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.05)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-colors duration-300">
+            <a href="#" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
+                <img src="https://i.imgur.com/2mXnkGe.png" onerror="this.src='https://placehold.co/200x50/transparent/7B61FF?text=Proemote'" alt="Proemote" class="h-6 md:h-8 w-auto object-contain dark:invert-0 invert">
+            </a>
+
+            <div class="hidden md:flex gap-6 text-[13px] font-medium text-gray-600 dark:text-white/60 relative z-10 items-center">
+                <a href="#" class="hover:text-gray-900 dark:hover:text-white transition-colors">Inicio</a>
+                <a href="#contacto" class="hover:text-gray-900 dark:hover:text-white transition-colors">Servicios</a>
+                <div class="relative group py-2">
+                    <a href="#detalles" class="hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1.5 focus:outline-none">
+                        Ayudas 2026 
+                        <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-medium bg-primary/20 text-primary border border-primary/30 leading-none">Nuevo</span>
+                    </a>
+                </div>
+                <a href="#proceso" class="hover:text-gray-900 dark:hover:text-white transition-colors">El Proceso</a>
+                <a href="#contacto" class="hover:text-gray-900 dark:hover:text-white transition-colors">Contacto</a>
+            </div>
+
+            <div class="hidden md:flex items-center gap-4 relative z-10">
+                <button id="theme-toggle" class="p-2 text-gray-600 dark:text-white/80 hover:text-primary transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
+                    <svg class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1.5M12 19.5V21M3 12h1.5M19.5 12H21M5.636 5.636l1.06 1.06M17.303 17.303l1.06 1.06M5.636 18.364l1.06-1.06M17.303 6.697l1.06-1.06M12 8.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5z" /></svg>
+                    <svg class="w-5 h-5 hidden dark:block text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
+                </button>
+                <a href="#contacto" class="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white shadow-[0_0_15px_rgba(139,92,246,0.3)] hover:shadow-[0_0_25px_rgba(139,92,246,0.5)] py-2 px-5 rounded-full font-semibold text-[13px] transition-all">
+                    Iniciar estudio
+                </a>
+            </div>
+            
+            <div class="flex items-center gap-2 md:hidden relative z-10">
+                <button id="mobile-menu-btn" class="text-gray-800 dark:text-white/80 p-1" aria-label="Abrir menú">
+                    <i class="ph ph-list text-2xl"></i>
+                </button>
+            </div>
+        </header>
+    </div>
+
+    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-white/95 dark:bg-[#05020a]/95 backdrop-blur-2xl pt-24 pb-6 px-6 flex flex-col transition-colors duration-300">
+        <div class="flex flex-col gap-6 items-center text-center mt-10">
+            <a href="#" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60">Inicio</a>
+            <a href="#contacto" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60">Servicios</a>
+            <a href="#detalles" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60">Ayudas 2026</a>
+            <a href="#contacto" class="bg-gradient-to-r from-violet-600 to-indigo-600 text-white py-3.5 px-8 rounded-full font-semibold text-[14px] transition-all w-full max-w-xs mt-6">
+                Iniciar estudio gratuito
+            </a>
+            <button id="mobile-menu-close" class="mt-8 text-gray-400 dark:text-white/40">Cerrar menú</button>
+        </div>
+    </div>
+
+    <section class="pt-32 md:pt-36 pb-16 md:pb-20 relative z-10 overflow-hidden border-b border-gray-200 dark:border-white/5 bg-white dark:bg-[#0A0A0F] bg-grid-pattern-primary">
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-white dark:to-bgMain z-[-1] pointer-events-none"></div>
+        <div class="absolute top-[10%] left-[10%] w-[30vw] h-[30vw] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-[0]"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                
+                <div class="lg:col-span-6 text-center lg:text-left reveal-up active flex flex-col items-center lg:items-start">
+                    <div class="inline-flex items-center justify-center px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-[11px] font-medium tracking-[0.15em] uppercase shadow-[0_0_15px_rgba(123,97,255,0.05)] mb-6">
+                        Fondos limitados · Plazo: 13 de agosto de 2026
+                    </div>
+
+                    <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.15] tracking-tight mb-5 text-gray-900 dark:text-white">
+                        Ayudas a la Digitalización de <span class="text-gradient-primary">Pymes y Autónomos</span> en Extremadura 2026
+                    </h1>
+                    
+                    <p class="text-base md:text-lg text-gray-600 dark:text-textSecondary leading-relaxed mb-6 max-w-2xl">
+                        Consigue hasta <strong>20.000€ en ayudas a la digitalización</strong> para pymes y autónomos en Extremadura. Subvenciones a fondo perdido para financiar diseño web, posicionamiento SEO, gestión de redes sociales y software CRM. Tramitamos la ayuda y ejecutamos el proyecto integral para escalar tu negocio.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto mb-6">
+                        <a href="#contacto" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-primary hover:bg-accent text-white font-semibold text-sm transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] flex items-center justify-center gap-2">
+                            Comprobar si puedo recibir la ayuda <i class="ph ph-arrow-right"></i>
+                        </a>
+                        <a href="#que-cubre" class="w-full sm:w-auto px-7 py-3.5 rounded-full border border-gray-300 dark:border-white/10 bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 text-gray-900 dark:text-white font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2">
+                            Ver qué cubre la ayuda
+                        </a>
+                    </div>
+
+                    <div class="flex flex-col gap-2.5 mb-6 text-left w-full">
+                        <div class="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-textSecondary font-medium">
+                            <i class="ph-fill ph-check-circle text-primary text-base flex-shrink-0"></i> 
+                            <span>Compatible con el Kit Digital (lo complementa).</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-textSecondary font-medium">
+                            <i class="ph-fill ph-bank text-primary text-base flex-shrink-0"></i> 
+                            <span>50% de anticipo tras la concesión sin garantías exigidas.</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs md:text-sm text-gray-600 dark:text-textSecondary font-medium">
+                            <i class="ph-fill ph-shield-check text-primary text-base flex-shrink-0"></i> 
+                            <span>Diagnóstico de viabilidad gratuito y sin compromiso.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 relative reveal-up delay-100 mt-8 lg:mt-0 flex justify-center w-full">
+                    <div class="relative w-full max-w-[540px] rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 bg-white dark:bg-bgSurface/40 shadow-[0_0_40px_rgba(123,97,255,0.15)] group transition-all duration-300 hover:border-primary/40">
+                        <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 mix-blend-overlay"></div>
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop" onerror="this.src='https://placehold.co/600x400/14141F/7B61FF?text=Digitalizacion+Extremadura'"
+                             alt="Digitalización de empresas Extremadura"
+                             class="w-full h-auto object-cover opacity-95 group-hover:opacity-100 transition-opacity transform group-hover:scale-[1.01] duration-500 rounded-2xl">
+                        
+                        <div class="absolute top-4 right-4 z-20 glass-card px-4 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 flex items-center gap-2 shadow-2xl bg-white/90 dark:bg-[#0A0A0F]/80 backdrop-blur-md">
+                            <div class="w-8 h-8 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-medium text-sm">€</div>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] uppercase tracking-wider text-gray-600 dark:text-textSecondary font-medium leading-none">Subvención</span>
+                                <span class="text-xs font-medium text-gray-900 dark:text-white leading-tight">80% Subvencionado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 relative z-10 bg-gray-50 dark:bg-bgSurface/30 border-t border-gray-200 dark:border-white/5">
+        <div class="max-w-4xl mx-auto px-6 text-center reveal-up">
+            <h2 class="font-heading text-3xl md:text-5xl font-medium text-gray-900 dark:text-white mb-6">El problema no es la "digitalización". El problema es <span class="text-gradient-primary">lo que pierdes por no tenerla.</span></h2>
+            
+            <p class="text-gray-600 dark:text-textSecondary text-lg md:text-xl mb-10 leading-relaxed">
+                Hablas con clientes, haces números y sigues trabajando las mismas horas de siempre (o más). Sabes que tu negocio tiene potencial para escalar, pero en el día a día te enfrentas a una realidad frustrante:
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left mb-12">
+                <div class="glass-card p-6 rounded-2xl border border-gray-200 dark:border-white/5 flex items-start gap-4">
+                    <i class="ph-fill ph-users-three text-2xl text-accent flex-shrink-0"></i>
+                    <p class="text-gray-700 dark:text-white/90 font-medium text-sm">Falta de clientes recurrentes o escasa visibilidad en tu ciudad frente a otros.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-gray-200 dark:border-white/5 flex items-start gap-4">
+                    <i class="ph-fill ph-trend-down text-2xl text-accent flex-shrink-0"></i>
+                    <p class="text-gray-700 dark:text-white/90 font-medium text-sm">Competencia peor que tú, pero mejor posicionada en Google llevándose las ventas.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-gray-200 dark:border-white/5 flex items-start gap-4">
+                    <i class="ph-fill ph-clock-countdown text-2xl text-accent flex-shrink-0"></i>
+                    <p class="text-gray-700 dark:text-white/90 font-medium text-sm">Pérdida de tiempo valioso gestionando presupuestos y facturas a mano o en Excel.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-gray-200 dark:border-white/5 flex items-start gap-4">
+                    <i class="ph-fill ph-ghost text-2xl text-accent flex-shrink-0"></i>
+                    <p class="text-gray-700 dark:text-white/90 font-medium text-sm">Redes sociales que consumen energía, webs desfasadas y cero resultados comerciales.</p>
+                </div>
+            </div>
+            
+            <p class="text-gray-600 dark:text-textSecondary text-lg leading-relaxed">
+                No necesitas "digitalizarte" por estar a la moda. Necesitas herramientas que trabajen por ti, atraigan clientes y te devuelvan tu tiempo. La buena noticia es que <strong class="text-gray-900 dark:text-white">ahora existe una ayuda pública en Extremadura que te permite solucionar todo esto, financiando hasta el 80% del coste.</strong>
+            </p>
+        </div>
+    </section>
+
+    <section class="py-24 relative z-10 bg-white dark:bg-[#0A0A0F] border-t border-gray-200 dark:border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-xs font-medium tracking-[0.2em] text-gray-600 dark:text-textSecondary uppercase mb-4 block">Resultados reales obtenidos</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-medium text-gray-900 dark:text-white">Empresas de Extremadura que ya han mejorado su rentabilidad con <span class="text-gradient-primary">Proemote</span></h2>
+                <p class="text-gray-600 dark:text-textSecondary mt-4">Resultados orgánicos tangibles. La misma metodología que aplicaremos en tu proyecto subvencionado.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-up delay-100">
+                <div class="glass-card p-8 md:p-10 rounded-[2rem] border-gray-200 dark:border-white/5 flex flex-col text-center">
+                    <span class="font-heading text-4xl md:text-5xl font-medium text-gradient-primary mb-2">Top #1</span>
+                    <div class="text-gray-900 dark:text-white font-medium text-lg mb-4">en resultados de búsqueda</div>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary mb-8 flex-grow">Cuando alguien en Mérida busca una empresa de limpieza, Lo Quiero Limpio aparece antes que nadie. Su competencia paga anuncios para intentar alcanzarle.</p>
+                    <h3 class="pt-6 border-t border-gray-200 dark:border-white/10 text-xs text-gray-600 dark:text-textSecondary uppercase tracking-widest font-medium">Lo Quiero Limpio · Mérida</h3>
+                </div>
+
+                <div class="glass-card p-8 md:p-10 rounded-[2rem] border-gray-200 dark:border-white/5 flex flex-col text-center">
+                    <span class="font-heading text-4xl md:text-5xl font-medium text-gradient-primary mb-2">Top #4</span>
+                    <div class="text-gray-900 dark:text-white font-medium text-lg mb-4">en SEO Local</div>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary mb-8 flex-grow">Posicionada entre los primeros resultados para búsquedas de estética y belleza en Mérida sin invertir un euro en publicidad.</p>
+                    <h3 class="pt-6 border-t border-gray-200 dark:border-white/10 text-xs text-gray-600 dark:text-textSecondary uppercase tracking-widest font-medium">Centro de Belleza Juany · Mérida</h3>
+                </div>
+
+                <div class="glass-card p-8 md:p-10 rounded-[2rem] border-gray-200 dark:border-white/5 flex flex-col text-center">
+                    <span class="font-heading text-4xl md:text-5xl font-medium text-gradient-primary mb-2">Top #3</span>
+                    <div class="text-gray-900 dark:text-white font-medium text-lg mb-4">para e-commerce local</div>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary mb-8 flex-grow">Tercer resultado orgánico estable en Google para quien busca comprar jamón ibérico en Almendralejo. Visibilidad que trabaja las 24 horas.</p>
+                    <h3 class="pt-6 border-t border-gray-200 dark:border-white/10 text-xs text-gray-600 dark:text-textSecondary uppercase tracking-widest font-medium">Jamón Exclusive · Almendralejo</h3>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center reveal-up">
+                <a href="#contacto" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)]">
+                    Solicitar mi diagnóstico de viabilidad gratuito <i class="ph ph-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="detalles" class="py-32 relative z-10 bg-gray-50 dark:bg-bgSurface/30 border-t border-gray-200 dark:border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <!-- CALCULADORA -->
+            <div class="mb-32 reveal-up">
+                <div class="glass-card rounded-[3rem] p-8 md:p-12 border-primary/30 shadow-2xl relative overflow-hidden bg-white/80 dark:bg-[#14141F]/80">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none"></div>
+                    
+                    <div class="text-center mb-8">
+                        <h2 class="font-heading text-3xl md:text-4xl font-medium text-gray-900 dark:text-white mb-3"><i class="ph-fill ph-calculator text-primary mr-2"></i> Calculadora de Ayuda Estimada</h2>
+                        <p class="text-gray-600 dark:text-textSecondary text-lg max-w-2xl mx-auto">Selecciona tus necesidades y descubre en 10 segundos la financiación aproximada a la que tu negocio podría acceder financiando hasta el 80%.</p>
+                    </div>
+
+                    <div id="calculator-ui" class="max-w-3xl mx-auto relative z-10">
+                        <div class="mb-8">
+                            <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">1. ¿Qué figura jurídica tienes?</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <label class="typeform-radio relative cursor-pointer group">
+                                    <input type="radio" name="calc_tipo" value="Autonomo" checked class="hidden">
+                                    <div class="box flex items-center p-4 rounded-xl border border-gray-300 dark:border-white/10 bg-gray-50 dark:bg-white/5 transition-all">
+                                        <span class="letter w-6 h-6 rounded-full border border-gray-400 dark:border-white/20 flex items-center justify-center text-xs text-gray-600 dark:text-white/60 mr-3">A</span>
+                                        <span class="text-gray-900 dark:text-white font-medium">Autónomo</span>
+                                    </div>
+                                </label>
+                                <label class="typeform-radio relative cursor-pointer group">
+                                    <input type="radio" name="calc_tipo" value="Empresa" class="hidden">
+                                    <div class="box flex items-center p-4 rounded-xl border border-gray-300 dark:border-white/10 bg-gray-50 dark:bg-white/5 transition-all">
+                                        <span class="letter w-6 h-6 rounded-full border border-gray-400 dark:border-white/20 flex items-center justify-center text-xs text-gray-600 dark:text-white/60 mr-3">B</span>
+                                        <span class="text-gray-900 dark:text-white font-medium">Empresa (Pyme/Micropyme)</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-8">
+                            <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">2. ¿Qué áreas de tu negocio necesitas transformar? <span class="text-sm font-normal text-gray-500">(Marca varias)</span></h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <label class="typeform-checkbox relative cursor-pointer group">
+                                    <input type="checkbox" name="calc_service" value="500" class="hidden">
+                                    <div class="box flex items-center p-3 rounded-xl border border-gray-300 dark:border-white/10 bg-gray-50 dark:bg-white/5 transition-all">
+                                        <span class="letter w-6 h-6 rounded border border-gray-400 dark:border-white/20 flex items-center justify-center text-xs text-gray-600 dark:text-white/60 mr-3">1</span>
+                                        <span class="text-gray-900 dark:text-white text-sm font-medium">Crear o mejorar Página Web</span>
+                                    </div>
+                                </label>
+                                <label class="typeform-checkbox relative cursor-pointer group">
+                                    <input type="checkbox" name="calc_service" value="4000" class="hidden">
+                                    <div class="box flex items-center p-3 rounded-xl border border-gray-300 dark:border-white/10 bg-gray-50 dark:bg-white/5 transition-all">
+                                        <span class="letter w-6 h-6 rounded border border-gray-400 dark:border-white/20 flex items-center justify-center text-xs text-gray-600 dark:text-white/60 mr-3">2</span>
+                                        <span class="text-gray-900 dark:text-white text-sm font-medium">Vender con Tienda Online (Ecommerce)</span>
+                                    </div>
+                                </label>
+                                <label class="typeform-checkbox relative cursor-pointer group">
+                                    <input type="checkbox" name="calc_service" value="7000" class="hidden">
+                                    <div class="box flex items-center p-3 rounded-xl border border-gray-300 dark:border-white/10 bg-gray-50 dark:bg-white/5 transition-all">
+                                        <span class="letter w-6 h-6 rounded border border-gray-400 dark:border-white/20 flex items-center justify-center text-xs text-gray-600 dark:text-white/60 mr-3">3</span>
+                                        <span class="text-gray-900 dark:text-white text-sm font-medium">Posicionamiento en Google (SEO/SEM)</span>
+                                    </div>
+                                </label>
+                                <label class="typeform-checkbox relative cursor-pointer group">
+                                    <input type="checkbox" name="calc_service" value="3000" class="hidden">
+                                    <div class="box flex items-center p-3 rounded-xl border border-gray-300 dark:border-white/10 bg-gray-50 dark:bg-white/5 transition-all">
+                                        <span class="letter w-6 h-6 rounded border border-gray-400 dark:border-white/20 flex items-center justify-center text-xs text-gray-600 dark:text-white/60 mr-3">4</span>
+                                        <span class="text-gray-900 dark:text-white text-sm font-medium">Gestión profesional de Redes Sociales</span>
+                                    </div>
+                                </label>
+                                <label class="typeform-checkbox relative cursor-pointer group">
+                                    <input type="checkbox" name="calc_service" value="5000" class="hidden">
+                                    <div class="box flex items-center p-3 rounded-xl border border-gray-300 dark:border-white/10 bg-gray-50 dark:bg-white/5 transition-all">
+                                        <span class="letter w-6 h-6 rounded border border-gray-400 dark:border-white/20 flex items-center justify-center text-xs text-gray-600 dark:text-white/60 mr-3">5</span>
+                                        <span class="text-gray-900 dark:text-white text-sm font-medium">Ordenar mi gestión (CRM / Facturación)</span>
+                                    </div>
+                                </label>
+                                <label class="typeform-checkbox relative cursor-pointer group">
+                                    <input type="checkbox" name="calc_service" value="2000" class="hidden">
+                                    <div class="box flex items-center p-3 rounded-xl border border-gray-300 dark:border-white/10 bg-gray-50 dark:bg-white/5 transition-all">
+                                        <span class="letter w-6 h-6 rounded border border-gray-400 dark:border-white/20 flex items-center justify-center text-xs text-gray-600 dark:text-white/60 mr-3">6</span>
+                                        <span class="text-gray-900 dark:text-white text-sm font-medium">Fotografía y Contenido Multimedia</span>
+                                    </div>
+                                </label>
+                                <label class="typeform-checkbox relative cursor-pointer group md:col-span-2">
+                                    <input type="checkbox" name="calc_service" value="12000" class="hidden">
+                                    <div class="box flex items-center p-3 rounded-xl border border-gray-300 dark:border-white/10 bg-gray-50 dark:bg-white/5 transition-all">
+                                        <span class="letter w-6 h-6 rounded border border-gray-400 dark:border-white/20 flex items-center justify-center text-xs text-gray-600 dark:text-white/60 mr-3">7</span>
+                                        <span class="text-gray-900 dark:text-white text-sm font-medium">Ciberseguridad para mi infraestructura</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="calc-btn-container" class="text-center mt-8">
+                            <button onclick="calculateAid()" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium transition-all shadow-lg hover:shadow-primary/50 text-lg w-full sm:w-auto justify-center">
+                                <i class="ph-fill ph-calculator"></i> Calcular ayuda estimada
+                            </button>
+                        </div>
+
+                        <div id="calc-result-box" class="hidden mt-8 p-8 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/30 text-center animate-[slideUpFade_0.4s_ease_forwards]">
+                            <p class="text-gray-600 dark:text-textSecondary mb-2 font-medium">¡Excelente! Basándonos en tu selección y en las bases de la Junta de Extremadura, podrías optar a una subvención orientativa de:</p>
+                            <div class="font-heading text-5xl md:text-6xl font-medium text-gradient-primary mb-4" id="calc-total">0€</div>
+                            <p class="text-sm text-gray-600 dark:text-textSecondary mb-6 max-w-lg mx-auto">
+                                cubriendo hasta el <strong class="text-gray-900 dark:text-white">80% de la inversión</strong>. Topes máximos de 20.000€ según la convocatoria vigente.
+                            </p>
+                            <a href="#contacto" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-primary dark:hover:bg-primary dark:hover:text-white font-medium transition-all hover:scale-105">
+                                Quiero saber mi cifra exacta y si mi empresa cumple los requisitos
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mb-16 reveal-up delay-100">
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-gray-900 dark:text-white mb-4">Posibilidad de <span class="text-gradient-primary">financiación pública</span> según convocatoria vigente.</h2>
+                <p class="text-gray-600 dark:text-textSecondary text-lg max-w-2xl mx-auto">Céntrate en hacer crecer tu negocio. Nosotros nos ocupamos de la estrategia digital y de la burocracia.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24 reveal-up delay-200">
+                <div class="glass-card p-8 rounded-2xl border border-gray-200 dark:border-white/5 bg-white dark:bg-[#0c0a14] flex flex-col items-start text-left hover:border-primary/30 transition-all">
+                    <i class="ph-fill ph-package text-2xl text-primary mb-4"></i>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">Packs adaptados a ayudas públicas</h3>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">Hemos diseñado nuestros servicios para que encajen perfectamente con las líneas subvencionables para autónomos y pymes en Extremadura.</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl border border-gray-200 dark:border-white/5 bg-white dark:bg-[#0c0a14] flex flex-col items-start text-left hover:border-primary/30 transition-all">
+                    <i class="ph-fill ph-folder-open text-2xl text-primary mb-4"></i>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">Te ayudamos a preparar la documentación</h3>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">No tienes que pelearte con la administración. Te guiamos paso a paso en la recopilación y presentación de tu solicitud.</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl border border-gray-200 dark:border-white/5 bg-white dark:bg-[#0c0a14] flex flex-col items-start text-left hover:border-primary/30 transition-all">
+                    <i class="ph-fill ph-check-circle text-2xl text-primary mb-4"></i>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">Gestión integral del proyecto</h3>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed">Desde el análisis de viabilidad inicial hasta el desarrollo completo de la web, la tienda online o la estrategia de redes sociales.</p>
+                </div>
+            </div>
+
+            <div id="que-cubre" class="reveal-up delay-300">
+                <h2 class="text-2xl font-heading text-gray-900 dark:text-white font-medium mb-8 text-center">¿Qué puedes digitalizar en detalle?</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    
+                    <div class="bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors shadow-sm">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-gray-900 dark:text-white font-medium">Página Web</h3>
+                            <span class="text-primary font-medium text-sm bg-primary/10 px-2 py-1 rounded">Max. 500€</span>
+                        </div>
+                        <p class="text-xs text-gray-600 dark:text-textSecondary">Nos encargamos del diseño, el desarrollo y el posicionamiento para que tu web trabaje por ti.</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors shadow-sm">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-gray-900 dark:text-white font-medium">Tienda Online</h3>
+                            <span class="text-primary font-medium text-sm bg-primary/10 px-2 py-1 rounded">Max. 4.000€</span>
+                        </div>
+                        <p class="text-xs text-gray-600 dark:text-textSecondary">Montamos tu tienda online de principio a fin para que puedas vender sin depender de terceros.</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors shadow-sm">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-gray-900 dark:text-white font-medium">SEO y SEM</h3>
+                            <span class="text-primary font-medium text-sm bg-primary/10 px-2 py-1 rounded">Max. 7.000€</span>
+                        </div>
+                        <p class="text-xs text-gray-600 dark:text-textSecondary">Posicionamiento en buscadores y campañas para atraer clientes que ya están buscando lo que ofreces.</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors shadow-sm">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-gray-900 dark:text-white font-medium">Community Manager</h3>
+                            <span class="text-primary font-medium text-sm bg-primary/10 px-2 py-1 rounded">Max. 3.000€</span>
+                        </div>
+                        <p class="text-xs text-gray-600 dark:text-textSecondary">Gestión estratégica de redes. Planificamos y publicamos con un objetivo claro.</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors shadow-sm">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-gray-900 dark:text-white font-medium">Contenido Multimedia</h3>
+                            <span class="text-primary font-medium text-sm bg-primary/10 px-2 py-1 rounded">Max. 2.000€</span>
+                        </div>
+                        <p class="text-xs text-gray-600 dark:text-textSecondary">Producimos la fotografía y el vídeo profesional que tu negocio necesita para transmitir confianza.</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors shadow-sm">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-gray-900 dark:text-white font-medium">Software Gestión</h3>
+                            <span class="text-primary font-medium text-sm bg-primary/10 px-2 py-1 rounded">Max. 5.000€</span>
+                        </div>
+                        <p class="text-xs text-gray-600 dark:text-textSecondary">Implantamos y configuramos herramientas CRM para ordenar presupuestos, clientes y facturación.</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors shadow-sm">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-gray-900 dark:text-white font-medium">Plataforma B2B</h3>
+                            <span class="text-primary font-medium text-sm bg-primary/10 px-2 py-1 rounded">Max. 5.000€</span>
+                        </div>
+                        <p class="text-xs text-gray-600 dark:text-textSecondary">Sistemas de gestión comercial directa entre empresas, distribuidores y canales profesionales.</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-2xl p-6 hover:border-primary/40 transition-colors shadow-sm">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-gray-900 dark:text-white font-medium">Ciberseguridad</h3>
+                            <span class="text-primary font-medium text-sm bg-primary/10 px-2 py-1 rounded">Max. 12.000€</span>
+                        </div>
+                        <p class="text-xs text-gray-600 dark:text-textSecondary">Soluciones de protección de datos y redes para que la seguridad de tu negocio esté garantizada.</p>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center reveal-up">
+                <a href="#contacto" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] focus:outline-none">
+                    Solicitar mi diagnóstico de viabilidad gratuito <i class="ph ph-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 relative z-10 bg-white dark:bg-[#0A0A0F] border-t border-gray-200 dark:border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-gray-900 dark:text-white mb-6">Cuánto puedes conseguir según <span class="text-gradient-primary">tu tipo de negocio</span></h2>
+                <p class="text-gray-600 dark:text-textSecondary text-lg max-w-2xl mx-auto">La ayuda funciona mejor cuando combinas varias líneas. Estos son tres ejemplos reales según el perfil de negocio.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-up delay-100">
+                
+                <div class="glass-card p-8 rounded-[2rem] border-gray-200 dark:border-white/5 flex flex-col h-full relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-50"></div>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-6">El autónomo que necesita presencia digital</h3>
+                    
+                    <div class="mb-6 flex-grow">
+                        <div class="text-[10px] font-medium tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-3">Líneas</div>
+                        <ul class="space-y-2 text-sm text-gray-700 dark:text-white/80">
+                            <li class="flex items-start gap-2"><i class="ph-fill ph-plus-circle text-primary mt-0.5"></i> Página web</li>
+                            <li class="flex items-start gap-2"><i class="ph-fill ph-plus-circle text-primary mt-0.5"></i> Community manager 12 meses</li>
+                            <li class="flex items-start gap-2"><i class="ph-fill ph-plus-circle text-primary mt-0.5"></i> Contenido multimedia</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl p-5 mb-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs text-gray-600 dark:text-textSecondary">Subvención máxima:</span>
+                            <span class="text-sm font-medium text-gray-900 dark:text-white">hasta 5.600€</span>
+                        </div>
+                        <div class="flex justify-between items-center pt-2 border-t border-gray-200 dark:border-white/10">
+                            <span class="text-xs text-gray-600 dark:text-textSecondary">Tu inversión real:</span>
+                            <span class="text-lg font-medium text-gradient-primary">desde 1.120€</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-xs text-gray-600 dark:text-textSecondary leading-relaxed mb-6">Web nueva, redes gestionadas durante un año completo y material audiovisual profesional. Todo por el coste de unas pocas semanas de trabajo.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-[2rem] border-gray-200 dark:border-white/5 flex flex-col h-full relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-50"></div>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-6">La pyme que quiere más clientes</h3>
+                    
+                    <div class="mb-6 flex-grow">
+                        <div class="text-[10px] font-medium tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-3">Líneas</div>
+                        <ul class="space-y-2 text-sm text-gray-700 dark:text-white/80">
+                            <li class="flex items-start gap-2"><i class="ph-fill ph-plus-circle text-primary mt-0.5"></i> Rediseño web</li>
+                            <li class="flex items-start gap-2"><i class="ph-fill ph-plus-circle text-primary mt-0.5"></i> SEO/SEM</li>
+                            <li class="flex items-start gap-2"><i class="ph-fill ph-plus-circle text-primary mt-0.5"></i> Community manager 12 meses</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl p-5 mb-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs text-gray-600 dark:text-textSecondary">Subvención máxima:</span>
+                            <span class="text-sm font-medium text-gray-900 dark:text-white">hasta 9.200€</span>
+                        </div>
+                        <div class="flex justify-between items-center pt-2 border-t border-gray-200 dark:border-white/10">
+                            <span class="text-xs text-gray-600 dark:text-textSecondary">Tu inversión real:</span>
+                            <span class="text-lg font-medium text-gradient-primary">desde 1.840€</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-xs text-gray-600 dark:text-textSecondary leading-relaxed mb-6">Aparecer en Google cuando te buscan, gestión profesional de redes y una web que convierte. Un canal de captación completo a precio mínimo.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-[2rem] border-gray-200 dark:border-white/5 flex flex-col h-full relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-50"></div>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-6">El negocio que quiere vender online</h3>
+                    
+                    <div class="mb-6 flex-grow">
+                        <div class="text-[10px] font-medium tracking-widest text-gray-600 dark:text-textSecondary uppercase mb-3">Líneas</div>
+                        <ul class="space-y-2 text-sm text-gray-700 dark:text-white/80">
+                            <li class="flex items-start gap-2"><i class="ph-fill ph-plus-circle text-primary mt-0.5"></i> Tienda online</li>
+                            <li class="flex items-start gap-2"><i class="ph-fill ph-plus-circle text-primary mt-0.5"></i> SEO/SEM</li>
+                            <li class="flex items-start gap-2"><i class="ph-fill ph-plus-circle text-primary mt-0.5"></i> Contenido multimedia</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl p-5 mb-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs text-gray-600 dark:text-textSecondary">Subvención máxima:</span>
+                            <span class="text-sm font-medium text-gray-900 dark:text-white">hasta 10.400€</span>
+                        </div>
+                        <div class="flex justify-between items-center pt-2 border-t border-gray-200 dark:border-white/10">
+                            <span class="text-xs text-gray-600 dark:text-textSecondary">Tu inversión real:</span>
+                            <span class="text-lg font-medium text-gradient-primary">desde 2.080€</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-xs text-gray-600 dark:text-textSecondary leading-relaxed mb-6">E-commerce completo, posicionamiento en buscadores y material visual profesional para tus campañas. Vender online sin la inversión habitual.</p>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-16 reveal-up delay-200">
+                <a href="#contacto" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gray-900 text-white dark:bg-white dark:text-gray-900 hover:bg-primary dark:hover:bg-primary dark:hover:text-white font-medium transition-all duration-300 focus:outline-none shadow-lg hover:scale-105">
+                    Ver cuánto podría obtener mi negocio <i class="ph ph-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 relative z-10 bg-gray-50 dark:bg-bgSurface/30 border-t border-gray-200 dark:border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-gray-900 dark:text-white mb-6">Lo que esta ayuda significa realmente para el <span class="text-gradient-primary">crecimiento de tu negocio</span></h2>
+                <p class="text-gray-600 dark:text-textSecondary text-xl max-w-3xl mx-auto leading-relaxed">No es solo una subvención. Es la oportunidad de pisar el acelerador y conseguir los resultados que llevas tiempo aplazando, pagando una fracción mínima.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 reveal-up delay-100">
+                
+                <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5 flex flex-col h-full hover:border-primary/40 transition-colors">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                        <i class="ph-fill ph-users-three text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-3">Más clientes y mayores ventas.</h3>
+                    <p class="text-gray-600 dark:text-textSecondary leading-relaxed text-sm md:text-base flex-grow">Pasar de ser "un negocio más" a ser la opción preferida. Con una presencia sólida y estrategias orientadas a la conversión, dejas de perseguir clientes para que ellos empiecen a encontrarte a ti.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5 flex flex-col h-full hover:border-primary/40 transition-colors">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                        <i class="ph-fill ph-magnifying-glass text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-3">Visibilidad local y regional dominante.</h3>
+                    <p class="text-gray-600 dark:text-textSecondary leading-relaxed text-sm md:text-base flex-grow">Aparecer el primero cuando alguien en tu zona busca lo que tú vendes. Una presencia en Google optimizada garantiza un flujo constante de oportunidades comerciales todos los meses sin esfuerzo manual.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5 flex flex-col h-full hover:border-primary/40 transition-colors">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                        <i class="ph-fill ph-clock text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-3">Más tiempo disponible para ti.</h3>
+                    <p class="text-gray-600 dark:text-textSecondary leading-relaxed text-sm md:text-base flex-grow">Olvídate del papeleo interminable. Al implantar sistemas que automaticen tus presupuestos, seguimientos y facturación, tú y tu equipo recuperaréis horas de trabajo cada semana.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5 flex flex-col h-full hover:border-primary/40 transition-colors">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                        <i class="ph-fill ph-tree-structure text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-3">Organización y control total.</h3>
+                    <p class="text-gray-600 dark:text-textSecondary leading-relaxed text-sm md:text-base flex-grow">Escalar un negocio desorganizado es imposible. Con las herramientas adecuadas, tendrás el control absoluto de tus números, tus clientes y tus procesos. Un negocio ordenado es un negocio rentable.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="proceso" class="py-24 relative z-10 bg-[#0A0A0F] border-t border-gray-200 dark:border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 reveal-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-white mb-6">Cuatro pasos. El trabajo lo hacemos nosotros.</h2>
+                <p class="text-white/60 text-lg max-w-2xl mx-auto">Tu única tarea es contarnos a qué se dedica tu negocio.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative reveal-up delay-100">
+                
+                <div class="relative flex flex-col items-center text-center group">
+                    <div class="w-20 h-20 rounded-[1.5rem] bg-[#14141F] border border-white/5 flex items-center justify-center mb-6 transition-all duration-300 shadow-[0_0_0_rgba(123,97,255,0)] group-hover:shadow-[0_20px_40px_-10px_rgba(123,97,255,0.5)]">
+                        <i class="ph-fill ph-paper-plane-tilt text-2xl text-[#9F7AEA]"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-3">1. Contacto</h3>
+                    <p class="text-sm text-white/50 leading-relaxed px-2">Rellenas el formulario en menos de dos minutos. Solo necesitamos saber a qué te dedicas y qué área quieres mejorar.</p>
+                </div>
+
+                <div class="relative flex flex-col items-center text-center group">
+                    <div class="w-20 h-20 rounded-[1.5rem] bg-[#14141F] border border-white/5 flex items-center justify-center mb-6 transition-all duration-300 shadow-[0_0_0_rgba(123,97,255,0)] group-hover:shadow-[0_20px_40px_-10px_rgba(123,97,255,0.5)]">
+                        <i class="ph-fill ph-magnifying-glass text-2xl text-[#9F7AEA]"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-3">2. Diagnóstico gratuito</h3>
+                    <p class="text-sm text-white/50 leading-relaxed px-2">Nuestro equipo analiza tu caso, confirma si cumples los requisitos y te dice exactamente qué líneas puedes solicitar y por cuánto.</p>
+                </div>
+
+                <div class="relative flex flex-col items-center text-center group">
+                    <div class="w-20 h-20 rounded-[1.5rem] bg-[#14141F] border border-white/5 flex items-center justify-center mb-6 transition-all duration-300 shadow-[0_0_0_rgba(123,97,255,0)] group-hover:shadow-[0_20px_40px_-10px_rgba(123,97,255,0.5)]">
+                        <i class="ph-fill ph-file-text text-2xl text-[#9F7AEA]"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-3">3. Solicitud</h3>
+                    <p class="text-sm text-white/50 leading-relaxed px-2">Preparamos y gestionamos la documentación necesaria para presentar el proyecto ante la Junta de Extremadura. Tú lo revisas y firmas.</p>
+                </div>
+
+                <div class="relative flex flex-col items-center text-center group">
+                    <div class="w-20 h-20 rounded-[1.5rem] bg-[#14141F] border border-white/5 flex items-center justify-center mb-6 transition-all duration-300 shadow-[0_0_0_rgba(123,97,255,0)] group-hover:shadow-[0_20px_40px_-10px_rgba(123,97,255,0.5)] relative z-10">
+                        <div class="absolute inset-0 bg-[#7B61FF]/10 rounded-[1.5rem] blur-md group-hover:bg-[#7B61FF]/20 transition-all"></div>
+                        <i class="ph-fill ph-rocket-launch text-2xl text-white relative z-10"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-3">4. Ejecución</h3>
+                    <p class="text-sm text-white/50 leading-relaxed px-2">Una vez concedida la ayuda, ejecutamos el proyecto completo. No tienes que buscar ni coordinar a nadie más.</p>
+                </div>
+
+            </div>
+            
+            <div class="mt-16 text-center reveal-up delay-200">
+                <a href="#contacto" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#7B61FF] hover:bg-[#9F7AEA] text-white font-medium transition-all shadow-[0_0_20px_rgba(123,97,255,0.4)] hover:shadow-[0_0_30px_rgba(123,97,255,0.6)]">
+                    Quiero saber si mi empresa aplica <i class="ph ph-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 relative z-10 bg-white dark:bg-bgSurface/30 border-t border-gray-200 dark:border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="font-heading text-3xl md:text-5xl font-medium text-gray-900 dark:text-white">Lo que dicen quienes <span class="text-gradient-primary">ya han dado el paso.</span></h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-up delay-100">
+                
+                <div class="glass-card p-8 rounded-2xl border-gray-200 dark:border-white/5 relative">
+                    <i class="ph-fill ph-quotes text-4xl text-primary/20 absolute top-6 right-6"></i>
+                    <p class="text-sm text-gray-700 dark:text-white/80 leading-relaxed mb-6 mt-4">"Sinceramente, pensaba que pedir una subvención iba a ser un dolor de cabeza burocrático interminable. El equipo de Proemote me lo gestionó todo sin yo mover un dedo. Hoy mi tienda online factura todas las semanas y me costó una quinta parte de su valor real."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-200 dark:border-white/10">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">JM</div>
+                        <div>
+                            <div class="text-sm font-medium text-gray-900 dark:text-white">Javier M.</div>
+                            <div class="text-xs text-gray-500">Comercio Retail</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl border-gray-200 dark:border-white/5 relative">
+                    <i class="ph-fill ph-quotes text-4xl text-primary/20 absolute top-6 right-6"></i>
+                    <p class="text-sm text-gray-700 dark:text-white/80 leading-relaxed mb-6 mt-4">"Teníamos un caos con la facturación y los clientes. Implantar el CRM nos ha devuelto la vida. Ahora hacemos en 5 minutos presupuestos que antes nos llevaban media hora. Que además esté financiado es un regalo absoluto."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-200 dark:border-white/10">
+                        <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold">LG</div>
+                        <div>
+                            <div class="text-sm font-medium text-gray-900 dark:text-white">Laura G.</div>
+                            <div class="text-xs text-gray-500">Servicios B2B</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl border-gray-200 dark:border-white/5 relative">
+                    <i class="ph-fill ph-quotes text-4xl text-primary/20 absolute top-6 right-6"></i>
+                    <p class="text-sm text-gray-700 dark:text-white/80 leading-relaxed mb-6 mt-4">"Mi competencia se llevaba a todos los clientes de Google. Desde que rediseñaron la web y trabajaron el posicionamiento local, el teléfono suena muchísimo más. Hemos visto resultados comerciales tangibles desde el primer trimestre."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-200 dark:border-white/10">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">AC</div>
+                        <div>
+                            <div class="text-sm font-medium text-gray-900 dark:text-white">Antonio C.</div>
+                            <div class="text-xs text-gray-500">Sector Reformas</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 relative z-10 bg-gray-50 dark:bg-bgSurface/30 border-t border-gray-200 dark:border-white/5 overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6 reveal-up">
+            <div class="glass-card border-gray-200 dark:border-white/10 p-8 md:p-12 rounded-[3rem] relative shadow-xl overflow-hidden flex flex-col md:flex-row gap-12 items-center bg-white/50 dark:bg-black/20">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+                
+                <div class="flex-1">
+                    <h2 class="font-heading text-3xl md:text-4xl font-medium text-gray-900 dark:text-white mb-6">El verdadero riesgo no es que te la denieguen.<br><span class="text-primary">El riesgo es esperar y que se agoten los fondos.</span></h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-primary flex-shrink-0 shadow-sm"><i class="ph ph-hourglass-high text-xl"></i></div>
+                            <p class="text-gray-600 dark:text-textSecondary leading-relaxed text-sm md:text-base"><strong class="text-gray-900 dark:text-white">Concesión por estricto orden de llegada:</strong> Esto no es un concurso de méritos. La Junta asigna el dinero según entra la solicitud. Cada día que dudas, alguien más se adelanta.</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-primary flex-shrink-0 shadow-sm"><i class="ph ph-warning-circle text-xl"></i></div>
+                            <p class="text-gray-600 dark:text-textSecondary leading-relaxed text-sm md:text-base"><strong class="text-gray-900 dark:text-white">Fondos limitados que se agotan:</strong> Aunque el plazo oficial acabe el 13 de agosto, la convocatoria se cierra fulminantemente en el momento en que la bolsa de dinero se vacía.</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-primary flex-shrink-0 shadow-sm"><i class="ph ph-files text-xl"></i></div>
+                            <p class="text-gray-600 dark:text-textSecondary leading-relaxed text-sm md:text-base"><strong class="text-gray-900 dark:text-white">Tiempo de preparación:</strong> Reunir la documentación requiere rigor. Si esperas al final, el presupuesto ya estará comprometido para otras empresas más rápidas.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-[320px] bg-white dark:bg-[#14141F] p-8 rounded-[2rem] border border-gray-200 dark:border-white/10 flex flex-col items-center text-center shadow-lg">
+                    <i class="ph-fill ph-rocket-launch text-4xl text-primary mb-4"></i>
+                    <p class="text-lg font-heading font-medium text-gray-900 dark:text-white mb-6">Tú decides si aprovechas la oportunidad o la dejas pasar a tu competencia.</p>
+                    <a href="#contacto" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gray-900 text-white dark:bg-white dark:text-gray-900 hover:bg-primary dark:hover:bg-primary dark:hover:text-white font-medium transition-all w-full justify-center">
+                        Inicia tu solicitud <i class="ph ph-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 relative z-10 bg-white dark:bg-[#0A0A0F] border-t border-gray-200 dark:border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="font-heading text-3xl md:text-5xl font-medium text-gray-900 dark:text-white mb-4">Dudas frecuentes antes de contactar</h2>
+                <p class="text-gray-600 dark:text-textSecondary text-lg">Respuestas claras para que tomes la decisión con seguridad.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-up delay-100">
+                
+                <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5">
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4 flex items-start gap-3">
+                        <i class="ph-fill ph-question text-2xl text-primary flex-shrink-0 mt-0.5"></i>
+                        No sé si mi negocio cumple los requisitos.
+                    </h3>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed pl-9">Por eso el diagnóstico es gratuito. En menos de 48 horas te decimos si aplicas, qué líneas te corresponden y por cuánto. Si no cumples, te lo decimos sin rodeos.</p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5">
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4 flex items-start gap-3">
+                        <i class="ph-fill ph-files text-2xl text-primary flex-shrink-0 mt-0.5"></i>
+                        No tengo tiempo para papeleo.
+                    </h3>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed pl-9">Proemote prepara toda la documentación, presenta la solicitud y coordina el proceso con la Junta de Extremadura. Tu único esfuerzo es rellenar el formulario.</p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5">
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4 flex items-start gap-3">
+                        <i class="ph-fill ph-scales text-2xl text-primary flex-shrink-0 mt-0.5"></i>
+                        No sé si vale la pena.
+                    </h3>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed pl-9">Si la ayuda cubre hasta el 80% del coste, la pregunta es si tiene sentido mejorar tu presencia digital a una fracción de lo que costaría normalmente. Si la respuesta es sí, vale la pena.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5">
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4 flex items-start gap-3">
+                        <i class="ph-fill ph-buildings text-2xl text-primary flex-shrink-0 mt-0.5"></i>
+                        ¿Pueden solicitar esta ayuda las empresas?
+                    </h3>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed pl-9">Sí. Esta convocatoria está dirigida tanto a autónomos como a pymes y pequeñas empresas con actividad económica y sede fiscal en Extremadura.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5">
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4 flex items-start gap-3">
+                        <i class="ph-fill ph-link-simple text-2xl text-primary flex-shrink-0 mt-0.5"></i>
+                        ¿Es compatible con el Kit Digital?
+                    </h3>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed pl-9">Sí. Esta ayuda es autonómica y perfectamente compatible con el Kit Digital (que es estatal). En el diagnóstico analizamos qué puedes combinar.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border-gray-200 dark:border-white/5">
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4 flex items-start gap-3">
+                        <i class="ph-fill ph-bank text-2xl text-primary flex-shrink-0 mt-0.5"></i>
+                        ¿Tengo que financiar el proyecto entero?
+                    </h3>
+                    <p class="text-sm text-gray-600 dark:text-textSecondary leading-relaxed pl-9">No. La Junta transfiere el 50% del importe subvencionado como anticipo directo. Tu aportación real inicial es solo tu parte no subvencionada.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-32 relative bg-gray-50 dark:bg-bgSurface/30 border-t border-gray-200 dark:border-white/5">
+        <div class="max-w-7xl mx-auto px-6 reveal-up">
+            <div class="glass-card rounded-[3rem] p-8 md:p-16 border-primary/20 overflow-hidden relative shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-xs font-medium uppercase tracking-wider mb-6">
+                            <i class="ph-fill ph-warning-circle"></i> Plazo disponible hasta el 13 de agosto de 2026
+                        </div>
+                        <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-gray-900 dark:text-white leading-tight">Los fondos se agotan por <span class="text-gradient-primary">orden de llegada.</span></h2>
+                        <p class="text-gray-600 dark:text-textSecondary text-lg mb-8 leading-relaxed">Cuéntanos tu caso ahora y en menos de 48 horas te decimos si aplicas, qué puedes solicitar y cómo lo gestionamos juntos. Sin compromiso.</p>
+                        
+                        <div class="space-y-4 mb-10">
+                            <div class="flex items-center gap-3 text-gray-800 dark:text-white/90">
+                                <i class="ph-fill ph-check-circle text-primary text-xl"></i>
+                                <span class="font-medium">Diagnóstico gratuito en menos de 48 horas</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-gray-800 dark:text-white/90">
+                                <i class="ph-fill ph-check-circle text-primary text-xl"></i>
+                                <span class="font-medium">Nos encargamos de la tramitación y la ejecución</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="h-full flex flex-col relative">
+                        <form id="ayudas-form" class="glass-form p-8 md:p-10 rounded-[2rem] shadow-xl min-h-[400px] flex flex-col">
+                            
+                            <div class="form-step active flex-col flex-grow">
+                                <h3 class="text-xl md:text-2xl font-heading text-gray-900 dark:text-white mb-6">¿Dónde te enviamos el diagnóstico de viabilidad?</h3>
+                                
+                                <div class="space-y-4 overflow-y-auto max-h-[350px] pr-2 custom-scrollbar">
+                                    <div>
+                                        <label class="block text-sm text-gray-700 dark:text-white/80 mb-1">Tu nombre completo *</label>
+                                        <input type="text" name="Nombre" required class="typeform-input" placeholder="Ej: Carlos Gómez">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm text-gray-700 dark:text-white/80 mb-1">Nombre de tu empresa *</label>
+                                        <input type="text" name="Empresa" required class="typeform-input" placeholder="Nombre comercial">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm text-gray-700 dark:text-white/80 mb-1">Tu mejor email *</label>
+                                        <input type="email" name="Email" required class="typeform-input" placeholder="carlos@empresa.com">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm text-gray-700 dark:text-white/80 mb-1">Teléfono *</label>
+                                        <input type="tel" name="Telefono" required class="typeform-input" placeholder="+34 600 000 000">
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-8">
+                                    <!-- CTA Optimizado sin alerta invasiva -->
+                                    <button type="button" onclick="showFormSuccess()" class="w-full px-8 py-4 bg-primary hover:bg-accent text-white font-medium rounded-xl transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(123,97,255,0.4)]">
+                                        Solicitar diagnóstico gratuito ahora <i class="ph ph-paper-plane-tilt"></i>
+                                    </button>
+                                </div>
+                                
+                                <!-- Feedback de Formulario -->
+                                <div id="form-feedback" class="hidden mt-4 p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-emerald-600 dark:text-emerald-400 text-sm font-medium text-center">
+                                    <i class="ph-fill ph-check-circle mr-1"></i> ¡Solicitud enviada! Te contactaremos pronto.
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white dark:bg-[#0A0A0F] border-t border-gray-200 dark:border-white/5 pt-16 pb-8 text-center text-gray-500 dark:text-white/40 text-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <p>© 2026 Proemote Studio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante WhatsApp -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3 group reveal-up active">
+        <a href="https://wa.me/34641576286" target="_blank" aria-label="Contactar por WhatsApp" class="relative w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300">
+            <i class="ph-fill ph-whatsapp-logo text-3xl text-white"></i>
+        </a>
+    </div>
+
+    <script>
+        // Lógica Calculadora Ayudas Dinámica
+        function calculateAid() {
+            let total = 0;
+            const checkboxes = document.querySelectorAll('input[name="calc_service"]:checked');
+            
+            checkboxes.forEach(cb => {
+                total += parseInt(cb.value);
+            });
+
+            // Límite máximo según bases de la subvención
+            if (total > 20000) {
+                total = 20000;
+            }
+
+            const resultBox = document.getElementById('calc-result-box');
+            const totalElement = document.getElementById('calc-total');
+            const btnContainer = document.getElementById('calc-btn-container');
+
+            if(total === 0) {
+                // UI friendly error instead of alert
+                totalElement.innerText = "0€";
+                resultBox.classList.remove('hidden');
+                btnContainer.classList.add('hidden');
+                return;
+            }
+
+            resultBox.classList.remove('hidden');
+            btnContainer.classList.add('hidden');
+            
+            // Efecto contador
+            let current = 0;
+            const increment = Math.ceil(total / 20);
+            const timer = setInterval(() => {
+                current += increment;
+                if(current >= total) {
+                    current = total;
+                    clearInterval(timer);
+                    totalElement.innerText = "Hasta " + current.toLocaleString('es-ES') + '€';
+                } else {
+                    totalElement.innerText = current.toLocaleString('es-ES') + '€';
+                }
+            }, 30);
+        }
+
+        // Form Success Logic (Replaces Alert)
+        function showFormSuccess() {
+            const btn = document.querySelector('button[onclick="showFormSuccess()"]');
+            const feedback = document.getElementById('form-feedback');
+            btn.innerHTML = 'Enviando... <i class="ph ph-spinner animate-spin"></i>';
+            btn.classList.add('opacity-70', 'cursor-not-allowed');
+            
+            setTimeout(() => {
+                btn.style.display = 'none';
+                feedback.classList.remove('hidden');
+            }, 800);
+        }
+
+        // Reveal Animations Observer
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-up').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>

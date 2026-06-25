@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lessandra Rodrigues | Bienestar Físico y Energético</title>
+    
+    <!-- Fuentes Premium: Playfair Display & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            lavender: '#7B5C9E',
+                            lavenderLight: '#DCC7F0',
+                            magenta: '#C64F8D',
+                            white: '#FAF8FC',
+                            bgSoft: '#F4EFF8',
+                            dark: '#2E2E2E',
+                            darkLight: '#4A4A4A'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(123, 92, 158, 0.12)',
+                        'hover': '0 20px 50px -15px rgba(123, 92, 158, 0.25)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        
+        /* Carrusel Scroll Nativo */
+        .carousel-track {
+            display: flex;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE and Edge */
+            scroll-behavior: smooth;
+        }
+        .carousel-track::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
+        }
+    </style>
+</head>
+<body class="text-brand-dark font-sans antialiased bg-brand-white selection:bg-brand-lavenderLight selection:text-brand-dark overflow-x-hidden">
+
+    <div class="fixed top-6 w-full z-50 flex justify-center px-4 pointer-events-none">
+        <nav class="bg-brand-lavender text-brand-white px-8 py-3.5 rounded-full shadow-hover flex items-center justify-between gap-8 md:gap-12 w-max pointer-events-auto border border-brand-lavenderLight/30 backdrop-blur-md">
+            <a href="#" class="flex items-center justify-center bg-brand-white/10 w-10 h-10 rounded-full hover:bg-brand-white/20 transition-colors">
+                <!-- Icono Hoja / Loto -->
+                <svg class="w-5 h-5 text-brand-lavenderLight" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 font-serif text-[15px] font-medium tracking-wide">
+                <a href="#enfoque" class="hover:text-brand-lavenderLight transition-colors">Enfoque</a>
+                <a href="#servicios" class="hover:text-brand-lavenderLight transition-colors">Servicios</a>
+                <a href="#sobre-mi" class="hover:text-brand-lavenderLight transition-colors">Sobre mí</a>
+                <a href="#testimonios" class="hover:text-brand-lavenderLight transition-colors">Reseñas</a>
+            </div>
+
+            <a href="#contacto" class="bg-white text-brand-lavender px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-brand-lavenderLight hover:text-brand-dark transition-all duration-300 shadow-sm">
+                Reservar cita
+            </a>
+        </nav>
+    </div>
+
+    <header class="relative pt-40 pb-24 md:pt-56 md:pb-32 px-6 lg:px-8 overflow-hidden flex flex-col items-center justify-center min-h-[90vh]">
+        <!-- Resplandor de fondo -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[600px] bg-brand-lavender/5 rounded-full blur-[120px] -z-10"></div>
+        
+        <div class="relative max-w-4xl mx-auto text-center fade-in">
+            <!-- Píldora Trust -->
+            <div class="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-full bg-white shadow-soft border border-brand-lavenderLight/40 mb-8">
+                <div class="flex gap-1 text-yellow-400">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand-darkLight">5.0 en Google • Centro en Gandía</span>
+            </div>
+
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-[5rem] leading-[1.1] text-brand-dark mb-8">
+                Recupera el equilibrio entre tu <span class="font-bold text-brand-lavender">cuerpo</span>, tu <span class="font-bold text-brand-lavender">energía</span> y tu bienestar
+            </h1>
+            
+            <p class="text-lg md:text-xl text-brand-darkLight mb-12 max-w-2xl mx-auto leading-relaxed">
+                Alivia molestias físicas crónicas, reduce el estrés acumulado y vuelve a sentirte bien contigo misma a través de un enfoque integrativo adaptado a ti.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contacto" class="bg-brand-lavender text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-brand-dark hover:-translate-y-1 transition-all duration-300 shadow-soft w-full sm:w-auto">
+                    Reservar mi valoración
+                </a>
+            </div>
+            
+            <div class="mt-8 flex justify-center gap-6 text-sm text-brand-darkLight font-medium">
+                <span class="flex items-center gap-1"><svg class="w-4 h-4 text-brand-lavender" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Atención personalizada</span>
+                <span class="flex items-center gap-1"><svg class="w-4 h-4 text-brand-lavender" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Certificada en LNT®</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="dolor" class="py-24 px-6 lg:px-8 bg-white border-y border-brand-lavenderLight/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
+                <h2 class="font-serif text-3xl md:text-5xl text-brand-dark mb-6 leading-tight">¿Sientes que tu cuerpo lleva demasiado tiempo pidiéndote una pausa?</h2>
+                <p class="text-brand-darkLight text-lg">Muchas personas terminan acostumbrándose a vivir con dolor o agotamiento. Cada semana que pasa sin abordarlo, la tensión se acumula y tu calidad de vida disminuye.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Tarjeta 1 -->
+                <div class="bg-brand-bgSoft p-10 rounded-[2rem] border border-brand-lavenderLight/50 hover:shadow-hover hover:-translate-y-2 transition-all duration-300 fade-in delay-100 group">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-brand-lavender" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-2xl text-brand-dark mb-3">Agotamiento profundo</h3>
+                    <p class="text-brand-darkLight leading-relaxed">Te despiertas sin energía aunque hayas dormido. Sientes que vas "tirando" del día a día, pero tu batería siempre está al mínimo.</p>
+                </div>
+                <!-- Tarjeta 2 -->
+                <div class="bg-brand-bgSoft p-10 rounded-[2rem] border border-brand-lavenderLight/50 hover:shadow-hover hover:-translate-y-2 transition-all duration-300 fade-in delay-200 group">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-brand-magenta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-2xl text-brand-dark mb-3">Dolor que siempre vuelve</h3>
+                    <p class="text-brand-darkLight leading-relaxed">Convives con molestias en cuello, espalda o mandíbula. Has probado masajes rápidos, pero el alivio desaparece en un par de días.</p>
+                </div>
+                <!-- Tarjeta 3 -->
+                <div class="bg-brand-bgSoft p-10 rounded-[2rem] border border-brand-lavenderLight/50 hover:shadow-hover hover:-translate-y-2 transition-all duration-300 fade-in delay-300 group">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-brand-lavender" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-2xl text-brand-dark mb-3">Mente sobrecargada</h3>
+                    <p class="text-brand-darkLight leading-relaxed">Incluso cuando tienes tiempo libre, te cuesta desconectar. El estrés constante se traduce en tensión muscular y ansiedad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="enfoque" class="py-24 px-6 lg:px-8 bg-brand-lavender text-center">
+        <div class="max-w-4xl mx-auto fade-in">
+            <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl text-white mb-8 leading-tight">
+                Imagina volver a sentirte ligera, equilibrada y con energía.
+            </h2>
+            <p class="text-brand-lavenderLight text-xl md:text-2xl font-medium max-w-3xl mx-auto leading-relaxed">
+                Cuando el cuerpo recupera el equilibrio, todo lo demás empieza a funcionar mejor.
+            </p>
+        </div>
+    </section>
+
+    <section id="servicios" class="py-24 px-6 lg:px-8 bg-brand-white border-b border-brand-lavenderLight/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
+                <span class="text-brand-magenta font-semibold tracking-wider uppercase text-sm mb-4 block">Herramientas a tu disposición</span>
+                <h2 class="font-serif text-3xl md:text-4xl text-brand-dark mb-6">Un enfoque que trata a la persona, no solo los síntomas</h2>
+                <p class="text-brand-darkLight text-lg">No aplicamos un protocolo cerrado. Evaluamos tu cuerpo y utilizamos las técnicas exactas que necesitas en cada momento.</p>
+            </div>
+
+            <!-- Grid de 6 Bloques estilo Imagen 2 -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Servicio 1 -->
+                <div class="rounded-3xl border border-brand-lavenderLight/40 flex flex-col group overflow-hidden bg-white hover:shadow-hover hover:-translate-y-2 transition-all duration-300 fade-in delay-100">
+                    <div class="h-48 bg-brand-lavenderLight/20 relative overflow-hidden flex items-center justify-center">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-40 group-hover:scale-110 group-hover:rotate-6 transition-all duration-700">
+                            <div class="w-32 h-32 border border-brand-lavender rounded-full"></div>
+                            <div class="w-32 h-32 border border-brand-magenta rounded-full absolute -translate-x-8"></div>
+                            <div class="w-32 h-32 border border-brand-lavender rounded-full absolute translate-x-8"></div>
+                        </div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow bg-white">
+                        <span class="text-xs text-brand-darkLight font-medium mb-2 uppercase tracking-wider">Terapia Manual</span>
+                        <h3 class="font-serif text-2xl font-bold text-brand-dark mb-4">Osteopatía</h3>
+                        <p class="text-brand-darkLight leading-relaxed mb-8 flex-grow">Movilidad y equilibrio corporal para tratar bloqueos articulares y fasciales.</p>
+                        <a href="#contacto" class="w-full text-center py-3 rounded-full border border-brand-lavender text-brand-lavender font-medium hover:bg-brand-lavender hover:text-white transition-colors duration-300">Saber más</a>
+                    </div>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="rounded-3xl border border-brand-lavenderLight/40 flex flex-col group overflow-hidden bg-white hover:shadow-hover hover:-translate-y-2 transition-all duration-300 fade-in delay-200">
+                    <div class="h-48 bg-brand-lavenderLight/20 relative overflow-hidden flex items-center justify-center">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-40 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-700">
+                            <div class="w-24 h-24 border border-brand-lavender rounded-tl-full absolute bottom-0 right-1/2"></div>
+                            <div class="w-24 h-24 border border-brand-magenta rounded-tr-full absolute bottom-0 left-1/2"></div>
+                            <div class="w-16 h-16 border border-brand-lavender rounded-full mb-12"></div>
+                        </div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow bg-white">
+                        <span class="text-xs text-brand-darkLight font-medium mb-2 uppercase tracking-wider">Terapia Manual</span>
+                        <h3 class="font-serif text-2xl font-bold text-brand-dark mb-4">Quiromasaje</h3>
+                        <p class="text-brand-darkLight leading-relaxed mb-8 flex-grow">Liberación de tensiones musculares profundas y alivio de la sobrecarga física.</p>
+                        <a href="#contacto" class="w-full text-center py-3 rounded-full border border-brand-lavender text-brand-lavender font-medium hover:bg-brand-lavender hover:text-white transition-colors duration-300">Saber más</a>
+                    </div>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="rounded-3xl border border-brand-lavenderLight/40 flex flex-col group overflow-hidden bg-white hover:shadow-hover hover:-translate-y-2 transition-all duration-300 fade-in delay-300">
+                    <div class="h-48 bg-brand-lavenderLight/20 relative overflow-hidden flex items-center justify-center">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-40 group-hover:scale-110 transition-all duration-700">
+                            <div class="w-40 h-40 border-2 border-brand-lavender rounded-full absolute"></div>
+                            <div class="w-28 h-28 border-2 border-brand-magenta rounded-full absolute"></div>
+                            <div class="w-16 h-16 border border-brand-lavender rounded-full absolute"></div>
+                        </div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow bg-white">
+                        <span class="text-xs text-brand-lavender font-semibold mb-2 uppercase tracking-wider">Terapia Integrativa</span>
+                        <h3 class="font-serif text-2xl font-bold text-brand-dark mb-4">La Nueva Terapia®</h3>
+                        <p class="text-brand-darkLight leading-relaxed mb-8 flex-grow">Equilibrio físico, energético y emocional para liberar bloqueos profundos y estrés celular.</p>
+                        <a href="#contacto" class="w-full text-center py-3 rounded-full border border-brand-lavender text-brand-lavender font-medium hover:bg-brand-lavender hover:text-white transition-colors duration-300">Saber más</a>
+                    </div>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="rounded-3xl border border-brand-lavenderLight/40 flex flex-col group overflow-hidden bg-white hover:shadow-hover hover:-translate-y-2 transition-all duration-300 fade-in delay-100">
+                    <div class="h-48 bg-brand-lavenderLight/20 relative overflow-hidden flex items-center justify-center">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-40 group-hover:scale-110 group-hover:rotate-12 transition-all duration-700">
+                            <div class="w-32 h-16 border border-brand-magenta rounded-full rotate-45 absolute"></div>
+                            <div class="w-32 h-16 border border-brand-lavender rounded-full -rotate-45 absolute"></div>
+                        </div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow bg-white">
+                        <span class="text-xs text-brand-darkLight font-medium mb-2 uppercase tracking-wider">Sistema Nervioso</span>
+                        <h3 class="font-serif text-2xl font-bold text-brand-dark mb-4">Biodinámica</h3>
+                        <p class="text-brand-darkLight leading-relaxed mb-8 flex-grow">Terapia cráneo sacral para regular el sistema nervioso y fomentar la relajación natural.</p>
+                        <a href="#contacto" class="w-full text-center py-3 rounded-full border border-brand-lavender text-brand-lavender font-medium hover:bg-brand-lavender hover:text-white transition-colors duration-300">Saber más</a>
+                    </div>
+                </div>
+
+                <!-- Servicio 5 -->
+                <div class="rounded-3xl border border-brand-lavenderLight/40 flex flex-col group overflow-hidden bg-white hover:shadow-hover hover:-translate-y-2 transition-all duration-300 fade-in delay-200">
+                    <div class="h-48 bg-brand-lavenderLight/20 relative overflow-hidden flex items-center justify-center">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-40 group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-700">
+                            <div class="w-24 h-24 border border-brand-lavender rounded-full absolute -ml-12 mt-8"></div>
+                            <div class="w-24 h-24 border border-brand-magenta rounded-full absolute ml-12 -mt-8"></div>
+                            <div class="w-24 h-24 border border-brand-lavender rounded-full absolute"></div>
+                        </div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow bg-white">
+                        <span class="text-xs text-brand-darkLight font-medium mb-2 uppercase tracking-wider">Depuración</span>
+                        <h3 class="font-serif text-2xl font-bold text-brand-dark mb-4">Drenaje Linfático</h3>
+                        <p class="text-brand-darkLight leading-relaxed mb-8 flex-grow">Estimulación natural para reducir retención de líquidos, toxinas y pesadez.</p>
+                        <a href="#contacto" class="w-full text-center py-3 rounded-full border border-brand-lavender text-brand-lavender font-medium hover:bg-brand-lavender hover:text-white transition-colors duration-300">Saber más</a>
+                    </div>
+                </div>
+
+                <!-- Servicio 6 -->
+                <div class="rounded-3xl border border-brand-lavenderLight/40 flex flex-col group overflow-hidden bg-white hover:shadow-hover hover:-translate-y-2 transition-all duration-300 fade-in delay-300">
+                    <div class="h-48 bg-brand-lavenderLight/20 relative overflow-hidden flex items-center justify-center">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-40 group-hover:scale-110 group-hover:rotate-180 transition-all duration-1000">
+                            <svg width="120" height="120" viewBox="0 0 100 100" fill="none" stroke="currentColor" class="text-brand-lavender opacity-80" stroke-width="1">
+                                <circle cx="50" cy="50" r="40"/>
+                                <circle cx="50" cy="30" r="20"/>
+                                <circle cx="50" cy="70" r="20"/>
+                                <circle cx="30" cy="50" r="20"/>
+                                <circle cx="70" cy="50" r="20"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow bg-white">
+                        <span class="text-xs text-brand-darkLight font-medium mb-2 uppercase tracking-wider">Equilibrio</span>
+                        <h3 class="font-serif text-2xl font-bold text-brand-dark mb-4">Reiki</h3>
+                        <p class="text-brand-darkLight leading-relaxed mb-8 flex-grow">Armonización energética para restablecer la paz interior, reducir estrés y ansiedad.</p>
+                        <a href="#contacto" class="w-full text-center py-3 rounded-full border border-brand-lavender text-brand-lavender font-medium hover:bg-brand-lavender hover:text-white transition-colors duration-300">Saber más</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-mi" class="py-24 px-6 lg:px-8 bg-brand-bgSoft border-b border-brand-lavenderLight/30 overflow-hidden">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <!-- Textos a la izquierda -->
+                <div class="fade-in z-10">
+                    <span class="text-brand-magenta font-semibold tracking-wider uppercase text-sm mb-4 block">Sobre la terapeuta</span>
+                    <h2 class="font-serif text-4xl lg:text-5xl text-brand-dark mb-6 leading-tight">Detrás de cada sesión, una persona que te escucha</h2>
+                    <p class="text-brand-darkLight text-lg mb-6 leading-relaxed">
+                        Mi objetivo no es aplicar una técnica mecánica para tratar una molestia aislada. Busco ayudarte a comprender qué está ocurriendo realmente en tu cuerpo.
+                    </p>
+                    <p class="text-brand-darkLight text-lg mb-8 leading-relaxed">
+                        He dedicado mi carrera a integrar terapias manuales y enfoques bioenergéticos porque sé que <strong class="text-brand-dark font-semibold">el cuerpo físico es solo la última capa donde se manifiesta un desequilibrio</strong>. Trabajo de forma personalizada, sin prisas y en un espacio de total respeto.
+                    </p>
+                    <div class="space-y-3 font-medium text-brand-dark">
+                        <div class="flex items-center gap-3">
+                            <span class="text-brand-magenta">✦</span> Certificada en La Nueva Terapia®
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-brand-magenta">✦</span> Especialista en Osteopatía
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-brand-magenta">✦</span> Enfoque integral cuerpo y mente
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bloque Geometría Derecha (Estilo Imagen 3) -->
+                <div class="bg-brand-lavender rounded-[3rem] p-12 relative flex flex-col items-center justify-center min-h-[500px] shadow-soft fade-in delay-200 overflow-hidden group">
+                    <!-- Geometría animada de fondo -->
+                    <div class="absolute inset-0 flex items-center justify-center opacity-30 group-hover:scale-105 group-hover:rotate-3 transition-all duration-1000">
+                         <svg width="400" height="400" viewBox="0 0 100 100" fill="none" stroke="#FDFBF7" stroke-width="0.5">
+                            <circle cx="50" cy="50" r="40"/>
+                            <circle cx="50" cy="30" r="20"/>
+                            <circle cx="50" cy="70" r="20"/>
+                            <circle cx="30" cy="50" r="20"/>
+                            <circle cx="70" cy="50" r="20"/>
+                            <circle cx="36" cy="36" r="20"/>
+                            <circle cx="64" cy="64" r="20"/>
+                            <circle cx="64" cy="36" r="20"/>
+                            <circle cx="36" cy="64" r="20"/>
+                        </svg>
+                    </div>
+                    
+                    <div class="relative z-10 text-center bg-brand-lavender/40 backdrop-blur-sm p-8 rounded-3xl border border-white/20">
+                        <h3 class="font-serif text-3xl text-white mb-3">Lessandra Rodrigues</h3>
+                        <p class="text-brand-lavenderLight font-medium text-lg">Bienestar Integral en Gandía</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonios" class="py-24 bg-white overflow-hidden border-b border-brand-lavenderLight/30">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="font-serif text-3xl md:text-5xl text-brand-dark mb-4">Personas que ya han recuperado su equilibrio</h2>
+                <div class="flex justify-center items-center gap-1 text-yellow-400 mb-2">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+                <p class="text-brand-darkLight">Valoraciones reales verificadas</p>
+            </div>
+        </div>
+
+        <div class="relative w-full pb-8 cursor-grab active:cursor-grabbing">
+            <div class="absolute top-0 left-0 w-12 md:w-32 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute top-0 right-0 w-12 md:w-32 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+            
+            <div id="carousel-track" class="carousel-track flex gap-6 px-4 md:px-32 w-full">
+                <!-- Reseña 1 -->
+                <div class="w-[340px] md:w-[480px] flex-shrink-0 bg-brand-bgSoft p-10 rounded-[2.5rem] border border-brand-lavenderLight/30 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="flex gap-1 text-yellow-400">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <svg class="w-7 h-7" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                        </div>
+                        <p class="text-brand-dark text-[18px] md:text-xl leading-relaxed mb-6 font-serif">"Desde el minuto uno, ya sabes que estás en las mejores manos! Lessandra es una gran profesional, te trata aplicando varias técnicas... salí de allí renovada, sin dolor, bien atendida. Lo recomiendo totalmente."</p>
+                    </div>
+                    <h4 class="font-sans font-semibold text-brand-lavender text-lg">Itziar - Essentia Deco Staging</h4>
+                </div>
+
+                <!-- Reseña 2 -->
+                <div class="w-[340px] md:w-[480px] flex-shrink-0 bg-brand-bgSoft p-10 rounded-[2.5rem] border border-brand-lavenderLight/30 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="flex gap-1 text-yellow-400">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <svg class="w-7 h-7" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                        </div>
+                        <p class="text-brand-dark text-[18px] md:text-xl leading-relaxed mb-6 font-serif">"Excelente profesional. Fui con una tendinitis en el hombro de jugar al pádel y en un par de sesiones conseguí mejorar muchísimo."</p>
+                    </div>
+                    <h4 class="font-sans font-semibold text-brand-lavender text-lg">Sergio Rubio</h4>
+                </div>
+
+                <!-- Reseña 3 -->
+                <div class="w-[340px] md:w-[480px] flex-shrink-0 bg-brand-bgSoft p-10 rounded-[2.5rem] border border-brand-lavenderLight/30 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="flex gap-1 text-yellow-400">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <svg class="w-7 h-7" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                        </div>
+                        <p class="text-brand-dark text-[18px] md:text-xl leading-relaxed mb-6 font-serif">"Muy buen trato tanto energetico como fisico, persona muy cercana y familiar, las dolencias que tenia en el tratamiento se fueron en poco tiempo, y en la parte energetica lo recomiendo a nivel general..."</p>
+                    </div>
+                    <h4 class="font-sans font-semibold text-brand-lavender text-lg">Luis Miguel Muñoz Moreo</h4>
+                </div>
+
+                <!-- Reseña 4 -->
+                <div class="w-[340px] md:w-[480px] flex-shrink-0 bg-brand-bgSoft p-10 rounded-[2.5rem] border border-brand-lavenderLight/30 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="flex gap-1 text-yellow-400">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <svg class="w-7 h-7" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                        </div>
+                        <p class="text-brand-dark text-[18px] md:text-xl leading-relaxed mb-6 font-serif">"Contento chica amable y profesional"</p>
+                    </div>
+                    <h4 class="font-sans font-semibold text-brand-lavender text-lg">trayan nikolov</h4>
+                </div>
+
+                <!-- Reseña 5 -->
+                <div class="w-[340px] md:w-[480px] flex-shrink-0 bg-brand-bgSoft p-10 rounded-[2.5rem] border border-brand-lavenderLight/30 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="flex gap-1 text-yellow-400">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <svg class="w-7 h-7" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                        </div>
+                        <p class="text-brand-dark text-[18px] md:text-xl leading-relaxed mb-6 font-serif">"Excelente atencion, fue espectacular , Quede satisfecha. La recomiendo, muy profesional."</p>
+                    </div>
+                    <h4 class="font-sans font-semibold text-brand-lavender text-lg">Liz Marcelin</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 lg:px-8 bg-white border-b border-brand-lavenderLight/30">
+        <div class="max-w-3xl mx-auto fade-in">
+            <h2 class="font-serif text-3xl md:text-4xl text-brand-dark mb-10 text-center">Dudas Frecuentes</h2>
+            <div class="space-y-4">
+                <div class="bg-brand-bgSoft rounded-2xl border border-brand-lavenderLight/30 shadow-sm overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none">
+                        <span class="font-serif text-lg font-medium text-brand-dark">¿Qué tratamiento necesito elegir antes de ir?</span>
+                        <svg class="faq-icon w-5 h-5 text-brand-lavender transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="px-6 pb-5 hidden text-brand-darkLight">
+                        Ninguno en específico. El objetivo de la primera sesión es valorar tu situación actual para adaptar el enfoque y las herramientas exactas a lo que tu cuerpo necesita en este momento.
+                    </div>
+                </div>
+                <div class="bg-brand-bgSoft rounded-2xl border border-brand-lavenderLight/30 shadow-sm overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none">
+                        <span class="font-serif text-lg font-medium text-brand-dark">¿Necesito creer en las terapias energéticas?</span>
+                        <svg class="faq-icon w-5 h-5 text-brand-lavender transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="px-6 pb-5 hidden text-brand-darkLight">
+                        En absoluto. No es necesario tener un enfoque espiritual. Muchas personas con perfiles muy racionales acuden buscando relajación profunda del sistema nervioso o un acompañamiento físico complementario.
+                    </div>
+                </div>
+                <div class="bg-brand-bgSoft rounded-2xl border border-brand-lavenderLight/30 shadow-sm overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none">
+                        <span class="font-serif text-lg font-medium text-brand-dark">¿Cuántas sesiones necesitaré?</span>
+                        <svg class="faq-icon w-5 h-5 text-brand-lavender transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="px-6 pb-5 hidden text-brand-darkLight">
+                        No trabajamos con bonos interminables ni permanencias. El número de sesiones depende exclusivamente de tu situación inicial, cómo responda tu cuerpo y los objetivos que busquemos conseguir.
+                    </div>
+                </div>
+                <div class="bg-brand-bgSoft rounded-2xl border border-brand-lavenderLight/30 shadow-sm overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none">
+                        <span class="font-serif text-lg font-medium text-brand-dark">¿La Nueva Terapia® (LNT) sustituye tratamientos médicos?</span>
+                        <svg class="faq-icon w-5 h-5 text-brand-lavender transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="px-6 pb-5 hidden text-brand-darkLight">
+                        No. La LNT y el resto de técnicas que aplicamos son terapias complementarias orientadas al bienestar integral. Jamás sustituyen el consejo, diagnóstico o tratamiento de un médico.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 lg:px-8 bg-brand-white">
+        <div class="max-w-3xl mx-auto fade-in">
+            <div class="text-center mb-12">
+                <h2 class="font-serif text-3xl md:text-4xl text-brand-dark mb-4">Solicita información o reserva tu cita</h2>
+                <p class="text-brand-darkLight text-lg">Déjame tus datos y me pondré en contacto contigo lo antes posible para valorar tu caso.</p>
+            </div>
+            <form class="bg-brand-bgSoft p-8 md:p-12 rounded-[2.5rem] shadow-soft border border-brand-lavenderLight/40 flex flex-col gap-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="flex flex-col gap-2">
+                        <label for="nombre" class="text-sm font-semibold text-brand-darkLight pl-2">Nombre completo</label>
+                        <input type="text" id="nombre" placeholder="Tu nombre" class="w-full px-6 py-4 rounded-full bg-white border border-brand-lavenderLight/50 focus:outline-none focus:border-brand-lavender focus:ring-1 focus:ring-brand-lavender transition-all">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label for="telefono" class="text-sm font-semibold text-brand-darkLight pl-2">Teléfono</label>
+                        <input type="tel" id="telefono" placeholder="Tu teléfono" class="w-full px-6 py-4 rounded-full bg-white border border-brand-lavenderLight/50 focus:outline-none focus:border-brand-lavender focus:ring-1 focus:ring-brand-lavender transition-all">
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="mensaje" class="text-sm font-semibold text-brand-darkLight pl-2">¿En qué puedo ayudarte?</label>
+                    <textarea id="mensaje" rows="4" placeholder="Cuéntame brevemente qué molestias sientes o qué necesitas..." class="w-full px-6 py-4 rounded-[2rem] bg-white border border-brand-lavenderLight/50 focus:outline-none focus:border-brand-lavender focus:ring-1 focus:ring-brand-lavender transition-all resize-none"></textarea>
+                </div>
+                <button type="button" class="w-full bg-brand-lavender text-white font-semibold text-lg py-4 rounded-full hover:bg-brand-dark transition-colors mt-2 shadow-sm">
+                    Enviar solicitud
+                </button>
+                <p class="text-xs text-center text-brand-darkLight/70 mt-2">Tus datos son privados y seguros. Nunca enviaremos spam.</p>
+            </form>
+        </div>
+    </section>
+
+    <footer id="contacto" class="bg-brand-lavender pt-32 pb-12 relative overflow-hidden flex flex-col items-center">
+        <!-- Contenido principal del footer -->
+        <div class="relative z-20 max-w-4xl mx-auto text-center px-6 fade-in">
+            <h2 class="font-serif text-3xl md:text-5xl leading-tight mb-4 text-white">
+                Respira, encuentra la paz y tu plenitud.<br>
+                Te espero de corazón.
+            </h2>
+            <p class="font-serif text-xl md:text-2xl mb-8 text-brand-lavenderLight">Lessandra Rodrigues</p>
+            
+            <p class="text-5xl md:text-7xl font-light mb-10 tracking-tight text-white">(+34) 601 86 19 40</p>
+            
+            <div class="flex flex-col items-center gap-4 mb-16">
+                <a href="https://maps.app.goo.gl/" target="_blank" class="inline-flex items-center gap-2 border border-brand-lavenderLight/50 bg-white/10 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-white hover:text-brand-dark transition-all duration-300">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    C/ Tirso de Molina, 15, 46701 Gandia, Valencia
+                </a>
+                <div class="inline-flex items-center gap-2 px-6 py-2 rounded-full text-sm font-medium text-brand-lavenderLight">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Horario: Cierra a las 14:00 · Vuelve a abrir a las 16:00
+                </div>
+            </div>
+            
+            <!-- Legal -->
+            <div class="w-full pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-brand-lavenderLight border-t border-brand-lavenderLight/20">
+                <div>&copy; <script>document.write(new Date().getFullYear())</script> Lessandra Rodrigues. Gandía.</div>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition-colors">Aviso Legal</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacidad</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Geometría Inferior (Beige translúcido) -->
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] pointer-events-none opacity-[0.15] z-10">
+            <div class="w-full h-full border-t-2 border-l-2 border-r-2 border-[#FDFBF7] rounded-t-full relative flex justify-center items-end">
+                <div class="w-[600px] h-[300px] border-t-2 border-l-2 border-r-2 border-[#FDFBF7] rounded-t-full absolute"></div>
+                <div class="w-[400px] h-[200px] border-t-2 border-l-2 border-r-2 border-[#FDFBF7] rounded-t-full absolute"></div>
+                <!-- Círculos superpuestos base -->
+                <div class="w-[800px] h-[800px] border-2 border-[#FDFBF7] rounded-full absolute -bottom-[400px] left-[400px]"></div>
+                <div class="w-[800px] h-[800px] border-2 border-[#FDFBF7] rounded-full absolute -bottom-[400px] right-[400px]"></div>
+                
+                <!-- Hojas centrales de la flor -->
+                <div class="absolute w-[400px] h-[400px] bottom-0 origin-bottom flex justify-center">
+                    <div class="w-[200px] h-[400px] border-l-2 border-r-2 border-[#FDFBF7] rounded-[100%] absolute origin-bottom rotate-30"></div>
+                    <div class="w-[200px] h-[400px] border-l-2 border-r-2 border-[#FDFBF7] rounded-[100%] absolute origin-bottom -rotate-30"></div>
+                    <div class="w-[200px] h-[400px] border-l-2 border-r-2 border-[#FDFBF7] rounded-[100%] absolute origin-bottom rotate-90"></div>
+                    <div class="w-[200px] h-[400px] border-l-2 border-r-2 border-[#FDFBF7] rounded-[100%] absolute origin-bottom -rotate-90"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/34601861940" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <script>
+        // Animaciones de scroll Fade-in
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Soft Slow Scroll para Anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                if (!targetId) return;
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                    const startPosition = window.scrollY;
+                    const distance = targetPosition - startPosition;
+                    const duration = 1200; // 1.2 segundos para curva suave
+                    let start = null;
+
+                    window.requestAnimationFrame(function step(timestamp) {
+                        if (!start) start = timestamp;
+                        const progress = timestamp - start;
+                        
+                        // Easing function (easeInOutCubic)
+                        const ease = progress < duration / 2 
+                            ? 4 * Math.pow(progress / duration, 3) 
+                            : 1 - Math.pow(-2 * progress / duration + 2, 3) / 2;
+                        
+                        window.scrollTo(0, startPosition + distance * ease);
+                        
+                        if (progress < duration) {
+                            window.requestAnimationFrame(step);
+                        } else {
+                            window.scrollTo(0, targetPosition);
+                        }
+                    });
+                }
+            });
+        });
+
+        // Acordeón FAQ
+        const faqButtons = document.querySelectorAll('.faq-btn');
+        faqButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('.faq-icon');
+                const isHidden = content.classList.contains('hidden');
+                
+                document.querySelectorAll('.faq-btn').forEach(otherBtn => {
+                    if(otherBtn !== button) {
+                        otherBtn.nextElementSibling.classList.add('hidden');
+                        otherBtn.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+                    }
+                });
+
+                if (isHidden) {
+                    content.classList.remove('hidden');
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    content.classList.add('hidden');
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+
+        // Carrusel Infinito (Animación JS Robusta)
+        const track = document.getElementById('carousel-track');
+        if (track) {
+            // Duplicamos el contenido interior para lograr el bucle infinito visualmente
+            track.innerHTML += track.innerHTML;
+            
+            let scrollPos = 0;
+            let isHovered = false;
+            let isDragging = false;
+            let startX, scrollLeftPos;
+
+            function scrollLoop() {
+                if (!isHovered && !isDragging) {
+                    scrollPos += 0.5; // Velocidad del auto-scroll
+                    
+                    // Si llegamos a la mitad exacta del scrollWidth (donde empieza el clon), reseteamos
+                    if (scrollPos >= track.scrollWidth / 2) {
+                        scrollPos = 0;
+                    }
+                    track.scrollLeft = scrollPos;
+                }
+                requestAnimationFrame(scrollLoop);
+            }
+
+            // Iniciamos bucle
+            requestAnimationFrame(scrollLoop);
+
+            // Pausar auto-scroll al pasar el ratón o tocar
+            track.addEventListener('mouseenter', () => isHovered = true);
+            track.addEventListener('mouseleave', () => {
+                isHovered = false;
+                scrollPos = track.scrollLeft;
+            });
+            track.addEventListener('touchstart', () => isHovered = true, {passive: true});
+            track.addEventListener('touchend', () => {
+                isHovered = false;
+                scrollPos = track.scrollLeft;
+            });
+            
+            // Permitir arrastre (Drag to scroll) para escritorio
+            track.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.pageX - track.offsetLeft;
+                scrollLeftPos = track.scrollLeft;
+            });
+            track.addEventListener('mouseup', () => {
+                isDragging = false;
+                scrollPos = track.scrollLeft;
+            });
+            track.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                const x = e.pageX - track.offsetLeft;
+                const walk = (x - startX) * 2; // Multiplicador de velocidad de arrastre
+                track.scrollLeft = scrollLeftPos - walk;
+            });
+
+            // Sincronizar posición de scroll manual con la variable
+            track.addEventListener('scroll', () => {
+                if (isHovered || isDragging) {
+                    scrollPos = track.scrollLeft;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
