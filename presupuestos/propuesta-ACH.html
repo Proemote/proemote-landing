@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Comercial Proemote — Emprende y Despega 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Añadimos Phosphor Icons para la iconografía premium -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        :root {
+            /* Paleta Cromática Inamovible */
+            --bg-base: #080810;
+            --bg-secondary: #0F0F1A;
+            --purple-primary: #7B5BF5;
+            --purple-glow: #9D7FFF;
+            --purple-deep: #3D2A8A;
+            /* Eliminado el acento dorado, unificamos con blancos y morados */
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0A8D0;
+            --text-muted: #6B6490;
+            --border-glass: rgba(123, 91, 245, 0.25);
+            --surface-glass: rgba(255, 255, 255, 0.04);
+            
+            /* Tipografías */
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        /* Reset & Base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            background-image: 
+                radial-gradient(ellipse 60% 50% at 80% 10%, var(--purple-deep) 0%, transparent 60%),
+                linear-gradient(rgba(123,91,245,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(123,91,245,0.05) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+            background-attachment: fixed;
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        /* Contenedor principal ajustado para A4 / PDF export */
+        .document-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        /* Typography Rules */
+        .title-hero {
+            font-family: var(--font-heading);
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.1;
+            margin-bottom: 40px;
+            letter-spacing: -0.02em;
+        }
+
+        .title-hero .gradient-text {
+            background: linear-gradient(90deg, var(--purple-glow), #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        h1.section-title {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            margin-top: 48px;
+        }
+
+        h1.section-title::before {
+            content: '';
+            display: block;
+            width: 3px;
+            height: 24px;
+            background-color: var(--purple-primary);
+            border-radius: 2px;
+            box-shadow: 0 0 10px var(--purple-glow);
+        }
+
+        h2.subsection-title {
+            font-family: var(--font-heading);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--purple-glow);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .meta-text {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(123, 91, 245, 0.15);
+            padding-bottom: 16px;
+        }
+
+        /* Glassmorphism Rules */
+        .glass-panel {
+            background: var(--surface-glass);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(123, 91, 245, 0.20);
+            border-radius: 16px;
+            box-shadow: 
+                0 4px 32px rgba(123, 91, 245, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            padding: 32px;
+            margin-bottom: 24px;
+            page-break-inside: avoid;
+        }
+
+        .glass-panel-hero {
+            box-shadow: 
+                0 0 40px rgba(123, 91, 245, 0.20),
+                0 4px 32px rgba(0, 0, 0, 0.60),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(123, 91, 245, 0.40);
+        }
+
+        /* Layout Específico */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .info-row {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .info-label {
+            color: var(--text-muted);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .info-value {
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        /* Pricing Grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 24px;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            display: flex;
+            flex-direction: column;
+            padding: 32px 24px;
+            position: relative;
+        }
+
+        .pricing-header {
+            margin-bottom: 24px;
+        }
+
+        .tier-name {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .tier-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            min-height: 40px;
+        }
+
+        .price-container {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(123, 91, 245, 0.15);
+        }
+
+        .price-amount {
+            font-family: var(--font-heading);
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .price-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .features-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-grow: 1;
+        }
+
+        .features-list li {
+            font-size: 13px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.4;
+        }
+
+        .features-list li.negative {
+            color: var(--text-muted);
+            opacity: 0.6;
+        }
+
+        .check-icon {
+            color: var(--purple-primary);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .cross-icon {
+            color: var(--text-muted);
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .badge-recommended {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, var(--purple-deep), var(--purple-primary));
+            color: #FFFFFF;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 4px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(157, 127, 255, 0.4);
+            box-shadow: 0 4px 12px rgba(123, 91, 245, 0.4);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Why it works Grid */
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .reason-card h2.subsection-title {
+            color: var(--purple-primary);
+            margin-bottom: 8px;
+        }
+        
+        .reason-card p {
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            margin-top: 48px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 48px;
+        }
+
+        .cta-section h1.section-title {
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+        
+        .cta-section h1.section-title::before {
+            display: none;
+        }
+
+        /* Contenedor de Botones de Decisión */
+        .cta-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--purple-primary), var(--purple-deep));
+            color: var(--text-primary);
+            font-family: var(--font-heading);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(123, 91, 245, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 6px 24px rgba(123, 91, 245, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--surface-glass);
+            border: 1px solid var(--border-glass);
+            color: var(--text-primary);
+            font-family: var(--font-heading);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(123, 91, 245, 0.1);
+        }
+
+        .btn-tertiary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            border: 1px dashed rgba(107, 100, 144, 0.4);
+            color: var(--text-muted);
+            font-family: var(--font-heading);
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 16px 24px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-tertiary:hover {
+            color: var(--text-secondary);
+            border-color: var(--text-muted);
+        }
+
+        .disclaimer {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 20px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        /* Optimizaciones para Impresión PDF */
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                background-color: var(--bg-base) !important;
+            }
+            .document-container {
+                padding: 12mm 15mm;
+            }
+            /* Evitar cortes feos en medio de elementos */
+            .pricing-card, .reason-card, .cta-section {
+                page-break-inside: avoid;
+            }
+            .pricing-grid {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        
+        <!-- Header / Metadatos -->
+        <div class="meta-text">
+            <span style="display: flex; align-items: center; gap: 6px;"><i class="ph ph-file-text" style="font-size: 16px;"></i> Proemote · Propuesta comercial</span>
+            <span style="display: flex; align-items: center; gap: 6px;"><i class="ph ph-calendar-blank" style="font-size: 16px;"></i> Junio 2026</span>
+        </div>
+
+        <!-- Portada / Hero Title -->
+        <h1 class="title-hero">
+            Campaña digital <br>
+            <span class="gradient-text">Emprende y Despega 2026</span>
+        </h1>
+
+        <!-- Contexto Glass Panel -->
+        <section class="glass-panel info-grid">
+            <div class="info-row">
+                <span class="info-label"><i class="ph ph-target" style="margin-right: 4px;"></i> Para</span>
+                <span class="info-value">Acción contra el Hambre · Extremadura</span>
+            </div>
+            <div class="info-row" style="margin-top: 8px;">
+                <span class="info-label"><i class="ph ph-crosshair" style="margin-right: 4px;"></i> Objetivo</span>
+                <p style="margin-bottom: 0; margin-top: 4px;">Maximizar inscripciones al concurso mediante campaña digital segmentada en Extremadura — con el respaldo directo de quien ya participó y ganó el programa.</p>
+            </div>
+            
+            <div style="margin-top: 16px; padding-top: 24px; border-top: 1px solid rgba(123, 91, 245, 0.15);">
+                <h2 class="subsection-title"><i class="ph ph-medal" style="margin-right: 4px; font-size: 16px;"></i> Ganador del Premio Impulso 2025</h2>
+                <p style="margin-bottom: 0;">No es solo marketing — es el testimonio real de alguien que vivió el proceso, formó su plan de empresa y ganó. Esa credibilidad no se compra en ninguna agencia externa.</p>
+            </div>
+        </section>
+
+        <!-- Pricing Options -->
+        <h1 class="section-title"><i class="ph ph-stack"></i> Niveles de inversión</h1>
+        
+        <div class="pricing-grid">
+            
+            <!-- Tier 1: Starter -->
+            <div class="glass-panel pricing-card">
+                <div class="pricing-header">
+                    <div class="tier-name">Starter</div>
+                    <div class="tier-desc">Presencia orgánica sin publicidad</div>
+                </div>
+                <div class="price-container">
+                    <div class="price-amount">490 €</div>
+                    <div class="price-meta">única inversión · 4 semanas</div>
+                </div>
+                <ul class="features-list">
+                    <li><i class="ph-fill ph-check-circle check-icon"></i> Diagnóstico de público objetivo en Extremadura</li>
+                    <li><i class="ph-fill ph-check-circle check-icon"></i> Planificación de contenidos (4 sem.)</li>
+                    <li><i class="ph-fill ph-check-circle check-icon"></i> 8 copys para publicaciones orgánicas</li>
+                    <li><i class="ph-fill ph-check-circle check-icon"></i> Adaptación para Instagram y Facebook</li>
+                    <li><i class="ph-fill ph-check-circle check-icon"></i> 1 ronda de revisiones incluida</li>
+                    <li class="negative"><i class="ph-fill ph-x-circle cross-icon"></i> Sin vídeo testimonial</li>
+                    <li class="negative"><i class="ph-fill ph-x-circle cross-icon"></i> Sin gestión de Meta Ads</li>
+                </ul>
+            </div>
+
+            <!-- Tier 2: Growth (HERO) -->
+            <div class="glass-panel glass-panel-hero pricing-card">
+                <div class="badge-recommended"><i class="ph-fill ph-star"></i> Recomendado</div>
+                <div class="pricing-header">
+                    <div class="tier-name">Growth</div>
+                    <div class="tier-desc">Campaña completa + testimonio real</div>
+                </div>
+                <div class="price-container">
+                    <div class="price-amount">890 €</div>
+                    <div class="price-meta">única inversión · 4–6 semanas</div>
+                </div>
+                <ul class="features-list">
+                    <li><i class="ph-fill ph-check-circle check-icon"></i> Diagnóstico y estrategia de captación</li>
+                    <li><i class="ph-fill ph-check-circle check-icon"></i> Planificación de contenidos (4–6 sem.)</li>
+                    <li><i class="ph-fill ph-check-circle check-icon"></i> 14 copys adaptados por plataforma</li>
+                    <li><i class="ph-fill ph-check-circle check-icon"></i> <strong>Vídeo testimonial de ganador real</strong> (vertical + horizontal)</li>
+                    <li><i class="ph-fill ph-check-circle check-icon"></i> Configuración y gestión de Meta Ads</li>
+                    <li><i class="ph-fill ph-check-circle check-icon"></i> Optimización y ajustes semanales</li>
+                    <li><i class="ph-fill ph-check-circle check-icon"></i> 2 rondas de revisiones + informe de cierre</li>
+                </ul>
+            </div>
+
+            <!-- Tier 3: Scale -->
+            <div class="glass-panel pricing-card">
+                <div class="pricing-header">
+                    <div class="tier-name">Scale</div>
+                    <div class="tier-desc">Máxima cobertura y contenido</div>
+                </div>
+                <div class="price-container">
+                    <div class="price-amount">1.290 €</div>
+                    <div class="price-meta">única inversión · 6–8 semanas</div>
+                </div>
+                <ul class="features-list">
+                    <li><i class="ph-fill ph-check-circle check-icon"></i> Todo lo incluido en Growth</li>
+                    <li><i class="ph-fill ph-check-circle check-icon"></i> 20 copys + variaciones A/B para anuncios</li>
+                    <li><i class="ph-fill ph-check-circle check-icon"></i> Vídeo testimonial + <strong>2 reels adicionales</strong></li>
+                    <li><i class="ph-fill ph-check-circle check-icon"></i> Gestión Meta Ads con reporting semanal</li>
+                    <li><i class="ph-fill ph-check-circle check-icon"></i> Estrategia de retargeting</li>
+                    <li><i class="ph-fill ph-check-circle check-icon"></i> Informe final detallado con aprendizajes</li>
+                </ul>
+            </div>
+            
+        </div>
+
+        <p class="disclaimer">
+            * El presupuesto publicitario de Meta Ads se gestiona de forma independiente — no está incluido en ningún nivel. Con 200–400 € adicionales en anuncios la campaña tiene un alcance regional muy sólido.
+        </p>
+
+        <!-- Features / Por qué funciona -->
+        <h1 class="section-title"><i class="ph ph-lightning"></i> Por qué funciona</h1>
+        <div class="reasons-grid">
+            <div class="glass-panel reason-card" style="padding: 24px;">
+                <i class="ph-fill ph-video-camera" style="font-size: 32px; color: var(--purple-glow); margin-bottom: 12px; display: block;"></i>
+                <h2 class="subsection-title">Testimonio real</h2>
+                <p>Un ganador hablando a cámara convierte mucho más que cualquier anuncio genérico.</p>
+            </div>
+            <div class="glass-panel reason-card" style="padding: 24px;">
+                <i class="ph-fill ph-map-pin" style="font-size: 32px; color: var(--purple-glow); margin-bottom: 12px; display: block;"></i>
+                <h2 class="subsection-title">Segmentación local</h2>
+                <p>Mensajes dirigidos a desempleados y jóvenes emprendedores de Extremadura.</p>
+            </div>
+            <div class="glass-panel reason-card" style="padding: 24px;">
+                <i class="ph-fill ph-trend-up" style="font-size: 32px; color: var(--purple-glow); margin-bottom: 12px; display: block;"></i>
+                <h2 class="subsection-title">Medido en inscripciones</h2>
+                <p>Cada decisión de campaña se orienta a una sola métrica: participantes captados.</p>
+            </div>
+        </div>
+
+        <!-- Cómo trabajamos -->
+        <h1 class="section-title"><i class="ph ph-git-branch"></i> Cómo trabajamos</h1>
+        <section class="glass-panel">
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                    <div style="background: rgba(123, 91, 245, 0.1); padding: 12px; border-radius: 12px; color: var(--purple-glow); flex-shrink: 0;">
+                        <i class="ph-fill ph-pencil-line" style="font-size: 24px;"></i>
+                    </div>
+                    <div>
+                        <h2 class="subsection-title" style="color: var(--text-primary); margin-bottom: 8px;">1. Control total sobre el mensaje</h2>
+                        <p style="margin-bottom: 0;">Todos los guiones y textos se os facilitan siempre para vuestra revisión antes de hacer nada. O si lo preferís, podéis entregarnos los guiones listos exactamente como queréis que queden y nosotros los ejecutamos.</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                    <div style="background: rgba(123, 91, 245, 0.1); padding: 12px; border-radius: 12px; color: var(--purple-glow); flex-shrink: 0;">
+                        <i class="ph-fill ph-chart-bar" style="font-size: 24px;"></i>
+                    </div>
+                    <div>
+                        <h2 class="subsection-title" style="color: var(--text-primary); margin-bottom: 8px;">2. Transparencia y reporting</h2>
+                        <p style="margin-bottom: 0;">Visibilidad absoluta del progreso. Enviamos informes semanales con métricas de optimización y un reporte mensual detallado para que sepáis en todo momento el coste por inscripción y el alcance real logrado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final Multi-opción -->
+        <section class="glass-panel glass-panel-hero cta-section">
+            <h1 class="section-title"><i class="ph ph-paper-plane-tilt"></i> ¿Cuál es el siguiente paso?</h1>
+            <p style="margin-bottom: 0; max-width: 500px;">Selecciona una opción para avanzar con el nivel que mejor encaje con vuestro presupuesto o escríbenos si tienes cualquier duda técnica.</p>
+            
+            <div class="cta-actions">
+                <!-- Aceptar (Primario) -->
+                <a href="https://wa.me/34641576286?text=Hola%2C%20queremos%20aceptar%20la%20propuesta%20Emprende%20y%20Despega.%20Nuestro%20plan%20elegido%20es%3A" target="_blank" class="btn-primary">
+                    <i class="ph-fill ph-check-circle" style="font-size: 20px;"></i> 
+                    Aceptar propuesta
+                </a>
+                
+                <!-- WhatsApp (Secundario) -->
+                <a href="https://wa.me/34641576286?text=Hola%2C%20tenemos%20algunas%20dudas%20sobre%20la%20propuesta%20Emprende%20y%20Despega%20para%20Acci%C3%B3n%20contra%20el%20Hambre." target="_blank" class="btn-secondary">
+                    <i class="ph ph-whatsapp-logo" style="font-size: 20px;"></i> 
+                    Hablar por WhatsApp
+                </a>
+                
+                <!-- Rechazar (Terciario) -->
+                <a href="https://wa.me/34641576286?text=Hola%2C%20hemos%20revisado%20la%20propuesta%20pero%20hemos%20decidido%20no%20avanzar%20en%20este%20momento.%20Gracias." target="_blank" class="btn-tertiary">
+                    <i class="ph ph-x-circle" style="font-size: 18px;"></i> 
+                    Rechazar
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
