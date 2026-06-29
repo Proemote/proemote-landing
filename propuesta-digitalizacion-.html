@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de digitalización y escalado — Lo Quiero Limpio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Paleta Dark Premium */
+            --bg-base: #080810;
+            --bg-panel: rgba(15, 15, 26, 0.5);
+            --bg-panel-solid: #0f0f1a;
+            
+            --purple-glow: #a78bfa;
+            --purple-primary: #7c3aed;
+            --purple-deep: #4c1d95;
+            --purple-gradient: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+            
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            
+            --border-light: rgba(167, 139, 250, 0.2);
+            --border-glow: rgba(167, 139, 250, 0.4);
+            
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+            
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            
+            /* Patrón grid tecnológico alineado a #080810 */
+            background-image: 
+                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(124, 58, 237, 0.15), transparent),
+                linear-gradient(rgba(124, 58, 237, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(124, 58, 237, 0.04) 1px, transparent 1px);
+            background-size: 100% 100%, 30px 30px, 30px 30px;
+            background-attachment: fixed;
+            text-align: left;
+        }
+
+        /* Fuerza la impresión de fondos para el PDF */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                background-color: var(--bg-base) !important;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            .glass-card, .plan-card, .info-panel {
+                page-break-inside: avoid;
+            }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        /* Degradado morado dinámico para negritas/destacados */
+        strong, b {
+            background: var(--purple-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+        
+        .btn strong, .badge strong, .col-highlight strong {
+            background: none;
+            -webkit-text-fill-color: currentcolor;
+        }
+
+        h1, h2, h3, h4, .font-display {
+            font-family: var(--font-display);
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+
+        /* --- HEADER COMPLETO Y ALINEADO A LA IZQUIERDA --- */
+        header {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 64px;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 24px;
+        }
+
+        .header-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-body);
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+        .header-item svg {
+            color: var(--purple-glow);
+            flex-shrink: 0;
+        }
+
+        /* --- HERO TITLE --- */
+        .hero-title-container {
+            margin-bottom: 40px;
+        }
+        .hero-title {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .hero-subtitle {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--purple-glow);
+        }
+
+        /* --- INFO BLOCK (Glassmorphism) --- */
+        .glass-panel {
+            background: var(--bg-panel);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 32px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        .info-panel {
+            margin-bottom: 64px;
+        }
+
+        .info-grid {
+            display: grid;
+            gap: 20px;
+        }
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .info-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--purple-glow);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .info-value {
+            font-size: 16px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* --- UTILITIES & PANELS --- */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            margin-top: 64px;
+        }
+        .section-icon {
+            color: var(--purple-glow);
+        }
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .glass-card {
+            background: var(--bg-panel);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .text-content p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+        .text-content p:last-child { margin-bottom: 0; }
+
+        /* --- PLAN CARDS (Value Stacking & Glassmorphism) --- */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .plan-card {
+            background: var(--bg-panel);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        .plan-header {
+            padding: 56px 32px 24px;
+            border-bottom: 1px solid rgba(167, 139, 250, 0.1);
+            position: relative;
+        }
+
+        .plan-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .plan-name svg { color: var(--purple-glow); }
+
+        .plan-price-strike {
+            font-size: 15px;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-bottom: 4px;
+            font-family: var(--font-display);
+        }
+        .plan-price-final {
+            font-size: 40px;
+            font-weight: 800;
+            font-family: var(--font-display);
+            color: var(--text-primary);
+            line-height: 1;
+        }
+        
+        .promo-badge {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            background: var(--purple-gradient);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-family: var(--font-display);
+        }
+
+        .plan-body {
+            padding: 24px 32px;
+            flex-grow: 1;
+        }
+
+        .plan-features {
+            list-style: none;
+        }
+        .plan-features li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .plan-features li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a78bfa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .plan-footer {
+            padding: 20px 32px;
+            background: rgba(124, 58, 237, 0.05);
+            border-top: 1px solid rgba(124, 58, 237, 0.1);
+        }
+        
+        .savings-breakdown {
+            font-size: 13px;
+            color: var(--text-secondary);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .savings-row {
+            display: flex;
+            justify-content: space-between;
+        }
+        .savings-row.highlight {
+            color: var(--purple-glow);
+            font-weight: 500;
+            margin-top: 4px;
+            padding-top: 4px;
+            border-top: 1px dashed rgba(167, 139, 250, 0.2);
+        }
+
+        /* --- TABLA DE INVERSIÓN --- */
+        .table-responsive {
+            overflow-x: auto;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+            background: var(--bg-panel);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            margin-bottom: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            min-width: 600px;
+        }
+        th, td {
+            padding: 16px 24px;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(167, 139, 250, 0.1);
+        }
+        th {
+            font-family: var(--font-display);
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 12px;
+            background: rgba(0,0,0,0.2);
+        }
+        td { color: var(--text-secondary); }
+        tr:last-child td { border-bottom: none; }
+        
+        /* Destacado púrpura exclusivo sin rastro de amarillo/dorado */
+        .col-highlight {
+            background: rgba(124, 58, 237, 0.15);
+            color: var(--text-primary) !important;
+            font-weight: 600;
+            border-left: 1px solid var(--border-light);
+            border-right: 1px solid var(--border-light);
+        }
+        th.col-highlight {
+            background: rgba(124, 58, 237, 0.25);
+            color: #fff !important;
+        }
+        
+        .table-total {
+            font-weight: 700;
+            font-family: var(--font-display);
+            font-size: 16px;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .final-price-banner {
+            text-align: left;
+            margin-top: 16px;
+            padding: 40px;
+            background: var(--bg-panel);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--purple-primary);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 0 40px rgba(124, 58, 237, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .final-price-banner p {
+            font-size: 20px;
+            color: var(--text-secondary);
+            font-family: var(--font-display);
+        }
+        .final-price-banner .huge-price {
+            font-size: 64px;
+            font-weight: 800;
+            font-family: var(--font-display);
+            color: var(--purple-glow);
+            line-height: 1;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            gap: 8px;
+            text-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
+        }
+
+        /* --- ROADMAP Y HITOS (CÓMO TRABAJAMOS) --- */
+        .roadmap-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .roadmap-item {
+            background: var(--bg-panel);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .roadmap-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(124, 58, 237, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--purple-glow);
+            flex-shrink: 0;
+            border: 1px solid rgba(167, 139, 250, 0.3);
+        }
+        .roadmap-content h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+        .roadmap-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* --- CTA BUTTONS --- */
+        .cta-section {
+            margin-top: 80px;
+            background: var(--bg-panel);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 48px 32px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        .cta-icon {
+            color: var(--purple-glow);
+            margin-bottom: 16px;
+        }
+        .cta-title {
+            font-size: 28px;
+            margin-bottom: 16px;
+            font-family: var(--font-display);
+            font-weight: 700;
+        }
+        .cta-desc {
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-size: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .buttons-group {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0 28px;
+            height: 52px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: var(--purple-primary);
+            color: white;
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+        }
+        .btn-primary:hover { 
+            background: var(--purple-glow); 
+            box-shadow: 0 4px 25px rgba(167, 139, 250, 0.6);
+            color: #000;
+        }
+
+        .btn-secondary {
+            background: rgba(124, 58, 237, 0.1);
+            color: var(--text-primary);
+            border: 1px solid var(--border-light);
+        }
+        .btn-secondary:hover { 
+            background: rgba(124, 58, 237, 0.2); 
+            border-color: var(--purple-glow);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid transparent;
+        }
+        .btn-ghost:hover { 
+            color: var(--text-primary); 
+            border-color: rgba(255,255,255,0.1); 
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-title, .hero-subtitle { font-size: 36px; }
+            .plans-grid { grid-template-columns: 1fr; }
+            .roadmap-item { flex-direction: column; gap: 16px; }
+            .buttons-group { flex-direction: column; width: 100%; }
+            .btn { width: 100%; }
+            .final-price-banner .huge-price { font-size: 48px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- HEADER COMPLETO ALINEADO A LA IZQUIERDA -->
+        <header>
+            <div class="header-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                Proemote · Propuesta comercial
+            </div>
+            <div class="header-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                Cliente: Lo Quiero Limpio
+            </div>
+            <div class="header-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                Proyecto: Subvención Digitalización Junta Extremadura
+            </div>
+            <div class="header-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                Fecha: Junio 2026
+            </div>
+        </header>
+
+        <!-- HERO TITLE -->
+        <div class="hero-title-container">
+            <h1 class="hero-title">Plan de digitalización</h1>
+            <h2 class="hero-subtitle">y escalado Lo Quiero Limpio</h2>
+        </div>
+
+        <!-- INFO PANEL -->
+        <div class="glass-panel info-panel">
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        Para
+                    </span>
+                    <span class="info-value">Lo Quiero Limpio · Extremadura</span>
+                </div>
+                <div class="info-item" style="margin-top: 8px; padding-top: 16px; border-top: 1px solid var(--border-light);">
+                    <span class="info-label">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        Objetivo de la propuesta
+                    </span>
+                    <p class="info-value text-content" style="color: var(--text-secondary); font-size: 15px; margin-top: 4px;">
+                        Hemos diseñado una propuesta <strong>totalmente personalizada</strong> y adaptada a las necesidades y posibilidades de escalado de tu negocio, ajustando nuestras tarifas al máximo para que pagues lo mínimo y recibas el importe total de la subvención posible.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- BENEFICIOS ESTRATÉGICOS -->
+        <div class="section-header page-break">
+            <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <h2 class="section-title">El momento es ahora</h2>
+        </div>
+        <div class="glass-card text-content">
+            <p>El sector de la limpieza en Extremadura tiene un problema de visibilidad: la gran mayoría de empresas dependen exclusivamente del boca a boca. Lo Quiero Limpio tiene un servicio contrastado y validado, pero necesita un ecosistema que capte la atención local de forma constante y predecible.</p>
+            <p>La subvención de la Junta de Extremadura cubre el <strong>80% de la inversión a fondo perdido</strong>. Esta es una oportunidad única para delegar tu presencia digital en un equipo profesional y construir un sistema de captación sólido, con un coste real para la caja de tu empresa que resulta casi simbólico.</p>
+        </div>
+
+        <!-- PLANES OFERTADOS (VALUE STACKING) -->
+        <div class="section-header page-break">
+            <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            <h2 class="section-title">Qué incluye tu ecosistema</h2>
+        </div>
+        
+        <div class="plans-grid">
+            
+            <!-- Plan Contenidos -->
+            <div class="plan-card">
+                <span class="promo-badge">Incluye 2 meses gratis</span>
+                <div class="plan-header">
+                    <div class="plan-name">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        Agencia de contenidos core
+                    </div>
+                    <div class="plan-price-strike">549 €/mes</div>
+                    <div class="plan-price-final">5.000<span style="font-size: 24px; color: var(--text-muted);">€</span></div>
+                    <div style="font-size: 13px; color: var(--purple-glow); margin-top: 8px;">Presupuesto adaptado a subvención</div>
+                </div>
+                <div class="plan-body">
+                    <ul class="plan-features">
+                        <li>12 meses de estrategia editorial</li>
+                        <li>4 guiones estratégicos al mes</li>
+                        <li>4 reels editados con subtítulos dinámicos</li>
+                        <li>1 sesión de grabación intensiva al mes (2-3h)</li>
+                        <li>Copywriting orientado a conversión</li>
+                        <li>Gestión activa de la comunidad</li>
+                    </ul>
+                </div>
+                <div class="plan-footer">
+                    <div class="savings-breakdown">
+                        <div class="savings-row">
+                            <span>Valor mercado anual:</span>
+                            <span>6.588 €</span>
+                        </div>
+                        <div class="savings-row">
+                            <span>Oferta (2 meses gratis):</span>
+                            <span>-1.098 €</span>
+                        </div>
+                        <div class="savings-row highlight">
+                            <span>Descuento adicional Proemote:</span>
+                            <span>-490 €</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plan SEO -->
+            <div class="plan-card">
+                <span class="promo-badge">Plan anual</span>
+                <div class="plan-header">
+                    <div class="plan-name">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        Posicionamiento SEO core
+                    </div>
+                    <div class="plan-price-strike">249 €/mes</div>
+                    <div class="plan-price-final">2.490<span style="font-size: 24px; color: var(--text-muted);">€</span></div>
+                    <div style="font-size: 13px; color: var(--purple-glow); margin-top: 8px;">Presupuesto adaptado a subvención</div>
+                </div>
+                <div class="plan-body">
+                    <ul class="plan-features">
+                        <li>Auditoría técnica web inicial</li>
+                        <li>Investigación profunda de palabras clave</li>
+                        <li>Optimización SEO continua</li>
+                        <li>SEO local avanzado (Google Business)</li>
+                        <li>Seguimiento mensual de posiciones</li>
+                        <li>Ajustes SEO técnicos periódicos</li>
+                    </ul>
+                </div>
+                <div class="plan-footer">
+                    <div class="savings-breakdown">
+                        <div class="savings-row">
+                            <span>Valor mercado anual:</span>
+                            <span>2.988 €</span>
+                        </div>
+                        <div class="savings-row highlight">
+                            <span>Ahorro por plan anual:</span>
+                            <span>-498 €</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- TABLA DE INVERSIÓN Y SUBVENCIÓN -->
+        <div class="section-header page-break">
+            <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <h2 class="section-title">Desglose de inversión y ayuda</h2>
+        </div>
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Concepto / Servicio</th>
+                        <th>Total presupuesto</th>
+                        <th>Subvención (80%)</th>
+                        <th class="col-highlight">Lo que pagarás</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Agencia de contenidos core (12 meses)</td>
+                        <td>5.000 €</td>
+                        <td>4.000 €</td>
+                        <td class="col-highlight">1.000 €</td>
+                    </tr>
+                    <tr>
+                        <td>Posicionamiento SEO core (12 meses)</td>
+                        <td>2.490 €</td>
+                        <td>1.992 €</td>
+                        <td class="col-highlight">498 €</td>
+                    </tr>
+                    <tr class="table-total">
+                        <td>Total</td>
+                        <td>7.490 €</td>
+                        <td style="color: var(--purple-glow);">5.992 €</td>
+                        <td class="col-highlight" style="font-size: 18px;">1.498 €</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="final-price-banner">
+            <p>Al aprovechar el 80% a fondo perdido de la Junta de Extremadura, obtienes servicios valorados en casi diez mil euros por una mínima fracción.</p>
+            <div class="huge-price">
+                Tu coste final: 1.498 €
+            </div>
+        </div>
+
+        <!-- INGRESO DE LA SUBVENCIÓN Y JUSTIFICACIÓN (NUEVO) -->
+        <div class="section-header" style="margin-top: 48px;">
+            <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h12"/><path d="M4 14h9"/><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></svg>
+            <h2 class="section-title">Ingresos de la ayuda y justificación oficial</h2>
+        </div>
+        <div class="glass-card text-content">
+            <p>La Junta de Extremadura cubre el <strong>80% del gasto subvencionable</strong> (5.992 € en tu caso), que recibirás directamente en la cuenta de tu empresa con el siguiente esquema oficial de abonos:</p>
+            <ul style="color: var(--text-secondary); margin-left: 20px; margin-bottom: 24px; font-size: 15px;">
+                <li style="margin-bottom: 8px;"><strong>50% anticipado (2.996 €):</strong> Se te abona de forma anticipada una vez notificada la resolución de concesión. <i>No tienes que esperar a justificar o ejecutar el proyecto para recibir esta primera inyección de liquidez.</i></li>
+                <li><strong>50% restante (2.996 €):</strong> Se abona al finalizar los 12 meses de servicio, una vez justificada la ejecución total del proyecto.</li>
+            </ul>
+            <div style="background: rgba(124, 58, 237, 0.08); border-left: 4px solid var(--purple-primary); padding: 16px; border-radius: 4px;">
+                <p style="color: var(--text-primary); font-weight: 500; margin-bottom: 0;"><strong>Nosotros nos encargamos de todo:</strong> Prepararemos, redactaremos y presentaremos toda la memoria, analíticas y documentación requerida para la <strong>justificación del proyecto</strong> ante la Junta, garantizando que cumplas los requisitos técnicos para cobrar el 100% de tu ayuda sin dolores de cabeza.</p>
+            </div>
+        </div>
+
+        <!-- HITOS DE PAGO (SUBVENCIÓN) -->
+        <div class="section-header" style="margin-top: 48px;">
+            <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <h2 class="section-title">Estructura e hitos de pago (Tu parte)</h2>
+        </div>
+        
+        <div class="roadmap-list" style="margin-bottom: 64px;">
+            <div class="roadmap-item">
+                <div class="roadmap-icon">50%</div>
+                <div class="roadmap-content">
+                    <h4>Al inicio del proyecto (749 €)</h4>
+                    <p>Firma de la propuesta y arranque operativo. Realizamos la auditoría inicial, la estrategia editorial, investigación de palabras clave y la primera sesión de grabación.</p>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-icon">25%</div>
+                <div class="roadmap-content">
+                    <h4>A la concesión de la ayuda (374,50 €)</h4>
+                    <p>Una vez que la Junta de Extremadura resuelve favorablemente tu expediente y te notifica la concesión oficial del 80% de la subvención a fondo perdido.</p>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-icon">25%</div>
+                <div class="roadmap-content">
+                    <h4>A la justificación final (374,50 €)</h4>
+                    <p>Al finalizar los 12 meses del servicio, tras haber presentado toda la documentación y reportes requeridos para que recibas el abono por parte de la administración.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROADMAP OPERATIVO (CÓMO TRABAJAMOS) -->
+        <div class="section-header page-break">
+            <svg class="section-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <h2 class="section-title">Nuestra operativa diaria</h2>
+        </div>
+
+        <div class="roadmap-list">
+            <div class="roadmap-item">
+                <div class="roadmap-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                </div>
+                <div class="roadmap-content">
+                    <h4>1. Planificación y guiones</h4>
+                    <p>Cada mes redactamos los guiones estratégicos enfocados en los servicios clave de Lo Quiero Limpio. Los validamos contigo antes de grabar para asegurar el tono de la marca.</p>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                </div>
+                <div class="roadmap-content">
+                    <h4>2. Sesión intensiva mensual</h4>
+                    <p>Desplazamos al equipo de vídeo (2-3 horas) para grabar todo el material necesario de una sola vez, optimizando tu tiempo al máximo para que puedas seguir gestionando tu negocio sin interrupciones constantes.</p>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+                <div class="roadmap-content">
+                    <h4>3. Optimización técnica y SEO continuo</h4>
+                    <p>Trabajamos mes a mes en el posicionamiento de tu web y perfil de Google (SEO local). Auditamos técnicamente, mejoramos tu visibilidad en búsquedas locales y resolvemos errores que penalicen tu posicionamiento.</p>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
+                </div>
+                <div class="roadmap-content">
+                    <h4>4. Entrega semanal organizada vía Google Drive</h4>
+                    <p>Todo el contenido editado, textos para redes (copywriting) y los <strong>reportes SEO de posiciones</strong> se suben de forma ordenada a una carpeta compartida de Google Drive. Recibirás tu material con antelación para su revisión.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA SECTION -->
+        <div class="cta-section page-break">
+            <svg class="cta-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <h3 class="cta-title">¿Siguiente paso?</h3>
+            <p class="cta-desc">Tienes el control total. Haz clic en la opción que mejor se adapte a tu decisión y me llegará un mensaje directo de WhatsApp para continuar.</p>
+            
+            <div class="buttons-group">
+                <a href="https://wa.me/34641576286?text=¡Hola!%20He%20revisado%20la%20propuesta%20de%20Lo%20Quiero%20Limpio%20y%20quiero%20aceptarla.%20¿Cómo%20empezamos?" target="_blank" class="btn btn-primary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    Aceptar propuesta
+                </a>
+                <a href="https://wa.me/34641576286?text=¡Hola!%20He%20revisado%20la%20propuesta%20de%20Lo%20Quiero%20Limpio%20pero%20tengo%20algunas%20dudas%20que%20me%20gustaría%20comentar." target="_blank" class="btn btn-secondary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    Tengo dudas
+                </a>
+                <a href="https://wa.me/34641576286?text=¡Hola!%20He%20revisado%20la%20propuesta%20de%20Lo%20Quiero%20Limpio%20pero%20de%20momento%20la%20voy%20a%20rechazar.%20Gracias." target="_blank" class="btn btn-ghost">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    Rechazar
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
