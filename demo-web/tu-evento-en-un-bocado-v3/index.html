@@ -132,6 +132,18 @@
         </div>
     </nav>
 
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-base z-[100] flex flex-col items-center justify-center space-y-8 opacity-0 pointer-events-none transition-opacity duration-300">
+        <button id="close-menu" class="absolute top-6 right-6 p-2 text-brand-dark" aria-label="Cerrar menú">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <a href="#filosofia" class="mobile-link text-4xl font-serif text-brand-dark">Filosofía</a>
+        <a href="#experiencias" class="mobile-link text-4xl font-serif text-brand-dark">Experiencias</a>
+        <a href="#testimonios" class="mobile-link text-4xl font-serif text-brand-dark">Historias</a>
+        <a href="#proceso" class="mobile-link text-4xl font-serif text-brand-dark">Proceso</a>
+        <a href="#cta" class="mobile-link mt-8 bg-brand-dark text-white px-8 py-4 rounded-full text-lg font-medium tracking-wide">Solicitar información</a>
+    </div>
+
     <!-- SECCIÓN: Hero (Full Image Editorial) -->
     <section class="relative h-screen min-h-[600px] flex items-center justify-center md:justify-start overflow-hidden">
         <!-- Background Image -->
@@ -192,7 +204,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
                 
                 <!-- Left side: Large Typography -->
-                <div class="sticky top-32 animate-on-scroll">
+                <div class="lg:sticky lg:top-32 animate-on-scroll">
                     <span class="text-brand-accent text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Nuestra Filosofía</span>
                     <h2 class="text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.1] mb-8">
                         No ofrecemos comida.<br>
@@ -643,6 +655,26 @@
                 navbar.classList.add('text-white', 'py-4');
             }
         });
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.querySelector('button[aria-label="Abrir menú"]');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        if (mobileMenuBtn && mobileMenu && closeMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+            });
+            closeMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+            });
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                });
+            });
+        }
     </script>
 </body>
 </html>
