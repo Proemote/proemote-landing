@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Evento en un Bocado | Experiencias Gastronómicas Premium</title>
+    
+    <!-- Google Fonts: Playfair Display (Headings) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-base': '#F8F5F5',       /* Blanco roto / Off-white cálido */
+                        'brand-dark': '#111111',       /* Negro suave editorial */
+                        'brand-darker': '#0a0a0a',     /* Negro profundo */
+                        'brand-primary': '#F6D4DB',    /* Rosa empolvado (toques sutiles) */
+                        'brand-pastel': '#F3C7D0',     /* Rosa pastel */
+                        'brand-accent': '#D6B45A',     /* Dorado suave */
+                        'brand-muted': '#444444',      /* Gris oscuro para textos secundarios */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base styles */
+        body {
+            background-color: #F8F5F5;
+            color: #111111;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Scroll Animations (Fade Up) */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Image Hover & Mask Effects */
+        .img-mask {
+            overflow: hidden;
+            border-radius: 1.5rem;
+            position: relative;
+        }
+        .img-mask img {
+            transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .group:hover .img-mask img {
+            transform: scale(1.08);
+        }
+
+        /* Testimonial Slider Setup */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* FAQ Accordion */
+        .faq-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s ease-in-out;
+        }
+        .faq-content > div {
+            overflow: hidden;
+        }
+        .faq-item.active .faq-content {
+            grid-template-rows: 1fr;
+        }
+        .faq-item.active svg.chevron {
+            transform: rotate(180deg);
+        }
+        
+        /* Navbar Scrolled State */
+        .nav-scrolled {
+            background: rgba(248, 245, 245, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            color: #111111 !important;
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+        .nav-scrolled .nav-link { color: #444444; }
+        .nav-scrolled .nav-link:hover { color: #111111; }
+        .nav-scrolled .nav-logo { color: #111111; }
+        .nav-scrolled .nav-btn { background: #111111; color: #fff; }
+    </style>
+</head>
+<body class="font-sans overflow-x-hidden selection:bg-brand-primary selection:text-brand-dark">
+
+    <!-- SECCIÓN: Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-500 text-white py-6" id="navbar">
+        <div class="max-w-[90rem] mx-auto px-6 md:px-12">
+            <div class="flex justify-between items-center h-14">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="nav-logo font-serif text-2xl md:text-3xl font-bold tracking-tight transition-colors">
+                        Tu Evento <span class="block text-[10px] font-sans font-medium tracking-[0.2em] uppercase -mt-1 opacity-90">en un bocado</span>
+                    </a>
+                </div>
+                <!-- Desktop Links -->
+                <div class="hidden lg:flex items-center space-x-12">
+                    <a href="#problema" class="nav-link text-sm font-medium tracking-wide hover:opacity-70 transition-opacity">Filosofía</a>
+                    <a href="#experiencias" class="nav-link text-sm font-medium tracking-wide hover:opacity-70 transition-opacity">Experiencias</a>
+                    <a href="#testimonios" class="nav-link text-sm font-medium tracking-wide hover:opacity-70 transition-opacity">Historias</a>
+                    <a href="#proceso" class="nav-link text-sm font-medium tracking-wide hover:opacity-70 transition-opacity">Proceso</a>
+                </div>
+                <!-- Desktop CTA -->
+                <div class="hidden md:flex">
+                    <a href="#cta" class="nav-btn bg-white text-brand-dark px-7 py-3 rounded-full text-sm font-semibold tracking-wide hover:scale-105 transition-transform duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+                        Solicitar información
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button class="nav-link p-2" aria-label="Abrir menú">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECCIÓN: Hero -->
+    <section class="relative h-screen min-h-[700px] flex items-center justify-center md:justify-start overflow-hidden">
+        <!-- Background Image (Decoración Floral / Evento) -->
+        <div class="absolute inset-0 w-full h-full">
+            <img src="https://cdn0.bodas.net/vendor/36774/3_2/960/jpg/img-20240921-131204_1_236774-172837525794750.jpeg" alt="Detalle floral premium" class="absolute w-full h-full object-cover object-center scale-105 animate-[pulse_20s_ease-in-out_infinite_alternate]" />
+            <!-- Dark Gradient Overlay for high contrast text readability -->
+            <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent"></div>
+            <div class="absolute inset-0 bg-black/30"></div>
+        </div>
+
+        <div class="relative z-10 w-full max-w-[90rem] mx-auto px-6 md:px-12 mt-20">
+            <div class="max-w-4xl reveal-up">
+                <span class="inline-block py-1.5 px-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-semibold tracking-widest uppercase mb-8">
+                    El día más especial
+                </span>
+                <h1 class="text-6xl md:text-8xl lg:text-9xl font-serif text-white leading-[0.95] mb-8 tracking-tight">
+                    Merece ser <br>
+                    <span class="italic text-brand-primary">inolvidable.</span>
+                </h1>
+                <p class="text-lg md:text-2xl text-gray-200 mb-10 max-w-2xl font-light leading-relaxed">
+                    Diseñamos experiencias gastronómicas que convierten cada momento de vuestra celebración en un recuerdo para siempre.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <a href="#cta" class="bg-white text-brand-dark px-10 py-4 rounded-full text-[15px] font-semibold tracking-wide hover:bg-brand-primary transition-colors text-center shadow-xl group">
+                        Diseñar nuestra experiencia
+                        <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 ml-1">→</span>
+                    </a>
+                    <a href="#experiencias" class="px-10 py-4 rounded-full text-[15px] font-semibold tracking-wide text-white border border-white/30 hover:bg-white/10 transition-colors text-center backdrop-blur-sm">
+                        Ver colección
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: Social Proof Bar -->
+    <section class="py-8 bg-brand-base border-b border-gray-200/60 relative z-20 -mt-2">
+        <div class="max-w-[90rem] mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6 reveal-up">
+            <div class="flex items-center gap-4">
+                <div class="flex text-brand-accent gap-1">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <!-- Repetir 4 veces más -->
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+                <p class="text-[15px] text-brand-muted font-medium">37 valoraciones verificadas</p>
+            </div>
+            <div class="flex items-center gap-10 opacity-60 grayscale">
+                <span class="font-serif font-bold text-2xl tracking-tighter">Bodas.net</span>
+                <span class="font-serif font-bold text-2xl tracking-tighter">TeamBride</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: Problema & Filosofía -->
+    <section id="problema" class="py-32 md:py-48 bg-brand-base">
+        <div class="max-w-[90rem] mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-start">
+                
+                <!-- Left Title -->
+                <div class="lg:col-span-5 sticky top-32 reveal-up">
+                    <span class="text-brand-accent text-xs font-bold tracking-[0.2em] uppercase mb-6 block">Nuestra Filosofía</span>
+                    <h2 class="text-5xl md:text-6xl lg:text-7xl font-serif leading-[1.05] mb-8">
+                        No quieres una boda más <br>
+                        <span class="italic text-brand-muted">del montón.</span>
+                    </h2>
+                    <p class="text-xl text-brand-muted mb-6 leading-relaxed max-w-md font-light">
+                        Sabemos lo que te preocupa: coordinar proveedores, que la estética no encaje o pasarte tu gran día estresada por los detalles.
+                    </p>
+                </div>
+
+                <!-- Right Content (Solutions) -->
+                <div class="lg:col-span-6 lg:col-start-7 space-y-12">
+                    
+                    <div class="group reveal-up delay-100">
+                        <h3 class="text-3xl font-serif mb-4 flex items-center transition-transform duration-300 group-hover:translate-x-2">
+                            <span class="w-12 h-[1px] bg-brand-dark mr-6 hidden sm:block transition-all duration-300 group-hover:w-16"></span>
+                            Integración Estética
+                        </h3>
+                        <p class="text-brand-muted leading-relaxed text-lg sm:ml-18 font-light">
+                            Cada rincón se diseña desde cero para fundirse con el estilo visual de tu celebración. Nada de plantillas, nada de soluciones estándar. No hay dos iguales.
+                        </p>
+                    </div>
+
+                    <div class="group reveal-up delay-200">
+                        <h3 class="text-3xl font-serif mb-4 flex items-center transition-transform duration-300 group-hover:translate-x-2">
+                            <span class="w-12 h-[1px] bg-brand-dark mr-6 hidden sm:block transition-all duration-300 group-hover:w-16"></span>
+                            El Factor Sorpresa
+                        </h3>
+                        <p class="text-brand-muted leading-relaxed text-lg sm:ml-18 font-light">
+                            Desde El Rincón del Granizado hasta el Roll Experience. Diseñamos soluciones que generan impacto, interacción y conversación entre tus invitados.
+                        </p>
+                    </div>
+
+                    <div class="group reveal-up delay-300">
+                        <h3 class="text-3xl font-serif mb-4 flex items-center transition-transform duration-300 group-hover:translate-x-2">
+                            <span class="w-12 h-[1px] bg-brand-dark mr-6 hidden sm:block transition-all duration-300 group-hover:w-16"></span>
+                            Logística Invisible
+                        </h3>
+                        <p class="text-brand-muted leading-relaxed text-lg sm:ml-18 font-light">
+                            Montaje, ejecución impecable y presencia discreta durante el evento. Solventamos los imprevistos para que tú y tu familia solo tengáis que preocuparos de disfrutar.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: Servicios / Experiencias (Framer Style Bento) -->
+    <section id="experiencias" class="py-32 bg-brand-darker text-white">
+        <div class="max-w-[90rem] mx-auto px-6 md:px-12">
+            
+            <div class="mb-20 text-center reveal-up">
+                <span class="text-brand-accent text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Nuestra Colección</span>
+                <h2 class="text-5xl md:text-7xl font-serif leading-[1.05] mx-auto max-w-4xl">
+                    Gastronomía que se convierte en recuerdo
+                </h2>
+            </div>
+
+            <!-- Bento Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8 auto-rows-[450px]">
+                
+                <!-- Card 1: Gourmet (Large) -->
+                <div class="group lg:col-span-7 relative rounded-[2rem] overflow-hidden reveal-up">
+                    <img src="https://cdn0.bodas.net/vendor/36774/3_2/960/jpg/img-20240914-235237_1_236774-172837706697561.jpeg" alt="Bodegón Quesos" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-1000 ease-out">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-darker/90 via-brand-darker/30 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-10 md:p-12 flex flex-col justify-end h-full">
+                        <span class="text-brand-accent text-xs font-bold tracking-widest uppercase mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">El comienzo perfecto</span>
+                        <h3 class="text-4xl md:text-5xl font-serif mb-4 text-white">Experiencias Gourmet</h3>
+                        <p class="text-gray-300 text-lg leading-relaxed max-w-md font-light opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100 translate-y-4 group-hover:translate-y-0">
+                            Bodegones de quesos artesanales y cortes premium. Un inicio sofisticado que despierta los sentidos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Refrescantes (Tall) -->
+                <div class="group lg:col-span-5 relative rounded-[2rem] overflow-hidden reveal-up delay-100">
+                    <img src="https://cdn0.bodas.net/vendor/36774/3_2/1280/jpg/file-1776831583476_1_236774-177683158458967.jpeg" alt="Kiosko Granizado" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-1000 ease-out">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-darker/90 via-brand-darker/30 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-10 flex flex-col justify-end h-full">
+                        <span class="text-brand-accent text-xs font-bold tracking-widest uppercase mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">Barra Libre</span>
+                        <h3 class="text-3xl md:text-4xl font-serif mb-4 text-white">Kiosko & Party</h3>
+                        <p class="text-gray-300 text-base leading-relaxed font-light opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100 translate-y-4 group-hover:translate-y-0">
+                            La salvación contra el calor. Granizados y combinados para revitalizar la fiesta al máximo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Dulces (Wide) -->
+                <div class="group lg:col-span-12 relative rounded-[2rem] overflow-hidden reveal-up h-[450px]">
+                    <img src="https://cdn0.bodas.net/vendor/36774/3_2/960/jpg/file-1776831584769_1_236774-177683158560165.jpeg" alt="Mesa Dulce" class="absolute inset-0 w-full h-full object-cover object-center opacity-70 group-hover:scale-105 transition-transform duration-1000 ease-out">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-darker/90 via-black/40 to-transparent"></div>
+                    
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-10">
+                        <h3 class="text-5xl md:text-6xl font-serif mb-6 text-white transition-transform duration-700 group-hover:-translate-y-2">Experiencias Dulces</h3>
+                        <p class="text-gray-200 text-lg md:text-xl leading-relaxed max-w-2xl font-light opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100 translate-y-4 group-hover:translate-y-0">
+                            Mesas diseñadas con arquitectura visual. Más que un postre, el cierre estético perfecto que invita a compartir.
+                        </p>
+                        <a href="#cta" class="mt-8 inline-flex items-center text-sm font-bold tracking-widest uppercase text-brand-primary opacity-0 group-hover:opacity-100 transition-all duration-700 delay-200">
+                            Diseñar tu mesa <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: Testimonios (Interactive Carousel) -->
+    <section id="testimonios" class="py-32 bg-brand-base overflow-hidden">
+        <div class="max-w-[90rem] mx-auto px-6 md:px-12 mb-16 flex flex-col md:flex-row justify-between items-end gap-8 reveal-up">
+            <div>
+                <h2 class="text-5xl md:text-6xl font-serif leading-[1.1] mb-4">Lo que dicen <br><span class="italic text-brand-muted">de nosotros</span></h2>
+                <p class="text-lg text-brand-muted font-light">Reseñas reales verificadas por Bodas.net</p>
+            </div>
+            <!-- Slider Controls -->
+            <div class="flex gap-4">
+                <button id="prev-btn" class="w-14 h-14 rounded-full border border-gray-300 flex items-center justify-center text-brand-dark hover:bg-brand-dark hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button id="next-btn" class="w-14 h-14 rounded-full border border-gray-300 flex items-center justify-center text-brand-dark hover:bg-brand-dark hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="max-w-[90rem] mx-auto px-6 md:px-12">
+            <!-- Carousel Track -->
+            <div id="testimonial-track" class="flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-10 cursor-grab active:cursor-grabbing">
+                
+                <!-- Generación de Tarjetas de Testimonios -->
+                <script>
+                    const reviews = [
+                        { name: "Rosa", date: "Boda 2026", title: "Sueño cumplido", text: "La mejor experiencia contratada. No falto ni un detalle, el trato con ellos desde el principio hasta el final de diez. Un gran cierto todo los invitados alucinaron con el kiosko." },
+                        { name: "Ainhoa", date: "Boda 2026", title: "Recomendable al máximo!!!", text: "Gracias a Cristofer y Jenny en nuestro evento no faltó detalle. Pendientes de todo en cada momento, calidad y cantidad máxima! Hacen de cada rincón una bonita celebración." },
+                        { name: "Carlos", date: "Boda 2026", title: "Kiosko. Gran acierto", text: "El KIOSKO fue uno de los grandes aciertos de nuestra boda. Queríamos sorprender a los invitados durante la barra libre con algo diferente y la verdad es que no pudo gustar más." },
+                        { name: "Esther", date: "Boda 2026", title: "Un complemento imprescindible", text: "Contar con Jenny y Christopher fue una de las mejores decisiones. Nos acompañaron en todo momento con una atención cercana, resolviendo cada detalle." },
+                        { name: "Miriam", date: "Boda 2026", title: "Ojalá repetir este día", text: "Elegirlos para nuestra boda fue una de las mejores decisiones que tomamos. Desde el primer contacto demostraron una organización impecable y un nivel de profesionalidad increíble." },
+                        { name: "Ines", date: "Boda 2026", title: "Tranquilidad absoluta", text: "Desde el primer momento en que contratamos con ellos sentimos una tranquilidad enorme. Nos acompañaron durante todo el proceso con cercanía y atención." },
+                        { name: "Jessica", date: "Boda 2026", title: "Súper recomendable!!", text: "Fue un evento precioso, gracias por cuidar cada detalle, por el trato tan cercano, por la profesionalidad con la que trabajais. Conseguisteis que saliera todo perfecto." },
+                        { name: "Marta", date: "Boda 2025", title: "Enamorada de la mesa dulce", text: "Lo dejé en manos de Jennifer y Christopher y quedé encantada. Son un gran equipo, y que decir de la atención?? Sois un encanto, calidad muy buena." }
+                    ];
+
+                    reviews.forEach((review, index) => {
+                        const initial = review.name.charAt(0);
+                        document.write(`
+                            <div class="min-w-[85vw] md:min-w-[45vw] lg:min-w-[30vw] snap-start bg-white p-10 rounded-[2rem] border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col justify-between h-[380px] hover:-translate-y-2 transition-transform duration-300">
+                                <div>
+                                    <div class="flex text-brand-accent mb-6">
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    </div>
+                                    <h4 class="font-serif text-xl font-semibold mb-3 text-brand-dark">"${review.title}"</h4>
+                                    <p class="text-[15px] text-brand-muted leading-relaxed font-light line-clamp-4">"${review.text}"</p>
+                                </div>
+                                <div class="flex items-center mt-6 pt-6 border-t border-gray-100">
+                                    <div class="w-12 h-12 rounded-full bg-brand-primary/40 flex items-center justify-center text-brand-dark font-serif font-bold text-lg mr-4">
+                                        ${initial}
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-brand-dark text-[15px]">${review.name}</p>
+                                        <p class="text-sm text-brand-muted">${review.date}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `);
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: Proceso (Cards Hover) -->
+    <section id="proceso" class="py-32 bg-white">
+        <div class="max-w-[90rem] mx-auto px-6 md:px-12">
+            
+            <div class="mb-20 text-center reveal-up">
+                <span class="text-brand-accent text-xs font-bold tracking-[0.2em] uppercase mb-4 block">El Método</span>
+                <h2 class="text-5xl md:text-6xl font-serif leading-[1.1] mx-auto max-w-3xl">
+                    Así hacemos que tu única preocupación sea disfrutar.
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Step 1 -->
+                <div class="group p-10 rounded-[2rem] border border-gray-100 bg-brand-base flex flex-col h-full reveal-up hover:bg-brand-primary/10 hover:border-brand-primary/30 transition-all duration-300 hover:-translate-y-2">
+                    <span class="text-4xl font-serif text-brand-dark/20 group-hover:text-brand-accent transition-colors duration-300 mb-6 block">01</span>
+                    <h3 class="text-2xl font-serif mb-4">Descubrimiento</h3>
+                    <p class="text-base text-brand-muted leading-relaxed font-light">
+                        Nos contáis cómo imagináis vuestra celebración. Escuchamos y entendemos el estilo visual de vuestra boda.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="group p-10 rounded-[2rem] border border-gray-100 bg-brand-base flex flex-col h-full reveal-up delay-100 hover:bg-brand-primary/10 hover:border-brand-primary/30 transition-all duration-300 hover:-translate-y-2">
+                    <span class="text-4xl font-serif text-brand-dark/20 group-hover:text-brand-accent transition-colors duration-300 mb-6 block">02</span>
+                    <h3 class="text-2xl font-serif mb-4">Diseño a Medida</h3>
+                    <p class="text-base text-brand-muted leading-relaxed font-light">
+                        Creamos una propuesta de rincones que combina gastronomía y decoración perfecta para vosotros.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="group p-10 rounded-[2rem] border border-gray-100 bg-brand-base flex flex-col h-full reveal-up delay-200 hover:bg-brand-primary/10 hover:border-brand-primary/30 transition-all duration-300 hover:-translate-y-2">
+                    <span class="text-4xl font-serif text-brand-dark/20 group-hover:text-brand-accent transition-colors duration-300 mb-6 block">03</span>
+                    <h3 class="text-2xl font-serif mb-4">Ejecución Invisible</h3>
+                    <p class="text-base text-brand-muted leading-relaxed font-light">
+                        Montaje, coordinación y presencia discreta. Solventamos imprevistos antes de que sucedan.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="group p-10 rounded-[2rem] border-2 border-brand-dark bg-brand-dark text-white flex flex-col h-full reveal-up delay-300 hover:-translate-y-2 transition-transform duration-300">
+                    <span class="text-4xl font-serif text-brand-primary mb-6 block">04</span>
+                    <h3 class="text-2xl font-serif mb-4">Vosotros Disfrutáis</h3>
+                    <p class="text-gray-300 text-base leading-relaxed font-light mb-8">
+                        Bailad, reíd, emocionaos. Viviréis el día que siempre habéis soñado con absoluta tranquilidad.
+                    </p>
+                    <a href="#cta" class="mt-auto inline-flex items-center text-sm font-semibold text-white group-hover:text-brand-primary transition-colors">
+                        Empezar ahora <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: FAQ -->
+    <section class="py-32 bg-brand-base border-t border-gray-200/50">
+        <div class="max-w-[90rem] mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                
+                <div class="lg:col-span-5 reveal-up">
+                    <h2 class="text-4xl md:text-5xl font-serif mb-6 leading-tight">Preguntas frecuentes</h2>
+                    <p class="text-brand-muted text-lg font-light">Resolvemos tus dudas iniciales. Si necesitas más detalle, estaremos encantados de hablar en nuestra primera cita.</p>
+                </div>
+
+                <div class="lg:col-span-7 space-y-2 reveal-up delay-100">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item border-b border-gray-300 pb-4 pt-4">
+                        <button class="w-full text-left flex justify-between items-center focus:outline-none group py-2" onclick="toggleFaq(this)">
+                            <span class="font-serif text-xl text-brand-dark group-hover:text-brand-accent transition-colors">¿Qué experiencias ofrecéis?</span>
+                            <svg class="chevron w-6 h-6 text-brand-muted transition-transform duration-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-content">
+                            <div class="text-brand-muted text-base leading-relaxed pt-4 font-light">
+                                Ofrecemos rincones integrales categorizados en Gourmet (bodegones de quesos, cortadores), Dulces (mesas decoradas a medida) y Refrescantes (Kiosko de granizados y cócteles para la barra libre).
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FAQ 2 -->
+                    <div class="faq-item border-b border-gray-300 pb-4 pt-4">
+                        <button class="w-full text-left flex justify-between items-center focus:outline-none group py-2" onclick="toggleFaq(this)">
+                            <span class="font-serif text-xl text-brand-dark group-hover:text-brand-accent transition-colors">¿Os desplazáis fuera de Don Benito?</span>
+                            <svg class="chevron w-6 h-6 text-brand-muted transition-transform duration-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-content">
+                            <div class="text-brand-muted text-base leading-relaxed pt-4 font-light">
+                                Sí, trabajamos habitualmente por toda Extremadura y regiones de Andalucía. Valoramos cada desplazamiento para garantizar que la calidad del servicio se mantiene impecable.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FAQ 3 -->
+                    <div class="faq-item border-b border-gray-300 pb-4 pt-4">
+                        <button class="w-full text-left flex justify-between items-center focus:outline-none group py-2" onclick="toggleFaq(this)">
+                            <span class="font-serif text-xl text-brand-dark group-hover:text-brand-accent transition-colors">¿Podemos combinar varias experiencias?</span>
+                            <svg class="chevron w-6 h-6 text-brand-muted transition-transform duration-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-content">
+                            <div class="text-brand-muted text-base leading-relaxed pt-4 font-light">
+                                Es lo que más recomendamos. Crear una narrativa gastronómica que empiece en el cóctel y termine en la barra libre asegura que los invitados estén sorprendidos durante toda la boda.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FAQ 4 -->
+                    <div class="faq-item border-b border-gray-300 pb-4 pt-4">
+                        <button class="w-full text-left flex justify-between items-center focus:outline-none group py-2" onclick="toggleFaq(this)">
+                            <span class="font-serif text-xl text-brand-dark group-hover:text-brand-accent transition-colors">¿Cómo es el proceso de reserva?</span>
+                            <svg class="chevron w-6 h-6 text-brand-muted transition-transform duration-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-content">
+                            <div class="text-brand-muted text-base leading-relaxed pt-4 font-light">
+                                El primer paso es contactarnos para comprobar si vuestra fecha está disponible. Luego fijamos una llamada o cita para conoceros, entender el estilo de la boda y enviaros una propuesta a medida.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: CTA Final & Integrated Footer (Framer Style) -->
+    <section id="cta" class="relative min-h-[90vh] flex flex-col justify-end pt-32 p-4 md:p-8 overflow-hidden">
+        
+        <!-- Full Background Image -->
+        <div class="absolute inset-0 w-full h-full">
+            <img src="https://scontent.fmad17-1.fna.fbcdn.net/v/t39.30808-6/475752278_122204514122183068_3201120250781118308_n.jpg?stp=dst-jpg_tt6&cstp=mx1302x1628&ctp=s1302x1628&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=G5WPGhs1dhoQ7kNvwFuNnw1&_nc_oc=AdrMOwn0jqRGXmjeXQKh4gsAuMm-5sUF-MKJIv_BVB2brRb9fV5owJyK5vdd7_o93Ng&_nc_zt=23&_nc_ht=scontent.fmad17-1.fna&_nc_gid=T7KE5rpEPBaBVbYuZ-EZWw&_nc_ss=7a2a8&oh=00_AQDKpAmzE4sgxl8P0IinJlvpJb6L44a_pZv4ru36HYBGYQ&oe=6A4D8F9A" alt="Tu Evento" class="absolute w-full h-full object-cover object-center" />
+            <div class="absolute inset-0 bg-black/50 backdrop-blur-[2px]"></div>
+        </div>
+
+        <!-- Top Content (The CTA) -->
+        <div class="relative z-10 w-full max-w-[90rem] mx-auto text-white mb-20 md:mb-32 px-6 md:px-12 reveal-up">
+            <h2 class="text-5xl md:text-7xl lg:text-8xl font-serif leading-[1.05] tracking-tight mb-10 max-w-4xl">
+                Vuestra celebración <br>
+                <span class="italic font-light">empieza aquí</span>
+            </h2>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="mailto:tueventoenunbocado@gmail.com" class="bg-white text-brand-dark px-8 py-4 rounded-full text-[15px] font-semibold tracking-wide hover:scale-105 transition-transform duration-300 text-center shadow-xl group flex items-center justify-center">
+                    Comprobar disponibilidad <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </a>
+                <a href="#" class="bg-black/40 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-full text-[15px] font-semibold tracking-wide hover:bg-white/10 transition-colors text-center">
+                    Mandar un Email
+                </a>
+            </div>
+        </div>
+
+        <!-- The Integrated Floating Footer -->
+        <footer class="relative z-10 w-full max-w-[90rem] mx-auto bg-[#131313]/80 backdrop-blur-xl border border-white/10 rounded-[2rem] p-8 md:p-14 lg:p-20 flex flex-col lg:flex-row justify-between gap-16 reveal-up delay-200 shadow-2xl">
+            
+            <!-- Footer Branding -->
+            <div class="lg:w-1/3">
+                <a href="#" class="font-serif text-3xl font-bold tracking-tight text-white block mb-2">
+                    Tu Evento <span class="block text-[11px] font-sans font-medium tracking-[0.2em] text-white/80 uppercase -mt-1">en un bocado</span>
+                </a>
+                <p class="text-gray-400 font-light text-sm mt-6">
+                    Tu partner de confianza para<br>eventos extraordinarios en Extremadura.
+                </p>
+                <p class="text-gray-500 font-light text-xs mt-8">
+                    &copy; <span id="year"></span> Todos los derechos reservados.
+                </p>
+            </div>
+            
+            <!-- Footer Links Grid -->
+            <div class="lg:w-2/3 grid grid-cols-2 md:grid-cols-3 gap-10">
+                
+                <div>
+                    <h4 class="text-gray-500 font-medium text-sm mb-6">Servicios</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#experiencias" class="text-gray-300 hover:text-white transition-colors font-light text-sm">Bodas</a></li>
+                        <li><a href="#experiencias" class="text-gray-300 hover:text-white transition-colors font-light text-sm">Eventos Corporativos</a></li>
+                        <li><a href="#experiencias" class="text-gray-300 hover:text-white transition-colors font-light text-sm">Fiestas Privadas</a></li>
+                        <li><a href="#experiencias" class="text-gray-300 hover:text-white transition-colors font-light text-sm">Barra Libre & Kiosko</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-gray-500 font-medium text-sm mb-6">Empresa</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#problema" class="text-gray-300 hover:text-white transition-colors font-light text-sm">Nuestra Filosofía</a></li>
+                        <li><a href="#proceso" class="text-gray-300 hover:text-white transition-colors font-light text-sm">El Método</a></li>
+                        <li><a href="#testimonios" class="text-gray-300 hover:text-white transition-colors font-light text-sm">Historias</a></li>
+                        <li><a href="#cta" class="text-gray-300 hover:text-white transition-colors font-light text-sm">Agendar Cita</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-gray-500 font-medium text-sm mb-6">Social</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors font-light text-sm">Instagram</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors font-light text-sm">Facebook</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors font-light text-sm">Bodas.net</a></li>
+                        <li><a href="mailto:tueventoenunbocado@gmail.com" class="text-gray-300 hover:text-white transition-colors font-light text-sm">Email Us</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+        </footer>
+    </section>
+
+    <!-- Scripts -->
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // FAQ Toggle Logic
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            document.querySelectorAll('.faq-item').forEach(faq => {
+                if(faq !== item) faq.classList.remove('active');
+            });
+            item.classList.toggle('active');
+        }
+
+        // Intersection Observer for Scroll Animations (Fade Up)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -100px 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Stop observing once animated
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-up').forEach((elem) => {
+            observer.observe(elem);
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+                navbar.classList.remove('text-white', 'py-6');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+                navbar.classList.add('text-white', 'py-6');
+            }
+        });
+
+        // Testimonial Carousel Logic
+        const track = document.getElementById('testimonial-track');
+        const nextBtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
+
+        // Scroll step based on child width + gap
+        const scrollAmount = () => {
+            if(track.children.length > 0) {
+                const child = track.children[0];
+                const style = window.getComputedStyle(child);
+                return child.offsetWidth + parseFloat(style.marginRight || 0) + 24; // 24 is gap-6 in tailwind
+            }
+            return 300;
+        };
+
+        nextBtn.addEventListener('click', () => {
+            track.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+        });
+
+        // Optional Autoplay for slider
+        let autoPlayInterval = setInterval(() => {
+            // Check if reached the end
+            if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
+                track.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                track.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+            }
+        }, 5000);
+
+        // Pause autoplay on hover/interaction
+        track.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+        track.addEventListener('touchstart', () => clearInterval(autoPlayInterval));
+    </script>
+</body>
+</html>
