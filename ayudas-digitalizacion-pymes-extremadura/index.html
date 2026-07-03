@@ -1893,6 +1893,46 @@
 </script>
 
     <script>
+        // --- Form Logic ---
+        let currentStep = 1;
+        const totalSteps = 7;
+        const formProgress = document.getElementById('form-progress');
+
+        function updateProgress() {
+            if (!formProgress) return;
+            const progress = (currentStep / totalSteps) * 100;
+            formProgress.style.width = `${progress}%`;
+        }
+
+        function showStep(step) {
+            document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+            const targetStep = document.querySelector(`.form-step[data-step="${step}"]`);
+            if (targetStep) {
+                targetStep.classList.add('active');
+            }
+            updateProgress();
+        }
+
+        window.nextStep = function() {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        };
+
+        window.prevStep = function() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        };
+
+        window.autoAdvance = function() {
+            setTimeout(() => {
+                window.nextStep();
+            }, 350);
+        };
+
         // Reveal Animations
         document.addEventListener('DOMContentLoaded', () => {
             const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
