@@ -8,6 +8,7 @@ import { calcularPuntuaciones } from './utils/scoring.js';
 import { generarAnalisis } from './utils/anthropic.js';
 import { guardarDiagnostico, guardarLead, actualizarEstadoDiagnostico } from './utils/supabase.js';
 import { enviarEmailConInforme } from './utils/resend.js';
+import { registrarEnGoogleSheets } from './utils/googleSheets.js';
 
 // paso: 'formulario' | 'analizando' | 'informe' | 'emailEnviado'
 
@@ -21,6 +22,7 @@ export default function App() {
   const [mostrarModal, setMostrarModal] = useState(false);
   const [enviando, setEnviando] = useState(false);
   const [errorEmail, setErrorEmail] = useState('');
+  const [nombreLead, setNombreLead] = useState('');
 
   // Avanzar los pasos de loading visualmente
   useEffect(() => {
@@ -71,6 +73,13 @@ export default function App() {
         console.error('Error Supabase:', err);
       }
 
+      registrarEnGoogleSheets('vista_informe', {
+        diagnostico_id: diagId,
+        sector: respuestasForm.p1,
+        ciudad: respuestasForm.p2,
+        puntuacion_global: punts.global,
+      });
+
       setPasoLoading(4);
       await new Promise(r => setTimeout(r, 600));
       setPaso('informe');
@@ -98,6 +107,16 @@ export default function App() {
         console.error('Error guardando lead:', err);
       }
 
+      registrarEnGoogleSheets('email_capturado', {
+        diagnostico_id: diagnosticoId,
+        nombre,
+        email,
+        sector: respuestas.p1,
+        ciudad: respuestas.p2,
+        puntuacion_global: puntuaciones?.global,
+      });
+
+      setNombreLead(nombre);
       setMostrarModal(false);
       setPaso('emailEnviado');
     } catch (err) {
@@ -123,6 +142,8 @@ export default function App() {
           puntuaciones={puntuaciones}
           analisis={analisis}
           respuestas={respuestas}
+          nombre={nombreLead}
+          desbloqueado={paso === 'emailEnviado'}
           onSolicitarEmail={() => {
             if (paso === 'emailEnviado') return;
             setMostrarModal(true);

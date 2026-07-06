@@ -113,7 +113,7 @@ export const enviarEmailConInforme = async (email, nombre, puntuaciones, analisi
       action: "send_email",
       payload: {
         email: email,
-        subject: `${nombre}, tu Diagnóstico Digital: ${puntuaciones.global}/100 — Plan de acción incluido`,
+        subject: `${nombre}, aquí tienes los resultados de tu Análisis Gratuito y tu Plan de acción`,
         html: htmlContent
       }
     })

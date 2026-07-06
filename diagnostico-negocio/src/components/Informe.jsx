@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { getEstado, getDimension } from '../utils/scoring.js';
+import { generarInformePDF } from '../utils/pdf.js';
 
 const dimensiones = [
   'presencia_digital',
@@ -98,13 +100,26 @@ function RecCard({ rec, index }) {
   );
 }
 
-export default function Informe({ puntuaciones, analisis, respuestas, onSolicitarEmail }) {
+export default function Informe({ puntuaciones, analisis, respuestas, nombre, onSolicitarEmail, desbloqueado }) {
   const estadoGlobal = getEstado(puntuaciones.global);
+  const [generandoPDF, setGenerandoPDF] = useState(false);
 
   const texto = analisis?.resumen || '';
   const urgencia = analisis?.urgencia || '';
   const fortaleza = analisis?.fortaleza || '';
   const recomendaciones = analisis?.recomendaciones || [];
+
+  const handleDescargarPDF = async () => {
+    setGenerandoPDF(true);
+    try {
+      await generarInformePDF({ puntuaciones, analisis, respuestas, nombre });
+    } catch (err) {
+      console.error('Error generando PDF:', err);
+      alert('No se pudo generar el PDF. Inténtalo de nuevo.');
+    } finally {
+      setGenerandoPDF(false);
+    }
+  };
 
   return (
     <div style={{
@@ -161,102 +176,148 @@ export default function Informe({ puntuaciones, analisis, respuestas, onSolicita
         <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.02em' }}>
           {respuestas.p1} · {respuestas.p2}
         </p>
+
+        {desbloqueado && (
+          <button
+            onClick={handleDescargarPDF}
+            disabled={generandoPDF}
+            style={{
+              marginTop: 24,
+              background: 'rgba(255,255,255,0.06)',
+              border: '1px solid rgba(255,255,255,0.15)',
+              color: 'rgba(255,255,255,0.85)',
+              fontSize: 13,
+              fontWeight: 600,
+              padding: '10px 22px',
+              borderRadius: 50,
+              cursor: generandoPDF ? 'default' : 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              opacity: generandoPDF ? 0.6 : 1,
+              transition: 'all 0.2s ease',
+            }}
+          >
+            {generandoPDF ? 'Generando PDF...' : '⬇ Descargar informe en PDF'}
+          </button>
+        )}
       </div>
 
       <div style={{ maxWidth: 740, margin: '0 auto', padding: '0 20px' }}>
 
-        {/* Grid dimensiones */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(5, 1fr)',
-          gap: 10,
-          marginTop: 36,
-          overflowX: 'auto',
-        }}>
-          {dimensiones.map(key => (
-            <DimensionCard key={key} clave={key} valor={puntuaciones[key]} />
-          ))}
-        </div>
+        <div style={{ position: 'relative' }}>
+          <div style={{
+            filter: desbloqueado ? 'none' : 'blur(9px)',
+            pointerEvents: desbloqueado ? 'auto' : 'none',
+            userSelect: desbloqueado ? 'auto' : 'none',
+            transition: 'filter 0.4s ease',
+          }}>
 
-        {/* Análisis general */}
-        {(texto || fortaleza || urgencia) && (
-          <div style={{ ...glass, marginTop: 28, padding: '28px 24px' }}>
-            <p style={{ fontSize: 11, color: '#8b5cf6', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 18 }}>
-              📋 Análisis General
-            </p>
-            {texto && (
-              <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: fortaleza || urgencia ? 20 : 0 }}>
-                {texto}
-              </p>
-            )}
-            {fortaleza && (
-              <div style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.18)', borderRadius: 16, padding: '16px 18px', marginBottom: urgencia ? 12 : 0 }}>
-                <p style={{ fontSize: 11, color: '#10b981', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>✅ Tu punto fuerte</p>
-                <p style={{ fontSize: 13, color: 'rgba(16,185,129,0.78)', lineHeight: 1.65 }}>{fortaleza}</p>
+            {/* Grid dimensiones */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(5, 1fr)',
+              gap: 10,
+              marginTop: 36,
+              overflowX: 'auto',
+            }}>
+              {dimensiones.map(key => (
+                <DimensionCard key={key} clave={key} valor={puntuaciones[key]} />
+              ))}
+            </div>
+
+            {/* Análisis general */}
+            {(texto || fortaleza || urgencia) && (
+              <div style={{ ...glass, marginTop: 28, padding: '28px 24px' }}>
+                <p style={{ fontSize: 11, color: '#8b5cf6', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 18 }}>
+                  📋 Análisis General
+                </p>
+                {texto && (
+                  <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: fortaleza || urgencia ? 20 : 0 }}>
+                    {texto}
+                  </p>
+                )}
+                {fortaleza && (
+                  <div style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.18)', borderRadius: 16, padding: '16px 18px', marginBottom: urgencia ? 12 : 0 }}>
+                    <p style={{ fontSize: 11, color: '#10b981', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>✅ Tu punto fuerte</p>
+                    <p style={{ fontSize: 13, color: 'rgba(16,185,129,0.78)', lineHeight: 1.65 }}>{fortaleza}</p>
+                  </div>
+                )}
+                {urgencia && (
+                  <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.18)', borderRadius: 16, padding: '16px 18px' }}>
+                    <p style={{ fontSize: 11, color: '#ef4444', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>⚡ Urgente</p>
+                    <p style={{ fontSize: 13, color: 'rgba(239,68,68,0.78)', lineHeight: 1.65 }}>{urgencia}</p>
+                  </div>
+                )}
               </div>
             )}
-            {urgencia && (
-              <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.18)', borderRadius: 16, padding: '16px 18px' }}>
-                <p style={{ fontSize: 11, color: '#ef4444', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>⚡ Urgente</p>
-                <p style={{ fontSize: 13, color: 'rgba(239,68,68,0.78)', lineHeight: 1.65 }}>{urgencia}</p>
+
+            {/* Recomendaciones */}
+            {recomendaciones.length > 0 && (
+              <div style={{ marginTop: 28 }}>
+                <p style={{ fontSize: 11, color: '#8b5cf6', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 16 }}>
+                  🎯 Tus 3 Acciones Prioritarias
+                </p>
+                {recomendaciones.map((rec, i) => (
+                  <RecCard key={i} rec={rec} index={i} />
+                ))}
               </div>
             )}
           </div>
-        )}
 
-        {/* Recomendaciones */}
-        {recomendaciones.length > 0 && (
-          <div style={{ marginTop: 28 }}>
-            <p style={{ fontSize: 11, color: '#8b5cf6', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 16 }}>
-              🎯 Tus 3 Acciones Prioritarias
-            </p>
-            {recomendaciones.map((rec, i) => (
-              <RecCard key={i} rec={rec} index={i} />
-            ))}
-          </div>
-        )}
-
-        {/* CTA email */}
-        <div style={{
-          marginTop: 28,
-          background: 'linear-gradient(135deg, rgba(124,58,237,0.18), rgba(99,102,241,0.12))',
-          backdropFilter: 'blur(28px)',
-          WebkitBackdropFilter: 'blur(28px)',
-          border: '1px solid rgba(139,92,246,0.3)',
-          borderRadius: 28,
-          padding: '44px 32px',
-          textAlign: 'center',
-          boxShadow: '0 0 80px rgba(124,58,237,0.1), inset 0 1px 0 rgba(255,255,255,0.07)',
-        }}>
-          <h3 style={{ fontSize: 22, fontWeight: 700, color: 'rgba(255,255,255,0.95)', marginBottom: 12 }}>
-            Recibe tu diagnóstico completo por email
-          </h3>
-          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)', lineHeight: 1.7, marginBottom: 28, maxWidth: 380, margin: '0 auto 28px' }}>
-            Te enviamos el informe con todas las recomendaciones para que puedas consultarlo cuando quieras, sin necesidad de contratar nada.
-          </p>
-          <button
-            onClick={onSolicitarEmail}
-            style={{
-              background: 'linear-gradient(135deg, #7c3aed, #6366f1)',
-              color: '#fff',
-              fontWeight: 700,
-              fontSize: 15,
-              padding: '16px 40px',
-              borderRadius: 50,
-              border: 'none',
-              cursor: 'pointer',
-              boxShadow: '0 0 36px rgba(124,58,237,0.55), 0 8px 24px rgba(0,0,0,0.3)',
-              width: '100%',
-              maxWidth: 360,
-              transition: 'all 0.2s ease',
-              letterSpacing: '0.01em',
-            }}
-          >
-            Enviarme el informe por email →
-          </button>
-          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.2)', marginTop: 16 }}>
-            Gratis · Sin spam · Sin tarjeta de crédito
-          </p>
+          {/* Overlay de bloqueo */}
+          {!desbloqueado && (
+            <div style={{
+              position: 'absolute',
+              inset: 0,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '20px',
+            }}>
+              <div style={{
+                background: 'linear-gradient(135deg, rgba(124,58,237,0.22), rgba(99,102,241,0.16))',
+                backdropFilter: 'blur(28px)',
+                WebkitBackdropFilter: 'blur(28px)',
+                border: '1px solid rgba(139,92,246,0.35)',
+                borderRadius: 28,
+                padding: '40px 32px',
+                textAlign: 'center',
+                boxShadow: '0 0 80px rgba(124,58,237,0.15), inset 0 1px 0 rgba(255,255,255,0.07)',
+                maxWidth: 420,
+              }}>
+                <div style={{ fontSize: 32, marginBottom: 8 }}>🔒</div>
+                <h3 style={{ fontSize: 21, fontWeight: 700, color: 'rgba(255,255,255,0.97)', marginBottom: 12 }}>
+                  Tu diagnóstico completo está listo
+                </h3>
+                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.7, marginBottom: 26 }}>
+                  Desbloquea el análisis por dimensión, tus puntos fuertes y las 3 acciones prioritarias dejando tu email. Te lo enviamos gratis y al instante.
+                </p>
+                <button
+                  onClick={onSolicitarEmail}
+                  style={{
+                    background: 'linear-gradient(135deg, #7c3aed, #6366f1)',
+                    color: '#fff',
+                    fontWeight: 700,
+                    fontSize: 15,
+                    padding: '16px 40px',
+                    borderRadius: 50,
+                    border: 'none',
+                    cursor: 'pointer',
+                    boxShadow: '0 0 36px rgba(124,58,237,0.55), 0 8px 24px rgba(0,0,0,0.3)',
+                    width: '100%',
+                    transition: 'all 0.2s ease',
+                    letterSpacing: '0.01em',
+                  }}
+                >
+                  Desbloquear mi informe completo →
+                </button>
+                <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', marginTop: 16 }}>
+                  Gratis · Sin spam · Sin tarjeta de crédito
+                </p>
+              </div>
+            </div>
+          )}
         </div>
 
       </div>
