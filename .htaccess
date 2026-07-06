@@ -1,0 +1,62 @@
+# ======================================================================
+# LIMPIEZA TÉCNICA SEO Y REDIRECCIONES - PROEMOTE.ES
+# ======================================================================
+
+RewriteEngine On
+RewriteBase /
+
+# ----------------------------------------------------------------------
+# BLOQUE 1 - CANONICALIZACIÓN GLOBAL (PARTE 1: PROTOCOLO Y DOMINIO)
+# ----------------------------------------------------------------------
+
+# 1a y 1b. Redirigir www → non-www y Forzar HTTPS (301)
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\.proemote\.es$ [NC]
+RewriteRule ^(.*)$ https://proemote.es/$1 [R=301,L]
+
+# ----------------------------------------------------------------------
+# BLOQUE 2 - REDIRECCIONES 301 (RENOMBRADAS O MOVIDAS)
+# ----------------------------------------------------------------------
+
+# redirecciones de estudio / auditoria / diagnostico
+RewriteRule ^estudio-digital-gratuito/?$ https://proemote.es/analisis-personalizado-gratis/ [R=301,L,NC]
+RewriteRule ^auditoria-digital-gratuita/?$ https://proemote.es/analisis-personalizado-gratis/ [R=301,L,NC]
+RewriteRule ^auditoria-inicial-gratuita/?$ https://proemote.es/analisis-personalizado-gratis/ [R=301,L,NC]
+RewriteRule ^diagnostico-inicial-gratuito/?$ https://proemote.es/analisis-personalizado-gratis/ [R=301,L,NC]
+
+# redirecciones bajo contacto
+RewriteRule ^contacto/auditoria-inicial-gratuita/?$ https://proemote.es/contacto/ [R=301,L,NC]
+RewriteRule ^contacto/diagnostico-inicial-gratuito/?$ https://proemote.es/contacto/ [R=301,L,NC]
+
+# trabajos realizados y portfolio
+RewriteRule ^trabajos-realizados/?$ https://proemote.es/portfolio/ [R=301,L,NC]
+RewriteRule ^caso-exito-lo-quiero-limpio/?$ https://proemote.es/lo-quiero-limpio-caso-de-exito/ [R=301,L,NC]
+
+# desarrollo web y seo
+RewriteRule ^creacion-y-posicionamiento-web\.html$ https://proemote.es/web-seo/ [R=301,L,NC]
+RewriteRule ^desarrollo-y-mantenimiento-web/?$ https://proemote.es/web-seo/ [R=301,L,NC]
+RewriteRule ^desarrollo-web/?$ https://proemote.es/web-seo/ [R=301,L,NC]
+
+# sub-rutas de marketing-integral (deben ir antes que la raiz)
+RewriteRule ^marketing-integral/desarrollo-web/?$ https://proemote.es/web-seo/ [R=301,L,NC]
+RewriteRule ^marketing-integral/creacion-y-posicionamiento-web/?$ https://proemote.es/web-seo/ [R=301,L,NC]
+RewriteRule ^marketing-integral/gestion-redes-sociales/?$ https://proemote.es/redes-sociales/ [R=301,L,NC]
+RewriteRule ^marketing-integral/marketing-digital/?$ https://proemote.es/marketing-digital/ [R=301,L,NC]
+# ruta raiz de marketing-integral
+RewriteRule ^marketing-integral/?$ https://proemote.es/servicios/ [R=301,L,NC]
+
+# otras redirecciones
+RewriteRule ^agendar-reunion/?$ https://proemote.es/contacto/agendar-reunion/ [R=301,L,NC]
+RewriteRule ^inicio/?$ https://proemote.es/ [R=301,L,NC]
+
+# ----------------------------------------------------------------------
+# BLOQUE 1 - CANONICALIZACIÓN GLOBAL (PARTE 2: TRAILING SLASH UNIVERSAL)
+# ----------------------------------------------------------------------
+
+# 1c. Trailing slash universal (301)
+# Todas las URLs sin barra final deben redirigir a su versión con barra final,
+# EXCEPTO archivos con extensión (.html, .xml, .txt, .js, .css, etc.)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !/$
+RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{1,5}$
+RewriteRule ^(.*)$ https://proemote.es/$1/ [R=301,L]
