@@ -81,7 +81,7 @@ function DimensionRow({ clave, valor }) {
       <span style={{ fontSize: 12, fontWeight: 600, color: '#c4c4d4', textTransform: 'uppercase', letterSpacing: '0.05em', width: 150, flexShrink: 0 }}>
         {dim.label}
       </span>
-      <div style={{ flex: 1, height: 6, background: '#1a1a22', borderRadius: 3, overflow: 'hidden' }}>
+      <div style={{ flex: 1, height: 6, background: '#221a33', borderRadius: 3, overflow: 'hidden' }}>
         <div style={{ height: '100%', width: `${valor}%`, background: estado.color, borderRadius: 3, transition: 'width 1s ease' }} />
       </div>
       <span style={{ fontSize: 13, fontWeight: 700, color: estado.color, width: 52, textAlign: 'right', flexShrink: 0 }}>
@@ -113,15 +113,21 @@ function PlanRecomendado({ puntuacionGlobal, ofertaExpira }) {
   const cuenta = useCuentaAtras(ofertaExpira);
 
   return (
-    <div style={{ ...card, padding: '36px 28px', textAlign: 'center' }}>
-      <p style={{ ...eyebrow, marginBottom: 16 }}>Ruta de mejora recomendada</p>
+    <div style={{
+      background: 'linear-gradient(160deg, rgba(124,58,237,0.28), rgba(99,102,241,0.14))',
+      border: '1px solid rgba(139,92,246,0.4)',
+      borderRadius: 20,
+      padding: '36px 28px',
+      textAlign: 'center',
+    }}>
+      <p style={{ ...eyebrow, color: '#c4b5fd', marginBottom: 16 }}>Ruta de mejora recomendada</p>
 
       <span style={{
         display: 'inline-flex', alignItems: 'center', gap: 8,
         padding: '8px 20px',
         fontSize: 15, fontWeight: 600, color: '#fff',
-        background: 'rgba(139,92,246,0.12)',
-        border: '1px solid rgba(139,92,246,0.3)',
+        background: 'rgba(255,255,255,0.1)',
+        border: '1px solid rgba(255,255,255,0.2)',
         borderRadius: 50,
         marginBottom: 24,
       }}>
@@ -168,8 +174,8 @@ function PlanRecomendado({ puntuacionGlobal, ofertaExpira }) {
           href="https://proemote.es/contacto"
           style={{
             background: 'transparent',
-            border: `1px solid ${CARD_BORDER}`,
-            color: '#e4e4e7',
+            border: '1px solid rgba(255,255,255,0.25)',
+            color: '#fff',
             fontWeight: 500,
             fontSize: 14,
             padding: '14px 28px',
@@ -182,7 +188,7 @@ function PlanRecomendado({ puntuacionGlobal, ofertaExpira }) {
       </div>
 
       {cuenta && (
-        <p style={{ fontSize: 12.5, color: '#fca5a5', fontWeight: 500 }}>
+        <p style={{ fontSize: 12.5, color: '#fecaca', fontWeight: 600 }}>
           ⏳ Oferta válida {cuenta.dias > 0 ? `${cuenta.dias} día${cuenta.dias === 1 ? '' : 's'}` : `${cuenta.horas}h`} más
         </p>
       )}
@@ -190,24 +196,23 @@ function PlanRecomendado({ puntuacionGlobal, ofertaExpira }) {
   );
 }
 
-function MisionCard({ rec, index }) {
-  const iconos = ['🛡️', '🌐', '🎯'];
+function AccionCard({ rec, index }) {
   return (
     <div style={{ ...card, padding: '20px 18px' }}>
       <div style={{
-        width: 34, height: 34, borderRadius: 10,
-        background: 'rgba(139,92,246,0.12)', border: '1px solid rgba(139,92,246,0.25)',
+        width: 30, height: 30, borderRadius: '50%',
+        background: 'rgba(139,92,246,0.15)', border: '1px solid rgba(139,92,246,0.3)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        fontSize: 15, marginBottom: 14,
+        fontSize: 13, fontWeight: 700, color: '#c4b5fd', marginBottom: 14,
       }}>
-        {iconos[index % iconos.length]}
+        {index + 1}
       </div>
-      <h4 style={{ fontSize: 13, fontWeight: 700, color: '#fff', textTransform: 'uppercase', letterSpacing: '0.03em', marginBottom: 10, lineHeight: 1.3 }}>
+      <h4 style={{ fontSize: 14, fontWeight: 700, color: '#fff', marginBottom: 10, lineHeight: 1.3 }}>
         {rec.titulo}
       </h4>
       {rec.plazo && (
-        <p style={{ fontSize: 12, color: '#a78bfa', fontWeight: 600, marginBottom: 10 }}>
-          Objetivo: {rec.plazo}
+        <p style={{ fontSize: 11.5, color: '#a78bfa', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 10 }}>
+          {rec.plazo}
         </p>
       )}
       <p style={{ fontSize: 12.5, color: MUTED, lineHeight: 1.6 }}>{rec.descripcion}</p>
@@ -237,11 +242,11 @@ export default function Informe({ puntuaciones, analisis, respuestas, nombre, on
   };
 
   return (
-    <div style={{ minHeight: '100vh', background: '#000' }}>
+    <div style={{ minHeight: '100vh', background: 'radial-gradient(ellipse at top, #1a0f2e 0%, #050008 55%)' }}>
       <div style={{
         maxWidth: 860,
         margin: '0 auto',
-        background: '#050508',
+        background: '#0a0512',
         border: `1px solid ${CARD_BORDER}`,
         borderRadius: 28,
         overflow: 'hidden',
@@ -251,8 +256,9 @@ export default function Informe({ puntuaciones, analisis, respuestas, nombre, on
         <div style={{
           background: CARD_BG_SOFT,
           borderBottom: `1px solid ${CARD_BORDER}`,
-          padding: '18px 32px',
+          padding: '20px 32px',
           display: 'flex',
+          justifyContent: 'center',
           alignItems: 'center',
         }}>
           <img src="/logo-header.png" alt="Proemote" style={{ height: 44, width: 'auto' }} />
@@ -355,15 +361,15 @@ export default function Informe({ puntuaciones, analisis, respuestas, nombre, on
                 </div>
               )}
 
-              {/* Misiones prioritarias */}
+              {/* Acciones prioritarias */}
               {recomendaciones.length > 0 && (
                 <div>
                   <p style={{ fontSize: 15, fontWeight: 700, color: '#fff', marginBottom: 16 }}>
-                    Misiones prioritarias activas
+                    Tus acciones prioritarias
                   </p>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 12 }}>
                     {recomendaciones.map((rec, i) => (
-                      <MisionCard key={i} rec={rec} index={i} />
+                      <AccionCard key={i} rec={rec} index={i} />
                     ))}
                   </div>
                 </div>
