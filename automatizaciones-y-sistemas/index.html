@@ -262,6 +262,7 @@
   <body
     class="antialiased selection:bg-primary selection:text-white relative bg-grid-pattern bg-fixed bg-gray-50 dark:bg-[#0A0A0F] text-gray-900 dark:text-textMain"
   >
+    <div id="mouse-glow"></div>
     <!-- BARRA DE ANUNCIO GLOBAL -->
     <div class="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
         <header class="w-full max-w-5xl backdrop-blur-xl bg-white/80 dark:bg-white/[0.02] border border-gray-200 dark:border-white/10 rounded-full flex items-center justify-between px-6 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.05)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-colors duration-300">
@@ -2148,26 +2149,28 @@
     <script>
       // 1. Mouse Glow
       const glow = document.getElementById("mouse-glow");
-      let mouseX = window.innerWidth / 2,
-        mouseY = window.innerHeight / 2,
-        glowX = mouseX,
-        glowY = mouseY;
-      document.addEventListener("mousemove", (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        glow.style.opacity = "1";
-      });
-      document.addEventListener("mouseleave", () => {
-        glow.style.opacity = "0";
-      });
-      function animateGlow() {
-        glowX += (mouseX - glowX) * 0.1;
-        glowY += (mouseY - glowY) * 0.1;
-        glow.style.left = `${glowX}px`;
-        glow.style.top = `${glowY}px`;
-        requestAnimationFrame(animateGlow);
+      if (glow) {
+        let mouseX = window.innerWidth / 2,
+          mouseY = window.innerHeight / 2,
+          glowX = mouseX,
+          glowY = mouseY;
+        document.addEventListener("mousemove", (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          glow.style.opacity = "1";
+        });
+        document.addEventListener("mouseleave", () => {
+          glow.style.opacity = "0";
+        });
+        function animateGlow() {
+          glowX += (mouseX - glowX) * 0.1;
+          glowY += (mouseY - glowY) * 0.1;
+          glow.style.left = `${glowX}px`;
+          glow.style.top = `${glowY}px`;
+          requestAnimationFrame(animateGlow);
+        }
+        animateGlow();
       }
-      animateGlow();
 
       // 2. Observer y Motor Físico FOCO System
       document.addEventListener("DOMContentLoaded", () => {

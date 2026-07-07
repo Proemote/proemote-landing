@@ -7,24 +7,34 @@ const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY")!;
 
 const supabase = createClient(SUPABASE_URL, SERVICE_ROLE);
 
-const PLANES: Record<string, { precio: string; porQue: string }> = {
+const DESCUENTO_OFERTA = 0.15;
+
+const PLANES: Record<string, { precioBase: number; cuotaMensual: number | null; porQue: string }> = {
   "Puesta a Punto FOCO™": {
-    precio: "97€ pago único",
+    precioBase: 97,
+    cuotaMensual: null,
     porQue: "dejar tu base digital (Google Business, ficha, plan de acción) bien montada.",
   },
   "Sistema Presencia™": {
-    precio: "699€ pago único + 249€/mes",
+    precioBase: 699,
+    cuotaMensual: 249,
     porQue: "tener una web y una presencia que genere confianza y te encuentren en Google.",
   },
   "Sistema Captación™": {
-    precio: "1.490€ pago único + 249€/mes",
+    precioBase: 1490,
+    cuotaMensual: 249,
     porQue: "convertir tus visitas en clientes de forma constante.",
   },
   "Sistema Escala™": {
-    precio: "2.990€ pago único + 499€/mes",
+    precioBase: 2990,
+    cuotaMensual: 499,
     porQue: "automatizar y escalar tu captación con un sistema completo.",
   },
 };
+
+function formatEuro(n: number) {
+  return `${Math.round(n).toLocaleString("es-ES")}€`;
+}
 
 // Día (desde la captura del email) en el que toca cada recordatorio.
 const UMBRALES_DIAS = [2, 4, 6];
@@ -36,9 +46,12 @@ function construirAsunto(nombre: string, numero: number, diasRestantes: number) 
 
 function construirHTML(nombre: string, planNombre: string, diasRestantes: number, numero: number) {
   const plan = PLANES[planNombre] || Object.values(PLANES)[0];
+  const precioOferta = Math.round(plan.precioBase * (1 - DESCUENTO_OFERTA));
+  const ahorro = plan.precioBase - precioOferta;
+  const descuentoPct = Math.round(DESCUENTO_OFERTA * 100);
   const urgencia = numero === 3
-    ? `Tu oferta de acompañamiento prioritario termina en ${diasRestantes === 1 ? "1 día" : diasRestantes + " días"}. Después de eso, el plan sigue disponible pero sin las condiciones actuales.`
-    : `Quedan ${diasRestantes} días para aprovechar tu oferta de acompañamiento prioritario.`;
+    ? `Tu oferta de acompañamiento prioritario termina en ${diasRestantes === 1 ? "1 día" : diasRestantes + " días"}. Después de eso, el plan sigue disponible pero sin el descuento actual.`
+    : `Quedan ${diasRestantes} días para aprovechar el ${descuentoPct}% de descuento.`;
 
   return `<!DOCTYPE html>
 <html lang="es">
@@ -54,7 +67,9 @@ function construirHTML(nombre: string, planNombre: string, diasRestantes: number
         <p style="color:#fca5a5;font-size:13px;margin:0;">⏳ ${urgencia}</p>
       </div>
       <div style="text-align:center;">
-        <span style="display:block;color:#ffffff;font-size:20px;font-weight:700;margin-bottom:14px;">${plan.precio}</span>
+        <span style="color:#a5a5bd;font-size:14px;text-decoration:line-through;margin-right:8px;">${formatEuro(plan.precioBase)}</span>
+        <span style="color:#ffffff;font-size:22px;font-weight:700;">${formatEuro(precioOferta)}${plan.cuotaMensual ? ` + ${formatEuro(plan.cuotaMensual)}/mes` : ""}</span>
+        <p style="color:#c4b5fd;font-size:12px;font-weight:600;margin:6px 0 14px 0;">Ahorras ${formatEuro(ahorro)} · -${descuentoPct}%</p>
         <a href="https://wa.me/34641576286?text=${encodeURIComponent(`Hola, quiero contratar el ${planNombre}`)}" style="background:#ffffff;color:#6d28d9;font-weight:700;font-size:14px;padding:12px 28px;border-radius:50px;text-decoration:none;display:inline-block;">Quiero este plan →</a>
       </div>
     </div>

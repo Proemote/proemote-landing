@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { getEstado, getDimension } from '../utils/scoring.js';
 import { generarInformePDF } from '../utils/pdf.js';
-import { recomendarPlan } from '../utils/recomendarPlan.js';
+import { recomendarPlan, formatEuro } from '../utils/recomendarPlan.js';
 
 const dimensiones = [
   'presencia_digital',
@@ -11,45 +11,55 @@ const dimensiones = [
   'madurez_estrategia'
 ];
 
-const glass = {
-  background: 'rgba(255,255,255,0.04)',
-  backdropFilter: 'blur(24px)',
-  WebkitBackdropFilter: 'blur(24px)',
-  border: '1px solid rgba(255,255,255,0.08)',
+const BG_PAGINA = '#05030a';
+const CARD_BG = '#0c0c11';
+const CARD_BORDER = '#22222c';
+const MUTED = '#8b8b9b';
+const MUTED2 = '#6b6b7b';
+
+const card = {
+  background: CARD_BG,
+  border: `1px solid ${CARD_BORDER}`,
   borderRadius: 24,
 };
+
+function CheckIcon({ color = '#8b5cf6' }) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill={color} style={{ flexShrink: 0, marginTop: 2 }}>
+      <circle cx="12" cy="12" r="12" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M17.026 8.232a.75.75 0 0 1 .18 1.044l-6.5 8.5a.75.75 0 0 1-1.15.06l-3.5-4a.75.75 0 1 1 1.128-.992l2.87 3.28 5.928-7.752a.75.75 0 0 1 1.044-.14z" fill={CARD_BG} />
+    </svg>
+  );
+}
 
 function DimensionCard({ clave, valor }) {
   const dim = getDimension(clave);
   const estado = getEstado(valor);
   return (
     <div style={{
-      ...glass,
-      borderRadius: 16,
+      ...card,
       borderTop: `2px solid ${estado.color}`,
       padding: '16px 12px',
-      transition: 'transform 0.2s ease, box-shadow 0.2s ease',
       minWidth: 0,
     }}>
-      <div style={{ fontSize: 18, marginBottom: 8 }}>{dim.icon}</div>
-      <div style={{ fontSize: 9, fontWeight: 700, color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 10, lineHeight: 1.3 }}>
+      <div style={{ fontSize: 17, marginBottom: 8 }}>{dim.icon}</div>
+      <div style={{ fontSize: 9, fontWeight: 600, color: MUTED2, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 10, lineHeight: 1.3 }}>
         {dim.label}
       </div>
-      <div style={{ fontSize: 32, fontWeight: 900, color: estado.color, lineHeight: 1, marginBottom: 10, textShadow: `0 0 20px ${estado.color}70` }}>
+      <div style={{ fontSize: 28, fontWeight: 600, color: estado.color, lineHeight: 1, marginBottom: 10 }}>
         {valor}
-        <span style={{ fontSize: 12, fontWeight: 400, color: 'rgba(255,255,255,0.2)', marginLeft: 2 }}>/100</span>
+        <span style={{ fontSize: 12, fontWeight: 400, color: MUTED2, marginLeft: 2 }}>/100</span>
       </div>
-      <div style={{ height: 3, background: 'rgba(255,255,255,0.06)', borderRadius: 2, overflow: 'hidden' }}>
+      <div style={{ height: 3, background: '#1a1a22', borderRadius: 2, overflow: 'hidden' }}>
         <div style={{
           height: '100%',
           width: `${valor}%`,
-          background: `linear-gradient(90deg, ${estado.color}60, ${estado.color})`,
+          background: estado.color,
           borderRadius: 2,
-          boxShadow: `0 0 8px ${estado.color}80`,
           transition: 'width 1s ease',
         }} />
       </div>
-      <div style={{ marginTop: 6, fontSize: 9, fontWeight: 700, color: estado.color, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+      <div style={{ marginTop: 6, fontSize: 9, fontWeight: 600, color: estado.color, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
         {estado.label}
       </div>
     </div>
@@ -78,108 +88,99 @@ function PlanRecomendado({ puntuacionGlobal, ofertaExpira }) {
   const cuenta = useCuentaAtras(ofertaExpira);
 
   return (
-    <div style={{
-      ...glass,
-      marginTop: 28,
-      padding: '28px 24px',
-      border: '1px solid rgba(139,92,246,0.28)',
-      background: 'linear-gradient(160deg, rgba(124,58,237,0.12), rgba(255,255,255,0.03))',
-    }}>
-      <p style={{ fontSize: 11, color: '#a78bfa', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 6 }}>
+    <div style={{ ...card, padding: '32px' }}>
+      <span style={{
+        display: 'inline-block',
+        padding: '4px 12px',
+        fontSize: 10, fontWeight: 600, color: MUTED,
+        textTransform: 'uppercase', letterSpacing: '0.12em',
+        border: `1px solid ${CARD_BORDER}`, borderRadius: 20,
+        marginBottom: 18,
+      }}>
         Recomendado para tu negocio
-      </p>
-      <h3 style={{ fontSize: 20, fontWeight: 800, color: '#fff', marginBottom: 8 }}>{plan.nombre}</h3>
-      <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.7, marginBottom: 16 }}>{plan.porQue}</p>
+      </span>
+      <h3 style={{ fontSize: 24, fontWeight: 500, letterSpacing: '-0.01em', color: '#fff', marginBottom: 8 }}>{plan.nombre}</h3>
+      <p style={{ fontSize: 14, color: MUTED, lineHeight: 1.7, marginBottom: 22 }}>{plan.porQue}</p>
 
-      <ul style={{ listStyle: 'none', marginBottom: 18 }}>
+      <ul style={{ listStyle: 'none', marginBottom: 24, display: 'flex', flexDirection: 'column', gap: 12 }}>
         {plan.incluye.map((item, i) => (
-          <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, color: 'rgba(255,255,255,0.7)', marginBottom: 8 }}>
-            <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#8b5cf6', flexShrink: 0 }} />
+          <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 14, color: '#c4c4d4', lineHeight: 1.4 }}>
+            <CheckIcon />
             {item}
           </li>
         ))}
       </ul>
 
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, marginBottom: cuenta ? 16 : 0 }}>
-        <span style={{ fontSize: 22, fontWeight: 800, color: '#fff' }}>{plan.precio}</span>
+      <div style={{ borderTop: `1px solid ${CARD_BORDER}`, paddingTop: 20 }}>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 2 }}>
+          <span style={{ fontSize: 15, color: MUTED2, textDecoration: 'line-through' }}>{formatEuro(plan.precioBase)}</span>
+          <span style={{ fontSize: 34, fontWeight: 500, color: '#fff' }}>{formatEuro(plan.precioOferta)}</span>
+          {plan.cuotaMensual && <span style={{ fontSize: 13, color: MUTED2 }}>+ {formatEuro(plan.cuotaMensual)}/mes</span>}
+        </div>
+        <p style={{ fontSize: 13, fontWeight: 500, color: '#a78bfa', marginBottom: 20 }}>
+          Ahorras {formatEuro(plan.ahorro)} · -{plan.descuentoPct}% · dejando tu email hoy
+        </p>
+
+        {cuenta && (
+          <div style={{
+            background: 'rgba(239,68,68,0.08)',
+            border: '1px solid rgba(239,68,68,0.2)',
+            borderRadius: 12,
+            padding: '10px 14px',
+            fontSize: 12.5,
+            color: '#fca5a5',
+            fontWeight: 500,
+            marginBottom: 20,
+          }}>
+            Oferta válida {cuenta.dias > 0 ? `${cuenta.dias} día${cuenta.dias === 1 ? '' : 's'}` : `${cuenta.horas}h`} más
+          </div>
+        )}
+
         <a
           href={`https://wa.me/34641576286?text=${encodeURIComponent(`Hola, he hecho el diagnóstico digital y me interesa el ${plan.nombre}`)}`}
           target="_blank"
           rel="noopener noreferrer"
           style={{
+            display: 'block',
+            textAlign: 'center',
             background: 'linear-gradient(135deg, #7c3aed, #6366f1)',
             color: '#fff',
-            fontWeight: 700,
+            fontWeight: 600,
             fontSize: 14,
-            padding: '12px 26px',
+            padding: '14px 26px',
             borderRadius: 50,
             textDecoration: 'none',
-            boxShadow: '0 0 24px rgba(124,58,237,0.4)',
           }}
         >
           Quiero este plan →
         </a>
       </div>
-
-      {cuenta && (
-        <div style={{
-          marginTop: 4,
-          background: 'rgba(239,68,68,0.1)',
-          border: '1px solid rgba(239,68,68,0.22)',
-          borderRadius: 14,
-          padding: '12px 16px',
-          fontSize: 12.5,
-          color: '#fca5a5',
-          fontWeight: 600,
-        }}>
-          ⏳ Oferta de acompañamiento prioritario válida {cuenta.dias > 0 ? `${cuenta.dias} día${cuenta.dias === 1 ? '' : 's'}` : `${cuenta.horas}h`} más
-        </div>
-      )}
     </div>
   );
 }
 
 function RecCard({ rec, index }) {
-  const colores = ['#8b5cf6', '#6366f1', '#a78bfa'];
-  const color = colores[index % colores.length];
   return (
-    <div style={{
-      ...glass,
-      borderLeft: `3px solid ${color}`,
-      padding: '22px 22px',
-      marginBottom: 14,
-      transition: 'transform 0.2s ease',
-    }}>
+    <div style={{ ...card, borderLeft: '3px solid #8b5cf6', padding: '22px', marginBottom: 12 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12, flexWrap: 'wrap', gap: 8 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <div style={{
-            width: 28, height: 28, borderRadius: '50%',
-            background: `${color}20`,
-            border: `1.5px solid ${color}50`,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: 12, fontWeight: 800, color,
-          }}>
-            {index + 1}
-          </div>
-          <span style={{ fontSize: 11, color, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-            Acción {index + 1}
-          </span>
-        </div>
+        <span style={{ fontSize: 11, color: '#a78bfa', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+          Acción {index + 1}
+        </span>
         <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
           {rec.impacto === 'alto' && (
-            <span style={{ fontSize: 11, background: 'rgba(139,92,246,0.15)', border: '1px solid rgba(139,92,246,0.25)', color: '#a78bfa', padding: '3px 10px', borderRadius: 20, fontWeight: 600 }}>
-              ⚡ Impacto alto
+            <span style={{ fontSize: 11, border: `1px solid ${CARD_BORDER}`, color: '#a78bfa', padding: '3px 10px', borderRadius: 20, fontWeight: 500 }}>
+              Impacto alto
             </span>
           )}
           {rec.plazo && (
-            <span style={{ fontSize: 11, background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.38)', padding: '3px 10px', borderRadius: 20 }}>
+            <span style={{ fontSize: 11, border: `1px solid ${CARD_BORDER}`, color: MUTED2, padding: '3px 10px', borderRadius: 20 }}>
               {rec.plazo}
             </span>
           )}
         </div>
       </div>
-      <h4 style={{ fontSize: 15, fontWeight: 700, color: 'rgba(255,255,255,0.92)', marginBottom: 8 }}>{rec.titulo}</h4>
-      <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.42)', lineHeight: 1.7 }}>{rec.descripcion}</p>
+      <h4 style={{ fontSize: 15, fontWeight: 600, color: '#fff', marginBottom: 8 }}>{rec.titulo}</h4>
+      <p style={{ fontSize: 13, color: MUTED, lineHeight: 1.7 }}>{rec.descripcion}</p>
     </div>
   );
 }
@@ -206,70 +207,54 @@ export default function Informe({ puntuaciones, analisis, respuestas, nombre, on
   };
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      background: 'linear-gradient(160deg, #0d0018 0%, #090013 35%, #050010 65%, #030008 100%)',
-      paddingBottom: 100,
-    }}>
+    <div style={{ minHeight: '100vh', background: BG_PAGINA, paddingBottom: 100 }}>
 
       {/* Header de marca */}
       <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: 10,
-        padding: '20px 24px 0',
-        maxWidth: 740,
-        margin: '0 auto',
+        borderBottom: `1px solid ${CARD_BORDER}`,
+        padding: '18px 24px',
       }}>
-        <img src="/logo-header.png" alt="Proemote" style={{ height: 22, width: 'auto', opacity: 0.9 }} />
+        <div style={{ maxWidth: 740, margin: '0 auto', display: 'flex', alignItems: 'center' }}>
+          <img src="/logo-header.png" alt="Proemote" style={{ height: 34, width: 'auto' }} />
+        </div>
       </div>
 
       {/* Hero */}
-      <div style={{
-        padding: '60px 24px 52px',
-        textAlign: 'center',
-        borderBottom: '1px solid rgba(255,255,255,0.05)',
-        background: 'linear-gradient(180deg, rgba(124,58,237,0.14) 0%, transparent 100%)',
-      }}>
+      <div style={{ padding: '56px 24px 48px', textAlign: 'center', borderBottom: `1px solid ${CARD_BORDER}` }}>
         <div style={{
           display: 'inline-block',
-          fontSize: 11, color: '#a78bfa', fontWeight: 700,
+          fontSize: 11, color: MUTED, fontWeight: 600,
           textTransform: 'uppercase', letterSpacing: '0.15em',
-          background: 'rgba(139,92,246,0.15)',
-          border: '1px solid rgba(139,92,246,0.28)',
-          backdropFilter: 'blur(12px)',
+          border: `1px solid ${CARD_BORDER}`,
           padding: '6px 16px', borderRadius: 20, marginBottom: 36,
         }}>
           Diagnóstico Digital Proemote
         </div>
 
-        {/* Puntuación con glow */}
         <div style={{
-          fontSize: 108,
-          fontWeight: 900,
+          fontSize: 88,
+          fontWeight: 600,
           color: estadoGlobal.color,
           lineHeight: 1,
           marginBottom: 4,
-          letterSpacing: '-5px',
-          textShadow: `0 0 80px ${estadoGlobal.color}55, 0 0 200px ${estadoGlobal.color}18`,
+          letterSpacing: '-3px',
         }}>
           {puntuaciones.global}
         </div>
-        <div style={{ fontSize: 28, color: 'rgba(255,255,255,0.18)', marginBottom: 22, letterSpacing: '-1px' }}>/100</div>
+        <div style={{ fontSize: 22, color: MUTED2, marginBottom: 20, letterSpacing: '-0.5px' }}>/100</div>
 
         <div style={{
           display: 'inline-block',
-          padding: '8px 26px', borderRadius: 50,
-          background: `${estadoGlobal.color}18`,
+          padding: '7px 24px', borderRadius: 50,
+          background: `${estadoGlobal.color}14`,
           border: `1px solid ${estadoGlobal.color}40`,
-          backdropFilter: 'blur(12px)',
-          color: estadoGlobal.color, fontSize: 15, fontWeight: 700,
-          letterSpacing: '0.02em', marginBottom: 22,
+          color: estadoGlobal.color, fontSize: 14, fontWeight: 600,
+          letterSpacing: '0.02em', marginBottom: 20,
         }}>
           {estadoGlobal.label}
         </div>
 
-        <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.02em' }}>
+        <p style={{ fontSize: 14, color: MUTED2, letterSpacing: '0.02em' }}>
           {respuestas.p1} · {respuestas.p2}
         </p>
 
@@ -279,11 +264,11 @@ export default function Informe({ puntuaciones, analisis, respuestas, nombre, on
             disabled={generandoPDF}
             style={{
               marginTop: 24,
-              background: 'rgba(255,255,255,0.06)',
-              border: '1px solid rgba(255,255,255,0.15)',
-              color: 'rgba(255,255,255,0.85)',
+              background: 'transparent',
+              border: `1px solid ${CARD_BORDER}`,
+              color: '#e4e4e7',
               fontSize: 13,
-              fontWeight: 600,
+              fontWeight: 500,
               padding: '10px 22px',
               borderRadius: 50,
               cursor: generandoPDF ? 'default' : 'pointer',
@@ -291,7 +276,7 @@ export default function Informe({ puntuaciones, analisis, respuestas, nombre, on
               alignItems: 'center',
               gap: 8,
               opacity: generandoPDF ? 0.6 : 1,
-              transition: 'all 0.2s ease',
+              transition: 'background 0.15s ease',
             }}
           >
             {generandoPDF ? 'Generando PDF...' : '⬇ Descargar informe en PDF'}
@@ -320,29 +305,32 @@ export default function Informe({ puntuaciones, analisis, respuestas, nombre, on
             pointerEvents: desbloqueado ? 'auto' : 'none',
             userSelect: desbloqueado ? 'auto' : 'none',
             transition: 'filter 0.4s ease',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 28,
           }}>
 
             {/* Análisis general */}
             {(texto || fortaleza || urgencia) && (
-              <div style={{ ...glass, padding: '28px 24px' }}>
-                <p style={{ fontSize: 11, color: '#8b5cf6', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 18 }}>
+              <div style={{ ...card, padding: '28px 24px' }}>
+                <p style={{ fontSize: 11, color: MUTED, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 18 }}>
                   Análisis general
                 </p>
                 {texto && (
-                  <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: fortaleza || urgencia ? 20 : 0 }}>
+                  <p style={{ fontSize: 14, color: '#c4c4d4', lineHeight: 1.8, marginBottom: fortaleza || urgencia ? 20 : 0 }}>
                     {texto}
                   </p>
                 )}
                 {fortaleza && (
-                  <div style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.18)', borderRadius: 16, padding: '16px 18px', marginBottom: urgencia ? 12 : 0 }}>
-                    <p style={{ fontSize: 11, color: '#10b981', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>Tu punto fuerte</p>
-                    <p style={{ fontSize: 13, color: 'rgba(16,185,129,0.78)', lineHeight: 1.65 }}>{fortaleza}</p>
+                  <div style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.16)', borderRadius: 16, padding: '16px 18px', marginBottom: urgencia ? 12 : 0 }}>
+                    <p style={{ fontSize: 11, color: '#10b981', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>Tu punto fuerte</p>
+                    <p style={{ fontSize: 13, color: '#6ee7b7', lineHeight: 1.65 }}>{fortaleza}</p>
                   </div>
                 )}
                 {urgencia && (
-                  <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.18)', borderRadius: 16, padding: '16px 18px' }}>
-                    <p style={{ fontSize: 11, color: '#ef4444', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>Urgente</p>
-                    <p style={{ fontSize: 13, color: 'rgba(239,68,68,0.78)', lineHeight: 1.65 }}>{urgencia}</p>
+                  <div style={{ background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.16)', borderRadius: 16, padding: '16px 18px' }}>
+                    <p style={{ fontSize: 11, color: '#ef4444', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>Urgente</p>
+                    <p style={{ fontSize: 13, color: '#fca5a5', lineHeight: 1.65 }}>{urgencia}</p>
                   </div>
                 )}
               </div>
@@ -350,8 +338,8 @@ export default function Informe({ puntuaciones, analisis, respuestas, nombre, on
 
             {/* Recomendaciones */}
             {recomendaciones.length > 0 && (
-              <div style={{ marginTop: 28 }}>
-                <p style={{ fontSize: 11, color: '#8b5cf6', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 16 }}>
+              <div>
+                <p style={{ fontSize: 11, color: MUTED, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 16 }}>
                   Tus acciones prioritarias
                 </p>
                 {recomendaciones.map((rec, i) => (
@@ -374,21 +362,16 @@ export default function Informe({ puntuaciones, analisis, respuestas, nombre, on
               paddingTop: 60,
             }}>
               <div style={{
-                background: 'linear-gradient(135deg, rgba(124,58,237,0.22), rgba(99,102,241,0.16))',
-                backdropFilter: 'blur(28px)',
-                WebkitBackdropFilter: 'blur(28px)',
-                border: '1px solid rgba(139,92,246,0.35)',
-                borderRadius: 28,
+                ...card,
                 padding: '40px 32px',
                 textAlign: 'center',
-                boxShadow: '0 0 80px rgba(124,58,237,0.15), inset 0 1px 0 rgba(255,255,255,0.07)',
                 maxWidth: 420,
               }}>
                 <div style={{ fontSize: 32, marginBottom: 8 }}>🔒</div>
-                <h3 style={{ fontSize: 21, fontWeight: 700, color: 'rgba(255,255,255,0.97)', marginBottom: 12 }}>
+                <h3 style={{ fontSize: 21, fontWeight: 600, color: '#fff', marginBottom: 12 }}>
                   Tu diagnóstico completo está listo
                 </h3>
-                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.7, marginBottom: 26 }}>
+                <p style={{ fontSize: 14, color: MUTED, lineHeight: 1.7, marginBottom: 26 }}>
                   Desbloquea el análisis por dimensión, tus puntos fuertes y las 3 acciones prioritarias dejando tu email. Te lo enviamos gratis y al instante.
                 </p>
                 <button
@@ -396,21 +379,20 @@ export default function Informe({ puntuaciones, analisis, respuestas, nombre, on
                   style={{
                     background: 'linear-gradient(135deg, #7c3aed, #6366f1)',
                     color: '#fff',
-                    fontWeight: 700,
+                    fontWeight: 600,
                     fontSize: 15,
                     padding: '16px 40px',
                     borderRadius: 50,
                     border: 'none',
                     cursor: 'pointer',
-                    boxShadow: '0 0 36px rgba(124,58,237,0.55), 0 8px 24px rgba(0,0,0,0.3)',
                     width: '100%',
-                    transition: 'all 0.2s ease',
+                    transition: 'opacity 0.2s ease',
                     letterSpacing: '0.01em',
                   }}
                 >
                   Desbloquear mi informe completo →
                 </button>
-                <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', marginTop: 16 }}>
+                <p style={{ fontSize: 12, color: MUTED2, marginTop: 16 }}>
                   Gratis · Sin spam · Sin tarjeta de crédito
                 </p>
               </div>

@@ -118,13 +118,13 @@
         .dark .glass-form:hover { box-shadow: 0 20px 50px -15px rgba(123, 97, 255, 0.25), inset 0 1px 0 0 rgba(255, 255, 255, 0.1); }
         .glass-form > * { transform: translateZ(20px); position: relative; z-index: 2; }
 
-        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.1); }
+
         .faq-question { cursor: pointer; transition: color 0.3s ease; }
         .faq-question:hover { color: #9F7AEA; }
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; opacity: 0; }
-        .faq-item.active .faq-answer { max-height: 500px; padding-top: 1rem; padding-bottom: 1.5rem; opacity: 1; }
+
         .faq-icon { transition: transform 0.3s ease; }
-        .faq-item.active .faq-icon { transform: rotate(180deg); }
+
 
     
         /* Foco Timeline Animation Fixes */
@@ -714,72 +714,75 @@
             <div class="grid grid-cols-1 gap-4 reveal-up delay-100">
                 
                 <!-- Acordeón FAQ -->
-                <div class="glass-card rounded-[2rem] border-gray-200 dark:border-white/5 overflow-hidden w-full">
+                <!-- Acordeón FAQ -->
+                <div class="space-y-4 w-full">
                     
-                    <div class="faq-item">
+                    <div class="glass-card rounded-2xl border border-gray-200 dark:border-white/5 overflow-hidden faq-item transition-all duration-300">
                         <button class="faq-question w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none">
-                            <h3 class="text-lg font-medium text-gray-900 dark:text-white flex items-center gap-3">
+                            <h3 class="text-base md:text-lg font-medium text-gray-900 dark:text-white flex items-center gap-3">
                                 <i class="ph-fill ph-robot text-xl text-primary flex-shrink-0"></i>
                                 No sé si la inteligencia artificial aplica a mi tipo de negocio.
                             </h3>
-                            <i class="ph-bold ph-caret-down text-gray-600 dark:text-white/50 faq-icon text-xl flex-shrink-0 ml-4"></i>
+                            <i class="ph-bold ph-caret-down text-gray-600 dark:text-white/50 faq-icon text-xl flex-shrink-0 ml-4 transition-transform duration-300"></i>
                         </button>
-                        <div class="faq-answer px-6 md:px-8 bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10">
-                            <p class="text-sm md:text-base text-gray-600 dark:text-textSecondary leading-relaxed">Aplica a cualquier pyme o autónomo con actividad en Extremadura. No necesitas ser una empresa tecnológica. Las herramientas de IA más subvencionables son precisamente las más prácticas: automatización de clientes, facturación, atención automática y análisis de datos. En el diagnóstico te decimos exactamente qué encaja con tu negocio.</p>
+                        <div class="faq-answer px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                            <p class="text-sm md:text-base text-gray-600 dark:text-textSecondary leading-relaxed pb-6">Aplica a cualquier pyme o autónomo con actividad en Extremadura. No necesitas ser una empresa tecnológica. Las herramientas de IA más subvencionables son precisamente las más prácticas: automatización de clientes, facturación, atención automática y análisis de datos. En el diagnóstico te decimos exactamente qué encaja con tu negocio.</p>
                         </div>
                     </div>
 
-                    <div class="faq-item">
+                    <div class="glass-card rounded-2xl border border-gray-200 dark:border-white/5 overflow-hidden faq-item transition-all duration-300">
                         <button class="faq-question w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none">
-                            <h3 class="text-lg font-medium text-gray-900 dark:text-white flex items-center gap-3">
+                            <h3 class="text-base md:text-lg font-medium text-gray-900 dark:text-white flex items-center gap-3">
                                 <i class="ph-fill ph-bank text-xl text-primary flex-shrink-0"></i>
                                 ¿Tengo que pagar todo antes de recibir la subvención?
                             </h3>
-                            <i class="ph-bold ph-caret-down text-gray-600 dark:text-white/50 faq-icon text-xl flex-shrink-0 ml-4"></i>
+                            <i class="ph-bold ph-caret-down text-gray-600 dark:text-white/50 faq-icon text-xl flex-shrink-0 ml-4 transition-transform duration-300"></i>
                         </button>
-                        <div class="faq-answer px-6 md:px-8 bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10">
-                            <p class="text-sm md:text-base text-gray-600 dark:text-textSecondary leading-relaxed">No. La Junta adelanta el 60% del importe subvencionado tras la concesión, sin exigir garantías. El resto llega tras la justificación del proyecto.</p>
+                        <div class="faq-answer px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                            <p class="text-sm md:text-base text-gray-600 dark:text-textSecondary leading-relaxed pb-6">No. La Junta adelanta el 60% del importe subvencionado tras la concesión, sin exigir garantías. El resto llega tras la justificación del proyecto.</p>
                         </div>
                     </div>
 
-                    <div class="faq-item">
+                    <div class="glass-card rounded-2xl border border-gray-200 dark:border-white/5 overflow-hidden faq-item transition-all duration-300">
                         <button class="faq-question w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none">
-                            <h3 class="text-lg font-medium text-gray-900 dark:text-white flex items-center gap-3">
+                            <h3 class="text-base md:text-lg font-medium text-gray-900 dark:text-white flex items-center gap-3">
                                 <i class="ph-fill ph-chart-polar text-xl text-primary flex-shrink-0"></i>
                                 No sé si mi inversión sería suficientemente grande para justificar la ayuda.
                             </h3>
-                            <i class="ph-bold ph-caret-down text-gray-600 dark:text-white/50 faq-icon text-xl flex-shrink-0 ml-4"></i>
+                            <i class="ph-bold ph-caret-down text-gray-600 dark:text-white/50 faq-icon text-xl flex-shrink-0 ml-4 transition-transform duration-300"></i>
                         </button>
-                        <div class="faq-answer px-6 md:px-8 bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10">
-                            <p class="text-sm md:text-base text-gray-600 dark:text-textSecondary leading-relaxed">El mínimo no está fijado. Lo que sí está claro es que la subvención cubre el 85% de lo que inviertas en herramientas de IA, hasta 100.000€. Cualquier implantación real justifica la solicitud.</p>
+                        <div class="faq-answer px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                            <p class="text-sm md:text-base text-gray-600 dark:text-textSecondary leading-relaxed pb-6">El mínimo no está fijado. Lo que sí está claro es que la subvención cubre el 85% de lo que inviertas en herramientas de IA, hasta 100.000€. Cualquier implantación real justifica la solicitud.</p>
                         </div>
                     </div>
 
-                    <div class="faq-item">
+                    <div class="glass-card rounded-2xl border border-gray-200 dark:border-white/5 overflow-hidden faq-item transition-all duration-300">
                         <button class="faq-question w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none">
-                            <h3 class="text-lg font-medium text-gray-900 dark:text-white flex items-center gap-3">
+                            <h3 class="text-base md:text-lg font-medium text-gray-900 dark:text-white flex items-center gap-3">
                                 <i class="ph-fill ph-student text-xl text-primary flex-shrink-0"></i>
                                 ¿La formación de mis empleados para usar las herramientas también está cubierta?
                             </h3>
-                            <i class="ph-bold ph-caret-down text-gray-600 dark:text-white/50 faq-icon text-xl flex-shrink-0 ml-4"></i>
+                            <i class="ph-bold ph-caret-down text-gray-600 dark:text-white/50 faq-icon text-xl flex-shrink-0 ml-4 transition-transform duration-300"></i>
                         </button>
-                        <div class="faq-answer px-6 md:px-8 bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10">
-                            <p class="text-sm md:text-base text-gray-600 dark:text-textSecondary leading-relaxed">Sí. La convocatoria incluye expresamente como gasto subvencionable la formación necesaria para el uso de las herramientas implantadas. Esto significa que el coste de formar a tu equipo forma parte del proyecto y entra dentro del 85% financiado.</p>
+                        <div class="faq-answer px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                            <p class="text-sm md:text-base text-gray-600 dark:text-textSecondary leading-relaxed pb-6">Sí. La convocatoria incluye expresamente como gasto subvencionable la formación necesaria para el uso de las herramientas implantadas. Esto significa que el coste de formar a tu equipo forma parte del proyecto y entra dentro del 85% financiado.</p>
                         </div>
                     </div>
 
-                    <div class="faq-item border-b-0">
+                    <div class="glass-card rounded-2xl border border-gray-200 dark:border-white/5 overflow-hidden faq-item transition-all duration-300">
                         <button class="faq-question w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none">
-                            <h3 class="text-lg font-medium text-gray-900 dark:text-white flex items-center gap-3">
+                            <h3 class="text-base md:text-lg font-medium text-gray-900 dark:text-white flex items-center gap-3">
                                 <i class="ph-fill ph-hourglass-high text-xl text-primary flex-shrink-0"></i>
                                 No tengo tiempo para gestionar esto con el plazo tan corto.
                             </h3>
-                            <i class="ph-bold ph-caret-down text-gray-600 dark:text-white/50 faq-icon text-xl flex-shrink-0 ml-4"></i>
+                            <i class="ph-bold ph-caret-down text-gray-600 dark:text-white/50 faq-icon text-xl flex-shrink-0 ml-4 transition-transform duration-300"></i>
                         </button>
-                        <div class="faq-answer px-6 md:px-8 bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10">
-                            <p class="text-sm md:text-base text-gray-600 dark:text-textSecondary leading-relaxed">Es exactamente por eso que existimos. Si nos contactas hoy, gestionamos la solicitud completa antes del cierre. Tu único esfuerzo es rellenar el formulario abajo.</p>
+                        <div class="faq-answer px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                            <p class="text-sm md:text-base text-gray-600 dark:text-textSecondary leading-relaxed pb-6">Es exactamente por eso que existimos. Si nos contactas hoy, gestionamos la solicitud completa antes del cierre. Tu único esfuerzo es rellenar el formulario abajo.</p>
                         </div>
                     </div>
+
+                </div>
 
                 </div>
             </div>
@@ -1146,12 +1149,41 @@
                 const button = item.querySelector('.faq-question');
                 if(button) {
                     button.addEventListener('click', () => {
+                        const content = item.querySelector('.faq-answer');
+                        const icon = item.querySelector('.faq-icon');
                         const isActive = item.classList.contains('active');
+                        
                         faqItems.forEach(otherItem => {
                             otherItem.classList.remove('active');
+                            const otherContent = otherItem.querySelector('.faq-answer');
+                            const otherIcon = otherItem.querySelector('.faq-icon');
+                            if(otherContent) {
+                                otherContent.style.maxHeight = '0px';
+                                otherContent.style.opacity = '0';
+                            }
+                            if(otherIcon) {
+                                otherIcon.style.transform = 'rotate(0deg)';
+                            }
                         });
+
                         if (!isActive) {
                             item.classList.add('active');
+                            if(content) {
+                                content.style.maxHeight = content.scrollHeight + 'px';
+                                content.style.opacity = '1';
+                            }
+                            if(icon) {
+                                icon.style.transform = 'rotate(180deg)';
+                            }
+                        } else {
+                            item.classList.remove('active');
+                            if(content) {
+                                content.style.maxHeight = '0px';
+                                content.style.opacity = '0';
+                            }
+                            if(icon) {
+                                icon.style.transform = 'rotate(0deg)';
+                            }
                         }
                     });
                 }

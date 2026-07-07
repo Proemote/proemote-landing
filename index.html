@@ -81,6 +81,28 @@
     </script>
 
     <style>
+        /* Glass card styling */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .dark .glass-card {
+            background: linear-gradient(180deg, rgba(20, 20, 31, 0.9) 0%, rgba(20, 20, 31, 0.5) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        /* Hover glow (brillo hover) + lift animation */
+        .glass-card:hover {
+            border-color: rgba(139, 92, 246, 0.3);
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.1);
+            transform: translateY(-2px);
+        }
+        .dark .glass-card:hover {
+            border-color: rgba(139, 92, 246, 0.45);
+            box-shadow: 0 0 26px rgba(139, 92, 246, 0.14);
+        }
+
         body { transition: background-color 0.3s ease, color 0.3s ease; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -2401,86 +2423,96 @@
                 <p class="text-lg text-gray-600 dark:text-white/60 font-light">Todo claro antes de empezar.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
-                <details class="group bg-white dark:bg-[#05020a] border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden shadow-sm dark:shadow-none transition-colors duration-300">
-                    <summary class="cursor-pointer text-[15px] font-bold text-gray-900 dark:text-white p-5 flex justify-between items-center hover:bg-gray-50 dark:hover:bg-white/[0.03] transition-colors">
-                        ¿Cobráis por resultados o a precio fijo?
-                        <svg class="w-5 h-5 text-gray-400 dark:text-white/40 group-open:text-violet-600 dark:group-open:text-marca transform group-open:rotate-45 transition-all faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-                    </summary>
-                    <div class="p-5 pt-0 text-gray-600 dark:text-white/60 font-light text-sm leading-relaxed border-t border-gray-100 dark:border-white/5 mt-2">
-                        Precio fijo siempre. Servicios puntuales (web) o recurrentes (SEO/Redes) sin comisiones ocultas ni sorpresas. Si no hay resultados en 60 días, hablamos sin compromiso.
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start stagger">
+                
+                <!-- FAQ 1 -->
+                <div class="glass-card rounded-2xl border border-gray-200 dark:border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-gray-900 dark:text-white pr-4 text-base md:text-[17px]">¿Cobráis por resultados o a precio fijo?</span>
+                        <i class="ph ph-caret-down text-violet-600 dark:text-marca transition-transform duration-300 faq-icon text-lg flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-gray-600 dark:text-white/60 text-sm pb-5 leading-relaxed font-light">Precio fijo siempre. Servicios puntuales (web) o recurrentes (SEO/Redes) sin comisiones ocultas ni sorpresas. Si en 60 días no ves avances medibles, seguimos optimizando la estrategia sin coste adicional hasta conseguirlos.</p>
                     </div>
-                </details>
+                </div>
 
-                <details class="group bg-white dark:bg-[#05020a] border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden shadow-sm dark:shadow-none transition-colors duration-300">
-                    <summary class="cursor-pointer text-[15px] font-bold text-gray-900 dark:text-white p-5 flex justify-between items-center hover:bg-gray-50 dark:hover:bg-white/[0.03] transition-colors">
-                        ¿Cuál es el mínimo para empezar conmigo?
-                        <svg class="w-5 h-5 text-gray-400 dark:text-white/40 group-open:text-violet-600 dark:group-open:text-marca transform group-open:rotate-45 transition-all faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-                    </summary>
-                    <div class="p-5 pt-0 text-gray-600 dark:text-white/60 font-light text-sm leading-relaxed border-t border-gray-100 dark:border-white/5 mt-2">
-                        Puedes empezar desde 97€ (pago único) para establecer tu presencia en Google, o desde 49€/mes para gestión básica. Escalamos contigo a medida que creces.
+                <!-- FAQ 2 -->
+                <div class="glass-card rounded-2xl border border-gray-200 dark:border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-gray-900 dark:text-white pr-4 text-base md:text-[17px]">¿Qué incluye el paquete de 97€ exactamente?</span>
+                        <i class="ph ph-caret-down text-violet-600 dark:text-marca transition-transform duration-300 faq-icon text-lg flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-gray-600 dark:text-white/60 text-sm pb-5 leading-relaxed font-light">Google Business optimizado, datos del negocio correctos, SEO local básico y texto profesional. En 1 semana eres visible en mapas locales.</p>
                     </div>
-                </details>
+                </div>
 
-                <details class="group bg-white dark:bg-[#05020a] border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden shadow-sm dark:shadow-none transition-colors duration-300">
-                    <summary class="cursor-pointer text-[15px] font-bold text-gray-900 dark:text-white p-5 flex justify-between items-center hover:bg-gray-50 dark:hover:bg-white/[0.03] transition-colors">
-                        ¿Qué incluye el paquete de 97€ exactamente?
-                        <svg class="w-5 h-5 text-gray-400 dark:text-white/40 group-open:text-violet-600 dark:group-open:text-marca transform group-open:rotate-45 transition-all faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-                    </summary>
-                    <div class="p-5 pt-0 text-gray-600 dark:text-white/60 font-light text-sm leading-relaxed border-t border-gray-100 dark:border-white/5 mt-2">
-                        Google Business optimizado, datos del negocio correctos, SEO local básico y texto profesional. En 1 semana eres visible en mapas locales.
+                <!-- FAQ 3 -->
+                <div class="glass-card rounded-2xl border border-gray-200 dark:border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-gray-900 dark:text-white pr-4 text-base md:text-[17px]">¿Cuánto tardaré en ver resultados?</span>
+                        <i class="ph ph-caret-down text-violet-600 dark:text-marca transition-transform duration-300 faq-icon text-lg flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-gray-600 dark:text-white/60 text-sm pb-5 leading-relaxed font-light">Depende del canal: el SEO local en Mérida y Extremadura suele mostrar mejoras en Google Maps y buscadores en 4-8 semanas, mientras que redes sociales y publicidad generan contactos desde la primera semana activa. Si en 60 días no ves avances medibles, seguimos optimizando la estrategia sin coste adicional hasta conseguirlos.</p>
                     </div>
-                </details>
+                </div>
 
-                <details class="group bg-white dark:bg-[#05020a] border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden shadow-sm dark:shadow-none transition-colors duration-300">
-                    <summary class="cursor-pointer text-[15px] font-bold text-gray-900 dark:text-white p-5 flex justify-between items-center hover:bg-gray-50 dark:hover:bg-white/[0.03] transition-colors">
-                        ¿Por qué elegirnos vs una agencia multinacional?
-                        <svg class="w-5 h-5 text-gray-400 dark:text-white/40 group-open:text-violet-600 dark:group-open:text-marca transform group-open:rotate-45 transition-all faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-                    </summary>
-                    <div class="p-5 pt-0 text-gray-600 dark:text-white/60 font-light text-sm leading-relaxed border-t border-gray-100 dark:border-white/5 mt-2">
-                        Somos una agencia boutique. Hablas directamente con el estratega (Carlos), sin intermediarios. Además, los costes son mucho más razonables para pymes locales.
+                <!-- FAQ 4 -->
+                <div class="glass-card rounded-2xl border border-gray-200 dark:border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-gray-900 dark:text-white pr-4 text-base md:text-[17px]">¿Por qué elegirnos vs una agencia multinacional?</span>
+                        <i class="ph ph-caret-down text-violet-600 dark:text-marca transition-transform duration-300 faq-icon text-lg flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-gray-600 dark:text-white/60 text-sm pb-5 leading-relaxed font-light">Somos una agencia boutique. Hablas directamente con el estratega (Carlos), sin intermediarios. Además, los costes son mucho más razonables para pymes locales.</p>
                     </div>
-                </details>
+                </div>
 
-                <details class="group bg-white dark:bg-[#05020a] border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden shadow-sm dark:shadow-none transition-colors duration-300">
-                    <summary class="cursor-pointer text-[15px] font-bold text-gray-900 dark:text-white p-5 flex justify-between items-center hover:bg-gray-50 dark:hover:bg-white/[0.03] transition-colors">
-                        ¿Habéis posicionado negocios locales antes?
-                        <svg class="w-5 h-5 text-gray-400 dark:text-white/40 group-open:text-violet-600 dark:group-open:text-marca transform group-open:rotate-45 transition-all faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-                    </summary>
-                    <div class="p-5 pt-0 text-gray-600 dark:text-white/60 font-light text-sm leading-relaxed border-t border-gray-100 dark:border-white/5 mt-2">
-                        Sí, múltiples casos. Por ejemplo, "Lo Quiero Limpio" es #1 en búsquedas locales en Mérida. Conocemos el SEO geolocalizado en Extremadura.
+                <!-- FAQ 5 -->
+                <div class="glass-card rounded-2xl border border-gray-200 dark:border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-gray-900 dark:text-white pr-4 text-base md:text-[17px]">¿Habéis posicionado negocios locales antes?</span>
+                        <i class="ph ph-caret-down text-violet-600 dark:text-marca transition-transform duration-300 faq-icon text-lg flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-gray-600 dark:text-white/60 text-sm pb-5 leading-relaxed font-light">Sí, múltiples casos. Por ejemplo, "Lo Quiero Limpio" es #1 en búsquedas locales en Mérida. Conocemos el SEO geolocalizado en Extremadura.</p>
                     </div>
-                </details>
+                </div>
 
-                <details class="group bg-white dark:bg-[#05020a] border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden shadow-sm dark:shadow-none transition-colors duration-300">
-                    <summary class="cursor-pointer text-[15px] font-bold text-gray-900 dark:text-white p-5 flex justify-between items-center hover:bg-gray-50 dark:hover:bg-white/[0.03] transition-colors">
-                        ¿Cómo funcionan las redes para mi sector?
-                        <svg class="w-5 h-5 text-gray-400 dark:text-white/40 group-open:text-violet-600 dark:group-open:text-marca transform group-open:rotate-45 transition-all faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-                    </summary>
-                    <div class="p-5 pt-0 text-gray-600 dark:text-white/60 font-light text-sm leading-relaxed border-t border-gray-100 dark:border-white/5 mt-2">
-                        Diseñamos estrategia según tu sector, no usamos plantillas. Una estética requiere educación visual y confianza, mientras que una empresa de servicios B2B requiere LinkedIn y autoridad técnica.
+                <!-- FAQ 6 -->
+                <div class="glass-card rounded-2xl border border-gray-200 dark:border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-gray-900 dark:text-white pr-4 text-base md:text-[17px]">¿Cómo funcionan las redes para mi sector?</span>
+                        <i class="ph ph-caret-down text-violet-600 dark:text-marca transition-transform duration-300 faq-icon text-lg flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-gray-600 dark:text-white/60 text-sm pb-5 leading-relaxed font-light">Diseñamos estrategia según tu sector, no usamos plantillas. Una estética requiere educación visual y confianza, mientras que una empresa de servicios B2B requiere LinkedIn y autoridad técnica.</p>
                     </div>
-                </details>
+                </div>
 
-                <details class="group bg-white dark:bg-[#05020a] border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden shadow-sm dark:shadow-none transition-colors duration-300">
-                    <summary class="cursor-pointer text-[15px] font-bold text-gray-900 dark:text-white p-5 flex justify-between items-center hover:bg-gray-50 dark:hover:bg-white/[0.03] transition-colors">
-                        ¿Puedo cancelar un servicio mensual si no funciona?
-                        <svg class="w-5 h-5 text-gray-400 dark:text-white/40 group-open:text-violet-600 dark:group-open:text-marca transform group-open:rotate-45 transition-all faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-                    </summary>
-                    <div class="p-5 pt-0 text-gray-600 dark:text-white/60 font-light text-sm leading-relaxed border-t border-gray-100 dark:border-white/5 mt-2">
-                        Sí, trabajamos mes a mes sin cláusulas de retención forzosas. Tu permanencia depende de los resultados y de tu satisfacción, no de un contrato.
+                <!-- FAQ 7 -->
+                <div class="glass-card rounded-2xl border border-gray-200 dark:border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-gray-900 dark:text-white pr-4 text-base md:text-[17px]">¿Puedo cancelar un servicio mensual si no funciona?</span>
+                        <i class="ph ph-caret-down text-violet-600 dark:text-marca transition-transform duration-300 faq-icon text-lg flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-gray-600 dark:text-white/60 text-sm pb-5 leading-relaxed font-light">Sí, trabajamos mes a mes sin cláusulas de retención forzosas. Tu permanencia depende de los resultados y de tu satisfacción, no de un contrato.</p>
                     </div>
-                </details>
+                </div>
 
-                <details class="group bg-white dark:bg-[#05020a] border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden shadow-sm dark:shadow-none transition-colors duration-300">
-                    <summary class="cursor-pointer text-[15px] font-bold text-gray-900 dark:text-white p-5 flex justify-between items-center hover:bg-gray-50 dark:hover:bg-white/[0.03] transition-colors">
-                        ¿Qué pasa si cambio de agencia después?
-                        <svg class="w-5 h-5 text-gray-400 dark:text-white/40 group-open:text-violet-600 dark:group-open:text-marca transform group-open:rotate-45 transition-all faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-                    </summary>
-                    <div class="p-5 pt-0 text-gray-600 dark:text-white/60 font-light text-sm leading-relaxed border-t border-gray-100 dark:border-white/5 mt-2">
-                        Todo es tuyo. Acceso a redes, web, dominio y cuentas de publicidad. Cero bloqueos; no es nuestra estrategia atraparte técnicamente.
+                <!-- FAQ 8 -->
+                <div class="glass-card rounded-2xl border border-gray-200 dark:border-white/5 overflow-hidden faq-item">
+                    <button class="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none faq-toggle">
+                        <span class="font-semibold text-gray-900 dark:text-white pr-4 text-base md:text-[17px]">¿Qué pasa si cambio de agencia después?</span>
+                        <i class="ph ph-caret-down text-violet-600 dark:text-marca transition-transform duration-300 faq-icon text-lg flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <p class="text-gray-600 dark:text-white/60 text-sm pb-5 leading-relaxed font-light">Todo es tuyo. Acceso a redes, web, dominio y cuentas de publicidad. Cero bloqueos; no es nuestra estrategia atraparte técnicamente.</p>
                     </div>
-                </details>
+                </div>
+
             </div>
         </div>
     </section>
@@ -3202,6 +3234,34 @@
 
         // Intersection Observer (Animaciones)
         document.addEventListener('DOMContentLoaded', () => {
+            // Accordion Logic for FAQs
+            document.querySelectorAll('.faq-toggle').forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const content = toggle.nextElementSibling;
+                    const icon = toggle.querySelector('.faq-icon');
+                    
+                    document.querySelectorAll('.faq-content').forEach(c => {
+                        if(c !== content) {
+                            c.style.maxHeight = '0px';
+                            c.style.opacity = '0';
+                        }
+                    });
+                    document.querySelectorAll('.faq-icon').forEach(i => {
+                        if(i !== icon) i.style.transform = 'rotate(0deg)';
+                    });
+
+                    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                        content.style.maxHeight = '0px';
+                        content.style.opacity = '0';
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        content.style.opacity = '1';
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
             // Activar scroll de logos
             enableDragScroll('logos-container', true);
             enableDragScroll('reviews-row-1', true, { speed: 0.4, loop: true, reverse: false });

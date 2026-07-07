@@ -255,7 +255,7 @@ export async function generarInformePDF({ puntuaciones, analisis, respuestas, no
   const plan = recomendarPlan(puntuaciones.global);
   const lineasPorQue = textoConSalto(doc, plan.porQue, MARGEN + 4, ANCHO_UTIL - 8, 10, TEXTO_SUAVE);
   const altoIncluye = plan.incluye.length * 5.2;
-  const altoPlan = 14 + lineasPorQue.length * 5 + altoIncluye + 14;
+  const altoPlan = 14 + lineasPorQue.length * 5 + altoIncluye + 22;
   asegurarEspacio(doc, estado, altoPlan + 8);
 
   doc.setFillColor(...hexToRgb(BG_CARD));
@@ -292,10 +292,27 @@ export async function generarInformePDF({ puntuaciones, analisis, respuestas, no
   });
   yPlan += 2;
 
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(10.5);
+  doc.setTextColor(...hexToRgb(TEXTO_SUAVE));
+  const precioBaseTxt = `${plan.precioBase.toLocaleString('es-ES')}€`;
+  doc.text(precioBaseTxt, MARGEN + 5, yPlan);
+  const anchoTachado = doc.getTextWidth(precioBaseTxt);
+  doc.setDrawColor(...hexToRgb(TEXTO_SUAVE));
+  doc.setLineWidth(0.25);
+  doc.line(MARGEN + 5, yPlan - 1.3, MARGEN + 5 + anchoTachado, yPlan - 1.3);
+
   doc.setFont('helvetica', 'bold');
-  doc.setFontSize(14);
+  doc.setFontSize(15);
   doc.setTextColor(...hexToRgb(TEXTO));
-  doc.text(plan.precio, MARGEN + 5, yPlan);
+  const precioOfertaTxt = `${plan.precioOferta.toLocaleString('es-ES')}€${plan.cuotaMensual ? ` + ${plan.cuotaMensual}€/mes` : ''}`;
+  doc.text(precioOfertaTxt, MARGEN + 5 + anchoTachado + 4, yPlan);
+  yPlan += 6;
+
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(9.5);
+  doc.setTextColor(...hexToRgb(MARCA));
+  doc.text(`Ahorras ${plan.ahorro.toLocaleString('es-ES')}€ · -${plan.descuentoPct}% · dejando tu email hoy`, MARGEN + 5, yPlan);
 
   estado.y += altoPlan + 8;
 

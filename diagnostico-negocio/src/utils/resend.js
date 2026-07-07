@@ -7,17 +7,22 @@ export const enviarEmailConInforme = async (email, nombre, puntuaciones, analisi
     : '';
 
   const planHTML = plan ? `
-    <div style="background: linear-gradient(135deg, rgba(124,58,237,0.18), rgba(99,102,241,0.1)); border: 1px solid rgba(139,92,246,0.35); border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+    <div style="background: #0c0c11; border: 1px solid #22222c; border-radius: 16px; padding: 24px; margin-bottom: 24px;">
       <p style="color: #a78bfa; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 8px 0;">Recomendado para tu negocio</p>
-      <h3 style="color: #ffffff; font-size: 18px; font-weight: 700; margin: 0 0 8px 0;">${plan.nombre}</h3>
-      <p style="color: #c0c0d0; font-size: 13px; line-height: 1.6; margin: 0 0 16px 0;">${plan.porQue}</p>
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: ${fechaLimite ? '14px' : '0'};">
-        <span style="color: #ffffff; font-size: 20px; font-weight: 700;">${plan.precio}</span>
-        <a href="https://wa.me/34641576286?text=${encodeURIComponent(`Hola, he hecho el diagnóstico digital y me interesa el ${plan.nombre}`)}" style="background: linear-gradient(135deg, #7c3aed, #6366f1); color: #fff; font-weight: 700; font-size: 13px; padding: 10px 22px; border-radius: 50px; text-decoration: none;">Quiero este plan →</a>
+      <h3 style="color: #ffffff; font-size: 18px; font-weight: 600; margin: 0 0 8px 0;">${plan.nombre}</h3>
+      <p style="color: #8b8b9b; font-size: 13px; line-height: 1.6; margin: 0 0 16px 0;">${plan.porQue}</p>
+      <div style="border-top: 1px solid #22222c; padding-top: 16px;">
+        <div style="margin-bottom: 4px;">
+          <span style="color: #6b6b7b; font-size: 14px; text-decoration: line-through; margin-right: 8px;">${plan.precioBase.toLocaleString('es-ES')}€</span>
+          <span style="color: #ffffff; font-size: 26px; font-weight: 600;">${plan.precioOferta.toLocaleString('es-ES')}€</span>
+          ${plan.cuotaMensual ? `<span style="color: #6b6b7b; font-size: 13px;"> + ${plan.cuotaMensual}€/mes</span>` : ''}
+        </div>
+        <p style="color: #a78bfa; font-size: 13px; font-weight: 500; margin: 0 0 16px 0;">Ahorras ${plan.ahorro.toLocaleString('es-ES')}€ · -${plan.descuentoPct}% · dejando tu email hoy</p>
+        ${fechaLimite ? `<div style="background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2); border-radius: 10px; padding: 10px 14px; margin-bottom: 16px;">
+          <p style="color: #fca5a5; font-size: 12px; font-weight: 500; margin: 0;">Oferta válida hasta el ${fechaLimite}</p>
+        </div>` : ''}
+        <a href="https://wa.me/34641576286?text=${encodeURIComponent(`Hola, he hecho el diagnóstico digital y me interesa el ${plan.nombre}`)}" style="display: block; text-align: center; background: linear-gradient(135deg, #7c3aed, #6366f1); color: #fff; font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: 50px; text-decoration: none;">Quiero este plan →</a>
       </div>
-      ${fechaLimite ? `<div style="background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.25); border-radius: 10px; padding: 10px 14px;">
-        <p style="color: #fca5a5; font-size: 12px; font-weight: 600; margin: 0;">⏳ Oferta de acompañamiento prioritario válida hasta el ${fechaLimite}</p>
-      </div>` : ''}
     </div>` : '';
 
   const dimensiones = ['presencia_digital', 'redes_sociales', 'generacion_leads', 'inversion_marketing', 'madurez_estrategia'];
