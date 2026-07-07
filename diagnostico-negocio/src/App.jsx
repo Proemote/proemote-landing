@@ -9,6 +9,7 @@ import { generarAnalisis } from './utils/anthropic.js';
 import { guardarDiagnostico, guardarLead, actualizarEstadoDiagnostico } from './utils/supabase.js';
 import { enviarEmailConInforme } from './utils/resend.js';
 import { registrarEnGoogleSheets } from './utils/googleSheets.js';
+import { recomendarPlan, calcularOfertaExpira } from './utils/recomendarPlan.js';
 
 // paso: 'formulario' | 'analizando' | 'informe' | 'emailEnviado'
 
@@ -23,6 +24,7 @@ export default function App() {
   const [enviando, setEnviando] = useState(false);
   const [errorEmail, setErrorEmail] = useState('');
   const [nombreLead, setNombreLead] = useState('');
+  const [ofertaExpira, setOfertaExpira] = useState(null);
 
   // Avanzar los pasos de loading visualmente
   useEffect(() => {
@@ -75,9 +77,29 @@ export default function App() {
 
       registrarEnGoogleSheets('vista_informe', {
         diagnostico_id: diagId,
+        puntuacion_global: punts.global,
+        puntuacion_presencia_digital: punts.presencia_digital,
+        puntuacion_redes_sociales: punts.redes_sociales,
+        puntuacion_generacion_leads: punts.generacion_leads,
+        puntuacion_inversion_marketing: punts.inversion_marketing,
+        puntuacion_madurez_estrategia: punts.madurez_estrategia,
         sector: respuestasForm.p1,
         ciudad: respuestasForm.p2,
-        puntuacion_global: punts.global,
+        que_vende: respuestasForm.p3,
+        anos_negocio: respuestasForm.p4,
+        tiene_web: respuestasForm.p5,
+        ficha_google_maps: respuestasForm.p6,
+        gestiona_redes: respuestasForm.p7,
+        frecuencia_publicacion: respuestasForm.p8,
+        canales_clientes: Array.isArray(respuestasForm.p9) ? respuestasForm.p9.join(', ') : respuestasForm.p9,
+        clientes_nuevos_mes: respuestasForm.p10,
+        tasa_conversion_contacto: respuestasForm.p11,
+        ha_invertido_publicidad: respuestasForm.p12,
+        capacidad_mas_clientes: respuestasForm.p13,
+        probado_sin_resultado: Array.isArray(respuestasForm.p14) ? respuestasForm.p14.join(', ') : respuestasForm.p14,
+        mayor_freno: respuestasForm.p15,
+        objetivo_3_meses: Array.isArray(respuestasForm.p16) ? respuestasForm.p16.join(', ') : respuestasForm.p16,
+        presupuesto_marketing: respuestasForm.p17,
       });
 
       setPasoLoading(4);
@@ -95,11 +117,14 @@ export default function App() {
     setEnviando(true);
     setErrorEmail('');
 
+    const plan = recomendarPlan(puntuaciones.global);
+    const expira = calcularOfertaExpira();
+
     try {
-      await enviarEmailConInforme(email, nombre, puntuaciones, analisis, respuestas);
+      await enviarEmailConInforme(email, nombre, puntuaciones, analisis, respuestas, plan, expira);
 
       try {
-        await guardarLead(email, nombre, diagnosticoId);
+        await guardarLead(email, nombre, diagnosticoId, plan.nombre, expira.toISOString());
         if (diagnosticoId) {
           await actualizarEstadoDiagnostico(diagnosticoId, 'email_enviado');
         }
@@ -114,9 +139,12 @@ export default function App() {
         sector: respuestas.p1,
         ciudad: respuestas.p2,
         puntuacion_global: puntuaciones?.global,
+        plan_recomendado: plan.nombre,
+        oferta_expira: expira.toISOString(),
       });
 
       setNombreLead(nombre);
+      setOfertaExpira(expira);
       setMostrarModal(false);
       setPaso('emailEnviado');
     } catch (err) {
@@ -144,6 +172,7 @@ export default function App() {
           respuestas={respuestas}
           nombre={nombreLead}
           desbloqueado={paso === 'emailEnviado'}
+          ofertaExpira={ofertaExpira}
           onSolicitarEmail={() => {
             if (paso === 'emailEnviado') return;
             setMostrarModal(true);

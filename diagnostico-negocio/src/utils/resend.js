@@ -1,6 +1,24 @@
-export const enviarEmailConInforme = async (email, nombre, puntuaciones, analisis, respuestas) => {
+export const enviarEmailConInforme = async (email, nombre, puntuaciones, analisis, respuestas, plan, ofertaExpira) => {
   const { getEstado, getDimension } = await import('./scoring.js');
   const estado = getEstado(puntuaciones.global);
+
+  const fechaLimite = ofertaExpira
+    ? ofertaExpira.toLocaleDateString('es-ES', { day: 'numeric', month: 'long' })
+    : '';
+
+  const planHTML = plan ? `
+    <div style="background: linear-gradient(135deg, rgba(124,58,237,0.18), rgba(99,102,241,0.1)); border: 1px solid rgba(139,92,246,0.35); border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+      <p style="color: #a78bfa; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 8px 0;">Recomendado para tu negocio</p>
+      <h3 style="color: #ffffff; font-size: 18px; font-weight: 700; margin: 0 0 8px 0;">${plan.nombre}</h3>
+      <p style="color: #c0c0d0; font-size: 13px; line-height: 1.6; margin: 0 0 16px 0;">${plan.porQue}</p>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: ${fechaLimite ? '14px' : '0'};">
+        <span style="color: #ffffff; font-size: 20px; font-weight: 700;">${plan.precio}</span>
+        <a href="https://wa.me/34641576286?text=${encodeURIComponent(`Hola, he hecho el diagnóstico digital y me interesa el ${plan.nombre}`)}" style="background: linear-gradient(135deg, #7c3aed, #6366f1); color: #fff; font-weight: 700; font-size: 13px; padding: 10px 22px; border-radius: 50px; text-decoration: none;">Quiero este plan →</a>
+      </div>
+      ${fechaLimite ? `<div style="background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.25); border-radius: 10px; padding: 10px 14px;">
+        <p style="color: #fca5a5; font-size: 12px; font-weight: 600; margin: 0;">⏳ Oferta de acompañamiento prioritario válida hasta el ${fechaLimite}</p>
+      </div>` : ''}
+    </div>` : '';
 
   const dimensiones = ['presencia_digital', 'redes_sociales', 'generacion_leads', 'inversion_marketing', 'madurez_estrategia'];
 
@@ -81,6 +99,8 @@ export const enviarEmailConInforme = async (email, nombre, puntuaciones, analisi
       <p style="color: #8b5cf6; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 16px 0;">🎯 Tus 3 Acciones Prioritarias</p>
       ${recomendacionesHTML}
     </div>
+
+    ${planHTML}
 
     <!-- CTA -->
     <div style="background: linear-gradient(135deg, #6d28d9 0%, #4f46e5 100%); border-radius: 16px; padding: 28px; text-align: center; margin-bottom: 24px;">

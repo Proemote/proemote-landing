@@ -21,13 +21,15 @@ export const guardarDiagnostico = async (respuestas, puntuaciones, analisis) => 
   return data[0];
 };
 
-export const guardarLead = async (email, nombre, idDiagnostico) => {
+export const guardarLead = async (email, nombre, idDiagnostico, planRecomendado, ofertaExpira) => {
   const { data, error } = await supabase
     .from('leads')
     .insert([{
       email,
       nombre,
       id_diagnostico: idDiagnostico,
+      plan_recomendado: planRecomendado,
+      oferta_expira: ofertaExpira,
       created_at: new Date().toISOString()
     }])
     .select();

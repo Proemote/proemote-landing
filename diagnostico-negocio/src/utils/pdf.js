@@ -1,10 +1,14 @@
 import { jsPDF } from 'jspdf';
 import { getEstado, getDimension } from './scoring.js';
+import { recomendarPlan } from './recomendarPlan.js';
 
-const MARCA = '#7c3aed';
-const TEXTO = '#111827';
-const TEXTO_SUAVE = '#6b7280';
+const BG_PAGINA = '#0d0018';
+const BG_CARD = '#170a28';
+const MARCA = '#a78bfa';
+const TEXTO = '#f5f5f7';
+const TEXTO_SUAVE = '#a5a5bd';
 const LOGO_URL = 'https://proemote.es/logo-header.png';
+const LOGO_RATIO = 4084 / 1692;
 
 const dimensiones = [
   'presencia_digital',
@@ -39,10 +43,17 @@ const ANCHO_PAGINA = 210;
 const ALTO_PAGINA = 297;
 const ANCHO_UTIL = ANCHO_PAGINA - MARGEN * 2;
 const PIE_ALTURA = 18;
+const LOGO_ALTO = 11;
+const LOGO_ANCHO = LOGO_ALTO * LOGO_RATIO;
+
+function pintarFondo(doc) {
+  doc.setFillColor(...hexToRgb(BG_PAGINA));
+  doc.rect(0, 0, ANCHO_PAGINA, ALTO_PAGINA, 'F');
+}
 
 function dibujarPie(doc, pagina) {
   const y = ALTO_PAGINA - PIE_ALTURA;
-  doc.setDrawColor(230, 230, 230);
+  doc.setDrawColor(60, 50, 80);
   doc.line(MARGEN, y, ANCHO_PAGINA - MARGEN, y);
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9);
@@ -53,6 +64,7 @@ function dibujarPie(doc, pagina) {
 
 function nuevaPagina(doc, estado) {
   doc.addPage();
+  pintarFondo(doc);
   estado.pagina += 1;
   dibujarPie(doc, estado.pagina);
   estado.y = MARGEN;
@@ -64,7 +76,7 @@ function asegurarEspacio(doc, estado, alturaNecesaria) {
   }
 }
 
-function textoConSalto(doc, texto, x, anchoMax, tamano, color, interlineado = 5.6) {
+function textoConSalto(doc, texto, x, anchoMax, tamano, color) {
   doc.setFontSize(tamano);
   doc.setTextColor(...hexToRgb(color));
   return doc.splitTextToSize(texto, anchoMax);
@@ -75,10 +87,12 @@ export async function generarInformePDF({ puntuaciones, analisis, respuestas, no
   const estado = { y: MARGEN, pagina: 1 };
   const logo = await cargarLogoBase64();
 
+  pintarFondo(doc);
+
   // Header
   if (logo) {
     try {
-      doc.addImage(logo, 'PNG', MARGEN, estado.y, 32, 10);
+      doc.addImage(logo, 'PNG', MARGEN, estado.y, LOGO_ANCHO, LOGO_ALTO);
     } catch {
       // si el logo no carga, seguimos sin él
     }
@@ -87,7 +101,7 @@ export async function generarInformePDF({ puntuaciones, analisis, respuestas, no
   doc.setFontSize(10);
   doc.setTextColor(...hexToRgb(MARCA));
   doc.text('DIAGNÓSTICO DIGITAL', ANCHO_PAGINA - MARGEN, estado.y + 6, { align: 'right' });
-  estado.y += 20;
+  estado.y += LOGO_ALTO + 10;
 
   doc.setDrawColor(...hexToRgb(MARCA));
   doc.setLineWidth(0.8);
@@ -139,7 +153,7 @@ export async function generarInformePDF({ puntuaciones, analisis, respuestas, no
 
     const barraX = MARGEN;
     const barraAncho = ANCHO_UTIL;
-    doc.setFillColor(235, 235, 235);
+    doc.setFillColor(45, 38, 62);
     doc.roundedRect(barraX, estado.y + 6, barraAncho, 2.4, 1, 1, 'F');
     doc.setFillColor(...hexToRgb(est.color));
     doc.roundedRect(barraX, estado.y + 6, (barraAncho * val) / 100, 2.4, 1, 1, 'F');
@@ -167,13 +181,13 @@ export async function generarInformePDF({ puntuaciones, analisis, respuestas, no
     }
 
     if (analisis.fortaleza) {
-      const lineas = textoConSalto(doc, analisis.fortaleza, MARGEN + 4, ANCHO_UTIL - 8, 10, '#059669');
+      const lineas = textoConSalto(doc, analisis.fortaleza, MARGEN + 4, ANCHO_UTIL - 8, 10, '#6ee7b7');
       asegurarEspacio(doc, estado, lineas.length * 5 + 10);
-      doc.setFillColor(236, 253, 245);
+      doc.setFillColor(10, 40, 30);
       doc.roundedRect(MARGEN, estado.y - 4, ANCHO_UTIL, lineas.length * 5 + 8, 2, 2, 'F');
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(9);
-      doc.setTextColor(...hexToRgb('#059669'));
+      doc.setTextColor(...hexToRgb('#6ee7b7'));
       doc.text('TU PUNTO FUERTE', MARGEN + 4, estado.y + 1);
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(10);
@@ -182,13 +196,13 @@ export async function generarInformePDF({ puntuaciones, analisis, respuestas, no
     }
 
     if (analisis.urgencia) {
-      const lineas = textoConSalto(doc, analisis.urgencia, MARGEN + 4, ANCHO_UTIL - 8, 10, '#dc2626');
+      const lineas = textoConSalto(doc, analisis.urgencia, MARGEN + 4, ANCHO_UTIL - 8, 10, '#fca5a5');
       asegurarEspacio(doc, estado, lineas.length * 5 + 10);
-      doc.setFillColor(254, 242, 242);
+      doc.setFillColor(45, 15, 18);
       doc.roundedRect(MARGEN, estado.y - 4, ANCHO_UTIL, lineas.length * 5 + 8, 2, 2, 'F');
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(9);
-      doc.setTextColor(...hexToRgb('#dc2626'));
+      doc.setTextColor(...hexToRgb('#fca5a5'));
       doc.text('URGENTE', MARGEN + 4, estado.y + 1);
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(10);
@@ -212,7 +226,7 @@ export async function generarInformePDF({ puntuaciones, analisis, respuestas, no
       const altoCard = 12 + lineasDesc.length * 4.6;
       asegurarEspacio(doc, estado, altoCard + 6);
 
-      doc.setFillColor(250, 250, 251);
+      doc.setFillColor(...hexToRgb(BG_CARD));
       doc.setDrawColor(...hexToRgb(MARCA));
       doc.setLineWidth(0.3);
       doc.roundedRect(MARGEN, estado.y - 4, ANCHO_UTIL, altoCard, 2, 2, 'FD');
@@ -236,6 +250,54 @@ export async function generarInformePDF({ puntuaciones, analisis, respuestas, no
       estado.y += altoCard + 6;
     });
   }
+
+  // Plan recomendado
+  const plan = recomendarPlan(puntuaciones.global);
+  const lineasPorQue = textoConSalto(doc, plan.porQue, MARGEN + 4, ANCHO_UTIL - 8, 10, TEXTO_SUAVE);
+  const altoIncluye = plan.incluye.length * 5.2;
+  const altoPlan = 14 + lineasPorQue.length * 5 + altoIncluye + 14;
+  asegurarEspacio(doc, estado, altoPlan + 8);
+
+  doc.setFillColor(...hexToRgb(BG_CARD));
+  doc.setDrawColor(...hexToRgb(MARCA));
+  doc.setLineWidth(0.4);
+  doc.roundedRect(MARGEN, estado.y, ANCHO_UTIL, altoPlan, 3, 3, 'FD');
+
+  let yPlan = estado.y + 8;
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(9);
+  doc.setTextColor(...hexToRgb(MARCA));
+  doc.text('RECOMENDADO PARA TU NEGOCIO', MARGEN + 5, yPlan);
+  yPlan += 6;
+
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(13);
+  doc.setTextColor(...hexToRgb(TEXTO));
+  doc.text(plan.nombre, MARGEN + 5, yPlan);
+  yPlan += 6;
+
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(10);
+  doc.setTextColor(...hexToRgb(TEXTO_SUAVE));
+  doc.text(lineasPorQue, MARGEN + 5, yPlan);
+  yPlan += lineasPorQue.length * 5 + 4;
+
+  doc.setFontSize(9.5);
+  plan.incluye.forEach((item) => {
+    doc.setTextColor(...hexToRgb(MARCA));
+    doc.text('•', MARGEN + 5, yPlan);
+    doc.setTextColor(...hexToRgb(TEXTO_SUAVE));
+    doc.text(item, MARGEN + 9, yPlan);
+    yPlan += 5.2;
+  });
+  yPlan += 2;
+
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(14);
+  doc.setTextColor(...hexToRgb(TEXTO));
+  doc.text(plan.precio, MARGEN + 5, yPlan);
+
+  estado.y += altoPlan + 8;
 
   dibujarPie(doc, estado.pagina);
 

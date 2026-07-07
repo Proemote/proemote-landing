@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { getEstado, getDimension } from '../utils/scoring.js';
 import { generarInformePDF } from '../utils/pdf.js';
+import { recomendarPlan } from '../utils/recomendarPlan.js';
 
 const dimensiones = [
   'presencia_digital',
@@ -55,6 +56,89 @@ function DimensionCard({ clave, valor }) {
   );
 }
 
+function useCuentaAtras(fechaExpira) {
+  const [restante, setRestante] = useState(() => (fechaExpira ? fechaExpira.getTime() - Date.now() : null));
+
+  useEffect(() => {
+    if (!fechaExpira) return;
+    const interval = setInterval(() => {
+      setRestante(fechaExpira.getTime() - Date.now());
+    }, 60000);
+    return () => clearInterval(interval);
+  }, [fechaExpira]);
+
+  if (restante === null || restante <= 0) return null;
+  const dias = Math.floor(restante / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((restante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  return { dias, horas };
+}
+
+function PlanRecomendado({ puntuacionGlobal, ofertaExpira }) {
+  const plan = useMemo(() => recomendarPlan(puntuacionGlobal), [puntuacionGlobal]);
+  const cuenta = useCuentaAtras(ofertaExpira);
+
+  return (
+    <div style={{
+      ...glass,
+      marginTop: 28,
+      padding: '28px 24px',
+      border: '1px solid rgba(139,92,246,0.28)',
+      background: 'linear-gradient(160deg, rgba(124,58,237,0.12), rgba(255,255,255,0.03))',
+    }}>
+      <p style={{ fontSize: 11, color: '#a78bfa', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 6 }}>
+        Recomendado para tu negocio
+      </p>
+      <h3 style={{ fontSize: 20, fontWeight: 800, color: '#fff', marginBottom: 8 }}>{plan.nombre}</h3>
+      <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.7, marginBottom: 16 }}>{plan.porQue}</p>
+
+      <ul style={{ listStyle: 'none', marginBottom: 18 }}>
+        {plan.incluye.map((item, i) => (
+          <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, color: 'rgba(255,255,255,0.7)', marginBottom: 8 }}>
+            <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#8b5cf6', flexShrink: 0 }} />
+            {item}
+          </li>
+        ))}
+      </ul>
+
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, marginBottom: cuenta ? 16 : 0 }}>
+        <span style={{ fontSize: 22, fontWeight: 800, color: '#fff' }}>{plan.precio}</span>
+        <a
+          href={`https://wa.me/34641576286?text=${encodeURIComponent(`Hola, he hecho el diagnóstico digital y me interesa el ${plan.nombre}`)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            background: 'linear-gradient(135deg, #7c3aed, #6366f1)',
+            color: '#fff',
+            fontWeight: 700,
+            fontSize: 14,
+            padding: '12px 26px',
+            borderRadius: 50,
+            textDecoration: 'none',
+            boxShadow: '0 0 24px rgba(124,58,237,0.4)',
+          }}
+        >
+          Quiero este plan →
+        </a>
+      </div>
+
+      {cuenta && (
+        <div style={{
+          marginTop: 4,
+          background: 'rgba(239,68,68,0.1)',
+          border: '1px solid rgba(239,68,68,0.22)',
+          borderRadius: 14,
+          padding: '12px 16px',
+          fontSize: 12.5,
+          color: '#fca5a5',
+          fontWeight: 600,
+        }}>
+          ⏳ Oferta de acompañamiento prioritario válida {cuenta.dias > 0 ? `${cuenta.dias} día${cuenta.dias === 1 ? '' : 's'}` : `${cuenta.horas}h`} más
+        </div>
+      )}
+    </div>
+  );
+}
+
 function RecCard({ rec, index }) {
   const colores = ['#8b5cf6', '#6366f1', '#a78bfa'];
   const color = colores[index % colores.length];
@@ -100,7 +184,7 @@ function RecCard({ rec, index }) {
   );
 }
 
-export default function Informe({ puntuaciones, analisis, respuestas, nombre, onSolicitarEmail, desbloqueado }) {
+export default function Informe({ puntuaciones, analisis, respuestas, nombre, onSolicitarEmail, desbloqueado, ofertaExpira }) {
   const estadoGlobal = getEstado(puntuaciones.global);
   const [generandoPDF, setGenerandoPDF] = useState(false);
 
@@ -127,6 +211,18 @@ export default function Informe({ puntuaciones, analisis, respuestas, nombre, on
       background: 'linear-gradient(160deg, #0d0018 0%, #090013 35%, #050010 65%, #030008 100%)',
       paddingBottom: 100,
     }}>
+
+      {/* Header de marca */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 10,
+        padding: '20px 24px 0',
+        maxWidth: 740,
+        margin: '0 auto',
+      }}>
+        <img src="/logo-header.png" alt="Proemote" style={{ height: 22, width: 'auto', opacity: 0.9 }} />
+      </div>
 
       {/* Hero */}
       <div style={{
@@ -205,7 +301,20 @@ export default function Informe({ puntuaciones, analisis, respuestas, nombre, on
 
       <div style={{ maxWidth: 740, margin: '0 auto', padding: '0 20px' }}>
 
-        <div style={{ position: 'relative' }}>
+        {/* Grid dimensiones — siempre visible */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(5, 1fr)',
+          gap: 10,
+          marginTop: 36,
+          overflowX: 'auto',
+        }}>
+          {dimensiones.map(key => (
+            <DimensionCard key={key} clave={key} valor={puntuaciones[key]} />
+          ))}
+        </div>
+
+        <div style={{ position: 'relative', marginTop: 28 }}>
           <div style={{
             filter: desbloqueado ? 'none' : 'blur(9px)',
             pointerEvents: desbloqueado ? 'auto' : 'none',
@@ -213,24 +322,11 @@ export default function Informe({ puntuaciones, analisis, respuestas, nombre, on
             transition: 'filter 0.4s ease',
           }}>
 
-            {/* Grid dimensiones */}
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(5, 1fr)',
-              gap: 10,
-              marginTop: 36,
-              overflowX: 'auto',
-            }}>
-              {dimensiones.map(key => (
-                <DimensionCard key={key} clave={key} valor={puntuaciones[key]} />
-              ))}
-            </div>
-
             {/* Análisis general */}
             {(texto || fortaleza || urgencia) && (
-              <div style={{ ...glass, marginTop: 28, padding: '28px 24px' }}>
+              <div style={{ ...glass, padding: '28px 24px' }}>
                 <p style={{ fontSize: 11, color: '#8b5cf6', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 18 }}>
-                  📋 Análisis General
+                  Análisis general
                 </p>
                 {texto && (
                   <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: fortaleza || urgencia ? 20 : 0 }}>
@@ -239,13 +335,13 @@ export default function Informe({ puntuaciones, analisis, respuestas, nombre, on
                 )}
                 {fortaleza && (
                   <div style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.18)', borderRadius: 16, padding: '16px 18px', marginBottom: urgencia ? 12 : 0 }}>
-                    <p style={{ fontSize: 11, color: '#10b981', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>✅ Tu punto fuerte</p>
+                    <p style={{ fontSize: 11, color: '#10b981', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>Tu punto fuerte</p>
                     <p style={{ fontSize: 13, color: 'rgba(16,185,129,0.78)', lineHeight: 1.65 }}>{fortaleza}</p>
                   </div>
                 )}
                 {urgencia && (
                   <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.18)', borderRadius: 16, padding: '16px 18px' }}>
-                    <p style={{ fontSize: 11, color: '#ef4444', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>⚡ Urgente</p>
+                    <p style={{ fontSize: 11, color: '#ef4444', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>Urgente</p>
                     <p style={{ fontSize: 13, color: 'rgba(239,68,68,0.78)', lineHeight: 1.65 }}>{urgencia}</p>
                   </div>
                 )}
@@ -256,13 +352,15 @@ export default function Informe({ puntuaciones, analisis, respuestas, nombre, on
             {recomendaciones.length > 0 && (
               <div style={{ marginTop: 28 }}>
                 <p style={{ fontSize: 11, color: '#8b5cf6', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 16 }}>
-                  🎯 Tus 3 Acciones Prioritarias
+                  Tus acciones prioritarias
                 </p>
                 {recomendaciones.map((rec, i) => (
                   <RecCard key={i} rec={rec} index={i} />
                 ))}
               </div>
             )}
+
+            <PlanRecomendado puntuacionGlobal={puntuaciones.global} ofertaExpira={desbloqueado ? ofertaExpira : null} />
           </div>
 
           {/* Overlay de bloqueo */}
@@ -271,9 +369,9 @@ export default function Informe({ puntuaciones, analisis, respuestas, nombre, on
               position: 'absolute',
               inset: 0,
               display: 'flex',
-              alignItems: 'center',
+              alignItems: 'flex-start',
               justifyContent: 'center',
-              padding: '20px',
+              paddingTop: 60,
             }}>
               <div style={{
                 background: 'linear-gradient(135deg, rgba(124,58,237,0.22), rgba(99,102,241,0.16))',
