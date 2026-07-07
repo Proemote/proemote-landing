@@ -1358,58 +1358,136 @@
   </div>
 
   <!-- Footer bar — dark strip at bottom -->
-  <footer style="position:relative; z-index:2; background:rgba(18,12,7,0.9); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); padding:28px 72px;">
-    <div style="max-width:1400px; margin:0 auto; display:flex; align-items:flex-start; justify-content:space-between; gap:32px; flex-wrap:wrap;">
-
-      <div style="flex:0 0 200px; min-width:160px;">
-        <p style="font-family:'Cormorant Garamond'; font-size:17px; font-weight:500; color:#FFFFFF; margin-bottom:6px; letter-spacing:0.01em;">Tu Evento en un Bocado ®</p>
-        <p style="font-family:'Inter'; font-size:12px; font-weight:300; color:rgba(255,255,255,0.38); line-height:1.6;">Experiencias gastronómicas para bodas y celebraciones</p>
-      </div>
-
-      <div>
-        <p style="font-family:'Inter'; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:12px;">Experiencias</p>
-        <div style="display:flex; flex-direction:column; gap:8px;">
-          <a href="#experiencias" class="soc" style="font-family:'Inter'; font-size:12px; font-weight:300; color:rgba(255,255,255,0.55); text-decoration:none;">Gourmet</a>
-          <a href="#experiencias" class="soc" style="font-family:'Inter'; font-size:12px; font-weight:300; color:rgba(255,255,255,0.55); text-decoration:none;">Dulces</a>
-          <a href="#experiencias" class="soc" style="font-family:'Inter'; font-size:12px; font-weight:300; color:rgba(255,255,255,0.55); text-decoration:none;">Refrescantes</a>
-          <a href="#experiencias" class="soc" style="font-family:'Inter'; font-size:12px; font-weight:300; color:rgba(255,255,255,0.55); text-decoration:none;">Barra libre</a>
+  <footer class="relative z-10 bg-[#05020a] text-white overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute -top-80 bottom-0 left-0 right-0 z-0 pointer-events-none" style="height: calc(100% + 20rem);">
+            <img src="space bg.png" alt="Space Background" class="w-full h-full object-cover object-center opacity-70">
+            <!-- Radial gradient to blend edges if needed, or vertical gradient -->
+            <div class="absolute inset-0 bg-gradient-to-b from-[#05020a] via-[#05020a]/50 to-[#05020a]"></div>
         </div>
-      </div>
 
-      <div>
-        <p style="font-family:'Inter'; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:12px;">Empresa</p>
-        <div style="display:flex; flex-direction:column; gap:8px;">
-          <a href="#nosotros" class="soc" style="font-family:'Inter'; font-size:12px; font-weight:300; color:rgba(255,255,255,0.55); text-decoration:none;">Sobre nosotros</a>
-          <a href="#testimonios" class="soc" style="font-family:'Inter'; font-size:12px; font-weight:300; color:rgba(255,255,255,0.55); text-decoration:none;">Testimonios</a>
-          <a href="#faq" class="soc" style="font-family:'Inter'; font-size:12px; font-weight:300; color:rgba(255,255,255,0.55); text-decoration:none;">FAQ</a>
-          <a href="https://teambride.es/tu-evento-en-un-bocado" target="_blank" class="soc" style="font-family:'Inter'; font-size:12px; font-weight:300; color:rgba(255,255,255,0.55); text-decoration:none;">TeamBride</a>
+        <!-- CTA Section -->
+        <div class="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-24 text-center flex flex-col items-center fade-up">
+            <!-- Icon -->
+            <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 backdrop-blur-sm shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                <i class="ph-fill ph-rocket-launch text-2xl text-white"></i>
+            </div>
+            
+            <h2 class="text-4xl md:text-6xl font-medium tracking-tight text-white mb-6 leading-tight">
+                Empieza a crecer <br class="hidden md:block">
+                con Proemote
+            </h2>
+            
+            <p class="text-lg text-white/60 font-light mb-10 max-w-2xl leading-relaxed">
+                Los negocios de Extremadura por fin pueden ver resultados predecibles gracias al sistema que une identidad visual, posicionamiento web y captación de clientes.
+            </p>
+            
+            <a href="#planes" class="group bg-white text-gray-900 font-medium px-8 py-3.5 rounded-full transition-all hover:scale-105 flex items-center justify-center gap-2 text-sm">
+                Empezar ahora <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </a>
         </div>
-      </div>
 
-      <div>
-        <p style="font-family:'Inter'; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:12px;">Redes sociales</p>
-        <div style="display:flex; flex-direction:column; gap:8px;">
-          <a href="https://www.instagram.com/tueventoenunbocado/" target="_blank" class="soc" style="font-family:'Inter'; font-size:12px; font-weight:300; color:rgba(255,255,255,0.55); text-decoration:none;">Instagram</a>
-          <a href="https://www.facebook.com/people/Tu-evento-en-un-bocado/61555492040841/" target="_blank" class="soc" style="font-family:'Inter'; font-size:12px; font-weight:300; color:rgba(255,255,255,0.55); text-decoration:none;">Facebook</a>
-          <a href="https://www.tiktok.com/@tueventoenunbocado" target="_blank" class="soc" style="font-family:'Inter'; font-size:12px; font-weight:300; color:rgba(255,255,255,0.55); text-decoration:none;">TikTok</a>
-          <a href="https://www.bodas.net/food-truck-y-mesas-dulces/tu-evento-en-un-bocado--e236774" target="_blank" class="soc" style="font-family:'Inter'; font-size:12px; font-weight:300; color:rgba(255,255,255,0.55); text-decoration:none;">Bodas.net</a>
+        <!-- Divider -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"></div>
         </div>
-      </div>
 
-      <div>
-        <p style="font-family:'Inter'; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:12px;">Contacto</p>
-        <div style="display:flex; flex-direction:column; gap:8px;">
-          <a href="tel:+34639854058" class="soc" style="font-family:'Inter'; font-size:12px; font-weight:300; color:rgba(255,255,255,0.55); text-decoration:none;">639 85 40 58</a>
-          <a href="mailto:tueventoenunbocado@gmail.com" class="soc" style="font-family:'Inter'; font-size:12px; font-weight:300; color:rgba(255,255,255,0.55); text-decoration:none; word-break:break-all;">tueventoenunbocado@gmail.com</a>
-          <span style="font-family:'Inter'; font-size:12px; font-weight:300; color:rgba(255,255,255,0.55);">Don Benito, Badajoz</span>
+        <!-- Footer Links Section -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pt-16 pb-12 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+            
+            <!-- Col 1: Logo & Info -->
+            <div class="md:col-span-12 lg:col-span-3 flex flex-col items-center md:items-start text-center md:text-left">
+                <div class="mb-8 flex flex-col items-center md:items-start">
+                    <img src="proemote-logo-footer.png" alt="Proemote Logo" class="h-28 mb-1 object-contain">
+                    
+                    <div class="flex flex-col items-center md:items-start mt-0">
+                        <span class="text-white italic text-base md:text-lg tracking-wide font-light mb-1">Shaping what matters</span>
+                        <span class="text-gray-500 font-medium text-base md:text-lg tracking-wide">Think first.</span>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-start gap-4 mb-8 w-full text-sm text-white/60">
+                    <a href="mailto:info@proemote.es" class="hover:text-white transition-colors flex items-center gap-3">
+                        <i class="ph ph-envelope-simple text-xl text-white"></i> info@proemote.es
+                    </a>
+                    <a href="tel:+34641576286" class="hover:text-white transition-colors flex items-center gap-3">
+                        <i class="ph ph-phone text-xl text-white"></i> +34 641 57 62 86
+                    </a>
+                    <div class="flex items-start gap-3">
+                        <i class="ph ph-clock text-xl text-white mt-0.5"></i> 
+                        <div class="flex flex-col text-left">
+                            <span>L-V: 9H–14H, 16H–20H</span>
+                            <span class="mt-1">Sáb: 10H–13:30H | Dom: Cerrado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center md:justify-start gap-3 w-full">
+                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-marca transition-all">
+                        <i class="ph-fill ph-linkedin-logo text-lg"></i>
+                    </a>
+                    <a href="https://www.instagram.com/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-marca transition-all">
+                        <i class="ph-fill ph-instagram-logo text-lg"></i>
+                    </a>
+                    <a href="https://www.facebook.com/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-marca transition-all">
+                        <i class="ph-fill ph-facebook-logo text-lg"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@proemote" target="_blank" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-marca transition-all">
+                        <i class="ph-fill ph-tiktok-logo text-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Col 2: Servicios -->
+            <div class="md:col-span-4 lg:col-span-3 mt-4 lg:mt-0">
+                <h4 class="text-sm font-semibold text-white mb-6 text-center md:text-left uppercase tracking-widest">Servicios</h4>
+                <ul class="space-y-4 text-sm text-white/60 text-center md:text-left">
+                    <li><a href="/diseno-web-SEO" class="hover:text-white transition-colors">Diseño Web</a></li>
+                    <li><a href="/eventos" class="hover:text-white transition-colors">Eventos 360º</a></li>
+                    <li><a href="/marketing-digital" class="hover:text-white transition-colors">Marketing Digital</a></li>
+                    <li><a href="/redes-sociales" class="hover:text-white transition-colors">Redes Sociales</a></li>
+                    <li><a href="/branding-y-estrategia" class="hover:text-white transition-colors">Branding & Estrategia</a></li>
+                    <li><a href="/automatizaciones-y-sistemas" class="hover:text-white transition-colors">Automatización & Sistemas</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Empresa & Legal -->
+            <div class="md:col-span-4 lg:col-span-3 mt-4 lg:mt-0">
+                <h4 class="text-sm font-semibold text-white mb-6 text-center md:text-left uppercase tracking-widest">Empresa & Legal</h4>
+                <ul class="space-y-4 text-sm text-white/60 text-center md:text-left">
+                    <li><a href="/aviso-legal" class="hover:text-white transition-colors">Aviso Legal</a></li>
+                    <li><a href="/privacidad" class="hover:text-white transition-colors">Política de Privacidad</a></li>
+                    <li><a href="/sobre-nosotros" class="hover:text-white transition-colors">Sobre nosotros</a></li>
+                    <li><a href="/contacto" class="hover:text-white transition-colors">Contacto</a></li>
+                    <li><a href="/trabaja-con-nosotros" class="hover:text-white transition-colors">Trabaja con nosotros</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Newsletter -->
+            <div class="md:col-span-4 lg:col-span-3 mt-4 lg:mt-0">
+                <h4 class="text-sm font-semibold text-white mb-6 text-center md:text-left uppercase tracking-widest">Únete a la Newsletter</h4>
+                <p class="text-sm text-white/60 font-light leading-relaxed mb-6 text-center md:text-left">
+                    Suscríbete a nuestra newsletter para recibir las mejores estrategias y actualizaciones futuras.
+                </p>
+                <form class="flex items-center relative">
+                    <input type="email" placeholder="Introduce tu email" class="w-full bg-white/5 border border-white/10 rounded-full pl-5 pr-12 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-marca transition-colors backdrop-blur-md">
+                    <button type="submit" class="absolute right-1 top-1 bottom-1 bg-marca hover:bg-marca/90 text-white w-9 h-9 rounded-full flex items-center justify-center transition-colors">
+                        <i class="ph ph-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+
         </div>
-      </div>
 
-    </div>
-    <div style="max-width:1400px; margin:16px auto 0; padding-top:16px; border-top:1px solid rgba(255,255,255,0.07);">
-      <p style="font-family:'Inter'; font-size:11px; font-weight:300; color:rgba(255,255,255,0.22);">© 2025 Tu Evento en un Bocado · Todos los derechos reservados · Don Benito, Badajoz</p>
-    </div>
-  </footer>
+        <!-- Bottom Copyright -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pt-8 pb-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+            <p class="text-xs text-white/40">Copyright © 2026 Proemote. Todos los derechos reservados.</p>
+            <div class="flex items-center justify-center md:justify-end gap-4 text-xs text-white/40 w-full md:w-auto">
+                <p>Usamos cookies para mejorar el servicio.</p>
+                <button class="text-marca font-medium hover:text-white transition-colors">Aceptar</button>
+            </div>
+        </div>
+    </footer>
 
 </section>
 

@@ -10,6 +10,7 @@ import { guardarDiagnostico, guardarLead, actualizarEstadoDiagnostico } from './
 import { enviarEmailConInforme } from './utils/resend.js';
 import { registrarEnGoogleSheets } from './utils/googleSheets.js';
 import { recomendarPlan, calcularOfertaExpira } from './utils/recomendarPlan.js';
+import { anadirContactoBrevo } from './utils/brevo.js';
 
 // paso: 'formulario' | 'analizando' | 'informe' | 'emailEnviado'
 
@@ -141,6 +142,17 @@ export default function App() {
         puntuacion_global: puntuaciones?.global,
         plan_recomendado: plan.nombre,
         oferta_expira: expira.toISOString(),
+      });
+
+      anadirContactoBrevo({
+        email,
+        nombre,
+        sector: respuestas.p1,
+        ciudad: respuestas.p2,
+        puntuacionGlobal: puntuaciones?.global,
+        planRecomendado: plan.nombre,
+        ofertaExpira: expira.toISOString(),
+        diagnosticoId,
       });
 
       setNombreLead(nombre);
