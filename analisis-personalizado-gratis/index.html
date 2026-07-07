@@ -189,7 +189,7 @@
         }
     </style>
 </head>
-<body class="antialiased font-sans flex flex-col min-h-screen bg-gray-50 dark:bg-[#05020a] dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] dark:from-[#170929] dark:via-[#05020a] dark:to-[#05020a] text-gray-900 dark:text-white/60 overflow-y-scroll">
+<body class="antialiased font-sans flex flex-col min-h-screen bg-gray-50 dark:bg-white dark:bg-[#05020a] dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] dark:from-[#170929] dark:via-[#05020a] dark:to-[#05020a] text-gray-900 dark:text-gray-900 dark:text-white/60 overflow-y-scroll">
 
     <!-- 1. HEADER COMPACTO ROUND -->
     <div class="fixed top-4 md:top-6 left-0 w-full z-50 flex justify-center px-4">
@@ -200,7 +200,7 @@
             </a>
             
             <!-- Features (2 MINUTOS, SIN TARJETA, PLAN AL INSTANTE) -->
-            <div class="hidden md:flex items-center gap-4 lg:gap-6 text-[10px] lg:text-[11px] font-semibold tracking-wider uppercase text-gray-500 dark:text-white/60">
+            <div class="hidden md:flex items-center gap-4 lg:gap-6 text-[10px] lg:text-[11px] font-semibold tracking-wider uppercase text-gray-500 dark:text-gray-900 dark:text-white/60">
                 <span class="flex items-center gap-1.5">
                     <svg class="w-3.5 h-3.5 text-violet-500 dark:text-brand-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 
                     2 MINUTOS
@@ -217,13 +217,13 @@
 
             <div class="flex items-center gap-3">
                 <!-- Theme Toggle -->
-                <button id="theme-toggle" class="p-2 text-gray-600 dark:text-white/80 hover:text-primary transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
+                <button id="theme-toggle" class="p-2 text-gray-600 dark:text-gray-900 dark:text-white/80 hover:text-primary transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
                     <svg class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1.5M12 19.5V21M3 12h1.5M19.5 12H21M5.636 5.636l1.06 1.06M17.303 17.303l1.06 1.06M5.636 18.364l1.06-1.06M17.303 6.697l1.06-1.06M12 8.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5z" /></svg>
-                    <svg class="w-5 h-5 hidden dark:block text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
+                    <svg class="w-5 h-5 hidden dark:block text-gray-900 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
                 </button>
 
                 <!-- Button -->
-                <button onclick="window.location.href='/diagnostico/'" class="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white dark:text-white shadow-[0_0_15px_rgba(139,92,246,0.3)] hover:shadow-[0_0_25px_rgba(139,92,246,0.5)] py-2 md:py-2.5 px-4 md:px-5 rounded-full font-semibold text-[12px] md:text-[13px] transition-all">
+                <button onclick="window.location.href='/diagnostico/'" class="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-gray-900 dark:text-white dark:text-white shadow-[0_0_15px_rgba(139,92,246,0.3)] hover:shadow-[0_0_25px_rgba(139,92,246,0.5)] py-2 md:py-2.5 px-4 md:px-5 rounded-full font-semibold text-[12px] md:text-[13px] transition-all">
                     Iniciar
                 </button>
             </div>
@@ -236,7 +236,7 @@
             <!-- Shader Background -->
             <div class="absolute inset-0 w-full h-full z-0 pointer-events-none">
                 <canvas id="heroShaderCanvas" class="w-full h-full"></canvas>
-                <div class="absolute inset-0 bg-gray-50/80 dark:bg-[#05020a]/80"></div>
+                <div class="absolute inset-0 bg-gray-50/80 dark:bg-white dark:bg-[#05020a]/80"></div>
                 <div class="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-gray-50 dark:from-[#05020a] to-transparent"></div>
             </div>
 
@@ -246,31 +246,31 @@
                 <!-- Badge -->
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 animate-slide-up">
                     <div class="w-1.5 h-1.5 rounded-full bg-brand-violet"></div>
-                    <span class="text-[10px] text-gray-500 dark:text-white/40 tracking-widest uppercase font-medium">BRÚJULA DIGITAL</span>
+                    <span class="text-[10px] text-gray-500 dark:text-gray-900 dark:text-white/40 tracking-widest uppercase font-medium">BRÚJULA DIGITAL</span>
                 </div>
 
-                <h1 class="font-light tracking-tight text-[36px] sm:text-[48px] md:text-[56px] lg:text-[72px] leading-[1.05] text-gray-900 dark:text-white max-w-4xl mx-auto drop-shadow-2xl animate-slide-up" style="animation-delay: 0.1s;">
+                <h1 class="font-light tracking-tight text-[36px] sm:text-[48px] md:text-[56px] lg:text-[72px] leading-[1.05] text-gray-900 dark:text-gray-900 dark:text-white max-w-4xl mx-auto drop-shadow-2xl animate-slide-up" style="animation-delay: 0.1s;">
                     Haces buen trabajo.<br/>
                     <span class="bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-300">El problema es que tu cliente ideal no te encuentra.</span>
                 </h1>
                 
-                <p class="mt-6 text-gray-600 dark:text-white/60 font-light text-lg leading-relaxed max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
+                <p class="mt-6 text-gray-600 dark:text-gray-900 dark:text-white/60 font-light text-lg leading-relaxed max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
                     Responde unas preguntas y en unos minutos tendrás un informe totalmente personalizado para tu negocio, junto con un plan de acción que tú mismo podrás aplicar. No requiere que contrates nada con nosotros. Queremos ayudar a los negocios locales a detectar sus fugas de clientes para que puedan solucionarlas.
                 </p>
                 
                 <!-- CTA Principal / Destacado -->
-                <button onclick="window.location.href='/diagnostico/'" class="mt-10 bg-brand-violet text-white py-4 px-8 rounded-full font-semibold text-[15px] transition-all hover:shadow-[0_0_20px_rgba(139,92,246,0.6)] flex items-center justify-center gap-3 group animate-slide-up" style="animation-delay: 0.3s;">
+                <button onclick="window.location.href='/diagnostico/'" class="mt-10 bg-brand-violet text-gray-900 dark:text-white py-4 px-8 rounded-full font-semibold text-[15px] transition-all hover:shadow-[0_0_20px_rgba(139,92,246,0.6)] flex items-center justify-center gap-3 group animate-slide-up" style="animation-delay: 0.3s;">
                     Quiero mi Brújula Digital gratis &rarr;
                 </button>
 
                 <!-- Trust Badges -->
                 <div class="flex items-center justify-center gap-4 mt-5 animate-slide-up" style="animation-delay: 0.4s;">
-                    <div class="flex items-center gap-1.5 text-gray-500 dark:text-white/40 text-[12px] font-medium tracking-wide uppercase">
+                    <div class="flex items-center gap-1.5 text-gray-500 dark:text-gray-900 dark:text-white/40 text-[12px] font-medium tracking-wide uppercase">
                         <svg class="w-4 h-4 text-brand-violet/80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         <span>2 min</span>
                     </div>
                     <div class="w-1 h-1 rounded-full bg-white/20"></div>
-                    <div class="flex items-center gap-1.5 text-gray-500 dark:text-white/40 text-[12px] font-medium tracking-wide uppercase">
+                    <div class="flex items-center gap-1.5 text-gray-500 dark:text-gray-900 dark:text-white/40 text-[12px] font-medium tracking-wide uppercase">
                         <svg class="w-4 h-4 text-brand-violet/80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                         <span>100% Gratis</span>
                     </div>
@@ -279,7 +279,7 @@
 
             <!-- Logo Marquee Carrusel -->
             <div class="w-full max-w-6xl mx-auto pb-6 px-4 flex flex-col md:flex-row items-center gap-8 relative z-40 mt-16 animate-slide-up" style="animation-delay: 0.5s;">
-                <div class="text-gray-500 dark:text-white/40 text-sm font-light whitespace-nowrap text-center md:text-left">
+                <div class="text-gray-500 dark:text-gray-900 dark:text-white/40 text-sm font-light whitespace-nowrap text-center md:text-left">
                     Sistemas auditados en<br>+25 negocios locales
                 </div>
                 <div class="relative flex overflow-hidden w-full mask-fade-edges transform-gpu">
@@ -290,19 +290,19 @@
                                 <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                                 <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                             </div>
-                            <span class="text-gray-700 dark:text-white/80 text-sm font-light whitespace-nowrap">4.9/5 en Reseñas</span>
+                            <span class="text-gray-700 dark:text-gray-900 dark:text-white/80 text-sm font-light whitespace-nowrap">4.9/5 en Reseñas</span>
                         </div>
                         <div class="flex items-center gap-3 backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 rounded-full px-5 py-2.5">
                             <div class="w-5 h-5 rounded-full bg-brand-violet/20 flex items-center justify-center text-brand-violetLight font-medium text-xs">P</div>
-                            <span class="text-gray-700 dark:text-white/80 text-sm font-light whitespace-nowrap">Premio Impulso 2025</span>
+                            <span class="text-gray-700 dark:text-gray-900 dark:text-white/80 text-sm font-light whitespace-nowrap">Premio Impulso 2025</span>
                         </div>
                         <div class="flex items-center gap-3 backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 rounded-full px-5 py-2.5">
                             <div class="w-5 h-5 rounded-full bg-brand-violet/20 flex items-center justify-center text-brand-violetLight font-medium text-xs">J</div>
-                            <span class="text-gray-700 dark:text-white/80 text-sm font-light whitespace-nowrap">Centro Belleza Juany +175% contactos por WhatsApp</span>
+                            <span class="text-gray-700 dark:text-gray-900 dark:text-white/80 text-sm font-light whitespace-nowrap">Centro Belleza Juany +175% contactos por WhatsApp</span>
                         </div>
                         <div class="flex items-center gap-3 backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 rounded-full px-5 py-2.5">
                             <div class="w-5 h-5 rounded-full bg-brand-violet/20 flex items-center justify-center text-brand-violetLight font-medium text-xs">L</div>
-                            <span class="text-gray-700 dark:text-white/80 text-sm font-light whitespace-nowrap">Lo Quiero Limpio — #1 en Google + 120% más solicitudes de presupuesto</span>
+                            <span class="text-gray-700 dark:text-gray-900 dark:text-white/80 text-sm font-light whitespace-nowrap">Lo Quiero Limpio — #1 en Google + 120% más solicitudes de presupuesto</span>
                         </div>
                         <!-- Group 2 (Duplicado) -->
                         <div class="flex items-center gap-3 backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 rounded-full px-5 py-2.5">
@@ -310,19 +310,19 @@
                                 <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                                 <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                             </div>
-                            <span class="text-gray-700 dark:text-white/80 text-sm font-light whitespace-nowrap">4.9/5 en Reseñas</span>
+                            <span class="text-gray-700 dark:text-gray-900 dark:text-white/80 text-sm font-light whitespace-nowrap">4.9/5 en Reseñas</span>
                         </div>
                         <div class="flex items-center gap-3 backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 rounded-full px-5 py-2.5">
                             <div class="w-5 h-5 rounded-full bg-brand-violet/20 flex items-center justify-center text-brand-violetLight font-medium text-xs">P</div>
-                            <span class="text-gray-700 dark:text-white/80 text-sm font-light whitespace-nowrap">Premio Impulso 2025</span>
+                            <span class="text-gray-700 dark:text-gray-900 dark:text-white/80 text-sm font-light whitespace-nowrap">Premio Impulso 2025</span>
                         </div>
                         <div class="flex items-center gap-3 backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 rounded-full px-5 py-2.5">
                             <div class="w-5 h-5 rounded-full bg-brand-violet/20 flex items-center justify-center text-brand-violetLight font-medium text-xs">J</div>
-                            <span class="text-gray-700 dark:text-white/80 text-sm font-light whitespace-nowrap">Centro Belleza Juany +175% contactos por WhatsApp</span>
+                            <span class="text-gray-700 dark:text-gray-900 dark:text-white/80 text-sm font-light whitespace-nowrap">Centro Belleza Juany +175% contactos por WhatsApp</span>
                         </div>
                         <div class="flex items-center gap-3 backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 rounded-full px-5 py-2.5">
                             <div class="w-5 h-5 rounded-full bg-brand-violet/20 flex items-center justify-center text-brand-violetLight font-medium text-xs">L</div>
-                            <span class="text-gray-700 dark:text-white/80 text-sm font-light whitespace-nowrap">Lo Quiero Limpio — #1 en Google + 120% más solicitudes de presupuesto</span>
+                            <span class="text-gray-700 dark:text-gray-900 dark:text-white/80 text-sm font-light whitespace-nowrap">Lo Quiero Limpio — #1 en Google + 120% más solicitudes de presupuesto</span>
                         </div>
                     </div>
                 </div>
@@ -332,16 +332,16 @@
         <!-- 3. COPYBLOCK #1 -->
         <section class="py-24 px-6 relative z-20">
             <div class="max-w-3xl mx-auto text-center space-y-6 reveal-on-scroll">
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 dark:text-white tracking-tight leading-tight">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 dark:text-gray-900 dark:text-white tracking-tight leading-tight">
                     El problema no es tu negocio, <br class="hidden md:block"/> 
                     <span class="bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-300 font-medium">es tu brújula digital.</span>
                 </h2>
-                <p class="text-lg text-gray-600 dark:text-white/60 font-light leading-relaxed max-w-2xl mx-auto">
+                <p class="text-lg text-gray-600 dark:text-gray-900 dark:text-white/60 font-light leading-relaxed max-w-2xl mx-auto">
                     Si pagas por estrategias sin rumbo o persigues likes vacíos que nunca te traen clientes por la puerta, tu negocio pierde dinero cada día. Delegar está bien, pero no necesitas estar en todos lados. Necesitas una Brújula Digital: <strong class="bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-300 font-medium">estar exactamente donde tus clientes buscan</strong> con la tarjeta en la mano.
                 </p>
                 <div class="pt-8">
                     <!-- CTA Secundario -->
-                    <button onclick="window.location.href='/diagnostico/'" class="bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 text-gray-900 dark:text-white border border-gray-200 dark:border-white/10 py-3.5 px-6 rounded-full font-semibold text-[14px] transition-all inline-flex items-center gap-2">
+                    <button onclick="window.location.href='/diagnostico/'" class="bg-gray-100 dark:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-300 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 text-gray-900 dark:text-gray-900 dark:text-white border border-gray-200 dark:border-white/10 py-3.5 px-6 rounded-full font-semibold text-[14px] transition-all inline-flex items-center gap-2">
                         Identificar mis fugas de clientes gratis &rarr;
                     </button>
                 </div>
@@ -353,7 +353,7 @@
             <div class="max-w-6xl mx-auto space-y-24">
                 
                 <div class="text-center mb-16 reveal-on-scroll">
-                    <h2 class="text-3xl md:text-4xl font-light text-gray-900 dark:text-white tracking-tight">Dónde estás <span class="bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-300 font-medium">perdiendo dinero</span></h2>
+                    <h2 class="text-3xl md:text-4xl font-light text-gray-900 dark:text-gray-900 dark:text-white tracking-tight">Dónde estás <span class="bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-300 font-medium">perdiendo dinero</span></h2>
                 </div>
 
                 <!-- Error #1 -->
@@ -362,29 +362,29 @@
                         <div class="inline-flex p-3 rounded-full bg-brand-violet/10 text-brand-violet mb-2 border border-brand-violet/20">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
                         </div>
-                        <h3 class="text-3xl md:text-4xl font-light text-gray-900 dark:text-white tracking-tight">
+                        <h3 class="text-3xl md:text-4xl font-light text-gray-900 dark:text-gray-900 dark:text-white tracking-tight">
                             Error #1: Vendes tus servicios en lugar de resolver dudas
                         </h3>
-                        <p class="text-lg text-gray-600 dark:text-white/60 font-light leading-relaxed">
+                        <p class="text-lg text-gray-600 dark:text-gray-900 dark:text-white/60 font-light leading-relaxed">
                             Subir fotos de tu local o dar los "buenos días" no funciona. A tus clientes no les importa tu negocio hasta que les demuestras que puedes <span class="bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-300 font-medium">solucionar su problema real</span>. Cambia el enfoque y tu teléfono empezará a sonar.
                         </p>
                     </div>
                     <div class="relative">
                         <!-- Tarjeta Estándar -->
-                        <div class="backdrop-blur-xl bg-white dark:bg-[#11071F] border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-gray-300 dark:border-white/20 rounded-3xl p-8 shadow-sm dark:shadow-none transition-all duration-500 relative z-10">
+                        <div class="backdrop-blur-xl bg-white dark:bg-[#11071F] border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-gray-300 dark:border-gray-300 dark:border-white/20 rounded-3xl p-8 shadow-sm dark:shadow-none transition-all duration-500 relative z-10">
                             <div class="flex items-center gap-4 mb-6">
-                                <div class="w-14 h-14 rounded-full bg-brand-violet border border-brand-violet/50 flex items-center justify-center text-white font-medium text-2xl shadow-[0_0_15px_rgba(139,92,246,0.3)]">
+                                <div class="w-14 h-14 rounded-full bg-brand-violet border border-brand-violet/50 flex items-center justify-center text-gray-900 dark:text-white font-medium text-2xl shadow-[0_0_15px_rgba(139,92,246,0.3)]">
                                     J
                                 </div>
                                 <div>
-                                    <h4 class="text-gray-900 dark:text-white font-medium text-lg">Centro Belleza Juany</h4>
+                                    <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-medium text-lg">Centro Belleza Juany</h4>
                                     <p class="text-sm text-brand-violetLight flex items-center gap-1 font-light mt-1">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
                                         +175% contactos por WhatsApp
                                     </p>
                                 </div>
                             </div>
-                            <div class="bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-2xl p-5 text-gray-600 dark:text-white/60 text-sm font-light leading-relaxed">
+                            <div class="bg-gray-100 dark:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-300 dark:border-white/10 rounded-2xl p-5 text-gray-600 dark:text-gray-900 dark:text-white/60 text-sm font-light leading-relaxed">
                                 "Teníamos las redes abandonadas. Subíamos alguna foto sin estrategia. En cuanto pasamos a crear contenido profesional que atacaba los problemas reales de nuestras clientas, las reservas se dispararon."
                             </div>
                         </div>
@@ -397,34 +397,34 @@
                         <div class="inline-flex p-3 rounded-full bg-brand-violet/10 text-brand-violet mb-2 border border-brand-violet/20">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
                         </div>
-                        <h3 class="text-3xl md:text-4xl font-light text-gray-900 dark:text-white tracking-tight">
+                        <h3 class="text-3xl md:text-4xl font-light text-gray-900 dark:text-gray-900 dark:text-white tracking-tight">
                             Error #2: Eres <span class="bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-300 font-medium">invisible</span> en tu propia ciudad
                         </h3>
-                        <p class="text-lg text-gray-600 dark:text-white/60 font-light leading-relaxed">
+                        <p class="text-lg text-gray-600 dark:text-gray-900 dark:text-white/60 font-light leading-relaxed">
                             De nada sirve tener una página preciosa si alguien busca "tu servicio + tu ciudad" en Google y apareces en la página 4. Hay negocios que van bien en persona, pero que mucha gente no les conoce por no estar online. Si van mal, irán mejor. Y si van bien, irán aún mejor al llegar a clientes que hoy se lleva tu competencia.
                         </p>
                     </div>
                     <div class="relative">
                         <!-- Tarjeta Estándar -->
-                        <div class="backdrop-blur-xl bg-white dark:bg-[#11071F] border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-gray-300 dark:border-white/20 rounded-3xl p-8 shadow-sm dark:shadow-none transition-all duration-500 relative z-10">
+                        <div class="backdrop-blur-xl bg-white dark:bg-[#11071F] border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-gray-300 dark:border-gray-300 dark:border-white/20 rounded-3xl p-8 shadow-sm dark:shadow-none transition-all duration-500 relative z-10">
                              <div class="flex items-center gap-4 mb-6">
                                 <div class="w-14 h-14 rounded-full bg-brand-violet/20 border border-brand-violet/50 flex items-center justify-center text-brand-violetLight">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                                 </div>
                                 <div>
-                                    <h4 class="text-gray-900 dark:text-white font-medium text-lg">Lo Quiero Limpio</h4>
+                                    <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-medium text-lg">Lo Quiero Limpio</h4>
                                     <p class="text-sm text-brand-violetLight font-light mt-1">
                                         #1 en Google + 120% más solicitudes de presupuesto
                                     </p>
                                 </div>
                             </div>
-                            <div class="bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-2xl p-5 border border-gray-200 dark:border-white/10">
-                                <p class="text-[11px] text-gray-500 dark:text-white/40 mb-3 uppercase tracking-wide font-medium">Búsqueda: <span class="text-gray-700 dark:text-white/80">"empresa de limpieza Mérida"</span></p>
+                            <div class="bg-gray-100 dark:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-300 dark:border-white/10 rounded-2xl p-5 border border-gray-200 dark:border-white/10">
+                                <p class="text-[11px] text-gray-500 dark:text-gray-900 dark:text-white/40 mb-3 uppercase tracking-wide font-medium">Búsqueda: <span class="text-gray-700 dark:text-gray-900 dark:text-white/80">"empresa de limpieza Mérida"</span></p>
                                 <div class="flex items-start gap-4 bg-gray-50 dark:bg-black/20 p-4 rounded-xl border border-gray-200 dark:border-white/5">
-                                    <div class="w-6 h-6 rounded bg-brand-violet text-white flex items-center justify-center text-xs font-medium shrink-0 mt-0.5 shadow-[0_0_10px_rgba(139,92,246,0.5)]">1</div>
+                                    <div class="w-6 h-6 rounded bg-brand-violet text-gray-900 dark:text-white flex items-center justify-center text-xs font-medium shrink-0 mt-0.5 shadow-[0_0_10px_rgba(139,92,246,0.5)]">1</div>
                                     <div>
                                         <p class="text-brand-violetLight text-sm font-medium">Lo Quiero Limpio - Servicios Integrales en Mérida</p>
-                                        <p class="text-xs text-gray-500 dark:text-white/40 font-light mt-1 line-clamp-2">La mejor empresa de limpieza de la ciudad especializada en locales comerciales...</p>
+                                        <p class="text-xs text-gray-500 dark:text-gray-900 dark:text-white/40 font-light mt-1 line-clamp-2">La mejor empresa de limpieza de la ciudad especializada en locales comerciales...</p>
                                     </div>
                                 </div>
                             </div>
@@ -453,29 +453,29 @@
                 <!-- Content Section -->
                 <div class="flex min-w-0 flex-1 flex-col justify-between self-stretch px-5 py-7 md:py-10">
                     <div class="flex flex-col gap-[9px]">
-                        <svg class="block h-10 w-10 text-gray-400 dark:text-white/10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.58 17.32C3.55 16.23 3 15 3 13.01c0-3.5 2.46-6.64 6.03-8.19l.9 1.38c-3.34 1.8-4 4.15-4.25 5.62.54-.28 1.24-.38 1.93-.31 1.8.17 3.23 1.65 3.23 3.49a3.5 3.5 0 0 1-3.5 3.5c-1.07 0-2.1-.49-2.75-1.18zm10 0C13.55 16.23 13 15 13 13.01c0-3.5 2.46-6.64 6.03-8.19l.9 1.38c-3.34 1.8-4 4.15-4.25 5.62.54-.28 1.24-.38 1.93-.31 1.8.17 3.23 1.65 3.23 3.49a3.5 3.5 0 0 1-3.5 3.5c-1.07 0-2.1-.49-2.75-1.18z" /></svg>
+                        <svg class="block h-10 w-10 text-gray-400 dark:text-gray-900 dark:text-white/10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.58 17.32C3.55 16.23 3 15 3 13.01c0-3.5 2.46-6.64 6.03-8.19l.9 1.38c-3.34 1.8-4 4.15-4.25 5.62.54-.28 1.24-.38 1.93-.31 1.8.17 3.23 1.65 3.23 3.49a3.5 3.5 0 0 1-3.5 3.5c-1.07 0-2.1-.49-2.75-1.18zm10 0C13.55 16.23 13 15 13 13.01c0-3.5 2.46-6.64 6.03-8.19l.9 1.38c-3.34 1.8-4 4.15-4.25 5.62.54-.28 1.24-.38 1.93-.31 1.8.17 3.23 1.65 3.23 3.49a3.5 3.5 0 0 1-3.5 3.5c-1.07 0-2.1-.49-2.75-1.18z" /></svg>
                         
                         <!-- Text Stage -->
                         <div class="relative w-full max-w-[420px] overflow-hidden" aria-live="polite">
                             <!-- Hidden layout proxy so container is always tall enough -->
                             <div aria-hidden="true" class="invisible flex min-h-[140px] flex-col gap-[19px]">
-                                <p class="m-0 text-[18px] md:text-[22px] font-medium leading-[1.3] tracking-tight text-gray-900 dark:text-white" id="reelProxyQuote"></p>
+                                <p class="m-0 text-[18px] md:text-[22px] font-medium leading-[1.3] tracking-tight text-gray-900 dark:text-gray-900 dark:text-white" id="reelProxyQuote"></p>
                                 <p class="m-0 text-sm font-medium leading-[1.3] text-brand-violetLight" id="reelProxyAuthor"></p>
                             </div>
                             <!-- Animating text container -->
                             <div id="reelActiveText" class="absolute inset-x-0 top-0 flex flex-col gap-[19px] will-change-[transform,opacity]">
-                                <p class="m-0 text-[18px] md:text-[22px] font-light leading-[1.3] tracking-tight text-gray-800 dark:text-white/90" id="reelTargetQuote"></p>
-                                <p class="m-0 text-sm font-medium leading-[1.3] text-gray-600 dark:text-white/50" id="reelTargetAuthor"></p>
+                                <p class="m-0 text-[18px] md:text-[22px] font-light leading-[1.3] tracking-tight text-gray-800 dark:text-gray-900 dark:text-white/90" id="reelTargetQuote"></p>
+                                <p class="m-0 text-sm font-medium leading-[1.3] text-gray-600 dark:text-gray-900 dark:text-white/50" id="reelTargetAuthor"></p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Controls -->
                     <div class="mt-6 flex items-center gap-1.5 md:mt-0">
-                        <button type="button" id="reelBtnPrev" class="grid h-8 w-8 cursor-pointer place-items-center rounded-full border border-gray-200 dark:border-white/10 bg-white/[0.02] p-0 text-gray-900 dark:text-white transition-all duration-200 hover:bg-gray-200 dark:hover:bg-white/10 hover:scale-[1.08] active:scale-[0.94] disabled:opacity-30 disabled:pointer-events-none">
+                        <button type="button" id="reelBtnPrev" class="grid h-8 w-8 cursor-pointer place-items-center rounded-full border border-gray-200 dark:border-white/10 bg-white/[0.02] p-0 text-gray-900 dark:text-gray-900 dark:text-white transition-all duration-200 hover:bg-gray-200 dark:hover:bg-white/10 hover:scale-[1.08] active:scale-[0.94] disabled:opacity-30 disabled:pointer-events-none">
                             <svg class="h-4 w-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 2.5 3.5 6l4 3.5" /></svg>
                         </button>
-                        <button type="button" id="reelBtnNext" class="grid h-8 w-8 cursor-pointer place-items-center rounded-full border border-gray-200 dark:border-white/10 bg-white/[0.02] p-0 text-gray-900 dark:text-white transition-all duration-200 hover:bg-gray-200 dark:hover:bg-white/10 hover:scale-[1.08] active:scale-[0.94] disabled:opacity-30 disabled:pointer-events-none">
+                        <button type="button" id="reelBtnNext" class="grid h-8 w-8 cursor-pointer place-items-center rounded-full border border-gray-200 dark:border-white/10 bg-white/[0.02] p-0 text-gray-900 dark:text-gray-900 dark:text-white transition-all duration-200 hover:bg-gray-200 dark:hover:bg-white/10 hover:scale-[1.08] active:scale-[0.94] disabled:opacity-30 disabled:pointer-events-none">
                             <svg class="h-4 w-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 2.5 4 3.5-4 3.5" /></svg>
                         </button>
                     </div>
@@ -487,18 +487,18 @@
         <section class="py-20 px-6 relative z-20 reveal-on-scroll">
             <div class="max-w-5xl mx-auto">
                 <div class="backdrop-blur-xl bg-white dark:bg-[#0a0513] border border-gray-200 dark:border-white/5 rounded-[32px] p-8 md:p-12 shadow-lg dark:shadow-2xl">
-                    <h3 class="text-2xl md:text-3xl font-medium text-gray-900 dark:text-white tracking-tight mb-12 text-center md:text-left">¿Por qué usar la Brújula Digital y no hacerlo yo mismo?</h3>
+                    <h3 class="text-2xl md:text-3xl font-medium text-gray-900 dark:text-gray-900 dark:text-white tracking-tight mb-12 text-center md:text-left">¿Por qué usar la Brújula Digital y no hacerlo yo mismo?</h3>
                     <div class="grid md:grid-cols-2 gap-12 relative">
                         <!-- Divider Line -->
-                        <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 -translate-x-1/2"></div>
+                        <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gray-100 dark:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-300 dark:border-white/10 -translate-x-1/2"></div>
                         
                         <!-- Columna Izquierda -->
                         <div class="flex flex-col">
-                            <div class="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-500 dark:text-white/40 mb-6">
+                            <div class="w-10 h-10 rounded-full bg-gray-100 dark:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-500 dark:text-gray-900 dark:text-white/40 mb-6">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                             </div>
-                            <h4 class="text-gray-900 dark:text-white font-medium text-xl mb-4">El camino lento</h4>
-                            <p class="text-base text-gray-600 dark:text-white/50 font-light leading-relaxed">Podrías intentar replicar esto tú mismo. Pasarías horas analizando tu Instagram, tu web, tu presencia en Google. Probablemente encontrarías algo.</p>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-medium text-xl mb-4">El camino lento</h4>
+                            <p class="text-base text-gray-600 dark:text-gray-900 dark:text-white/50 font-light leading-relaxed">Podrías intentar replicar esto tú mismo. Pasarías horas analizando tu Instagram, tu web, tu presencia en Google. Probablemente encontrarías algo.</p>
                         </div>
                         
                         <!-- Columna Derecha -->
@@ -507,8 +507,8 @@
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
                             </div>
                             <h4 class="text-brand-violetLight font-medium text-xl mb-4">El sistema exacto</h4>
-                            <p class="text-base text-gray-700 dark:text-white/70 font-light leading-relaxed mb-6">Nuestra Brújula no es una opinión. Es un sistema probado en +25 negocios locales. En 2 min identificamos exactamente dónde está tu problema — y eso es mucho más rápido y preciso.</p>
-                            <p class="text-base text-gray-900 dark:text-white font-medium leading-relaxed">El tiempo que ahorras en diagnosis es el que ganas aplicando.</p>
+                            <p class="text-base text-gray-700 dark:text-gray-900 dark:text-white/70 font-light leading-relaxed mb-6">Nuestra Brújula no es una opinión. Es un sistema probado en +25 negocios locales. En 2 min identificamos exactamente dónde está tu problema — y eso es mucho más rápido y preciso.</p>
+                            <p class="text-base text-gray-900 dark:text-gray-900 dark:text-white font-medium leading-relaxed">El tiempo que ahorras en diagnosis es el que ganas aplicando.</p>
                         </div>
                     </div>
                 </div>
@@ -519,17 +519,17 @@
         <section class="py-16 px-6 relative z-20 reveal-on-scroll">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-12">
-                    <h3 class="text-3xl font-light text-gray-900 dark:text-white mb-4 tracking-tight">¿Es esto para ti?</h3>
+                    <h3 class="text-3xl font-light text-gray-900 dark:text-gray-900 dark:text-white mb-4 tracking-tight">¿Es esto para ti?</h3>
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-6">
                     <!-- Para quién NO (Izquierda) -->
                     <div class="backdrop-blur-xl bg-white dark:bg-[#0e071a] border border-gray-200 dark:border-white/5 rounded-[24px] p-8 hover:-translate-y-2 hover:shadow-lg dark:hover:shadow-[0_10px_40px_rgba(0,0,0,0.5)] transition-all duration-300 group cursor-default">
-                        <div class="w-12 h-12 rounded-full bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-500 dark:text-white/40 mb-6 border border-gray-200 dark:border-white/10 group-hover:scale-110 transition-transform">
+                        <div class="w-12 h-12 rounded-full bg-gray-100 dark:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-500 dark:text-gray-900 dark:text-white/40 mb-6 border border-gray-200 dark:border-white/10 group-hover:scale-110 transition-transform">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                         </div>
-                        <h4 class="text-gray-900 dark:text-white font-medium text-xl mb-4">Para quién NO es</h4>
-                        <p class="text-gray-500 dark:text-white/40 text-base font-light leading-relaxed">Para dueños de negocio que creen que ya lo hacen todo perfecto, que piensan que estar en redes o tener una web profesional no sirve de nada, o que no están dispuestos a cambiar ni una coma de su estrategia para mejorar.</p>
+                        <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-medium text-xl mb-4">Para quién NO es</h4>
+                        <p class="text-gray-500 dark:text-gray-900 dark:text-white/40 text-base font-light leading-relaxed">Para dueños de negocio que creen que ya lo hacen todo perfecto, que piensan que estar en redes o tener una web profesional no sirve de nada, o que no están dispuestos a cambiar ni una coma de su estrategia para mejorar.</p>
                     </div>
                     
                     <!-- Para quién SÍ (Derecha) -->
@@ -537,8 +537,8 @@
                         <div class="w-12 h-12 rounded-full bg-brand-violet/20 flex items-center justify-center text-brand-violetLight mb-6 border border-brand-violet/50 group-hover:scale-110 transition-transform">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                         </div>
-                        <h4 class="text-gray-900 dark:text-white font-medium text-xl mb-4">Para quién SÍ es</h4>
-                        <p class="text-gray-700 dark:text-white/70 text-base font-light leading-relaxed">Si tienes un negocio local con clientes presenciales, ofreces servicios en tu zona y el teléfono no te da todo lo que debería (o si te va bien, pero sabes que podrías facturar más online), este diagnóstico te va a cambiar el juego.</p>
+                        <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-medium text-xl mb-4">Para quién SÍ es</h4>
+                        <p class="text-gray-700 dark:text-gray-900 dark:text-white/70 text-base font-light leading-relaxed">Si tienes un negocio local con clientes presenciales, ofreces servicios en tu zona y el teléfono no te da todo lo que debería (o si te va bien, pero sabes que podrías facturar más online), este diagnóstico te va a cambiar el juego.</p>
                     </div>
                 </div>
             </div>
@@ -547,15 +547,15 @@
         <!-- CITA CARLOS -->
         <section class="py-16 px-6 relative z-20 reveal-on-scroll">
             <div class="max-w-4xl mx-auto text-center backdrop-blur-xl bg-white dark:bg-transparent dark:bg-gradient-to-br dark:from-white/5 dark:to-white/[0.02] border border-gray-200 dark:border-white/10 rounded-3xl p-10 md:p-16 shadow-sm dark:shadow-none">
-                <h2 class="text-2xl md:text-3xl font-light text-gray-900 dark:text-white mb-10 relative z-10 leading-relaxed tracking-tight italic">
+                <h2 class="text-2xl md:text-3xl font-light text-gray-900 dark:text-gray-900 dark:text-white mb-10 relative z-10 leading-relaxed tracking-tight italic">
                     "La diferencia entre un negocio local estancado y uno que crece predeciblemente no es el algoritmo ni el presupuesto.<br><br><span class="bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-300 font-medium">Es tener un sistema que conecte tu servicio con la persona que lo está buscando hoy en tu ciudad.</span>"
                 </h2>
                 <div class="flex items-center justify-center gap-4 relative z-10">
-                    <div class="w-16 h-16 rounded-full bg-gray-200 dark:bg-white/10 border border-gray-300 dark:border-gray-300 dark:border-white/20 flex items-center justify-center overflow-hidden shrink-0">
-                        <svg class="w-8 h-8 text-gray-500 dark:text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    <div class="w-16 h-16 rounded-full bg-gray-200 dark:bg-white/10 border border-gray-300 dark:border-gray-300 dark:border-gray-300 dark:border-white/20 flex items-center justify-center overflow-hidden shrink-0">
+                        <svg class="w-8 h-8 text-gray-500 dark:text-gray-900 dark:text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                     </div>
                     <div class="text-left">
-                        <p class="text-gray-900 dark:text-white font-medium text-base">Carlos Molina</p>
+                        <p class="text-gray-900 dark:text-gray-900 dark:text-white font-medium text-base">Carlos Molina</p>
                         <p class="text-xs text-brand-violetLight font-light uppercase tracking-wide mt-0.5">Fundador de Proemote</p>
                     </div>
                 </div>
@@ -568,9 +568,9 @@
                 
                 <!-- Mockup Móvil Realista Exacto -->
                 <div class="relative mx-auto w-full max-w-[320px]">
-                    <div class="relative w-full aspect-[9/19] bg-white dark:bg-[#05020a] rounded-[48px] shadow-[0_20px_40px_rgba(0,0,0,0.8)] overflow-hidden ring-1 ring-gray-900 dark:ring-white/20 border-[8px] border-[#111] dark:border-[#222]">
+                    <div class="relative w-full aspect-[9/19] bg-white dark:bg-white dark:bg-[#05020a] rounded-[48px] shadow-[0_20px_40px_rgba(0,0,0,0.8)] overflow-hidden ring-1 ring-gray-900 dark:ring-white/20 border-[8px] border-[#111] dark:border-[#222]">
                         <!-- Screen -->
-                        <div class="relative w-full h-full bg-white dark:bg-[#05020a] rounded-[38px] overflow-hidden flex flex-col pt-12 px-4 pb-6">
+                        <div class="relative w-full h-full bg-white dark:bg-white dark:bg-[#05020a] rounded-[38px] overflow-hidden flex flex-col pt-12 px-4 pb-6">
                             <!-- Dynamic Island -->
                             <div class="absolute top-2 left-1/2 -translate-x-1/2 h-[26px] w-[85px] bg-[#000] rounded-full z-30 flex items-center justify-end px-2 border border-gray-200 dark:border-white/5">
                                 <div class="w-2.5 h-2.5 rounded-full bg-[#111]"></div>
@@ -578,30 +578,30 @@
 
                             <div class="text-center pb-6">
                                 <p class="text-[9px] text-brand-violetLight font-semibold uppercase tracking-[0.2em] mb-1">Diagnóstico</p>
-                                <h4 class="text-gray-900 dark:text-white font-medium text-[42px] leading-none tracking-tight">45<span class="text-sm text-gray-500 dark:text-white/30 font-light">/100</span></h4>
+                                <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-medium text-[42px] leading-none tracking-tight">45<span class="text-sm text-gray-500 dark:text-gray-900 dark:text-white/30 font-light">/100</span></h4>
                             </div>
                             
                             <div class="space-y-3 flex-1">
                                 <!-- Card 1 -->
                                 <div class="p-4 bg-gray-50 dark:bg-white/[0.02] border border-gray-200 dark:border-white/[0.05] rounded-2xl relative overflow-hidden">
                                     <div class="absolute left-0 top-0 bottom-0 w-1 bg-rose-500 rounded-l-2xl"></div>
-                                    <p class="text-gray-600 dark:text-white/60 text-[11px] font-light mb-1">Visibilidad SEO Local</p>
+                                    <p class="text-gray-600 dark:text-gray-900 dark:text-white/60 text-[11px] font-light mb-1">Visibilidad SEO Local</p>
                                     <p class="text-rose-400 text-[11px] font-medium mb-2.5">CRÍTICO: No apareces</p>
-                                    <div class="h-1 bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-full w-full overflow-hidden"><div class="h-full bg-rose-500 w-[15%]"></div></div>
+                                    <div class="h-1 bg-gray-100 dark:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-300 dark:border-white/10 rounded-full w-full overflow-hidden"><div class="h-full bg-rose-500 w-[15%]"></div></div>
                                 </div>
                                 <!-- Card 2 -->
                                 <div class="p-4 bg-gray-50 dark:bg-white/[0.02] border border-gray-200 dark:border-white/[0.05] rounded-2xl relative overflow-hidden">
                                     <div class="absolute left-0 top-0 bottom-0 w-1 bg-yellow-500 rounded-l-2xl"></div>
-                                    <p class="text-gray-600 dark:text-white/60 text-[11px] font-light mb-1">Conversión en IG</p>
+                                    <p class="text-gray-600 dark:text-gray-900 dark:text-white/60 text-[11px] font-light mb-1">Conversión en IG</p>
                                     <p class="text-yellow-400 text-[11px] font-medium mb-2.5">MEJORABLE: Vacío</p>
-                                    <div class="h-1 bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-full w-full overflow-hidden"><div class="h-full bg-yellow-500 w-[45%]"></div></div>
+                                    <div class="h-1 bg-gray-100 dark:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-300 dark:border-white/10 rounded-full w-full overflow-hidden"><div class="h-full bg-yellow-500 w-[45%]"></div></div>
                                 </div>
                                 <!-- Card 3 -->
                                 <div class="p-4 bg-brand-violet/[0.05] border border-brand-violet/20 rounded-2xl relative mt-1">
                                     <p class="text-brand-violetLight text-[9px] font-semibold tracking-wider uppercase mb-2 flex items-center gap-1.5">
                                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> Acción
                                     </p>
-                                    <p class="text-gray-700 dark:text-white/80 text-[11px] font-light leading-relaxed">Reestructurar la biografía para enfocarse en el problema del cliente.</p>
+                                    <p class="text-gray-700 dark:text-gray-900 dark:text-white/80 text-[11px] font-light leading-relaxed">Reestructurar la biografía para enfocarse en el problema del cliente.</p>
                                 </div>
                             </div>
                         </div>
@@ -610,37 +610,37 @@
 
                 <!-- Textos -->
                 <div class="space-y-6">
-                    <h3 class="text-3xl md:text-4xl font-medium text-gray-900 dark:text-white tracking-tight mb-8">Aquí está tu diagnóstico</h3>
+                    <h3 class="text-3xl md:text-4xl font-medium text-gray-900 dark:text-gray-900 dark:text-white tracking-tight mb-8">Aquí está tu diagnóstico</h3>
                     
                     <div class="space-y-4">
                         <div class="flex items-start gap-4 bg-gray-50 dark:bg-white/[0.02] border border-gray-200 dark:border-white/[0.05] p-5 rounded-[20px]">
                             <div class="w-6 h-6 rounded-full bg-brand-violet/20 text-brand-violetLight flex items-center justify-center shrink-0 border border-brand-violet/30">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <span class="text-gray-700 dark:text-white/80 text-sm font-light leading-relaxed">Informe PDF privado con tu puntuación Brújula Digital y diagnóstico.</span>
+                            <span class="text-gray-700 dark:text-gray-900 dark:text-white/80 text-sm font-light leading-relaxed">Informe PDF privado con tu puntuación Brújula Digital y diagnóstico.</span>
                         </div>
                         
                         <div class="flex items-start gap-4 bg-gray-50 dark:bg-white/[0.02] border border-gray-200 dark:border-white/[0.05] p-5 rounded-[20px]">
                             <div class="w-6 h-6 rounded-full bg-brand-violet/20 text-brand-violetLight flex items-center justify-center shrink-0 border border-brand-violet/30">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <span class="text-gray-700 dark:text-white/80 text-sm font-light leading-relaxed">Plan de acción paso a paso aplicable por ti mismo (acceso inmediato).</span>
+                            <span class="text-gray-700 dark:text-gray-900 dark:text-white/80 text-sm font-light leading-relaxed">Plan de acción paso a paso aplicable por ti mismo (acceso inmediato).</span>
                         </div>
                         
                         <div class="flex items-start gap-4 bg-gray-50 dark:bg-white/[0.02] border border-gray-200 dark:border-white/[0.05] p-5 rounded-[20px]">
                             <div class="w-6 h-6 rounded-full bg-brand-violet/20 text-brand-violetLight flex items-center justify-center shrink-0 border border-brand-violet/30">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <span class="text-gray-700 dark:text-white/80 text-sm font-light leading-relaxed">Resultado visible esta semana si sigues los 3 primeros pasos.</span>
+                            <span class="text-gray-700 dark:text-gray-900 dark:text-white/80 text-sm font-light leading-relaxed">Resultado visible esta semana si sigues los 3 primeros pasos.</span>
                         </div>
                     </div>
 
                     <div class="pt-6">
                         <!-- CTA Final -->
-                        <button onclick="window.location.href='/diagnostico/'" class="w-full bg-brand-violet text-white py-4 px-8 rounded-full font-semibold text-[15px] transition-all hover:shadow-[0_0_20px_rgba(139,92,246,0.6)] flex items-center justify-center gap-2">
+                        <button onclick="window.location.href='/diagnostico/'" class="w-full bg-brand-violet text-gray-900 dark:text-white py-4 px-8 rounded-full font-semibold text-[15px] transition-all hover:shadow-[0_0_20px_rgba(139,92,246,0.6)] flex items-center justify-center gap-2">
                             Quiero mi Brújula Digital gratis &rarr;
                         </button>
-                        <p class="text-[11px] text-gray-500 dark:text-white/40 font-light mt-4 px-2 text-center md:text-left">
+                        <p class="text-[11px] text-gray-500 dark:text-gray-900 dark:text-white/40 font-light mt-4 px-2 text-center md:text-left">
                             Tus respuestas son 100% privadas. No spam, nunca.
                         </p>
                     </div>
@@ -651,60 +651,60 @@
         <!-- FAQ -->
         <section class="py-20 px-6 relative z-20 border-t border-gray-200 dark:border-white/5 reveal-on-scroll">
             <div class="max-w-3xl mx-auto">
-                <h3 class="text-3xl font-medium text-gray-900 dark:text-white mb-10 text-center tracking-tight">Preguntas frecuentes</h3>
+                <h3 class="text-3xl font-medium text-gray-900 dark:text-gray-900 dark:text-white mb-10 text-center tracking-tight">Preguntas frecuentes</h3>
                 <div class="space-y-4">
-                    <div class="backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:border-white/20 rounded-2xl overflow-hidden faq-item cursor-pointer transition-all duration-300" onclick="toggleFaq(this)">
+                    <div class="backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:border-gray-300 dark:border-white/20 rounded-2xl overflow-hidden faq-item cursor-pointer transition-all duration-300" onclick="toggleFaq(this)">
                         <div class="p-6 flex justify-between items-center">
-                            <h4 class="text-gray-900 dark:text-white font-medium text-sm md:text-[15px]">¿Realmente es gratis?</h4>
-                            <svg class="w-5 h-5 text-gray-500 dark:text-white/40 transform transition-transform duration-300 faq-icon shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-medium text-sm md:text-[15px]">¿Realmente es gratis?</h4>
+                            <svg class="w-5 h-5 text-gray-500 dark:text-gray-900 dark:text-white/40 transform transition-transform duration-300 faq-icon shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-inner">
-                                <div class="px-6 pb-6 text-sm text-gray-600 dark:text-white/50 font-light leading-relaxed">Totalmente. El diagnóstico es 100% gratis. Ni tarjeta de crédito, ni sorpresas. Si después quieres trabajar con nosotros, hablamos de precios. Pero el diagnóstico es tuyo.</div>
+                                <div class="px-6 pb-6 text-sm text-gray-600 dark:text-gray-900 dark:text-white/50 font-light leading-relaxed">Totalmente. El diagnóstico es 100% gratis. Ni tarjeta de crédito, ni sorpresas. Si después quieres trabajar con nosotros, hablamos de precios. Pero el diagnóstico es tuyo.</div>
                             </div>
                         </div>
                     </div>
-                    <div class="backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:border-white/20 rounded-2xl overflow-hidden faq-item cursor-pointer transition-all duration-300" onclick="toggleFaq(this)">
+                    <div class="backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:border-gray-300 dark:border-white/20 rounded-2xl overflow-hidden faq-item cursor-pointer transition-all duration-300" onclick="toggleFaq(this)">
                         <div class="p-6 flex justify-between items-center">
-                            <h4 class="text-gray-900 dark:text-white font-medium text-sm md:text-[15px]">¿Cuánto tiempo tarda en llegar el resultado?</h4>
-                            <svg class="w-5 h-5 text-gray-500 dark:text-white/40 transform transition-transform duration-300 faq-icon shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-medium text-sm md:text-[15px]">¿Cuánto tiempo tarda en llegar el resultado?</h4>
+                            <svg class="w-5 h-5 text-gray-500 dark:text-gray-900 dark:text-white/40 transform transition-transform duration-300 faq-icon shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-inner">
-                                <div class="px-6 pb-6 text-sm text-gray-600 dark:text-white/50 font-light leading-relaxed">Al momento. Respondes a las preguntas en un par de minutos, envías y recibes tu informe inmediatamente en pantalla + por email. Sin esperas.</div>
+                                <div class="px-6 pb-6 text-sm text-gray-600 dark:text-gray-900 dark:text-white/50 font-light leading-relaxed">Al momento. Respondes a las preguntas en un par de minutos, envías y recibes tu informe inmediatamente en pantalla + por email. Sin esperas.</div>
                             </div>
                         </div>
                     </div>
-                    <div class="backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:border-white/20 rounded-2xl overflow-hidden faq-item cursor-pointer transition-all duration-300" onclick="toggleFaq(this)">
+                    <div class="backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:border-gray-300 dark:border-white/20 rounded-2xl overflow-hidden faq-item cursor-pointer transition-all duration-300" onclick="toggleFaq(this)">
                         <div class="p-6 flex justify-between items-center">
-                            <h4 class="text-gray-900 dark:text-white font-medium text-sm md:text-[15px]">¿Cuándo puedo empezar a aplicar los cambios?</h4>
-                            <svg class="w-5 h-5 text-gray-500 dark:text-white/40 transform transition-transform duration-300 faq-icon shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-medium text-sm md:text-[15px]">¿Cuándo puedo empezar a aplicar los cambios?</h4>
+                            <svg class="w-5 h-5 text-gray-500 dark:text-gray-900 dark:text-white/40 transform transition-transform duration-300 faq-icon shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-inner">
-                                <div class="px-6 pb-6 text-sm text-gray-600 dark:text-white/50 font-light leading-relaxed">Hoy mismo. El plan está diseñado para sacar los primeros 3 pasos esta semana. Algunos ven cambios en 48 horas; otros en 2–3 semanas. Depende de tu negocio.</div>
+                                <div class="px-6 pb-6 text-sm text-gray-600 dark:text-gray-900 dark:text-white/50 font-light leading-relaxed">Hoy mismo. El plan está diseñado para sacar los primeros 3 pasos esta semana. Algunos ven cambios en 48 horas; otros en 2–3 semanas. Depende de tu negocio.</div>
                             </div>
                         </div>
                     </div>
-                    <div class="backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:border-white/20 rounded-2xl overflow-hidden faq-item cursor-pointer transition-all duration-300" onclick="toggleFaq(this)">
+                    <div class="backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:border-gray-300 dark:border-white/20 rounded-2xl overflow-hidden faq-item cursor-pointer transition-all duration-300" onclick="toggleFaq(this)">
                         <div class="p-6 flex justify-between items-center">
-                            <h4 class="text-gray-900 dark:text-white font-medium text-sm md:text-[15px]">¿Qué pasa con mi email? ¿Me vais a hacer spam?</h4>
-                            <svg class="w-5 h-5 text-gray-500 dark:text-white/40 transform transition-transform duration-300 faq-icon shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-medium text-sm md:text-[15px]">¿Qué pasa con mi email? ¿Me vais a hacer spam?</h4>
+                            <svg class="w-5 h-5 text-gray-500 dark:text-gray-900 dark:text-white/40 transform transition-transform duration-300 faq-icon shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-inner">
-                                <div class="px-6 pb-6 text-sm text-gray-600 dark:text-white/50 font-light leading-relaxed">Tus datos son privados. Te enviamos el diagnóstico y, opcionalmente, actualizaciones sobre marketing local. Pero sin spam. En cualquier email puedes darte de baja con un clic.</div>
+                                <div class="px-6 pb-6 text-sm text-gray-600 dark:text-gray-900 dark:text-white/50 font-light leading-relaxed">Tus datos son privados. Te enviamos el diagnóstico y, opcionalmente, actualizaciones sobre marketing local. Pero sin spam. En cualquier email puedes darte de baja con un clic.</div>
                             </div>
                         </div>
                     </div>
-                    <div class="backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:border-white/20 rounded-2xl overflow-hidden faq-item cursor-pointer transition-all duration-300" onclick="toggleFaq(this)">
+                    <div class="backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:border-gray-300 dark:border-white/20 rounded-2xl overflow-hidden faq-item cursor-pointer transition-all duration-300" onclick="toggleFaq(this)">
                         <div class="p-6 flex justify-between items-center">
-                            <h4 class="text-gray-900 dark:text-white font-medium text-sm md:text-[15px]">¿Es para mi tipo de negocio?</h4>
-                            <svg class="w-5 h-5 text-gray-500 dark:text-white/40 transform transition-transform duration-300 faq-icon shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-medium text-sm md:text-[15px]">¿Es para mi tipo de negocio?</h4>
+                            <svg class="w-5 h-5 text-gray-500 dark:text-gray-900 dark:text-white/40 transform transition-transform duration-300 faq-icon shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-inner">
-                                <div class="px-6 pb-6 text-sm text-gray-600 dark:text-white/50 font-light leading-relaxed">Si tienes un local físico y quieres más clientes en tu zona, sí. Si eres e-commerce o B2B puramente digital, probablemente no.</div>
+                                <div class="px-6 pb-6 text-sm text-gray-600 dark:text-gray-900 dark:text-white/50 font-light leading-relaxed">Si tienes un local físico y quieres más clientes en tu zona, sí. Si eres e-commerce o B2B puramente digital, probablemente no.</div>
                             </div>
                         </div>
                     </div>
@@ -713,7 +713,7 @@
 
     </main>
 
-    <footer class="relative z-10 bg-[#05020a] text-white overflow-hidden">
+    <footer class="relative z-10 bg-white dark:bg-[#05020a] text-gray-900 dark:text-white overflow-hidden">
         <!-- Background Image -->
         <div class="absolute -top-16 md:-top-80 left-0 right-0 z-0 pointer-events-none h-[600px] md:h-[calc(100%+20rem)]">
             <img src="../space bg.png" alt="Space Background" class="w-full h-full object-cover object-center opacity-70">
@@ -724,16 +724,16 @@
         <!-- CTA Section -->
         <div class="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-24 text-center flex flex-col items-center fade-up">
             <!-- Icon -->
-            <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 backdrop-blur-sm shadow-[0_0_15px_rgba(255,255,255,0.05)]">
-                <i class="ph-fill ph-rocket-launch text-2xl text-white"></i>
+            <div class="w-12 h-12 rounded-xl bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-white/10 flex items-center justify-center mb-8 backdrop-blur-sm shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                <i class="ph-fill ph-rocket-launch text-2xl text-gray-900 dark:text-white"></i>
             </div>
             
-            <h2 class="text-4xl md:text-6xl font-medium tracking-tight text-white mb-6 leading-tight">
+            <h2 class="text-4xl md:text-6xl font-medium tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">
                 Empieza a crecer <br class="hidden md:block">
                 con Proemote
             </h2>
             
-            <p class="text-lg text-white/60 font-light mb-10 max-w-2xl leading-relaxed">
+            <p class="text-lg text-gray-900 dark:text-white/60 font-light mb-10 max-w-2xl leading-relaxed">
                 Los negocios de Extremadura por fin pueden ver resultados predecibles gracias al sistema que une identidad visual, posicionamiento web y captación de clientes.
             </p>
             
@@ -756,20 +756,20 @@
                     <img src="../proemote-logo-footer.png" alt="Proemote Logo" class="h-28 mb-1 object-contain">
                     
                     <div class="flex flex-col items-center md:items-start mt-0">
-                        <span class="text-white italic text-base md:text-lg tracking-wide font-light mb-1">Shaping what matters</span>
+                        <span class="text-gray-900 dark:text-white italic text-base md:text-lg tracking-wide font-light mb-1">Shaping what matters</span>
                         <span class="text-gray-500 font-medium text-base md:text-lg tracking-wide">Think first.</span>
                     </div>
                 </div>
                 
-                <div class="flex flex-col items-center md:items-start gap-4 mb-8 w-full text-sm text-white/60">
-                    <a href="mailto:info@proemote.es" class="hover:text-white transition-colors flex items-center gap-3">
-                        <i class="ph ph-envelope-simple text-xl text-white"></i> info@proemote.es
+                <div class="flex flex-col items-center md:items-start gap-4 mb-8 w-full text-sm text-gray-900 dark:text-white/60">
+                    <a href="mailto:info@proemote.es" class="hover:text-gray-900 dark:text-white transition-colors flex items-center gap-3">
+                        <i class="ph ph-envelope-simple text-xl text-gray-900 dark:text-white"></i> info@proemote.es
                     </a>
-                    <a href="tel:+34641576286" class="hover:text-white transition-colors flex items-center gap-3">
-                        <i class="ph ph-phone text-xl text-white"></i> +34 641 57 62 86
+                    <a href="tel:+34641576286" class="hover:text-gray-900 dark:text-white transition-colors flex items-center gap-3">
+                        <i class="ph ph-phone text-xl text-gray-900 dark:text-white"></i> +34 641 57 62 86
                     </a>
                     <div class="flex items-start gap-3">
-                        <i class="ph ph-clock text-xl text-white mt-0.5"></i> 
+                        <i class="ph ph-clock text-xl text-gray-900 dark:text-white mt-0.5"></i> 
                         <div class="flex flex-col text-left">
                             <span>L-V: 9H–14H, 16H–20H</span>
                             <span class="mt-1">Sáb: 10H–13:30H | Dom: Cerrado</span>
@@ -778,16 +778,16 @@
                 </div>
 
                 <div class="flex justify-center md:justify-start gap-3 w-full">
-                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-marca transition-all">
+                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white/60 hover:text-white hover:bg-marca transition-all">
                         <i class="ph-fill ph-linkedin-logo text-lg"></i>
                     </a>
-                    <a href="https://www.instagram.com/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-marca transition-all">
+                    <a href="https://www.instagram.com/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white/60 hover:text-white hover:bg-marca transition-all">
                         <i class="ph-fill ph-instagram-logo text-lg"></i>
                     </a>
-                    <a href="https://www.facebook.com/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-marca transition-all">
+                    <a href="https://www.facebook.com/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white/60 hover:text-white hover:bg-marca transition-all">
                         <i class="ph-fill ph-facebook-logo text-lg"></i>
                     </a>
-                    <a href="https://www.tiktok.com/@proemote" target="_blank" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-marca transition-all">
+                    <a href="https://www.tiktok.com/@proemote" target="_blank" class="w-9 h-9 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white/60 hover:text-white hover:bg-marca transition-all">
                         <i class="ph-fill ph-tiktok-logo text-lg"></i>
                     </a>
                 </div>
@@ -795,38 +795,38 @@
 
             <!-- Col 2: Servicios -->
             <div class="md:col-span-4 lg:col-span-3 mt-4 lg:mt-0">
-                <h4 class="text-sm font-semibold text-white mb-6 text-center md:text-left uppercase tracking-widest">Servicios</h4>
-                <ul class="space-y-4 text-sm text-white/60 text-center md:text-left">
-                    <li><a href="/diseno-web-SEO" class="hover:text-white transition-colors">Diseño Web</a></li>
-                    <li><a href="/eventos" class="hover:text-white transition-colors">Eventos 360º</a></li>
-                    <li><a href="/marketing-digital" class="hover:text-white transition-colors">Marketing Digital</a></li>
-                    <li><a href="/redes-sociales" class="hover:text-white transition-colors">Redes Sociales</a></li>
-                    <li><a href="/branding-y-estrategia" class="hover:text-white transition-colors">Branding & Estrategia</a></li>
-                    <li><a href="/automatizaciones-y-sistemas" class="hover:text-white transition-colors">Automatización & Sistemas</a></li>
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-6 text-center md:text-left uppercase tracking-widest">Servicios</h4>
+                <ul class="space-y-4 text-sm text-gray-900 dark:text-white/60 text-center md:text-left">
+                    <li><a href="/diseno-web-SEO" class="hover:text-gray-900 dark:text-white transition-colors">Diseño Web</a></li>
+                    <li><a href="/eventos" class="hover:text-gray-900 dark:text-white transition-colors">Eventos 360º</a></li>
+                    <li><a href="/marketing-digital" class="hover:text-gray-900 dark:text-white transition-colors">Marketing Digital</a></li>
+                    <li><a href="/redes-sociales" class="hover:text-gray-900 dark:text-white transition-colors">Redes Sociales</a></li>
+                    <li><a href="/branding-y-estrategia" class="hover:text-gray-900 dark:text-white transition-colors">Branding & Estrategia</a></li>
+                    <li><a href="/automatizaciones-y-sistemas" class="hover:text-gray-900 dark:text-white transition-colors">Automatización & Sistemas</a></li>
                 </ul>
             </div>
 
             <!-- Col 3: Empresa & Legal -->
             <div class="md:col-span-4 lg:col-span-3 mt-4 lg:mt-0">
-                <h4 class="text-sm font-semibold text-white mb-6 text-center md:text-left uppercase tracking-widest">Empresa & Legal</h4>
-                <ul class="space-y-4 text-sm text-white/60 text-center md:text-left">
-                    <li><a href="/aviso-legal" class="hover:text-white transition-colors">Aviso Legal</a></li>
-                    <li><a href="/privacidad" class="hover:text-white transition-colors">Política de Privacidad</a></li>
-                    <li><a href="/sobre-nosotros" class="hover:text-white transition-colors">Sobre nosotros</a></li>
-                    <li><a href="/contacto" class="hover:text-white transition-colors">Contacto</a></li>
-                    <li><a href="/trabaja-con-nosotros" class="hover:text-white transition-colors">Trabaja con nosotros</a></li>
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-6 text-center md:text-left uppercase tracking-widest">Empresa & Legal</h4>
+                <ul class="space-y-4 text-sm text-gray-900 dark:text-white/60 text-center md:text-left">
+                    <li><a href="/aviso-legal" class="hover:text-gray-900 dark:text-white transition-colors">Aviso Legal</a></li>
+                    <li><a href="/privacidad" class="hover:text-gray-900 dark:text-white transition-colors">Política de Privacidad</a></li>
+                    <li><a href="/sobre-nosotros" class="hover:text-gray-900 dark:text-white transition-colors">Sobre nosotros</a></li>
+                    <li><a href="/contacto" class="hover:text-gray-900 dark:text-white transition-colors">Contacto</a></li>
+                    <li><a href="/trabaja-con-nosotros" class="hover:text-gray-900 dark:text-white transition-colors">Trabaja con nosotros</a></li>
                 </ul>
             </div>
 
             <!-- Col 4: Newsletter -->
             <div class="md:col-span-4 lg:col-span-3 mt-4 lg:mt-0">
-                <h4 class="text-sm font-semibold text-white mb-6 text-center md:text-left uppercase tracking-widest">Únete a la Newsletter</h4>
-                <p class="text-sm text-white/60 font-light leading-relaxed mb-6 text-center md:text-left">
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-6 text-center md:text-left uppercase tracking-widest">Únete a la Newsletter</h4>
+                <p class="text-sm text-gray-900 dark:text-white/60 font-light leading-relaxed mb-6 text-center md:text-left">
                     Suscríbete a nuestra newsletter para recibir las mejores estrategias y actualizaciones futuras.
                 </p>
                 <form class="flex items-center relative">
-                    <input type="email" placeholder="Introduce tu email" class="w-full bg-white/5 border border-white/10 rounded-full pl-5 pr-12 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-marca transition-colors backdrop-blur-md">
-                    <button type="submit" class="absolute right-1 top-1 bottom-1 bg-marca hover:bg-marca/90 text-white w-9 h-9 rounded-full flex items-center justify-center transition-colors">
+                    <input type="email" placeholder="Introduce tu email" class="w-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-white/10 rounded-full pl-5 pr-12 py-3 text-sm text-gray-900 dark:text-white placeholder-white/40 focus:outline-none focus:border-marca transition-colors backdrop-blur-md">
+                    <button type="submit" class="absolute right-1 top-1 bottom-1 bg-marca hover:bg-marca/90 text-gray-900 dark:text-white w-9 h-9 rounded-full flex items-center justify-center transition-colors">
                         <i class="ph ph-arrow-right"></i>
                     </button>
                 </form>
@@ -836,10 +836,10 @@
 
         <!-- Bottom Copyright -->
         <div class="relative z-10 max-w-7xl mx-auto px-6 pt-8 pb-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-            <p class="text-xs text-white/40">Copyright © 2026 Proemote. Todos los derechos reservados.</p>
-            <div class="flex items-center justify-center md:justify-end gap-4 text-xs text-white/40 w-full md:w-auto">
+            <p class="text-xs text-gray-900 dark:text-white/40">Copyright © 2026 Proemote. Todos los derechos reservados.</p>
+            <div class="flex items-center justify-center md:justify-end gap-4 text-xs text-gray-900 dark:text-white/40 w-full md:w-auto">
                 <p>Usamos cookies para mejorar el servicio.</p>
-                <button class="text-marca font-medium hover:text-white transition-colors">Aceptar</button>
+                <button class="text-marca font-medium hover:text-gray-900 dark:text-white transition-colors">Aceptar</button>
             </div>
         </div>
     </footer>
@@ -896,17 +896,17 @@
     <!-- MODAL QUIZ -->
     <div id="testModal" class="fixed inset-0 h-[100dvh] z-[60] modal-overlay flex flex-col bg-white dark:bg-[#09090b]">
         <div class="w-full px-6 py-5 flex items-center justify-between shrink-0 border-b border-gray-200 dark:border-white/5" id="quizHeaderBlock">
-            <p class="text-[11px] font-semibold text-gray-500 dark:text-white/30 tracking-widest uppercase" id="quizProgressText">PASO 1 DE 17</p>
-            <button onclick="closeTestModal()" class="text-gray-500 dark:text-white/30 hover:text-white p-2 transition-colors">
+            <p class="text-[11px] font-semibold text-gray-500 dark:text-gray-900 dark:text-white/30 tracking-widest uppercase" id="quizProgressText">PASO 1 DE 17</p>
+            <button onclick="closeTestModal()" class="text-gray-500 dark:text-gray-900 dark:text-white/30 hover:text-white p-2 transition-colors">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
         </div>
-        <div class="w-full h-1 bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 shrink-0" id="quizProgressBarBlock">
+        <div class="w-full h-1 bg-gray-100 dark:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-300 dark:border-white/10 shrink-0" id="quizProgressBarBlock">
             <div class="h-full bg-brand-violet transition-all duration-300 w-[5%] shadow-[0_0_8px_rgba(139,92,246,0.6)]" id="quizProgressBar"></div>
         </div>
         <div class="flex-1 overflow-y-auto overflow-x-hidden relative w-full flex flex-col pb-24" id="quizBody"></div>
         <div class="absolute bottom-0 left-0 w-full p-6 pointer-events-none flex justify-between items-end" id="quizFooter">
-            <button onclick="quizBack()" id="btnBack" class="text-gray-500 dark:text-white/40 hover:text-white text-sm font-medium transition-colors opacity-0 pointer-events-auto bg-white dark:bg-[#09090b] px-4 py-2 rounded-lg">← Atrás</button>
+            <button onclick="quizBack()" id="btnBack" class="text-gray-500 dark:text-gray-900 dark:text-white/40 hover:text-white text-sm font-medium transition-colors opacity-0 pointer-events-auto bg-white dark:bg-[#09090b] px-4 py-2 rounded-lg">← Atrás</button>
         </div>
     </div>
 
@@ -1210,7 +1210,7 @@
             body.className = `flex-1 overflow-y-auto overflow-x-hidden relative w-full flex flex-col p-8 md:p-12 items-center justify-start pt-12 md:pt-16 step-${direction}`;
 
             let html = `<div class="max-w-2xl w-full mx-auto pb-24" id="questionContainer">`;
-            html += `<h2 class="text-3xl md:text-4xl lg:text-5xl font-medium text-gray-900 dark:text-white mb-10 md:mb-12 leading-tight tracking-tight text-left">${q.q}</h2>`;
+            html += `<h2 class="text-3xl md:text-4xl lg:text-5xl font-medium text-gray-900 dark:text-gray-900 dark:text-white mb-10 md:mb-12 leading-tight tracking-tight text-left">${q.q}</h2>`;
             html += `<div class="space-y-3 md:space-y-4">`;
             
             if (q.type === 'single' || q.type === 'multi') {
@@ -1219,19 +1219,19 @@
                     const activeClass = isSelected ? 'border-brand-violet bg-brand-violet/10 ring-1 ring-brand-violet' : 'border-white/10 bg-white/[0.02] hover:bg-white/[0.04]';
                     
                     html += `
-                        <button onclick="handleSelect('${q.id}', '${opt}', '${q.type}')" class="w-full text-left px-6 py-5 md:py-6 rounded-2xl border ${activeClass} text-gray-800 dark:text-white/90 font-light transition-all flex items-center justify-between text-base md:text-lg">
+                        <button onclick="handleSelect('${q.id}', '${opt}', '${q.type}')" class="w-full text-left px-6 py-5 md:py-6 rounded-2xl border ${activeClass} text-gray-800 dark:text-gray-900 dark:text-white/90 font-light transition-all flex items-center justify-between text-base md:text-lg">
                             <span>${opt}</span>
-                            <div class="w-5 h-5 shrink-0 rounded-full border border-gray-300 dark:border-gray-300 dark:border-white/20 ${isSelected ? 'border-brand-violet bg-brand-violet' : ''}"></div>
+                            <div class="w-5 h-5 shrink-0 rounded-full border border-gray-300 dark:border-gray-300 dark:border-gray-300 dark:border-white/20 ${isSelected ? 'border-brand-violet bg-brand-violet' : ''}"></div>
                         </button>
                     `;
                 });
             } else if (q.type === 'text') {
                 const val = quizAnswers[q.id] || '';
-                html += `<input type="text" id="textInput_${q.id}" oninput="handleText('${q.id}', this.value)" placeholder="${q.placeholder}" value="${val}" class="w-full px-6 py-6 rounded-2xl border border-gray-300 dark:border-gray-300 dark:border-white/20 bg-transparent text-gray-900 dark:text-white font-light focus:border-brand-violet focus:outline-none focus:ring-1 focus:ring-brand-violet text-xl transition-all">`;
+                html += `<input type="text" id="textInput_${q.id}" oninput="handleText('${q.id}', this.value)" placeholder="${q.placeholder}" value="${val}" class="w-full px-6 py-6 rounded-2xl border border-gray-300 dark:border-gray-300 dark:border-gray-300 dark:border-white/20 bg-transparent text-gray-900 dark:text-gray-900 dark:text-white font-light focus:border-brand-violet focus:outline-none focus:ring-1 focus:ring-brand-violet text-xl transition-all">`;
             }
 
             html += `</div>`;
-            html += `<button onclick="quizNext()" id="btnContinue" class="mt-10 bg-brand-violet hover:bg-brand-violetLight text-white py-4 px-10 rounded-xl font-semibold text-base transition-all opacity-50 cursor-not-allowed flex items-center gap-2">Continuar &rarr;</button>`;
+            html += `<button onclick="quizNext()" id="btnContinue" class="mt-10 bg-brand-violet hover:bg-brand-violetLight text-gray-900 dark:text-white py-4 px-10 rounded-xl font-semibold text-base transition-all opacity-50 cursor-not-allowed flex items-center gap-2">Continuar &rarr;</button>`;
             html += `</div>`;
             
             body.innerHTML = html;
@@ -1334,22 +1334,22 @@
                     <div class="w-16 h-16 rounded-full bg-brand-violet/10 text-brand-violetLight flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     </div>
-                    <h3 class="text-3xl font-medium text-gray-900 dark:text-white mb-3 tracking-tight">Tu diagnóstico está listo</h3>
-                    <p class="text-gray-600 dark:text-white/50 mb-8 text-sm font-light">Dinos dónde enviarlo y lo recibirás al instante en PDF.</p>
+                    <h3 class="text-3xl font-medium text-gray-900 dark:text-gray-900 dark:text-white mb-3 tracking-tight">Tu diagnóstico está listo</h3>
+                    <p class="text-gray-600 dark:text-gray-900 dark:text-white/50 mb-8 text-sm font-light">Dinos dónde enviarlo y lo recibirás al instante en PDF.</p>
                     
                     <div class="space-y-4 text-left">
-                        <input type="text" id="finalName" placeholder="Tu nombre" class="w-full px-5 py-4 rounded-xl border border-gray-300 dark:border-gray-300 dark:border-white/20 bg-transparent text-gray-900 dark:text-white font-light focus:border-brand-violet focus:outline-none focus:ring-1 focus:ring-brand-violet text-base transition-all">
-                        <input type="email" id="finalEmail" placeholder="tu@email.com" class="w-full px-5 py-4 rounded-xl border border-gray-300 dark:border-gray-300 dark:border-white/20 bg-transparent text-gray-900 dark:text-white font-light focus:border-brand-violet focus:outline-none focus:ring-1 focus:ring-brand-violet text-base transition-all">
+                        <input type="text" id="finalName" placeholder="Tu nombre" class="w-full px-5 py-4 rounded-xl border border-gray-300 dark:border-gray-300 dark:border-gray-300 dark:border-white/20 bg-transparent text-gray-900 dark:text-gray-900 dark:text-white font-light focus:border-brand-violet focus:outline-none focus:ring-1 focus:ring-brand-violet text-base transition-all">
+                        <input type="email" id="finalEmail" placeholder="tu@email.com" class="w-full px-5 py-4 rounded-xl border border-gray-300 dark:border-gray-300 dark:border-gray-300 dark:border-white/20 bg-transparent text-gray-900 dark:text-gray-900 dark:text-white font-light focus:border-brand-violet focus:outline-none focus:ring-1 focus:ring-brand-violet text-base transition-all">
                         
                         <div class="flex items-start gap-3 mt-5 px-1">
                             <input type="checkbox" id="termsCheckbox" class="mt-1 w-4 h-4 rounded border-gray-300 dark:border-white/30 bg-transparent text-brand-violet focus:ring-brand-violet cursor-pointer">
-                            <label for="termsCheckbox" class="text-[11px] text-gray-600 dark:text-white/50 font-light leading-tight">
+                            <label for="termsCheckbox" class="text-[11px] text-gray-600 dark:text-gray-900 dark:text-white/50 font-light leading-tight">
                                 He podido leer y acepto la <a href="https://proemote.es/politica-de-privacidad" target="_blank" class="text-brand-violetLight hover:underline">política de privacidad</a> de Proemote.
                             </label>
                         </div>
 
-                        <button onclick="submitFinal()" class="w-full bg-brand-violet hover:bg-brand-violetLight text-white py-4 rounded-xl font-semibold text-[15px] transition-all mt-4">Quiero mi Brújula Digital gratis &rarr;</button>
-                        <p class="text-[10px] text-center text-gray-500 dark:text-white/30 mt-4 font-light">Tus datos son privados. No spam, nunca.</p>
+                        <button onclick="submitFinal()" class="w-full bg-brand-violet hover:bg-brand-violetLight text-gray-900 dark:text-white py-4 rounded-xl font-semibold text-[15px] transition-all mt-4">Quiero mi Brújula Digital gratis &rarr;</button>
+                        <p class="text-[10px] text-center text-gray-500 dark:text-gray-900 dark:text-white/30 mt-4 font-light">Tus datos son privados. No spam, nunca.</p>
                     </div>
                 </div>
             `;
@@ -1375,7 +1375,7 @@
             body.innerHTML = `
                 <div class="text-center max-w-sm">
                     <div class="w-16 h-16 border-4 border-gray-200 dark:border-white/10 border-t-brand-violet rounded-full animate-spin mx-auto mb-8"></div>
-                    <h3 class="text-2xl font-medium text-gray-900 dark:text-white mb-3 tracking-tight" id="loadingText">Analizando tu negocio...</h3>
+                    <h3 class="text-2xl font-medium text-gray-900 dark:text-gray-900 dark:text-white mb-3 tracking-tight" id="loadingText">Analizando tu negocio...</h3>
                     <div class="w-full h-1 bg-gray-200 dark:bg-white/10 rounded-full overflow-hidden mt-6">
                         <div class="h-full bg-brand-violet w-0 transition-all duration-1000 ease-out" id="loadingBar"></div>
                     </div>
@@ -1396,64 +1396,64 @@
     </script>
 
 <div id="mega-menu" class="fixed inset-0 z-[40] hidden pointer-events-none">
-        <div id="mega-menu-backdrop" class="absolute inset-0 bg-white dark:bg-[#05020a]/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+        <div id="mega-menu-backdrop" class="absolute inset-0 bg-white dark:bg-white dark:bg-[#05020a]/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
         
         <div id="mega-menu-panel" class="absolute top-[96px] md:top-[112px] left-1/2 -translate-x-1/2 w-full max-w-5xl px-6 transform -translate-y-4 opacity-0 transition-all duration-300 pointer-events-auto">
             <div class="backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 rounded-[2rem] p-8 shadow-2xl flex flex-col gap-10">
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                     <a href="/branding-y-estrategia" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-white transition-colors flex-shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                             <i class="ph-fill ph-paint-brush-broad text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Branding & Estrategia</h4>
-                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Identidad visual y posicionamiento.</p>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Branding & Estrategia</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-900 dark:text-white/40 font-light">Identidad visual y posicionamiento.</p>
                         </div>
                     </a>
                     <a href="/web-seo" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-white transition-colors flex-shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                             <i class="ph-fill ph-browser text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Diseño web y Posicionamiento SEO</h4>
-                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Webs de alto rendimiento y SEO.</p>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Diseño web y Posicionamiento SEO</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-900 dark:text-white/40 font-light">Webs de alto rendimiento y SEO.</p>
                         </div>
                     </a>
                     <a href="/redes-sociales" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-white transition-colors flex-shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                             <i class="ph-fill ph-share-network text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Contenido & Redes</h4>
-                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Social Media y estrategia de video.</p>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Contenido & Redes</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-900 dark:text-white/40 font-light">Social Media y estrategia de video.</p>
                         </div>
                     </a>
                     <a href="/marketing-digital" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-white transition-colors flex-shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                             <i class="ph-fill ph-rocket-launch text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Marketing Digital</h4>
-                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Campañas de publicidad digital para escalar tu negocio.</p>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Marketing Digital</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-900 dark:text-white/40 font-light">Campañas de publicidad digital para escalar tu negocio.</p>
                         </div>
                     </a>
                     <a href="/automatizaciones-y-sistemas" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-white transition-colors flex-shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                             <i class="ph-fill ph-robot text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Automatización y Sistemas</h4>
-                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Funnels, CRM y flujos que trabajan sin ti.</p>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Automatización y Sistemas</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-900 dark:text-white/40 font-light">Funnels, CRM y flujos que trabajan sin ti.</p>
                         </div>
                     </a>
                     <a href="/eventos" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-white transition-colors flex-shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                             <i class="ph-fill ph-ticket text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Eventos & Experiencias</h4>
-                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Producción, branding y promoción digital de eventos.</p>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Eventos & Experiencias</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-900 dark:text-white/40 font-light">Producción, branding y promoción digital de eventos.</p>
                         </div>
                     </a>
                 </div>
@@ -1463,9 +1463,9 @@
                         <div class="w-10 h-10 rounded-full bg-violet-500/20 flex items-center justify-center text-violet-400 flex-shrink-0">
                             <i class="ph-fill ph-circles-three-plus text-xl"></i>
                         </div>
-                        <h4 class="text-gray-900 dark:text-white font-sans font-light text-lg">Diseñamos sistemas completos, no piezas aisladas.</h4>
+                        <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-sans font-light text-lg">Diseñamos sistemas completos, no piezas aisladas.</h4>
                     </div>
-                    <a href="/servicios" class="inline-flex items-center gap-2 text-violet-400 font-medium text-sm hover:text-gray-900 dark:text-white transition-colors mt-4 md:mt-0 group flex-shrink-0">
+                    <a href="/servicios" class="inline-flex items-center gap-2 text-violet-400 font-medium text-sm hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors mt-4 md:mt-0 group flex-shrink-0">
                         Ver todos los servicios <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>

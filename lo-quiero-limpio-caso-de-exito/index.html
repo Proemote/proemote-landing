@@ -114,7 +114,7 @@
         }
     </script>
 </head>
-<body class="antialiased selection:bg-primary selection:text-white relative overflow-y-scroll">
+<body class="antialiased selection:bg-primary selection:text-gray-900 dark:text-white relative overflow-y-scroll">
                                                             <!-- BARRA DE ANUNCIO GLOBAL -->
     <div class="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
         <header class="w-full max-w-5xl backdrop-blur-xl bg-white/80 dark:bg-white/[0.02] border border-gray-200 dark:border-white/10 rounded-full flex items-center justify-between px-6 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.05)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-colors duration-300">
@@ -122,34 +122,34 @@
                 <img src="/logo-header.png" alt="Proemote - Agencia de digitalización" class="h-6 md:h-8 w-auto object-contain dark:invert-0 invert">
             </a>
 
-            <div class="hidden md:flex gap-6 text-[13px] font-medium text-gray-600 dark:text-white/60 relative z-10 items-center">
-                <a href="/" class="hover:text-gray-900 dark:hover:text-white transition-colors">Inicio</a>
+            <div class="hidden md:flex gap-6 text-[13px] font-medium text-gray-600 dark:text-gray-900 dark:text-white/60 relative z-10 items-center">
+                <a href="/" class="hover:text-gray-900 dark:hover:text-gray-900 dark:text-white transition-colors">Inicio</a>
                 
-                <a href="/servicios" id="services-menu-btn" class="hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none">Servicios</a>
+                <a href="/servicios" id="services-menu-btn" class="hover:text-gray-900 dark:hover:text-gray-900 dark:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <!-- DROPDOWN AYUDAS 2026 -->
                 <div class="relative group py-2">
-                    <a href="/subvenciones-extremadura/" class="hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1.5 focus:outline-none">
+                    <a href="/subvenciones-extremadura/" class="hover:text-gray-900 dark:hover:text-gray-900 dark:text-white transition-colors flex items-center gap-1.5 focus:outline-none">
                         Ayudas
                         <i class="ph ph-caret-down text-xs transition-transform group-hover:rotate-180"></i>
                     </a>
                     <div class="absolute top-full left-0 mt-4 before:absolute before:-top-4 before:left-0 before:w-full before:h-4 w-64 bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-2xl p-4 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 flex flex-col gap-2 pointer-events-auto">
-                        <a href="/ayudas-digitalizacion-pymes-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition-all flex items-start gap-3 group/item">
-                            <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover/item:bg-primary group-hover/item:text-white transition-colors flex-shrink-0">
+                        <a href="/ayudas-digitalizacion-pymes-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 transition-all flex items-start gap-3 group/item">
+                            <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover/item:bg-primary group-hover/item:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                                 <i class="ph-fill ph-device-mobile"></i>
                             </div>
                             <div>
-                                <p class="text-gray-900 dark:text-white font-medium text-xs mb-0.5">Digitalización de Pymes</p>
-                                <p class="text-[10px] text-gray-500 dark:text-white/40">Hasta 20.000€ · Web, SEO, Redes</p>
+                                <p class="text-gray-900 dark:text-gray-900 dark:text-white font-medium text-xs mb-0.5">Digitalización de Pymes</p>
+                                <p class="text-[10px] text-gray-500 dark:text-gray-900 dark:text-white/40">Hasta 20.000€ · Web, SEO, Redes</p>
                             </div>
                         </a>
-                        <a href="/ayudas-implementacion-ia-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition-all flex items-start gap-3 group/item">
-                            <div class="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center text-accent group-hover/item:bg-accent group-hover/item:text-white transition-colors flex-shrink-0">
+                        <a href="/ayudas-implementacion-ia-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 transition-all flex items-start gap-3 group/item">
+                            <div class="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center text-accent group-hover/item:bg-accent group-hover/item:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                                 <i class="ph-fill ph-cpu"></i>
                             </div>
                             <div>
-                                <p class="text-gray-900 dark:text-white font-medium text-xs mb-0.5">Implementación de IA</p>
-                                <p class="text-[10px] text-gray-500 dark:text-white/40">Hasta 100.000€ · Automatización</p>
+                                <p class="text-gray-900 dark:text-gray-900 dark:text-white font-medium text-xs mb-0.5">Implementación de IA</p>
+                                <p class="text-[10px] text-gray-500 dark:text-gray-900 dark:text-white/40">Hasta 100.000€ · Automatización</p>
                             </div>
                         </a>
                     </div>
@@ -157,7 +157,7 @@
 
                 <!-- ENLACE RECURSOS (ACTIVO CON MEGA MENÚ) -->
                 <div class="relative group/menu py-2">
-                    <a href="/recursos" class="hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1.5 focus:outline-none">
+                    <a href="/recursos" class="hover:text-gray-900 dark:hover:text-gray-900 dark:text-white transition-colors flex items-center gap-1.5 focus:outline-none">
                         Recursos
                         <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30 leading-none">Hub</span>
                         <i class="ph ph-caret-down text-[10px] transition-transform duration-300 group-hover/menu:rotate-180"></i>
@@ -170,22 +170,22 @@
                             <div class="w-[240px] bg-gray-50/80 dark:bg-white/[0.02] rounded-[1.5rem] p-5 flex-shrink-0 flex flex-col gap-4 border border-transparent dark:border-white/5">
                                 <h4 class="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-textSecondary px-1">Categorías</h4>
                                 <div class="flex flex-col gap-1">
-                                    <a href="/recursos" class="flex items-center justify-between px-3 py-2 rounded-xl bg-white dark:bg-white/10 shadow-sm text-sm font-medium text-gray-900 dark:text-white transition-colors">
+                                    <a href="/recursos" class="flex items-center justify-between px-3 py-2 rounded-xl bg-white dark:bg-white/10 shadow-sm text-sm font-medium text-gray-900 dark:text-gray-900 dark:text-white transition-colors">
                                         Todas <span class="text-xs text-gray-400 dark:text-gray-300">6</span>
                                     </a>
-                                    <a href="/recursos?category=agentes-ia" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-white dark:hover:bg-white/5 text-sm text-gray-600 dark:text-gray-300 transition-colors group/item">
+                                    <a href="/recursos?category=agentes-ia" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-white dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 text-sm text-gray-600 dark:text-gray-300 transition-colors group/item">
                                         <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>Agentes IA</span>
                                         <span class="text-xs text-gray-400 group-hover/item:text-gray-600 dark:group-hover/item:text-gray-300">2</span>
                                     </a>
-                                    <a href="/recursos?category=automatizacion" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-white dark:hover:bg-white/5 text-sm text-gray-600 dark:text-gray-300 transition-colors group/item">
+                                    <a href="/recursos?category=automatizacion" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-white dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 text-sm text-gray-600 dark:text-gray-300 transition-colors group/item">
                                         <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>Automatización</span>
                                         <span class="text-xs text-gray-400 group-hover/item:text-gray-600 dark:group-hover/item:text-gray-300">1</span>
                                     </a>
-                                    <a href="/recursos?category=contenido" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-white dark:hover:bg-white/5 text-sm text-gray-600 dark:text-gray-300 transition-colors group/item">
+                                    <a href="/recursos?category=contenido" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-white dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 text-sm text-gray-600 dark:text-gray-300 transition-colors group/item">
                                         <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>Contenido</span>
                                         <span class="text-xs text-gray-400 group-hover/item:text-gray-600 dark:group-hover/item:text-gray-300">2</span>
                                     </a>
-                                    <a href="/recursos?category=sistemas-core" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-white dark:hover:bg-white/5 text-sm text-gray-600 dark:text-gray-300 transition-colors group/item">
+                                    <a href="/recursos?category=sistemas-core" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-white dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 text-sm text-gray-600 dark:text-gray-300 transition-colors group/item">
                                         <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Sistemas Core</span>
                                         <span class="text-xs text-gray-400 group-hover/item:text-gray-600 dark:group-hover/item:text-gray-300">1</span>
                                     </a>
@@ -204,59 +204,59 @@
                                 <div class="grid grid-cols-3 gap-4">
                                     <!-- Post 1 -->
                                     <a href="/recursos/recursos proemote.html" class="group/post block">
-                                        <div class="relative h-[100px] rounded-2xl overflow-hidden mb-3 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/5">
+                                        <div class="relative h-[100px] rounded-2xl overflow-hidden mb-3 bg-gray-100 dark:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-200 dark:border-white/5">
                                             <img src="https://images.unsplash.com/photo-1614064641913-6b7140414f15?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Bot WhatsApp" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/post:scale-105">
                                             <div class="absolute inset-0 bg-black/10 group-hover/post:bg-transparent transition-colors duration-300"></div>
                                         </div>
                                         <span class="inline-flex px-2 py-0.5 rounded border border-indigo-500/20 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-[8px] font-bold uppercase tracking-wider mb-2">Agentes IA</span>
-                                        <h5 class="text-xs font-heading font-medium text-gray-900 dark:text-white leading-snug group-hover/post:text-primary transition-colors line-clamp-2">Bot de WhatsApp con Claude – atención automática 24/7</h5>
+                                        <h5 class="text-xs font-heading font-medium text-gray-900 dark:text-gray-900 dark:text-white leading-snug group-hover/post:text-primary transition-colors line-clamp-2">Bot de WhatsApp con Claude – atención automática 24/7</h5>
                                     </a>
                                     
                                     <!-- Post 2 -->
                                     <a href="/recursos/recursos proemote.html" class="group/post block">
-                                        <div class="relative h-[100px] rounded-2xl overflow-hidden mb-3 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/5">
+                                        <div class="relative h-[100px] rounded-2xl overflow-hidden mb-3 bg-gray-100 dark:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-200 dark:border-white/5">
                                             <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Claude + Maps" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/post:scale-105">
                                             <div class="absolute inset-0 bg-black/10 group-hover/post:bg-transparent transition-colors duration-300"></div>
                                         </div>
                                         <span class="inline-flex px-2 py-0.5 rounded border border-amber-600/20 bg-amber-600/10 text-amber-600 dark:text-amber-500 text-[8px] font-bold uppercase tracking-wider mb-2">Automatización</span>
-                                        <h5 class="text-xs font-heading font-medium text-gray-900 dark:text-white leading-snug group-hover/post:text-primary transition-colors line-clamp-2">Conseguir clientes locales con Claude + Google Maps</h5>
+                                        <h5 class="text-xs font-heading font-medium text-gray-900 dark:text-gray-900 dark:text-white leading-snug group-hover/post:text-primary transition-colors line-clamp-2">Conseguir clientes locales con Claude + Google Maps</h5>
                                     </a>
 
                                     <!-- Post 3 -->
                                     <a href="/recursos/recursos proemote.html" class="group/post block">
-                                        <div class="relative h-[100px] rounded-2xl overflow-hidden mb-3 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/5">
+                                        <div class="relative h-[100px] rounded-2xl overflow-hidden mb-3 bg-gray-100 dark:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-200 dark:border-white/5">
                                             <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Claude Canva" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/post:scale-105">
                                             <div class="absolute inset-0 bg-black/10 group-hover/post:bg-transparent transition-colors duration-300"></div>
                                         </div>
                                         <span class="inline-flex px-2 py-0.5 rounded border border-orange-400/20 bg-orange-400/10 text-orange-600 dark:text-orange-400 text-[8px] font-bold uppercase tracking-wider mb-2">Contenido</span>
-                                        <h5 class="text-xs font-heading font-medium text-gray-900 dark:text-white leading-snug group-hover/post:text-primary transition-colors line-clamp-2">Cómo conectar Claude con Canva y diseñar sin diseñador</h5>
+                                        <h5 class="text-xs font-heading font-medium text-gray-900 dark:text-gray-900 dark:text-white leading-snug group-hover/post:text-primary transition-colors line-clamp-2">Cómo conectar Claude con Canva y diseñar sin diseñador</h5>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a href="/sobre-nosotros" class="hover:text-gray-900 dark:hover:text-white transition-colors">Sobre nosotros</a>
-                <a href="/portfolio" class="hover:text-gray-900 dark:hover:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="hover:text-gray-900 dark:hover:text-white transition-colors">Contacto</a>
+                <a href="/sobre-nosotros" class="hover:text-gray-900 dark:hover:text-gray-900 dark:text-white transition-colors">Sobre nosotros</a>
+                <a href="/portfolio" class="hover:text-gray-900 dark:hover:text-gray-900 dark:text-white transition-colors">Portfolio</a>
+                <a href="/contacto" class="hover:text-gray-900 dark:hover:text-gray-900 dark:text-white transition-colors">Contacto</a>
             </div>
 
             <div class="hidden md:flex items-center gap-4 relative z-10">
-                <button id="theme-toggle" class="p-2 text-gray-600 dark:text-white/80 hover:text-marca transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
+                <button id="theme-toggle" class="p-2 text-gray-600 dark:text-gray-900 dark:text-white/80 hover:text-marca transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
                     <svg class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1.5M12 19.5V21M3 12h1.5M19.5 12H21M5.636 5.636l1.06 1.06M17.303 17.303l1.06 1.06M5.636 18.364l1.06-1.06M17.303 6.697l1.06-1.06M12 8.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5z" /></svg>
-                    <svg class="w-5 h-5 hidden dark:block text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
+                    <svg class="w-5 h-5 hidden dark:block text-gray-900 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
                 </button>
-                <a href="/analisis-personalizado-gratis" class="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white shadow-[0_0_15px_rgba(139,92,246,0.3)] hover:shadow-[0_0_25px_rgba(139,92,246,0.5)] py-2 px-5 rounded-full font-semibold text-[13px] transition-all">
+                <a href="/analisis-personalizado-gratis" class="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-gray-900 dark:text-white shadow-[0_0_15px_rgba(139,92,246,0.3)] hover:shadow-[0_0_25px_rgba(139,92,246,0.5)] py-2 px-5 rounded-full font-semibold text-[13px] transition-all">
                     Realizar análisis gratuito
                 </a>
             </div>
             
             <div class="flex items-center gap-2 md:hidden relative z-10">
-                <button id="mobile-theme-toggle-header" class="p-2 text-gray-600 dark:text-white/80 hover:text-primary transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
+                <button id="mobile-theme-toggle-header" class="p-2 text-gray-600 dark:text-gray-900 dark:text-white/80 hover:text-primary transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
                     <svg class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1.5M12 19.5V21M3 12h1.5M19.5 12H21M5.636 5.636l1.06 1.06M17.303 17.303l1.06 1.06M5.636 18.364l1.06-1.06M17.303 6.697l1.06-1.06M12 8.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5z" /></svg>
-                    <svg class="w-5 h-5 hidden dark:block text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
+                    <svg class="w-5 h-5 hidden dark:block text-gray-900 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
                 </button>
-                <button id="mobile-menu-btn" class="text-gray-800 dark:text-white/80 p-1" aria-label="Abrir menú">
+                <button id="mobile-menu-btn" class="text-gray-800 dark:text-gray-900 dark:text-white/80 p-1" aria-label="Abrir menú">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
                 </button>
             </div>
@@ -265,64 +265,64 @@
 
     <!-- MEGA MENU SERVICES -->
     <div id="mega-menu" class="fixed inset-0 z-[40] hidden pointer-events-none">
-        <div id="mega-menu-backdrop" class="absolute inset-0 bg-[#05020a]/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+        <div id="mega-menu-backdrop" class="absolute inset-0 bg-white dark:bg-[#05020a]/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
         
         <div id="mega-menu-panel" class="absolute top-[96px] md:top-[112px] left-1/2 -translate-x-1/2 w-full max-w-5xl px-6 transform -translate-y-4 opacity-0 transition-all duration-300 pointer-events-auto">
             <div class="backdrop-blur-xl bg-white/95 dark:bg-[#09090b]/95 border border-gray-200 dark:border-white/10 rounded-[2rem] p-8 shadow-2xl flex flex-col gap-10">
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                     <a href="/branding-y-estrategia" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                             <i class="ph-fill ph-paint-brush-broad text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-primary transition-colors mb-1">Branding & Estrategia</h4>
-                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Identidad visual y posicionamiento.</p>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-light text-sm group-hover:text-primary transition-colors mb-1">Branding & Estrategia</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-900 dark:text-white/40 font-light">Identidad visual y posicionamiento.</p>
                         </div>
                     </a>
                     <a href="/web-seo" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                             <i class="ph-fill ph-browser text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-primary transition-colors mb-1">Diseño web y Posicionamiento SEO</h4>
-                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Webs de alto rendimiento y SEO.</p>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-light text-sm group-hover:text-primary transition-colors mb-1">Diseño web y Posicionamiento SEO</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-900 dark:text-white/40 font-light">Webs de alto rendimiento y SEO.</p>
                         </div>
                     </a>
                     <a href="/redes-sociales" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                             <i class="ph-fill ph-share-network text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-primary transition-colors mb-1">Contenido & Redes</h4>
-                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Social Media y estrategia de video.</p>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-light text-sm group-hover:text-primary transition-colors mb-1">Contenido & Redes</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-900 dark:text-white/40 font-light">Social Media y estrategia de video.</p>
                         </div>
                     </a>
                     <a href="/marketing-digital" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                             <i class="ph-fill ph-rocket-launch text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-primary transition-colors mb-1">Marketing Digital</h4>
-                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Campañas de publicidad digital para escalar tu negocio.</p>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-light text-sm group-hover:text-primary transition-colors mb-1">Marketing Digital</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-900 dark:text-white/40 font-light">Campañas de publicidad digital para escalar tu negocio.</p>
                         </div>
                     </a>
                     <a href="/automatizaciones-y-sistemas" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                             <i class="ph-fill ph-robot text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-primary transition-colors mb-1">Automatización y Sistemas</h4>
-                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Funnels, CRM y flujos que trabajan sin ti.</p>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-light text-sm group-hover:text-primary transition-colors mb-1">Automatización y Sistemas</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-900 dark:text-white/40 font-light">Funnels, CRM y flujos que trabajan sin ti.</p>
                         </div>
                     </a>
                     <a href="/eventos" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                             <i class="ph-fill ph-ticket text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-primary transition-colors mb-1">Eventos & Experiencias</h4>
-                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Producción, branding y promoción digital de eventos.</p>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-light text-sm group-hover:text-primary transition-colors mb-1">Eventos & Experiencias</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-900 dark:text-white/40 font-light">Producción, branding y promoción digital de eventos.</p>
                         </div>
                     </a>
                 </div>
@@ -332,9 +332,9 @@
                         <div class="w-10 h-10 rounded-full bg-violet-500/20 flex items-center justify-center text-violet-400 flex-shrink-0">
                             <i class="ph-fill ph-circles-three-plus text-xl"></i>
                         </div>
-                        <h4 class="text-gray-900 dark:text-white font-sans font-light text-lg">Diseñamos sistemas completos, no piezas aisladas.</h4>
+                        <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-sans font-light text-lg">Diseñamos sistemas completos, no piezas aisladas.</h4>
                     </div>
-                    <a href="/servicios" class="inline-flex items-center gap-2 text-primary font-medium text-sm hover:text-gray-900 dark:hover:text-white transition-colors mt-4 md:mt-0 group flex-shrink-0">
+                    <a href="/servicios" class="inline-flex items-center gap-2 text-primary font-medium text-sm hover:text-gray-900 dark:hover:text-gray-900 dark:text-white transition-colors mt-4 md:mt-0 group flex-shrink-0">
                         Ver todos los servicios <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
@@ -344,77 +344,61 @@
     </div>
 
     <!-- Menú Móvil -->
-    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-white/95 dark:bg-[#05020a]/95 backdrop-blur-2xl pt-24 pb-6 px-6 flex flex-col transition-colors duration-300">
+    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-white/95 dark:bg-white dark:bg-[#05020a]/95 backdrop-blur-2xl pt-24 pb-6 px-6 flex flex-col transition-colors duration-300">
         <div class="flex flex-col gap-6 items-center text-center mt-10">
-            <a href="/" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Inicio</a>
+            <a href="/" class="mobile-link text-lg font-light text-gray-600 dark:text-gray-900 dark:text-white/60 hover:text-marca dark:hover:text-white">Inicio</a>
             
-            <a href="/servicios" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Servicios</a>
+            <a href="/servicios" class="mobile-link text-lg font-light text-gray-600 dark:text-gray-900 dark:text-white/60 hover:text-marca dark:hover:text-white">Servicios</a>
             
             <details class="w-full text-center group">
-                <summary class="list-none cursor-pointer text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white flex items-center justify-center gap-2">
+                <summary class="list-none cursor-pointer text-lg font-light text-gray-600 dark:text-gray-900 dark:text-white/60 hover:text-marca dark:hover:text-white flex items-center justify-center gap-2">
                     Ayudas
                     <svg class="w-4 h-4 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                 </summary>
                 <div class="flex flex-col gap-3 mt-4 mb-2">
-                    <a href="/subvenciones-extremadura" class="mobile-link text-sm font-medium text-gray-500 dark:text-white/50 hover:text-marca dark:hover:text-white">Ver todas las ayudas</a>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="mobile-link text-sm font-medium text-gray-500 dark:text-white/50 hover:text-marca dark:hover:text-white">Digitalización de Pymes</a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="mobile-link text-sm font-medium text-gray-500 dark:text-white/50 hover:text-marca dark:hover:text-white">Implementación de IA</a>
+                    <a href="/subvenciones-extremadura" class="mobile-link text-sm font-medium text-gray-500 dark:text-gray-900 dark:text-white/50 hover:text-marca dark:hover:text-white">Ver todas las ayudas</a>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="mobile-link text-sm font-medium text-gray-500 dark:text-gray-900 dark:text-white/50 hover:text-marca dark:hover:text-white">Digitalización de Pymes</a>
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="mobile-link text-sm font-medium text-gray-500 dark:text-gray-900 dark:text-white/50 hover:text-marca dark:hover:text-white">Implementación de IA</a>
                 </div>
             </details>
 
-            <a href="/recursos" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white flex items-center justify-center gap-2">
+            <a href="/recursos" class="mobile-link text-lg font-light text-gray-600 dark:text-gray-900 dark:text-white/60 hover:text-marca dark:hover:text-white flex items-center justify-center gap-2">
                 Recursos <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevo</span>
             </a>
-            <a href="/sobre-nosotros" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Sobre nosotros</a>
-            <a href="/portfolio" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Portfolio</a>
-            <a href="/contacto" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Contacto</a>
+            <a href="/sobre-nosotros" class="mobile-link text-lg font-light text-gray-600 dark:text-gray-900 dark:text-white/60 hover:text-marca dark:hover:text-white">Sobre nosotros</a>
+            <a href="/portfolio" class="mobile-link text-lg font-light text-gray-600 dark:text-gray-900 dark:text-white/60 hover:text-marca dark:hover:text-white">Portfolio</a>
+            <a href="/contacto" class="mobile-link text-lg font-light text-gray-600 dark:text-gray-900 dark:text-white/60 hover:text-marca dark:hover:text-white">Contacto</a>
             
-            <a href="/analisis-personalizado-gratis" class="bg-gradient-to-r from-violet-600 to-indigo-600 text-white py-3.5 px-8 rounded-full font-semibold text-[14px] transition-all w-full max-w-xs mt-6 shadow-[0_0_20px_rgba(139,92,246,0.3)] text-center">
-                Realizar análisis gratuito
+            <a href="/analisis-personalizado-gratis" class="bg-gradient-to-r from-violet-600 to-indigo-600 text-gray-900 dark:text-white py-3.5 px-6 rounded-full font-semibold text-xs transition-all w-full max-w-xs mt-6 shadow-[0_0_20px_rgba(139,92,246,0.3)] text-center">
+                Obtén tu Radiografía Digital gratis
             </a>
 
-          <div class="inline-flex items-center justify-center gap-3 px-4 py-2 mt-8 rounded-full border border-gray-200 dark:border-white/10 bg-white/50 dark:bg-bgSurface/50 backdrop-blur-sm shadow-sm reveal-up delay-200">
-            <div class="flex -space-x-2">
-                <img class="w-8 h-8 rounded-full border-2 border-white dark:border-[#0A0A0F]" src="/favicon.png" alt="User">
-                <div class="w-8 h-8 rounded-full border-2 border-white dark:border-[#0A0A0F] bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xs">G</div>
-            </div>
-            <div class="flex flex-col text-left">
-                <div class="flex gap-0.5 text-yellow-400 text-[10px]">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" /></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" /></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" /></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" /></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" /></svg>
-                </div>
-                <span class="text-[11px] font-medium text-gray-700 dark:text-white/80 leading-none mt-0.5">Opiniones reales de clientes en Google</span>
-            </div>
-          </div>
 
-            <button id="mobile-theme-toggle" class="mt-4 flex items-center gap-2 text-gray-500 dark:text-white/50 hover:text-gray-900 dark:hover:text-white">Cambiar tema</button>
-            <button id="mobile-menu-close" class="mt-8 text-gray-400 dark:text-white/40 hover:text-gray-900 dark:hover:text-white">Cerrar menú</button>
+            <button id="mobile-theme-toggle" class="mt-4 flex items-center gap-2 text-gray-500 dark:text-gray-900 dark:text-white/50 hover:text-gray-900 dark:hover:text-white">Cambiar tema</button>
+            <button id="mobile-menu-close" class="mt-8 text-gray-400 dark:text-gray-900 dark:text-white/40 hover:text-gray-900 dark:hover:text-white">Cerrar menú</button>
         </div>
     </div>
 
         <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
         <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-gray-50 dark:bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
             <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors focus:outline-none">Servicios</a>
+                <a href="/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <a href="/subvenciones-extremadura" class="text-xs font-medium tracking-widest text-gray-600 dark:text-white/60 uppercase mb-1 flex items-center gap-2 hover:text-primary transition-colors">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-medium bg-primary/20 text-primary border border-primary/30">Nuevas</span></a>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors flex items-center gap-2">
+                    <a href="/subvenciones-extremadura" class="text-xs font-medium tracking-widest text-gray-600 dark:text-gray-900 dark:text-white/60 uppercase mb-1 flex items-center gap-2 hover:text-primary transition-colors">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-medium bg-primary/20 text-primary border border-primary/30">Nuevas</span></a>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors flex items-center gap-2 mt-1">
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors flex items-center gap-2 mt-1">
                         <i class="ph ph-cpu text-accent"></i> Implementación de IA
                     </a>
                 </div>
 
-                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors">Sobre nosotros</a>
-                <a href="/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-medium text-gray-900 dark:text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
+                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors">Sobre nosotros</a>
+                <a href="/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors">Portfolio</a>
+                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors">Contacto</a>
+                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-medium text-gray-900 dark:text-gray-900 dark:text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
                     Analizar mi caso
                 </a>
             </div>
@@ -455,23 +439,23 @@
         <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
         <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-gray-50 dark:bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
             <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors focus:outline-none">Servicios</a>
+                <a href="/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <a href="/subvenciones-extremadura" class="text-xs font-medium tracking-widest text-gray-600 dark:text-white/60 uppercase mb-1 flex items-center gap-2 hover:text-primary transition-colors">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-medium bg-primary/20 text-primary border border-primary/30">Nuevas</span></a>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors flex items-center gap-2">
+                    <a href="/subvenciones-extremadura" class="text-xs font-medium tracking-widest text-gray-600 dark:text-gray-900 dark:text-white/60 uppercase mb-1 flex items-center gap-2 hover:text-primary transition-colors">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-medium bg-primary/20 text-primary border border-primary/30">Nuevas</span></a>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors flex items-center gap-2 mt-1">
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors flex items-center gap-2 mt-1">
                         <i class="ph ph-cpu text-accent"></i> Implementación de IA
                     </a>
                 </div>
 
-                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors">Sobre nosotros</a>
-                <a href="/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-medium text-gray-900 dark:text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
+                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors">Sobre nosotros</a>
+                <a href="/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors">Portfolio</a>
+                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors">Contacto</a>
+                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-medium text-gray-900 dark:text-gray-900 dark:text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
                     Analizar mi caso
                 </a>
             </div>
@@ -512,23 +496,23 @@
         <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
         <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-gray-50 dark:bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
             <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors focus:outline-none">Servicios</a>
+                <a href="/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <a href="/subvenciones-extremadura" class="text-xs font-medium tracking-widest text-gray-600 dark:text-white/60 uppercase mb-1 flex items-center gap-2 hover:text-primary transition-colors">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-medium bg-primary/20 text-primary border border-primary/30">Nuevas</span></a>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors flex items-center gap-2">
+                    <a href="/subvenciones-extremadura" class="text-xs font-medium tracking-widest text-gray-600 dark:text-gray-900 dark:text-white/60 uppercase mb-1 flex items-center gap-2 hover:text-primary transition-colors">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-medium bg-primary/20 text-primary border border-primary/30">Nuevas</span></a>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors flex items-center gap-2 mt-1">
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors flex items-center gap-2 mt-1">
                         <i class="ph ph-cpu text-accent"></i> Implementación de IA
                     </a>
                 </div>
 
-                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors">Sobre nosotros</a>
-                <a href="/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-medium text-gray-900 dark:text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
+                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors">Sobre nosotros</a>
+                <a href="/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors">Portfolio</a>
+                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors">Contacto</a>
+                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-medium text-gray-900 dark:text-gray-900 dark:text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
                     Analizar mi caso
                 </a>
             </div>
@@ -569,23 +553,23 @@
         <!-- Menú Móvil (Fuera de la píldora para que no quede restringido) -->
         <div id="mobile-menu" class="hidden absolute top-full mt-4 left-4 right-4 bg-gray-50 dark:bg-bgSurface/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden transition-all duration-300 pointer-events-auto">
             <div class="flex flex-col py-6 px-6 gap-6">
-                <a href="/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors">Inicio</a>
-                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors focus:outline-none">Servicios</a>
+                <a href="/" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors">Inicio</a>
+                <a href="/servicios" id="services-menu-btn-mobile" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors focus:outline-none">Servicios</a>
                 
                 <div class="flex flex-col gap-2.5 pl-2 border-l border-gray-200 dark:border-white/10 my-1">
-                    <a href="/subvenciones-extremadura" class="text-xs font-medium tracking-widest text-gray-600 dark:text-white/60 uppercase mb-1 flex items-center gap-2 hover:text-primary transition-colors">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-medium bg-primary/20 text-primary border border-primary/30">Nuevas</span></a>
-                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors flex items-center gap-2">
+                    <a href="/subvenciones-extremadura" class="text-xs font-medium tracking-widest text-gray-600 dark:text-gray-900 dark:text-white/60 uppercase mb-1 flex items-center gap-2 hover:text-primary transition-colors">Convocatorias 2026 <span class="px-1.5 py-0.5 rounded-full text-[9px] font-medium bg-primary/20 text-primary border border-primary/30">Nuevas</span></a>
+                    <a href="/ayudas-digitalizacion-pymes-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors flex items-center gap-2">
                         <i class="ph ph-device-mobile text-primary"></i> Digitalización de Pymes
                     </a>
-                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors flex items-center gap-2 mt-1">
+                    <a href="/ayudas-implementacion-ia-extremadura/" class="text-sm font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors flex items-center gap-2 mt-1">
                         <i class="ph ph-cpu text-accent"></i> Implementación de IA
                     </a>
                 </div>
 
-                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors">Sobre nosotros</a>
-                <a href="/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors">Portfolio</a>
-                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white transition-colors">Contacto</a>
-                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-medium text-gray-900 dark:text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
+                <a href="/sobre-nosotros" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors">Sobre nosotros</a>
+                <a href="/portfolio" class="text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors">Portfolio</a>
+                <a href="/contacto" class="text-left text-base font-medium text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors">Contacto</a>
+                <a href="#contacto" class="inline-flex justify-center items-center px-6 py-3 mt-4 text-sm font-medium text-gray-900 dark:text-gray-900 dark:text-white bg-gradient-to-r from-violet-600 to-indigo-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.4)] focus:outline-none">
                     Analizar mi caso
                 </a>
             </div>
@@ -812,17 +796,17 @@
             <div class="flex flex-col md:flex-row justify-center items-stretch gap-6">
                 <div class="glass-card flex-1 p-6 rounded-2xl flex flex-col items-center text-center justify-center hover:shadow-[0_0_30px_rgba(123,97,255,0.3)] hover:-translate-y-2 transition-all duration-300 group cursor-default">
                     <span class="text-3xl mb-2">🏆</span>
-                    <p class="font-medium text-gray-900 dark:text-white">#1 en Google</p>
+                    <p class="font-medium text-gray-900 dark:text-gray-900 dark:text-white">#1 en Google</p>
                     <p class="text-sm text-gray-600 dark:text-textSecondary">"empresa de limpieza Mérida"</p>
                 </div>
                 <div class="glass-card flex-1 p-6 rounded-2xl flex flex-col items-center text-center justify-center hover:shadow-[0_0_30px_rgba(123,97,255,0.3)] hover:-translate-y-2 transition-all duration-300 group cursor-default">
                     <span class="text-3xl mb-2">📈</span>
-                    <p class="font-medium text-gray-900 dark:text-white">73.300 visitas</p>
+                    <p class="font-medium text-gray-900 dark:text-gray-900 dark:text-white">73.300 visitas</p>
                     <p class="text-sm text-gray-600 dark:text-textSecondary">en un vídeo orgánico</p>
                 </div>
                 <div class="glass-card flex-1 p-6 rounded-2xl flex flex-col items-center text-center justify-center hover:shadow-[0_0_30px_rgba(123,97,255,0.3)] hover:-translate-y-2 transition-all duration-300 group cursor-default">
                     <span class="text-3xl mb-2">💎</span>
-                    <p class="font-medium text-gray-900 dark:text-white">Marca personal</p>
+                    <p class="font-medium text-gray-900 dark:text-gray-900 dark:text-white">Marca personal</p>
                     <p class="text-sm text-gray-600 dark:text-textSecondary">de la fundadora desarrollada</p>
                 </div>
             </div>
@@ -834,7 +818,7 @@
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div class="reveal-up">
                 <span class="text-xs font-medium tracking-[0.2em] text-gray-600 dark:text-textSecondary uppercase mb-4 block">El punto de partida</span>
-                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-gray-900 dark:text-white leading-tight">Dónde estaban cuando llegaron a Proemote</h2>
+                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-gray-900 dark:text-gray-900 dark:text-white leading-tight">Dónde estaban cuando llegaron a Proemote</h2>
                 <p class="text-lg text-gray-600 dark:text-textSecondary mb-6 leading-relaxed">
                     Lo Quiero Limpio es una empresa de limpieza avanzada ubicada en Mérida con un servicio real y diferencial. El problema no era el servicio — era que nadie lo veía.
                 </p>
@@ -857,7 +841,7 @@
         <div class="max-w-4xl mx-auto px-6 reveal-up">
             <div class="text-center mb-16">
                 <span class="text-xs font-medium tracking-[0.2em] text-gray-600 dark:text-textSecondary uppercase mb-4 block">Análisis Inicial</span>
-                <h2 class="font-heading text-4xl md:text-5xl font-medium text-gray-900 dark:text-white leading-tight">Lo que detectamos</h2>
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-gray-900 dark:text-gray-900 dark:text-white leading-tight">Lo que detectamos</h2>
             </div>
             
             <div class="space-y-6">
@@ -866,7 +850,7 @@
                         <i class="ph-fill ph-video-camera-slash text-2xl text-primary"></i>
                     </div>
                     <div>
-                        <p class="text-lg text-gray-900 dark:text-white leading-relaxed">El contenido no tenía propósito narrativo. Grababan para publicar, no para comunicar.</p>
+                        <p class="text-lg text-gray-900 dark:text-gray-900 dark:text-white leading-relaxed">El contenido no tenía propósito narrativo. Grababan para publicar, no para comunicar.</p>
                     </div>
                 </div>
                 
@@ -875,7 +859,7 @@
                         <i class="ph-fill ph-user-circle-minus text-2xl text-primary"></i>
                     </div>
                     <div>
-                        <p class="text-lg text-gray-900 dark:text-white leading-relaxed">La dueña era el mayor activo de la marca y no aparecía. Una empresa de limpieza con cara y voz genera mucha más confianza que una cuenta de vídeos impersonales.</p>
+                        <p class="text-lg text-gray-900 dark:text-gray-900 dark:text-white leading-relaxed">La dueña era el mayor activo de la marca y no aparecía. Una empresa de limpieza con cara y voz genera mucha más confianza que una cuenta de vídeos impersonales.</p>
                     </div>
                 </div>
                 
@@ -884,7 +868,7 @@
                         <i class="ph-fill ph-palette text-2xl text-primary"></i>
                     </div>
                     <div>
-                        <p class="text-lg text-gray-900 dark:text-white leading-relaxed">El perfil no transmitía profesionalidad. Sin identidad visual, cualquier competidor parecía más serio.</p>
+                        <p class="text-lg text-gray-900 dark:text-gray-900 dark:text-white leading-relaxed">El perfil no transmitía profesionalidad. Sin identidad visual, cualquier competidor parecía más serio.</p>
                     </div>
                 </div>
             </div>
@@ -903,12 +887,12 @@
             </div>
             <div class="order-1 lg:order-2 reveal-up">
                 <span class="text-xs font-medium tracking-[0.2em] text-gray-600 dark:text-textSecondary uppercase mb-4 block">La Estrategia</span>
-                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-gray-900 dark:text-white leading-tight">Lo que construimos</h2>
+                <h2 class="font-heading text-4xl md:text-5xl font-medium mb-6 text-gray-900 dark:text-gray-900 dark:text-white leading-tight">Lo que construimos</h2>
                 <p class="text-lg text-gray-600 dark:text-textSecondary mb-6 leading-relaxed">
                     No empezamos grabando. Empezamos definiendo qué quería transmitir la marca, quién era su cliente ideal y qué tipo de contenido podía generar confianza y captar atención de forma simultánea.
                 </p>
                 <div class="bg-primary/10 border-l-4 border-primary p-6 rounded-r-2xl mb-6">
-                    <p class="text-lg text-gray-900 dark:text-white leading-relaxed">
+                    <p class="text-lg text-gray-900 dark:text-gray-900 dark:text-white leading-relaxed">
                         Desarrollamos la marca personal de su fundadora dentro de la marca — poniendo cara, voz y criterio profesional a la empresa. Diseñamos una identidad visual coherente y construimos un sistema de contenido pensado para retener, no solo para entretener.
                     </p>
                 </div>
@@ -921,7 +905,7 @@
         <div class="max-w-6xl mx-auto px-6 reveal-up">
             <div class="text-center mb-16">
                 <span class="text-xs font-medium tracking-[0.2em] text-gray-600 dark:text-textSecondary uppercase mb-4 block">El impacto</span>
-                <h2 class="font-heading text-4xl md:text-5xl font-medium text-gray-900 dark:text-white leading-tight mb-4">Qué conseguimos</h2>
+                <h2 class="font-heading text-4xl md:text-5xl font-medium text-gray-900 dark:text-gray-900 dark:text-white leading-tight mb-4">Qué conseguimos</h2>
                 <p class="text-sm text-gray-600 dark:text-textSecondary max-w-2xl mx-auto italic">
                     Nota: el objetivo nunca fue acumular seguidores. Para una empresa de limpieza local, el objetivo es que te encuentren cuando te buscan y que confíen en lo que ven.
                 </p>
@@ -945,9 +929,9 @@
             <div class="glass-card p-4 md:p-8 rounded-[2rem] mb-16 text-center max-w-4xl mx-auto">
                 <img src="/Caso exito LQL/virales lql.png" alt="Videos virales de Lo Quiero Limpio" class="w-full h-auto rounded-xl shadow-lg mb-6" onerror="this.src='https://via.placeholder.com/800x400?text=Capturas+Videos+Virales';">
                 
-                <h3 class="font-heading text-2xl font-medium text-gray-900 dark:text-white mb-4">El contenido es el vehículo, no el destino</h3>
+                <h3 class="font-heading text-2xl font-medium text-gray-900 dark:text-gray-900 dark:text-white mb-4">El contenido es el vehículo, no el destino</h3>
                 <p class="text-lg text-gray-600 dark:text-textSecondary leading-relaxed max-w-2xl mx-auto">
-                    Pero los vídeos virales no son el final de la historia. Son la consecuencia de tener una estrategia. Lo importante es lo que generan: <span class="text-gray-900 dark:text-white font-medium">más llamadas, más solicitudes de presupuesto y más clientes.</span>
+                    Pero los vídeos virales no son el final de la historia. Son la consecuencia de tener una estrategia. Lo importante es lo que generan: <span class="text-gray-900 dark:text-gray-900 dark:text-white font-medium">más llamadas, más solicitudes de presupuesto y más clientes.</span>
                 </p>
             </div>
         </div>
@@ -957,14 +941,14 @@
     <section class="py-24 relative bg-primary/5 border-t border-gray-200 dark:border-white/5 overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent pointer-events-none"></div>
         <div class="max-w-4xl mx-auto px-6 relative z-10 text-center reveal-up">
-            <h2 class="font-heading text-4xl md:text-5xl font-medium text-gray-900 dark:text-white mb-6 leading-tight">
+            <h2 class="font-heading text-4xl md:text-5xl font-medium text-gray-900 dark:text-gray-900 dark:text-white mb-6 leading-tight">
                 ¿Tu negocio merece esta visibilidad?
             </h2>
             <p class="text-xl text-gray-600 dark:text-textSecondary mb-10 max-w-2xl mx-auto leading-relaxed">
                 Analizamos tu proyecto sin compromiso. Si hay potencial, te contamos cómo trabajaríamos juntos para conseguir resultados como estos.
             </p>
             
-            <a href="#" data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view"}' class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary hover:bg-accent text-white font-medium text-lg transition-all duration-300 shadow-[0_0_30px_rgba(123,97,255,0.4)] group">
+            <a href="#" data-cal-link="proemote/auditoria-gratuita" data-cal-namespace="auditoria-gratuita" data-cal-config='{"layout":"month_view"}' class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary hover:bg-accent text-gray-900 dark:text-white font-medium text-lg transition-all duration-300 shadow-[0_0_30px_rgba(123,97,255,0.4)] group">
                 Reservar auditoría gratuita <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
             </a>
         </div>
@@ -983,7 +967,7 @@
     
     
         
-    <section id="contacto" class="py-24 px-6 relative flex justify-center border-t border-gray-200 dark:border-white/5 bg-gray-50 dark:bg-[#05020a] transition-colors duration-300">
+    <section id="contacto" class="py-24 px-6 relative flex justify-center border-t border-gray-200 dark:border-white/5 bg-gray-50 dark:bg-white dark:bg-[#05020a] transition-colors duration-300">
         <div class="w-full max-w-4xl bg-white dark:bg-[#0a0515] border border-gray-200 dark:border-marca/30 rounded-[40px] p-10 md:p-14 text-center relative overflow-hidden shadow-2xl dark:shadow-[0_0_40px_rgba(139,92,246,0.15)] transition-colors duration-300 fade-up">
             <div class="absolute top-0 right-0 w-64 h-64 bg-violet-200/50 dark:bg-marca/20 rounded-full blur-[80px] pointer-events-none transition-colors duration-300"></div>
             <div class="absolute bottom-0 left-0 w-64 h-64 bg-indigo-200/40 dark:bg-indigo-600/10 rounded-full blur-[80px] pointer-events-none transition-colors duration-300"></div>
@@ -994,27 +978,27 @@
                     Siguiente paso
                 </div>
 
-                <h2 class="text-3xl md:text-5xl font-light tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">
+                <h2 class="text-3xl md:text-5xl font-light tracking-tight text-gray-900 dark:text-gray-900 dark:text-white mb-6 leading-tight">
                     Analizamos tu marca, <br>
                     <span class="font-medium text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-marcalight dark:to-indigo-300">comienza ahora.</span>
                 </h2>
                 
-                <p class="text-lg text-gray-600 dark:text-white/60 font-light mb-10 max-w-2xl leading-relaxed mx-auto">
+                <p class="text-lg text-gray-600 dark:text-gray-900 dark:text-white/60 font-light mb-10 max-w-2xl leading-relaxed mx-auto">
                     Responde unas breves preguntas para generar un informe actual de tu negocio y recibir un plan de acción personalizado. Tú decides si lo aplicas tú mismo o si te ayudamos nosotros.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="https://proemote.es/analisis-personalizado-gratis" target="_blank" rel="noopener" class="bg-violet-600 hover:bg-violet-500 dark:bg-marca dark:hover:bg-marcalight text-white font-medium px-10 py-4 rounded-full transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] flex items-center gap-2 text-base w-full sm:w-auto justify-center">
+                    <a href="https://proemote.es/analisis-personalizado-gratis" target="_blank" rel="noopener" class="bg-violet-600 hover:bg-violet-500 dark:bg-marca dark:hover:bg-marcalight text-gray-900 dark:text-white font-medium px-10 py-4 rounded-full transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] flex items-center gap-2 text-base w-full sm:w-auto justify-center">
                         Comenzar diagnóstico gratis ahora
                     </a>
                     
-                    <a href="https://wa.me/34641576286?text=Hola%2C%20tengo%20una%20duda%20antes%20de%20empezar" target="_blank" rel="noopener" class="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-white/10 font-medium px-8 py-3.5 rounded-full transition-all flex items-center gap-2 text-sm w-full sm:w-auto justify-center">
+                    <a href="https://wa.me/34641576286?text=Hola%2C%20tengo%20una%20duda%20antes%20de%20empezar" target="_blank" rel="noopener" class="bg-white dark:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-200 dark:border-white/10 text-gray-800 dark:text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/10 font-medium px-8 py-3.5 rounded-full transition-all flex items-center gap-2 text-sm w-full sm:w-auto justify-center">
                         <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                         ¿Prefieres preguntar primero?
                     </a>
                 </div>
 
-                <div class="text-sm text-gray-500 dark:text-white/40 font-medium dark:font-light flex flex-col md:flex-row gap-4 md:gap-8 items-center mt-6">
+                <div class="text-sm text-gray-500 dark:text-gray-900 dark:text-white/40 font-medium dark:font-light flex flex-col md:flex-row gap-4 md:gap-8 items-center mt-6">
                     <span class="flex items-center gap-1.5"><svg class="w-4 h-4 text-violet-600 dark:text-marca" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Interactivo</span>
                     <span class="flex items-center gap-1.5"><svg class="w-4 h-4 text-violet-600 dark:text-marca" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Personalizado</span>
                     <span class="flex items-center gap-1.5"><svg class="w-4 h-4 text-violet-600 dark:text-marca" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Sin compromiso</span>
@@ -1024,7 +1008,7 @@
     </section>
 
 <!-- FOOTER -->
-    <footer class="relative z-10 bg-[#05020a] text-white overflow-hidden">
+    <footer class="relative z-10 bg-white dark:bg-[#05020a] text-gray-900 dark:text-white overflow-hidden">
         <!-- Background Image -->
         <div class="absolute -top-16 md:-top-80 left-0 right-0 z-0 pointer-events-none h-[600px] md:h-[calc(100%+20rem)]">
             <img src="../space bg.png" alt="Space Background" class="w-full h-full object-cover object-center opacity-70">
@@ -1035,16 +1019,16 @@
         <!-- CTA Section -->
         <div class="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-24 text-center flex flex-col items-center fade-up">
             <!-- Icon -->
-            <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 backdrop-blur-sm shadow-[0_0_15px_rgba(255,255,255,0.05)]">
-                <i class="ph-fill ph-rocket-launch text-2xl text-white"></i>
+            <div class="w-12 h-12 rounded-xl bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-white/10 flex items-center justify-center mb-8 backdrop-blur-sm shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                <i class="ph-fill ph-rocket-launch text-2xl text-gray-900 dark:text-white"></i>
             </div>
             
-            <h2 class="text-4xl md:text-6xl font-medium tracking-tight text-white mb-6 leading-tight">
+            <h2 class="text-4xl md:text-6xl font-medium tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">
                 Empieza a crecer <br class="hidden md:block">
                 con Proemote
             </h2>
             
-            <p class="text-lg text-white/60 font-light mb-10 max-w-2xl leading-relaxed">
+            <p class="text-lg text-gray-900 dark:text-white/60 font-light mb-10 max-w-2xl leading-relaxed">
                 Los negocios de Extremadura por fin pueden ver resultados predecibles gracias al sistema que une identidad visual, posicionamiento web y captación de clientes.
             </p>
             
@@ -1067,20 +1051,20 @@
                     <img src="../proemote-logo-footer.png" alt="Proemote Logo" class="h-28 mb-1 object-contain">
                     
                     <div class="flex flex-col items-center md:items-start mt-0">
-                        <span class="text-white italic text-base md:text-lg tracking-wide font-light mb-1">Shaping what matters</span>
+                        <span class="text-gray-900 dark:text-white italic text-base md:text-lg tracking-wide font-light mb-1">Shaping what matters</span>
                         <span class="text-gray-500 font-medium text-base md:text-lg tracking-wide">Think first.</span>
                     </div>
                 </div>
                 
-                <div class="flex flex-col items-center md:items-start gap-4 mb-8 w-full text-sm text-white/60">
-                    <a href="mailto:info@proemote.es" class="hover:text-white transition-colors flex items-center gap-3">
-                        <i class="ph ph-envelope-simple text-xl text-white"></i> info@proemote.es
+                <div class="flex flex-col items-center md:items-start gap-4 mb-8 w-full text-sm text-gray-900 dark:text-white/60">
+                    <a href="mailto:info@proemote.es" class="hover:text-gray-900 dark:text-white transition-colors flex items-center gap-3">
+                        <i class="ph ph-envelope-simple text-xl text-gray-900 dark:text-white"></i> info@proemote.es
                     </a>
-                    <a href="tel:+34641576286" class="hover:text-white transition-colors flex items-center gap-3">
-                        <i class="ph ph-phone text-xl text-white"></i> +34 641 57 62 86
+                    <a href="tel:+34641576286" class="hover:text-gray-900 dark:text-white transition-colors flex items-center gap-3">
+                        <i class="ph ph-phone text-xl text-gray-900 dark:text-white"></i> +34 641 57 62 86
                     </a>
                     <div class="flex items-start gap-3">
-                        <i class="ph ph-clock text-xl text-white mt-0.5"></i> 
+                        <i class="ph ph-clock text-xl text-gray-900 dark:text-white mt-0.5"></i> 
                         <div class="flex flex-col text-left">
                             <span>L-V: 9H–14H, 16H–20H</span>
                             <span class="mt-1">Sáb: 10H–13:30H | Dom: Cerrado</span>
@@ -1089,16 +1073,16 @@
                 </div>
 
                 <div class="flex justify-center md:justify-start gap-3 w-full">
-                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-marca transition-all">
+                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white/60 hover:text-white hover:bg-marca transition-all">
                         <i class="ph-fill ph-linkedin-logo text-lg"></i>
                     </a>
-                    <a href="https://www.instagram.com/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-marca transition-all">
+                    <a href="https://www.instagram.com/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white/60 hover:text-white hover:bg-marca transition-all">
                         <i class="ph-fill ph-instagram-logo text-lg"></i>
                     </a>
-                    <a href="https://www.facebook.com/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-marca transition-all">
+                    <a href="https://www.facebook.com/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white/60 hover:text-white hover:bg-marca transition-all">
                         <i class="ph-fill ph-facebook-logo text-lg"></i>
                     </a>
-                    <a href="https://www.tiktok.com/@proemote" target="_blank" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-marca transition-all">
+                    <a href="https://www.tiktok.com/@proemote" target="_blank" class="w-9 h-9 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white/60 hover:text-white hover:bg-marca transition-all">
                         <i class="ph-fill ph-tiktok-logo text-lg"></i>
                     </a>
                 </div>
@@ -1106,38 +1090,38 @@
 
             <!-- Col 2: Servicios -->
             <div class="md:col-span-4 lg:col-span-3 mt-4 lg:mt-0">
-                <h4 class="text-sm font-semibold text-white mb-6 text-center md:text-left uppercase tracking-widest">Servicios</h4>
-                <ul class="space-y-4 text-sm text-white/60 text-center md:text-left">
-                    <li><a href="/diseno-web-SEO" class="hover:text-white transition-colors">Diseño Web</a></li>
-                    <li><a href="/eventos" class="hover:text-white transition-colors">Eventos 360º</a></li>
-                    <li><a href="/marketing-digital" class="hover:text-white transition-colors">Marketing Digital</a></li>
-                    <li><a href="/redes-sociales" class="hover:text-white transition-colors">Redes Sociales</a></li>
-                    <li><a href="/branding-y-estrategia" class="hover:text-white transition-colors">Branding & Estrategia</a></li>
-                    <li><a href="/automatizaciones-y-sistemas" class="hover:text-white transition-colors">Automatización & Sistemas</a></li>
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-6 text-center md:text-left uppercase tracking-widest">Servicios</h4>
+                <ul class="space-y-4 text-sm text-gray-900 dark:text-white/60 text-center md:text-left">
+                    <li><a href="/diseno-web-SEO" class="hover:text-gray-900 dark:text-white transition-colors">Diseño Web</a></li>
+                    <li><a href="/eventos" class="hover:text-gray-900 dark:text-white transition-colors">Eventos 360º</a></li>
+                    <li><a href="/marketing-digital" class="hover:text-gray-900 dark:text-white transition-colors">Marketing Digital</a></li>
+                    <li><a href="/redes-sociales" class="hover:text-gray-900 dark:text-white transition-colors">Redes Sociales</a></li>
+                    <li><a href="/branding-y-estrategia" class="hover:text-gray-900 dark:text-white transition-colors">Branding & Estrategia</a></li>
+                    <li><a href="/automatizaciones-y-sistemas" class="hover:text-gray-900 dark:text-white transition-colors">Automatización & Sistemas</a></li>
                 </ul>
             </div>
 
             <!-- Col 3: Empresa & Legal -->
             <div class="md:col-span-4 lg:col-span-3 mt-4 lg:mt-0">
-                <h4 class="text-sm font-semibold text-white mb-6 text-center md:text-left uppercase tracking-widest">Empresa & Legal</h4>
-                <ul class="space-y-4 text-sm text-white/60 text-center md:text-left">
-                    <li><a href="/aviso-legal" class="hover:text-white transition-colors">Aviso Legal</a></li>
-                    <li><a href="/privacidad" class="hover:text-white transition-colors">Política de Privacidad</a></li>
-                    <li><a href="/sobre-nosotros" class="hover:text-white transition-colors">Sobre nosotros</a></li>
-                    <li><a href="/contacto" class="hover:text-white transition-colors">Contacto</a></li>
-                    <li><a href="/trabaja-con-nosotros" class="hover:text-white transition-colors">Trabaja con nosotros</a></li>
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-6 text-center md:text-left uppercase tracking-widest">Empresa & Legal</h4>
+                <ul class="space-y-4 text-sm text-gray-900 dark:text-white/60 text-center md:text-left">
+                    <li><a href="/aviso-legal" class="hover:text-gray-900 dark:text-white transition-colors">Aviso Legal</a></li>
+                    <li><a href="/privacidad" class="hover:text-gray-900 dark:text-white transition-colors">Política de Privacidad</a></li>
+                    <li><a href="/sobre-nosotros" class="hover:text-gray-900 dark:text-white transition-colors">Sobre nosotros</a></li>
+                    <li><a href="/contacto" class="hover:text-gray-900 dark:text-white transition-colors">Contacto</a></li>
+                    <li><a href="/trabaja-con-nosotros" class="hover:text-gray-900 dark:text-white transition-colors">Trabaja con nosotros</a></li>
                 </ul>
             </div>
 
             <!-- Col 4: Newsletter -->
             <div class="md:col-span-4 lg:col-span-3 mt-4 lg:mt-0">
-                <h4 class="text-sm font-semibold text-white mb-6 text-center md:text-left uppercase tracking-widest">Únete a la Newsletter</h4>
-                <p class="text-sm text-white/60 font-light leading-relaxed mb-6 text-center md:text-left">
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-6 text-center md:text-left uppercase tracking-widest">Únete a la Newsletter</h4>
+                <p class="text-sm text-gray-900 dark:text-white/60 font-light leading-relaxed mb-6 text-center md:text-left">
                     Suscríbete a nuestra newsletter para recibir las mejores estrategias y actualizaciones futuras.
                 </p>
                 <form class="flex items-center relative">
-                    <input type="email" placeholder="Introduce tu email" class="w-full bg-white/5 border border-white/10 rounded-full pl-5 pr-12 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-marca transition-colors backdrop-blur-md">
-                    <button type="submit" class="absolute right-1 top-1 bottom-1 bg-marca hover:bg-marca/90 text-white w-9 h-9 rounded-full flex items-center justify-center transition-colors">
+                    <input type="email" placeholder="Introduce tu email" class="w-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-white/10 rounded-full pl-5 pr-12 py-3 text-sm text-gray-900 dark:text-white placeholder-white/40 focus:outline-none focus:border-marca transition-colors backdrop-blur-md">
+                    <button type="submit" class="absolute right-1 top-1 bottom-1 bg-marca hover:bg-marca/90 text-gray-900 dark:text-white w-9 h-9 rounded-full flex items-center justify-center transition-colors">
                         <i class="ph ph-arrow-right"></i>
                     </button>
                 </form>
@@ -1147,22 +1131,22 @@
 
         <!-- Bottom Copyright -->
         <div class="relative z-10 max-w-7xl mx-auto px-6 pt-8 pb-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-            <p class="text-xs text-white/40">Copyright © 2026 Proemote. Todos los derechos reservados.</p>
-            <div class="flex items-center justify-center md:justify-end gap-4 text-xs text-white/40 w-full md:w-auto">
+            <p class="text-xs text-gray-900 dark:text-white/40">Copyright © 2026 Proemote. Todos los derechos reservados.</p>
+            <div class="flex items-center justify-center md:justify-end gap-4 text-xs text-gray-900 dark:text-white/40 w-full md:w-auto">
                 <p>Usamos cookies para mejorar el servicio.</p>
-                <button class="text-marca font-medium hover:text-white transition-colors">Aceptar</button>
+                <button class="text-marca font-medium hover:text-gray-900 dark:text-white transition-colors">Aceptar</button>
             </div>
         </div>
     </footer>
 
     <!-- WIDGET DE WHATSAPP -->
     <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3 group">
-        <span class="hidden md:block px-4 py-2 bg-white dark:bg-bgSurface border border-gray-200 dark:border-white/10 rounded-xl text-sm font-medium text-gray-900 dark:text-white shadow-lg opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
+        <span class="hidden md:block px-4 py-2 bg-white dark:bg-bgSurface border border-gray-200 dark:border-white/10 rounded-xl text-sm font-medium text-gray-900 dark:text-gray-900 dark:text-white shadow-lg opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
             Hablar por WhatsApp
         </span>
         <a href="https://wa.me/34641576286" target="_blank" rel="noopener noreferrer" class="relative w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300">
             <div class="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:bg-[#25D366]/30 transition-colors"></div>
-            <i class="ph-fill ph-whatsapp-logo text-3xl text-gray-900 dark:text-white"></i>
+            <i class="ph-fill ph-whatsapp-logo text-3xl text-gray-900 dark:text-gray-900 dark:text-white"></i>
         </a>
     </div>
 
@@ -1276,64 +1260,64 @@
 
 
             <div id="mega-menu" class="fixed inset-0 z-[40] hidden pointer-events-none">
-        <div id="mega-menu-backdrop" class="absolute inset-0 bg-white dark:bg-[#05020a]/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+        <div id="mega-menu-backdrop" class="absolute inset-0 bg-white dark:bg-white dark:bg-[#05020a]/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
         
         <div id="mega-menu-panel" class="absolute top-[96px] md:top-[112px] left-1/2 -translate-x-1/2 w-full max-w-5xl px-6 transform -translate-y-4 opacity-0 transition-all duration-300 pointer-events-auto">
             <div class="backdrop-blur-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-gray-200 dark:border-white/10 rounded-[2rem] p-8 shadow-2xl flex flex-col gap-10">
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                     <a href="/branding-y-estrategia" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-white transition-colors flex-shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                             <i class="ph-fill ph-paint-brush-broad text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Branding & Estrategia</h4>
-                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Identidad visual y posicionamiento.</p>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Branding & Estrategia</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-900 dark:text-white/40 font-light">Identidad visual y posicionamiento.</p>
                         </div>
                     </a>
                     <a href="/web-seo" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-white transition-colors flex-shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                             <i class="ph-fill ph-browser text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Diseño web y Posicionamiento SEO</h4>
-                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Webs de alto rendimiento y SEO.</p>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Diseño web y Posicionamiento SEO</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-900 dark:text-white/40 font-light">Webs de alto rendimiento y SEO.</p>
                         </div>
                     </a>
                     <a href="/redes-sociales" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-white transition-colors flex-shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                             <i class="ph-fill ph-share-network text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Contenido & Redes</h4>
-                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Social Media y estrategia de video.</p>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Contenido & Redes</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-900 dark:text-white/40 font-light">Social Media y estrategia de video.</p>
                         </div>
                     </a>
                     <a href="/marketing-digital" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-white transition-colors flex-shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                             <i class="ph-fill ph-rocket-launch text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Marketing Digital</h4>
-                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Campañas de publicidad digital para escalar tu negocio.</p>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Marketing Digital</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-900 dark:text-white/40 font-light">Campañas de publicidad digital para escalar tu negocio.</p>
                         </div>
                     </a>
                     <a href="/automatizaciones-y-sistemas" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-white transition-colors flex-shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                             <i class="ph-fill ph-robot text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Automatización y Sistemas</h4>
-                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Funnels, CRM y flujos que trabajan sin ti.</p>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Automatización y Sistemas</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-900 dark:text-white/40 font-light">Funnels, CRM y flujos que trabajan sin ti.</p>
                         </div>
                     </a>
                     <a href="/eventos" class="group flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-white transition-colors flex-shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500 group-hover:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                             <i class="ph-fill ph-ticket text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Eventos & Experiencias</h4>
-                            <p class="text-xs text-gray-500 dark:text-white/40 font-light">Producción, branding y promoción digital de eventos.</p>
+                            <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-light text-sm group-hover:text-violet-400 transition-colors mb-1">Eventos & Experiencias</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-900 dark:text-white/40 font-light">Producción, branding y promoción digital de eventos.</p>
                         </div>
                     </a>
                 </div>
@@ -1343,9 +1327,9 @@
                         <div class="w-10 h-10 rounded-full bg-violet-500/20 flex items-center justify-center text-violet-400 flex-shrink-0">
                             <i class="ph-fill ph-circles-three-plus text-xl"></i>
                         </div>
-                        <h4 class="text-gray-900 dark:text-white font-sans font-light text-lg">Diseñamos sistemas completos, no piezas aisladas.</h4>
+                        <h4 class="text-gray-900 dark:text-gray-900 dark:text-white font-sans font-light text-lg">Diseñamos sistemas completos, no piezas aisladas.</h4>
                     </div>
-                    <a href="/servicios" class="inline-flex items-center gap-2 text-violet-400 font-medium text-sm hover:text-gray-900 dark:text-white transition-colors mt-4 md:mt-0 group flex-shrink-0">
+                    <a href="/servicios" class="inline-flex items-center gap-2 text-violet-400 font-medium text-sm hover:text-gray-900 dark:text-gray-900 dark:text-white transition-colors mt-4 md:mt-0 group flex-shrink-0">
                         Ver todos los servicios <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
