@@ -214,6 +214,25 @@
                 <!-- Controles Derecha (Dropdowns y Switch) -->
                 <div class="flex flex-wrap items-center gap-3 pb-1 md:pb-0">
                     
+                    <!-- Dropdown de Tipo (Guía / Noticia) -->
+                    <div class="relative" id="dropdown-type-wrapper">
+                        <button id="btn-type" class="flex items-center gap-2 bg-white dark:bg-[#14141F] border border-gray-200 dark:border-white/10 rounded-full px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:border-gray-300 dark:hover:border-white/20 transition-colors whitespace-nowrap shadow-sm focus:outline-none">
+                            <span id="active-type-label">Tipo</span> <i class="ph ph-caret-down text-gray-400"></i>
+                        </button>
+                        
+                        <div id="menu-type" class="dropdown-menu absolute right-0 md:left-0 top-full mt-2 w-48 bg-white dark:bg-[#14141F] border border-gray-100 dark:border-white/10 rounded-2xl shadow-xl z-50 py-2">
+                            <button class="w-full flex items-center justify-between px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors text-left" data-type="all">
+                                Todos los tipos <i class="ph-bold ph-check text-primary type-check"></i>
+                            </button>
+                            <button class="w-full flex items-center justify-between px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors text-left" data-type="Guía">
+                                Guías <i class="ph-bold ph-check text-primary type-check hidden"></i>
+                            </button>
+                            <button class="w-full flex items-center justify-between px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors text-left" data-type="Noticia">
+                                Noticias <i class="ph-bold ph-check text-primary type-check hidden"></i>
+                            </button>
+                        </div>
+                    </div>
+
                     <!-- Dropdown de Categoría -->
                     <div class="relative" id="dropdown-category-wrapper">
                         <button id="btn-category" class="flex items-center gap-2 bg-white dark:bg-[#14141F] border border-gray-200 dark:border-white/10 rounded-full px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:border-primary/50 hover:text-primary dark:hover:border-primary/50 dark:hover:text-primary transition-all duration-300 whitespace-nowrap shadow-sm focus:outline-none">
@@ -541,8 +560,9 @@
         const state = {
             query: '',
             category: 'all',
-            sort: 'newest',
-            view: 'grid' 
+            type: 'all',    // Nuevo filtro de tipo
+            sort: 'newest', 
+            view: 'grid'    
         };
 
         // 2. Inicialización
@@ -687,13 +707,17 @@
             const container = document.getElementById('blog-container');
             const emptyState = document.getElementById('empty-state');
             
+            // A. Filtrado Combinado
             let filtered = resourcesData.filter(post => {
                 const matchSearch = post.title.toLowerCase().includes(state.query.toLowerCase()) || 
                                     post.description.toLowerCase().includes(state.query.toLowerCase());
                 const matchCategory = state.category === 'all' || post.categoryId === state.category;
-                return matchSearch && matchCategory;
+                const matchType = state.type === 'all' || post.type === state.type;
+                
+                return matchSearch && matchCategory && matchType;
             });
 
+            // B. Ordenamiento Estratégico
             filtered.sort((a, b) => {
                 if (state.sort === 'newest') return b.timestamp - a.timestamp;
                 if (state.sort === 'oldest') return a.timestamp - b.timestamp;
@@ -718,23 +742,34 @@
             }
         }
 
-        // 6. Controladores de Eventos UI
+        // 6. Listeners y Controladores de UI
         function setupEventListeners() {
-            
+            // Buscador
             document.getElementById('searchInput').addEventListener('input', (e) => {
                 state.query = e.target.value;
                 renderContent();
             });
 
+            // Toggles de Menús (Comportamiento de Click Outside)
+            const typeBtn = document.getElementById('btn-type');
+            const typeMenu = document.getElementById('menu-type');
             const catBtn = document.getElementById('btn-category');
             const catMenu = document.getElementById('menu-category');
             const sortBtn = document.getElementById('btn-sort');
             const sortMenu = document.getElementById('menu-sort');
 
             function closeAllDropdowns() {
+                typeMenu.classList.remove('active');
                 catMenu.classList.remove('active');
                 sortMenu.classList.remove('active');
             }
+
+            typeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isActive = typeMenu.classList.contains('active');
+                closeAllDropdowns();
+                if(!isActive) typeMenu.classList.add('active');
+            });
 
             catBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -752,6 +787,24 @@
 
             document.addEventListener('click', closeAllDropdowns);
 
+            // Menú Tipo Opciones
+            document.querySelectorAll('#menu-type button').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const typeVal = e.currentTarget.dataset.type;
+                    state.type = typeVal;
+                    
+                    document.querySelectorAll('.type-check').forEach(i => i.classList.add('hidden'));
+                    e.currentTarget.querySelector('.type-check').classList.remove('hidden');
+                    
+                    const labels = { 'all': 'Tipo', 'Guía': 'Guías', 'Noticia': 'Noticias' };
+                    document.getElementById('active-type-label').innerText = labels[typeVal];
+                    
+                    closeAllDropdowns();
+                    renderContent();
+                });
+            });
+
+            // Menú Sort Opciones
             document.querySelectorAll('#menu-sort button').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const sortVal = e.currentTarget.dataset.sort;
@@ -806,7 +859,14 @@
             document.getElementById('searchInput').value = '';
             state.query = '';
             state.category = 'all';
+            state.type = 'all';
+            
             document.getElementById('active-category-label').innerText = 'Categoría';
+            document.getElementById('active-type-label').innerText = 'Tipo';
+            
+            document.querySelectorAll('.type-check').forEach(i => i.classList.add('hidden'));
+            document.querySelector('[data-type="all"] .type-check').classList.remove('hidden');
+
             initCategoryMenu(); 
             renderContent();
         }
