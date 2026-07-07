@@ -11,11 +11,11 @@ const dimensiones = [
   'madurez_estrategia'
 ];
 
-const CARD_BG = '#0c0c11';
-const CARD_BG_SOFT = '#08080c';
-const CARD_BORDER = '#1c1c24';
-const MUTED = '#8b8b9b';
-const MUTED2 = '#6b6b7b';
+const CARD_BG = '#130f1e';
+const CARD_BG_SOFT = '#0e0a18';
+const CARD_BORDER = '#2a2140';
+const MUTED = '#9d94b8';
+const MUTED2 = '#79708f';
 
 const card = {
   background: CARD_BG,
