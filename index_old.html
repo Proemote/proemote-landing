@@ -2927,7 +2927,10 @@
     <footer class="relative z-10 bg-white dark:bg-[#05020a] text-gray-900 dark:text-white overflow-hidden">
         <!-- Background Image -->
         <div class="absolute -top-80 bottom-0 left-0 right-0 z-0 pointer-events-none" style="height: calc(100% + 20rem);">
-            <img src="space bg.png" alt="Space Background" class="w-full h-full object-cover object-center opacity-35 dark:opacity-70 invert dark:invert-0 transition-all duration-300">
+            <!-- Light mode image -->
+            <img src="space bg white.png" alt="Space Background Light" class="block dark:hidden w-full h-full object-cover object-center opacity-60">
+            <!-- Dark mode image -->
+            <img src="space bg.png" alt="Space Background" class="hidden dark:block w-full h-full object-cover object-center opacity-70">
             <!-- Radial gradient to blend edges if needed, or vertical gradient -->
             <div class="absolute inset-0 bg-gradient-to-b from-white via-white/30 to-white dark:from-[#05020a] dark:via-[#05020a]/50 dark:to-[#05020a]"></div>
         </div>
