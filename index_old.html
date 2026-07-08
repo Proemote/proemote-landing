@@ -3038,11 +3038,19 @@
                 <p class="text-sm text-gray-900 dark:text-white/60 font-light leading-relaxed mb-6 text-center md:text-left">
                     Suscríbete a nuestra newsletter para recibir las mejores estrategias y actualizaciones futuras.
                 </p>
-                <form class="flex items-center relative">
-                    <input type="email" placeholder="Introduce tu email" class="w-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-white/10 rounded-full pl-5 pr-12 py-3 text-sm text-gray-900 dark:text-white placeholder-white/40 focus:outline-none focus:border-marca transition-colors backdrop-blur-md">
-                    <button type="submit" class="absolute right-1 top-1 bottom-1 bg-marca hover:bg-marca/90 text-gray-900 dark:text-white w-9 h-9 rounded-full flex items-center justify-center transition-colors">
-                        <i class="ph ph-arrow-right"></i>
-                    </button>
+                <form id="newsletter-form" class="flex flex-col gap-3">
+                    <div class="flex items-center relative">
+                        <input type="email" id="newsletter-email" required placeholder="Introduce tu email" class="w-full bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-full pl-5 pr-12 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-white/40 focus:outline-none focus:border-marca transition-colors backdrop-blur-md">
+                        <button type="submit" class="absolute right-1 top-1 bottom-1 bg-marca hover:bg-marca/90 text-gray-900 dark:text-white w-9 h-9 rounded-full flex items-center justify-center transition-colors">
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </div>
+                    <label class="flex items-start gap-2 cursor-pointer select-none text-left">
+                        <input type="checkbox" id="newsletter-privacy" required class="mt-1 rounded border-gray-300 dark:border-white/10 text-marca focus:ring-marca">
+                        <span class="text-xs text-gray-600 dark:text-white/40">
+                            Acepto la <a href="/privacidad/" class="underline hover:text-marca transition-colors">política de privacidad</a>
+                        </span>
+                    </label>
                 </form>
             </div>
 
@@ -3413,6 +3421,69 @@
             document.querySelectorAll('.fade-up, .reveal-up').forEach((el) => {
                 observer.observe(el);
             });
+
+            // Newsletter Form Submission Integration
+            const newsletterForm = document.getElementById('newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const emailInput = document.getElementById('newsletter-email');
+                    const privacyCheckbox = document.getElementById('newsletter-privacy');
+                    if (!emailInput || !privacyCheckbox) return;
+
+                    if (!privacyCheckbox.checked) {
+                        alert('Debes aceptar la política de privacidad para suscribirte.');
+                        return;
+                    }
+
+                    const email = emailInput.value.trim();
+                    const submitButton = newsletterForm.querySelector('button[type="submit"]');
+                    const originalBtnContent = submitButton.innerHTML;
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = '<i class="ph ph-spinner animate-spin"></i>';
+
+                    try {
+                        // 1. Send to Google Sheets (Backup)
+                        const sheetsUrl = "https://script.google.com/macros/s/AKfycbyXaurIMmVdoqzdLt6OrJB_wHiNiMY-Xcp0DRQ4nvioUU3akuri0DYrCpFhFCGRhh9pqQ/exec";
+                        const sheetsPromise = fetch(sheetsUrl, {
+                            method: "POST",
+                            mode: "no-cors",
+                            headers: { "Content-Type": "text/plain" },
+                            body: JSON.stringify({
+                                evento: "newsletter_signup",
+                                email: email,
+                                timestamp: new Date().toISOString()
+                            })
+                        }).catch(err => console.error("Error Sheets:", err));
+
+                        // 2. Send to Brevo via Supabase
+                        const supabaseUrl = "https://dbsxvwvyjotncbfuownj.supabase.co/functions/v1/diagnostico-digital";
+                        const brevoPromise = fetch(supabaseUrl, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRic3h2d3Z5am90bmNiZnVvd25qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyMjc1MDksImV4cCI6MjA5NzgwMzUwOX0.uQ3OzTLJqzxxblTq38ACKuxtwKmF8wyHTiN6QCb3zNc"
+                            },
+                            body: JSON.stringify({
+                                action: "add_to_brevo",
+                                payload: {
+                                    email: email
+                                }
+                            })
+                        });
+
+                        await Promise.all([sheetsPromise, brevoPromise]);
+
+                        // Show success state
+                        newsletterForm.innerHTML = '<div class="text-sm text-green-600 dark:text-green-400 font-medium py-2">¡Gracias por suscribirte! Revisa tu email.</div>';
+                    } catch (error) {
+                        console.error('Error submitting newsletter:', error);
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = originalBtnContent;
+                        alert('Hubo un error al procesar tu solicitud. Por favor, inténtalo de nuevo.');
+                    }
+                });
+            }
         });
     </script>
 </body>
