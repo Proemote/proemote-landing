@@ -612,10 +612,13 @@
 <!-- FOOTER -->
     <footer class="relative z-10 bg-white dark:bg-[#05020a] text-gray-900 dark:text-white overflow-hidden">
         <!-- Background Image -->
-        <div class="absolute -top-16 md:-top-80 left-0 right-0 z-0 pointer-events-none h-[600px] md:h-[calc(100%+20rem)]">
-            <img src="../space bg.png" alt="Space Background" class="w-full h-full object-cover object-center opacity-70">
+        <div class="absolute -top-80 bottom-0 left-0 right-0 z-0 pointer-events-none" style="height: calc(100% + 20rem);">
+            <!-- Light mode image -->
+            <img src="../space bg white.png" alt="Space Background Light" class="block dark:hidden w-full h-full object-cover object-center opacity-60">
+            <!-- Dark mode image -->
+            <img src="../space bg.png" alt="Space Background" class="hidden dark:block w-full h-full object-cover object-center opacity-70">
             <!-- Radial gradient to blend edges if needed, or vertical gradient -->
-            <div class="absolute inset-0 bg-gradient-to-b from-[#05020a] via-[#05020a]/50 to-[#05020a]"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-white via-white/30 to-white dark:from-[#05020a] dark:via-[#05020a]/50 dark:to-[#05020a]"></div>
         </div>
 
         <!-- CTA Section -->
@@ -634,14 +637,14 @@
                 Los negocios de Extremadura por fin pueden ver resultados predecibles gracias al sistema que une identidad visual, posicionamiento web y captación de clientes.
             </p>
             
-            <a href="#planes" class="group bg-white text-gray-900 font-medium px-8 py-3.5 rounded-full transition-all hover:scale-105 flex items-center justify-center gap-2 text-sm">
+            <a href="#planes" class="group bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium px-8 py-3.5 rounded-full transition-all hover:scale-105 flex items-center justify-center gap-2 text-sm">
                 Empezar ahora <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
             </a>
         </div>
 
         <!-- Divider -->
         <div class="relative z-10 max-w-7xl mx-auto px-6">
-            <div class="w-full h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"></div>
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-black/10 dark:via-white/15 to-transparent"></div>
         </div>
 
         <!-- Footer Links Section -->
@@ -650,7 +653,7 @@
             <!-- Col 1: Logo & Info -->
             <div class="md:col-span-12 lg:col-span-3 flex flex-col items-center md:items-start text-center md:text-left">
                 <div class="mb-8 flex flex-col items-center md:items-start">
-                    <img src="../proemote-logo-footer.png" alt="Proemote Logo" class="h-28 mb-1 object-contain">
+                    <img src="../proemote-logo-footer.png" alt="Proemote Logo" class="h-28 mb-1 object-contain invert dark:invert-0 transition-all duration-300">
                     
                     <div class="flex flex-col items-center md:items-start mt-0">
                         <span class="text-gray-900 dark:text-white italic text-base md:text-lg tracking-wide font-light mb-1">Shaping what matters</span>
@@ -721,11 +724,19 @@
                 <p class="text-sm text-gray-900 dark:text-white/60 font-light leading-relaxed mb-6 text-center md:text-left">
                     Suscríbete a nuestra newsletter para recibir las mejores estrategias y actualizaciones futuras.
                 </p>
-                <form class="flex items-center relative">
-                    <input type="email" placeholder="Introduce tu email" class="w-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-white/10 rounded-full pl-5 pr-12 py-3 text-sm text-gray-900 dark:text-white placeholder-white/40 focus:outline-none focus:border-marca transition-colors backdrop-blur-md">
-                    <button type="submit" class="absolute right-1 top-1 bottom-1 bg-marca hover:bg-marca/90 text-gray-900 dark:text-white w-9 h-9 rounded-full flex items-center justify-center transition-colors">
-                        <i class="ph ph-arrow-right"></i>
-                    </button>
+                <form id="newsletter-form" class="flex flex-col gap-3">
+                    <div class="flex items-center relative">
+                        <input type="email" id="newsletter-email" required placeholder="Introduce tu email" class="w-full bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-full pl-5 pr-12 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-white/40 focus:outline-none focus:border-marca transition-colors backdrop-blur-md">
+                        <button type="submit" class="absolute right-1 top-1 bottom-1 bg-marca hover:bg-marca/90 text-gray-900 dark:text-white w-9 h-9 rounded-full flex items-center justify-center transition-colors">
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </div>
+                    <label class="flex items-start gap-2 cursor-pointer select-none text-left">
+                        <input type="checkbox" id="newsletter-privacy" required class="mt-1 rounded border-gray-300 dark:border-white/10 text-marca focus:ring-marca">
+                        <span class="text-xs text-gray-600 dark:text-white/40">
+                            Acepto la <a href="/privacidad/" class="underline hover:text-marca transition-colors">política de privacidad</a>
+                        </span>
+                    </label>
                 </form>
             </div>
 
@@ -739,6 +750,73 @@
                 <button class="text-marca font-medium hover:text-gray-900 dark:text-white transition-colors">Aceptar</button>
             </div>
         </div>
+
+        <script>
+            // Newsletter Form Submission Integration
+            document.addEventListener('DOMContentLoaded', () => {
+                const newsletterForm = document.getElementById('newsletter-form');
+                if (newsletterForm) {
+                    newsletterForm.addEventListener('submit', async (e) => {
+                        e.preventDefault();
+                        const emailInput = document.getElementById('newsletter-email');
+                        const privacyCheckbox = document.getElementById('newsletter-privacy');
+                        if (!emailInput || !privacyCheckbox) return;
+
+                        if (!privacyCheckbox.checked) {
+                            alert('Debes aceptar la política de privacidad para suscribirte.');
+                            return;
+                        }
+
+                        const email = emailInput.value.trim();
+                        const submitButton = newsletterForm.querySelector('button[type="submit"]');
+                        const originalBtnContent = submitButton.innerHTML;
+                        submitButton.disabled = true;
+                        submitButton.innerHTML = '<i class="ph ph-spinner animate-spin"></i>';
+
+                        try {
+                            // 1. Send to Google Sheets (Backup)
+                            const sheetsUrl = "https://script.google.com/macros/s/AKfycbyXaurIMmVdoqzdLt6OrJB_wHiNiMY-Xcp0DRQ4nvioUU3akuri0DYrCpFhFCGRhh9pqQ/exec";
+                            const sheetsPromise = fetch(sheetsUrl, {
+                                method: "POST",
+                                mode: "no-cors",
+                                headers: { "Content-Type": "text/plain" },
+                                body: JSON.stringify({
+                                    evento: "newsletter_signup",
+                                    email: email,
+                                    timestamp: new Date().toISOString()
+                                })
+                            }).catch(err => console.error("Error Sheets:", err));
+
+                            // 2. Send to Brevo via Supabase
+                            const supabaseUrl = "https://dbsxvwvyjotncbfuownj.supabase.co/functions/v1/diagnostico-digital";
+                            const brevoPromise = fetch(supabaseUrl, {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRic3h2d3Z5am90bmNiZnVvd25qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyMjc1MDksImV4cCI6MjA5NzgwMzUwOX0.uQ3OzTLJqzxxblTq38ACKuxtwKmF8wyHTiN6QCb3zNc"
+                                },
+                                body: JSON.stringify({
+                                    action: "add_to_brevo",
+                                    payload: {
+                                        email: email
+                                    }
+                                })
+                            });
+
+                            await Promise.all([sheetsPromise, brevoPromise]);
+
+                            // Show success state
+                            newsletterForm.innerHTML = '<div class="text-sm text-green-600 dark:text-green-400 font-medium py-2">¡Gracias por suscribirte! Revisa tu email.</div>';
+                        } catch (error) {
+                            console.error('Error submitting newsletter:', error);
+                            submitButton.disabled = false;
+                            submitButton.innerHTML = originalBtnContent;
+                            alert('Hubo un error al procesar tu solicitud. Por favor, inténtalo de nuevo.');
+                        }
+                    });
+                }
+            });
+        </script>
     </footer>
 
     <!-- WIDGET DE WHATSAPP -->
