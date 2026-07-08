@@ -141,12 +141,12 @@
 <body class="antialiased selection:bg-primary selection:text-gray-900 dark:text-white overflow-y-scroll">
                                                             <!-- BARRA DE ANUNCIO GLOBAL -->
     <div class="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
-        <header class="w-full max-w-5xl backdrop-blur-xl bg-white/80 dark:bg-white/[0.02] border border-gray-200 dark:border-white/10 rounded-full flex items-center justify-between px-6 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.05)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-colors duration-300">
+        <header class="relative w-full max-w-5xl backdrop-blur-xl bg-white/80 dark:bg-white/[0.02] border border-gray-200 dark:border-white/10 rounded-full flex items-center justify-between px-6 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.05)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-colors duration-300">
             <a href="/" class="relative z-10 flex items-center transition-transform hover:scale-105 duration-300">
                 <img src="/logo-header.png" alt="Proemote - Agencia de digitalización" class="h-6 md:h-8 w-auto object-contain dark:invert-0 invert">
             </a>
 
-            <div class="hidden md:flex gap-6 text-[13px] font-medium text-gray-600 dark:text-gray-900 dark:text-white/60 relative z-10 items-center">
+            <div class="hidden md:flex gap-6 text-[13px] font-medium text-gray-600 dark:text-gray-900 dark:text-white/60 z-10 items-center">
                 <a href="/" class="hover:text-gray-900 dark:hover:text-gray-900 dark:text-white transition-colors">Inicio</a>
                 
                 <a href="/servicios" id="services-menu-btn" class="hover:text-gray-900 dark:hover:text-gray-900 dark:text-white transition-colors focus:outline-none">Servicios</a>
@@ -180,7 +180,7 @@
                 </div>
 
                 <!-- ENLACE RECURSOS (ACTIVO CON MEGA MENÚ) -->
-                <div class="relative group/menu py-2">
+                <div class="group/menu py-2">
                     <a href="/recursos" class="hover:text-gray-900 dark:hover:text-gray-900 dark:text-white transition-colors flex items-center gap-1.5 focus:outline-none">
                         Recursos
                         <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30 leading-none">Hub</span>
