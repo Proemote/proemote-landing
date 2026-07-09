@@ -4340,10 +4340,21 @@
             outline: none;
         }
         #proemote-chat-btn:hover {
-            transform: scale(1.1) translateY(-2px);
             box-shadow: 0 12px 40px rgba(123, 97, 255, 0.6), 0 4px 12px rgba(0,0,0,0.3);
         }
         #proemote-chat-btn:active { transform: scale(0.97); }
+        /* Animación wiggle del robot al hover */
+        #proemote-chat-btn:hover #chat-robot-icon {
+            animation: robotWiggle 0.5s ease-in-out;
+        }
+        @keyframes robotWiggle {
+            0%   { transform: rotate(0deg) scale(1); }
+            20%  { transform: rotate(-12deg) scale(1.08); }
+            40%  { transform: rotate(12deg) scale(1.1); }
+            60%  { transform: rotate(-8deg) scale(1.06); }
+            80%  { transform: rotate(6deg) scale(1.04); }
+            100% { transform: rotate(0deg) scale(1); }
+        }
 
         /* Badge pulsante */
         #proemote-chat-badge {
@@ -4377,11 +4388,12 @@
             padding: 8px 14px;
             border-radius: 10px;
             pointer-events: none;
-            opacity: 1;
-            transition: opacity 0.4s ease;
+            opacity: 0;
+            transition: opacity 0.5s ease;
             backdrop-filter: blur(10px);
         }
-        #proemote-chat-tooltip.hidden { opacity: 0; }
+        #proemote-chat-tooltip.visible { opacity: 1; }
+        #proemote-chat-tooltip.hidden  { opacity: 0; pointer-events: none; }
 
         /* Panel del chat */
         #proemote-chat-panel {
@@ -4647,24 +4659,41 @@
     </style>
 
     <!-- Botón flotante -->
-    <button id="proemote-chat-btn" aria-label="Abrir chat con el asistente de Proemote">
+    <button id="proemote-chat-btn" aria-label="Abrir chat con Leo, asistente de Proemote">
         <!-- Badge verde (online) -->
         <span id="proemote-chat-badge"></span>
-        <!-- Tooltip -->
-        <span id="proemote-chat-tooltip">💬 ¿Tienes alguna pregunta?</span>
-        <!-- Icono principal (chat) — Phosphor Icons ya cargado en la página -->
-        <svg width="26" height="26" viewBox="0 0 256 256" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path d="M216,48H40A16,16,0,0,0,24,64V224a15.85,15.85,0,0,0,9.24,14.5A16.13,16.13,0,0,0,40,240a15.89,15.89,0,0,0,10.25-3.78.69.69,0,0,0,.13-.11L82.5,208H216a16,16,0,0,0,16-16V64A16,16,0,0,0,216,48ZM216,192H82.5a16,16,0,0,0-10.25,3.78l-.13.11L40,224V64H216ZM88,112a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H96A8,8,0,0,1,88,112Zm0,32a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H96A8,8,0,0,1,88,144Z"/>
+        <!-- Tooltip rotativo -->
+        <span id="proemote-chat-tooltip"></span>
+        <!-- Icono robot -->
+        <svg id="chat-robot-icon" width="28" height="28" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+            <!-- Antena -->
+            <line x1="32" y1="4" x2="32" y2="13" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="32" cy="3" r="3" fill="white"/>
+            <!-- Cabeza -->
+            <rect x="12" y="13" width="40" height="28" rx="8" fill="white" fill-opacity="0.95"/>
+            <!-- Ojos -->
+            <circle cx="23" cy="26" r="4.5" fill="#7B61FF"/>
+            <circle cx="41" cy="26" r="4.5" fill="#7B61FF"/>
+            <circle cx="24.5" cy="24.5" r="1.5" fill="white"/>
+            <circle cx="42.5" cy="24.5" r="1.5" fill="white"/>
+            <!-- Boca -->
+            <rect x="21" y="33" width="22" height="4" rx="2" fill="#9F7AEA" fill-opacity="0.6"/>
+            <!-- Cuello -->
+            <rect x="28" y="41" width="8" height="5" rx="2" fill="white" fill-opacity="0.8"/>
+            <!-- Cuerpo -->
+            <rect x="14" y="46" width="36" height="16" rx="6" fill="white" fill-opacity="0.75"/>
+            <!-- Botón cuerpo -->
+            <circle cx="32" cy="54" r="3" fill="#7B61FF" fill-opacity="0.7"/>
         </svg>
     </button>
 
     <!-- Panel del chat -->
-    <div id="proemote-chat-panel" role="dialog" aria-label="Chat con Asistente Proemote" aria-modal="true">
+    <div id="proemote-chat-panel" role="dialog" aria-label="Chat con Leo · Asistente de Proemote" aria-modal="true">
         <!-- Cabecera -->
         <div id="proemote-chat-header">
             <div class="chat-avatar">✨</div>
             <div class="chat-header-info">
-                <div class="chat-header-name">Asistente Proemote</div>
+                <div class="chat-header-name">Leo · Asistente de Proemote</div>
                 <div class="chat-header-status">
                     <span class="chat-status-dot"></span>
                     En línea · Responde al instante
@@ -4681,7 +4710,7 @@
         <div id="proemote-chat-messages">
             <!-- Tarjeta de bienvenida -->
             <div id="proemote-welcome-card">
-                <strong>👋 ¡Hola! Soy el asistente de Proemote.</strong>
+                <strong>👋 ¡Hola! Soy Leo, el asistente de Proemote.</strong>
                 Puedo explicarte nuestros servicios, ayudarte a elegir el plan más adecuado para tu negocio o resolver cualquier duda.
             </div>
             <!-- Chips de sugerencias -->
@@ -4756,7 +4785,38 @@
         });
 
         // Ocultar tooltip al pasar el ratón por primera vez
-        btn.addEventListener('mouseenter', () => tooltip.classList.add('hidden'));
+        // ── Tooltip rotativo — mensajes no intrusivos ─────────────
+        const TOOLTIP_MSGS = [
+            '¿Podemos ayudarte?',
+            '¿Tienes alguna duda?',
+            '¿Te ayudamos?',
+            '¿Necesitas ayuda?',
+            '¡Pregúntame lo que sea!',
+            '¿En qué puedo ayudarte?',
+        ];
+        let tooltipIdx   = 0;
+        let tooltipTimer = null;
+
+        function showTooltipMsg(idx) {
+            tooltip.classList.remove('visible');
+            setTimeout(() => {
+                tooltip.textContent = TOOLTIP_MSGS[idx % TOOLTIP_MSGS.length];
+                tooltip.classList.add('visible');
+            }, 300);
+        }
+
+        function startTooltipCycle() {
+            // Mostrar el primero tras 3 s de carga (no intrusivo al abrir)
+            tooltipTimer = setTimeout(function cycle() {
+                if (isOpen) { tooltipTimer = setTimeout(cycle, 6000); return; }
+                showTooltipMsg(tooltipIdx);
+                tooltipIdx = (tooltipIdx + 1) % TOOLTIP_MSGS.length;
+                // Ocultar tras 4 s y esperar 5 s antes del siguiente
+                setTimeout(() => tooltip.classList.remove('visible'), 4000);
+                tooltipTimer = setTimeout(cycle, 9000);
+            }, 3000);
+        }
+        startTooltipCycle();
 
         // ── Chips de sugerencias ──────────────────────────────────
         chips.addEventListener('click', (e) => {
