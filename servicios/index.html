@@ -86,6 +86,26 @@
             100% { transform: translateX(-50%); }
         }
         .animate-scroll { animation: scroll-infinite 45s linear infinite; }
+
+        /* Tab buttons styling */
+        .tab-btn {
+            color: #4b5563;
+            transition: all 0.3s ease;
+        }
+        .dark .tab-btn {
+            color: #a1a1aa;
+        }
+        .tab-btn:hover {
+            color: #111827;
+        }
+        .dark .tab-btn:hover {
+            color: #ffffff;
+        }
+        .tab-btn.active {
+            background-color: #7B61FF !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 15px rgba(123, 97, 255, 0.4) !important;
+        }
         .animate-scroll:hover { animation-play-state: paused; }
     
         /* Premium Form Soft Glass 3D */
@@ -434,11 +454,11 @@
             </div>
 
                         <div class="flex justify-center mb-10 relative z-10 reveal-up">
-                <div class="inline-flex flex-wrap justify-center bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-300 dark:border-white/10 p-1.5 rounded-full">
-                    <button id="tab-marketing" class="tab-btn px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-primary text-gray-900 dark:text-white shadow-[0_0_15px_rgba(123,97,255,0.4)]">
+                <div class="inline-flex flex-wrap justify-center bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 p-1.5 rounded-full">
+                    <button id="tab-marketing" class="tab-btn px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 active">
                         Marketing Digital
                     </button>
-                    <button id="tab-eventos" class="tab-btn px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 text-gray-600 dark:text-textSecondary hover:text-gray-900 dark:text-white">
+                    <button id="tab-eventos" class="tab-btn px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300">
                         Eventos & Experiencias
                     </button>
                 </div>
@@ -2079,8 +2099,107 @@
     </script>
 
     <script>
-        // Mobile Menu Logic
+        // Drag Scroll / Momentum Logic
+        function enableDragScroll(containerId, autoScrollEnabled = true, opts = {}) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            const speed = opts.speed ?? (containerId === 'logos-container' ? 1.5 : 0.4);
+            const loop = opts.loop ?? (containerId === 'logos-container');
+            const reverse = opts.reverse ?? false;
+
+            let isDown = false;
+            let startX;
+            let scrollLeftPos;
+            let isHovered = false;
+            let velocity = 0;
+            let momentumID;
+            let prevX;
+            let prevTime;
+
+            container.addEventListener('mousedown', (e) => {
+                isDown = true;
+                container.classList.add('cursor-grabbing');
+                container.classList.remove('cursor-grab');
+                startX = e.pageX - container.offsetLeft;
+                scrollLeftPos = container.scrollLeft;
+                cancelAnimationFrame(momentumID);
+                prevX = e.pageX;
+                prevTime = Date.now();
+                velocity = 0;
+            });
+
+            container.addEventListener('mouseleave', () => {
+                if (isDown) beginMomentum();
+                isDown = false;
+                isHovered = false;
+                container.classList.remove('cursor-grabbing');
+                container.classList.add('cursor-grab');
+            });
+
+            container.addEventListener('mouseup', () => {
+                isDown = false;
+                container.classList.remove('cursor-grabbing');
+                container.classList.add('cursor-grab');
+                beginMomentum();
+            });
+
+            container.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - container.offsetLeft;
+                const walk = (x - startX) * 2;
+                container.scrollLeft = scrollLeftPos - walk;
+                
+                const now = Date.now();
+                const dt = now - prevTime;
+                const dx = e.pageX - prevX;
+                if (dt > 0) { velocity = (dx / dt) * 15; }
+                prevX = e.pageX;
+                prevTime = now;
+            });
+
+            container.addEventListener('mouseenter', () => { isHovered = true; });
+
+            function beginMomentum() {
+                cancelAnimationFrame(momentumID);
+                momentumLoop();
+            }
+
+            function momentumLoop() {
+                if (Math.abs(velocity) > 0.5) {
+                    container.scrollLeft -= velocity;
+                    velocity *= 0.95;
+                    momentumID = requestAnimationFrame(momentumLoop);
+                }
+            }
+
+            // Autoscroll
+            if(autoScrollEnabled) {
+                if (reverse && loop) {
+                    requestAnimationFrame(() => { container.scrollLeft = container.scrollWidth / 2; });
+                }
+                function autoScroll() {
+                    if (!isHovered && !isDown && Math.abs(velocity) <= 0.5) {
+                        container.scrollLeft += reverse ? -speed : speed;
+                    }
+
+                    if(loop) {
+                        const halfWidth = (container.scrollWidth) / 2;
+                        if (container.scrollLeft >= halfWidth) {
+                            container.scrollLeft -= halfWidth;
+                        } else if (container.scrollLeft <= 0) {
+                            container.scrollLeft += halfWidth;
+                        }
+                    }
+                    requestAnimationFrame(autoScroll);
+                }
+                requestAnimationFrame(autoScroll);
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
+            // Tab Selector Logic
             const tabMarketing = document.getElementById('tab-marketing');
             const tabEventos = document.getElementById('tab-eventos');
             const contentMarketing = document.getElementById('content-marketing');
@@ -2088,10 +2207,8 @@
 
             if(tabMarketing && tabEventos && contentMarketing && contentEventos) {
                 const switchTab = (activeTab, inactiveTab, activeContent, inactiveContent) => {
-                    activeTab.classList.add('bg-primary', 'text-white', 'shadow-[0_0_15px_rgba(123,97,255,0.4)]');
-                    activeTab.classList.remove('text-textSecondary', 'hover:text-white');
-                    inactiveTab.classList.remove('bg-primary', 'text-white', 'shadow-[0_0_15px_rgba(123,97,255,0.4)]');
-                    inactiveTab.classList.add('text-textSecondary', 'hover:text-white');
+                    activeTab.classList.add('active');
+                    inactiveTab.classList.remove('active');
 
                     inactiveContent.classList.remove('opacity-100');
                     inactiveContent.classList.add('opacity-0');
@@ -2107,6 +2224,9 @@
                 tabMarketing.addEventListener('click', () => switchTab(tabMarketing, tabEventos, contentMarketing, contentEventos));
                 tabEventos.addEventListener('click', () => switchTab(tabEventos, tabMarketing, contentEventos, contentMarketing));
             }
+
+            // Activate Logos scroll
+            enableDragScroll('logos-container', true);
 
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
