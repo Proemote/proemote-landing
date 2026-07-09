@@ -272,13 +272,15 @@
     }, 300);
   }
   (function startCycle() {
+    // Primera aparición: 10 s tras cargar la página
+    // Visible: 5 s · Pausa entre mensajes: 45 s → ciclo total ~50 s
     setTimeout(function cycle() {
-      if (isOpen) { setTimeout(cycle, 6000); return; }
+      if (isOpen) { setTimeout(cycle, 15000); return; } // si el chat está abierto, espera 15 s más
       showTooltipMsg(tooltipIdx);
       tooltipIdx = (tooltipIdx + 1) % TOOLTIP_MSGS.length;
-      setTimeout(function () { tooltip.classList.remove('pct-visible'); }, 4000);
-      setTimeout(cycle, 9000);
-    }, 3000);
+      setTimeout(function () { tooltip.classList.remove('pct-visible'); }, 5000); // visible 5 s
+      setTimeout(cycle, 50000); // siguiente en 50 s
+    }, 10000); // primera vez: 10 s
   })();
 
   // Abrir / cerrar
