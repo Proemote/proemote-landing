@@ -50,6 +50,19 @@
     <style>
         body { transition: background-color 0.3s ease, color 0.3s ease; }
 
+        /* Pricing Card Hover Effects */
+        .pricing-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px) !important;
+            border-color: rgba(123, 97, 255, 0.4) !important;
+            box-shadow: 0 20px 40px -15px rgba(123, 97, 255, 0.2) !important;
+        }
+        .dark .pricing-card:hover {
+            box-shadow: 0 20px 40px -15px rgba(123, 97, 255, 0.3), inset 0 1px 0 0 rgba(255, 255, 255, 0.1) !important;
+        }
+
         .dark body { background-color: #0A0A0F; color: #F5F7FA; }
         body { background-color: #f9fafb; color: #111827; overflow-x: hidden; }
         ::-webkit-scrollbar { width: 8px; }
@@ -577,7 +590,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch reveal-up delay-100">
                 
                 <!-- Plan 1: Identidad -->
-                <div class="flex flex-col bg-white dark:bg-white/[0.02] border border-gray-200 dark:border-white/10 rounded-2xl p-8 relative h-full shadow-sm dark:shadow-none transition-colors duration-300 backdrop-blur-xl">
+                <div class="pricing-card flex flex-col bg-white dark:bg-white/[0.02] border border-gray-200 dark:border-white/10 rounded-2xl p-8 relative h-full shadow-sm dark:shadow-none transition-colors duration-300 backdrop-blur-xl">
                     <div class="mb-4">
                         <span class="text-[11px] font-bold tracking-widest text-gray-400 dark:text-white/40 uppercase">IDENTIDAD VISUAL</span>
                         <h3 class="text-2xl font-light text-gray-900 dark:text-white mt-1">Identidad</h3>
@@ -594,12 +607,12 @@
                     </ul>
                     
                     <div class="mt-auto pt-6">
-                        <a href="https://wa.me/34641576286?text=Buenas!%20Estoy%20interesado/a%20en%20el%20plan%20Identidad%20para%20mi%20marca" target="_blank" rel="noopener noreferrer" class="block w-full py-3.5 px-4 bg-gray-100 dark:bg-white/5 hover:bg-marca hover:text-white dark:hover:bg-marca dark:hover:text-white border border-transparent dark:border-white/10 rounded-full text-center text-[14px] font-semibold transition-all duration-300 transform hover:-translate-y-0.5 shadow-sm text-gray-900 dark:text-white">Quiero empezar</a>
+                        <a href="https://wa.me/34641576286?text=Buenas!%20Estoy%20interesado/a%20en%20el%20plan%20Identidad%20para%20mi%20marca" target="_blank" rel="noopener noreferrer" class="group block w-full py-3.5 px-4 bg-gray-100 dark:bg-white/5 hover:bg-marca hover:text-white dark:hover:bg-marca dark:hover:text-white border border-transparent dark:border-white/10 rounded-full text-center text-[14px] font-semibold transition-all duration-300 transform hover:-translate-y-0.5 shadow-sm text-gray-900 dark:text-white">Quiero empezar <i class="ph ph-arrow-right ml-1 inline-block group-hover:translate-x-1 transition-transform"></i></a>
                     </div>
                 </div>
 
                 <!-- Plan 2: Sistema de Marca (Recomendado) -->
-                <div class="flex flex-col bg-white dark:bg-white/[0.02] border border-marca/30 rounded-2xl p-8 relative h-full shadow-[0_8px_30px_rgba(139,92,246,0.12)] transition-colors duration-300 backdrop-blur-xl">
+                <div class="pricing-card flex flex-col bg-white dark:bg-white/[0.02] border border-marca/30 rounded-2xl p-8 relative h-full shadow-[0_8px_30px_rgba(139,92,246,0.12)] transition-colors duration-300 backdrop-blur-xl">
                     <div class="absolute inset-0 bg-gradient-to-b from-violet-500/5 to-transparent rounded-2xl pointer-events-none"></div>
                     <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-violet-600 to-indigo-500 text-white text-[10px] font-bold uppercase tracking-widest py-1 px-4 rounded-full shadow-md whitespace-nowrap z-20">
                         Más recomendado
@@ -622,12 +635,12 @@
                     </ul>
                     
                     <div class="mt-auto relative z-10">
-                        <a href="https://wa.me/34641576286?text=Buenas!%20Estoy%20interesado/a%20en%20el%20plan%20Sistema%20de%20Marca" target="_blank" rel="noopener noreferrer" class="block w-full py-3.5 px-4 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white border border-transparent rounded-full text-center text-[14px] font-semibold transition-all duration-300 transform hover:-translate-y-0.5 shadow-[0_0_25px_rgba(123,97,255,0.4)]">Quiero mi sistema de marca</a>
+                        <a href="https://wa.me/34641576286?text=Buenas!%20Estoy%20interesado/a%20en%20el%20plan%20Sistema%20de%20Marca" target="_blank" rel="noopener noreferrer" class="group block w-full py-3.5 px-4 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white border border-transparent rounded-full text-center text-[14px] font-semibold transition-all duration-300 transform hover:-translate-y-0.5 shadow-[0_0_25px_rgba(123,97,255,0.4)]">Quiero mi sistema de marca <i class="ph ph-arrow-right ml-1 inline-block group-hover:translate-x-1 transition-transform"></i></a>
                     </div>
                 </div>
 
                 <!-- Plan 3: Marca Completa -->
-                <div class="flex flex-col bg-white dark:bg-white/[0.02] border border-gray-200 dark:border-white/10 rounded-2xl p-8 relative h-full shadow-sm dark:shadow-none transition-colors duration-300 backdrop-blur-xl">
+                <div class="pricing-card flex flex-col bg-white dark:bg-white/[0.02] border border-gray-200 dark:border-white/10 rounded-2xl p-8 relative h-full shadow-sm dark:shadow-none transition-colors duration-300 backdrop-blur-xl">
                     <div class="mb-4">
                         <span class="text-[11px] font-bold tracking-widest text-gray-400 dark:text-white/40 uppercase">PROYECTO INTEGRAL</span>
                         <h3 class="text-2xl font-light text-gray-900 dark:text-white mt-1">Marca Completa</h3>
@@ -644,7 +657,7 @@
                     </ul>
                     
                     <div class="mt-auto pt-6">
-                        <a href="https://wa.me/34641576286?text=Buenas!%20Estoy%20interesado/a%20en%20el%20plan%20Marca%20Completa" target="_blank" rel="noopener noreferrer" class="block w-full py-3.5 px-4 bg-gray-100 dark:bg-white/5 hover:bg-marca hover:text-white dark:hover:bg-marca dark:hover:text-white border border-transparent dark:border-white/10 rounded-full text-center text-[14px] font-semibold transition-all duration-300 transform hover:-translate-y-0.5 shadow-sm text-gray-900 dark:text-white">Quiero la marca completa</a>
+                        <a href="https://wa.me/34641576286?text=Buenas!%20Estoy%20interesado/a%20en%20el%20plan%20Marca%20Completa" target="_blank" rel="noopener noreferrer" class="group block w-full py-3.5 px-4 bg-gray-100 dark:bg-white/5 hover:bg-marca hover:text-white dark:hover:bg-marca dark:hover:text-white border border-transparent dark:border-white/10 rounded-full text-center text-[14px] font-semibold transition-all duration-300 transform hover:-translate-y-0.5 shadow-sm text-gray-900 dark:text-white">Quiero la marca completa <i class="ph ph-arrow-right ml-1 inline-block group-hover:translate-x-1 transition-transform"></i></a>
                     </div>
                 </div>
 
@@ -661,8 +674,8 @@
                     <p class="text-sm text-gray-600 dark:text-textSecondary max-w-3xl leading-relaxed">Para proyectos de rebranding complejo, marcas con múltiples líneas de producto, franquicias o necesidades específicas de comunicación corporativa.</p>
                 </div>
                 <div class="w-full md:w-auto shrink-0">
-                    <a href="https://wa.me/34641576286?text=Buenas!%20Quer%C3%ADa%20pedir%20presupuesto%20para%20un%20proyecto%20de%20branding%20A%20Medida" target="_blank" rel="noopener noreferrer" class="block w-full py-3.5 px-6 bg-gray-100 dark:bg-white/5 hover:bg-marca hover:text-white dark:hover:bg-marca dark:hover:text-white border border-transparent dark:border-white/10 rounded-full text-center text-[14px] font-semibold transition-all duration-300 transform hover:-translate-y-0.5 shadow-sm text-gray-900 dark:text-white whitespace-nowrap focus:outline-none">
-                        Pedir presupuesto
+                    <a href="https://wa.me/34641576286?text=Buenas!%20Quer%C3%ADa%20pedir%20presupuesto%20para%20un%20proyecto%20de%20branding%20A%20Medida" target="_blank" rel="noopener noreferrer" class="group block w-full py-3.5 px-6 bg-gray-100 dark:bg-white/5 hover:bg-marca hover:text-white dark:hover:bg-marca dark:hover:text-white border border-transparent dark:border-white/10 rounded-full text-center text-[14px] font-semibold transition-all duration-300 transform hover:-translate-y-0.5 shadow-sm text-gray-900 dark:text-white whitespace-nowrap focus:outline-none">
+                        Pedir presupuesto <i class="ph ph-arrow-right ml-1 inline-block group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
             </div>
