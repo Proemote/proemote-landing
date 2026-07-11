@@ -67,7 +67,7 @@ async function sendEmail(payload: { email?: string; subject?: string; html?: str
   return jsonResponse({ success: true, id: result.id });
 }
 
-const BREVO_LIST_ID = 3;
+const BREVO_DEFAULT_LIST_ID = 3; // Lista "Diagnóstico Inicial"
 
 async function addToBrevo(payload: {
   email?: string;
@@ -78,10 +78,13 @@ async function addToBrevo(payload: {
   plan_recomendado?: string;
   oferta_expira?: string;
   diagnostico_id?: string;
+  listId?: number; // Permite especificar la lista destino (ej: 2 = Newsletter)
 }) {
   const apiKey = Deno.env.get("BREVO_API_KEY");
   if (!apiKey) return jsonResponse({ error: "Falta configurar BREVO_API_KEY" }, 500);
   if (!payload?.email) return jsonResponse({ error: "Falta email" }, 400);
+
+  const targetListId = payload.listId ?? BREVO_DEFAULT_LIST_ID;
 
   const attributes: Record<string, unknown> = {};
   if (payload.nombre) attributes.FIRSTNAME = payload.nombre;
@@ -101,7 +104,7 @@ async function addToBrevo(payload: {
     body: JSON.stringify({
       email: payload.email,
       attributes,
-      listIds: [BREVO_LIST_ID],
+      listIds: [targetListId],
       updateEnabled: true,
     }),
   });

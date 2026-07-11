@@ -3,3 +3,6 @@ package-lock.json
 scratch/
 .DS_Store
 *.log
+
+# Backend del chatbot — contiene la API key de Anthropic. NO subir a git.
+chat.php
