@@ -57,6 +57,9 @@ standard_footer = """
                     <li><a href="/sobre-nosotros" class="hover:text-white transition-colors">Sobre nosotros</a></li>
                     <li><a href="/contacto" class="hover:text-white transition-colors">Contacto</a></li>
                     <li><a href="/trabaja-con-nosotros" class="hover:text-white transition-colors">Trabaja con nosotros</a></li>
+                    <li><a href="/affinia/" class="hover:text-white transition-colors">AffinIA</a></li>
+                    <li><a href="/LEO/" class="hover:text-white transition-colors">Leo</a></li>
+                    <li><a href="/leadflow/" class="hover:text-white transition-colors">LeadFlow</a></li>
                 </ul>
             </div>
 

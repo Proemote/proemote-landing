@@ -187,6 +187,7 @@ export default function FooterSections() {
           {/* Col 1: Logo & Info */}
           <div className="md:col-span-12 lg:col-span-3 flex flex-col items-center md:items-start text-center md:text-left">
             <div className="mb-8 flex flex-col items-center md:items-start">
+              <img src="../proemote-logo-footer.png" alt="Proemote Logo" className="h-28 mb-1 object-contain invert dark:invert-0 transition-all duration-300" />
               <div className="flex flex-col items-center md:items-start mt-0">
                 <span className="text-gray-900 dark:text-white italic text-base md:text-lg tracking-wide font-light mb-1">Shaping what matters</span>
                 <span className="text-gray-500 font-medium text-base md:text-lg tracking-wide">Think first.</span>
@@ -223,7 +224,7 @@ export default function FooterSections() {
           </div>
 
           {/* Col 2: Servicios */}
-          <div className="md:col-span-4 lg:col-span-3 mt-4 lg:mt-0">
+          <div className="md:col-span-3 lg:col-span-2 mt-4 lg:mt-0">
             <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-6 text-center md:text-left uppercase tracking-widest">Servicios</h4>
             <ul className="space-y-4 text-sm text-gray-900 dark:text-white/60 text-center md:text-left">
               <li><a href="/diseno-web-SEO" className="hover:text-marca transition-colors">Diseño Web</a></li>
@@ -235,8 +236,18 @@ export default function FooterSections() {
             </ul>
           </div>
 
-          {/* Col 3: Empresa & Legal */}
-          <div className="md:col-span-4 lg:col-span-3 mt-4 lg:mt-0">
+          {/* Col 3: Ecosistema */}
+          <div className="md:col-span-3 lg:col-span-2 mt-4 lg:mt-0">
+            <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-6 text-center md:text-left uppercase tracking-widest">Ecosistema</h4>
+            <ul className="space-y-4 text-sm text-gray-900 dark:text-white/60 text-center md:text-left">
+              <li><a href="/affinia/" className="hover:text-marca transition-colors">AffinIA&trade;</a></li>
+              <li><a href="/LEO/" className="hover:text-marca transition-colors">Leo&trade;</a></li>
+              <li><a href="/leadflow/" className="hover:text-marca transition-colors">LeadFlow&trade;</a></li>
+            </ul>
+          </div>
+
+          {/* Col 4: Empresa & Legal */}
+          <div className="md:col-span-3 lg:col-span-2 mt-4 lg:mt-0">
             <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-6 text-center md:text-left uppercase tracking-widest">Empresa & Legal</h4>
             <ul className="space-y-4 text-sm text-gray-900 dark:text-white/60 text-center md:text-left">
               <li><a href="/aviso-legal" className="hover:text-marca transition-colors">Aviso Legal</a></li>
@@ -247,11 +258,11 @@ export default function FooterSections() {
             </ul>
           </div>
 
-          {/* Col 4: Newsletter */}
-          <div className="md:col-span-4 lg:col-span-3 mt-4 lg:mt-0">
+          {/* Col 5: Newsletter */}
+          <div className="md:col-span-3 lg:col-span-3 mt-4 lg:mt-0">
             <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-6 text-center md:text-left uppercase tracking-widest">Únete a la Newsletter</h4>
             <p className="text-sm text-gray-900 dark:text-white/60 font-light leading-relaxed mb-6 text-center md:text-left">
-              Suscríbete a nuestra newsletter para recibir las mejores estrategias y actualizaciones futuras.
+              Suscríbete a nuestra newsletter para recibir las mejores strategies y actualizaciones futuras.
             </p>
             <NewsletterForm />
           </div>

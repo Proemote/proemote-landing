@@ -5,8 +5,8 @@ import re
 with open('index.html', 'r', encoding='utf-8') as f:
     content = f.read()
 
-# We look for <footer class="relative z-10 bg-[#05020a] ... </footer>
-footer_match = re.search(r'(<footer class="relative z-10 bg-\[#05020a\].*?</footer\s*>)', content, re.DOTALL)
+# We look for <footer class="relative z-10 bg-white dark:bg-[#05020a] ... </footer>
+footer_match = re.search(r'(<footer class="relative z-10 bg-white dark:bg-\[#05020a\].*?</footer\s*>)', content, re.DOTALL)
 if not footer_match:
     print("Could not find new footer in 'index.html'")
     exit(1)

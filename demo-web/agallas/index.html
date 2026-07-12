@@ -389,68 +389,225 @@
 </section>
 
 <!-- SECCIÓN: Footer Original Restaurado (Color Oscuro) -->
-<footer id="contacto" class="bg-[#1A1A1A] text-white pt-24 pb-12 px-6">
-    <div class="max-w-7xl mx-auto">
-        
-        <!-- Gran CTA -->
-        <div class="text-center border-b border-white/10 pb-20 mb-20 fade-up">
-            <h2 class="text-4xl md:text-6xl lg:text-7xl font-serif mb-12">No esperes a que otros descubran lo que ya saben los que comen aquí.</h2>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                 <a href="#platos" class="inline-block bg-agallas-terracota text-white px-10 py-4 rounded-full text-xs tracking-[0.2em] uppercase font-bold hover:bg-orange-800 transition-all shadow-lg">Ver Carta</a>
-                 <a href="https://maps.google.com/?q=Agallas+Gastro+Food+Merida" target="_blank" class="inline-block border border-white/50 text-white px-10 py-4 rounded-full text-xs tracking-[0.2em] uppercase font-bold hover:bg-white hover:text-agallas-black transition-colors">Visítanos</a>
-            </div>
+<footer class="relative z-10 bg-white dark:bg-[#05020a] text-gray-900 dark:text-white overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute -top-80 bottom-0 left-0 right-0 z-0 pointer-events-none" style="height: calc(100% + 20rem);">
+            <!-- Light mode image -->
+            <img src="space bg white.png" alt="Space Background Light" class="block dark:hidden w-full h-full object-cover object-center opacity-60">
+            <!-- Dark mode image -->
+            <img src="../../space bg.png" alt="Space Background" class="hidden dark:block w-full h-full object-cover object-center opacity-70">
+            <!-- Radial gradient to blend edges if needed, or vertical gradient -->
+            <div class="absolute inset-0 bg-gradient-to-b from-white via-white/30 to-white dark:from-[#05020a] dark:via-[#05020a]/50 dark:to-[#05020a]"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 font-sans font-light text-sm text-gray-400">
-            <!-- Columna 1: Marca -->
-            <div class="col-span-1 md:col-span-1 fade-up">
-                <h4 class="text-white font-serif text-3xl mb-6">Agallas<span class="text-agallas-terracota">.</span></h4>
-                <p class="font-bold text-white mb-2">Una experiencia diferente</p>
-                <p class="mb-4">Agallas Gastro&Food es un gran trozo de su personalidad y carácter, con ganas de sorprender a todo el que se atreva a probar un pedazo de su historia.</p>
-                <p>Demostrar que la comida puede llegar a ser toda una experiencia de diversión y descubrimiento en la emblemática ciudad de Mérida.</p>
+        <!-- CTA Section -->
+        <div class="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-24 text-center flex flex-col items-center fade-up">
+            <!-- Icon -->
+            <div class="w-12 h-12 rounded-xl bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-white/10 flex items-center justify-center mb-8 backdrop-blur-sm shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                <i class="ph-fill ph-rocket-launch text-2xl text-gray-900 dark:text-white"></i>
+            </div>
+            
+            <h2 class="text-4xl md:text-6xl font-medium tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">
+                Empieza a crecer <br class="hidden md:block">
+                con Proemote
+            </h2>
+            
+            <p class="text-lg text-gray-900 dark:text-white/60 font-light mb-10 max-w-2xl leading-relaxed">
+                Los negocios de Extremadura por fin pueden ver resultados predecibles gracias al sistema que une identidad visual, posicionamiento web y captación de clientes.
+            </p>
+            
+            <a href="#planes" class="group bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium px-8 py-3.5 rounded-full transition-all hover:scale-105 flex items-center justify-center gap-2 text-sm">
+                Empezar ahora <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+
+        <!-- Divider -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-black/10 dark:via-white/15 to-transparent"></div>
+        </div>
+
+        <!-- Footer Links Section -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pt-16 pb-12 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+            
+            <!-- Col 1: Logo & Info -->
+            <div class="md:col-span-12 lg:col-span-3 flex flex-col items-center md:items-start text-center md:text-left">
+                <div class="mb-8 flex flex-col items-center md:items-start">
+                    <img src="../../proemote-logo-footer.png" alt="Proemote Logo" class="h-28 mb-1 object-contain invert dark:invert-0 transition-all duration-300">
+                    
+                    <div class="flex flex-col items-center md:items-start mt-0">
+                        <span class="text-gray-900 dark:text-white italic text-base md:text-lg tracking-wide font-light mb-1">Shaping what matters</span>
+                        <span class="text-gray-500 font-medium text-base md:text-lg tracking-wide">Think first.</span>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-start gap-4 mb-8 w-full text-sm text-gray-900 dark:text-white/60">
+                    <a href="mailto:info@proemote.es" class="hover:text-marca dark:hover:text-marca transition-colors flex items-center gap-3">
+                        <i class="ph ph-envelope-simple text-xl text-gray-900 dark:text-white"></i> info@proemote.es
+                    </a>
+                    <a href="tel:+34641576286" class="hover:text-marca dark:hover:text-marca transition-colors flex items-center gap-3">
+                        <i class="ph ph-phone text-xl text-gray-900 dark:text-white"></i> +34 641 57 62 86
+                    </a>
+                    <div class="flex items-start gap-3">
+                        <i class="ph ph-clock text-xl text-gray-900 dark:text-white mt-0.5"></i> 
+                        <div class="flex flex-col text-left">
+                            <span>L-V: 9H–14H, 16H–20H</span>
+                            <span class="mt-1">Sáb: 10H–13:30H | Dom: Cerrado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center md:justify-start gap-3 w-full">
+                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white/60 hover:text-white hover:bg-marca transition-all">
+                        <i class="ph-fill ph-linkedin-logo text-lg"></i>
+                    </a>
+                    <a href="https://www.instagram.com/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white/60 hover:text-white hover:bg-marca transition-all">
+                        <i class="ph-fill ph-instagram-logo text-lg"></i>
+                    </a>
+                    <a href="https://www.facebook.com/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white/60 hover:text-white hover:bg-marca transition-all">
+                        <i class="ph-fill ph-facebook-logo text-lg"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@proemote" target="_blank" class="w-9 h-9 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white/60 hover:text-white hover:bg-marca transition-all">
+                        <i class="ph-fill ph-tiktok-logo text-lg"></i>
+                    </a>
+                </div>
             </div>
 
-            <!-- Columna 2: Contacto -->
-            <div class="col-span-1 fade-up" style="transition-delay: 100ms;">
-                <h5 class="text-white tracking-[0.2em] uppercase text-xs font-bold mb-6">Contacto</h5>
-                <p class="mb-2 text-gray-300">Suárez Somonte, 2</p>
-                <p class="mb-6 text-gray-300">Mérida, Badajoz, España</p>
-                <a href="tel:+34679700670" class="text-white text-lg font-medium hover:text-agallas-terracota transition-colors flex items-center gap-2">
-                    <svg class="w-4 h-4 text-agallas-terracota" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                    +34 679 700 670
-                </a>
-            </div>
-
-            <!-- Columna 3: Horarios -->
-            <div class="col-span-1 fade-up" style="transition-delay: 200ms;">
-                <h5 class="text-white tracking-[0.2em] uppercase text-xs font-bold mb-6">Horario</h5>
-                <ul class="space-y-4">
-                    <li class="flex justify-between border-b border-white/5 pb-3"><span class="text-gray-300">Lunes</span> <span class="text-gray-500">Cerrado</span></li>
-                    <li class="flex justify-between border-b border-white/5 pb-3"><span class="text-gray-300">Mar–Sáb</span> <span class="text-gray-400">13:00–17:00 / 20:15–24:00</span></li>
-                    <li class="flex justify-between pb-3"><span class="text-gray-300">Domingo</span> <span class="text-gray-500">Cerrado</span></li>
+            <!-- Col 2: Servicios -->
+            <div class="md:col-span-3 lg:col-span-2 mt-4 lg:mt-0">
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-6 text-center md:text-left uppercase tracking-widest">Servicios</h4>
+                <ul class="space-y-4 text-sm text-gray-900 dark:text-white/60 text-center md:text-left">
+                    <li><a href="/diseno-web-SEO" class="hover:text-marca dark:hover:text-marca transition-colors">Diseño Web</a></li>
+                    <li><a href="/eventos" class="hover:text-marca dark:hover:text-marca transition-colors">Eventos 360º</a></li>
+                    <li><a href="/marketing-digital" class="hover:text-marca dark:hover:text-marca transition-colors">Marketing Digital</a></li>
+                    <li><a href="/redes-sociales" class="hover:text-marca dark:hover:text-marca transition-colors">Redes Sociales</a></li>
+                    <li><a href="/branding-y-estrategia" class="hover:text-marca dark:hover:text-marca transition-colors">Branding & Estrategia</a></li>
+                    <li><a href="/automatizaciones-y-sistemas" class="hover:text-marca dark:hover:text-marca transition-colors">Automatización & Sistemas</a></li>
                 </ul>
             </div>
 
-            <!-- Columna 4: Síguenos (Restaurado) -->
-            <div class="col-span-1 fade-up" style="transition-delay: 300ms;">
-                 <h5 class="text-white tracking-[0.2em] uppercase text-xs font-bold mb-6">Síguenos</h5>
-                 <div class="flex space-x-6 text-white">
-                    <a href="https://www.instagram.com/agallas_merida/" target="_blank" class="hover:text-agallas-terracota transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.944.058 1.266.069 1.646.069 4.823s-.011 3.557-.069 4.823c-.148 3.253-1.667 4.796-4.919 4.944-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.944-.058-1.266-.07-1.646-.07-4.823s.012-3.557.07-4.823c.148-3.253 1.667-4.796 4.919-4.944 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.947.072s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948s-.014-3.666-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-                    <a href="https://www.facebook.com/agallasmerida/" target="_blank" class="hover:text-agallas-terracota transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
-                </div>
+            <!-- Col 3: Ecosistema -->
+            <div class="md:col-span-3 lg:col-span-2 mt-4 lg:mt-0">
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-6 text-center md:text-left uppercase tracking-widest">Ecosistema</h4>
+                <ul class="space-y-4 text-sm text-gray-900 dark:text-white/60 text-center md:text-left">
+                    <li><a href="/affinia/" class="hover:text-marca dark:hover:text-marca transition-colors">AffinIA&trade;</a></li>
+                    <li><a href="/LEO/" class="hover:text-marca dark:hover:text-marca transition-colors">Leo&trade;</a></li>
+                    <li><a href="/leadflow/" class="hover:text-marca dark:hover:text-marca transition-colors">LeadFlow&trade;</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Empresa & Legal -->
+            <div class="md:col-span-3 lg:col-span-2 mt-4 lg:mt-0">
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-6 text-center md:text-left uppercase tracking-widest">Empresa & Legal</h4>
+                <ul class="space-y-4 text-sm text-gray-900 dark:text-white/60 text-center md:text-left">
+                    <li><a href="/aviso-legal" class="hover:text-marca dark:hover:text-marca transition-colors">Aviso Legal</a></li>
+                    <li><a href="/privacidad" class="hover:text-marca dark:hover:text-marca transition-colors">Política de Privacidad</a></li>
+                    <li><a href="/sobre-nosotros" class="hover:text-marca dark:hover:text-marca transition-colors">Sobre nosotros</a></li>
+                    <li><a href="/contacto" class="hover:text-marca dark:hover:text-marca transition-colors">Contacto</a></li>
+                    <li><a href="/trabaja-con-nosotros" class="hover:text-marca dark:hover:text-marca transition-colors">Trabaja con nosotros</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 5: Newsletter -->
+            <div class="md:col-span-3 lg:col-span-3 mt-4 lg:mt-0">
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-6 text-center md:text-left uppercase tracking-widest">Únete a la Newsletter</h4>
+                <p class="text-sm text-gray-900 dark:text-white/60 font-light leading-relaxed mb-6 text-center md:text-left">
+                    Suscríbete a nuestra newsletter para recibir las mejores estrategias y actualizaciones futuras.
+                </p>
+                <form id="newsletter-form" class="flex flex-col gap-3">
+                    <div class="flex items-center relative">
+                        <input type="email" id="newsletter-email" required placeholder="Introduce tu email" class="w-full bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-full pl-5 pr-12 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-white/40 focus:outline-none focus:border-marca transition-colors backdrop-blur-md">
+                        <button type="submit" class="absolute right-1 top-1 bottom-1 bg-marca hover:bg-marca/90 text-gray-900 dark:text-white w-9 h-9 rounded-full flex items-center justify-center transition-colors">
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </div>
+                    <label class="flex items-start gap-2 cursor-pointer select-none text-left">
+                        <input type="checkbox" id="newsletter-privacy" required class="mt-1 rounded border-gray-300 dark:border-white/10 text-marca focus:ring-marca">
+                        <span class="text-xs text-gray-600 dark:text-white/40">
+                            Acepto la <a href="/privacidad/" class="underline hover:text-marca transition-colors">política de privacidad</a>
+                        </span>
+                    </label>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- Bottom Copyright -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pt-8 pb-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+            <p class="text-xs text-gray-900 dark:text-white/40">Copyright © 2026 Proemote. Todos los derechos reservados.</p>
+            <div class="flex items-center justify-center md:justify-end gap-4 text-xs text-gray-900 dark:text-white/40 w-full md:w-auto">
+                <p>Usamos cookies para mejorar el servicio.</p>
+                <button class="text-marca font-medium hover:text-marca dark:hover:text-marca transition-colors">Aceptar</button>
             </div>
         </div>
 
-        <div class="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs opacity-50">
-            <p>© 2026 Agallas Gastro & Food. Todos los derechos reservados.</p>
-            <div class="flex space-x-6 mt-4 md:mt-0">
-                <a href="#" class="hover:text-white transition-colors">Aviso Legal</a>
-                <a href="#" class="hover:text-white transition-colors">Privacidad</a>
-                <a href="#" class="hover:text-white transition-colors">Cookies</a>
-            </div>
-        </div>
-    </div>
-</footer>
+        <script>
+            // Newsletter Form Submission Integration
+            document.addEventListener('DOMContentLoaded', () => {
+                const newsletterForm = document.getElementById('newsletter-form');
+                if (newsletterForm) {
+                    newsletterForm.addEventListener('submit', async (e) => {
+                        e.preventDefault();
+                        const emailInput = document.getElementById('newsletter-email');
+                        const privacyCheckbox = document.getElementById('newsletter-privacy');
+                        if (!emailInput || !privacyCheckbox) return;
+
+                        if (!privacyCheckbox.checked) {
+                            alert('Debes aceptar la política de privacidad para suscribirte.');
+                            return;
+                        }
+
+                        const email = emailInput.value.trim();
+                        const submitButton = newsletterForm.querySelector('button[type="submit"]');
+                        const originalBtnContent = submitButton.innerHTML;
+                        submitButton.disabled = true;
+                        submitButton.innerHTML = '<i class="ph ph-spinner animate-spin"></i>';
+
+                        try {
+                            // 1. Send to Google Sheets (Backup)
+                            const sheetsUrl = "https://script.google.com/macros/s/AKfycbyXaurIMmVdoqzdLt6OrJB_wHiNiMY-Xcp0DRQ4nvioUU3akuri0DYrCpFhFCGRhh9pqQ/exec";
+                            const sheetsPromise = fetch(sheetsUrl, {
+                                method: "POST",
+                                mode: "no-cors",
+                                headers: { "Content-Type": "text/plain" },
+                                body: JSON.stringify({
+                                    evento: "newsletter_signup",
+                                    email: email,
+                                    timestamp: new Date().toISOString()
+                                })
+                            }).catch(err => console.error("Error Sheets:", err));
+
+                            // 2. Send to Brevo via Supabase
+                            const supabaseUrl = "https://dbsxvwvyjotncbfuownj.supabase.co/functions/v1/diagnostico-digital";
+                            const brevoPromise = fetch(supabaseUrl, {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRic3h2d3Z5am90bmNiZnVvd25qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyMjc1MDksImV4cCI6MjA5NzgwMzUwOX0.uQ3OzTLJqzxxblTq38ACKuxtwKmF8wyHTiN6QCb3zNc"
+                                },
+                                body: JSON.stringify({
+                                    action: "add_to_brevo",
+                                    payload: {
+                                        email: email,
+                                        listId: 2
+                                    }
+                                })
+                            });
+
+                            await Promise.all([sheetsPromise, brevoPromise]);
+
+                            // Show success state
+                            newsletterForm.innerHTML = '<div class="text-sm text-green-600 dark:text-green-400 font-medium py-2">¡Gracias por suscribirte! Revisa tu email.</div>';
+                        } catch (error) {
+                            console.error('Error submitting newsletter:', error);
+                            submitButton.disabled = false;
+                            submitButton.innerHTML = originalBtnContent;
+                            alert('Hubo un error al procesar tu solicitud. Por favor, inténtalo de nuevo.');
+                        }
+                    });
+                }
+            });
+        </script>
+    </footer>
 
 <!-- Scripts de Interacción Mantenidos y Ajustados -->
 <script>

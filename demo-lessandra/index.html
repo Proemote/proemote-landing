@@ -515,56 +515,224 @@
         </div>
     </section>
 
-    <footer id="contacto" class="bg-brand-lavender pt-32 pb-12 relative overflow-hidden flex flex-col items-center">
-        <!-- Contenido principal del footer -->
-        <div class="relative z-20 max-w-4xl mx-auto text-center px-6 fade-in">
-            <h2 class="font-serif text-3xl md:text-5xl leading-tight mb-4 text-white">
-                Respira, encuentra la paz y tu plenitud.<br>
-                Te espero de corazón.
-            </h2>
-            <p class="font-serif text-xl md:text-2xl mb-8 text-brand-lavenderLight">Lessandra Rodrigues</p>
-            
-            <p class="text-5xl md:text-7xl font-light mb-10 tracking-tight text-white">(+34) 601 86 19 40</p>
-            
-            <div class="flex flex-col items-center gap-4 mb-16">
-                <a href="https://maps.app.goo.gl/" target="_blank" class="inline-flex items-center gap-2 border border-brand-lavenderLight/50 bg-white/10 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-white hover:text-brand-dark transition-all duration-300">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                    C/ Tirso de Molina, 15, 46701 Gandia, Valencia
-                </a>
-                <div class="inline-flex items-center gap-2 px-6 py-2 rounded-full text-sm font-medium text-brand-lavenderLight">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    Horario: Cierra a las 14:00 · Vuelve a abrir a las 16:00
-                </div>
+    <footer class="relative z-10 bg-white dark:bg-[#05020a] text-gray-900 dark:text-white overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute -top-80 bottom-0 left-0 right-0 z-0 pointer-events-none" style="height: calc(100% + 20rem);">
+            <!-- Light mode image -->
+            <img src="space bg white.png" alt="Space Background Light" class="block dark:hidden w-full h-full object-cover object-center opacity-60">
+            <!-- Dark mode image -->
+            <img src="../space bg.png" alt="Space Background" class="hidden dark:block w-full h-full object-cover object-center opacity-70">
+            <!-- Radial gradient to blend edges if needed, or vertical gradient -->
+            <div class="absolute inset-0 bg-gradient-to-b from-white via-white/30 to-white dark:from-[#05020a] dark:via-[#05020a]/50 dark:to-[#05020a]"></div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-24 text-center flex flex-col items-center fade-up">
+            <!-- Icon -->
+            <div class="w-12 h-12 rounded-xl bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-white/10 flex items-center justify-center mb-8 backdrop-blur-sm shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                <i class="ph-fill ph-rocket-launch text-2xl text-gray-900 dark:text-white"></i>
             </div>
             
-            <!-- Legal -->
-            <div class="w-full pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-brand-lavenderLight border-t border-brand-lavenderLight/20">
-                <div>&copy; <script>document.write(new Date().getFullYear())</script> Lessandra Rodrigues. Gandía.</div>
-                <div class="flex gap-4">
-                    <a href="#" class="hover:text-white transition-colors">Aviso Legal</a>
-                    <a href="#" class="hover:text-white transition-colors">Privacidad</a>
+            <h2 class="text-4xl md:text-6xl font-medium tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">
+                Empieza a crecer <br class="hidden md:block">
+                con Proemote
+            </h2>
+            
+            <p class="text-lg text-gray-900 dark:text-white/60 font-light mb-10 max-w-2xl leading-relaxed">
+                Los negocios de Extremadura por fin pueden ver resultados predecibles gracias al sistema que une identidad visual, posicionamiento web y captación de clientes.
+            </p>
+            
+            <a href="#planes" class="group bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium px-8 py-3.5 rounded-full transition-all hover:scale-105 flex items-center justify-center gap-2 text-sm">
+                Empezar ahora <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+
+        <!-- Divider -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-black/10 dark:via-white/15 to-transparent"></div>
+        </div>
+
+        <!-- Footer Links Section -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pt-16 pb-12 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+            
+            <!-- Col 1: Logo & Info -->
+            <div class="md:col-span-12 lg:col-span-3 flex flex-col items-center md:items-start text-center md:text-left">
+                <div class="mb-8 flex flex-col items-center md:items-start">
+                    <img src="../proemote-logo-footer.png" alt="Proemote Logo" class="h-28 mb-1 object-contain invert dark:invert-0 transition-all duration-300">
+                    
+                    <div class="flex flex-col items-center md:items-start mt-0">
+                        <span class="text-gray-900 dark:text-white italic text-base md:text-lg tracking-wide font-light mb-1">Shaping what matters</span>
+                        <span class="text-gray-500 font-medium text-base md:text-lg tracking-wide">Think first.</span>
+                    </div>
                 </div>
+                
+                <div class="flex flex-col items-center md:items-start gap-4 mb-8 w-full text-sm text-gray-900 dark:text-white/60">
+                    <a href="mailto:info@proemote.es" class="hover:text-marca dark:hover:text-marca transition-colors flex items-center gap-3">
+                        <i class="ph ph-envelope-simple text-xl text-gray-900 dark:text-white"></i> info@proemote.es
+                    </a>
+                    <a href="tel:+34641576286" class="hover:text-marca dark:hover:text-marca transition-colors flex items-center gap-3">
+                        <i class="ph ph-phone text-xl text-gray-900 dark:text-white"></i> +34 641 57 62 86
+                    </a>
+                    <div class="flex items-start gap-3">
+                        <i class="ph ph-clock text-xl text-gray-900 dark:text-white mt-0.5"></i> 
+                        <div class="flex flex-col text-left">
+                            <span>L-V: 9H–14H, 16H–20H</span>
+                            <span class="mt-1">Sáb: 10H–13:30H | Dom: Cerrado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center md:justify-start gap-3 w-full">
+                    <a href="https://www.linkedin.com/company/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white/60 hover:text-white hover:bg-marca transition-all">
+                        <i class="ph-fill ph-linkedin-logo text-lg"></i>
+                    </a>
+                    <a href="https://www.instagram.com/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white/60 hover:text-white hover:bg-marca transition-all">
+                        <i class="ph-fill ph-instagram-logo text-lg"></i>
+                    </a>
+                    <a href="https://www.facebook.com/proemote/" target="_blank" class="w-9 h-9 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white/60 hover:text-white hover:bg-marca transition-all">
+                        <i class="ph-fill ph-facebook-logo text-lg"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@proemote" target="_blank" class="w-9 h-9 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white/60 hover:text-white hover:bg-marca transition-all">
+                        <i class="ph-fill ph-tiktok-logo text-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Col 2: Servicios -->
+            <div class="md:col-span-3 lg:col-span-2 mt-4 lg:mt-0">
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-6 text-center md:text-left uppercase tracking-widest">Servicios</h4>
+                <ul class="space-y-4 text-sm text-gray-900 dark:text-white/60 text-center md:text-left">
+                    <li><a href="/diseno-web-SEO" class="hover:text-marca dark:hover:text-marca transition-colors">Diseño Web</a></li>
+                    <li><a href="/eventos" class="hover:text-marca dark:hover:text-marca transition-colors">Eventos 360º</a></li>
+                    <li><a href="/marketing-digital" class="hover:text-marca dark:hover:text-marca transition-colors">Marketing Digital</a></li>
+                    <li><a href="/redes-sociales" class="hover:text-marca dark:hover:text-marca transition-colors">Redes Sociales</a></li>
+                    <li><a href="/branding-y-estrategia" class="hover:text-marca dark:hover:text-marca transition-colors">Branding & Estrategia</a></li>
+                    <li><a href="/automatizaciones-y-sistemas" class="hover:text-marca dark:hover:text-marca transition-colors">Automatización & Sistemas</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Ecosistema -->
+            <div class="md:col-span-3 lg:col-span-2 mt-4 lg:mt-0">
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-6 text-center md:text-left uppercase tracking-widest">Ecosistema</h4>
+                <ul class="space-y-4 text-sm text-gray-900 dark:text-white/60 text-center md:text-left">
+                    <li><a href="/affinia/" class="hover:text-marca dark:hover:text-marca transition-colors">AffinIA&trade;</a></li>
+                    <li><a href="/LEO/" class="hover:text-marca dark:hover:text-marca transition-colors">Leo&trade;</a></li>
+                    <li><a href="/leadflow/" class="hover:text-marca dark:hover:text-marca transition-colors">LeadFlow&trade;</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Empresa & Legal -->
+            <div class="md:col-span-3 lg:col-span-2 mt-4 lg:mt-0">
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-6 text-center md:text-left uppercase tracking-widest">Empresa & Legal</h4>
+                <ul class="space-y-4 text-sm text-gray-900 dark:text-white/60 text-center md:text-left">
+                    <li><a href="/aviso-legal" class="hover:text-marca dark:hover:text-marca transition-colors">Aviso Legal</a></li>
+                    <li><a href="/privacidad" class="hover:text-marca dark:hover:text-marca transition-colors">Política de Privacidad</a></li>
+                    <li><a href="/sobre-nosotros" class="hover:text-marca dark:hover:text-marca transition-colors">Sobre nosotros</a></li>
+                    <li><a href="/contacto" class="hover:text-marca dark:hover:text-marca transition-colors">Contacto</a></li>
+                    <li><a href="/trabaja-con-nosotros" class="hover:text-marca dark:hover:text-marca transition-colors">Trabaja con nosotros</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 5: Newsletter -->
+            <div class="md:col-span-3 lg:col-span-3 mt-4 lg:mt-0">
+                <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-6 text-center md:text-left uppercase tracking-widest">Únete a la Newsletter</h4>
+                <p class="text-sm text-gray-900 dark:text-white/60 font-light leading-relaxed mb-6 text-center md:text-left">
+                    Suscríbete a nuestra newsletter para recibir las mejores estrategias y actualizaciones futuras.
+                </p>
+                <form id="newsletter-form" class="flex flex-col gap-3">
+                    <div class="flex items-center relative">
+                        <input type="email" id="newsletter-email" required placeholder="Introduce tu email" class="w-full bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-full pl-5 pr-12 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-white/40 focus:outline-none focus:border-marca transition-colors backdrop-blur-md">
+                        <button type="submit" class="absolute right-1 top-1 bottom-1 bg-marca hover:bg-marca/90 text-gray-900 dark:text-white w-9 h-9 rounded-full flex items-center justify-center transition-colors">
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </div>
+                    <label class="flex items-start gap-2 cursor-pointer select-none text-left">
+                        <input type="checkbox" id="newsletter-privacy" required class="mt-1 rounded border-gray-300 dark:border-white/10 text-marca focus:ring-marca">
+                        <span class="text-xs text-gray-600 dark:text-white/40">
+                            Acepto la <a href="/privacidad/" class="underline hover:text-marca transition-colors">política de privacidad</a>
+                        </span>
+                    </label>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- Bottom Copyright -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pt-8 pb-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+            <p class="text-xs text-gray-900 dark:text-white/40">Copyright © 2026 Proemote. Todos los derechos reservados.</p>
+            <div class="flex items-center justify-center md:justify-end gap-4 text-xs text-gray-900 dark:text-white/40 w-full md:w-auto">
+                <p>Usamos cookies para mejorar el servicio.</p>
+                <button class="text-marca font-medium hover:text-marca dark:hover:text-marca transition-colors">Aceptar</button>
             </div>
         </div>
 
-        <!-- Geometría Inferior (Beige translúcido) -->
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] pointer-events-none opacity-[0.15] z-10">
-            <div class="w-full h-full border-t-2 border-l-2 border-r-2 border-[#FDFBF7] rounded-t-full relative flex justify-center items-end">
-                <div class="w-[600px] h-[300px] border-t-2 border-l-2 border-r-2 border-[#FDFBF7] rounded-t-full absolute"></div>
-                <div class="w-[400px] h-[200px] border-t-2 border-l-2 border-r-2 border-[#FDFBF7] rounded-t-full absolute"></div>
-                <!-- Círculos superpuestos base -->
-                <div class="w-[800px] h-[800px] border-2 border-[#FDFBF7] rounded-full absolute -bottom-[400px] left-[400px]"></div>
-                <div class="w-[800px] h-[800px] border-2 border-[#FDFBF7] rounded-full absolute -bottom-[400px] right-[400px]"></div>
-                
-                <!-- Hojas centrales de la flor -->
-                <div class="absolute w-[400px] h-[400px] bottom-0 origin-bottom flex justify-center">
-                    <div class="w-[200px] h-[400px] border-l-2 border-r-2 border-[#FDFBF7] rounded-[100%] absolute origin-bottom rotate-30"></div>
-                    <div class="w-[200px] h-[400px] border-l-2 border-r-2 border-[#FDFBF7] rounded-[100%] absolute origin-bottom -rotate-30"></div>
-                    <div class="w-[200px] h-[400px] border-l-2 border-r-2 border-[#FDFBF7] rounded-[100%] absolute origin-bottom rotate-90"></div>
-                    <div class="w-[200px] h-[400px] border-l-2 border-r-2 border-[#FDFBF7] rounded-[100%] absolute origin-bottom -rotate-90"></div>
-                </div>
-            </div>
-        </div>
+        <script>
+            // Newsletter Form Submission Integration
+            document.addEventListener('DOMContentLoaded', () => {
+                const newsletterForm = document.getElementById('newsletter-form');
+                if (newsletterForm) {
+                    newsletterForm.addEventListener('submit', async (e) => {
+                        e.preventDefault();
+                        const emailInput = document.getElementById('newsletter-email');
+                        const privacyCheckbox = document.getElementById('newsletter-privacy');
+                        if (!emailInput || !privacyCheckbox) return;
+
+                        if (!privacyCheckbox.checked) {
+                            alert('Debes aceptar la política de privacidad para suscribirte.');
+                            return;
+                        }
+
+                        const email = emailInput.value.trim();
+                        const submitButton = newsletterForm.querySelector('button[type="submit"]');
+                        const originalBtnContent = submitButton.innerHTML;
+                        submitButton.disabled = true;
+                        submitButton.innerHTML = '<i class="ph ph-spinner animate-spin"></i>';
+
+                        try {
+                            // 1. Send to Google Sheets (Backup)
+                            const sheetsUrl = "https://script.google.com/macros/s/AKfycbyXaurIMmVdoqzdLt6OrJB_wHiNiMY-Xcp0DRQ4nvioUU3akuri0DYrCpFhFCGRhh9pqQ/exec";
+                            const sheetsPromise = fetch(sheetsUrl, {
+                                method: "POST",
+                                mode: "no-cors",
+                                headers: { "Content-Type": "text/plain" },
+                                body: JSON.stringify({
+                                    evento: "newsletter_signup",
+                                    email: email,
+                                    timestamp: new Date().toISOString()
+                                })
+                            }).catch(err => console.error("Error Sheets:", err));
+
+                            // 2. Send to Brevo via Supabase
+                            const supabaseUrl = "https://dbsxvwvyjotncbfuownj.supabase.co/functions/v1/diagnostico-digital";
+                            const brevoPromise = fetch(supabaseUrl, {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRic3h2d3Z5am90bmNiZnVvd25qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyMjc1MDksImV4cCI6MjA5NzgwMzUwOX0.uQ3OzTLJqzxxblTq38ACKuxtwKmF8wyHTiN6QCb3zNc"
+                                },
+                                body: JSON.stringify({
+                                    action: "add_to_brevo",
+                                    payload: {
+                                        email: email,
+                                        listId: 2
+                                    }
+                                })
+                            });
+
+                            await Promise.all([sheetsPromise, brevoPromise]);
+
+                            // Show success state
+                            newsletterForm.innerHTML = '<div class="text-sm text-green-600 dark:text-green-400 font-medium py-2">¡Gracias por suscribirte! Revisa tu email.</div>';
+                        } catch (error) {
+                            console.error('Error submitting newsletter:', error);
+                            submitButton.disabled = false;
+                            submitButton.innerHTML = originalBtnContent;
+                            alert('Hubo un error al procesar tu solicitud. Por favor, inténtalo de nuevo.');
+                        }
+                    });
+                }
+            });
+        </script>
     </footer>
 
     <!-- Botón Flotante WhatsApp -->
