@@ -45,7 +45,7 @@ def update_footer(filepath):
         pass
 
 # Walk through directories
-exclude_dirs = ['.git', '.gemini', 'node_modules', 'nexum-cars']
+exclude_dirs = ['.git', '.gemini', 'node_modules', 'nexum-cars', 'affinia', 'LEO', 'leadflow']
 
 for root, dirs, files in os.walk('.'):
     # Filter out excluded directories

@@ -97,7 +97,8 @@ def process_file(filepath):
 
 # Walk through all directories and process html files
 for root, dirs, files in os.walk('.'):
-    if '.git' in root or '.gemini' in root or 'nexum-cars' in root:
+    # Exclude product directories
+    if any(exclude in root for exclude in ['.git', '.gemini', 'nexum-cars', 'affinia', 'LEO', 'leadflow']):
         continue
     for file in files:
         if file.endswith('.html'):
