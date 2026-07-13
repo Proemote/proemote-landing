@@ -11,7 +11,7 @@
     <meta name="robots" content="index, follow">
     
     <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web" data-cookieconsent="ignore"></script>
     
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,10 +19,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com" data-cookieconsent="ignore"></script>
     
     <!-- Tailwind Config -->
-    <script>
+    <script data-cookieconsent="ignore">
         tailwind.config = {
             darkMode: 'class',
             theme: {
@@ -67,7 +67,7 @@
     </script>
 
     <!-- Theme Initialization Script -->
-    <script>
+    <script data-cookieconsent="ignore">
         if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
             document.documentElement.classList.remove('dark')
         } else {
