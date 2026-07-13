@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
+    <!-- Cookiebot -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="bf436d02-7576-46c5-bcba-9f21f191d406" data-blockingmode="auto" type="text/javascript"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leo - La Inteligencia del Ecosistema Proemote</title>
@@ -775,14 +777,83 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-[#030105] border-t border-white/5 py-12 text-center text-brand-textMuted text-sm relative z-10">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex items-center justify-center gap-2 mb-6 opacity-80">
-                <i class="ph-fill ph-brain text-brand-purple text-xl"></i>
-                <span class="font-bold text-white tracking-widest text-lg">LEO</span>
+        <!-- Footer Unificado -->
+    <footer class="bg-[#030105] pt-16 pb-8 border-t border-white/5 text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                
+                <!-- Proemote Brand Info -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="ph-fill ph-cube-transparent text-3xl text-white"></i>
+                        <span class="font-extrabold text-2xl tracking-tight text-white">Proemote®</span>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h5 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Llámanos</h5>
+                        <p class="text-brand-purple font-bold text-xl mb-1">+34 924 000 000</p>
+                        <p class="text-xs text-gray-500">Lunes a viernes - 09:00 a 18:00</p>
+                    </div>
+
+                    <div>
+                        <h5 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Ubicación</h5>
+                        <p class="text-sm text-gray-400">
+                            C/ San Salvador 11, CP 06800<br>
+                            Mérida, Badajoz<br>
+                            Extremadura, España
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Navigation Columns -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Empresa</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Sobre Nosotros</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">LEO</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Precios</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contacto</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white mb-4">Soporte</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Centro de ayuda</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Tutoriales</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Estado del sistema</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Comunidad</a></li>
+                    </ul>
+                </div>
+
+                <!-- Map / Visual Element -->
+                <div class="h-full min-h-[150px] bg-[#08080c] rounded-xl overflow-hidden relative border border-white/10">
+                    <div class="absolute inset-0 opacity-50" style="background-image: url('data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 20 0 L 0 0 0 20' fill='none' stroke='%23a1a1aa' stroke-width='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E');"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="ph-fill ph-map-pin text-4xl text-brand-purple drop-shadow-md relative top-[-10px]"></i>
+                    </div>
+                    <div class="absolute bottom-2 right-2 bg-[#030105]/80 backdrop-blur px-2 py-1 rounded text-[10px] font-medium text-gray-300 border border-white/10">
+                        Ver en Google Maps
+                    </div>
+                </div>
             </div>
-            <p class="mb-4">Inteligencia del Ecosistema Proemote.</p>
-            <p class="opacity-50">© 2026 Proemote Ecosystem. Todos los derechos reservados.</p>
+
+            <!-- Big Bottom Brand Name -->
+            <div class="text-center overflow-hidden w-full select-none pt-8 border-t border-white/5">
+                <h1 class="text-[15vw] font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-brand-purple/20 to-brand-purple/5 leading-none uppercase">
+                    LEO
+                </h1>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center mt-6 text-xs text-gray-500 gap-4">
+                <div>&copy; 2026 LEO. Un producto de Proemote® Ecosystem.</div>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white">Aviso Legal</a>
+                    <a href="#" class="hover:text-white">Política de Privacidad</a>
+                    <a href="#" class="hover:text-white">Cookies</a>
+                </div>
+            </div>
         </div>
     </footer>
 

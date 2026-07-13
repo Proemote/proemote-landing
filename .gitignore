@@ -6,3 +6,7 @@ scratch/
 
 # Backend del chatbot — contiene la API key de Anthropic. NO subir a git.
 chat.php
+
+# Local agent config
+.claude/
+

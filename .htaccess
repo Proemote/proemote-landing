@@ -48,6 +48,9 @@ RewriteRule ^marketing-integral/?$ https://proemote.es/servicios/ [R=301,L,NC]
 # otras redirecciones
 RewriteRule ^agendar-reunion/?$ https://proemote.es/contacto/agendar-reunion/ [R=301,L,NC]
 RewriteRule ^inicio/?$ https://proemote.es/ [R=301,L,NC]
+RewriteRule ^recursos/recursos\ proemote\.html$ https://proemote.es/recursos/recursos-proemote.html [R=301,L,NC]
+RewriteRule ^space\ bg\.png$ https://proemote.es/space-bg.png [R=301,L,NC]
+RewriteRule ^space\ bg\ white\.png$ https://proemote.es/space-bg-white.png [R=301,L,NC]
 
 # ----------------------------------------------------------------------
 # BLOQUE 1 - CANONICALIZACIÓN GLOBAL (PARTE 2: TRAILING SLASH UNIVERSAL)
