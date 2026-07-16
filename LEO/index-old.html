@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <!-- Cookiebot -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="bf436d02-7576-46c5-bcba-9f21f191d406" data-blockingmode="auto" type="text/javascript"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leo - La Inteligencia del Ecosistema Proemote</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web" data-cookieconsent="ignore"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com" data-cookieconsent="ignore"></script>
+    <script data-cookieconsent="ignore">
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#05020a', 
+                            surface: '#0d0716', 
+                            purple: '#8b5cf6', 
+                            purpleLight: '#a78bfa',
+                            purpleGlow: 'rgba(139, 92, 246, 0.4)',
+                            text: '#f8fafc',
+                            textMuted: '#94a3b8',
+                            accent: '#c084fc'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'spin-slow': 'spin 20s linear infinite',
+                        'glow': 'glow 3s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            '0%': { opacity: 0.5, transform: 'scale(1)' },
+                            '100%': { opacity: 1, transform: 'scale(1.05)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #05020a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        .glass-panel {
+            background: rgba(13, 7, 22, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(139, 92, 246, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            border-color: rgba(139, 92, 246, 0.3);
+            background: rgba(13, 7, 22, 0.7);
+            transform: translateY(-2px);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .text-gradient-purple {
+            background: linear-gradient(135deg, #c084fc 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Hero styles */
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top center, rgba(139,92,246,0.15) 0%, transparent 60%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: radial-gradient(ellipse at 50% 0%, black 40%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse at 50% 0%, black 40%, transparent 80%);
+            z-index: 0;
+        }
+
+        /* The central brain orb */
+        .orb-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .orb-core {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, #c084fc 0%, #8b5cf6 50%, #4c1d95 100%);
+            border-radius: 50%;
+            box-shadow: 
+                0 0 60px rgba(139, 92, 246, 0.6),
+                inset 0 0 20px rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            animation: glow 4s infinite alternate;
+        }
+
+        .orb-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            z-index: 1;
+        }
+
+        .ring-1 { width: 100%; height: 100%; animation: spin-slow 25s linear infinite; }
+        .ring-2 { width: 140%; height: 140%; animation: spin-slow 35s linear infinite reverse; border-style: dashed; }
+        .ring-3 { width: 180%; height: 180%; animation: spin-slow 45s linear infinite; opacity: 0.5; }
+
+        .satellite {
+            position: absolute;
+            background: rgba(13, 7, 22, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            z-index: 20;
+        }
+        
+        /* Satellites positioning */
+        .sat-proemote { top: -10%; left: 10%; animation: float 5s ease-in-out infinite; }
+        .sat-leadflow { top: 20%; right: -20%; animation: float 6s ease-in-out infinite 1s; }
+        .sat-affinia { bottom: 10%; right: 10%; animation: float 5.5s ease-in-out infinite 2s; }
+        .sat-dining { bottom: 20%; left: -10%; animation: float 6.5s ease-in-out infinite 0.5s; opacity: 0.7;}
+
+        /* Connecting lines */
+        .connection-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.5), transparent);
+            height: 1px;
+            width: 100px;
+            top: 50%;
+            left: 50%;
+            transform-origin: 0 0;
+            z-index: 5;
+        }
+
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        
+        /* CTA Section Styles matching Volectra */
+        .cta-container {
+            background: radial-gradient(ellipse at top, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(to right, rgba(139, 92, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            transform: perspective(500px) rotateX(60deg) scale(2);
+            transform-origin: top center;
+            opacity: 0.3;
+            mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
+            -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
+        }
+    </style>
+</head>
+<body class="antialiased relative selection:bg-brand-purple selection:text-white bg-[#05020a] text-slate-50">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 backdrop-blur-md bg-[#05020a]/80 border-b border-white/5" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="ph-fill ph-brain text-brand-purple text-2xl"></i>
+                <span class="font-bold text-xl tracking-tight text-white">LEO</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-brand-textMuted">
+                <a href="#capacidades" class="hover:text-white transition-colors">Capacidades</a>
+                <a href="#especializaciones" class="hover:text-white transition-colors">Ecosistema</a>
+                <a href="#evolucion" class="hover:text-white transition-colors">Evolución</a>
+            </div>
+            <div>
+                <a href="#cta" class="px-5 py-2 rounded-full bg-brand-purple/10 hover:bg-brand-purple/20 border border-brand-purple/30 text-white text-sm font-medium transition-all shadow-[0_0_15px_rgba(139,92,246,0.1)] hover:shadow-[0_0_20px_rgba(139,92,246,0.3)]">
+                    Explorar el Ecosistema
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative z-10">
+        
+        <!-- SECCIÓN 1: HERO (Rediseñado e Integrado) -->
+        <section class="relative min-h-[90vh] flex flex-col items-center justify-center pt-32 pb-20 px-4 lg:px-8 overflow-hidden">
+            <div class="hero-bg"></div>
+            <div class="hero-grid"></div>
+            
+            <div class="max-w-7xl mx-auto w-full relative z-10 flex flex-col lg:flex-row items-center justify-between gap-16">
+                
+                <!-- Columna Izquierda: Copy -->
+                <div class="flex-1 flex flex-col justify-center text-left max-w-2xl reveal active">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-purple/10 border border-brand-purple/20 text-brand-purpleLight text-xs font-semibold tracking-wide uppercase mb-6 w-fit backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-brand-purple animate-pulse"></span>
+                        Tecnología propia · Inteligencia del Ecosistema Proemote
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
+                        Conoce a Leo.<br>
+                        <span class="text-gradient">La inteligencia detrás del ecosistema.</span>
+                    </h1>
+                    
+                    <div class="space-y-4 mb-10 text-lg text-brand-textMuted max-w-xl leading-relaxed">
+                        <p>
+                            Leo comprende conversaciones, interpreta información y ayuda a personas y empresas a tomar mejores decisiones.
+                        </p>
+                        <p class="text-white/80 font-medium">
+                            Da igual si hablas con Proemote, LeadFlow o Affinia. Siempre estás interactuando con la misma inteligencia.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row items-start gap-4">
+                        <a href="#capacidades" class="px-8 py-3.5 rounded-full bg-brand-purple hover:bg-brand-purpleLight text-white font-medium transition-all shadow-[0_0_25px_rgba(139,92,246,0.4)] hover:shadow-[0_0_40px_rgba(167,139,250,0.6)] flex items-center gap-2">
+                            Descubrir cómo funciona <i class="ph-bold ph-arrow-down-right"></i>
+                        </a>
+                        <a href="#ecosistema" class="px-8 py-3.5 rounded-full bg-transparent border border-white/10 hover:border-white/30 hover:bg-white/5 text-white font-medium transition-all">
+                            Explorar el ecosistema
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Visual (El Orbe LEO) -->
+                <div class="flex-1 w-full h-[500px] flex items-center justify-center relative reveal active delay-200 mt-10 lg:mt-0">
+                    
+                    <!-- Glow de fondo suave -->
+                    <div class="absolute w-[400px] h-[400px] bg-brand-purple/20 rounded-full blur-[100px]"></div>
+
+                    <div class="orb-container">
+                        <!-- Anillos Orbitales -->
+                        <div class="orb-ring ring-1"></div>
+                        <div class="orb-ring ring-2"></div>
+                        <div class="orb-ring ring-3"></div>
+
+                        <!-- Núcleo Central -->
+                        <div class="orb-core">
+                            <div class="text-center">
+                                <i class="ph-fill ph-brain text-4xl text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] mb-1"></i>
+                                <div class="font-black text-xl tracking-[0.2em] text-white">LEO</div>
+                            </div>
+                        </div>
+
+                        <!-- Líneas de conexión simuladas (SVG) -->
+                        <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" style="overflow: visible;">
+                            <path d="M140,140 L30,-14" stroke="rgba(139,92,246,0.3)" stroke-width="1.5" stroke-dasharray="4 4" fill="none" class="animate-pulse-slow"/>
+                            <path d="M140,140 L300,56" stroke="rgba(139,92,246,0.3)" stroke-width="1.5" stroke-dasharray="4 4" fill="none" class="animate-pulse-slow delay-100"/>
+                            <path d="M140,140 L252,252" stroke="rgba(139,92,246,0.3)" stroke-width="1.5" stroke-dasharray="4 4" fill="none" class="animate-pulse-slow delay-200"/>
+                        </svg>
+
+                        <!-- Satélites (Productos) -->
+                        <div class="satellite sat-proemote group">
+                            <div class="w-6 h-6 rounded-md bg-blue-500/20 text-blue-400 flex items-center justify-center border border-blue-500/30">
+                                <i class="ph-fill ph-brain text-xs"></i>
+                            </div>
+                            <span class="tracking-wide">PROEMOTE</span>
+                        </div>
+
+                        <div class="satellite sat-leadflow group">
+                            <div class="w-6 h-6 rounded-md bg-green-500/20 text-green-400 flex items-center justify-center border border-green-500/30">
+                                <i class="ph-fill ph-funnel text-xs"></i>
+                            </div>
+                            <span class="tracking-wide">LEADFLOW</span>
+                        </div>
+
+                        <div class="satellite sat-affinia group">
+                            <div class="w-6 h-6 rounded-md bg-orange-500/20 text-orange-400 flex items-center justify-center border border-orange-500/30">
+                                <i class="ph-fill ph-chart-pie-slice text-xs"></i>
+                            </div>
+                            <span class="tracking-wide">AFFINIA</span>
+                        </div>
+
+                        <div class="satellite sat-dining group border-white/10">
+                            <div class="w-6 h-6 rounded-md bg-white/5 text-white/50 flex items-center justify-center border border-white/10">
+                                <i class="ph-fill ph-fork-knife text-xs"></i>
+                            </div>
+                            <span class="tracking-wide text-white/60">Dining</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Etiqueta inferior del hero -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-brand-textMuted text-xs font-medium tracking-[0.3em] uppercase flex items-center justify-center gap-4 opacity-60 reveal active delay-300">
+                <span class="w-12 h-[1px] bg-brand-textMuted/50"></span>
+                Powered by Leo
+                <span class="w-12 h-[1px] bg-brand-textMuted/50"></span>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: Leo no es un chatbot -->
+        <section id="capacidades" class="py-24 px-4 relative z-10 border-t border-white/5 bg-[#05020a]">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,92,246,0.05)_0%,transparent_70%)] pointer-events-none"></div>
+            
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                    <div class="inline-block px-3 py-1 mb-4 rounded-md bg-white/5 border border-white/10 text-xs font-medium text-brand-textMuted uppercase tracking-wider">
+                        Leo no es un chatbot
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Mucho más que <span class="text-gradient-purple">responder preguntas.</span></h2>
+                    <p class="text-lg text-brand-textMuted leading-relaxed">
+                        La mayoría de asistentes responden. Leo va un paso más allá. Comprende el contexto, interpreta cada conversación y convierte la información en acciones útiles para personas, equipos y negocios. Porque una buena inteligencia no solo responde. <strong class="text-white font-medium">Ayuda a avanzar.</strong>
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-panel p-8 rounded-2xl reveal delay-100 relative group overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-brand-purple/10 blur-[40px] rounded-full group-hover:bg-brand-purple/20 transition-colors"></div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center text-brand-purple mb-6 shadow-lg relative z-10">
+                            <i class="ph-fill ph-brain text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-white relative z-10">Comprende</h3>
+                        <p class="text-brand-textMuted text-sm leading-relaxed relative z-10">
+                            Antes de responder, entiende. Tiene en cuenta el contexto, la intención y la conversación para ofrecer respuestas más útiles y naturales. No memoriza respuestas. Interpreta situaciones.
+                        </p>
+                    </div>
+
+                    <div class="glass-panel p-8 rounded-2xl reveal delay-200 relative group overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-brand-purple/10 blur-[40px] rounded-full group-hover:bg-brand-purple/20 transition-colors"></div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center text-brand-purple mb-6 shadow-lg relative z-10">
+                            <i class="ph-fill ph-chart-bar text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-white relative z-10">Analiza</h3>
+                        <p class="text-brand-textMuted text-sm leading-relaxed relative z-10">
+                            Cada conversación contiene información valiosa. Leo identifica patrones, detecta oportunidades, encuentra problemas y transforma datos en conocimiento accionable.
+                        </p>
+                    </div>
+
+                    <div class="glass-panel p-8 rounded-2xl reveal delay-300 relative group overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-brand-purple/10 blur-[40px] rounded-full group-hover:bg-brand-purple/20 transition-colors"></div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center text-brand-purple mb-6 shadow-lg relative z-10">
+                            <i class="ph-fill ph-lightning text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-white relative z-10">Actúa</h3>
+                        <p class="text-brand-textMuted text-sm leading-relaxed relative z-10">
+                            Responder es solo el principio. Leo puede recomendar acciones, clasificar oportunidades, resumir conversaciones, automatizar tareas y ayudar a tomar mejores decisiones.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: Especializaciones -->
+        <section id="especializaciones" class="py-24 px-4 relative bg-[#090510] border-y border-white/5">
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-16 items-center">
+                    <div class="reveal">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">Un mismo cerebro.<br><span class="text-gradient-purple">Distintas especializaciones.</span></h2>
+                        <p class="text-lg text-brand-textMuted mb-10">
+                            Cada producto del ecosistema tiene necesidades diferentes. Por eso Leo adopta distintas especializaciones sin perder su misma forma de pensar. Una única inteligencia. Múltiples formas de ayudar.
+                        </p>
+                        
+                        <!-- Diagrama Simplificado Estilo Ecosistema -->
+                        <div class="p-8 rounded-2xl glass-panel flex flex-col items-center">
+                            <div class="px-6 py-2 rounded-full bg-brand-purple/20 border border-brand-purple/40 text-white font-bold tracking-widest mb-2 shadow-[0_0_15px_rgba(139,92,246,0.3)]">LEO</div>
+                            <div class="text-[10px] text-brand-textMuted uppercase tracking-widest mb-6">Intelligence Layer</div>
+                            
+                            <div class="flex w-full justify-center h-8">
+                                <div class="w-px h-full bg-gradient-to-b from-brand-purple/50 to-brand-purple/10 relative"></div>
+                            </div>
+                            <div class="w-[85%] h-px bg-brand-purple/20 relative flex justify-between">
+                                <div class="w-px h-6 bg-brand-purple/20 absolute left-0 top-0"></div>
+                                <div class="w-px h-6 bg-brand-purple/20 absolute left-[33%] top-0"></div>
+                                <div class="w-px h-6 bg-brand-purple/20 absolute left-[66%] top-0"></div>
+                                <div class="w-px h-6 bg-brand-purple/20 absolute right-0 top-0"></div>
+                            </div>
+                            
+                            <div class="flex justify-between w-full mt-6 text-xs font-semibold text-white/80">
+                                <span class="flex-1 text-center text-blue-300">Advisor</span>
+                                <span class="flex-1 text-center text-green-300">Sales</span>
+                                <span class="flex-1 text-center text-orange-300">Insights</span>
+                                <span class="flex-1 text-center text-white/40">Dining & Future</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal delay-200">
+                        <div class="glass-panel p-6 rounded-xl hover:bg-white/[0.02]">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+                                    <i class="ph-fill ph-brain text-xl text-blue-400"></i>
+                                </div>
+                                <h4 class="font-bold text-white">Leo Advisor</h4>
+                            </div>
+                            <p class="text-sm text-brand-textMuted">La inteligencia que acompaña a los clientes de Proemote. Escucha, orienta, resuelve dudas y ayuda a encontrar la mejor solución para cada proyecto.</p>
+                        </div>
+                        
+                        <div class="glass-panel p-6 rounded-xl hover:bg-white/[0.02]">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center">
+                                    <i class="ph-fill ph-briefcase text-xl text-green-400"></i>
+                                </div>
+                                <h4 class="font-bold text-white">Leo Sales</h4>
+                            </div>
+                            <p class="text-sm text-brand-textMuted">El especialista comercial de LeadFlow. Califica oportunidades, realiza seguimientos, agenda reuniones y facilita el trabajo del equipo de ventas.</p>
+                        </div>
+                        
+                        <div class="glass-panel p-6 rounded-xl hover:bg-white/[0.02]">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
+                                    <i class="ph-fill ph-chart-polar text-xl text-orange-400"></i>
+                                </div>
+                                <h4 class="font-bold text-white">Leo Insights</h4>
+                            </div>
+                            <p class="text-sm text-brand-textMuted">La inteligencia analítica de Affinia. Convierte datos en información útil para detectar oportunidades, optimizar procesos y tomar decisiones con mayor confianza.</p>
+                        </div>
+                        
+                        <div class="glass-panel p-6 rounded-xl hover:bg-white/[0.02] border-dashed border-white/20">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
+                                    <i class="ph-fill ph-fork-knife text-xl text-white/60"></i>
+                                </div>
+                                <h4 class="font-bold text-white/80">Leo Dining</h4>
+                            </div>
+                            <p class="text-sm text-brand-textMuted">La inteligencia de asistentes gastronómicos. Aunque el usuario vea un asistente del restaurante, detrás está Leo comprendiendo y recomendando.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: Cómo piensa Leo -->
+        <section class="py-24 px-4 relative bg-[#05020a]">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16 reveal">
+                    <div class="inline-block px-3 py-1 mb-4 rounded-md bg-white/5 border border-white/10 text-xs font-medium text-brand-textMuted uppercase tracking-wider">
+                        Cómo piensa Leo
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">No sigue un guion.<br><span class="text-gradient-purple">Sigue un proceso.</span></h2>
+                </div>
+
+                <div class="relative pl-8 md:pl-0">
+                    <!-- Línea central -->
+                    <div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-purple via-brand-purple/20 to-transparent md:-translate-x-1/2"></div>
+
+                    <div class="space-y-12">
+                        <!-- Pasos del Timeline -->
+                        <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between group reveal">
+                            <div class="md:w-[45%] md:text-right pr-8 order-2 md:order-1 mt-2 md:mt-0">
+                                <h4 class="text-xl font-bold text-white mb-2">Escucha</h4>
+                                <p class="text-sm text-brand-textMuted">Comprende la conversación y el contexto antes de actuar.</p>
+                            </div>
+                            <div class="absolute left-[-1.9rem] md:static md:left-auto w-12 h-12 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center z-10 order-1 md:order-2 shadow-[0_0_15px_rgba(139,92,246,0.2)] group-hover:border-brand-purple transition-colors">
+                                <i class="ph-fill ph-ear text-xl text-brand-purpleLight"></i>
+                            </div>
+                            <div class="md:w-[45%] pl-8 order-3 hidden md:block"></div>
+                        </div>
+
+                        <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between group reveal delay-100">
+                            <div class="md:w-[45%] pr-8 order-2 md:order-3 mt-2 md:mt-0 md:text-left pl-0 md:pl-8">
+                                <h4 class="text-xl font-bold text-white mb-2">Comprende</h4>
+                                <p class="text-sm text-brand-textMuted">Interpreta la intención, incluso cuando la información es incompleta.</p>
+                            </div>
+                            <div class="absolute left-[-1.9rem] md:static md:left-auto w-12 h-12 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center z-10 order-1 md:order-2 shadow-[0_0_15px_rgba(139,92,246,0.2)] group-hover:border-brand-purple transition-colors">
+                                <i class="ph-fill ph-brain text-xl text-brand-purpleLight"></i>
+                            </div>
+                            <div class="md:w-[45%] pr-8 order-3 md:order-1 hidden md:block"></div>
+                        </div>
+
+                        <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between group reveal delay-200">
+                            <div class="md:w-[45%] md:text-right pr-8 order-2 md:order-1 mt-2 md:mt-0">
+                                <h4 class="text-xl font-bold text-white mb-2">Analiza</h4>
+                                <p class="text-sm text-brand-textMuted">Relaciona datos, conversaciones e historial para generar una visión más completa.</p>
+                            </div>
+                            <div class="absolute left-[-1.9rem] md:static md:left-auto w-12 h-12 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center z-10 order-1 md:order-2 shadow-[0_0_15px_rgba(139,92,246,0.2)] group-hover:border-brand-purple transition-colors">
+                                <i class="ph-fill ph-chart-line-up text-xl text-brand-purpleLight"></i>
+                            </div>
+                            <div class="md:w-[45%] pl-8 order-3 hidden md:block"></div>
+                        </div>
+
+                        <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between group reveal delay-300">
+                            <div class="md:w-[45%] pr-8 order-2 md:order-3 mt-2 md:mt-0 md:text-left pl-0 md:pl-8">
+                                <h4 class="text-xl font-bold text-white mb-2">Actúa</h4>
+                                <p class="text-sm text-brand-textMuted">Propone acciones, automatiza tareas o responde con información útil según cada situación.</p>
+                            </div>
+                            <div class="absolute left-[-1.9rem] md:static md:left-auto w-12 h-12 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center z-10 order-1 md:order-2 shadow-[0_0_15px_rgba(139,92,246,0.2)] group-hover:border-brand-purple transition-colors">
+                                <i class="ph-fill ph-lightning text-xl text-brand-purpleLight"></i>
+                            </div>
+                            <div class="md:w-[45%] pr-8 order-3 md:order-1 hidden md:block"></div>
+                        </div>
+
+                        <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between group reveal delay-400">
+                            <div class="md:w-[45%] md:text-right pr-8 order-2 md:order-1 mt-2 md:mt-0">
+                                <h4 class="text-xl font-bold text-white mb-2">Aprende</h4>
+                                <p class="text-sm text-brand-textMuted">Cada interacción ayuda a mejorar la experiencia futura manteniendo una personalidad coherente en todo el ecosistema.</p>
+                            </div>
+                            <div class="absolute left-[-1.9rem] md:static md:left-auto w-12 h-12 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center z-10 order-1 md:order-2 shadow-[0_0_15px_rgba(139,92,246,0.2)] group-hover:border-brand-purple transition-colors">
+                                <i class="ph-fill ph-plant text-xl text-brand-purpleLight"></i>
+                            </div>
+                            <div class="md:w-[45%] pl-8 order-3 hidden md:block"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 5: Personalidad -->
+        <section class="py-24 px-4 bg-[#090510] border-y border-white/5">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 reveal">
+                    <div class="inline-block px-3 py-1 mb-4 rounded-md bg-white/5 border border-white/10 text-xs font-medium text-brand-textMuted uppercase tracking-wider">
+                        Siempre la misma personalidad
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">La tecnología cambia.<br><span class="text-gradient-purple">La forma de ayudar, no.</span></h2>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Cards de Personalidad -->
+                    <div class="glass-panel p-8 rounded-2xl reveal hover:bg-white/[0.03]">
+                        <i class="ph-fill ph-handshake text-3xl text-brand-purple mb-4"></i>
+                        <h4 class="text-lg font-bold text-white mb-2">Cercano</h4>
+                        <p class="text-sm text-brand-textMuted">Habla de forma natural. Como lo haría una persona. Nunca forzado ni robótico.</p>
+                    </div>
+                    <div class="glass-panel p-8 rounded-2xl reveal delay-100 hover:bg-white/[0.03]">
+                        <i class="ph-fill ph-target text-3xl text-brand-purple mb-4"></i>
+                        <h4 class="text-lg font-bold text-white mb-2">Claro</h4>
+                        <p class="text-sm text-brand-textMuted">Explica las cosas sin tecnicismos innecesarios. Hace lo complejo, simple y directo.</p>
+                    </div>
+                    <div class="glass-panel p-8 rounded-2xl reveal delay-200 hover:bg-white/[0.03]">
+                        <i class="ph-fill ph-check-circle text-3xl text-brand-purple mb-4"></i>
+                        <h4 class="text-lg font-bold text-white mb-2">Resolutivo</h4>
+                        <p class="text-sm text-brand-textMuted">Busca soluciones. No da respuestas largas sin proponer un siguiente paso claro.</p>
+                    </div>
+                    <div class="glass-panel p-8 rounded-2xl reveal hover:bg-white/[0.03]">
+                        <i class="ph-fill ph-lightbulb text-3xl text-brand-purple mb-4"></i>
+                        <h4 class="text-lg font-bold text-white mb-2">Inteligente</h4>
+                        <p class="text-sm text-brand-textMuted">Relaciona información, recuerda el contexto y conecta ideas para ofrecer respuestas más útiles.</p>
+                    </div>
+                    <div class="glass-panel p-8 rounded-2xl reveal delay-100 hover:bg-white/[0.03]">
+                        <i class="ph-fill ph-heart text-3xl text-brand-purple mb-4"></i>
+                        <h4 class="text-lg font-bold text-white mb-2">Humano</h4>
+                        <p class="text-sm text-brand-textMuted">La inteligencia artificial no sustituye a las personas. Las ayuda a tomar mejores decisiones.</p>
+                    </div>
+                    <div class="glass-panel p-8 rounded-2xl reveal delay-200 hover:bg-white/[0.03]">
+                        <i class="ph-fill ph-shield-check text-3xl text-brand-purple mb-4"></i>
+                        <h4 class="text-lg font-bold text-white mb-2">Responsable</h4>
+                        <p class="text-sm text-brand-textMuted">Diseñado para actuar con transparencia, criterio y respeto por la información de cada usuario.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 6: Dónde encontrar a Leo -->
+        <section id="ecosistema" class="py-24 px-4 bg-[#05020a]">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-16 reveal">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Donde puedes<br><span class="text-gradient-purple">encontrar a Leo</span></h2>
+                    <p class="text-brand-textMuted text-lg max-w-2xl">Leo ya forma parte de distintas experiencias dentro del ecosistema Proemote. Y seguirá evolucionando junto a nuevos productos.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Proemote -->
+                    <div class="glass-panel p-8 rounded-2xl flex flex-col h-full reveal relative overflow-hidden group hover:border-blue-500/30">
+                        <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <i class="ph-fill ph-brain text-8xl text-blue-500"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2 relative z-10">Proemote</h3>
+                        <p class="text-blue-400 text-sm font-medium mb-4 relative z-10">Tu asesor digital.</p>
+                        <p class="text-brand-textMuted text-sm flex-grow mb-8 relative z-10">Te ayuda a entender qué necesita tu proyecto y encontrar el siguiente paso.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-sm font-medium text-white group-hover:text-blue-400 transition-colors relative z-10 mt-auto w-fit">
+                            Conocer Proemote <i class="ph ph-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- LeadFlow -->
+                    <div class="glass-panel p-8 rounded-2xl flex flex-col h-full reveal delay-100 relative overflow-hidden group hover:border-green-500/30">
+                        <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <i class="ph-fill ph-funnel text-8xl text-green-500"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2 relative z-10">LeadFlow</h3>
+                        <p class="text-green-400 text-sm font-medium mb-4 relative z-10">Tu SDR inteligente.</p>
+                        <p class="text-brand-textMuted text-sm flex-grow mb-8 relative z-10">Convierte conversaciones en oportunidades comerciales.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-sm font-medium text-white group-hover:text-green-400 transition-colors relative z-10 mt-auto w-fit">
+                            Descubrir LeadFlow <i class="ph ph-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Affinia -->
+                    <div class="glass-panel p-8 rounded-2xl flex flex-col h-full reveal delay-200 relative overflow-hidden group hover:border-orange-500/30">
+                        <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <i class="ph-fill ph-chart-pie-slice text-8xl text-orange-500"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2 relative z-10">Affinia</h3>
+                        <p class="text-orange-400 text-sm font-medium mb-4 relative z-10">Tu analista de negocio.</p>
+                        <p class="text-brand-textMuted text-sm flex-grow mb-8 relative z-10">Transforma datos en decisiones más inteligentes.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-sm font-medium text-white group-hover:text-orange-400 transition-colors relative z-10 mt-auto w-fit">
+                            Explorar Affinia <i class="ph ph-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Próximamente -->
+                    <div class="p-8 rounded-2xl border border-white/10 bg-white/[0.02] border-dashed flex flex-col justify-center h-full reveal delay-300">
+                        <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6">
+                            <i class="ph-bold ph-dots-three text-2xl text-white/40"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white/80 mb-2">Próximamente...</h3>
+                        <p class="text-brand-textMuted text-sm">Nuevas especializaciones.<br>Una misma inteligencia.<br>Cada vez más capacidades.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 7: Evolución -->
+        <section id="evolucion" class="py-24 px-4 bg-[#090510] relative overflow-hidden border-t border-white/5">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[200px] bg-brand-purple/10 blur-[100px] rounded-full pointer-events-none"></div>
+            
+            <div class="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/3 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Una inteligencia en <span class="text-gradient-purple">constante evolución.</span></h2>
+                    <p class="text-brand-textMuted leading-relaxed">
+                        Leo evoluciona junto al ecosistema. Cada nueva capacidad amplía lo que puede hacer, manteniendo siempre una experiencia coherente y una misma forma de entender a las personas.
+                    </p>
+                </div>
+                
+                <div class="lg:w-2/3 w-full reveal delay-200">
+                    <div class="flex flex-wrap gap-2 md:gap-3">
+                        <div class="px-4 py-2.5 md:px-5 md:py-3 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-medium flex items-center gap-2">
+                            <i class="ph-bold ph-check"></i> Responde
+                        </div>
+                        <i class="ph ph-arrow-right text-white/30 self-center hidden sm:block"></i>
+                        <div class="px-4 py-2.5 md:px-5 md:py-3 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-medium flex items-center gap-2">
+                            <i class="ph-bold ph-check"></i> Comprende
+                        </div>
+                        <i class="ph ph-arrow-right text-white/30 self-center hidden sm:block"></i>
+                        <div class="px-4 py-2.5 md:px-5 md:py-3 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-medium flex items-center gap-2">
+                            <i class="ph-bold ph-check"></i> Analiza
+                        </div>
+                    </div>
+                    
+                    <div class="h-6 border-l border-dashed border-brand-purple/30 ml-6 md:ml-8 my-2"></div>
+                    
+                    <div class="flex flex-wrap gap-2 md:gap-3">
+                        <div class="px-4 py-2.5 md:px-5 md:py-3 rounded-lg glass-panel text-white text-sm font-medium flex items-center gap-2 shadow-[0_0_15px_rgba(139,92,246,0.15)] border-brand-purple/30">
+                            <i class="ph-bold ph-rocket-launch text-brand-purpleLight"></i> Recomienda
+                        </div>
+                        <i class="ph ph-arrow-right text-white/30 self-center hidden sm:block"></i>
+                        <div class="px-4 py-2.5 md:px-5 md:py-3 rounded-lg glass-panel text-white text-sm font-medium flex items-center gap-2 border-brand-purple/30">
+                            <i class="ph-bold ph-rocket-launch text-brand-purpleLight"></i> Automatiza
+                        </div>
+                        <i class="ph ph-arrow-right text-white/30 self-center hidden sm:block"></i>
+                        <div class="px-4 py-2.5 md:px-5 md:py-3 rounded-lg glass-panel text-white text-sm font-medium flex items-center gap-2 border-brand-purple/30">
+                            <i class="ph-bold ph-rocket-launch text-brand-purpleLight"></i> Coordina
+                        </div>
+                        <i class="ph ph-arrow-right text-white/30 self-center hidden sm:block"></i>
+                        <div class="px-4 py-2.5 md:px-5 md:py-3 rounded-lg glass-panel text-white text-sm font-medium flex items-center gap-2 border-brand-purple/30">
+                            <i class="ph-bold ph-rocket-launch text-brand-purpleLight"></i> Ejecuta
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 px-6 py-4 rounded-xl glass-panel inline-flex items-center gap-3 bg-brand-purple/5 border-brand-purple/40 shadow-[0_0_20px_rgba(139,92,246,0.2)]">
+                        <i class="ph-bold ph-infinity text-2xl text-brand-purpleLight animate-pulse"></i>
+                        <span class="font-bold text-white tracking-wide">Aprende continuamente</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 8: Por qué inteligencia propia -->
+        <section class="py-32 px-4 relative bg-[#05020a]">
+            <div class="max-w-3xl mx-auto text-center reveal">
+                <i class="ph-fill ph-quotes text-4xl text-brand-purple/30 mb-6"></i>
+                <h2 class="text-3xl md:text-5xl font-bold mb-10 leading-tight">Porque las mejores experiencias nacen cuando <span class="text-gradient-purple">todo trabaja conectado.</span></h2>
+                
+                <div class="space-y-6 text-lg text-brand-textMuted text-left glass-panel p-8 md:p-12 rounded-3xl">
+                    <p>Hoy muchas empresas utilizan herramientas que funcionan de forma aislada. Cada plataforma tiene su propio asistente, su propia lógica y una forma distinta de interactuar.</p>
+                    
+                    <p>En Proemote creemos en otro enfoque. Una inteligencia compartida capaz de comprender personas, conversaciones y negocios desde un mismo contexto. Así, cada nuevo producto no empieza desde cero. Crece sobre una base común que aprende, evoluciona y mantiene una experiencia coherente para todos.</p>
+                    
+                    <div class="pt-6 border-t border-white/10 mt-6 text-center">
+                        <p class="font-bold text-white text-xl">Por eso nació Leo.</p>
+                        <p class="text-brand-purpleLight mt-2 font-medium">No como un chatbot. Sino como la capa de inteligencia que impulsa todo el ecosistema Proemote.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL ESTILO VOLECTRA -->
+        <section id="cta" class="py-32 px-4 cta-container flex flex-col items-center justify-center text-center">
+            <div class="cta-grid-bg"></div>
+            
+            <div class="relative z-10 max-w-3xl mx-auto reveal">
+                <!-- Icono Top -->
+                <div class="w-16 h-16 mx-auto mb-8 rounded-2xl bg-gradient-to-b from-brand-purple/40 to-brand-purple/10 border border-brand-purple/30 flex items-center justify-center shadow-[0_0_30px_rgba(139,92,246,0.3)] backdrop-blur-xl">
+                    <i class="ph-fill ph-brain text-3xl text-white"></i>
+                </div>
+                
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight">
+                    La inteligencia solo tiene sentido cuando ayuda a las personas.
+                </h2>
+                
+                <p class="text-lg text-brand-textMuted mb-12 max-w-2xl mx-auto">
+                    Descubre cómo Leo mejora la experiencia en cada uno de los productos del ecosistema Proemote y acompaña a personas y empresas a tomar mejores decisiones.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-purple to-indigo-500 hover:from-brand-purpleLight hover:to-indigo-400 text-white font-bold transition-all shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:shadow-[0_0_30px_rgba(139,92,246,0.6)] hover:-translate-y-1">
+                        Explorar el ecosistema
+                    </a>
+                    <a href="#" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white font-semibold transition-all backdrop-blur-md">
+                        Conocer Proemote
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Glow bottom -->
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-32 bg-brand-purple/20 blur-[100px] rounded-full pointer-events-none"></div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+        <!-- Footer Unificado -->
+    <footer class="bg-[#030105] pt-16 pb-8 border-t border-white/5 text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                
+                <!-- Proemote Brand Info -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="ph-fill ph-cube-transparent text-3xl text-white"></i>
+                        <span class="font-extrabold text-2xl tracking-tight text-white">Proemote®</span>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h5 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Llámanos</h5>
+                        <p class="text-brand-purple font-bold text-xl mb-1">+34 924 000 000</p>
+                        <p class="text-xs text-gray-500">Lunes a viernes - 09:00 a 18:00</p>
+                    </div>
+
+                    <div>
+                        <h5 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Ubicación</h5>
+                        <p class="text-sm text-gray-400">
+                            C/ San Salvador 11, CP 06800<br>
+                            Mérida, Badajoz<br>
+                            Extremadura, España
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Navigation Columns -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Empresa</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Sobre Nosotros</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">LEO</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Precios</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contacto</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white mb-4">Soporte</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Centro de ayuda</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Tutoriales</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Estado del sistema</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Comunidad</a></li>
+                    </ul>
+                </div>
+
+                <!-- Map / Visual Element -->
+                <div class="h-full min-h-[150px] bg-[#08080c] rounded-xl overflow-hidden relative border border-white/10">
+                    <div class="absolute inset-0 opacity-50" style="background-image: url('data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 20 0 L 0 0 0 20' fill='none' stroke='%23a1a1aa' stroke-width='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E');"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="ph-fill ph-map-pin text-4xl text-brand-purple drop-shadow-md relative top-[-10px]"></i>
+                    </div>
+                    <div class="absolute bottom-2 right-2 bg-[#030105]/80 backdrop-blur px-2 py-1 rounded text-[10px] font-medium text-gray-300 border border-white/10">
+                        Ver en Google Maps
+                    </div>
+                </div>
+            </div>
+
+            <!-- Big Bottom Brand Name -->
+            <div class="text-center overflow-hidden w-full select-none pt-8 border-t border-white/5">
+                <h1 class="text-[15vw] font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-brand-purple/20 to-brand-purple/5 leading-none uppercase">
+                    LEO
+                </h1>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center mt-6 text-xs text-gray-500 gap-4">
+                <div>&copy; 2026 LEO. Un producto de Proemote® Ecosystem.</div>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white">Aviso Legal</a>
+                    <a href="#" class="hover:text-white">Política de Privacidad</a>
+                    <a href="#" class="hover:text-white">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optional: stop observing once animated
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach((element) => {
+                observer.observe(element);
+            });
+
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow-[0_10px_30px_rgba(0,0,0,0.5)]', 'bg-[#05020a]/95');
+                    navbar.classList.remove('bg-[#05020a]/80');
+                } else {
+                    navbar.classList.remove('shadow-[0_10px_30px_rgba(0,0,0,0.5)]', 'bg-[#05020a]/95');
+                    navbar.classList.add('bg-[#05020a]/80');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
