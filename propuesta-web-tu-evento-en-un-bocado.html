@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Proemote — Tu Evento en un Bocado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-base: #080810;
+            --bg-secondary: #0F0F1A;
+            --purple-primary: #7B5BF5;
+            --purple-glow: #9D7FFF;
+            --purple-deep: #3D2A8A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0A8D0;
+            --text-muted: #6B6490;
+            --border-glass: rgba(123, 91, 245, 0.25);
+            --surface-glass: rgba(255, 255, 255, 0.04);
+
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-base);
+            background-image:
+                radial-gradient(ellipse 60% 50% at 80% 10%, var(--purple-deep) 0%, transparent 60%),
+                linear-gradient(rgba(123,91,245,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(123,91,245,0.05) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+            background-attachment: fixed;
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        .document-container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        .icon { display: inline-flex; flex-shrink: 0; vertical-align: middle; }
+        .icon svg { display: block; width: 100%; height: 100%; }
+
+        .title-hero {
+            font-family: var(--font-heading);
+            font-size: 52px;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.1;
+            margin-bottom: 40px;
+            letter-spacing: -0.02em;
+        }
+
+        .title-hero .gradient-text {
+            background: linear-gradient(90deg, var(--purple-glow), #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        h1.section-title {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            margin-top: 48px;
+        }
+
+        h1.section-title::before {
+            content: '';
+            display: block;
+            width: 3px;
+            height: 24px;
+            background-color: var(--purple-primary);
+            border-radius: 2px;
+            box-shadow: 0 0 10px var(--purple-glow);
+        }
+
+        h2.subsection-title {
+            font-family: var(--font-heading);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--purple-glow);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        p { color: var(--text-secondary); font-size: 16px; margin-bottom: 16px; }
+
+        .meta-text {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(123, 91, 245, 0.15);
+            padding-bottom: 16px;
+        }
+
+        .meta-text span { display: flex; align-items: center; gap: 6px; }
+
+        .glass-panel {
+            background: var(--surface-glass);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(123, 91, 245, 0.20);
+            border-radius: 16px;
+            box-shadow: 0 4px 32px rgba(123, 91, 245, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            padding: 32px;
+            margin-bottom: 24px;
+            page-break-inside: avoid;
+        }
+
+        .glass-panel-hero {
+            box-shadow: 0 0 40px rgba(123, 91, 245, 0.20), 0 4px 32px rgba(0, 0, 0, 0.60), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(123, 91, 245, 0.40);
+        }
+
+        .info-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .info-row { display: flex; flex-direction: column; gap: 4px; }
+        .info-label { color: var(--text-muted); font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+        .info-value { color: var(--text-primary); font-weight: 500; font-size: 18px; }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 24px;
+            align-items: stretch;
+        }
+
+        .pricing-card { display: flex; flex-direction: column; padding: 28px 22px; position: relative; }
+        .pricing-header { margin-bottom: 20px; }
+        .tier-name { font-family: var(--font-heading); font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+        .tier-desc { font-size: 13px; color: var(--text-muted); min-height: 34px; }
+
+        .price-container { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(123, 91, 245, 0.15); }
+        .price-amount { font-family: var(--font-heading); font-size: 34px; font-weight: 800; color: #FFFFFF; line-height: 1; margin-bottom: 6px; }
+        .price-meta { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+        .price-vat { font-size: 12px; color: var(--text-muted); font-weight: 500; margin-top: 4px; }
+        .price-vat strong { color: var(--text-secondary); font-weight: 600; }
+
+        .breakdown-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+        .breakdown-list li { font-size: 13px; color: var(--text-secondary); display: flex; justify-content: space-between; gap: 8px; }
+        .breakdown-list .item-price { color: var(--text-primary); font-weight: 600; white-space: nowrap; }
+        .breakdown-list .strike { color: var(--text-muted); text-decoration: line-through; margin-right: 6px; font-weight: 400; }
+        .breakdown-list .saving-tag { color: var(--purple-glow); font-size: 11px; font-weight: 600; }
+
+        .features-list { list-style: none; display: flex; flex-direction: column; gap: 10px; flex-grow: 1; }
+        .features-list li { font-size: 13px; color: var(--text-secondary); display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; }
+        .check-icon { color: var(--purple-primary); flex-shrink: 0; margin-top: 1px; width: 15px; height: 15px; }
+
+        .badge-recommended {
+            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            background: linear-gradient(90deg, var(--purple-deep), var(--purple-primary));
+            color: #FFFFFF; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+            padding: 4px 16px; border-radius: 20px; border: 1px solid rgba(157, 127, 255, 0.4);
+            box-shadow: 0 4px 12px rgba(123, 91, 245, 0.4); white-space: nowrap;
+            display: flex; align-items: center; gap: 4px;
+        }
+
+        .reasons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .reason-card h2.subsection-title { color: var(--purple-primary); margin-bottom: 8px; }
+        .reason-card p { font-size: 14px; margin-bottom: 0; }
+        .reason-icon { color: var(--purple-glow); margin-bottom: 12px; width: 32px; height: 32px; }
+
+        .process-item { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 24px; }
+        .process-item:last-child { margin-bottom: 0; }
+        .process-icon { background: rgba(123, 91, 245, 0.1); padding: 12px; border-radius: 12px; color: var(--purple-glow); flex-shrink: 0; width: 24px; height: 24px; box-sizing: content-box; }
+
+        .grant-highlight { display: flex; gap: 20px; align-items: flex-start; }
+        .grant-highlight .grant-icon { color: var(--purple-glow); flex-shrink: 0; width: 40px; height: 40px; }
+        .grant-stats { display: flex; gap: 32px; margin-top: 16px; flex-wrap: wrap; }
+        .grant-stat { display: flex; flex-direction: column; }
+        .grant-stat .stat-num { font-family: var(--font-heading); font-size: 26px; font-weight: 800; color: var(--text-primary); }
+        .grant-stat .stat-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+
+        .cta-section { margin-top: 48px; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 48px; }
+        .cta-section h1.section-title { margin-top: 0; margin-bottom: 16px; }
+        .cta-section h1.section-title::before { display: none; }
+
+        .cta-actions { display: flex; gap: 16px; margin-top: 32px; flex-wrap: wrap; justify-content: center; width: 100%; }
+
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: linear-gradient(135deg, var(--purple-primary), var(--purple-deep));
+            color: var(--text-primary); font-family: var(--font-heading); font-size: 16px; font-weight: 600;
+            text-decoration: none; padding: 16px 32px; border-radius: 8px; transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(123, 91, 245, 0.4); border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn-primary .icon { width: 20px; height: 20px; }
+        .btn-primary:hover { box-shadow: 0 6px 24px rgba(123, 91, 245, 0.6); transform: translateY(-2px); }
+
+        .btn-secondary {
+            display: inline-flex; align-items: center; gap: 8px; background: var(--surface-glass);
+            border: 1px solid var(--border-glass); color: var(--text-primary); font-family: var(--font-heading);
+            font-size: 16px; font-weight: 600; text-decoration: none; padding: 16px 32px; border-radius: 8px; transition: all 0.3s ease;
+        }
+        .btn-secondary .icon { width: 20px; height: 20px; }
+        .btn-secondary:hover { background: rgba(123, 91, 245, 0.1); }
+
+        .btn-tertiary {
+            display: inline-flex; align-items: center; gap: 8px; background: transparent;
+            border: 1px dashed rgba(107, 100, 144, 0.4); color: var(--text-muted); font-family: var(--font-heading);
+            font-size: 14px; font-weight: 500; text-decoration: none; padding: 16px 24px; border-radius: 8px; transition: all 0.3s ease;
+        }
+        .btn-tertiary .icon { width: 18px; height: 18px; }
+        .btn-tertiary:hover { color: var(--text-secondary); border-color: var(--text-muted); }
+
+        .disclaimer { font-size: 13px; color: var(--text-muted); margin-top: 16px; text-align: center; }
+        .note-box { font-size: 13px; color: var(--text-muted); margin-top: 16px; padding-top: 16px; border-top: 1px dashed rgba(123, 91, 245, 0.2); }
+
+        @media (max-width: 900px) {
+            .pricing-grid, .reasons-grid { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            @page { size: A4; margin: 0; }
+            body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; background-color: var(--bg-base) !important; }
+            .document-container { padding: 12mm 15mm; }
+            .pricing-card, .reason-card, .cta-section, .process-item { page-break-inside: avoid; }
+            .pricing-grid { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+
+        <div class="meta-text">
+            <span><span class="icon" style="width:16px;height:16px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span> Proemote · Propuesta comercial</span>
+            <span><span class="icon" style="width:16px;height:16px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span> Julio 2026</span>
+        </div>
+
+        <h1 class="title-hero">
+            Plan de Presencia Digital <br>
+            <span class="gradient-text">Tu Evento en un Bocado</span>
+        </h1>
+
+        <section class="glass-panel info-grid">
+            <div class="info-row">
+                <span class="info-label"><span class="icon" style="width:14px;height:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span> Para</span>
+                <span class="info-value">Tu Evento en un Bocado · Don Benito, Badajoz</span>
+            </div>
+            <div class="info-row" style="margin-top: 8px;">
+                <span class="info-label"><span class="icon" style="width:14px;height:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg></span> Objetivo</span>
+                <p style="margin-bottom: 0; margin-top: 4px;">Convertir la web en el mismo momento que generáis en cada boda — cercanía y confianza — pero para las parejas que aún no os conocen y están decidiendo cómo será su celebración.</p>
+            </div>
+
+            <div style="margin-top: 16px; padding-top: 24px; border-top: 1px solid rgba(123, 91, 245, 0.15);">
+                <h2 class="subsection-title"><span class="icon" style="width:16px;height:16px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h16"/><path d="M4 21v-6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6"/><path d="M12 13V8"/><path d="M8 13V9"/><path d="M16 13V9"/></svg></span> El momento que hoy solo vive en un móvil</h2>
+                <p style="margin-bottom: 0;">Cada boda tiene un instante que la gente recuerda: la estación de quesos, los crepes recién hechos, el granizado compartido entre invitados. Ese momento debe estar en vuestra web, con autonomía total para que lo actualicéis vosotros mismos, y posicionado para aparecer cuando una pareja en Extremadura busque "catering bodas" o "estaciones de comida para bodas".</p>
+            </div>
+        </section>
+
+        <h1 class="section-title"><span class="icon" style="width:22px;height:22px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span> Opciones de inversión y alcance</h1>
+        <p style="max-width: 640px;">Tres vías de colaboración, todas preparadas para encajar con la Ayuda de Digitalización de Pymes de la Junta de Extremadura 2026.</p>
+
+        <div class="pricing-grid">
+
+            <!-- Opción 1 -->
+            <div class="glass-panel pricing-card">
+                <div class="pricing-header">
+                    <div class="tier-name">Web Básica + SEO Inicial</div>
+                    <div class="tier-desc">Arranque rápido y presencia sólida</div>
+                </div>
+                <div class="price-container">
+                    <div class="price-amount">648 €</div>
+                    <div class="price-meta">Base imponible · pago único</div>
+                    <div class="price-vat">IVA (21%): <strong>136,08 €</strong> — se indica aparte, no forma parte de nuestro precio</div>
+                </div>
+                <ul class="breakdown-list">
+                    <li><span>Diseño Web One Page</span> <span class="item-price">499 €</span></li>
+                    <li><span>Puesta a punto SEO básica</span> <span class="item-price">149 €</span></li>
+                    <li><span>Formación inicial</span> <span class="item-price"><span class="strike">49 €</span> <span class="saving-tag">Bonus 100%</span></span></li>
+                </ul>
+                <ul class="features-list">
+                    <li><span class="icon check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> WordPress una página tipo scroll, hasta 5 bloques</li>
+                    <li><span class="icon check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> WhatsApp / formulario simple + 1 revisión</li>
+                    <li><span class="icon check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Search Console, Analytics e indexación en Google</li>
+                    <li><span class="icon check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Sesión de formación para autonomía total</li>
+                </ul>
+            </div>
+
+            <!-- Opción 2 (HERO) -->
+            <div class="glass-panel glass-panel-hero pricing-card">
+                <div class="badge-recommended"><span class="icon" style="width:12px;height:12px;"><svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> Recomendado</div>
+                <div class="pricing-header">
+                    <div class="tier-name">Web Starter + SEO Mensual</div>
+                    <div class="tier-desc">Crecimiento sostenido durante 12 meses</div>
+                </div>
+                <div class="price-container">
+                    <div class="price-amount">2.689 €</div>
+                    <div class="price-meta">Base imponible · *adaptado a subvención</div>
+                    <div class="price-vat">IVA (21%): <strong>564,69 €</strong> — se indica aparte, no forma parte de nuestro precio</div>
+                </div>
+                <ul class="breakdown-list">
+                    <li><span>Diseño Web Starter (3-4 páginas)</span> <span class="item-price">699 €</span></li>
+                    <li><span>SEO Core · 12 meses</span> <span class="item-price"><span class="strike">2.388 €</span> 1.990 € <span class="saving-tag">-398 €</span></span></li>
+                    <li><span>Formación inicial</span> <span class="item-price"><span class="strike">49 €</span> <span class="saving-tag">Bonus 100%</span></span></li>
+                </ul>
+                <ul class="features-list">
+                    <li><span class="icon check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Inicio, Quiénes somos, Servicios y Contacto</li>
+                    <li><span class="icon check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Galería de fotos y vídeos de bodas reales + redes conectadas</li>
+                    <li><span class="icon check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> <strong>Palabras clave, SEO local y seguimiento mensual</strong></li>
+                    <li><span class="icon check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Informe mensual de posiciones y ajustes técnicos</li>
+                    <li><span class="icon check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Sesión de formación para autonomía total</li>
+                </ul>
+            </div>
+
+            <!-- Opción 3 -->
+            <div class="glass-panel pricing-card">
+                <div class="pricing-header">
+                    <div class="tier-name">Web Pro + SEO Avanzado</div>
+                    <div class="tier-desc">Máxima conversión y crecimiento estratégico</div>
+                </div>
+                <div class="price-container">
+                    <div class="price-amount">3.938 €</div>
+                    <div class="price-meta">Base imponible · *adaptado a subvención</div>
+                    <div class="price-vat">IVA (21%): <strong>827,98 €</strong> — se indica aparte, no forma parte de nuestro precio</div>
+                </div>
+                <ul class="breakdown-list">
+                    <li><span>Diseño Web Pro (hasta 7 secciones)</span> <span class="item-price">899 €</span></li>
+                    <li><span>SEO Avanzado · 12 meses</span> <span class="item-price"><span class="strike">3.588 €</span> 2.990 € <span class="saving-tag">-598 €</span></span></li>
+                    <li><span>Formación completa</span> <span class="item-price"><span class="strike">49 €</span> <span class="saving-tag">Bonus 100%</span></span></li>
+                </ul>
+                <ul class="features-list">
+                    <li><span class="icon check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> CTAs de conversión, email marketing, velocidad optimizada</li>
+                    <li><span class="icon check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Formularios inteligentes + 2 rondas de revisión</li>
+                    <li><span class="icon check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Keyword research avanzado y SEO local avanzado</li>
+                    <li><span class="icon check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Consultoría estratégica y reuniones prioritarias</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="disclaimer">* Precio indicado sin IVA. El importe de IVA se muestra por separado en cada plan.</p>
+        <p class="note-box" style="max-width: 760px; margin-left: auto; margin-right: auto;">En la Opción 3, la "Web Pro" ya incluye optimización SEO On-Page nativa durante el desarrollo — el "SEO Avanzado" de 12 meses aporta en exclusiva la parte estratégica, analítica y de crecimiento mensual. Ambos servicios no se solapan: se multiplican.</p>
+
+        <h1 class="section-title"><span class="icon" style="width:22px;height:22px;"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span> Por qué encaja</h1>
+        <div class="reasons-grid">
+            <div class="glass-panel reason-card" style="padding: 24px;">
+                <span class="icon reason-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></span>
+                <h2 class="subsection-title">Vuestro trabajo real, protagonista</h2>
+                <p>Fotos y vídeos de bodas y estaciones en directo, con autonomía total para actualizarlos vosotros mismos.</p>
+            </div>
+            <div class="glass-panel reason-card" style="padding: 24px;">
+                <span class="icon reason-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+                <h2 class="subsection-title">Visibilidad cuando importa</h2>
+                <p>Aparecéis cuando una pareja en Extremadura busca "catering bodas" o "estaciones de comida para bodas".</p>
+            </div>
+            <div class="glass-panel reason-card" style="padding: 24px;">
+                <span class="icon reason-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="7" y1="17" x2="17" y2="7"/><circle cx="8.5" cy="8.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="15.5" cy="15.5" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+                <h2 class="subsection-title">Inversión respaldada</h2>
+                <p>Presupuestos diseñados para encajar con la Ayuda de Digitalización vigente, con anticipo sin adelantar todo el gasto.</p>
+            </div>
+        </div>
+
+        <h1 class="section-title"><span class="icon" style="width:22px;height:22px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="6"/><circle cx="15" cy="15" r="6"/></svg></span> La ayuda cubre hasta el 80%</h1>
+        <section class="glass-panel glass-panel-hero">
+            <div class="grant-highlight">
+                <span class="icon grant-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 2 3-1 1 3 3 1-1 3 1 3-3 1-1 3-3-1-3 2-3-2-3 1-1-3-3-1 1-3-1-3 3-1 1-3 3 1 3-2z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+                <div>
+                    <p style="margin-bottom: 0;">Este presupuesto está diseñado específicamente para encajar con la <strong style="color: var(--text-primary);">Ayuda de Digitalización de Pymes de la Junta de Extremadura 2026</strong>. Nos encargamos de preparar toda la documentación de la solicitud — vosotros solo tenéis que revisarla y firmarla.</p>
+                    <div class="grant-stats">
+                        <div class="grant-stat">
+                            <span class="stat-num">80%</span>
+                            <span class="stat-label">de la inversión cubierta</span>
+                        </div>
+                        <div class="grant-stat">
+                            <span class="stat-num">500 €</span>
+                            <span class="stat-label">tope línea Página Web</span>
+                        </div>
+                        <div class="grant-stat">
+                            <span class="stat-num">7.000 €</span>
+                            <span class="stat-label">tope línea SEO / SEM</span>
+                        </div>
+                        <div class="grant-stat">
+                            <span class="stat-num">50%</span>
+                            <span class="stat-label">anticipo sin garantías tras concesión</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <h1 class="section-title"><span class="icon" style="width:22px;height:22px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg></span> Cómo trabajamos</h1>
+        <section class="glass-panel">
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+
+                <div class="process-item">
+                    <div class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+                    <div>
+                        <h2 class="subsection-title" style="color: var(--text-primary); margin-bottom: 8px;">1. Gestionamos la subvención por vosotros</h2>
+                        <p style="margin-bottom: 0;">Preparamos toda la documentación de la Ayuda de Digitalización. Vosotros solo revisáis y firmáis, sin adelantar todo el proyecto de vuestro bolsillo.</p>
+                    </div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                    <div>
+                        <h2 class="subsection-title" style="color: var(--text-primary); margin-bottom: 8px;">2. Diseñamos y lanzamos la web</h2>
+                        <p style="margin-bottom: 0;">Construimos la web con vuestro contenido real — fotos y vídeos de bodas, estaciones en directo — y os formamos para gestionarla con autonomía.</p>
+                    </div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                    <div>
+                        <h2 class="subsection-title" style="color: var(--text-primary); margin-bottom: 8px;">3. Posicionamos mes a mes</h2>
+                        <p style="margin-bottom: 0;">Seguimiento mensual de posiciones, ajustes técnicos e informes claros, para que aparezcáis cuando una pareja os busca.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="glass-panel glass-panel-hero cta-section">
+            <h1 class="section-title"><span class="icon" style="width:22px;height:22px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></span> ¿Cuál es el siguiente paso?</h1>
+            <p style="margin-bottom: 0; max-width: 500px;">Indícame por WhatsApp qué opción encaja mejor con el momento actual de Tu Evento en un Bocado.</p>
+
+            <div class="cta-actions">
+                <a href="https://wa.me/34641576286?text=Hola%2C%20queremos%20aceptar%20la%20propuesta%20web.%20Nuestra%20opci%C3%B3n%20elegida%20es%3A" target="_blank" class="btn-primary">
+                    <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>
+                    Aceptar propuesta
+                </a>
+
+                <a href="https://wa.me/34641576286?text=Hola%2C%20tengo%20algunas%20dudas%20sobre%20la%20propuesta%20web%20de%20Tu%20Evento%20en%20un%20Bocado." target="_blank" class="btn-secondary">
+                    <span class="icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3.1 4.9 4.3 2.9 1.2 2.9.8 3.4.7.5 0 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg></span>
+                    Hablar por WhatsApp
+                </a>
+
+                <a href="https://wa.me/34641576286?text=Hola%2C%20hemos%20revisado%20la%20propuesta%20web%20pero%20no%20vamos%20a%20avanzar%20ahora.%20Gracias." target="_blank" class="btn-tertiary">
+                    <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></span>
+                    Rechazar
+                </a>
+            </div>
+
+            <p class="disclaimer">Proemote · info@proemote.es · +34 641 57 62 86 · proemote.es<br>Presupuesto válido 30 días. Precios sujetos a la disponibilidad de fondos de la convocatoria vigente.</p>
+        </section>
+
+    </div>
+
+</body>
+</html>
