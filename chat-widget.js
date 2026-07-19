@@ -396,7 +396,7 @@
       if (history.length > MAX_HISTORY) history = history.slice(-MAX_HISTORY);
     } catch (err) {
       hideTyping();
-      appendMessage('bot', 'Ups, hubo un problema al conectar. ¿Lo intentamos de nuevo? Si el problema persiste, escríbenos a contacto@proemote.es');
+      appendMessage('bot', 'Ups, hubo un problema al conectar. ¿Lo intentamos de nuevo? Si el problema persiste, escríbenos a info@proemote.es');
       console.error('[Leo · Proemote]', err.message);
     } finally {
       isLoading = false;
