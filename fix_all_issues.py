@@ -12,7 +12,7 @@ import os
 import re
 import glob
 
-BASE = "/Users/carlosmolinamarquez/Desktop/proemote-landing"
+BASE = os.path.dirname(os.path.abspath(__file__))
 
 # ─── Helper: remove duplicate dark: classes ──────────────────────────────────
 # Pattern: dark:TEXT-CLASS1 dark:TEXT-CLASS2 where CLASS1 conflicts with CLASS2
