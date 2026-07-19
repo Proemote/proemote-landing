@@ -113,7 +113,7 @@ def make_card(rev):
                                             <div class="flex gap-0.5 mt-1">{stars}</div>
                                         </div>
                                     </div>
-                                    <p class="text-gray-600 dark:text-textSecondary text-sm font-light leading-relaxed pointer-events-none">{rev['t']}</p>
+                                    <p class="text-gray-600 dark:text-white/70 text-sm font-light leading-relaxed pointer-events-none">{rev['t']}</p>
                                 </div>'''
 
 def build_marquee_section():
@@ -124,21 +124,21 @@ def build_marquee_section():
 
     return f'''    <!-- NEW DOUBLE MARQUEE REVIEWS -->
 {MARQUEE_CSS}
-    <section class="py-16 md:py-24 relative overflow-hidden flex flex-col items-center border-t border-gray-200 dark:border-white/5 bg-gray-50 dark:bg-bgSurface transition-colors duration-300">
+    <section class="py-16 md:py-24 relative overflow-hidden flex flex-col items-center border-t border-gray-200 dark:border-white/5 bg-gray-50 dark:bg-[#05020a] transition-colors duration-300">
         
         <div class="text-center max-w-2xl px-4 mb-12 relative z-10 reveal-up">
             <h2 class="text-3xl md:text-4xl font-heading font-medium text-gray-900 dark:text-white tracking-tight mb-4">
                 Lo que dicen nuestros clientes
             </h2>
-            <p class="text-gray-600 dark:text-textSecondary text-lg font-light">
+            <p class="text-gray-600 dark:text-white/70 text-lg font-light">
                 Descubre cómo hemos ayudado a empresas y asociaciones a dar el salto digital con resultados reales.
             </p>
         </div>
 
         <div class="relative w-full max-w-[100vw] overflow-hidden flex flex-col gap-4 sm:gap-6 z-10 pause-on-hover">
             
-            <div class="pointer-events-none absolute left-0 top-0 h-full w-16 md:w-32 z-20 bg-gradient-to-r from-gray-50 dark:from-bgSurface to-transparent"></div>
-            <div class="pointer-events-none absolute right-0 top-0 h-full w-16 md:w-32 z-20 bg-gradient-to-l from-gray-50 dark:from-bgSurface to-transparent"></div>
+            <div class="pointer-events-none absolute left-0 top-0 h-full w-16 md:w-32 z-20 bg-gradient-to-r from-gray-50 dark:from-[#05020a] to-transparent"></div>
+            <div class="pointer-events-none absolute right-0 top-0 h-full w-16 md:w-32 z-20 bg-gradient-to-l from-gray-50 dark:from-[#05020a] to-transparent"></div>
 
             <!-- ROW 1 (Left to Right) -->
             <div class="flex overflow-hidden w-full py-2">
