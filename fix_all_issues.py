@@ -53,8 +53,8 @@ MARQUEE_CSS = '''    <style>
             100% { transform: translateX(-50%); }
         }
         @keyframes marquee-reverse {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(50%); }
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
         }
         .animate-marquee {
             animation: marquee var(--duration, 40s) linear infinite;
