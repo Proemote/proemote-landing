@@ -149,90 +149,8 @@
                     </div>
                 </div>
 
-                <!-- RECURSOS OCULTO TEMPORALMENTE
-<!-- [OCULTO] ENLACE RECURSOS (ACTIVO CON MEGA MENÚ) -->
-                <div class="group/menu py-2">
-                    <a href="/recursos" class="hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1.5 focus:outline-none">
-                        Recursos
-                        <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30 leading-none">Hub</span>
-                        <i class="ph ph-caret-down text-[10px] transition-transform duration-300 group-hover/menu:rotate-180"></i>
-                    </a>
-                    <!-- Mega Menu Dropdown -->
-                    <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-[800px] opacity-0 invisible group-hover/menu:opacity-100 group-hover/menu:visible transition-all duration-300 transform group-hover/menu:translate-y-0 translate-y-3 z-50 cursor-auto pointer-events-auto">
-                        <div class="bg-white/95 dark:bg-[#14141F]/95 backdrop-blur-2xl border border-gray-200 dark:border-white/10 rounded-[2rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)] p-2 flex overflow-hidden">
-                            
-                            <!-- Columna Izquierda: Categorías -->
-                            <div class="w-[240px] bg-gray-50/80 dark:bg-white/[0.02] rounded-[1.5rem] p-5 flex-shrink-0 flex flex-col gap-4 border border-transparent dark:border-white/5">
-                                <h4 class="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-textSecondary px-1">Categorías</h4>
-                                <div class="flex flex-col gap-1">
-                                    <a href="/recursos" class="flex items-center justify-between px-3 py-2 rounded-xl bg-white dark:bg-white/10 shadow-sm text-sm font-medium text-gray-900 dark:text-white transition-colors">
-                                        Todas <span class="text-xs text-gray-400 dark:text-gray-300">6</span>
-                                    </a>
-                                    <a href="/recursos?category=agentes-ia" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-white dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 text-sm text-gray-600 dark:text-gray-300 transition-colors group/item">
-                                        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>Agentes IA</span>
-                                        <span class="text-xs text-gray-400 group-hover/item:text-gray-600 dark:group-hover/item:text-gray-300">2</span>
-                                    </a>
-                                    <a href="/recursos?category=automatizacion" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-white dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 text-sm text-gray-600 dark:text-gray-300 transition-colors group/item">
-                                        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>Automatización</span>
-                                        <span class="text-xs text-gray-400 group-hover/item:text-gray-600 dark:group-hover/item:text-gray-300">1</span>
-                                    </a>
-                                    <a href="/recursos?category=contenido" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-white dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 text-sm text-gray-600 dark:text-gray-300 transition-colors group/item">
-                                        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>Contenido</span>
-                                        <span class="text-xs text-gray-400 group-hover/item:text-gray-600 dark:group-hover/item:text-gray-300">2</span>
-                                    </a>
-                                    <a href="/recursos?category=sistemas-core" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-white dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 text-sm text-gray-600 dark:text-gray-300 transition-colors group/item">
-                                        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Sistemas Core</span>
-                                        <span class="text-xs text-gray-400 group-hover/item:text-gray-600 dark:group-hover/item:text-gray-300">1</span>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <!-- Columna Derecha: Últimos Recursos -->
-                            <div class="flex-grow p-5 flex flex-col">
-                                <div class="flex items-center justify-between mb-5 px-1">
-                                    <h4 class="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-textSecondary">Últimos Recursos</h4>
-                                    <a href="/recursos" class="text-[11px] font-semibold text-primary hover:text-primary/80 transition-colors flex items-center gap-1 group/link">
-                                        Ver todos <i class="ph-bold ph-arrow-up-right transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"></i>
-                                    </a>
-                                </div>
-                                
-                                <div class="grid grid-cols-3 gap-4">
-                                    <!-- Post 1 -->
-                                    <a href="/recursos/recursos proemote.html" class="group/post block">
-                                        <div class="relative h-[100px] rounded-2xl overflow-hidden mb-3 bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-200 dark:border-white/5">
-                                            <img src="https://images.unsplash.com/photo-1614064641913-6b7140414f15?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Bot WhatsApp" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/post:scale-105">
-                                            <div class="absolute inset-0 bg-black/10 group-hover/post:bg-transparent transition-colors duration-300"></div>
-                                        </div>
-                                        <span class="inline-flex px-2 py-0.5 rounded border border-indigo-500/20 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-[8px] font-bold uppercase tracking-wider mb-2">Agentes IA</span>
-                                        <h5 class="text-xs font-heading font-medium text-gray-900 dark:text-white leading-snug group-hover/post:text-primary transition-colors line-clamp-2">Bot de WhatsApp con Claude – atención automática 24/7</h5>
-                                    </a>
-                                    
-                                    <!-- Post 2 -->
-                                    <a href="/recursos/recursos proemote.html" class="group/post block">
-                                        <div class="relative h-[100px] rounded-2xl overflow-hidden mb-3 bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-200 dark:border-white/5">
-                                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Claude + Maps" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/post:scale-105">
-                                            <div class="absolute inset-0 bg-black/10 group-hover/post:bg-transparent transition-colors duration-300"></div>
-                                        </div>
-                                        <span class="inline-flex px-2 py-0.5 rounded border border-amber-600/20 bg-amber-600/10 text-amber-600 dark:text-amber-500 text-[8px] font-bold uppercase tracking-wider mb-2">Automatización</span>
-                                        <h5 class="text-xs font-heading font-medium text-gray-900 dark:text-white leading-snug group-hover/post:text-primary transition-colors line-clamp-2">Conseguir clientes locales con Claude + Google Maps</h5>
-                                    </a>
-
-                                    <!-- Post 3 -->
-                                    <a href="/recursos/recursos proemote.html" class="group/post block">
-                                        <div class="relative h-[100px] rounded-2xl overflow-hidden mb-3 bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 border border-gray-200 dark:border-white/5">
-                                            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Claude Canva" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/post:scale-105">
-                                            <div class="absolute inset-0 bg-black/10 group-hover/post:bg-transparent transition-colors duration-300"></div>
-                                        </div>
-                                        <span class="inline-flex px-2 py-0.5 rounded border border-orange-400/20 bg-orange-400/10 text-orange-600 dark:text-orange-400 text-[8px] font-bold uppercase tracking-wider mb-2">Contenido</span>
-                                        <h5 class="text-xs font-heading font-medium text-gray-900 dark:text-white leading-snug group-hover/post:text-primary transition-colors line-clamp-2">Cómo conectar Claude con Canva y diseñar sin diseñador</h5>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
--->
-                <a href="/sobre-nosotros" class="hover:text-gray-900 dark:hover:text-white transition-colors">Sobre nosotros</a>
+                
+<a href="/sobre-nosotros" class="hover:text-gray-900 dark:hover:text-white transition-colors">Sobre nosotros</a>
                 <a href="/portfolio" class="hover:text-gray-900 dark:hover:text-white transition-colors">Portfolio</a>
                 <a href="/contacto" class="hover:text-gray-900 dark:hover:text-white transition-colors">Contacto</a>
             </div>
@@ -358,11 +276,6 @@
                 </div>
             </details>
 
-            <!-- MOBILE RECURSOS OCULTO TEMPORALMENTE
-<a href="/recursos" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white flex items-center justify-center gap-2">
-                Recursos <span class="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevo</span>
-            </a>
--->
             <a href="/sobre-nosotros" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Sobre nosotros</a>
             <a href="/portfolio" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Portfolio</a>
             <a href="/contacto" class="mobile-link text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white">Contacto</a>
