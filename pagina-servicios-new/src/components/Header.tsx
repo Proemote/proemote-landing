@@ -111,34 +111,6 @@ export default function Header() {
               </div>
             </div>
 
-            {/* RECURSOS MEGA MENU */}
-            <div className="group/menu py-2">
-              <a href="/recursos" className="hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1.5 focus:outline-none">
-                Recursos
-                <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30 leading-none">Hub</span>
-                <i className="ph ph-caret-down text-[10px] transition-transform duration-300 group-hover/menu:rotate-180"></i>
-              </a>
-              <div className="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-[800px] opacity-0 invisible group-hover/menu:opacity-100 group-hover/menu:visible transition-all duration-300 transform group-hover/menu:translate-y-0 translate-y-3 z-50 cursor-auto pointer-events-auto">
-                <div className="bg-white/95 dark:bg-[#14141F]/95 backdrop-blur-2xl border border-gray-200 dark:border-white/10 rounded-[2rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)] p-2 flex overflow-hidden">
-                  <div className="w-[240px] bg-gray-50/80 dark:bg-white/[0.02] rounded-[1.5rem] p-5 flex-shrink-0 flex flex-col gap-4 border border-transparent dark:border-white/5">
-                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-white/40 px-1">Categorías</h4>
-                    <div className="flex flex-col gap-1">
-                      <a href="/recursos" className="flex items-center justify-between px-3 py-2 rounded-xl bg-white dark:bg-white/10 shadow-sm text-sm font-medium text-gray-900 dark:text-white transition-colors">
-                        Todas <span className="text-xs text-gray-400 dark:text-gray-300">6</span>
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex-grow p-5 flex flex-col">
-                    <div className="flex items-center justify-between mb-5 px-1">
-                      <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-white/40">Últimos Recursos</h4>
-                      <a href="/recursos" className="text-[11px] font-semibold text-primary hover:text-primary/80 transition-colors flex items-center gap-1 group/link">
-                        Ver todos <i className="ph-bold ph-arrow-up-right transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
             <a href="/sobre-nosotros" className="hover:text-gray-900 dark:hover:text-white transition-colors">Sobre nosotros</a>
             <a href="/portfolio" className="hover:text-gray-900 dark:hover:text-white transition-colors">Portfolio</a>
@@ -266,9 +238,7 @@ export default function Header() {
               <a href="/subvenciones-extremadura" className="text-sm font-medium text-gray-500 dark:text-white/50 hover:text-marca dark:hover:text-white">Ver todas las ayudas</a>
             </div>
           </details>
-          <a href="/recursos" className="text-lg font-light text-gray-600 dark:text-white/60 hover:text-marca dark:hover:text-white flex items-center justify-center gap-2">
-            Recursos <span className="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-primary/20 text-primary border border-primary/30">Nuevo</span>
-          </a>
+
           
           <a href="/analisis-personalizado-gratis" className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white py-3.5 px-6 rounded-full font-semibold text-xs transition-all w-full max-w-xs mt-6 shadow-[0_0_20px_rgba(139,92,246,0.3)] text-center">
             Obtén tu Radiografía Digital gratis
