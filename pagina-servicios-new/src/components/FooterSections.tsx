@@ -69,7 +69,7 @@ function NewsletterForm() {
         <button 
           type="submit" 
           disabled={status === 'loading'}
-          className="absolute right-1 top-1 bottom-1 bg-marca hover:bg-marca/90 text-gray-900 dark:text-white w-9 h-9 rounded-full flex items-center justify-center transition-colors"
+          className="absolute right-1 top-1 bottom-1 bg-marca hover:bg-marca/90 text-white w-9 h-9 rounded-full flex items-center justify-center transition-colors"
         >
           {status === 'loading' ? <i className="ph ph-spinner animate-spin"></i> : <i className="ph ph-arrow-right"></i>}
         </button>
@@ -128,7 +128,7 @@ export default function FooterSections() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a href="https://proemote.es/analisis-personalizado-gratis" target="_blank" rel="noopener noreferrer" className="bg-violet-600 hover:bg-violet-500 dark:bg-marca dark:hover:bg-marcalight text-gray-900 dark:text-white font-medium px-10 py-4 rounded-full transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] flex items-center gap-2 text-base w-full sm:w-auto justify-center">
+              <a href="https://proemote.es/analisis-personalizado-gratis" target="_blank" rel="noopener noreferrer" className="bg-violet-600 hover:bg-violet-500 dark:bg-marca dark:hover:bg-marcalight text-white font-medium px-10 py-4 rounded-full transition-all shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] flex items-center gap-2 text-base w-full sm:w-auto justify-center">
                 Comenzar diagnóstico gratis ahora
               </a>
               

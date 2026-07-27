@@ -77,7 +77,7 @@ export default function FaqSections() {
               </div>
             </div>
             
-            <a href="/analisis-personalizado-gratis" className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-primary text-gray-900 dark:text-white font-medium rounded-full hover:bg-accent transition-all duration-300 shadow-[0_0_30px_rgba(123,97,255,0.4)] hover:shadow-[0_0_40px_rgba(123,97,255,0.6)] group w-full md:w-auto relative overflow-hidden">
+            <a href="/analisis-personalizado-gratis" className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-primary text-white font-medium rounded-full hover:bg-accent transition-all duration-300 shadow-[0_0_30px_rgba(123,97,255,0.4)] hover:shadow-[0_0_40px_rgba(123,97,255,0.6)] group w-full md:w-auto relative overflow-hidden">
               <span className="relative z-10 flex items-center gap-2">👉 Solicitar diagnóstico sin compromiso</span>
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 rounded-full"></div>
             </a>

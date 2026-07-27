@@ -19,7 +19,7 @@ export default function HeroSections() {
             La mayoría de negocios no fracasa por ofrecer un mal producto o servicio, sino porque su presencia digital no transmite el valor que realmente tiene. En Proemote diseñamos sistemas de crecimiento que unen estrategia, identidad, posicionamiento y captación para convertir negocios convencionales en marcas que generan confianza y atraen clientes.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="/analisis-personalizado-gratis" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-gray-900 dark:text-white font-medium rounded-full hover:bg-accent transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] hover:shadow-[0_0_30px_rgba(123,97,255,0.6)] group">
+            <a href="/analisis-personalizado-gratis" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-medium rounded-full hover:bg-accent transition-all duration-300 shadow-[0_0_20px_rgba(123,97,255,0.4)] hover:shadow-[0_0_30px_rgba(123,97,255,0.6)] group">
               👉 Solicitar diagnóstico gratuito
             </a>
             <a href="#como-trabajamos" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 text-gray-900 dark:text-white font-medium rounded-full hover:bg-gray-200 dark:hover:bg-white/10 transition-all duration-300">
