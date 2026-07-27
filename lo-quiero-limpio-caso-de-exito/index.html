@@ -759,26 +759,33 @@
     </div>
 
     <!-- Scripts de Control -->
-    <script>
+    <script data-cookieconsent="ignore">
         // Mouse Glow
         const glow = document.getElementById('mouse-glow');
         let mouseX = window.innerWidth/2, mouseY = window.innerHeight/2, glowX = mouseX, glowY = mouseY;
-        document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; glow.style.opacity = '1'; });
-        document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
-        function animateGlow() {
-            glowX += (mouseX - glowX)*0.1; glowY += (mouseY - glowY)*0.1;
-            glow.style.left = `${glowX}px`; glow.style.top = `${glowY}px`;
-            requestAnimationFrame(animateGlow);
+        if (glow) {
+            document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; glow.style.opacity = '1'; });
+            document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+            function animateGlow() {
+                glowX += (mouseX - glowX)*0.1; glowY += (mouseY - glowY)*0.1;
+                glow.style.left = `${glowX}px`; glow.style.top = `${glowY}px`;
+                requestAnimationFrame(animateGlow);
+            }
+            animateGlow();
         }
-        animateGlow();
 
         // Observer para animaciones
-        document.addEventListener('DOMContentLoaded', () => {
+        function initReveal() {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
             }, { threshold: 0.1 });
             document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
-        });
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initReveal);
+        } else {
+            initReveal();
+        }
     </script>
     
     <!-- Cal.com Embed -->
@@ -788,9 +795,9 @@
       Cal.ns["auditoria-gratuita"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#7B61FF"},"dark":{"cal-brand":"#7B61FF"}},"layout":"month_view"});
     </script>
 
-    <script>
+    <script data-cookieconsent="ignore">
         // Mobile Menu Logic
-        document.addEventListener('DOMContentLoaded', () => {
+        function initMobileMenu() {
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             if (mobileMenuBtn && mobileMenu) {
@@ -808,25 +815,34 @@
                     }
                 });
             }
-        });
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMobileMenu);
+        } else {
+            initMobileMenu();
+        }
     </script>
 
-    <script>
+    <script data-cookieconsent="ignore">
         function openModal() {
             const modal = document.getElementById('contact-modal');
             const inner = modal.querySelector('div');
-            modal.classList.remove('hidden');
-            setTimeout(() => { modal.classList.remove('opacity-0'); inner.classList.remove('scale-95'); }, 10);
-            document.body.style.overflow = 'hidden'; 
+            if (modal && inner) {
+                modal.classList.remove('hidden');
+                setTimeout(() => { modal.classList.remove('opacity-0'); inner.classList.remove('scale-95'); }, 10);
+                document.body.style.overflow = 'hidden'; 
+            }
         }
         function closeModal() {
             const modal = document.getElementById('contact-modal');
             const inner = modal.querySelector('div');
-            modal.classList.add('opacity-0'); inner.classList.add('scale-95');
-            setTimeout(() => { modal.classList.add('hidden'); document.body.style.overflow = ''; }, 300); 
+            if (modal && inner) {
+                modal.classList.add('opacity-0'); inner.classList.add('scale-95');
+                setTimeout(() => { modal.classList.add('hidden'); document.body.style.overflow = ''; }, 300); 
+            }
         }
         
-        document.addEventListener('DOMContentLoaded', () => {
+        function initForms() {
             if (!window.modalScriptInitialized) {
                 window.modalScriptInitialized = true;
                 const scriptURL = 'https://script.google.com/macros/s/AKfycbwbftkCLe-AkkeHxOyQ7esOzdjkMF-xXOvtc6Xg7GgtN6jKBUYPAJKGQo2hhOmcKJuJSg/exec';
@@ -863,7 +879,12 @@
                     });
                 });
             }
-        });
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initForms);
+        } else {
+            initForms();
+        }
     </script>
 
 
@@ -946,9 +967,9 @@
         </div>
     </div>
 
-    <script>
+    <script data-cookieconsent="ignore">
         // Lógica Hover Mega Menú (Solo Desktop)
-        document.addEventListener('DOMContentLoaded', () => {
+        function initMegaMenuHover() {
             const servicesBtn = document.getElementById('services-menu-btn');
             const megaMenu = document.getElementById('mega-menu');
             const megaMenuPanel = document.getElementById('mega-menu-panel');
@@ -986,10 +1007,15 @@
                     megaMenuPanel.addEventListener('mouseleave', hideMenu);
                 }
             }
-        });
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMegaMenuHover);
+        } else {
+            initMegaMenuHover();
+        }
     </script>
 
-    <script>
+    <script data-cookieconsent="ignore">
     /* Fix: sync announcement bar (fixed) + nav position */
     (function(){
         var bar = document.getElementById('announcement-bar');
