@@ -1,16 +1,584 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AJUDEX - Asociación Juvenil de Diabéticos de Extremadura</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400..700;1,400..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'aj-orange': '#F1841F',
+              'aj-brown': '#9C5110',
+              'aj-dark': '#2D2D2D',
+              'aj-light': '#FDFBF7',
+              'aj-white': '#FFFFFF',
+              'aj-gray': '#5A5A5A',
+            },
+            fontFamily: {
+              sans: ['"DM Sans"', 'sans-serif'],
+              serif: ['Lora', 'serif'],
+            }
+          }
+        }
+      }
+    </script>
+    
+    <style>
+      body {
+        background-color: #FDFBF7;
+        color: #2D2D2D;
+        font-family: "DM Sans", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-family: "Lora", serif;
+        font-weight: 400;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.21, 0.47, 0.32, 0.98);
+      }
+      
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
   </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body class="min-h-screen selection:bg-aj-orange selection:text-white">
+    
+    <!-- NAVBAR -->
+    <header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500 bg-transparent py-6">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+        <a href="#" class="flex flex-col">
+          <span class="font-serif text-3xl text-aj-orange font-bold leading-none tracking-tight lowercase">ajudex</span>
+          <span class="text-[10px] uppercase tracking-widest text-aj-brown font-semibold mt-1">Extremadura</span>
+        </a>
+        <div class="hidden md:flex gap-8 items-center text-sm font-medium text-aj-brown">
+          <a href="#" class="hover:text-aj-orange transition-colors">Inicio</a>
+          <a href="#pilares" class="hover:text-aj-orange transition-colors">La Comunidad</a>
+          <a href="https://instagram.com/ajudex_oficial" target="_blank" rel="noopener" class="hover:text-aj-orange transition-colors">Instagram</a>
+          <a href="#unete" class="px-5 py-2 border-2 border-aj-orange text-aj-orange rounded-full hover:bg-aj-orange hover:text-white transition-colors cursor-pointer text-center">FADEX</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="relative min-h-[90vh] flex items-center pt-32 pb-12 overflow-hidden">
+        <div class="absolute top-[-100px] right-[-100px] w-[400px] h-[400px] bg-aj-orange opacity-[0.08] rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-[-150px] left-[-50px] w-[500px] h-[500px] bg-aj-brown opacity-[0.08] rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full grid md:grid-cols-12 gap-12 items-center z-10 relative">
+          <div class="md:col-span-8">
+            <div class="reveal">
+              <h1 class="text-[54px] md:text-[64px] leading-[1.05] font-serif text-aj-dark mb-6">
+                Una comunidad de <span class="text-aj-orange">jóvenes</span> con diabetes.
+              </h1>
+            </div>
+            <div class="reveal" style="transition-delay: 150ms;">
+              <div class="text-xl text-aj-gray mb-10 max-w-[500px] font-sans leading-relaxed">
+                <p class="mb-4">Vivir con diabetes es parte de tu vida.</p>
+                <p class="mb-4">Encontrar a otras personas que entienden lo que eso significa también puede serlo.</p>
+                <p>AJUDEX es la asociación juvenil de personas con diabetes de Extremadura. Un espacio para conectar, compartir experiencias, conocer gente y participar en actividades, encuentros y proyectos.</p>
+              </div>
+            </div>
+            <div class="reveal" style="transition-delay: 300ms;">
+              <div class="flex flex-col gap-4 items-start">
+                <a href="#unete" class="inline-flex items-center justify-center px-8 py-5 text-sm tracking-wide uppercase transition-all duration-300 font-bold rounded-2xl shadow-xl active:scale-95 bg-aj-orange text-white hover:bg-aj-brown shadow-orange-200 hover:scale-[1.02]">
+                  ÚNETE A WHATSAPP
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ml-2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <p class="text-xs text-aj-brown font-medium flex items-center gap-2 mt-2">
+                  <span class="w-2 h-2 rounded-full bg-aj-orange"></span>
+                  Participación gratuita
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATEMENT 1 -->
+      <section class="py-24 md:py-32 bg-aj-dark text-aj-light">
+        <div class="max-w-3xl mx-auto px-6 md:px-12 text-center">
+          <div class="reveal">
+            <h2 class="text-[40px] md:text-[56px] leading-[1.05] font-serif mb-8">
+              Hay cosas que solo entiende quien las vive.
+            </h2>
+          </div>
+          <div class="space-y-6 text-lg md:text-xl font-sans leading-relaxed text-aj-light/80">
+            <div class="reveal" style="transition-delay: 100ms;"><p>Explicar lo que significa vivir con diabetes no siempre es fácil.</p></div>
+            <div class="reveal" style="transition-delay: 200ms;"><p>Las decisiones del día a día. Las dudas que aparecen de repente. Los planes que cambian. Las situaciones que tienes que explicar una y otra vez.</p></div>
+            <div class="reveal" style="transition-delay: 300ms;"><p>Y aunque tengas personas que te apoyan, a veces simplemente apetece hablar con alguien que <strong>ya sabe de qué estás hablando</strong>.</p></div>
+            <div class="reveal" style="transition-delay: 400ms;"><p>Alguien que entiende tus experiencias sin necesidad de empezar desde cero.</p></div>
+            <div class="reveal" style="transition-delay: 500ms;"><p>AJUDEX nace para crear ese espacio. Una comunidad donde jóvenes con diabetes puedan <strong>conocerse, compartir, apoyarse y crear nuevas experiencias juntos</strong>.</p></div>
+            <div class="reveal" style="transition-delay: 600ms;"><p>Sin importar dónde vivas en Extremadura. Sin necesidad de conocer a nadie antes de entrar. Y sin tener que encontrar las palabras perfectas para empezar.</p></div>
+          </div>
+          <div class="reveal mt-12 flex justify-center" style="transition-delay: 400ms;">
+            <a href="#unete" class="inline-flex items-center justify-center px-8 py-5 text-sm tracking-wide uppercase transition-all duration-300 font-bold rounded-2xl shadow-xl active:scale-95 bg-aj-orange text-white hover:bg-aj-brown shadow-orange-200 hover:scale-[1.02]">
+              QUIERO FORMAR PARTE →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATEMENT 2 -->
+      <section class="py-24 md:py-32 bg-aj-white text-aj-dark border-y border-orange-50">
+        <div class="max-w-3xl mx-auto px-6 md:px-12 text-center">
+          <div class="reveal">
+            <h2 class="text-[40px] md:text-[56px] leading-[1.05] font-serif mb-8">
+              ¿Qué es AJUDEX?
+            </h2>
+          </div>
+          <div class="space-y-6 text-lg md:text-xl font-sans leading-relaxed text-aj-gray">
+            <div class="reveal" style="transition-delay: 100ms;"><p>AJUDEX es la Asociación Juvenil de Diabéticos de Extremadura y forma parte de FADEX, la Federación de Asociaciones de Diabéticos de Extremadura.</p></div>
+            <div class="reveal" style="transition-delay: 200ms;"><p>Durante años, el apoyo entre iguales ha sido una parte importante de nuestra actividad, especialmente a través del voluntariado y de experiencias compartidas como el campamento de verano de FADEX.</p></div>
+            <div class="reveal" style="transition-delay: 300ms;"><p>Ahora queremos dar un paso más. Queremos construir una <strong>red joven activa, cercana y conectada</strong>, donde las personas con diabetes puedan encontrar un espacio propio para relacionarse, compartir experiencias y participar.</p></div>
+            <div class="reveal" style="transition-delay: 400ms;"><p>Porque una comunidad no se construye desde una oficina. <strong>Se construye cuando las personas que forman parte de ella se encuentran.</strong></p></div>
+            <div class="reveal" style="transition-delay: 500ms;"><p>Y queremos que tú seas parte de ese encuentro.</p></div>
+          </div>
+          <div class="reveal mt-12 flex justify-center" style="transition-delay: 400ms;">
+            <a href="#pilares" class="inline-flex items-center justify-center px-8 py-5 text-sm tracking-wide uppercase transition-all duration-300 font-bold rounded-2xl shadow-xl active:scale-95 bg-aj-dark text-white hover:bg-aj-brown shadow-gray-200 hover:scale-[1.02]">
+              CONOCE AJUDEX →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PILLARS -->
+      <section id="pilares" class="py-24 bg-aj-light">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+          <div class="reveal text-center mb-20 max-w-3xl mx-auto">
+            <h2 class="text-[40px] md:text-[56px] leading-[1.05] font-serif text-aj-dark mb-6">¿Qué puedes encontrar en AJUDEX?</h2>
+            <p class="text-xl text-aj-gray font-sans leading-relaxed">Un espacio para ser tú, conectar con otros y participar a tu manera.</p>
+          </div>
+          
+          <div class="grid md:grid-cols-3 gap-6">
+            <!-- Pillar 1 -->
+            <div class="reveal bg-white p-8 rounded-3xl shadow-sm border border-orange-50 flex flex-col gap-5">
+              <div class="flex items-center gap-4 mb-2">
+                <div class="w-14 h-14 bg-aj-orange/15 rounded-2xl flex items-center justify-center shrink-0">
+                  <span class="text-2xl">🤝</span>
+                </div>
+                <h3 class="font-bold text-aj-orange text-xl uppercase tracking-tight">Conecta</h3>
+              </div>
+              <h4 class="text-xl font-serif text-aj-dark">Conoce a otros jóvenes con diabetes.</h4>
+              <p class="text-aj-gray leading-relaxed font-sans text-sm">
+                Personas que viven experiencias parecidas a las tuyas y con las que quizá puedas compartir mucho más de lo que imaginas. Porque a veces encontrar a alguien que entiende lo que estás contando puede marcar la diferencia.
+              </p>
+            </div>
+            <!-- Pillar 2 -->
+            <div class="reveal bg-white p-8 rounded-3xl shadow-sm border border-orange-100 flex flex-col gap-5" style="transition-delay: 200ms;">
+              <div class="flex items-center gap-4 mb-2">
+                <div class="w-14 h-14 bg-aj-brown/15 rounded-2xl flex items-center justify-center shrink-0">
+                  <span class="text-2xl">💬</span>
+                </div>
+                <h3 class="font-bold text-aj-brown text-xl uppercase tracking-tight">Comparte</h3>
+              </div>
+              <h4 class="text-xl font-serif text-aj-dark">Habla, pregunta y comparte experiencias.</h4>
+              <p class="text-aj-gray leading-relaxed font-sans text-sm">
+                Cuenta lo que te funciona. Pregunta aquello que siempre has querido preguntar. Comparte una experiencia. Escucha otras historias. O simplemente participa en una conversación.<br/><br/><strong>No tienes que tener todas las respuestas.</strong>
+              </p>
+            </div>
+            <!-- Pillar 3 -->
+            <div class="reveal bg-white p-8 rounded-3xl shadow-sm border border-orange-50 flex flex-col gap-5" style="transition-delay: 400ms;">
+              <div class="flex items-center gap-4 mb-2">
+                <div class="w-14 h-14 bg-aj-orange/15 rounded-2xl flex items-center justify-center shrink-0">
+                  <span class="text-2xl">🌱</span>
+                </div>
+                <h3 class="font-bold text-aj-orange text-xl uppercase tracking-tight">Participa</h3>
+              </div>
+              <h4 class="text-xl font-serif text-aj-dark">Ayuda a construir la comunidad que te gustaría tener.</h4>
+              <p class="text-aj-gray leading-relaxed font-sans text-sm">
+                Propón ideas. Participa en actividades. Apúntate a encuentros. Conoce gente. Ayuda a poner en marcha nuevos proyectos.<br/><br/><strong>Queremos construirla contigo.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATEMENT 3 (WHATSAPP) -->
+      <section class="py-24 md:py-32 bg-aj-orange text-white">
+        <div class="max-w-3xl mx-auto px-6 md:px-12 text-center">
+          <div class="reveal">
+            <h2 class="text-[40px] md:text-[56px] leading-[1.05] font-serif mb-8">
+              El punto de encuentro está en WhatsApp.
+            </h2>
+          </div>
+          <div class="space-y-6 text-lg md:text-xl font-sans leading-relaxed text-white/90">
+            <div class="reveal" style="transition-delay: 100ms;"><p>Hemos creado una comunidad de WhatsApp para que conectar con otros jóvenes sea fácil.</p></div>
+            <div class="reveal" style="transition-delay: 200ms;"><p>Un espacio donde compartir experiencias, conocer a otras personas, enterarte de las actividades y proponer nuevas ideas.</p></div>
+            <div class="reveal" style="transition-delay: 300ms;"><p>Sin formularios interminables. Sin complicaciones. <strong>Un clic y estás dentro.</strong></p></div>
+          </div>
+          <div class="reveal mt-12 flex justify-center" style="transition-delay: 400ms;">
+            <a href="#unete" class="inline-flex items-center justify-center px-8 py-5 text-sm tracking-wide uppercase transition-all duration-300 font-bold rounded-2xl shadow-xl active:scale-95 bg-aj-dark text-white hover:bg-aj-brown shadow-orange-900/20 hover:scale-[1.02]">
+              UNIRME A LA COMUNIDAD DE WHATSAPP →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEAM -->
+      <section class="py-24 bg-aj-light relative overflow-hidden">
+        <div class="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-aj-orange opacity-[0.05] rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div class="reveal">
+                <h2 class="text-[40px] md:text-[56px] leading-[1.05] font-serif text-aj-dark mb-6">
+                  Estamos poniendo AJUDEX en marcha. <br/><span class="text-aj-orange">Y queremos hacerlo contigo.</span>
+                </h2>
+                <div class="space-y-6 text-xl text-aj-gray max-w-[500px] font-sans leading-relaxed">
+                  <p>Detrás de esta nueva etapa hay un equipo con ganas de conectar a los jóvenes con diabetes de Extremadura y dar un nuevo impulso a la comunidad.</p>
+                  <p>La nueva junta directiva de AJUDEX quiere escuchar, conectar y crear espacios donde la juventud pueda tener un papel activo.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="reveal bg-aj-brown p-10 md:p-12 rounded-[40px] text-white relative overflow-hidden shadow-2xl shadow-orange-900/10" style="transition-delay: 200ms;">
+              <div class="absolute top-0 right-0 p-6 opacity-20 pointer-events-none">
+                <svg width="120" height="120" viewBox="0 0 200 200" fill="currentColor"><path d="M100 20C70 20 50 60 50 100C50 140 70 180 100 180C130 180 150 140 150 100C150 60 130 20 100 20Z"/><path d="M100 0C60 0 30 40 30 100C30 160 60 200 100 200C140 200 170 160 170 100C170 40 140 0 100 0Z" opacity="0.2"/></svg>
+              </div>
+              <h4 class="text-xs uppercase tracking-[0.2em] mb-8 opacity-70">Nueva Junta Directiva 2026</h4>
+              <div class="grid sm:grid-cols-2 gap-y-8 gap-x-6 relative z-10">
+                <div class="reveal" style="transition-delay: 100ms;">
+                  <p class="text-sm opacity-70 uppercase tracking-widest mb-1">Presidenta</p>
+                  <p class="text-2xl font-serif">Elena Calderón</p>
+                </div>
+                <div class="reveal" style="transition-delay: 200ms;">
+                  <p class="text-sm opacity-70 uppercase tracking-widest mb-1">Vicepresidente</p>
+                  <p class="text-2xl font-serif">Javier Folgado</p>
+                </div>
+                <div class="reveal" style="transition-delay: 300ms;">
+                  <p class="text-sm opacity-70 uppercase tracking-widest mb-1">Vocal</p>
+                  <p class="text-2xl font-serif">Pablo Calderón</p>
+                </div>
+                <div class="reveal" style="transition-delay: 400ms;">
+                  <p class="text-sm opacity-70 uppercase tracking-widest mb-1">Tesorero</p>
+                  <p class="text-2xl font-serif">Carlos Molina</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATEMENT 4 -->
+      <section class="py-24 md:py-32 bg-aj-dark text-aj-light">
+        <div class="max-w-3xl mx-auto px-6 md:px-12 text-center">
+          <div class="reveal">
+            <h2 class="text-[40px] md:text-[56px] leading-[1.05] font-serif mb-8">
+              Quizá todavía no conozcas a nadie de AJUDEX.
+            </h2>
+          </div>
+          <div class="space-y-6 text-lg md:text-xl font-sans leading-relaxed text-aj-light/80">
+            <div class="reveal" style="transition-delay: 100ms;"><p>Puede que hayas llegado hasta aquí porque alguien te ha hablado de AJUDEX. O porque has visto una publicación en Instagram. O porque has conocido la asociación por primera vez.</p></div>
+            <div class="reveal" style="transition-delay: 200ms;"><p>Sea como sea, queremos decirte algo:</p></div>
+            <div class="reveal" style="transition-delay: 300ms;"><p><strong>No necesitas conocer a nadie para entrar.</strong></p></div>
+            <div class="reveal" style="transition-delay: 400ms;"><p>No necesitas esperar a que alguien te invite. No necesitas tener experiencia participando en asociaciones.</p></div>
+            <div class="reveal" style="transition-delay: 500ms;"><p>Porque una comunidad empieza cuando las personas deciden encontrarse.</p></div>
+          </div>
+          <div class="reveal mt-12 flex justify-center" style="transition-delay: 400ms;">
+            <a href="#unete" class="inline-flex items-center justify-center px-8 py-5 text-sm tracking-wide uppercase transition-all duration-300 font-bold rounded-2xl shadow-xl active:scale-95 bg-aj-orange text-white hover:bg-aj-brown shadow-orange-200 hover:scale-[1.02]">
+              DAR EL PRIMER PASO →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEPS -->
+      <section class="py-24 bg-aj-dark text-aj-light overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+          <div class="reveal">
+            <h2 class="text-[40px] md:text-[56px] leading-[1.05] font-serif mb-16 text-center">Entrar es así de fácil.</h2>
+          </div>
+          
+          <div class="grid md:grid-cols-3 gap-12 relative max-w-5xl mx-auto">
+            <div class="absolute top-12 left-0 w-full h-px bg-aj-brown/30 hidden md:block"></div>
+            
+            <!-- Step 1 -->
+            <div class="reveal relative z-10 text-center md:text-left">
+              <div class="w-24 h-24 bg-aj-dark border-4 border-aj-brown/30 rounded-full flex items-center justify-center text-aj-orange text-3xl font-serif mx-auto md:mx-0 mb-6 font-bold">01</div>
+              <h3 class="text-2xl font-bold tracking-wider mb-4 uppercase text-aj-light">ÚNETE</h3>
+              <p class="text-aj-light/70 text-lg leading-relaxed font-sans">Haz clic en el botón y entra directamente en nuestra comunidad de WhatsApp.</p>
+            </div>
+            <!-- Step 2 -->
+            <div class="reveal relative z-10 text-center md:text-left" style="transition-delay: 200ms;">
+              <div class="w-24 h-24 bg-aj-dark border-4 border-aj-brown/30 rounded-full flex items-center justify-center text-aj-orange text-3xl font-serif mx-auto md:mx-0 mb-6 font-bold">02</div>
+              <h3 class="text-2xl font-bold tracking-wider mb-4 uppercase text-aj-light">CONOCE</h3>
+              <p class="text-aj-light/70 text-lg leading-relaxed font-sans">Descubre quién forma parte de AJUDEX y empieza a conectar con otras personas.</p>
+            </div>
+            <!-- Step 3 -->
+            <div class="reveal relative z-10 text-center md:text-left" style="transition-delay: 400ms;">
+              <div class="w-24 h-24 bg-aj-dark border-4 border-aj-brown/30 rounded-full flex items-center justify-center text-aj-orange text-3xl font-serif mx-auto md:mx-0 mb-6 font-bold">03</div>
+              <h3 class="text-2xl font-bold tracking-wider mb-4 uppercase text-aj-light">PARTICIPA</h3>
+              <p class="text-aj-light/70 text-lg leading-relaxed font-sans">Apúntate a actividades, comparte tus ideas y ayuda a construir una comunidad que tenga sentido.</p>
+            </div>
+          </div>
+          
+          <div class="reveal mt-20 text-center" style="transition-delay: 600ms;">
+            <p class="text-2xl font-serif text-aj-orange">Empieza simplemente por estar.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATEMENT 5 -->
+      <section class="py-24 md:py-32 bg-aj-white text-aj-dark border-y border-orange-50">
+        <div class="max-w-3xl mx-auto px-6 md:px-12 text-center">
+          <div class="reveal">
+            <h2 class="text-[40px] md:text-[56px] leading-[1.05] font-serif mb-8">
+              ¿Quién puede formar parte de AJUDEX?
+            </h2>
+          </div>
+          <div class="space-y-6 text-lg md:text-xl font-sans leading-relaxed text-aj-gray">
+            <div class="reveal" style="transition-delay: 100ms;"><p>AJUDEX está pensada para jóvenes con diabetes de Extremadura que quieran conectar con otras personas, compartir experiencias y participar en una comunidad joven.</p></div>
+            <div class="reveal" style="transition-delay: 200ms;"><p>Además, AJUDEX forma parte de FADEX. Por eso, si ya eres socio o socia de FADEX y estás dentro del rango de edad joven establecido, <strong>formas parte automáticamente de AJUDEX y no necesitas realizar ningún trámite adicional</strong>.</p></div>
+            <div class="reveal" style="transition-delay: 300ms;"><p>¿Todavía no eres socio o socia de FADEX? <strong>También puedes formar parte de AJUDEX.</strong></p></div>
+          </div>
+          <div class="reveal mt-12 flex justify-center" style="transition-delay: 400ms;">
+            <a href="#unete" class="inline-flex items-center justify-center px-8 py-5 text-sm tracking-wide uppercase transition-all duration-300 font-bold rounded-2xl shadow-xl active:scale-95 bg-aj-dark text-white hover:bg-aj-brown shadow-gray-200 hover:scale-[1.02]">
+              QUIERO FORMAR PARTE →
+            </a>
+          </div>
+        </div>
+      </section>
+      
+      <!-- INSTAGRAM CTA -->
+      <div class="bg-aj-light py-24 text-center border-t border-orange-50" id="unete">
+        <div class="max-w-4xl mx-auto px-6 flex flex-col items-center">
+          <div class="reveal">
+            <h2 class="text-[40px] md:text-[56px] leading-[1.05] font-serif text-aj-dark mb-4">¿Quieres saber qué estamos haciendo?</h2>
+          </div>
+          <div class="reveal" style="transition-delay: 150ms;">
+            <p class="text-xl md:text-2xl text-aj-gray font-sans mb-12">Síguenos también en Instagram.</p>
+          </div>
+          <div class="reveal flex flex-col items-center gap-6" style="transition-delay: 300ms;">
+            <a href="https://instagram.com/ajudex_oficial" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-10 py-5 text-sm tracking-widest uppercase transition-all duration-300 font-bold rounded-2xl border-2 border-aj-orange text-aj-orange hover:bg-aj-orange hover:text-white shadow-xl shadow-transparent hover:shadow-orange-200 hover:scale-[1.02]">
+              SEGUIR A @AJUDEX EN INSTAGRAM →
+            </a>
+            <p class="text-aj-gray text-sm mt-6 max-w-md mx-auto">
+              <strong class="text-aj-dark">Instagram</strong> para estar al día. <strong class="text-aj-dark">WhatsApp</strong> para formar parte.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <section class="py-24 bg-aj-light">
+        <div class="max-w-3xl mx-auto px-6 md:px-12">
+          <div class="reveal text-center mb-12">
+            <h2 class="text-[40px] md:text-[56px] leading-[1.05] font-serif text-aj-dark">
+              Antes de unirte, quizá te estés preguntando…
+            </h2>
+          </div>
+          
+          <div class="space-y-4">
+            <!-- FAQ 1 -->
+            <div class="reveal border border-orange-100 rounded-3xl overflow-hidden bg-white shadow-sm">
+              <button class="faq-btn w-full text-left px-6 py-6 flex justify-between items-center focus:outline-none cursor-pointer hover:bg-orange-50/50 transition-colors">
+                <span class="font-serif text-xl text-aj-dark pr-8">¿Quién puede formar parte de AJUDEX?</span>
+                <svg class="faq-icon w-6 h-6 text-aj-orange transition-transform duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                <div class="px-6 pb-6 text-aj-gray font-sans text-lg leading-relaxed pt-2">
+                  AJUDEX está dirigida a jóvenes con diabetes de Extremadura que quieran formar parte de una comunidad donde conectar, compartir experiencias y participar.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="reveal border border-orange-100 rounded-3xl overflow-hidden bg-white shadow-sm" style="transition-delay: 50ms;">
+              <button class="faq-btn w-full text-left px-6 py-6 flex justify-between items-center focus:outline-none cursor-pointer hover:bg-orange-50/50 transition-colors">
+                <span class="font-serif text-xl text-aj-dark pr-8">¿Tengo que ser socio o socia de FADEX para formar parte de AJUDEX?</span>
+                <svg class="faq-icon w-6 h-6 text-aj-orange transition-transform duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                <div class="px-6 pb-6 text-aj-gray font-sans text-lg leading-relaxed pt-2">
+                  No. Puedes formar parte de AJUDEX aunque no seas socio o socia de FADEX. Si ya eres socio o socia de FADEX y estás dentro del rango de edad joven, formas parte automáticamente de AJUDEX y no necesitas realizar ningún trámite adicional.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="reveal border border-orange-100 rounded-3xl overflow-hidden bg-white shadow-sm" style="transition-delay: 100ms;">
+              <button class="faq-btn w-full text-left px-6 py-6 flex justify-between items-center focus:outline-none cursor-pointer hover:bg-orange-50/50 transition-colors">
+                <span class="font-serif text-xl text-aj-dark pr-8">¿Cuánto cuesta formar parte de la comunidad?</span>
+                <svg class="faq-icon w-6 h-6 text-aj-orange transition-transform duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                <div class="px-6 pb-6 text-aj-gray font-sans text-lg leading-relaxed pt-2">
+                  La participación en la comunidad de WhatsApp es gratuita. Si quieres conocer más información sobre cómo hacerte socio o socia de AJUDEX y participar en sus actividades, puedes ponerte en contacto con nosotros.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="reveal border border-orange-100 rounded-3xl overflow-hidden bg-white shadow-sm" style="transition-delay: 150ms;">
+              <button class="faq-btn w-full text-left px-6 py-6 flex justify-between items-center focus:outline-none cursor-pointer hover:bg-orange-50/50 transition-colors">
+                <span class="font-serif text-xl text-aj-dark pr-8">¿Tengo que vivir en una ciudad concreta?</span>
+                <svg class="faq-icon w-6 h-6 text-aj-orange transition-transform duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                <div class="px-6 pb-6 text-aj-gray font-sans text-lg leading-relaxed pt-2">
+                  No. AJUDEX está pensada para jóvenes con diabetes de toda Extremadura. Queremos conectar a personas independientemente de dónde vivan y crear oportunidades para que puedan conocerse y compartir.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="reveal border border-orange-100 rounded-3xl overflow-hidden bg-white shadow-sm" style="transition-delay: 200ms;">
+              <button class="faq-btn w-full text-left px-6 py-6 flex justify-between items-center focus:outline-none cursor-pointer hover:bg-orange-50/50 transition-colors">
+                <span class="font-serif text-xl text-aj-dark pr-8">¿Tengo que participar activamente?</span>
+                <svg class="faq-icon w-6 h-6 text-aj-orange transition-transform duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                <div class="px-6 pb-6 text-aj-gray font-sans text-lg leading-relaxed pt-2">
+                  No. Puedes participar todo lo que quieras y a tu ritmo. Puedes entrar para conocer gente, leer, compartir experiencias, proponer ideas o simplemente ver qué está pasando. <strong>Tú decides cómo formar parte.</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="reveal border border-orange-100 rounded-3xl overflow-hidden bg-white shadow-sm" style="transition-delay: 250ms;">
+              <button class="faq-btn w-full text-left px-6 py-6 flex justify-between items-center focus:outline-none cursor-pointer hover:bg-orange-50/50 transition-colors">
+                <span class="font-serif text-xl text-aj-dark pr-8">¿AJUDEX ofrece consejo médico?</span>
+                <svg class="faq-icon w-6 h-6 text-aj-orange transition-transform duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                <div class="px-6 pb-6 text-aj-gray font-sans text-lg leading-relaxed pt-2">
+                  No. AJUDEX es un espacio de conexión, acompañamiento y apoyo entre iguales. Para cuestiones relacionadas con tu tratamiento, medicación o salud, debes consultar siempre con tu equipo sanitario.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 7 -->
+            <div class="reveal border border-orange-100 rounded-3xl overflow-hidden bg-white shadow-sm" style="transition-delay: 300ms;">
+              <button class="faq-btn w-full text-left px-6 py-6 flex justify-between items-center focus:outline-none cursor-pointer hover:bg-orange-50/50 transition-colors">
+                <span class="font-serif text-xl text-aj-dark pr-8">¿Qué tipo de actividades habrá?</span>
+                <svg class="faq-icon w-6 h-6 text-aj-orange transition-transform duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                <div class="px-6 pb-6 text-aj-gray font-sans text-lg leading-relaxed pt-2">
+                  Queremos que la propia comunidad ayude a decidirlo. Encuentros, quedadas, actividades, iniciativas y proyectos para jóvenes. Cuantas más personas participemos, más posibilidades tendremos de crear experiencias que realmente nos interesen.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-aj-light text-aj-dark pt-24 pb-8 border-t border-orange-100 relative overflow-hidden">
+      <div class="absolute bottom-[-150px] right-[-50px] w-[400px] h-[400px] bg-aj-orange opacity-[0.05] rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-12 text-center relative z-10">
+        <div class="reveal">
+          <h2 class="text-[40px] md:text-[56px] leading-[1.05] font-serif mb-8 text-aj-dark">Tu comunidad está aquí.</h2>
+        </div>
+        <div class="reveal max-w-2xl mx-auto space-y-4 text-xl text-aj-gray font-sans leading-relaxed mb-12" style="transition-delay: 150ms;">
+          <p>Quizá llevas años viviendo con diabetes. Quizá acabas de empezar una nueva etapa. Quizá has conocido AJUDEX hoy por primera vez.</p>
+          <p>Quizá simplemente te apetece conocer a otras personas que entienden algunas cosas sin necesidad de explicarlas.</p>
+          <p class="text-aj-orange font-bold mt-8">Solo tienes que dar el primer paso.</p>
+        </div>
+        
+        <div class="reveal mb-24 flex justify-center" style="transition-delay: 300ms;">
+          <a href="#unete" class="inline-flex items-center justify-center px-8 py-5 text-sm tracking-wide uppercase transition-all duration-300 font-bold rounded-2xl shadow-xl active:scale-95 bg-aj-orange text-white hover:bg-aj-brown shadow-orange-200 hover:scale-[1.02]">
+            ÚNETE A LA COMUNIDAD DE WHATSAPP
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ml-2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+        
+        <div class="border-t border-orange-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div class="text-[11px] text-aj-brown font-medium uppercase tracking-wider text-center md:text-left">
+            © <span id="year">2026</span> AJUDEX · ASOCIACIÓN JUVENIL DE DIABÉTICOS DE EXTREMADURA
+          </div>
+          
+          <div class="flex gap-6 text-[11px] font-bold text-aj-orange uppercase tracking-wider">
+            <a href="#" class="hover:text-aj-brown transition-colors">Privacidad</a>
+            <a href="#" class="hover:text-aj-brown transition-colors">Contacto</a>
+            <a href="https://instagram.com/ajudex_oficial" target="_blank" rel="noopener" class="hover:text-aj-brown transition-colors">@ajudex_oficial</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- INTERACTION LOGIC -->
+    <script>
+      // Current year in footer
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Navbar scroll effect
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.classList.remove('bg-transparent', 'py-6');
+          navbar.classList.add('bg-aj-light/95', 'backdrop-blur-md', 'py-4', 'shadow-sm');
+        } else {
+          navbar.classList.add('bg-transparent', 'py-6');
+          navbar.classList.remove('bg-aj-light/95', 'backdrop-blur-md', 'py-4', 'shadow-sm');
+        }
+      });
+
+      // FAQ accordion
+      const faqButtons = document.querySelectorAll('.faq-btn');
+      faqButtons.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+          const content = btn.nextElementSibling;
+          const icon = btn.querySelector('.faq-icon');
+          
+          // Check if this item is already open
+          const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+          
+          // Close all FAQ items
+          document.querySelectorAll('.faq-content').forEach(item => item.style.maxHeight = '0px');
+          document.querySelectorAll('.faq-icon').forEach(ic => ic.classList.remove('rotate-180'));
+          
+          // Toggle the clicked FAQ item
+          if (!isOpen) {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            icon.classList.add('rotate-180');
+          } else {
+            content.style.maxHeight = '0px';
+            icon.classList.remove('rotate-180');
+          }
+        });
+      });
+
+      // Set first FAQ open by default
+      const firstContent = faqButtons[0].nextElementSibling;
+      const firstIcon = faqButtons[0].querySelector('.faq-icon');
+      firstContent.style.maxHeight = firstContent.scrollHeight + 'px';
+      firstIcon.classList.add('rotate-180');
+
+      // Scroll Reveal effect
+      const revealElements = document.querySelectorAll('.reveal');
+      const revealOnScroll = () => {
+        const triggerBottom = window.innerHeight * 0.9;
+        revealElements.forEach(el => {
+          const elTop = el.getBoundingClientRect().top;
+          if (elTop < triggerBottom) {
+            el.classList.add('active');
+          }
+        });
+      };
+      
+      window.addEventListener('scroll', revealOnScroll);
+      // Run once at start to show elements already visible
+      revealOnScroll();
+    </script>
   </body>
 </html>
-
