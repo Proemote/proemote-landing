@@ -117,7 +117,7 @@
                         <i class="ph ph-caret-down text-xs transition-transform group-hover:rotate-180"></i>
                     </a>
                     <div class="absolute top-full left-0 mt-4 before:absolute before:-top-4 before:left-0 before:w-full before:h-4 w-64 bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-2xl p-4 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 flex flex-col gap-2 pointer-events-auto">
-                        <a href="/ayudas-digitalizacion-pymes-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 transition-all flex items-start gap-3 group/item">
+                        <a href="/ayudas-digitalizacion-pymes-extremadura/" class="p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-white/10 dark:bg-white/5 border border-gray-300 dark:border-white/10 transition-all flex items-start gap-3 group/item">
                             <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover/item:bg-primary group-hover/item:text-gray-900 dark:text-white transition-colors flex-shrink-0">
                                 <i class="ph-fill ph-device-mobile"></i>
                             </div>
@@ -872,22 +872,22 @@
             let badgeText = '';
             
             if (isClosed) {
-                badgeClass = 'bg-white/5 text-textSecondary border-white/10';
+                badgeClass = 'bg-gray-100 dark:bg-white/5 text-gray-500 dark:text-textSecondary border-gray-200 dark:border-white/10';
                 badgeIcon = 'ph-lock';
                 badgeText = 'Cerrada';
             } else if (isClosingSoon) {
-                badgeClass = 'bg-amber-500/10 text-amber-400 border-amber-500/30 shadow-[0_0_10px_rgba(245,158,11,0.2)]';
+                badgeClass = 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-500/30 shadow-[0_0_10px_rgba(245,158,11,0.1)] dark:shadow-[0_0_10px_rgba(245,158,11,0.2)]';
                 badgeIcon = 'ph-clock-countdown';
                 badgeText = 'Cierre próximo';
             } else {
-                badgeClass = 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30';
+                badgeClass = 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-500/30';
                 badgeIcon = 'ph-check-circle';
                 badgeText = 'Abierta';
             }
 
             // Etiquetas (adaptadas para superponerse a la foto)
             const tagsHTML = data.etiquetas.map(tag => 
-                `<span class="px-2 py-1 rounded-md bg-black/40 backdrop-blur-md border border-gray-300 dark:border-white/20 shadow-sm text-xs text-gray-900 dark:text-white">${tag}</span>`
+                `<span class="px-2 py-1 rounded-md bg-white/90 dark:bg-black/60 backdrop-blur-md border border-gray-200 dark:border-white/20 shadow-sm text-xs text-gray-800 dark:text-white font-medium">${tag}</span>`
             ).join('');
 
             // Bloque Urgencia
@@ -899,7 +899,7 @@
                         <span class="text-xs text-amber-500/80 font-medium flex items-center gap-2">
                             <i class="ph-bold ph-warning"></i> Convocatoria crítica
                         </span>
-                        <span class="text-xs font-medium text-amber-400">⏱ Quedan ${days} días para el cierre</span>
+                        <span class="text-xs font-medium text-amber-600 dark:text-amber-400">⏱ Quedan ${days} días para el cierre</span>
                     </div>
                 `;
             }
@@ -914,7 +914,7 @@
                     <img src="${data.imagen}" alt="${data.titulo}" class="w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-500 group-hover:scale-105">
                     
                     <!-- Gradiente para integrar imagen con el fondo de la tarjeta -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-[rgba(20,20,31,0.95)] via-[rgba(20,20,31,0.4)] to-transparent pointer-events-none"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent dark:from-[rgba(20,20,31,0.95)] dark:via-[rgba(20,20,31,0.4)] dark:to-transparent pointer-events-none"></div>
                     
                     <!-- Badge de Estado -->
                     <div class="absolute top-4 right-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-medium ${badgeClass} backdrop-blur-md shadow-lg z-10">

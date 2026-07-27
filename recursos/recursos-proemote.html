@@ -265,13 +265,13 @@
                         </button>
                         
                         <div id="menu-sort" class="dropdown-menu absolute right-0 top-full mt-2 w-48 bg-white dark:bg-[#14141F] border border-gray-100 dark:border-white/10 rounded-2xl shadow-xl z-50 py-2">
-                            <button class="w-full flex items-center justify-between px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 transition-colors text-left" data-sort="newest">
+                            <button class="w-full flex items-center justify-between px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/10 dark:bg-white/5 border border-gray-300 dark:border-white/10 transition-colors text-left" data-sort="newest">
                                 Más recientes <i class="ph-bold ph-check text-primary sort-check"></i>
                             </button>
-                            <button class="w-full flex items-center justify-between px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 transition-colors text-left" data-sort="oldest">
+                            <button class="w-full flex items-center justify-between px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/10 dark:bg-white/5 border border-gray-300 dark:border-white/10 transition-colors text-left" data-sort="oldest">
                                 Más antiguos <i class="ph-bold ph-check text-primary sort-check hidden"></i>
                             </button>
-                            <button class="w-full flex items-center justify-between px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 transition-colors text-left" data-sort="popular">
+                            <button class="w-full flex items-center justify-between px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/10 dark:bg-white/5 border border-gray-300 dark:border-white/10 transition-colors text-left" data-sort="popular">
                                 Más leídos <i class="ph-bold ph-check text-primary sort-check hidden"></i>
                             </button>
                         </div>
@@ -801,7 +801,7 @@
                 if (count === 0 && cat.id !== 'all') return ''; 
 
                 return `
-                    <button class="w-full flex items-center justify-between px-4 py-2 hover:bg-gray-50 dark:hover:bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 transition-colors text-left category-option" data-id="${cat.id}">
+                    <button class="w-full flex items-center justify-between px-4 py-2 hover:bg-gray-50 dark:hover:bg-white/10 dark:bg-white/5 border border-gray-300 dark:border-white/10 transition-colors text-left category-option" data-id="${cat.id}">
                         <div class="flex items-center gap-2">
                             <span class="w-2 h-2 rounded-full ${cat.color}"></span>
                             <span class="text-sm ${isActive ? 'font-medium text-gray-900 dark:text-white' : 'text-gray-700 dark:text-gray-300'}">${cat.label}</span>
