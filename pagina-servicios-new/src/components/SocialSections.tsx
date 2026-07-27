@@ -24,12 +24,22 @@ export default function SocialSections() {
           <div id="logos-track" className="flex w-max items-center gap-16 md:gap-24 px-8 py-4">
             <div className="flex items-center gap-16 md:gap-24 animate-marquee" style={{ '--duration': '40s' } as React.CSSProperties}>
               {['loquierolimpio', 'baobab', 'jamonexclusive', 'xtrm', 'jovenext', 'meridia', 'juany', 'gabrielromero', 'lusitania', 'anagoros', 'opn', 'tierrasconalma'].map(logo => (
-                <img key={logo} src={`../logos/logo-${logo}.png`} alt={`Logo ${logo}`} className="h-16 md:h-28 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0" />
+                <img 
+                  key={logo} 
+                  src={`../logos/logo-${logo}.png`} 
+                  alt={`Logo ${logo}`} 
+                  className={`h-16 md:h-28 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0 ${(logo === 'jamonexclusive' || logo === 'tierrasconalma') ? 'dark:invert-0 invert' : ''}`} 
+                />
               ))}
             </div>
             <div className="flex items-center gap-16 md:gap-24 animate-marquee" style={{ '--duration': '40s' } as React.CSSProperties}>
               {['loquierolimpio', 'baobab', 'jamonexclusive', 'xtrm', 'jovenext', 'meridia', 'juany', 'gabrielromero', 'lusitania', 'anagoros', 'opn', 'tierrasconalma'].map(logo => (
-                <img key={logo + '-dup'} src={`../logos/logo-${logo}.png`} alt={`Logo ${logo}`} className="h-16 md:h-28 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0" />
+                <img 
+                  key={logo + '-dup'} 
+                  src={`../logos/logo-${logo}.png`} 
+                  alt={`Logo ${logo}`} 
+                  className={`h-16 md:h-28 w-auto max-w-none object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0 ${(logo === 'jamonexclusive' || logo === 'tierrasconalma') ? 'dark:invert-0 invert' : ''}`} 
+                />
               ))}
             </div>
           </div>
