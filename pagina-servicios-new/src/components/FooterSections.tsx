@@ -151,8 +151,8 @@ export default function FooterSections() {
       <footer className="relative z-10 bg-white dark:bg-[#05020a] text-gray-900 dark:text-white overflow-hidden">
         {/* Background Images - space bg */}
         <div className="absolute -top-80 bottom-0 left-0 right-0 z-0 pointer-events-none" style={{ height: 'calc(100% + 20rem)' }}>
-          <img src="/space bg white.png" alt="Space Background Light" className="block dark:hidden w-full h-full object-cover object-center opacity-60" />
-          <img src="/space bg.png" alt="Space Background Dark" className="hidden dark:block w-full h-full object-cover object-center opacity-70" />
+          <img src="/space-bg-white.png" alt="Space Background Light" className="block dark:hidden w-full h-full object-cover object-center opacity-60" />
+          <img src="/space-bg.png" alt="Space Background Dark" className="hidden dark:block w-full h-full object-cover object-center opacity-70" />
           <div className="absolute inset-0 bg-gradient-to-b from-white via-white/30 to-white dark:from-[#05020a] dark:via-[#05020a]/50 dark:to-[#05020a]"></div>
         </div>
 
@@ -219,6 +219,9 @@ export default function FooterSections() {
               </a>
               <a href="https://www.facebook.com/proemote/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white/60 hover:text-white hover:bg-marca transition-all">
                 <i className="ph-fill ph-facebook-logo text-lg"></i>
+              </a>
+              <a href="https://www.tiktok.com/@proemote" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 flex items-center justify-center text-gray-900 dark:text-white/60 hover:text-white hover:bg-marca transition-all">
+                <i className="ph-fill ph-tiktok-logo text-lg"></i>
               </a>
             </div>
           </div>
