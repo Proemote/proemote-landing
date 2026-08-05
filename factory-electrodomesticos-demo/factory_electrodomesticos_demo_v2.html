@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Factory Electrodomésticos — Tienda Online</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&family=Fraunces:ital,wght@0,500;1,500&display=swap');
+
+  :root{
+    --ink:#14171A;
+    --graphite:#1C1F24;
+    --graphite-2:#262B33;
+    --graphite-3:#30363F;
+    --cream:#FAF6EF;
+    --cream-2:#F1EBDD;
+    --red:#FF4438;
+    --red-dark:#D8281D;
+    --gold:#FFC93C;
+    --gold-2:#E8B22B;
+    --grey:#6B7280;
+    --line:#E7E1D3;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  .display{font-family:'Archivo Black', sans-serif; text-transform:uppercase; letter-spacing:-0.01em;}
+  .serif-italic{font-family:'Fraunces', serif; font-style:italic; font-weight:500;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  button{font-family:inherit; border:none; background:none; cursor:pointer;}
+
+  .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1; transform:none; transition:none;} }
+
+  /* ---------- HEADER ---------- */
+  header{
+    background:var(--graphite);
+    color:#fff;
+    position:sticky; top:0; z-index:50;
+    border-bottom:3px solid var(--red);
+  }
+  .header-inner{
+    max-width:1180px; margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
+  }
+  .logo{display:flex; align-items:center; gap:10px;}
+  .logo-mark{
+    width:34px; height:34px; background:var(--red);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Archivo Black'; font-size:16px; color:#fff; flex-shrink:0;
+    transform:rotate(-4deg); transition:transform .3s ease;
+  }
+  .logo:hover .logo-mark{transform:rotate(4deg) scale(1.06);}
+  .logo-text{font-family:'Archivo Black'; font-size:16px; letter-spacing:0.02em; line-height:1;}
+  .logo-text span{display:block; font-family:'Inter'; font-weight:500; font-size:10px; letter-spacing:0.14em; color:var(--gold); margin-top:3px;}
+  nav{display:flex; gap:30px; font-size:13px; font-weight:600; letter-spacing:0.02em;}
+  nav a{opacity:0.82; position:relative; padding-bottom:3px;}
+  nav a::after{content:''; position:absolute; left:0; bottom:0; width:0; height:1.5px; background:var(--gold); transition:width .25s ease;}
+  nav a:hover{opacity:1;}
+  nav a:hover::after{width:100%;}
+  .cta-btn{
+    background:var(--red); color:#fff; font-weight:700; font-size:13px;
+    padding:11px 20px; border-radius:3px; white-space:nowrap;
+    box-shadow:3px 3px 0 var(--gold);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .cta-btn:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--gold);}
+  @media(max-width:860px){ nav{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(ellipse 900px 500px at 85% -10%, rgba(255,201,60,0.12), transparent 60%),
+      var(--graphite);
+    color:#fff;
+    padding:70px 28px 100px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-inner{
+    max-width:1180px; margin:0 auto;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;
+    position:relative;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:11px; font-weight:700; letter-spacing:0.14em;
+    color:var(--gold); margin-bottom:18px;
+  }
+  .eyebrow::before{content:''; width:16px; height:2px; background:var(--gold);}
+  .hero h1{
+    font-size:clamp(34px,4.4vw,54px);
+    line-height:1.02;
+    margin-bottom:20px;
+  }
+  .hero h1 em{font-style:normal; color:var(--red);}
+  .hero p{
+    font-size:16px; color:#C7CBD1; max-width:440px; margin-bottom:30px; line-height:1.55;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--red); color:#fff; font-weight:700; font-size:14px;
+    padding:15px 26px; border-radius:3px; box-shadow:4px 4px 0 var(--gold);
+    transition:transform .18s ease, box-shadow .18s ease;
+    display:inline-block;
+  }
+  .btn-primary:hover{transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--gold);}
+  .btn-ghost{
+    border:1.5px solid rgba(255,255,255,0.28); color:#fff; font-weight:600; font-size:14px;
+    padding:14px 24px; border-radius:3px; transition:background .2s ease, border-color .2s ease;
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.5);}
+  .stat-row{display:flex; gap:34px; margin-top:44px; flex-wrap:wrap;}
+  .stat b{display:block; font-family:'Archivo Black'; font-size:24px; color:var(--gold);}
+  .stat span{font-size:11px; color:#9AA0A8; letter-spacing:0.03em;}
+
+  .hero-visual{position:relative; height:340px;}
+  .price-card{
+    background:rgba(250,246,239,0.94); backdrop-filter:blur(6px);
+    color:var(--ink); border-radius:8px;
+    padding:22px; width:250px; position:absolute;
+    box-shadow:0 24px 55px rgba(0,0,0,0.4);
+    transition:transform .4s cubic-bezier(.2,.8,.2,1);
+  }
+  .price-card.p1{top:0; right:30px; transform:rotate(3deg);}
+  .price-card.p1:hover{transform:rotate(0deg) translateY(-6px) scale(1.02);}
+  .price-card.p2{top:150px; right:110px; transform:rotate(-4deg); background:rgba(38,43,51,0.92); color:#fff;}
+  .price-card.p2:hover{transform:rotate(0deg) translateY(-6px) scale(1.02);}
+  .pc-cat{font-size:10px; letter-spacing:0.1em; color:var(--grey); font-weight:700; text-transform:uppercase;}
+  .p2 .pc-cat{color:#9AA0A8;}
+  .pc-name{font-weight:700; font-size:14px; margin:6px 0 10px;}
+  .pc-prices{display:flex; align-items:baseline; gap:8px;}
+  .pc-old{font-size:13px; color:var(--grey); text-decoration:line-through;}
+  .p2 .pc-old{color:#7B818A;}
+  .pc-new{font-family:'Archivo Black'; font-size:22px; color:var(--red);}
+  .sticker{
+    position:absolute; top:-14px; left:-14px;
+    background:var(--gold); color:var(--ink); font-family:'Archivo Black';
+    font-size:12px; width:56px; height:56px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; text-align:center; line-height:1.05;
+    transform:rotate(-12deg); border:2px dashed rgba(20,23,26,0.35);
+    animation:pulse 2.6s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{transform:rotate(-12deg) scale(1);} 50%{transform:rotate(-12deg) scale(1.07);}}
+
+  /* ---------- SECTIONS ---------- */
+  section{max-width:1180px; margin:0 auto; padding:76px 28px;}
+  .section-head{display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:36px; gap:20px; flex-wrap:wrap;}
+  .section-head h2{font-size:clamp(24px,3vw,32px);}
+  .section-head p{color:var(--grey); font-size:14px; max-width:380px;}
+  .kicker{font-size:11px; font-weight:700; letter-spacing:0.14em; color:var(--red); margin-bottom:8px;}
+
+  /* ---------- SOBRE NOSOTROS ---------- */
+  .about{background:var(--cream-2);}
+  .about-inner{
+    max-width:1180px; margin:0 auto; padding:80px 28px;
+    display:grid; grid-template-columns:0.9fr 1.1fr; gap:60px; align-items:center;
+  }
+  .about-panel{
+    background:var(--graphite); border-radius:10px; padding:38px 34px;
+    position:relative; overflow:hidden; color:#fff; min-height:320px;
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .about-panel::before{
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(circle at 20% 15%, rgba(255,201,60,0.16), transparent 55%);
+  }
+  .about-panel-quote{font-size:19px; line-height:1.5; position:relative; z-index:1;}
+  .about-panel-quote::before{content:'“'; font-family:'Fraunces'; font-size:52px; color:var(--gold); display:block; line-height:0.6; margin-bottom:8px;}
+  .about-panel-foot{display:flex; align-items:center; gap:12px; margin-top:26px; position:relative; z-index:1;}
+  .about-avatar{width:38px; height:38px; border-radius:50%; background:var(--red); display:flex; align-items:center; justify-content:center; font-family:'Archivo Black'; font-size:14px;}
+  .about-panel-foot b{display:block; font-size:13px;}
+  .about-panel-foot span{font-size:11.5px; color:#9AA0A8;}
+
+  .about-text .kicker{margin-bottom:12px;}
+  .about-text h2{font-size:clamp(24px,3vw,34px); margin-bottom:18px; line-height:1.1;}
+  .about-text p{color:#4B5157; font-size:15px; line-height:1.7; margin-bottom:22px; max-width:520px;}
+  .about-values{display:grid; grid-template-columns:1fr 1fr; gap:18px 26px; margin-top:8px;}
+  .about-value{display:flex; gap:12px; align-items:flex-start;}
+  .about-value svg{width:20px; height:20px; flex-shrink:0; color:var(--red); margin-top:2px;}
+  .about-value b{display:block; font-size:13.5px; margin-bottom:2px;}
+  .about-value span{font-size:12.5px; color:var(--grey);}
+  @media(max-width:900px){ .about-inner{grid-template-columns:1fr;} .about-values{grid-template-columns:1fr;} }
+
+  /* categories */
+  .cat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  .cat-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px; padding:26px 20px;
+    display:flex; flex-direction:column; gap:14px;
+    transition:transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s ease, border-color .28s ease;
+  }
+  .cat-card:hover{transform:translateY(-6px); box-shadow:0 18px 36px rgba(20,23,26,0.1); border-color:transparent;}
+  .cat-icon{width:44px; height:44px; transition:transform .3s ease;}
+  .cat-card:hover .cat-icon{transform:scale(1.1) rotate(-4deg); color:var(--red);}
+  .cat-card h3{font-size:15px; font-weight:700;}
+  .cat-card span{font-size:12.5px; color:var(--grey);}
+  @media(max-width:860px){ .cat-grid{grid-template-columns:repeat(2,1fr);} }
+
+  /* ---------- CARRUSEL PRODUCTOS ---------- */
+  .carousel-wrap{position:relative;}
+  .carousel-track{
+    display:flex; gap:20px; overflow-x:auto; scroll-snap-type:x mandatory;
+    padding:6px 2px 22px; scrollbar-width:none;
+  }
+  .carousel-track::-webkit-scrollbar{display:none;}
+  .prod-card{
+    background:#fff; border:1px solid var(--line); border-radius:10px; overflow:hidden;
+    display:flex; flex-direction:column; position:relative; flex:0 0 260px; scroll-snap-align:start;
+    transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease, border-color .3s ease;
+  }
+  .prod-card:hover{transform:translateY(-8px); box-shadow:0 24px 44px rgba(20,23,26,0.14); border-color:transparent; z-index:2;}
+  .prod-thumb{
+    background:var(--cream-2); height:160px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;
+  }
+  .prod-thumb svg{width:64px; height:64px; opacity:0.85; transition:transform .35s ease;}
+  .prod-card:hover .prod-thumb svg{transform:scale(1.12) rotate(-3deg);}
+  .prod-tag{
+    position:absolute; top:10px; left:10px; background:var(--red); color:#fff;
+    font-family:'Archivo Black'; font-size:11px; padding:5px 9px; border-radius:3px; transform:rotate(-3deg);
+    transition:transform .25s ease;
+  }
+  .prod-card:hover .prod-tag{transform:rotate(0deg) scale(1.05);}
+  .prod-body{padding:16px 16px 18px; display:flex; flex-direction:column; gap:6px; flex:1;}
+  .prod-cat{font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--grey); font-weight:700;}
+  .prod-name{font-size:14px; font-weight:700; line-height:1.3;}
+  .prod-prices{display:flex; align-items:baseline; gap:8px; margin-top:4px;}
+  .prod-old{font-size:12px; color:var(--grey); text-decoration:line-through;}
+  .prod-new{font-family:'Archivo Black'; font-size:19px; color:var(--red-dark);}
+  .prod-btn{
+    margin-top:10px; background:var(--graphite); color:#fff; font-size:12.5px; font-weight:700;
+    text-align:center; padding:10px; border-radius:5px; transition:background .2s ease, transform .2s ease;
+  }
+  .prod-btn:hover{background:var(--red); transform:translateY(-1px);}
+
+  .carousel-nav{display:flex; gap:10px; justify-content:flex-end; margin-top:-8px; margin-bottom:6px;}
+  .car-btn{
+    width:42px; height:42px; border-radius:50%; border:1.5px solid var(--line); background:#fff;
+    display:flex; align-items:center; justify-content:center; transition:all .2s ease;
+  }
+  .car-btn:hover{background:var(--graphite); border-color:var(--graphite);}
+  .car-btn:hover svg{stroke:#fff;}
+  .car-btn svg{width:18px; height:18px; stroke:var(--ink); transition:stroke .2s ease;}
+
+  /* trust strip */
+  .trust{background:var(--graphite-2); color:#fff;}
+  .trust-inner{
+    max-width:1180px; margin:0 auto; padding:36px 28px;
+    display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+  }
+  .trust-item{display:flex; gap:12px; align-items:flex-start; transition:transform .25s ease;}
+  .trust-item:hover{transform:translateY(-3px);}
+  .trust-item svg{width:26px; height:26px; flex-shrink:0; color:var(--gold);}
+  .trust-item b{display:block; font-size:13.5px; margin-bottom:3px;}
+  .trust-item span{font-size:12px; color:#AEB4BB;}
+  @media(max-width:860px){ .trust-inner{grid-template-columns:repeat(2,1fr);} }
+
+  /* savings ticket */
+  .ticket{
+    background:var(--cream-2); border:1.5px dashed #C9BFA4; border-radius:10px;
+    max-width:1180px; margin:0 auto 76px; padding:34px 40px;
+    display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+    transition:border-color .3s ease;
+  }
+  .ticket:hover{border-color:var(--red);}
+  .ticket-left h3{font-size:18px; margin-bottom:6px;}
+  .ticket-left p{font-size:13px; color:var(--grey); max-width:420px;}
+  .ticket-right{display:flex; align-items:center; gap:26px;}
+  .tk{text-align:center;}
+  .tk b{display:block; font-family:'IBM Plex Mono'; font-weight:600; font-size:20px;}
+  .tk span{font-size:10px; letter-spacing:0.08em; color:var(--grey); text-transform:uppercase;}
+  .tk-arrow{color:var(--grey); font-size:18px;}
+
+  /* footer */
+  footer{background:var(--graphite); color:#fff; padding:50px 28px 30px;}
+  .footer-inner{max-width:1180px; margin:0 auto; display:flex; justify-content:space-between; gap:30px; flex-wrap:wrap;}
+  .footer-inner h4{font-family:'Archivo Black'; font-size:15px; margin-bottom:12px;}
+  .footer-inner p{font-size:13px; color:#9AA0A8; line-height:1.7;}
+  .foot-bottom{max-width:1180px; margin:30px auto 0; border-top:1px solid #333940; padding-top:18px; font-size:11.5px; color:#7B818A;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-mark">F</div>
+      <div class="logo-text">FACTORY<span>ELECTRODOMÉSTICOS · OUTLET</span></div>
+    </div>
+    <nav>
+      <a href="#nosotros">Sobre nosotros</a>
+      <a href="#categorias">Línea Blanca</a>
+      <a href="#productos">Ofertas</a>
+      <a href="#ubicacion">Tienda Badajoz</a>
+    </nav>
+    <a href="#" class="cta-btn">📲 WhatsApp</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">OUTLET DE ELECTRODOMÉSTICOS · BADAJOZ</div>
+      <h1 class="display">Hasta <em>-70%</em><br>en electrodomésticos<br>con garantía oficial</h1>
+      <p>Los mismos productos que ya conoces en nuestras redes, ahora con compra online, envío a toda Extremadura y recogida en tienda.</p>
+      <div class="hero-ctas">
+        <a href="#productos" class="btn-primary">Ver ofertas de hoy</a>
+        <a href="#ubicacion" class="btn-ghost">Cómo llegar a la tienda</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>100%</b><span>garantía oficial de fábrica</span></div>
+        <div class="stat"><b>24–48h</b><span>envío en Extremadura</span></div>
+        <div class="stat"><b>0€</b><span>recogida en tienda Badajoz</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="price-card p1">
+        <div class="sticker">-45%</div>
+        <div class="pc-cat">Frigorífico Combi</div>
+        <div class="pc-name">Balay 186cm · Outlet</div>
+        <div class="pc-prices"><span class="pc-old">549€</span><span class="pc-new">299€</span></div>
+      </div>
+      <div class="price-card p2">
+        <div class="pc-cat">Lavadora</div>
+        <div class="pc-name">Bosch 9kg · Ocasión</div>
+        <div class="pc-prices"><span class="pc-old">459€</span><span class="pc-new">249€</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="about" id="nosotros">
+  <div class="about-inner">
+    <div class="about-panel reveal">
+      <div class="about-panel-quote">Aquí no vendemos electrodomésticos con defecto. Vendemos la misma calidad, a un precio que tiene sentido.</div>
+      <div class="about-panel-foot">
+        <div class="about-avatar">F</div>
+        <div><b>Equipo Factory Electrodomésticos</b><span>Tienda física · Pol. Ind. El Nevero, Badajoz</span></div>
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <div class="kicker">SOBRE NOSOTROS</div>
+      <h2 class="display">Un outlet de barrio, con el trato de siempre</h2>
+      <p>Llevamos años en Badajoz ayudando a que cada casa tenga el electrodoméstico que necesita sin pagar de más: unidades con pequeños defectos estéticos, fin de serie o de exposición, siempre con garantía oficial y revisadas antes de salir de tienda. Lo que empezó como una tienda física se ha convertido en referencia local gracias al boca a boca — y ahora, en una tienda online que funciona igual de cerca.</p>
+      <div class="about-values">
+        <div class="about-value">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3z"/></svg>
+          <div><b>Garantía real</b><span>Cada producto, revisado y con garantía oficial</span></div>
+        </div>
+        <div class="about-value">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>
+          <div><b>Precios honestos</b><span>Sin letra pequeña ni descuentos falsos</span></div>
+        </div>
+        <div class="about-value">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg>
+          <div><b>Trato cercano</b><span>La misma atención de tienda, ahora también online</span></div>
+        </div>
+        <div class="about-value">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+          <div><b>Raíces en Badajoz</b><span>Tienda física, equipo local, servicio de proximidad</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="categorias">
+  <div class="section-head reveal">
+    <div>
+      <div class="kicker">CATEGORÍAS</div>
+      <h2 class="display">Todo lo que ya vendéis, ahora también online</h2>
+    </div>
+    <p>Organizado igual que en tienda, para que la clienta encuentre en 10 segundos lo que busca.</p>
+  </div>
+  <div class="cat-grid reveal">
+    <div class="cat-card">
+      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#14171A" stroke-width="2"><rect x="12" y="4" width="24" height="40" rx="2"/><line x1="12" y1="18" x2="36" y2="18"/><line x1="17" y1="10" x2="17" y2="14"/><line x1="17" y1="24" x2="17" y2="30"/></svg>
+      <h3>Línea Blanca</h3>
+      <span>Frigoríficos, lavadoras, lavavajillas, hornos</span>
+    </div>
+    <div class="cat-card">
+      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#14171A" stroke-width="2"><rect x="6" y="10" width="36" height="22" rx="2"/><line x1="18" y1="38" x2="30" y2="38"/><line x1="24" y1="32" x2="24" y2="38"/></svg>
+      <h3>Pequeño Electro &amp; TV</h3>
+      <span>Microondas, televisores, climatización</span>
+    </div>
+    <div class="cat-card">
+      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#14171A" stroke-width="2"><rect x="8" y="20" width="32" height="6" rx="1"/><line x1="10" y1="26" x2="10" y2="36"/><line x1="38" y1="26" x2="38" y2="36"/><line x1="8" y1="20" x2="8" y2="14" /></svg>
+      <h3>Muebles Auxiliares</h3>
+      <span>Estanterías y mobiliario a precio outlet</span>
+    </div>
+    <div class="cat-card">
+      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#14171A" stroke-width="2"><circle cx="24" cy="24" r="16"/><line x1="24" y1="14" x2="24" y2="24"/><line x1="24" y1="24" x2="30" y2="28"/></svg>
+      <h3>Últimas Unidades</h3>
+      <span>Stock limitado con descuento final</span>
+    </div>
+  </div>
+</section>
+
+<section id="productos">
+  <div class="section-head reveal">
+    <div>
+      <div class="kicker">OFERTAS DE ESTA SEMANA</div>
+      <h2 class="display">Los productos que más se preguntan en redes</h2>
+    </div>
+    <p>Copy tomado literalmente de vuestros propios Reels: mantenimiento, dudas y comparativas ya generan demanda.</p>
+  </div>
+
+  <div class="carousel-nav reveal">
+    <button class="car-btn" id="carPrev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button class="car-btn" id="carNext" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+  </div>
+
+  <div class="carousel-wrap reveal">
+    <div class="carousel-track" id="carTrack">
+
+      <div class="prod-card">
+        <div class="prod-thumb"><div class="prod-tag">-45%</div>
+          <svg viewBox="0 0 48 48" fill="none" stroke="#1C1F24" stroke-width="1.6"><rect x="12" y="4" width="24" height="40" rx="2"/><line x1="12" y1="18" x2="36" y2="18"/></svg>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Frigorífico</div>
+          <div class="prod-name">Balay Combi 186cm — Outlet estético</div>
+          <div class="prod-prices"><span class="prod-old">549€</span><span class="prod-new">299€</span></div>
+          <div class="prod-btn">Añadir al carrito</div>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-thumb"><div class="prod-tag">-46%</div>
+          <svg viewBox="0 0 48 48" fill="none" stroke="#1C1F24" stroke-width="1.6"><rect x="10" y="6" width="28" height="36" rx="3"/><circle cx="24" cy="26" r="9"/><circle cx="24" cy="26" r="4"/></svg>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Lavadora</div>
+          <div class="prod-name">Bosch 9kg 1400rpm — Segunda oportunidad</div>
+          <div class="prod-prices"><span class="prod-old">459€</span><span class="prod-new">249€</span></div>
+          <div class="prod-btn">Añadir al carrito</div>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-thumb"><div class="prod-tag">-38%</div>
+          <svg viewBox="0 0 48 48" fill="none" stroke="#1C1F24" stroke-width="1.6"><rect x="8" y="14" width="32" height="20" rx="2"/><line x1="14" y1="34" x2="14" y2="38"/><line x1="34" y1="34" x2="34" y2="38"/></svg>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Lavavajillas</div>
+          <div class="prod-name">AEG Integrable 60cm — Outlet</div>
+          <div class="prod-prices"><span class="prod-old">389€</span><span class="prod-new">239€</span></div>
+          <div class="prod-btn">Añadir al carrito</div>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-thumb"><div class="prod-tag">-30%</div>
+          <svg viewBox="0 0 48 48" fill="none" stroke="#1C1F24" stroke-width="1.6"><rect x="6" y="10" width="36" height="22" rx="2"/><line x1="18" y1="38" x2="30" y2="38"/><line x1="24" y1="32" x2="24" y2="38"/></svg>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Televisor</div>
+          <div class="prod-name">Samsung 50" 4K — Última unidad</div>
+          <div class="prod-prices"><span class="prod-old">429€</span><span class="prod-new">299€</span></div>
+          <div class="prod-btn">Añadir al carrito</div>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-thumb"><div class="prod-tag">-33%</div>
+          <svg viewBox="0 0 48 48" fill="none" stroke="#1C1F24" stroke-width="1.6"><rect x="8" y="10" width="32" height="28" rx="2"/><line x1="14" y1="18" x2="34" y2="18"/><line x1="14" y1="26" x2="28" y2="26"/></svg>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Horno</div>
+          <div class="prod-name">Balay Multifunción — Fin de serie</div>
+          <div class="prod-prices"><span class="prod-old">299€</span><span class="prod-new">199€</span></div>
+          <div class="prod-btn">Añadir al carrito</div>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-thumb"><div class="prod-tag">-40%</div>
+          <svg viewBox="0 0 48 48" fill="none" stroke="#1C1F24" stroke-width="1.6"><rect x="10" y="16" width="28" height="18" rx="2"/><circle cx="24" cy="25" r="5"/></svg>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Secadora</div>
+          <div class="prod-name">Candy 8kg — Ocasión revisada</div>
+          <div class="prod-prices"><span class="prod-old">329€</span><span class="prod-new">199€</span></div>
+          <div class="prod-btn">Añadir al carrito</div>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-thumb"><div class="prod-tag">-28%</div>
+          <svg viewBox="0 0 48 48" fill="none" stroke="#1C1F24" stroke-width="1.6"><rect x="14" y="8" width="20" height="32" rx="2"/><circle cx="24" cy="18" r="2"/></svg>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Climatización</div>
+          <div class="prod-name">Split 2200W — Última unidad de exposición</div>
+          <div class="prod-prices"><span class="prod-old">349€</span><span class="prod-new">249€</span></div>
+          <div class="prod-btn">Añadir al carrito</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="ticket reveal">
+  <div class="ticket-left">
+    <h3 class="display" style="font-size:18px;">Esto es justo lo que financia la Junta de Extremadura</h3>
+    <p>Esta tienda online, tal y como la estáis viendo, entra dentro del servicio de "Tienda Online" de la convocatoria de digitalización.</p>
+  </div>
+  <div class="ticket-right">
+    <div class="tk"><b>3.000€</b><span>Inversión + IVA</span></div>
+    <div class="tk-arrow">→</div>
+    <div class="tk"><b>2.400€</b><span>Subvención (80%)</span></div>
+    <div class="tk-arrow">→</div>
+    <div class="tk" style="color:var(--red-dark);"><b>600€</b><span>Coste real</span></div>
+  </div>
+</div>
+
+<div class="trust" id="confianza">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3z"/></svg>
+      <div><b>Garantía oficial</b><span>En todos los productos, sin letra pequeña</span></div>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+      <div><b>Recogida en tienda</b><span>Pol. Ind. El Nevero, Badajoz</span></div>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="13" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <div><b>Pago 100% seguro</b><span>Tarjeta, Bizum o financiación</span></div>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      <div><b>Envío en 24–48h</b><span>A cualquier punto de Extremadura</span></div>
+    </div>
+  </div>
+</div>
+
+<footer id="ubicacion">
+  <div class="footer-inner">
+    <div style="max-width:280px;">
+      <h4>FACTORY ELECTRODOMÉSTICOS</h4>
+      <p>Calle Río Segura 69, Pol. Ind. El Nevero<br>06011 Badajoz</p>
+    </div>
+    <div>
+      <h4>Horario</h4>
+      <p>Lunes a viernes: 9:30–14:00 / 17:00–20:30<br>Sábados: 10:00–13:30</p>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <p>WhatsApp directo desde la web<br>Instagram &amp; Facebook @factory_electrodomesticos</p>
+    </div>
+  </div>
+  <div class="foot-bottom">Demo comercial preparada por Proemote · No es una web funcional, es una previsualización para la propuesta.</div>
+</footer>
+
+<script>
+  // Carrusel
+  const track = document.getElementById('carTrack');
+  const prevBtn = document.getElementById('carPrev');
+  const nextBtn = document.getElementById('carNext');
+  function scrollAmount(){
+    const card = track.querySelector('.prod-card');
+    return card ? card.getBoundingClientRect().width + 20 : 280;
+  }
+  prevBtn.addEventListener('click', () => track.scrollBy({left: -scrollAmount()*2, behavior:'smooth'}));
+  nextBtn.addEventListener('click', () => track.scrollBy({left: scrollAmount()*2, behavior:'smooth'}));
+
+  // Drag to scroll
+  let isDown = false, startX, scrollLeft;
+  track.addEventListener('mousedown', (e) => {
+    isDown = true; track.classList.add('dragging');
+    startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft;
+  });
+  ['mouseleave','mouseup'].forEach(evt => track.addEventListener(evt, () => isDown = false));
+  track.addEventListener('mousemove', (e) => {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    track.scrollLeft = scrollLeft - (x - startX) * 1.2;
+  });
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); } });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
