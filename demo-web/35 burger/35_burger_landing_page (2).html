@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>35 Burger | La mejor hamburguesa que vas a probar hoy</title>
+    <meta name="description" content="Hamburguesas gourmet con carne seleccionada de vaca rubia gallega. Pide ahora a domicilio o recoge en tu local 35 Burger en Mérida.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#1A1C23',      /* Azul oscuro / Casi negro */
+                            yellow: '#FFC800',    /* Amarillo corporativo */
+                            yellowHover: '#E5B400',
+                            cream: '#FFF9F2',     /* Fondo principal crema */
+                            card: '#FFF1E0',      /* Fondo tarjetas favoritas */
+                            gray: '#6B7280'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: theme('colors.brand.cream');
+            color: theme('colors.brand.dark');
+        }
+
+        /* Botones estilo píldora como en la referencia */
+        .btn-pill-primary {
+            background-color: theme('colors.brand.yellow');
+            color: theme('colors.brand.dark');
+            font-family: theme('fontFamily.heading');
+            font-weight: 900;
+            border-radius: 9999px; /* Pill shape */
+            transition: all 0.2s ease;
+        }
+        .btn-pill-primary:hover {
+            background-color: theme('colors.brand.yellowHover');
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(255, 200, 0, 0.3);
+        }
+
+        .btn-pill-secondary {
+            background-color: transparent;
+            color: theme('colors.brand.dark');
+            font-family: theme('fontFamily.heading');
+            font-weight: 700;
+            border-radius: 9999px;
+            border: 2px solid theme('colors.brand.dark');
+            transition: all 0.2s ease;
+        }
+        .btn-pill-secondary:hover {
+            background-color: theme('colors.brand.dark');
+            color: white;
+        }
+
+        /* Imagenes flotantes */
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Separador ondulado */
+        .wave-separator {
+            width: 100%;
+            height: 100px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23FFC800' fill-opacity='1' d='M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,149.3C672,160,768,224,864,229.3C960,235,1056,181,1152,149.3C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .promo-bg {
+            background-color: theme('colors.brand.dark');
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-yellow selection:text-brand-dark">
+
+    <header class="w-full top-0 z-50 bg-brand-cream py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer gap-2">
+                    <img src="https://www.35burger.com/wp-content/uploads/2018/09/35-Burger-logo-300.png" alt="35 Burger" class="h-12 object-contain">
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#menu" class="font-heading font-semibold text-brand-dark hover:text-brand-yellow transition-colors">La Carta</a>
+                    <a href="#promo" class="font-heading font-semibold text-brand-dark hover:text-brand-yellow transition-colors">Ofertas</a>
+                    <a href="#restaurantes" class="font-heading font-semibold text-brand-dark hover:text-brand-yellow transition-colors">Restaurantes</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex">
+                    <a href="#menu" class="bg-brand-dark text-white font-heading font-bold px-6 py-2.5 rounded-full text-sm hover:bg-gray-800 transition-colors">Pedir Ahora</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-brand-dark hover:text-brand-yellow focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-cream border-t border-brand-yellow/20 absolute w-full shadow-xl z-50">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#menu" class="block font-heading font-bold text-lg py-3 text-brand-dark text-center border-b border-brand-dark/5">La Carta</a>
+                <a href="#promo" class="block font-heading font-bold text-lg py-3 text-brand-dark text-center border-b border-brand-dark/5">Ofertas</a>
+                <a href="#restaurantes" class="block font-heading font-bold text-lg py-3 text-brand-dark text-center mb-4">Restaurantes</a>
+                <a href="#menu" class="btn-pill-primary block w-full text-center py-3 text-lg">Pedir Ahora</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-8">
+                
+                <!-- Left: Copy & CTAs -->
+                <div class="w-full md:w-1/2 z-10 text-left">
+                    <h1 class="font-heading font-black text-6xl md:text-7xl lg:text-[5.5rem] leading-[0.95] tracking-tight uppercase">
+                        <span class="text-brand-dark">35</span> <br>
+                        <span class="text-brand-yellow relative inline-block mt-2">
+                            BURGER
+                        </span>
+                    </h1>
+                    <p class="mt-6 text-lg md:text-xl text-brand-gray font-medium max-w-md">
+                        Hamburguesas gourmet elaboradas con ingredientes frescos, carne seleccionada y un sabor inconfundible. No hacemos comida rápida, hacemos comida buena.
+                    </p>
+                    
+                    <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                        <a href="#menu" class="btn-pill-primary px-8 py-3 text-lg text-center shadow-lg shadow-brand-yellow/30">
+                            Ver Carta
+                        </a>
+                        <a href="#restaurantes" class="btn-pill-secondary px-8 py-3 text-lg text-center bg-transparent">
+                            Pedir Ahora
+                        </a>
+                    </div>
+
+                    <!-- Trust indicators matching the reference style -->
+                    <div class="mt-10 flex flex-wrap gap-6 items-center">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-yellow/20 flex items-center justify-center text-brand-yellow text-xl">
+                                🥩
+                            </div>
+                            <div class="leading-tight">
+                                <span class="block font-heading font-black text-brand-dark text-sm">100% Carne</span>
+                                <span class="text-xs text-brand-gray">Vaca rubia gallega</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-yellow/20 flex items-center justify-center text-brand-yellow text-xl">
+                                🔥
+                            </div>
+                            <div class="leading-tight">
+                                <span class="block font-heading font-black text-brand-dark text-sm">A la Parrilla</span>
+                                <span class="text-xs text-brand-gray">Sabor auténtico</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Massive Burger Image with blob & arrow -->
+                <div class="w-full md:w-1/2 relative mt-10 md:mt-0">
+                    
+                    <!-- Yellow Blob Background -->
+                    <svg class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] -z-10 text-brand-yellow" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="currentColor" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,81.1,-46.3C90.4,-33.5,96,-18.1,95.5,-3C94.9,12.2,88.2,27,78.3,38.8C68.4,50.7,55.3,59.7,41.4,66.8C27.5,74,13.8,79.4,0,79.4C-13.8,79.4,-27.5,74,-40.8,66.5C-54,59,-66.8,49.5,-76,37.3C-85.2,25.1,-90.7,10.2,-91,-4.9C-91.3,-19.9,-86.3,-35.1,-76.7,-47.4C-67.1,-59.7,-52.9,-69.1,-38.7,-76C-24.5,-82.9,-12.2,-87.3,1.5,-89.6C15.3,-91.9,30.6,-83.6,44.7,-76.4Z" transform="translate(100 100) scale(1.1)" />
+                    </svg>
+
+                    <!-- Hand drawn arrow -->
+                    <svg class="absolute hidden lg:block w-24 h-24 -left-16 top-1/4 text-brand-dark transform -rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 12c0-4.4 3.6-8 8-8s8 3.6 8 8c0 1.9-.7 3.6-1.8 5M16.5 17l-3.5 3 3.5 3" style="stroke-dasharray: 60; stroke-dashoffset: 0;"></path>
+                    </svg>
+
+                    <!-- Food Image: Used a transparent background burger for the "BurgVoid" effect -->
+                    <img 
+                        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" 
+                        alt="Hamburguesa de 35 Burger" 
+                        class="w-full h-auto max-w-lg mx-auto drop-shadow-2xl rounded-full object-cover aspect-square float-animation"
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="py-16 bg-white rounded-[3rem] shadow-sm relative z-20 max-w-[95%] mx-auto -mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex items-center justify-center gap-4 mb-12">
+                <div class="h-1 w-12 bg-brand-yellow rounded"></div>
+                <h2 class="font-heading font-black text-2xl md:text-3xl text-brand-dark uppercase tracking-widest">
+                    LAS FAVORITAS
+                </h2>
+                <div class="h-1 w-12 bg-brand-yellow rounded"></div>
+            </div>
+
+            <!-- Grid matching the soft cards of the reference -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Product 1 -->
+                <div class="bg-brand-card rounded-[2rem] p-6 pt-8 flex flex-col hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://images.unsplash.com/photo-1586816001966-79b736744398?auto=format&fit=crop&w=600&q=80" alt="35 Burger Especial" class="w-full h-48 object-cover rounded-2xl mb-6 shadow-md">
+                    <h3 class="font-heading font-black text-xl uppercase mb-1 text-brand-dark">35 Burger Especial</h3>
+                    <p class="text-brand-gray text-sm leading-relaxed mb-4 flex-grow">180g de vaca rubia gallega, bacon crujiente, Havarti fundido y salsa Bourbon.</p>
+                    <div class="font-heading font-black text-2xl text-brand-yellow mb-4">9,90 €</div>
+                    <button class="btn-pill-primary w-full py-2.5 text-sm">Pedir Ahora</button>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-brand-card rounded-[2rem] p-6 pt-8 flex flex-col hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://images.unsplash.com/photo-1594212848116-63f520b72df3?auto=format&fit=crop&w=600&q=80" alt="Extrema Burger" class="w-full h-48 object-cover rounded-2xl mb-6 shadow-md">
+                    <h3 class="font-heading font-black text-xl uppercase mb-1 text-brand-dark flex items-center gap-2">
+                        Extrema Burger <span class="text-sm px-2 py-0.5 bg-brand-dark text-white rounded-full">🏆</span>
+                    </h3>
+                    <p class="text-brand-gray text-sm leading-relaxed mb-4 flex-grow">Premiada: Carne premium, rulo de cabra, bacon, lechuga y tomate fresco.</p>
+                    <div class="font-heading font-black text-2xl text-brand-yellow mb-4">10,50 €</div>
+                    <button class="btn-pill-primary w-full py-2.5 text-sm">Pedir Ahora</button>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-brand-card rounded-[2rem] p-6 pt-8 flex flex-col hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80" alt="Rib Burger" class="w-full h-48 object-cover rounded-2xl mb-6 shadow-md">
+                    <h3 class="font-heading font-black text-xl uppercase mb-1 text-brand-dark">Rib Burger</h3>
+                    <p class="text-brand-gray text-sm leading-relaxed mb-4 flex-grow">Costilla de ternera desmechada, queso crema, cebolla crujiente y BBQ.</p>
+                    <div class="font-heading font-black text-2xl text-brand-yellow mb-4">11,20 €</div>
+                    <button class="btn-pill-primary w-full py-2.5 text-sm">Pedir Ahora</button>
+                </div>
+
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="#" class="font-heading font-bold text-brand-dark underline decoration-brand-yellow decoration-2 underline-offset-4 hover:text-brand-yellow transition-colors">Ver la carta completa →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="promo" class="py-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Dark Card with Yellow Border -->
+            <div class="bg-[#111111] rounded-[2rem] border-[3px] border-brand-yellow overflow-hidden flex flex-col md:flex-row items-stretch">
+                
+                <!-- Left Content -->
+                <div class="w-full md:w-1/2 p-10 md:p-16 text-left flex flex-col justify-center">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="h-0.5 w-6 bg-brand-yellow"></div>
+                        <span class="font-heading font-bold text-brand-yellow tracking-widest uppercase text-sm">— NOVEDAD —</span>
+                    </div>
+                    <h2 class="font-heading font-black text-5xl md:text-6xl text-white uppercase leading-[0.95] tracking-tight mb-6">
+                        LA NUEVA <br> <span class="text-brand-yellow">SMASH BURGER</span>
+                    </h2>
+                    <p class="text-gray-300 text-sm md:text-base mb-10 max-w-md leading-relaxed">
+                        Doble carne aplastada, extra de queso fundido y pan patata supersuave. Pruébala antes que nadie.
+                    </p>
+                    
+                    <!-- Custom Button -->
+                    <div>
+                         <button class="relative bg-transparent text-white font-heading font-bold uppercase tracking-wider px-8 py-4 text-sm group focus:outline-none">
+                            <span class="relative z-10">Quiero probarla</span>
+                            <!-- White border accent -->
+                            <div class="absolute bottom-0 left-0 w-full h-full border-b-[3px] border-l-[3px] border-white rounded-bl-xl group-hover:border-brand-yellow transition-colors"></div>
+                         </button>
+                    </div>
+                </div>
+
+                <!-- Right Image -->
+                <div class="w-full md:w-1/2 p-4 md:p-6">
+                     <div class="relative w-full h-[400px] md:h-full min-h-[400px] rounded-[1.5rem] overflow-hidden border-[3px] border-brand-yellow">
+                         <img src="https://images.unsplash.com/photo-1594212848116-63f520b72df3?auto=format&fit=crop&w=800&q=80" alt="Smash Burger" class="absolute inset-0 w-full h-full object-cover">
+                     </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-10 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                
+                <div class="flex items-start gap-4">
+                    <div class="text-3xl">🥩</div>
+                    <div>
+                        <h4 class="font-heading font-bold text-sm text-brand-dark uppercase">Carne Seleccionada</h4>
+                        <p class="text-xs text-brand-gray mt-1">Vaca rubia gallega y los mejores cortes.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start gap-4">
+                    <div class="text-3xl">⚡</div>
+                    <div>
+                        <h4 class="font-heading font-bold text-sm text-brand-dark uppercase">Preparación Rápida</h4>
+                        <p class="text-xs text-brand-gray mt-1">Calidad gourmet sin esperas innecesarias.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div class="text-3xl">🏆</div>
+                    <div>
+                        <h4 class="font-heading font-bold text-sm text-brand-dark uppercase">Sabor Premiado</h4>
+                        <p class="text-xs text-brand-gray mt-1">Reconocidos en certámenes nacionales.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div class="text-3xl">🏷️</div>
+                    <div>
+                        <h4 class="font-heading font-bold text-sm text-brand-dark uppercase">Precio Accesible</h4>
+                        <p class="text-xs text-brand-gray mt-1">Gran sabor a un precio que no duele.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-brand-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="flex items-center justify-center gap-2 mb-2">
+                    <span class="text-brand-yellow text-2xl">⭐⭐⭐⭐⭐</span>
+                </div>
+                <h2 class="font-heading font-black text-3xl text-brand-dark uppercase">951 reseñas</h2>
+                <p class="text-brand-gray mt-2 font-medium">La gente de Mérida lo tiene claro.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">M</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-brand-dark">María G.</h4>
+                            <div class="text-brand-yellow text-xs">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-brand-gray italic">"Sin duda, las mejores hamburguesas. La carne tiene un sabor increíble y el pan aguanta perfecto. El servicio es súper rápido."</p>
+                </div>
+                <!-- Review 2 -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 md:-translate-y-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold">C</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-brand-dark">Carlos R.</h4>
+                            <div class="text-brand-yellow text-xs">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-brand-gray italic">"Pedimos a domicilio los jueves por el 2x1 y es un chollo. Calidad gourmet a precio de cadena de comida rápida."</p>
+                </div>
+                <!-- Review 3 -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold">A</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-brand-dark">Ana L.</h4>
+                            <div class="text-brand-yellow text-xs">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-brand-gray italic">"Probé la Extrema Burger porque vi que estaba premiada y madre mía... espectacular. El contraste del rulo de cabra es brutal."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="wave-separator"></div>
+
+    <section id="restaurantes" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-heading font-black text-4xl md:text-5xl uppercase mb-16">
+                <span class="text-brand-dark">PIDE EN</span> <span class="text-brand-yellow">3 PASOS</span>
+            </h2>
+            
+            <!-- Steps Flex Container -->
+            <div class="flex flex-col md:flex-row items-start justify-between relative mb-20 gap-10 md:gap-0">
+                
+                <!-- Dotted lines (Desktop only) -->
+                <div class="hidden md:block absolute top-10 left-[20%] right-[20%] h-0 border-t-[3px] border-dashed border-brand-dark z-0"></div>
+
+                <!-- Step 1 -->
+                <div class="relative z-10 flex flex-col items-center flex-1">
+                    <div class="w-20 h-20 bg-brand-yellow rounded-full border-[3px] border-brand-dark flex items-center justify-center font-heading font-black text-3xl text-brand-dark shadow-[4px_4px_0px_0px_rgba(26,28,35,1)] mb-6">
+                        1
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-brand-dark mb-2">Elige restaurante</h3>
+                    <p class="text-sm text-brand-gray">Busca tu 35 Burger más cercano</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative z-10 flex flex-col items-center flex-1">
+                    <div class="w-20 h-20 bg-brand-yellow rounded-full border-[3px] border-brand-dark flex items-center justify-center font-heading font-black text-3xl text-brand-dark shadow-[4px_4px_0px_0px_rgba(26,28,35,1)] mb-6">
+                        2
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-brand-dark mb-2">Pide tus favoritas</h3>
+                    <p class="text-sm text-brand-gray">Añade a tu cesta y personaliza</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative z-10 flex flex-col items-center flex-1">
+                    <div class="w-20 h-20 bg-brand-yellow rounded-full border-[3px] border-brand-dark flex items-center justify-center font-heading font-black text-3xl text-brand-dark shadow-[4px_4px_0px_0px_rgba(26,28,35,1)] mb-6">
+                        3
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-brand-dark mb-2">¡A disfrutar!</h3>
+                    <p class="text-sm text-brand-gray">Recoge en local o recibe en casa</p>
+                </div>
+            </div>
+
+            <!-- Available Platforms Box -->
+            <div class="max-w-4xl mx-auto border-[3px] border-brand-dark rounded-[2rem] p-6 md:p-8 flex flex-col md:flex-row items-center justify-center gap-8 shadow-[6px_6px_0px_0px_rgba(26,28,35,1)] bg-white">
+                <span class="font-heading font-black text-xl uppercase tracking-wide">DISPONIBLE EN:</span>
+                
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <!-- Glovo -->
+                    <button class="bg-[#00A082] text-white px-8 py-3 rounded-full font-bold border-2 border-brand-dark hover:translate-y-1 hover:shadow-none transition-all shadow-[2px_2px_0px_0px_rgba(26,28,35,1)]">Glovo</button>
+                    <!-- Just Eat -->
+                    <button class="bg-white text-[#FF8000] px-8 py-3 rounded-md font-bold border-2 border-brand-dark hover:translate-y-1 hover:shadow-none transition-all shadow-[2px_2px_0px_0px_rgba(26,28,35,1)]">Just Eat</button>
+                    <!-- Uber Eats -->
+                    <button class="bg-black text-white px-8 py-3 rounded-md font-bold border-2 border-brand-dark hover:translate-y-1 hover:shadow-none transition-all shadow-[2px_2px_0px_0px_rgba(26,28,35,1)]">Uber Eats</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <img src="https://www.35burger.com/wp-content/uploads/2018/09/35-Burger-logo-300.png" alt="35 Burger" class="h-10 object-contain grayscale brightness-200">
+                    </div>
+                    <p class="text-gray-400 text-sm max-w-sm mb-6">Democratizando la hamburguesa gourmet. Experiencia familiar cárnica desde 2016.</p>
+                    
+                    <!-- Pequeña mención a franquicias -->
+                    <div class="bg-white/5 p-4 rounded-xl border border-white/10 inline-block">
+                        <p class="text-xs text-gray-400">¿Buscas un modelo probado?</p>
+                        <a href="#" class="text-brand-yellow font-bold text-sm hover:underline">Info Franquicias →</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-4 uppercase">Legal</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-brand-yellow transition-colors">Aviso Legal</a></li>
+                        <li><a href="#" class="hover:text-brand-yellow transition-colors">Política de Privacidad</a></li>
+                        <li><a href="#" class="hover:text-brand-yellow transition-colors">Alérgenos</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-4 uppercase">Local</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center gap-2"><span>📍</span> C/ Santa Lucía 3, Mérida</li>
+                        <li class="flex items-center gap-2"><span>📞</span> 625 566 457</li>
+                        <li class="flex items-center gap-2 mt-4 text-xs">Abierto todos los días</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-white/10 text-center flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                <p>&copy; <span id="year"></span> 35 Burger. Todos los derechos reservados.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-white transition-colors">Facebook</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fixed Mobile CTA -->
+    <div class="md:hidden fixed bottom-4 left-4 right-4 z-50">
+        <a href="#restaurantes" class="btn-pill-primary w-full py-4 text-lg flex items-center justify-center gap-2 shadow-2xl">
+            Pedir Ahora
+        </a>
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
