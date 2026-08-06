@@ -99,46 +99,37 @@
 </head>
 <body class="antialiased selection:bg-brand-yellow selection:text-brand-dark">
 
-    <header class="w-full top-0 z-50 bg-brand-cream py-4">
+    <!-- Header: Fijo. 100% transparente al inicio, fondo oscuro difuminado al hacer scroll -->
+    <header id="main-header" class="fixed top-0 w-full z-50 py-6 transition-all duration-300 border-b border-transparent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center cursor-pointer gap-2">
                     <a href="index.html">
-                        <img src="https://www.35burger.com/wp-content/uploads/2018/09/35-Burger-logo-300.png" alt="35 Burger" class="h-12 object-contain">
+                        <img src="https://www.35burger.com/wp-content/uploads/2018/09/35-Burger-logo-300.png" alt="35 Burger" class="h-10 object-contain drop-shadow-md brightness-200">
                     </a>
                 </div>
                 
                 <!-- Desktop Menu -->
                 <nav class="hidden md:flex space-x-8">
-                    <a href="index.html" class="font-heading font-semibold text-brand-dark hover:text-brand-yellow transition-colors">Inicio</a>
-                    <a href="menu/index.html" class="font-heading font-semibold text-brand-dark hover:text-brand-yellow transition-colors">Menu</a>
-                    <a href="#" class="font-heading font-semibold text-brand-dark hover:text-brand-yellow transition-colors">Sobre nosotros</a>
+                    <a href="index.html" class="font-heading font-semibold text-brand-yellow">Inicio</a>
+                    <a href="menu/index.html" class="font-heading font-semibold text-white hover:text-brand-yellow transition-colors">Menú</a>
+                    <a href="#" class="font-heading font-semibold text-white hover:text-brand-yellow transition-colors">Reservas</a>
+                    <a href="#" class="font-heading font-semibold text-white hover:text-brand-yellow transition-colors">Contacto</a>
                 </nav>
 
-                <!-- CTA Button -->
-                <div class="hidden md:flex">
-                    <a href="menu/index.html" class="bg-brand-dark text-white font-heading font-bold px-6 py-2.5 rounded-full text-sm hover:bg-gray-800 transition-colors">Pedir Ahora</a>
-                </div>
-
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-brand-dark hover:text-brand-yellow focus:outline-none">
-                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <!-- CTA Header: Botones amarillos con iconos negros -->
+                <div class="flex items-center gap-4">
+                    <button class="bg-brand-yellow text-black p-2.5 rounded-full hover:bg-brand-yellowHover transition-colors shadow-lg">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </button>
+                    <!-- Botón menú móvil -->
+                    <button class="md:hidden bg-brand-yellow text-black p-2.5 rounded-full hover:bg-brand-yellowHover transition-colors">
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
                     </button>
                 </div>
-            </div>
-        </div>
-
-        <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-cream border-t border-brand-yellow/20 absolute w-full shadow-xl z-50">
-            <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="index.html" class="block font-heading font-bold text-lg py-3 text-brand-dark text-center border-b border-brand-dark/5">Inicio</a>
-                <a href="menu/index.html" class="block font-heading font-bold text-lg py-3 text-brand-dark text-center border-b border-brand-dark/5">Menu</a>
-                <a href="#" class="block font-heading font-bold text-lg py-3 text-brand-dark text-center mb-4">Sobre nosotros</a>
-                <a href="menu/index.html" class="btn-pill-primary block w-full text-center py-3 text-lg">Pedir Ahora</a>
             </div>
         </div>
     </header>
