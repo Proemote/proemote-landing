@@ -143,32 +143,31 @@
 </head>
 <body class="antialiased selection:bg-brand-yellow selection:text-brand-dark">
 
-    <header class="w-full sticky top-0 z-50 bg-brand-dark/80 backdrop-blur-md py-4 border-b border-white/10">
+    <header class="w-full top-0 z-50 bg-brand-cream py-4">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center">
+                <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center cursor-pointer gap-2">
-                    <img src="https://www.35burger.com/wp-content/uploads/2018/09/35-Burger-logo-300.png" alt="35 Burger" class="h-10 object-contain grayscale brightness-200">
+                    <a href="../index.html">
+                        <img src="https://www.35burger.com/wp-content/uploads/2018/09/35-Burger-logo-300.png" alt="35 Burger" class="h-12 object-contain">
+                    </a>
                 </div>
                 
+                <!-- Desktop Menu -->
                 <nav class="hidden md:flex space-x-8">
-                    <a href="index.html" class="font-heading font-semibold text-white hover:text-brand-yellow transition-colors">Inicio</a>
-                    <a href="#" class="font-heading font-semibold text-brand-yellow transition-colors">La Carta</a>
-                    <a href="#restaurantes" class="font-heading font-semibold text-white hover:text-brand-yellow transition-colors">Restaurantes</a>
+                    <a href="../index.html" class="font-heading font-semibold text-brand-dark hover:text-brand-yellow transition-colors">Inicio</a>
+                    <a href="index.html" class="font-heading font-semibold text-brand-dark hover:text-brand-yellow transition-colors">Menu</a>
+                    <a href="#" class="font-heading font-semibold text-brand-dark hover:text-brand-yellow transition-colors">Sobre nosotros</a>
                 </nav>
 
-                <div class="hidden md:flex flex-shrink-0">
-                    <!-- Icono de cesta -->
-                    <button class="bg-white/10 text-white p-2.5 rounded-full hover:bg-white/20 transition-colors relative">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-                        <span class="absolute -top-1 -right-1 bg-brand-yellow text-brand-dark text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
-                    </button>
+                <!-- CTA Button -->
+                <div class="hidden md:flex">
+                    <a href="index.html" class="bg-brand-dark text-white font-heading font-bold px-6 py-2.5 rounded-full text-sm hover:bg-gray-800 transition-colors">Pedir Ahora</a>
                 </div>
 
-                <div class="md:hidden flex items-center gap-4">
-                     <button class="text-white relative">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-                    </button>
-                    <button id="mobile-menu-btn" class="text-white hover:text-brand-yellow focus:outline-none">
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-brand-dark hover:text-brand-yellow focus:outline-none">
                         <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
@@ -177,12 +176,13 @@
             </div>
         </div>
 
-        <!-- Menú Móvil -->
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95 backdrop-blur-md border-t border-white/10 absolute w-full shadow-xl z-50">
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-cream border-t border-brand-yellow/20 absolute w-full shadow-xl z-50">
             <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="index.html" class="block font-heading font-bold text-lg py-3 text-white text-center border-b border-white/5">Inicio</a>
-                <a href="#" class="block font-heading font-bold text-lg py-3 text-brand-yellow text-center border-b border-white/5">La Carta</a>
-                <a href="#restaurantes" class="block font-heading font-bold text-lg py-3 text-white text-center">Restaurantes</a>
+                <a href="../index.html" class="block font-heading font-bold text-lg py-3 text-brand-dark text-center border-b border-brand-dark/5">Inicio</a>
+                <a href="index.html" class="block font-heading font-bold text-lg py-3 text-brand-dark text-center border-b border-brand-dark/5">Menu</a>
+                <a href="#" class="block font-heading font-bold text-lg py-3 text-brand-dark text-center mb-4">Sobre nosotros</a>
+                <a href="index.html" class="btn-pill-primary block w-full text-center py-3 text-lg">Pedir Ahora</a>
             </div>
         </div>
     </header>
