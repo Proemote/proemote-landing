@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Carta | 35 Burger</title>
-    <meta name="description" content="Descubre nuestra carta completa. Las mejores smash burgers y hamburguesas gourmet de vaca rubia gallega.">
+    <title>Menú | 35 Burger</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,12 +18,12 @@
                 extend: {
                     colors: {
                         brand: {
-                            dark: '#1A1C23',
-                            yellow: '#FFC800',
+                            dark: '#0a0a0a',      /* Fondo negro puro */
+                            card: '#151515',      /* Fondo tarjetas oscuras */
+                            yellow: '#FFC800',    /* Amarillo corporativo */
                             yellowHover: '#E5B400',
-                            cream: '#FFF9F2',
-                            card: '#FFF1E0',
-                            gray: '#6B7280'
+                            gray: '#9CA3AF',      /* Texto secundario gris claro */
+                            lightBg: '#FFF4CD'    /* Fondo amarillento (crema) para acompañamientos */
                         }
                     },
                     fontFamily: {
@@ -38,616 +37,467 @@
     
     <style>
         body {
-            background-color: theme('colors.brand.cream');
-            color: theme('colors.brand.dark');
-        }
-
-        /* Botones estilo píldora heredados */
-        .btn-pill-primary {
-            background-color: theme('colors.brand.yellow');
-            color: theme('colors.brand.dark');
-            font-family: theme('fontFamily.heading');
-            font-weight: 900;
-            border-radius: 9999px;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .btn-pill-primary:hover {
-            background-color: theme('colors.brand.yellowHover');
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(255, 200, 0, 0.3);
-        }
-
-        .btn-pill-secondary {
-            background-color: transparent;
-            color: theme('colors.brand.dark');
-            font-family: theme('fontFamily.heading');
-            font-weight: 700;
-            border-radius: 9999px;
-            border: 2px solid theme('colors.brand.dark');
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .btn-pill-secondary:hover {
             background-color: theme('colors.brand.dark');
-            color: white;
+            color: #ffffff;
         }
 
-        .filter-btn {
-            background-color: transparent;
-            color: white;
+        /* Ocultar barra de desplazamiento para el carrusel nativo */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        /* Botón de añadir al pedido: Fondo AMARILLO, texto NEGRO siempre */
+        .btn-menu {
+            background-color: theme('colors.brand.yellow') !important;
+            color: #000000 !important;
             font-family: theme('fontFamily.heading');
             font-weight: 700;
             border-radius: 9999px;
-            border: 2px solid white;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             display: inline-flex;
-            align-items: center;
             justify-content: center;
-        }
-        .filter-btn:hover {
-            background-color: white;
-            color: theme('colors.brand.dark');
-        }
-        .filter-btn.active {
-            background-color: theme('colors.brand.yellow');
-            color: theme('colors.brand.dark');
-            border-color: theme('colors.brand.yellow');
-        }
-
-        /* Animación para el Hero */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        /* Animación suave para el filtrado */
-        .burger-item {
-    <style>
-        body {
-            background-color: theme('colors.brand.cream');
-            color: theme('colors.brand.dark');
-        }
-
-        /* Botones estilo píldora heredados */
-        .btn-pill-primary {
-            background-color: theme('colors.brand.yellow');
-            color: theme('colors.brand.dark');
-            font-family: theme('fontFamily.heading');
-            font-weight: 900;
-            border-radius: 9999px;
-            transition: all 0.2s ease;
-            display: inline-flex;
             align-items: center;
-            justify-content: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
-        .btn-pill-primary:hover {
-            background-color: theme('colors.brand.yellowHover');
+        .btn-menu:hover {
+            background-color: theme('colors.brand.yellowHover') !important;
+            box-shadow: 0 0 15px rgba(255, 200, 0, 0.5);
             transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(255, 200, 0, 0.3);
         }
-        .burger-item.hidden-item {
-            display: none;
-            opacity: 0;
-            transform: scale(0.95);
+
+        /* Zoom de fotos al pasar el ratón */
+        .card-menu:hover .img-zoom {
+            transform: scale(1.1);
+        }
+        .img-zoom {
+            transition: transform 0.5s ease;
+        }
+
+        /* Curva separadora fluida */
+        .wave-separator-bottom {
+            width: 100%;
+            line-height: 0;
+            background-color: theme('colors.brand.lightBg');
+        }
+        .wave-separator-bottom svg {
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+        
+        /* Contenedor relativo para posicionar las flechas del carrusel */
+        .carousel-wrapper {
+            position: relative;
+        }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background-color: theme('colors.brand.yellow');
+            color: black;
+            border-radius: 9999px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: all 0.2s;
+            border: 2px solid theme('colors.brand.dark');
+        }
+        .carousel-btn:hover {
+            background-color: theme('colors.brand.yellowHover');
+            transform: translateY(-50%) scale(1.1);
+        }
+        .carousel-btn-left { left: -15px; }
+        .carousel-btn-right { right: -15px; }
+        
+        @media (min-width: 768px) {
+            .carousel-btn-left { left: -20px; }
+            .carousel-btn-right { right: -20px; }
         }
     </style>
 </head>
-<body class="antialiased selection:bg-brand-yellow selection:text-brand-dark">
+<body class="antialiased selection:bg-brand-yellow selection:text-black">
 
-    <header class="w-full top-0 z-50 bg-brand-cream py-4">
+    <!-- Header: Fijo. 100% transparente al inicio, fondo oscuro difuminado al hacer scroll -->
+    <header id="main-header" class="fixed top-0 w-full z-50 py-6 transition-all duration-300 border-b border-transparent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center cursor-pointer gap-2">
                     <a href="../index.html">
-                        <img src="https://www.35burger.com/wp-content/uploads/2018/09/35-Burger-logo-300.png" alt="35 Burger" class="h-12 object-contain">
+                        <img src="https://www.35burger.com/wp-content/uploads/2018/09/35-Burger-logo-300.png" alt="35 Burger" class="h-10 object-contain drop-shadow-md brightness-200">
                     </a>
                 </div>
                 
                 <!-- Desktop Menu -->
                 <nav class="hidden md:flex space-x-8">
-                    <a href="../index.html" class="font-heading font-semibold text-brand-dark hover:text-brand-yellow transition-colors">Inicio</a>
-                    <a href="index.html" class="font-heading font-semibold text-brand-dark hover:text-brand-yellow transition-colors">Menu</a>
-                    <a href="#" class="font-heading font-semibold text-brand-dark hover:text-brand-yellow transition-colors">Sobre nosotros</a>
+                    <a href="../index.html" class="font-heading font-semibold text-white hover:text-brand-yellow transition-colors">Inicio</a>
+                    <a href="index.html" class="font-heading font-semibold text-brand-yellow">Menú</a>
+                    <a href="#" class="font-heading font-semibold text-white hover:text-brand-yellow transition-colors">Reservas</a>
+                    <a href="#" class="font-heading font-semibold text-white hover:text-brand-yellow transition-colors">Contacto</a>
                 </nav>
 
-                <!-- CTA Button -->
-                <div class="hidden md:flex">
-                    <a href="index.html" class="bg-brand-dark text-white font-heading font-bold px-6 py-2.5 rounded-full text-sm hover:bg-gray-800 transition-colors">Pedir Ahora</a>
-                </div>
-
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-brand-dark hover:text-brand-yellow focus:outline-none">
-                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <!-- CTA Header: Botones amarillos con iconos negros -->
+                <div class="flex items-center gap-4">
+                    <button class="bg-brand-yellow text-black p-2.5 rounded-full hover:bg-brand-yellowHover transition-colors shadow-lg">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </button>
+                    <!-- Botón menú móvil -->
+                    <button class="md:hidden bg-brand-yellow text-black p-2.5 rounded-full hover:bg-brand-yellowHover transition-colors">
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
                     </button>
                 </div>
             </div>
         </div>
-
-        <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-cream border-t border-brand-yellow/20 absolute w-full shadow-xl z-50">
-            <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="../index.html" class="block font-heading font-bold text-lg py-3 text-brand-dark text-center border-b border-brand-dark/5">Inicio</a>
-                <a href="index.html" class="block font-heading font-bold text-lg py-3 text-brand-dark text-center border-b border-brand-dark/5">Menu</a>
-                <a href="#" class="block font-heading font-bold text-lg py-3 text-brand-dark text-center mb-4">Sobre nosotros</a>
-                <a href="index.html" class="btn-pill-primary block w-full text-center py-3 text-lg">Pedir Ahora</a>
-            </div>
-        </div>
     </header>
 
-    <section class="pt-20 pb-16 bg-brand-dark relative overflow-hidden flex items-center min-h-[55vh]">
-        <!-- Gradient Background -->
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-yellow/10 via-brand-dark to-brand-dark z-0"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 md:pt-40 md:pb-32 relative overflow-hidden bg-brand-dark">
+        <!-- Luz decorativa de fondo -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-yellow/5 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="flex flex-col md:flex-row items-center justify-between gap-12">
-                <!-- Text -->
+                
+                <!-- Text & Filters -->
                 <div class="w-full md:w-1/2 text-left">
-                    <span class="text-brand-yellow font-heading font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Menú Oficial</span>
-                    <h1 class="font-heading font-black text-5xl md:text-7xl leading-[0.95] tracking-tight uppercase mb-6 text-white">
+                    <h1 class="font-heading font-black text-5xl md:text-7xl leading-tight mb-4 text-white">
                         Elige tu <br>
-                        <span class="text-brand-yellow">Hamburguesa</span> <br>
-                        Favorita
+                        <span class="text-brand-yellow">hamburguesa favorita</span>
                     </h1>
-                    <p class="text-gray-400 text-lg mb-8 max-w-md">Carne 100% vaca rubia gallega, pan brioche artesanal y combinaciones explosivas. Elige tu arma.</p>
-                    
-                    <!-- Filtros -->
-                    <div class="flex flex-wrap gap-3" id="filters">
-                        <button class="filter-btn active px-6 py-2 text-sm sm:text-base rounded-full" data-filter="all">Todas</button>
-                        <button class="filter-btn px-6 py-2 text-sm sm:text-base rounded-full" data-filter="carne">Carne</button>
-                        <button class="filter-btn px-6 py-2 text-sm sm:text-base rounded-full" data-filter="pollo">Pollo</button>
-                        <button class="filter-btn px-6 py-2 text-sm sm:text-base rounded-full" data-filter="vegetal">Vegetal</button>
-                        <button class="filter-btn px-6 py-2 text-sm sm:text-base rounded-full" data-filter="smash">Smash</button>
+                    <p class="text-gray-400 text-lg mb-10 max-w-md">
+                        Carnes seleccionadas, pan artesanal y un sabor que no olvidarás. Filtra para encontrar tu match perfecto.
+                    </p>
+
+                    <!-- Filtros: texto blanco, hover amarillo con texto negro -->
+                    <div class="flex flex-wrap gap-3">
+                        <button class="px-6 py-2 rounded-full border border-brand-yellow bg-brand-yellow text-black font-semibold transition-all">Todas</button>
+                        <button class="px-6 py-2 rounded-full border border-white/20 text-white font-semibold hover:bg-brand-yellow hover:text-black hover:border-brand-yellow transition-all">Carne</button>
+                        <button class="px-6 py-2 rounded-full border border-white/20 text-white font-semibold hover:bg-brand-yellow hover:text-black hover:border-brand-yellow transition-all">Pollo</button>
+                        <button class="px-6 py-2 rounded-full border border-white/20 text-white font-semibold hover:bg-brand-yellow hover:text-black hover:border-brand-yellow transition-all">Vegetal</button>
+                        <button class="px-6 py-2 rounded-full border border-white/20 text-white font-semibold hover:bg-brand-yellow hover:text-black hover:border-brand-yellow transition-all">Smash</button>
                     </div>
                 </div>
-                
-                <!-- Image -->
-                <div class="w-full md:w-1/2 relative hidden md:block">
-                    <!-- Glow effect -->
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-brand-yellow/30 blur-[100px] rounded-full z-0"></div>
-                    <img src="https://www.35burger.com/wp-content/uploads/2021/08/1_35-ESPECIAL-682x1024.jpg" alt="Burger Hero" class="relative z-10 w-[350px] h-[350px] object-cover object-[center_60%] mx-auto rounded-full border-4 border-brand-dark shadow-[0_0_40px_rgba(255,200,0,0.2)] animate-float">
+
+                <!-- Image Right -->
+                <div class="w-full md:w-1/2 relative">
+                    <!-- Resplandor circular tras la hamburguesa -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-yellow/20 rounded-full blur-[80px] -z-10"></div>
+                    <img 
+                        src="https://imgur.com/z5p4V67.png" 
+                        alt="Hamburguesa Hero" 
+                        class="w-full h-auto max-w-lg mx-auto drop-shadow-2xl hover:scale-105 transition-transform duration-700"
+                    >
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 bg-white relative z-20">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="text-center mb-16">
-                <h2 class="inline-block font-heading font-black text-4xl md:text-5xl text-brand-dark uppercase tracking-widest relative">
-                    Más Vendidas
-                    <span class="absolute -top-6 -right-8 text-4xl rotate-12">⭐</span>
-                </h2>
-                <div class="h-1.5 w-24 bg-brand-yellow mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <div class="space-y-16 lg:space-y-24">
-                
-                <!-- TOP 1: 35 Burger -->
-                <div class="burger-item flex flex-col lg:flex-row items-center gap-8 lg:gap-12 group" data-category="carne">
-                    <!-- Foto Enorme -->
-                    <div class="w-full lg:w-1/2 relative overflow-hidden rounded-3xl">
-                        <div class="absolute inset-0 bg-brand-yellow transform -rotate-3 scale-105 transition-transform group-hover:rotate-0 group-hover:scale-100 z-0"></div>
-                        <img src="https://www.35burger.com/wp-content/uploads/2021/08/1_35-ESPECIAL-682x1024.jpg" alt="35 Burger" class="relative z-10 w-full h-[400px] lg:h-[500px] object-cover object-center scale-[1.25] md:scale-[1.15] border-4 border-brand-dark shadow-[8px_8px_0px_0px_rgba(26,28,35,1)]">
-                    </div>
-                    <!-- Info -->
-                    <div class="w-full lg:w-1/2 flex flex-col">
-                        <div class="inline-flex items-center gap-2 mb-4">
-                            <span class="bg-brand-dark text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Nº 1 en ventas</span>
-                        </div>
-                        <h3 class="font-heading font-black text-5xl lg:text-6xl text-brand-dark uppercase mb-2">35 Burger</h3>
-                        <p class="text-brand-gray text-lg mb-6 leading-relaxed">El clásico de la casa que nunca falla. Carne jugosa, pan artesanal y un equilibrio perfecto de sabores.</p>
-                        
-                        <div class="mb-8">
-                            <h4 class="font-heading font-bold text-sm uppercase tracking-wide text-brand-dark mb-2">Ingredientes:</h4>
-                            <p class="text-brand-gray font-medium">180g de Vaca Rubia Gallega, Doble Bacon Crujiente, Queso Havarti Fundido, Cebolla Caramelizada, Lechuga Batávia y nuestra Salsa Bourbon secreta.</p>
-                        </div>
-                        
-                        <div class="flex flex-wrap items-center gap-6 mt-auto">
-                            <span class="font-heading font-black text-5xl text-brand-yellow drop-shadow-md">11,50 €</span>
-                            <button class="btn-pill-primary px-10 py-4 text-xl border-2 border-brand-dark">Añadir al pedido</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- TOP 2: Extrema (Reverse Layout) -->
-                <div class="burger-item flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-12 group" data-category="carne">
-                    <!-- Foto Enorme -->
-                    <div class="w-full lg:w-1/2 relative overflow-hidden rounded-3xl">
-                        <div class="absolute inset-0 bg-red-100 transform rotate-3 scale-105 transition-transform group-hover:rotate-0 group-hover:scale-100 z-0"></div>
-                        <img src="https://www.35burger.com/wp-content/uploads/2021/08/7_EXTREMA-683x1024.jpg" alt="Extrema" class="relative z-10 w-full h-[400px] lg:h-[500px] object-cover object-center scale-[1.25] md:scale-[1.15] border-4 border-brand-dark shadow-[8px_8px_0px_0px_rgba(26,28,35,1)]">
-                    </div>
-                    <!-- Info -->
-                    <div class="w-full lg:w-1/2 flex flex-col">
-                        <div class="inline-flex items-center gap-2 mb-4">
-                            <span class="bg-brand-yellow text-brand-dark text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Burger Premiada 🏆</span>
-                        </div>
-                        <h3 class="font-heading font-black text-5xl lg:text-6xl text-brand-dark uppercase mb-2">Extrema</h3>
-                        <p class="text-brand-gray text-lg mb-6 leading-relaxed">Solo para valientes y amantes de los contrastes fuertes. Una explosión de sabor en cada bocado.</p>
-                        
-                        <div class="mb-8">
-                            <h4 class="font-heading font-bold text-sm uppercase tracking-wide text-brand-dark mb-2">Ingredientes:</h4>
-                            <p class="text-brand-gray font-medium">180g Carne Premium, Medallón de Rulo de Cabra a la plancha, Mermelada de Tomate Casera, Bacon Ahumado y Rúcula fresca.</p>
-                        </div>
-                        
-                        <div class="flex flex-wrap items-center gap-6 mt-auto">
-                            <span class="font-heading font-black text-5xl text-brand-yellow drop-shadow-md">12,90 €</span>
-                            <button class="btn-pill-primary px-10 py-4 text-xl border-2 border-brand-dark">Añadir al pedido</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- TOP 3: Smash -->
-                <div class="burger-item flex flex-col lg:flex-row items-center gap-8 lg:gap-12 group" data-category="smash">
-                    <!-- Foto Enorme -->
-                    <div class="w-full lg:w-1/2 relative overflow-hidden rounded-3xl">
-                        <div class="absolute inset-0 bg-brand-dark transform -rotate-3 scale-105 transition-transform group-hover:rotate-0 group-hover:scale-100 z-0"></div>
-                        <img src="https://www.35burger.com/wp-content/uploads/2023/05/SMASH-BURGER-1.jpg" alt="Doble Smash" class="relative z-10 w-full h-[400px] lg:h-[500px] object-cover object-center scale-[1.25] md:scale-[1.15] border-4 border-brand-dark shadow-[8px_8px_0px_0px_rgba(255,200,0,1)]">
-                    </div>
-                    <!-- Info -->
-                    <div class="w-full lg:w-1/2 flex flex-col">
-                        <div class="inline-flex items-center gap-2 mb-4">
-                            <span class="bg-red-500 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">🔥 Tendencia</span>
-                        </div>
-                        <h3 class="font-heading font-black text-5xl lg:text-6xl text-brand-dark uppercase mb-2">Doble Smash</h3>
-                        <p class="text-brand-gray text-lg mb-6 leading-relaxed">Costra crujiente por fuera, extremadamente jugosa por dentro. El arte del 'smash' llevado al límite en pan brioche de patata.</p>
-                        
-                        <div class="mb-8">
-                            <h4 class="font-heading font-bold text-sm uppercase tracking-wide text-brand-dark mb-2">Ingredientes:</h4>
-                            <p class="text-brand-gray font-medium">2 Discos de 90g aplastados (Smash), Cuádruple Queso Cheddar fundido, Cebolla plancha picada muy fina, Pepinillos dulces y Salsa Smash original.</p>
-                        </div>
-                        
-                        <div class="flex flex-wrap items-center gap-6 mt-auto">
-                            <span class="font-heading font-black text-5xl text-brand-yellow drop-shadow-md">10,50 €</span>
-                            <button class="btn-pill-primary px-10 py-4 text-xl border-2 border-brand-dark">Añadir al pedido</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <div class="flex justify-center -mt-8 relative z-30">
-        <div class="bg-white rounded-full p-2 shadow-lg border-2 border-brand-dark text-brand-dark">
-             <svg class="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-        </div>
-    </div>
-
-    <section class="py-20 bg-brand-cream">
+    <!-- Más vendidas (Grid destacado) -->
+    <section class="py-16 pb-24 relative z-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <h2 class="font-heading font-black text-3xl md:text-4xl text-brand-dark uppercase tracking-wide mb-10 text-center">
-                Resto de hamburguesas
-            </h2>
+            <div class="flex items-center gap-4 mb-12">
+                <h2 class="font-heading font-black text-3xl md:text-4xl text-white">Más vendidas</h2>
+                <div class="h-1 flex-grow bg-brand-card rounded"></div>
+            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <!-- Grid 2 columnas (Especial y Extrema) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                 
-                <!-- Burger Card 1 -->
-                <div class="burger-item bg-white rounded-[2rem] p-5 flex flex-col shadow-sm border-2 border-transparent hover:border-brand-dark transition-colors duration-300 group" data-category="pollo">
-                    <div class="relative rounded-2xl overflow-hidden mb-5">
-                        <img src="https://www.35burger.com/wp-content/uploads/2021/08/5_CHICKEN-683x1024.jpg" alt="Chicken Crispy" class="w-full h-56 object-cover object-[center_60%] scale-[1.25] group-hover:scale-[1.35] transition-transform duration-500">
+                <!-- 35 Especial -->
+                <div class="card-menu bg-brand-card rounded-[2rem] p-6 flex flex-col md:flex-row gap-6 border border-white/5 shadow-2xl">
+                    <div class="w-full md:w-1/2 h-64 rounded-2xl overflow-hidden bg-[#000]">
+                        <img src="https://www.35burger.com/wp-content/uploads/2021/08/1_35-ESPECIAL-682x1024.jpg" alt="35 Especial" class="w-full h-full object-cover object-center scale-110 img-zoom opacity-90">
                     </div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-heading font-black text-2xl uppercase text-brand-dark">Crispy Chicken</h3>
-                        <span class="font-heading font-black text-xl text-brand-yellow">9,90 €</span>
+                    <div class="w-full md:w-1/2 flex flex-col justify-center">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-brand-yellow text-sm">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <h3 class="font-heading font-black text-2xl mb-3 text-white">35 Especial</h3>
+                        <p class="text-brand-gray text-sm leading-relaxed mb-6">180g de vaca rubia gallega, doble bacon crujiente, queso Havarti fundido, lechuga batávia y nuestra salsa secreta.</p>
+                        <div class="mt-auto flex items-center justify-between gap-4 flex-wrap">
+                            <span class="font-heading font-black text-3xl text-brand-yellow">11,50 €</span>
+                            <!-- Botón amarillo (definido en CSS) -->
+                            <button class="btn-menu px-6 py-3">Añadir al pedido</button>
+                        </div>
                     </div>
-                    <p class="text-brand-gray text-sm mb-6 flex-grow">Pechuga de pollo crujiente rebozada en cereales, lechuga, tomate y mayonesa suave.</p>
-                    <button class="w-full btn-pill-primary py-3 text-sm">Añadir al pedido</button>
                 </div>
 
-                <!-- Burger Card 2 -->
-                <div class="burger-item bg-white rounded-[2rem] p-5 flex flex-col shadow-sm border-2 border-transparent hover:border-brand-dark transition-colors duration-300 group" data-category="carne">
-                    <div class="relative rounded-2xl overflow-hidden mb-5">
-                        <img src="https://www.35burger.com/wp-content/uploads/2021/08/3_BEEF-683x1024.jpg" alt="Cheeseburger Clásica" class="w-full h-56 object-cover object-[center_60%] scale-[1.25] group-hover:scale-[1.35] transition-transform duration-500">
+                <!-- Extrema -->
+                <div class="card-menu bg-brand-card rounded-[2rem] p-6 flex flex-col md:flex-row gap-6 border border-white/5 shadow-2xl">
+                    <div class="w-full md:w-1/2 h-64 rounded-2xl overflow-hidden bg-[#000]">
+                        <img src="https://www.35burger.com/wp-content/uploads/2021/08/7_EXTREMA-683x1024.jpg" alt="Extrema" class="w-full h-full object-cover object-center scale-110 img-zoom opacity-90">
                     </div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-heading font-black text-2xl uppercase text-brand-dark">Cheeseburger</h3>
-                        <span class="font-heading font-black text-xl text-brand-yellow">8,50 €</span>
+                    <div class="w-full md:w-1/2 flex flex-col justify-center">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-brand-yellow text-black text-xs font-bold px-2 py-0.5 rounded">Premiada</span>
+                        </div>
+                        <h3 class="font-heading font-black text-2xl mb-3 text-white">Extrema</h3>
+                        <p class="text-brand-gray text-sm leading-relaxed mb-6">Carne premium de 180g, medallón de rulo de cabra a la plancha, cebolla caramelizada, rúcula y mayo trufada.</p>
+                        <div class="mt-auto flex items-center justify-between gap-4 flex-wrap">
+                            <span class="font-heading font-black text-3xl text-brand-yellow">12,50 €</span>
+                            <button class="btn-menu px-6 py-3">Añadir al pedido</button>
+                        </div>
                     </div>
-                    <p class="text-brand-gray text-sm mb-6 flex-grow">La básica infalible. 180g de carne, doble de queso cheddar, kétchup y mostaza.</p>
-                    <button class="w-full btn-pill-primary py-3 text-sm">Añadir al pedido</button>
                 </div>
 
-                <!-- Burger Card 3 -->
-                <div class="burger-item bg-white rounded-[2rem] p-5 flex flex-col shadow-sm border-2 border-transparent hover:border-brand-dark transition-colors duration-300 group" data-category="vegetal">
-                    <div class="relative rounded-2xl overflow-hidden mb-5">
-                        <div class="absolute top-2 left-2 bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded-full z-10">Veggie</div>
-                        <img src="https://www.35burger.com/wp-content/uploads/2021/08/6_VEGETAL-682x1024.jpg" alt="Veggie Burger" class="w-full h-56 object-cover object-[center_60%] scale-[1.25] group-hover:scale-[1.35] transition-transform duration-500">
-                    </div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-heading font-black text-2xl uppercase text-brand-dark">La Huerta</h3>
-                        <span class="font-heading font-black text-xl text-brand-yellow">10,50 €</span>
-                    </div>
-                    <p class="text-brand-gray text-sm mb-6 flex-grow">Medallón de Beyond Meat, aguacate fresco, cebolla roja, tomate y mayonesa vegana.</p>
-                    <button class="w-full btn-pill-primary py-3 text-sm">Añadir al pedido</button>
-                </div>
-                
-                <!-- Burger Card 4 -->
-                <div class="burger-item bg-white rounded-[2rem] p-5 flex flex-col shadow-sm border-2 border-transparent hover:border-brand-dark transition-colors duration-300 group" data-category="carne">
-                    <div class="relative rounded-2xl overflow-hidden mb-5">
-                        <img src="https://www.35burger.com/wp-content/uploads/2021/08/2_RIB-683x1024.jpg" alt="Rib Burger" class="w-full h-56 object-cover object-[center_60%] scale-[1.25] group-hover:scale-[1.35] transition-transform duration-500">
-                    </div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-heading font-black text-2xl uppercase text-brand-dark">Rib BBQ</h3>
-                        <span class="font-heading font-black text-xl text-brand-yellow">12,50 €</span>
-                    </div>
-                    <p class="text-brand-gray text-sm mb-6 flex-grow">Carne de ternera, pulled pork (costilla desmechada), aros de cebolla y abundante salsa BBQ.</p>
-                    <button class="w-full btn-pill-primary py-3 text-sm">Añadir al pedido</button>
-                </div>
-                
-                <!-- Burger Card 5 -->
-                <div class="burger-item bg-white rounded-[2rem] p-5 flex flex-col shadow-sm border-2 border-transparent hover:border-brand-dark transition-colors duration-300 group" data-category="pollo">
-                    <div class="relative rounded-2xl overflow-hidden mb-5">
-                        <img src="https://www.35burger.com/wp-content/uploads/2022/08/RollChikenMenu.jpg" alt="Spicy Chicken" class="w-full h-56 object-cover object-[center_60%] scale-[1.25] group-hover:scale-[1.35] transition-transform duration-500">
-                    </div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-heading font-black text-2xl uppercase text-brand-dark">Spicy Chicken</h3>
-                        <span class="font-heading font-black text-xl text-brand-yellow">10,50 €</span>
-                    </div>
-                    <p class="text-brand-gray text-sm mb-6 flex-grow">Pollo crujiente picante, jalapeños, queso Monterrey Jack y salsa Sriracha.</p>
-                    <button class="w-full btn-pill-primary py-3 text-sm">Añadir al pedido</button>
-                </div>
+            </div>
 
-                <!-- Burger Card 6 -->
-                <div class="burger-item bg-white rounded-[2rem] p-5 flex flex-col shadow-sm border-2 border-transparent hover:border-brand-dark transition-colors duration-300 group" data-category="smash">
-                    <div class="relative rounded-2xl overflow-hidden mb-5">
-                        <img src="https://www.35burger.com/wp-content/uploads/2023/05/MENU-RETINTO-BURGER.png" alt="Retinto Smash" class="w-full h-56 object-cover object-[center_60%] scale-[1.25] group-hover:scale-[1.35] transition-transform duration-500">
-                    </div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-heading font-black text-2xl uppercase text-brand-dark">Retinto Smash</h3>
-                        <span class="font-heading font-black text-xl text-brand-yellow">11,90 €</span>
-                    </div>
-                    <p class="text-brand-gray text-sm mb-6 flex-grow">Carne de vaca retinta smash, queso provolone, champiñones salteados y mayonesa trufada.</p>
-                    <button class="w-full btn-pill-primary py-3 text-sm">Añadir al pedido</button>
-                </div>
-
-                <!-- Burger Card 7 -->
-                <div class="burger-item bg-white rounded-[2rem] p-5 flex flex-col shadow-sm border-2 border-transparent hover:border-brand-dark transition-colors duration-300 group" data-category="carne">
-                    <div class="relative rounded-2xl overflow-hidden mb-5">
-                        <img src="https://www.35burger.com/wp-content/uploads/2021/08/4_JAMÓN-683x1024.jpg" alt="Ibérica Jamón" class="w-full h-56 object-cover object-[center_60%] scale-[1.25] group-hover:scale-[1.35] transition-transform duration-500">
-                    </div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-heading font-black text-2xl uppercase text-brand-dark">Ibérica</h3>
-                        <span class="font-heading font-black text-xl text-brand-yellow">11,50 €</span>
-                    </div>
-                    <p class="text-brand-gray text-sm mb-6 flex-grow">Carne 100% rubia gallega, jamón ibérico crujiente, queso manchego y tomate rallado.</p>
-                    <button class="w-full btn-pill-primary py-3 text-sm">Añadir al pedido</button>
-                </div>
-
-                <!-- Burger Card 8 -->
-                <div class="burger-item bg-white rounded-[2rem] p-5 flex flex-col shadow-sm border-2 border-transparent hover:border-brand-dark transition-colors duration-300 group" data-category="carne">
-                    <div class="relative rounded-2xl overflow-hidden mb-5">
-                        <img src="https://www.35burger.com/wp-content/uploads/2021/08/8_STEAK-683x1024.jpg" alt="Steak Premium" class="w-full h-56 object-cover object-[center_60%] scale-[1.25] group-hover:scale-[1.35] transition-transform duration-500">
-                    </div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-heading font-black text-2xl uppercase text-brand-dark">Steak Premium</h3>
-                        <span class="font-heading font-black text-xl text-brand-yellow">12,90 €</span>
-                    </div>
-                    <p class="text-brand-gray text-sm mb-6 flex-grow">Corte grueso de carne madurada, cebolla caramelizada, rulo de cabra y reducción de Pedro Ximénez.</p>
-                    <button class="w-full btn-pill-primary py-3 text-sm">Añadir al pedido</button>
-                </div>
-
-                <!-- Burger Card 9 -->
-                <div class="burger-item bg-white rounded-[2rem] p-5 flex flex-col shadow-sm border-2 border-transparent hover:border-brand-dark transition-colors duration-300 group" data-category="carne">
-                    <div class="relative rounded-2xl overflow-hidden mb-5">
-                        <img src="https://www.35burger.com/wp-content/uploads/2021/08/91_BURVACHA-683x1024.jpg" alt="Burvacha" class="w-full h-56 object-cover object-[center_60%] scale-[1.25] group-hover:scale-[1.35] transition-transform duration-500">
-                    </div>
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-heading font-black text-2xl uppercase text-brand-dark">Burvacha</h3>
-                        <span class="font-heading font-black text-xl text-brand-yellow">11,90 €</span>
-                    </div>
-                    <p class="text-brand-gray text-sm mb-6 flex-grow">Doble de carne, extra de bacon ahumado, salsa especial de la casa y coronada con un aro de cebolla.</p>
-                    <button class="w-full btn-pill-primary py-3 text-sm">Añadir al pedido</button>
-                </div>
-
+            <!-- Smash Destacada (Fondo claro/amarillento según la captura, con texto oscuro) -->
+            <div class="card-menu bg-brand-lightBg rounded-[2rem] p-6 md:p-10 flex flex-col md:flex-row-reverse gap-8 shadow-xl">
+                 <div class="w-full md:w-5/12 h-64 md:h-80 rounded-2xl overflow-hidden bg-black shadow-lg">
+                     <!-- Se aplica object-contain o cover centrado según necesidad para esta imagen específica -->
+                     <img src="https://www.35burger.com/wp-content/uploads/2023/05/SMASH-BURGER-1.jpg" alt="Smash Burger" class="w-full h-full object-cover object-center img-zoom">
+                 </div>
+                 <div class="w-full md:w-7/12 flex flex-col justify-center">
+                     <!-- Texto adaptado a oscuro para el fondo claro -->
+                     <h3 class="font-heading font-black text-4xl md:text-5xl mb-4 text-black">
+                         Doble Smash
+                     </h3>
+                     <p class="text-gray-700 text-lg mb-8 max-w-lg font-medium">
+                         Dos bolas de 90g de carne madurada aplastadas sobre la plancha, triple queso cheddar americano, bacon bites, cebolla planchada y salsa especial 35 en pan brioche potato.
+                     </p>
+                     <div class="flex items-center gap-6">
+                         <span class="font-heading font-black text-4xl text-brand-yellow drop-shadow-sm">10,90 €</span>
+                         <button class="btn-menu px-8 py-4 text-lg">Añadir al pedido</button>
+                     </div>
+                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-brand-card">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Resto de Hamburguesas (Carrusel) -->
+    <section class="py-12 border-t border-white/5 bg-[#0d0d0d]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-heading font-black text-2xl text-white mb-8">Resto del menú</h2>
             
-            <div class="text-center mb-16">
-                 <h2 class="font-heading font-black text-4xl md:text-5xl text-brand-dark uppercase">
-                    ¿Con qué la acompañas?
-                </h2>
-                <p class="text-brand-gray mt-4">Una buena burger necesita buenos escuderos.</p>
-            </div>
+            <div class="carousel-wrapper">
+                <!-- Botón Izquierda -->
+                <button id="btn-prev" class="carousel-btn carousel-btn-left" aria-label="Anterior">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+                <!-- Contenedor scrollable -->
+                <div id="menu-carousel" class="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory hide-scrollbar scroll-smooth">
+                    
+                    <!-- Rib -->
+                    <div class="card-menu min-w-[280px] md:min-w-[320px] bg-brand-card rounded-3xl p-5 border border-white/5 snap-start shrink-0 flex flex-col">
+                        <div class="h-48 rounded-2xl overflow-hidden bg-black mb-5">
+                            <img src="https://www.35burger.com/wp-content/uploads/2021/08/2_RIB-683x1024.jpg" class="w-full h-full object-cover object-center scale-125 img-zoom opacity-90" alt="Rib">
+                        </div>
+                        <h3 class="font-heading font-bold text-xl mb-2 text-white">Rib Burger</h3>
+                        <p class="text-brand-gray text-sm mb-6 flex-grow">Costillar de cerdo desmigado a baja temperatura, salsa barbacoa y cebolla crispy.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-heading font-black text-xl text-brand-yellow">12,00 €</span>
+                            <button class="btn-menu px-4 py-2 text-sm">Añadir</button>
+                        </div>
+                    </div>
+
+                    <!-- Beef -->
+                    <div class="card-menu min-w-[280px] md:min-w-[320px] bg-brand-card rounded-3xl p-5 border border-white/5 snap-start shrink-0 flex flex-col">
+                        <div class="h-48 rounded-2xl overflow-hidden bg-black mb-5">
+                            <img src="https://www.35burger.com/wp-content/uploads/2021/08/3_BEEF-683x1024.jpg" class="w-full h-full object-cover object-center scale-125 img-zoom opacity-90" alt="Beef">
+                        </div>
+                        <h3 class="font-heading font-bold text-xl mb-2 text-white">Beef</h3>
+                        <p class="text-brand-gray text-sm mb-6 flex-grow">Sencilla y perfecta. 180g de carne, queso cheddar fundido y pan brioche.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-heading font-black text-xl text-brand-yellow">9,50 €</span>
+                            <button class="btn-menu px-4 py-2 text-sm">Añadir</button>
+                        </div>
+                    </div>
+
+                    <!-- Ibérica -->
+                    <div class="card-menu min-w-[280px] md:min-w-[320px] bg-brand-card rounded-3xl p-5 border border-white/5 snap-start shrink-0 flex flex-col">
+                        <div class="h-48 rounded-2xl overflow-hidden bg-black mb-5">
+                            <img src="https://www.35burger.com/wp-content/uploads/2021/08/4_JAMÓN-683x1024.jpg" class="w-full h-full object-cover object-center scale-125 img-zoom opacity-90" alt="Ibérica">
+                        </div>
+                        <h3 class="font-heading font-bold text-xl mb-2 text-white">Ibérica</h3>
+                        <p class="text-brand-gray text-sm mb-6 flex-grow">Carne premium, jamón ibérico crujiente, queso manchego y tomate rallado.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-heading font-black text-xl text-brand-yellow">13,50 €</span>
+                            <button class="btn-menu px-4 py-2 text-sm">Añadir</button>
+                        </div>
+                    </div>
+
+                    <!-- Steak -->
+                    <div class="card-menu min-w-[280px] md:min-w-[320px] bg-brand-card rounded-3xl p-5 border border-white/5 snap-start shrink-0 flex flex-col">
+                        <div class="h-48 rounded-2xl overflow-hidden bg-black mb-5">
+                            <img src="https://www.35burger.com/wp-content/uploads/2021/08/8_STEAK-683x1024.jpg" class="w-full h-full object-cover object-center scale-125 img-zoom opacity-90" alt="Steak">
+                        </div>
+                        <h3 class="font-heading font-bold text-xl mb-2 text-white">Steak</h3>
+                        <p class="text-brand-gray text-sm mb-6 flex-grow">Filetes de ternera marinada, queso provolone, chimichurri casero y pimientos asados.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-heading font-black text-xl text-brand-yellow">12,80 €</span>
+                            <button class="btn-menu px-4 py-2 text-sm">Añadir</button>
+                        </div>
+                    </div>
+
+                    <!-- Burvacha -->
+                    <div class="card-menu min-w-[280px] md:min-w-[320px] bg-brand-card rounded-3xl p-5 border border-white/5 snap-start shrink-0 flex flex-col">
+                        <div class="h-48 rounded-2xl overflow-hidden bg-black mb-5">
+                            <img src="https://www.35burger.com/wp-content/uploads/2021/08/91_BURVACHA-683x1024.jpg" class="w-full h-full object-cover object-center scale-125 img-zoom opacity-90" alt="Burvacha">
+                        </div>
+                        <h3 class="font-heading font-bold text-xl mb-2 text-white">Burvacha</h3>
+                        <p class="text-brand-gray text-sm mb-6 flex-grow">Receta especial con toques picantes, jalapeños, Monterrey Jack y salsa brava.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-heading font-black text-xl text-brand-yellow">11,90 €</span>
+                            <button class="btn-menu px-4 py-2 text-sm">Añadir</button>
+                        </div>
+                    </div>
+
+                    <!-- Chicken -->
+                    <div class="card-menu min-w-[280px] md:min-w-[320px] bg-brand-card rounded-3xl p-5 border border-white/5 snap-start shrink-0 flex flex-col">
+                        <div class="h-48 rounded-2xl overflow-hidden bg-black mb-5">
+                            <img src="https://www.35burger.com/wp-content/uploads/2021/08/5_CHICKEN-683x1024.jpg" class="w-full h-full object-cover object-center scale-125 img-zoom opacity-90" alt="Chicken">
+                        </div>
+                        <h3 class="font-heading font-bold text-xl mb-2 text-white">Chicken Crunchy</h3>
+                        <p class="text-brand-gray text-sm mb-6 flex-grow">Pechuga de pollo sureño crujiente, lechuga, tomate y mayonesa suave.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-heading font-black text-xl text-brand-yellow">10,50 €</span>
+                            <button class="btn-menu px-4 py-2 text-sm">Añadir</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Roll Chicken -->
+                    <div class="card-menu min-w-[280px] md:min-w-[320px] bg-brand-card rounded-3xl p-5 border border-white/5 snap-start shrink-0 flex flex-col">
+                        <div class="h-48 rounded-2xl overflow-hidden bg-black mb-5">
+                            <img src="https://www.35burger.com/wp-content/uploads/2022/08/RollChikenMenu.jpg" class="w-full h-full object-cover object-center scale-110 img-zoom opacity-90" alt="Roll Chicken">
+                        </div>
+                        <h3 class="font-heading font-bold text-xl mb-2 text-white">Roll Chicken</h3>
+                        <p class="text-brand-gray text-sm mb-6 flex-grow">Novedad. Pollo marinado en pan estilo roll, cebolla crujiente y salsa de queso.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-heading font-black text-xl text-brand-yellow">10,90 €</span>
+                            <button class="btn-menu px-4 py-2 text-sm">Añadir</button>
+                        </div>
+                    </div>
+
+                    <!-- Vegetal -->
+                    <div class="card-menu min-w-[280px] md:min-w-[320px] bg-brand-card rounded-3xl p-5 border border-white/5 snap-start shrink-0 flex flex-col">
+                        <div class="h-48 rounded-2xl overflow-hidden bg-black mb-5">
+                            <img src="https://www.35burger.com/wp-content/uploads/2021/08/6_VEGETAL-682x1024.jpg" class="w-full h-full object-cover object-center scale-125 img-zoom opacity-90" alt="Vegetal">
+                        </div>
+                        <h3 class="font-heading font-bold text-xl mb-2 text-white">Vegetal</h3>
+                        <p class="text-brand-gray text-sm mb-6 flex-grow">Medallón Beyond Meat, queso vegano, aguacate fresco, espinacas y mostaza miel.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-heading font-black text-xl text-brand-yellow">12,00 €</span>
+                            <button class="btn-menu px-4 py-2 text-sm">Añadir</button>
+                        </div>
+                    </div>
+
+                    <!-- Retinto -->
+                    <div class="card-menu min-w-[280px] md:min-w-[320px] bg-brand-card rounded-3xl p-5 border border-white/5 snap-start shrink-0 flex flex-col">
+                        <div class="h-48 rounded-2xl overflow-hidden bg-black mb-5">
+                            <img src="https://www.35burger.com/wp-content/uploads/2023/05/MENU-RETINTO-BURGER.png" class="w-full h-full object-cover object-center scale-110 img-zoom opacity-90" alt="Retinto">
+                        </div>
+                        <h3 class="font-heading font-bold text-xl mb-2 text-white">Retinto Burger</h3>
+                        <p class="text-brand-gray text-sm mb-6 flex-grow">Carne de ternera de Retinto certificada, crema de queso payoyo y pimientos confitados.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-heading font-black text-xl text-brand-yellow">14,50 €</span>
+                            <button class="btn-menu px-4 py-2 text-sm">Añadir</button>
+                        </div>
+                    </div>
+
+                </div>
                 
-                <!-- Categoría: Patatas -->
-                <div>
-                    <h3 class="font-heading font-bold text-2xl text-brand-dark uppercase border-b-2 border-brand-yellow pb-2 mb-6 flex items-center gap-2">
-                        🍟 Patatas
-                    </h3>
-                    <div class="space-y-4">
-                        <!-- Item List -->
-                        <div class="flex justify-between items-center group">
-                            <div>
-                                <h4 class="font-bold text-brand-dark">Patatas Clásicas</h4>
-                                <p class="text-sm text-brand-gray">Corte fino y crujientes.</p>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span class="font-heading font-bold text-lg text-brand-yellow">3,00 €</span>
-                                <button class="w-8 h-8 rounded-full border-2 border-brand-dark flex items-center justify-center font-bold text-brand-dark hover:bg-brand-dark hover:text-white transition-colors">+</button>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center group">
-                            <div>
-                                <h4 class="font-bold text-brand-dark">Bacon Cheese Fries</h4>
-                                <p class="text-sm text-brand-gray">Salsa cheddar fundida y bacon.</p>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span class="font-heading font-bold text-lg text-brand-yellow">5,50 €</span>
-                                <button class="w-8 h-8 rounded-full border-2 border-brand-dark flex items-center justify-center font-bold text-brand-dark hover:bg-brand-dark hover:text-white transition-colors">+</button>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center group">
-                            <div>
-                                <h4 class="font-bold text-brand-dark">Patatas Trufadas</h4>
-                                <p class="text-sm text-brand-gray">Con polvo de parmesano y aceite de trufa.</p>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span class="font-heading font-bold text-lg text-brand-yellow">6,00 €</span>
-                                <button class="w-8 h-8 rounded-full border-2 border-brand-dark flex items-center justify-center font-bold text-brand-dark hover:bg-brand-dark hover:text-white transition-colors">+</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Categoría: Entrantes -->
-                <div>
-                    <h3 class="font-heading font-bold text-2xl text-brand-dark uppercase border-b-2 border-brand-yellow pb-2 mb-6 flex items-center gap-2">
-                        🧅 Entrantes
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center group">
-                            <div>
-                                <h4 class="font-bold text-brand-dark">Tequeños (5 uds)</h4>
-                                <p class="text-sm text-brand-gray">Con salsa de arándanos.</p>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span class="font-heading font-bold text-lg text-brand-yellow">6,50 €</span>
-                                <button class="w-8 h-8 rounded-full border-2 border-brand-dark flex items-center justify-center font-bold text-brand-dark hover:bg-brand-dark hover:text-white transition-colors">+</button>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center group">
-                            <div>
-                                <h4 class="font-bold text-brand-dark">Alitas BBQ (6 uds)</h4>
-                                <p class="text-sm text-brand-gray">Bañadas en nuestra salsa secreta.</p>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span class="font-heading font-bold text-lg text-brand-yellow">7,00 €</span>
-                                <button class="w-8 h-8 rounded-full border-2 border-brand-dark flex items-center justify-center font-bold text-brand-dark hover:bg-brand-dark hover:text-white transition-colors">+</button>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center group">
-                            <div>
-                                <h4 class="font-bold text-brand-dark">Aros de Cebolla</h4>
-                                <p class="text-sm text-brand-gray">Rebozado a la cerveza.</p>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span class="font-heading font-bold text-lg text-brand-yellow">5,00 €</span>
-                                <button class="w-8 h-8 rounded-full border-2 border-brand-dark flex items-center justify-center font-bold text-brand-dark hover:bg-brand-dark hover:text-white transition-colors">+</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Categoría: Postres -->
-                <div>
-                    <h3 class="font-heading font-bold text-2xl text-brand-dark uppercase border-b-2 border-brand-yellow pb-2 mb-6 flex items-center gap-2">
-                        🍰 Postres
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center group">
-                            <div>
-                                <h4 class="font-bold text-brand-dark">Cheesecake de Lotus</h4>
-                                <p class="text-sm text-brand-gray">Cremosa, casera y adictiva.</p>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span class="font-heading font-bold text-lg text-brand-yellow">5,50 €</span>
-                                <button class="w-8 h-8 rounded-full border-2 border-brand-dark flex items-center justify-center font-bold text-brand-dark hover:bg-brand-dark hover:text-white transition-colors">+</button>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center group">
-                            <div>
-                                <h4 class="font-bold text-brand-dark">Brownie con Helado</h4>
-                                <p class="text-sm text-brand-gray">Helado de vainilla y sirope.</p>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span class="font-heading font-bold text-lg text-brand-yellow">5,00 €</span>
-                                <button class="w-8 h-8 rounded-full border-2 border-brand-dark flex items-center justify-center font-bold text-brand-dark hover:bg-brand-dark hover:text-white transition-colors">+</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Categoría: Bebidas -->
-                <div>
-                    <h3 class="font-heading font-bold text-2xl text-brand-dark uppercase border-b-2 border-brand-yellow pb-2 mb-6 flex items-center gap-2">
-                        🥤 Bebidas
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center group">
-                            <div>
-                                <h4 class="font-bold text-brand-dark">Refrescos (33cl)</h4>
-                                <p class="text-sm text-brand-gray">Coca-Cola, Fanta, Sprite...</p>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span class="font-heading font-bold text-lg text-brand-yellow">2,20 €</span>
-                                <button class="w-8 h-8 rounded-full border-2 border-brand-dark flex items-center justify-center font-bold text-brand-dark hover:bg-brand-dark hover:text-white transition-colors">+</button>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center group">
-                            <div>
-                                <h4 class="font-bold text-brand-dark">Cerveza Estrella Galicia</h4>
-                                <p class="text-sm text-brand-gray">Tercio bien frío.</p>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span class="font-heading font-bold text-lg text-brand-yellow">2,50 €</span>
-                                <button class="w-8 h-8 rounded-full border-2 border-brand-dark flex items-center justify-center font-bold text-brand-dark hover:bg-brand-dark hover:text-white transition-colors">+</button>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center group">
-                            <div>
-                                <h4 class="font-bold text-brand-dark">Agua (50cl)</h4>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <span class="font-heading font-bold text-lg text-brand-yellow">1,50 €</span>
-                                <button class="w-8 h-8 rounded-full border-2 border-brand-dark flex items-center justify-center font-bold text-brand-dark hover:bg-brand-dark hover:text-white transition-colors">+</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                <!-- Botón Derecha -->
+                <button id="btn-next" class="carousel-btn carousel-btn-right" aria-label="Siguiente">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Separador curvo en SVG sin salto de color -->
-    <div class="w-full bg-brand-card leading-[0] block -mb-[1px]">
-        <svg viewBox="0 0 1440 120" class="w-full h-12 md:h-24 block" preserveAspectRatio="none">
-            <path d="M0,0 C480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="#1A1C23"></path>
+    <!-- Acompañamientos (Fondo Claro/Crema con textos oscuros) -->
+    <section class="py-20 bg-brand-lightBg text-black relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-heading font-black text-4xl text-center mb-4 text-brand-dark">¿Con qué la acompañas?</h2>
+            <p class="text-center text-gray-700 font-medium mb-16">Haz tu comida completa con nuestros extras, postres y bebidas.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Categoría 1 -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col items-center text-center hover:-translate-y-2 transition-transform">
+                    <div class="w-16 h-16 bg-brand-yellow/20 rounded-full flex items-center justify-center text-3xl mb-4">🍟</div>
+                    <h3 class="font-heading font-bold text-xl mb-2">Patatas fritas</h3>
+                    <p class="text-gray-500 text-sm mb-6">Clásicas, deluxe, con queso fundido y bacon, o batata frita dulce.</p>
+                    <button class="mt-auto font-heading font-bold text-brand-dark hover:text-brand-yellow transition-colors">Ver opciones →</button>
+                </div>
+                
+                <!-- Categoría 2 -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col items-center text-center hover:-translate-y-2 transition-transform">
+                    <div class="w-16 h-16 bg-brand-yellow/20 rounded-full flex items-center justify-center text-3xl mb-4">🍗</div>
+                    <h3 class="font-heading font-bold text-xl mb-2">Entrantes</h3>
+                    <p class="text-gray-500 text-sm mb-6">Fingers de pollo, tequeños venezolanos, nachos con guacamole y más.</p>
+                    <button class="mt-auto font-heading font-bold text-brand-dark hover:text-brand-yellow transition-colors">Ver opciones →</button>
+                </div>
+
+                <!-- Categoría 3 -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col items-center text-center hover:-translate-y-2 transition-transform">
+                    <div class="w-16 h-16 bg-brand-yellow/20 rounded-full flex items-center justify-center text-3xl mb-4">🍰</div>
+                    <h3 class="font-heading font-bold text-xl mb-2">Postres caseros</h3>
+                    <p class="text-gray-500 text-sm mb-6">Tarta de queso cremosa, brownie de chocolate con nueces o helados.</p>
+                    <button class="mt-auto font-heading font-bold text-brand-dark hover:text-brand-yellow transition-colors">Ver opciones →</button>
+                </div>
+
+                <!-- Categoría 4 -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col items-center text-center hover:-translate-y-2 transition-transform">
+                    <div class="w-16 h-16 bg-brand-yellow/20 rounded-full flex items-center justify-center text-3xl mb-4">🥤</div>
+                    <h3 class="font-heading font-bold text-xl mb-2">Bebidas</h3>
+                    <p class="text-gray-500 text-sm mb-6">Refrescos, cervezas artesanas locales, agua y batidos naturales.</p>
+                    <button class="mt-auto font-heading font-bold text-brand-dark hover:text-brand-yellow transition-colors">Ver opciones →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curva que conecta el fondo crema (lightBg) directamente con el footer oscuro (brand-dark) -->
+    <div class="wave-separator-bottom bg-brand-dark text-brand-lightBg">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <!-- La ruta dibuja la curva. El 'fill="currentColor"' toma el color text-brand-lightBg (crema) y rellena la parte superior, dejando el fondo (bg-brand-dark) abajo. -->
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="currentColor"></path>
         </svg>
     </div>
 
-    <section class="bg-brand-dark py-24 text-center">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="font-heading font-black text-5xl md:text-7xl text-white uppercase mb-8">
-                ¿Te ha entrado <br><span class="text-brand-yellow">hambre?</span>
-            </h2>
-            <p class="text-gray-400 text-lg mb-10">No dejes para mañana la burger que te puedes comer hoy.</p>
-            <a href="#restaurantes" class="btn-pill-primary px-12 py-5 text-xl">
-                Hacer Pedido
-            </a>
+    <!-- Gran CTA Final (ahora integrado visualmente en la zona oscura) -->
+    <section class="pt-10 pb-24 bg-brand-dark text-center border-b border-white/10">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="font-heading font-black text-4xl md:text-5xl text-white mb-8">¿Se te hace la boca agua?</h2>
+            
+            <!-- Botón amarillo gigante, texto negro -->
+            <button class="bg-brand-yellow text-black font-heading font-bold text-xl md:text-2xl px-12 py-5 rounded-full hover:bg-brand-yellowHover hover:scale-105 transition-all duration-300 shadow-[0_0_40px_rgba(255,200,0,0.3)] hover:shadow-[0_0_60px_rgba(255,200,0,0.5)]">
+                Pide ahora
+            </button>
         </div>
     </section>
 
-    <footer class="bg-brand-dark text-white py-12 border-t border-white/10">
+    <!-- Footer original -->
+    <footer class="bg-brand-dark text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex items-center gap-2 mb-4">
                         <img src="https://www.35burger.com/wp-content/uploads/2018/09/35-Burger-logo-300.png" alt="35 Burger" class="h-10 object-contain grayscale brightness-200">
                     </div>
                     <p class="text-gray-400 text-sm max-w-sm mb-6">Democratizando la hamburguesa gourmet. Experiencia familiar cárnica desde 2016.</p>
+                    
+                    <!-- Pequeña mención a franquicias -->
+                    <div class="bg-white/5 p-4 rounded-xl border border-white/10 inline-block">
+                        <p class="text-xs text-gray-400">¿Buscas un modelo probado?</p>
+                        <a href="#" class="text-brand-yellow font-bold text-sm hover:underline">Info Franquicias →</a>
+                    </div>
                 </div>
+
                 <div>
                     <h4 class="font-heading font-bold text-lg mb-4 uppercase">Legal</h4>
                     <ul class="space-y-2 text-sm text-gray-400">
@@ -656,6 +506,7 @@
                         <li><a href="#" class="hover:text-brand-yellow transition-colors">Alérgenos</a></li>
                     </ul>
                 </div>
+
                 <div>
                     <h4 class="font-heading font-bold text-lg mb-4 uppercase">Local</h4>
                     <ul class="space-y-2 text-sm text-gray-400">
@@ -665,6 +516,7 @@
                     </ul>
                 </div>
             </div>
+
             <div class="mt-12 pt-8 border-t border-white/10 text-center flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
                 <p>&copy; <span id="year"></span> 35 Burger. Todos los derechos reservados.</p>
                 <div class="flex space-x-4">
@@ -675,56 +527,44 @@
         </div>
     </footer>
 
-    <!-- Botón flotante para móvil -->
-    <div class="md:hidden fixed bottom-4 left-4 right-4 z-50">
-        <a href="#restaurantes" class="btn-pill-primary w-full py-4 text-lg flex items-center justify-center gap-2 shadow-2xl border-2 border-brand-dark">
-            Ver Cesta (0)
-        </a>
-    </div>
-
     <script>
-        // Actualizar año
-        document.getElementById('year').textContent = new Date().getFullYear();
+        // Set Year safely
+        const yearSpan = document.getElementById('year');
+        if(yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
 
-        // Menú Móvil
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        // Header Scroll Effect (Transparente -> Negro difuminado)
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (header) {
+                if (window.scrollY > 20) {
+                    header.classList.remove('bg-transparent', 'py-6', 'border-transparent');
+                    header.classList.add('bg-[#0a0a0a]/90', 'backdrop-blur-md', 'py-3', 'border-white/10');
+                } else {
+                    header.classList.add('bg-transparent', 'py-6', 'border-transparent');
+                    header.classList.remove('bg-[#0a0a0a]/90', 'backdrop-blur-md', 'py-3', 'border-white/10');
+                }
+            }
         });
+        
+        // Lógica del Carrusel con flechas
+        const carousel = document.getElementById('menu-carousel');
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
 
-        // Lógica de Filtros simple
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const burgerItems = document.querySelectorAll('.burger-item');
+        if (carousel && btnPrev && btnNext) {
+            // Distancia de scroll al pulsar la flecha (aprox el ancho de una tarjeta + gap)
+            const scrollAmount = 340; 
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Actualizar estado activo de botones
-                filterBtns.forEach(b => {
-                    b.classList.remove('active');
-                });
-                btn.classList.add('active');
-
-                const filter = btn.getAttribute('data-filter');
-
-                // Filtrar elementos
-                burgerItems.forEach(item => {
-                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                        item.classList.remove('hidden-item');
-                        setTimeout(() => { item.style.display = 'flex'; }, 10); // Hack flex/block depends on structure
-                        if(item.classList.contains('flex-col')) { // If it's the big card
-                             item.style.display = 'flex';
-                        } else {
-                             item.style.display = 'flex'; // The grid items are flex too
-                        }
-                    } else {
-                        item.classList.add('hidden-item');
-                        setTimeout(() => { item.style.display = 'none'; }, 300); // Wait for transition
-                    }
-                });
+            btnPrev.addEventListener('click', () => {
+                carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
             });
-        });
+
+            btnNext.addEventListener('click', () => {
+                carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+        }
     </script>
 </body>
 </html>
