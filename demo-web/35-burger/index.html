@@ -106,7 +106,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center cursor-pointer gap-2">
                     <a href="index.html">
-                        <img src="https://www.35burger.com/wp-content/uploads/2018/09/35-Burger-logo-300.png" alt="35 Burger" class="h-10 object-contain drop-shadow-md brightness-200">
+                        <img src="https://www.35burger.com/wp-content/uploads/2018/09/35-Burger-logo-300.png" alt="35 Burger" class="h-10 object-contain drop-shadow-md">
                     </a>
                 </div>
                 
@@ -497,6 +497,43 @@
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Header Scroll Effect (Transparente -> Negro difuminado con adaptación de colores)
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            const navLinks = document.querySelectorAll('#main-header nav a');
+            const logo = document.querySelector('#main-header img');
+            
+            if (header) {
+                if (window.scrollY > 20) {
+                    header.classList.remove('py-6', 'border-transparent');
+                    header.classList.add('bg-[#0a0a0a]/90', 'backdrop-blur-md', 'py-3', 'border-white/10');
+                    
+                    navLinks.forEach(link => {
+                        if (!link.classList.contains('text-brand-yellow')) {
+                            link.classList.remove('text-brand-dark');
+                            link.classList.add('text-white');
+                        }
+                    });
+                    if (logo) {
+                        logo.classList.add('brightness-200');
+                    }
+                } else {
+                    header.classList.add('py-6', 'border-transparent');
+                    header.classList.remove('bg-[#0a0a0a]/90', 'backdrop-blur-md', 'py-3', 'border-white/10');
+                    
+                    navLinks.forEach(link => {
+                        if (!link.classList.contains('text-brand-yellow')) {
+                            link.classList.remove('text-white');
+                            link.classList.add('text-brand-dark');
+                        }
+                    });
+                    if (logo) {
+                        logo.classList.remove('brightness-200');
+                    }
+                }
+            }
+        });
 
         // Mobile Menu Toggle
         const menuBtn = document.getElementById('mobile-menu-btn');
